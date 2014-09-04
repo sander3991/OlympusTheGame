@@ -1,4 +1,5 @@
-Dit is de gitpagina van Olympus the Game!
+Olympus the Game
+==============
 
-ICTSE1b
-Projectgroep 1
+Klas: ICTSE1b
+Groep: 1
