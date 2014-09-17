@@ -19,7 +19,7 @@ namespace ConsoleApplication1
 
             }
         }
-
+         
         public int DY
         {
             get
