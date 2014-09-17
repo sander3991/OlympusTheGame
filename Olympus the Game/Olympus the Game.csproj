@@ -48,22 +48,23 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
-    <Compile Include="Entity.cs" />
-    <Compile Include="EntityCreeper.cs" />
-    <Compile Include="EntityExplode.cs" />
-    <Compile Include="EntityObstacle.cs" />
-    <Compile Include="EntityPlayer.cs" />
-    <Compile Include="EntitySlower.cs" />
-    <Compile Include="EntityTimeBomb.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="ObjectFinish.cs" />
-    <Compile Include="ObjectStart.cs" />
-    <Compile Include="PlayField.cs" />
-    <Compile Include="PlayFieldRender.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Model\Entities\Entity.cs" />
+    <Compile Include="Model\Entities\EntityCreeper.cs" />
+    <Compile Include="Model\Entities\EntityExplode.cs" />
+    <Compile Include="Model\Entities\EntityObstacle.cs" />
+    <Compile Include="Model\Entities\EntityPlayer.cs" />
+    <Compile Include="Model\Entities\EntitySlower.cs" />
+    <Compile Include="Model\Entities\EntityTimeBomb.cs" />
+    <Compile Include="Model\GameObject.cs" />
+    <Compile Include="Model\ObjectFinish.cs" />
+    <Compile Include="Model\ObjectStart.cs" />
+    <Compile Include="Model\PlayField.cs" />
+    <Compile Include="View\PlayFieldRender.cs" />
+    <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

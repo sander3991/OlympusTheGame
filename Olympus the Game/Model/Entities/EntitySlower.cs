@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication1
+﻿namespace OlympusTheGame
 {
     public class EntitySlower : Entity
     {
