@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ConsoleApplication1
 {
@@ -10,6 +11,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            MessageBox.Show("Welcome to Olympus the Game!");
         }
     }
 }
