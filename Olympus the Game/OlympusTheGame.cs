@@ -12,6 +12,7 @@ namespace OlympusTheGame
         static void Main(string[] args)
         {
             MessageBox.Show("Welcome to Olympus the Game!");
+            Console.WriteLine("The most epic game ever created by students");
         }
     }
 }
