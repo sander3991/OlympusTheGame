@@ -71,6 +71,7 @@ namespace OlympusTheGame
         private void GameLoopStep()
         {
             // Stuff that is executed continuously
+            this.RequestClose();
         }
 
         /// <summary>
