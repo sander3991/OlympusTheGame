@@ -10,25 +10,25 @@ namespace OlympusTheGame
     class OlympusTheGame
     {
         /// <summary>
-        /// Entry point of the application.
+        /// Beginpunt van de applicatie
         /// </summary>
         static void Main()
         {
-            // Create non-static object
+            // non-static object aanmaken
             OlympusTheGame otg = new OlympusTheGame();
 
-            // Start game
+            // Game starten
             otg.Start();
         }
 
         /// <summary>
-        /// This variable will keep track of the fact whether closing the game has been requested.
+        /// Deze variabele houdt bij of er aanvraag is geweest om af te sluiten.
         /// </summary>
         private bool closeRequested = false;
 
 
         /// <summary>
-        /// This method is called to start the game.
+        /// Deze methode wordt aangeroepen om de game te starten.
         /// </summary>
         private void Start()
         {
@@ -38,26 +38,26 @@ namespace OlympusTheGame
             // Game loop
             while (!closeRequested)
             {
-                // Do gameloop step
+                // Gameloop step
                 GameLoopStep();
             }
 
-            // Clean up everything
+            // Clean up
             CleanUp();
         }
 
         /// <summary>
-        /// Send this game a request to close itself.
-        /// This method should be called instead of force-closing the system to ensure a smooth close.
+        /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
+        /// om soepel afsluiten te garanderen.
         /// </summary>
         private void RequestClose()
         {
-            // Set close requested parameter
+            // Verander parameter die afsluiten bijhoudt
             closeRequested = true;
         }
 
         /// <summary>
-        /// Initialize game, this includes loading resources etc...
+        /// Initialiseer game, dit is het laden van resources, aanmaken van schermen etc...
         /// </summary>
         private void Initialize()
         {
@@ -66,16 +66,16 @@ namespace OlympusTheGame
         }
 
         /// <summary>
-        /// 1 step of the game loop. This method will be called untill a close has been requested.
+        /// 1 stap van de gameloop, deze wordt achter elkaar uitgevoerd totdat afsluiten wordt aangevraagd.
         /// </summary>
         private void GameLoopStep()
         {
-            // Stuff that is executed continuously
+            // Temporary placeholder, anders blijft loop oneindig draaien
             this.RequestClose();
         }
 
         /// <summary>
-        /// Clean up all resources.
+        /// Release alle resources
         /// </summary>
         private void CleanUp()
         {
