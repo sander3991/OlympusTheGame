@@ -30,11 +30,11 @@
         {
             this.Menu = new System.Windows.Forms.TabControl();
             this.MenuTab = new System.Windows.Forms.TabPage();
+            this.SpelUitleg = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PauseGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
-            this.SpelUitleg = new System.Windows.Forms.RichTextBox();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,18 @@
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
+            // 
+            // SpelUitleg
+            // 
+            this.SpelUitleg.BackColor = System.Drawing.SystemColors.Menu;
+            this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SpelUitleg.Location = new System.Drawing.Point(37, 153);
+            this.SpelUitleg.Name = "SpelUitleg";
+            this.SpelUitleg.ReadOnly = true;
+            this.SpelUitleg.Size = new System.Drawing.Size(324, 95);
+            this.SpelUitleg.TabIndex = 4;
+            this.SpelUitleg.Text = "Doel van het spel:\n\nKrijg het poppetje van het huisje naar de ster zonder dood te" +
+    " gaan!";
             // 
             // label2
             // 
@@ -103,18 +115,6 @@
             this.QuitGame.Text = "Sluit af";
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
-            // 
-            // SpelUitleg
-            // 
-            this.SpelUitleg.BackColor = System.Drawing.SystemColors.Menu;
-            this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SpelUitleg.Location = new System.Drawing.Point(37, 153);
-            this.SpelUitleg.Name = "SpelUitleg";
-            this.SpelUitleg.ReadOnly = true;
-            this.SpelUitleg.Size = new System.Drawing.Size(324, 95);
-            this.SpelUitleg.TabIndex = 4;
-            this.SpelUitleg.Text = "Doel van het spel:\n\nKrijg het poppetje van het huisje naar de ster, zonder dood t" +
-    "e gaan!";
             // 
             // MenuPanel
             // 
