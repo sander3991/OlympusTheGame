@@ -43,7 +43,8 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(344, 47);
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(344, 35);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Laad een van de standaard levels die meegeleverd zijn.";
             // 
@@ -53,7 +54,8 @@
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Location = new System.Drawing.Point(42, 102);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(265, 47);
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(265, 32);
             this.richTextBox2.TabIndex = 1;
             this.richTextBox2.Text = "Laad zelf een (geëxporteerd) .xml bestand.";
             // 
