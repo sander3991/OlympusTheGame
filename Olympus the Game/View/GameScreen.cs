@@ -59,7 +59,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void QuitGame_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         /// <summary>
