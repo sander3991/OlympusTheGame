@@ -9,21 +9,11 @@ using System.Windows.Forms;
 
 namespace Olympus_the_Game.View
 {
-    public partial class MenuPanel : UserControl
+    public partial class InfoPanel : UserControl
     {
-        public MenuPanel()
+        public InfoPanel()
         {
             InitializeComponent();
-        }
-
-        private void QuitGame_Click(object sender, EventArgs e)
-        {
-            this.ParentForm.Close();
-        }
-
-        private void PauseGame_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
