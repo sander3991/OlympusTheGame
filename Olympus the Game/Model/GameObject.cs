@@ -42,7 +42,7 @@ namespace Olympus_the_Game
                 else
                     width = 0;
             }
-        };
+        }
         /// <summary>
         /// De X positie van het GameObject
         /// </summary>
