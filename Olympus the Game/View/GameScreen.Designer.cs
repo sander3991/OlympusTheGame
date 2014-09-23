@@ -29,15 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
+            this.infoPanel2 = new Olympus_the_Game.View.InfoPanel();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.infoPanel1 = new Olympus_the_Game.View.MenuPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
-            this.infoPanel2 = new Olympus_the_Game.View.InfoPanel();
             this.SuspendLayout();
+            // 
+            // infoPanel2
+            // 
+            this.infoPanel2.Location = new System.Drawing.Point(1081, 12);
+            this.infoPanel2.Name = "infoPanel2";
+            this.infoPanel2.Size = new System.Drawing.Size(344, 666);
+            this.infoPanel2.TabIndex = 4;
             // 
             // arrowPanel1
             // 
-            this.arrowPanel1.Location = new System.Drawing.Point(445, 448);
+            this.arrowPanel1.Location = new System.Drawing.Point(460, 449);
             this.arrowPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(449, 304);
@@ -49,7 +56,7 @@
             this.infoPanel1.Location = new System.Drawing.Point(20, 442);
             this.infoPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(417, 322);
+            this.infoPanel1.Size = new System.Drawing.Size(430, 322);
             this.infoPanel1.TabIndex = 2;
             // 
             // gamePanel1
@@ -61,13 +68,6 @@
             this.gamePanel1.Name = "gamePanel1";
             this.gamePanel1.Size = new System.Drawing.Size(1046, 419);
             this.gamePanel1.TabIndex = 0;
-            // 
-            // infoPanel2
-            // 
-            this.infoPanel2.Location = new System.Drawing.Point(1081, 12);
-            this.infoPanel2.Name = "infoPanel2";
-            this.infoPanel2.Size = new System.Drawing.Size(344, 666);
-            this.infoPanel2.TabIndex = 4;
             // 
             // GameScreen
             // 
