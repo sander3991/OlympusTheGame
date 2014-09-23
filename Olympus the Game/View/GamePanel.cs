@@ -22,6 +22,9 @@ namespace Olympus_the_Game.View
         /// </summary>
         public GamePanel(PlayField pf) // TODO Specify type
         {
+            // Save vars
+            this.pf = pf;
+
             // Initialize component
             InitializeComponent();
 
@@ -47,7 +50,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void PaintPanel(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.DeepSkyBlue, 100, 100, 100, 100);
+            Console.WriteLine();
+            e.Graphics.FillRectangle(Brushes.DeepSkyBlue, 100, System.DateTime.Now.Second % 100, 100, 100);
         }
     }
 }

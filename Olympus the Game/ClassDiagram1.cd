@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OlympusTheGame.EntityPlayer">
+  <Class Name="Olympus_the_Game.EntityPlayer">
     <Position X="0.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAEAAAg=</HashCode>
       <FileName>Model\Entities\EntityPlayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.EntityExplode">
+  <Class Name="Olympus_the_Game.EntityExplode">
     <Position X="3.5" Y="6.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
@@ -21,7 +21,7 @@
       <FileName>Model\Entities\EntityCreeper.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.EntityTimeBomb">
+  <Class Name="Olympus_the_Game.EntityTimeBomb">
     <Position X="4.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
@@ -42,21 +42,21 @@
       <FileName>Model\Entities\Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.ObjectStart">
+  <Class Name="Olympus_the_Game.ObjectStart">
     <Position X="8" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Model\ObjectStart.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.ObjectFinish">
+  <Class Name="Olympus_the_Game.ObjectFinish">
     <Position X="10" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Model\ObjectFinish.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.ObjectObstacle">
+  <Class Name="OlympusTheGame.Model.ObjectObstacle">
     <Position X="12" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
@@ -70,23 +70,23 @@
       <FileName>View\PlayFieldRender.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.Controller">
+  <Class Name="Olympus_the_Game.Controller">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAACAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.GameObject">
+  <Class Name="OlympusTheGame.Model.GameObject">
     <Position X="6" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>IAAAACAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAEAYgA=</HashCode>
       <FileName>Model\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OlympusTheGame.PlayField">
+  <Class Name="Olympus_the_Game.PlayField">
     <Position X="2.75" Y="0.5" Width="1.5" />
-    <AssociationLine Name="Player" Type="OlympusTheGame.EntityPlayer" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Player" Type="Olympus_the_Game.EntityPlayer" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="2.75" Y="1.566" />
         <Point X="1" Y="1.566" />
@@ -100,9 +100,6 @@
     <ShowAsAssociation>
       <Property Name="Player" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="gameObjects" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
