@@ -122,6 +122,7 @@
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Location = new System.Drawing.Point(100, 120);
             this.Name = "LevelDialog";
             this.Text = "Kies een level";
             this.ResumeLayout(false);
