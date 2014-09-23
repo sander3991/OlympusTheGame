@@ -15,5 +15,55 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Kies het standaard Dungeon level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DungeonLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Kies het standaard Beach level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BeachLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Kies het standaard Heaven level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeavenLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Kies het standaard Hell level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HellLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Laad een .xml bestand
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadXMLfile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
