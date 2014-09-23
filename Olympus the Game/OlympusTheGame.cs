@@ -12,6 +12,9 @@ namespace Olympus_the_Game
     {
         // Het scherm van het spel
         private GameScreen gs;
+
+        // de pijltjes toetsen
+
         
         // Tick counter
         private int startTick = 0;

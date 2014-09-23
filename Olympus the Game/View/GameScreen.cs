@@ -23,17 +23,7 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.RequestClose();
         }
 
-        private void MenuTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InformationTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SettingsTab_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
