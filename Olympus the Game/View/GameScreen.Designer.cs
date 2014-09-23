@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.infoPanel2 = new Olympus_the_Game.View.InfoPanel();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
-            this.infoPanel1 = new Olympus_the_Game.View.MenuPanel();
+            this.menuPanel = new Olympus_the_Game.View.MenuPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
@@ -53,11 +53,11 @@
             // 
             // infoPanel1
             // 
-            this.infoPanel1.Location = new System.Drawing.Point(20, 442);
-            this.infoPanel1.Margin = new System.Windows.Forms.Padding(5);
-            this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(428, 322);
-            this.infoPanel1.TabIndex = 2;
+            this.menuPanel.Location = new System.Drawing.Point(20, 442);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.menuPanel.Name = "infoPanel1";
+            this.menuPanel.Size = new System.Drawing.Size(428, 322);
+            this.menuPanel.TabIndex = 2;
             // 
             // gamePanel1
             // 
@@ -76,7 +76,7 @@
             this.ClientSize = new System.Drawing.Size(1437, 767);
             this.Controls.Add(this.infoPanel2);
             this.Controls.Add(this.arrowPanel1);
-            this.Controls.Add(this.infoPanel1);
+            this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.gamePanel1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
@@ -90,7 +90,7 @@
         #endregion
 
         private GamePanel gamePanel1;
-        private MenuPanel infoPanel1;
+        private MenuPanel menuPanel;
         private ArrowPanel arrowPanel1;
         private InfoPanel infoPanel2;
 
