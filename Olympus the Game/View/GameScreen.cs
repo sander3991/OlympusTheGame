@@ -45,5 +45,10 @@ namespace Olympus_the_Game.View
         {
 
         }
+
+        private void QuitGame_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
