@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Olympus_the_Game.View
+{
+    public partial class MenuPanel : UserControl
+    {
+        public MenuPanel()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Sluit het spel door the Close functie te gebruiken van het bovenliggende form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuitGame_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Close();
+        }
+
+        /// <summary>
+        /// Laad een dialog waarin uit standaard levels gekozen kan worden
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
