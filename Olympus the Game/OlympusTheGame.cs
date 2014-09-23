@@ -101,10 +101,7 @@ namespace Olympus_the_Game
         /// </summary>
         private void GameLoopStep()
         {
-            // Deze hier laten, deze regelt afhandeling van de GUI, anders blokkeert het scherm
-            Application.DoEvents();
-
-
+            // Invalidate scherm zodat deze opnieuw wordt getekend
             gs.Invalidate(true);
         }
 
