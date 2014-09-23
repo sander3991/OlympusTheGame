@@ -46,7 +46,7 @@
             this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu.Name = "Menu";
             this.Menu.SelectedIndex = 0;
-            this.Menu.Size = new System.Drawing.Size(417, 321);
+            this.Menu.Size = new System.Drawing.Size(417, 298);
             this.Menu.TabIndex = 3;
             // 
             // MenuTab
@@ -60,7 +60,7 @@
             this.MenuTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MenuTab.Name = "MenuTab";
             this.MenuTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MenuTab.Size = new System.Drawing.Size(409, 292);
+            this.MenuTab.Size = new System.Drawing.Size(409, 269);
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
@@ -106,9 +106,11 @@
             // 
             // SpelUitleg
             // 
+            this.SpelUitleg.BackColor = System.Drawing.SystemColors.Menu;
             this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpelUitleg.Location = new System.Drawing.Point(37, 153);
             this.SpelUitleg.Name = "SpelUitleg";
+            this.SpelUitleg.ReadOnly = true;
             this.SpelUitleg.Size = new System.Drawing.Size(324, 95);
             this.SpelUitleg.TabIndex = 4;
             this.SpelUitleg.Text = "Doel van het spel:\n\nKrijg het poppetje van het huisje naar de ster, zonder dood t" +
@@ -121,7 +123,7 @@
             this.Controls.Add(this.Menu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(432, 330);
+            this.Size = new System.Drawing.Size(428, 308);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();
