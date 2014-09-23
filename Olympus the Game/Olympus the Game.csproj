@@ -60,11 +60,21 @@
     <Compile Include="Model\ObjectFinish.cs" />
     <Compile Include="Model\ObjectStart.cs" />
     <Compile Include="Model\PlayField.cs" />
+    <Compile Include="View\GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayFieldRender.cs" />
     <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="View\GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

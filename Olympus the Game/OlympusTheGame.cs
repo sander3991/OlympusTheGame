@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olympus_the_Game.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace OlympusTheGame
 {
     class OlympusTheGame
     {
+        // Het scherm van het spel
+        private GameScreen gs;
+
         /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
@@ -61,8 +65,9 @@ namespace OlympusTheGame
         /// </summary>
         private void Initialize()
         {
-            // Temporary placeholder
-            MessageBox.Show("Welcome to Olympus the Game!\nThe most epic game ever created by students", "Olympus the Game", MessageBoxButtons.OK);
+            // Laat het scherm zien
+            gs = new GameScreen();
+            gs.Show();
         }
 
         /// <summary>
@@ -70,8 +75,8 @@ namespace OlympusTheGame
         /// </summary>
         private void GameLoopStep()
         {
-            // Temporary placeholder, anders blijft loop oneindig draaien
-            this.RequestClose();
+            // Deze hier laten, deze regelt afhandeling van de GUI, anders blokkeert het scherm
+            Application.DoEvents();
         }
 
         /// <summary>
@@ -80,6 +85,9 @@ namespace OlympusTheGame
         private void CleanUp()
         {
             // Clean up resources
+
+            // Sluit het scherm
+            gs.Close();
         }
     }
 }
