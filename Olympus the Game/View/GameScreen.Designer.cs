@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.Menu = new System.Windows.Forms.TabControl();
             this.MenuTab = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PauseGame = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
             this.InformationTab = new System.Windows.Forms.TabPage();
             this.SettingsTab = new System.Windows.Forms.TabPage();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PauseGame = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -46,11 +47,11 @@
             this.Menu.Controls.Add(this.MenuTab);
             this.Menu.Controls.Add(this.InformationTab);
             this.Menu.Controls.Add(this.SettingsTab);
-            this.Menu.Location = new System.Drawing.Point(17, 435);
-            this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Menu.Location = new System.Drawing.Point(13, 353);
+            this.Menu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Menu.Name = "Menu";
             this.Menu.SelectedIndex = 0;
-            this.Menu.Size = new System.Drawing.Size(417, 321);
+            this.Menu.Size = new System.Drawing.Size(313, 261);
             this.Menu.TabIndex = 0;
             // 
             // MenuTab
@@ -59,21 +60,52 @@
             this.MenuTab.Controls.Add(this.PauseGame);
             this.MenuTab.Controls.Add(this.label1);
             this.MenuTab.Controls.Add(this.QuitGame);
-            this.MenuTab.Location = new System.Drawing.Point(4, 25);
-            this.MenuTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MenuTab.Location = new System.Drawing.Point(4, 22);
+            this.MenuTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MenuTab.Name = "MenuTab";
-            this.MenuTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MenuTab.Size = new System.Drawing.Size(409, 292);
+            this.MenuTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MenuTab.Size = new System.Drawing.Size(305, 235);
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
             this.MenuTab.Click += new System.EventHandler(this.MenuTab_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(108, 67);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Pauzeer het spel";
+            // 
+            // PauseGame
+            // 
+            this.PauseGame.Location = new System.Drawing.Point(4, 65);
+            this.PauseGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PauseGame.Name = "PauseGame";
+            this.PauseGame.Size = new System.Drawing.Size(99, 19);
+            this.PauseGame.TabIndex = 2;
+            this.PauseGame.Text = "Pauzeer spel";
+            this.PauseGame.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(108, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Sluit het spel af";
+            // 
             // QuitGame
             // 
-            this.QuitGame.Location = new System.Drawing.Point(6, 37);
+            this.QuitGame.Location = new System.Drawing.Point(4, 30);
+            this.QuitGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QuitGame.Name = "QuitGame";
-            this.QuitGame.Size = new System.Drawing.Size(132, 23);
+            this.QuitGame.Size = new System.Drawing.Size(99, 19);
             this.QuitGame.TabIndex = 0;
             this.QuitGame.Text = "Sluit af";
             this.QuitGame.UseVisualStyleBackColor = true;
@@ -81,11 +113,11 @@
             // 
             // InformationTab
             // 
-            this.InformationTab.Location = new System.Drawing.Point(4, 25);
-            this.InformationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InformationTab.Location = new System.Drawing.Point(4, 22);
+            this.InformationTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.InformationTab.Name = "InformationTab";
-            this.InformationTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InformationTab.Size = new System.Drawing.Size(409, 292);
+            this.InformationTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InformationTab.Size = new System.Drawing.Size(305, 235);
             this.InformationTab.TabIndex = 1;
             this.InformationTab.Text = "Information";
             this.InformationTab.UseVisualStyleBackColor = true;
@@ -93,11 +125,11 @@
             // 
             // SettingsTab
             // 
-            this.SettingsTab.Location = new System.Drawing.Point(4, 25);
-            this.SettingsTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SettingsTab.Location = new System.Drawing.Point(4, 22);
+            this.SettingsTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SettingsTab.Name = "SettingsTab";
-            this.SettingsTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SettingsTab.Size = new System.Drawing.Size(409, 292);
+            this.SettingsTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SettingsTab.Size = new System.Drawing.Size(305, 235);
             this.SettingsTab.TabIndex = 2;
             this.SettingsTab.Text = "Settings";
             this.SettingsTab.UseVisualStyleBackColor = true;
@@ -105,48 +137,22 @@
             // 
             // gamePanel1
             // 
+            this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(17, 15);
-            this.gamePanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.gamePanel1.Location = new System.Drawing.Point(13, 12);
+            this.gamePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(1374, 413);
+            this.gamePanel1.Size = new System.Drawing.Size(1031, 336);
             this.gamePanel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Sluit het spel af";
-            // 
-            // PauseGame
-            // 
-            this.PauseGame.Location = new System.Drawing.Point(6, 80);
-            this.PauseGame.Name = "PauseGame";
-            this.PauseGame.Size = new System.Drawing.Size(132, 23);
-            this.PauseGame.TabIndex = 2;
-            this.PauseGame.Text = "Pauzeer spel";
-            this.PauseGame.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Pauzeer het spel";
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1437, 767);
+            this.ClientSize = new System.Drawing.Size(1078, 623);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.Menu);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";
