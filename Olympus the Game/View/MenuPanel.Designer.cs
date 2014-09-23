@@ -41,11 +41,11 @@
             // Menu
             // 
             this.Menu.Controls.Add(this.MenuTab);
-            this.Menu.Location = new System.Drawing.Point(3, 2);
+            this.Menu.Location = new System.Drawing.Point(4, 2);
             this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu.Name = "Menu";
             this.Menu.SelectedIndex = 0;
-            this.Menu.Size = new System.Drawing.Size(417, 321);
+            this.Menu.Size = new System.Drawing.Size(457, 321);
             this.Menu.TabIndex = 3;
             // 
             // MenuTab
@@ -58,7 +58,7 @@
             this.MenuTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MenuTab.Name = "MenuTab";
             this.MenuTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MenuTab.Size = new System.Drawing.Size(409, 292);
+            this.MenuTab.Size = new System.Drawing.Size(449, 292);
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.Controls.Add(this.Menu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(417, 322);
+            this.Size = new System.Drawing.Size(466, 330);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();
