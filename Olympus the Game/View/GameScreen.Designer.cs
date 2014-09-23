@@ -44,7 +44,7 @@
             // 
             // arrowPanel1
             // 
-            this.arrowPanel1.Location = new System.Drawing.Point(460, 449);
+            this.arrowPanel1.Location = new System.Drawing.Point(458, 449);
             this.arrowPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(449, 304);
@@ -56,7 +56,7 @@
             this.infoPanel1.Location = new System.Drawing.Point(20, 442);
             this.infoPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(430, 322);
+            this.infoPanel1.Size = new System.Drawing.Size(428, 322);
             this.infoPanel1.TabIndex = 2;
             // 
             // gamePanel1
