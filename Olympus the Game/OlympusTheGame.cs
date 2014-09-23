@@ -48,6 +48,12 @@ namespace Olympus_the_Game
             // Game loop
             while (!closeRequested)
             {
+                /**
+                 * moet in gameloop
+                 * application.run (enige twijfel, nadere verklaring benodigd)
+                 * 
+                **/
+
                 // Timer update
                 tickCount = Environment.TickCount;
 
