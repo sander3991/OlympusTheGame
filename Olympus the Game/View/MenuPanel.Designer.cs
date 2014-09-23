@@ -34,7 +34,6 @@
             this.PauseGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
-            this.InformationTab = new System.Windows.Forms.TabPage();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +41,6 @@
             // Menu
             // 
             this.Menu.Controls.Add(this.MenuTab);
-            this.Menu.Controls.Add(this.InformationTab);
             this.Menu.Location = new System.Drawing.Point(3, 2);
             this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu.Name = "Menu";
@@ -104,24 +102,13 @@
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
             // 
-            // InformationTab
-            // 
-            this.InformationTab.Location = new System.Drawing.Point(4, 25);
-            this.InformationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InformationTab.Name = "InformationTab";
-            this.InformationTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InformationTab.Size = new System.Drawing.Size(409, 292);
-            this.InformationTab.TabIndex = 1;
-            this.InformationTab.Text = "Information";
-            this.InformationTab.UseVisualStyleBackColor = true;
-            // 
-            // InfoPanel
+            // MenuPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Menu);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "InfoPanel";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "MenuPanel";
             this.Size = new System.Drawing.Size(417, 322);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
@@ -138,6 +125,5 @@
         private System.Windows.Forms.Button PauseGame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button QuitGame;
-        private System.Windows.Forms.TabPage InformationTab;
     }
 }
