@@ -39,7 +39,7 @@
             this.StatistiekenTab.Location = new System.Drawing.Point(3, 3);
             this.StatistiekenTab.Name = "StatistiekenTab";
             this.StatistiekenTab.SelectedIndex = 0;
-            this.StatistiekenTab.Size = new System.Drawing.Size(365, 550);
+            this.StatistiekenTab.Size = new System.Drawing.Size(333, 655);
             this.StatistiekenTab.TabIndex = 0;
             // 
             // Statistieken
@@ -47,7 +47,7 @@
             this.Statistieken.Location = new System.Drawing.Point(4, 25);
             this.Statistieken.Name = "Statistieken";
             this.Statistieken.Padding = new System.Windows.Forms.Padding(3);
-            this.Statistieken.Size = new System.Drawing.Size(357, 521);
+            this.Statistieken.Size = new System.Drawing.Size(325, 626);
             this.Statistieken.TabIndex = 0;
             this.Statistieken.Text = "Statistieken";
             this.Statistieken.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.StatistiekenTab);
             this.Name = "InfoPanel";
-            this.Size = new System.Drawing.Size(368, 556);
+            this.Size = new System.Drawing.Size(344, 666);
             this.StatistiekenTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
