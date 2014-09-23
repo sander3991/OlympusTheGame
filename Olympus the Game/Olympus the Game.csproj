@@ -89,7 +89,6 @@
     <Compile Include="View\InfoPanel.Designer.cs">
       <DependentUpon>InfoPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PlayFieldRender.cs" />
     <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

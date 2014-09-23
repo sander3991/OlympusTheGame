@@ -89,9 +89,11 @@ namespace Olympus_the_Game
         /// </summary>
         private void Initialize()
         {
-            // Laat het scherm zien
+            // Maak gamescreen aan
             gs = new GameScreen();
-            gs.Show();
+
+            // Laat het scherm zien
+            Application.Run(gs);
         }
 
         /// <summary>
@@ -99,8 +101,8 @@ namespace Olympus_the_Game
         /// </summary>
         private void GameLoopStep()
         {
-            // Deze hier laten, deze regelt afhandeling van de GUI, anders blokkeert het scherm
-            Application.DoEvents();
+            // Invalidate scherm zodat deze opnieuw wordt getekend
+            gs.Invalidate(true);
         }
 
         /// <summary>
@@ -111,7 +113,7 @@ namespace Olympus_the_Game
             // Clean up resources
 
             // Sluit het scherm
-            gs.Close();
+            gs.Dispose();
         }
     }
 }
