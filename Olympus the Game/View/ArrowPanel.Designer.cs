@@ -29,61 +29,61 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ArrowKeyRight = new System.Windows.Forms.Button();
+            this.ArrowKeyLeft = new System.Windows.Forms.Button();
+            this.ArrowKeyDown = new System.Windows.Forms.Button();
+            this.ArrowKeyUp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ArrowKeyRight);
+            this.panel1.Controls.Add(this.ArrowKeyLeft);
+            this.panel1.Controls.Add(this.ArrowKeyDown);
+            this.panel1.Controls.Add(this.ArrowKeyUp);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 241);
             this.panel1.TabIndex = 2;
             // 
-            // button4
+            // ArrowKeyRight
             // 
-            this.button4.Location = new System.Drawing.Point(216, 132);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 84);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Right";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ArrowKeyRight.Location = new System.Drawing.Point(216, 132);
+            this.ArrowKeyRight.Name = "ArrowKeyRight";
+            this.ArrowKeyRight.Size = new System.Drawing.Size(90, 84);
+            this.ArrowKeyRight.TabIndex = 4;
+            this.ArrowKeyRight.Text = "Right";
+            this.ArrowKeyRight.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ArrowKeyLeft
             // 
-            this.button3.Location = new System.Drawing.Point(24, 132);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 84);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Left";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ArrowKeyLeft.Location = new System.Drawing.Point(24, 132);
+            this.ArrowKeyLeft.Name = "ArrowKeyLeft";
+            this.ArrowKeyLeft.Size = new System.Drawing.Size(90, 84);
+            this.ArrowKeyLeft.TabIndex = 3;
+            this.ArrowKeyLeft.Text = "Left";
+            this.ArrowKeyLeft.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ArrowKeyDown
             // 
-            this.button2.Location = new System.Drawing.Point(120, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 84);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Down";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ArrowKeyDown.Location = new System.Drawing.Point(120, 132);
+            this.ArrowKeyDown.Name = "ArrowKeyDown";
+            this.ArrowKeyDown.Size = new System.Drawing.Size(90, 84);
+            this.ArrowKeyDown.TabIndex = 2;
+            this.ArrowKeyDown.Text = "Down";
+            this.ArrowKeyDown.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // ArrowKeyUp
             // 
-            this.button1.Location = new System.Drawing.Point(120, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 84);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Up";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 42);
+            this.ArrowKeyUp.Name = "ArrowKeyUp";
+            this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
+            this.ArrowKeyUp.TabIndex = 1;
+            this.ArrowKeyUp.Text = "Up";
+            this.ArrowKeyUp.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -111,10 +111,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ArrowKeyRight;
+        private System.Windows.Forms.Button ArrowKeyLeft;
+        private System.Windows.Forms.Button ArrowKeyDown;
+        private System.Windows.Forms.Button ArrowKeyUp;
         private System.Windows.Forms.Label label1;
     }
 }
