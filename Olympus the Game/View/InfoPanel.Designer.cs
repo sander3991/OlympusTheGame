@@ -49,7 +49,7 @@
             this.Statistieken.Padding = new System.Windows.Forms.Padding(3);
             this.Statistieken.Size = new System.Drawing.Size(357, 521);
             this.Statistieken.TabIndex = 0;
-            this.Statistieken.Text = "tabPage1";
+            this.Statistieken.Text = "Statistieken";
             this.Statistieken.UseVisualStyleBackColor = true;
             // 
             // InfoPanel
