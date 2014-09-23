@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Olympus_the_Game.Controller" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.Entity" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAQAAAAAAIAAAAAAAAAAgAAAAAAAAABAA=</HashCode>
+      <FileName>Model\Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.EntityCreeper" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Entities\EntityCreeper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.EntityExplode" Collapsed="true">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\Entities\EntityExplode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.EntityPlayer" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAEAAAg=</HashCode>
+      <FileName>Model\Entities\EntityPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.EntitySlower" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAABEAAAA=</HashCode>
+      <FileName>Model\Entities\EntitySlower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.EntityTimeBomb" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Model\Entities\EntityTimeBomb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.GameObject" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAACAABAAAAAQAQAAAAEAAAAAAAAAAAABgAAFgYgA=</HashCode>
+      <FileName>Model\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.ObjectFinish" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\ObjectFinish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.ObjectObstacle" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\ObjectObstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.ObjectStart" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\ObjectStart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.PlayField" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAABAAAAAAAAAAABAQAAAABAAAAAQBAAAA=</HashCode>
+      <FileName>Model\PlayField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.OlympusTheGame" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAShAABAAQAAAAAQAAAAAAAABBEAAAAA=</HashCode>
+      <FileName>OlympusTheGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.View.ArrowPanel" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAACCgABAAAACAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>View\ArrowPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.View.GamePanel" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAADAAAAAAAACAAAACAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>View\GamePanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.View.GameScreen" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAKIAAQCAAAAACQAAgQAAAAAAAA=</HashCode>
+      <FileName>View\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.View.InfoPanel" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAAAAAACAAABCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\InfoPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Olympus_the_Game.View.MenuPanel" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAABAAAACAAIACAAAIAAAACAQAAAAAAAA=</HashCode>
+      <FileName>View\MenuPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

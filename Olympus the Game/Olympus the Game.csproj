@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
@@ -118,6 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Klassen Diagram.cd" />
     <None Include="Resources\Naamloos.png" />
   </ItemGroup>
   <ItemGroup>
