@@ -129,6 +129,7 @@
             this.PauseGame.TabIndex = 2;
             this.PauseGame.Text = "Pauzeer spel";
             this.PauseGame.UseVisualStyleBackColor = true;
+            this.PauseGame.Click += new System.EventHandler(this.PauseGame_Click);
             // 
             // label2
             // 
