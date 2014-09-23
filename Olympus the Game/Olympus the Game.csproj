@@ -135,18 +135,6 @@
   <ItemGroup>
     <None Include="Properties\rsz_arrowright.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\creeper.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\player.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\spider.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tnt.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
