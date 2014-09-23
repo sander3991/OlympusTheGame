@@ -18,10 +18,10 @@ namespace Olympus_the_Game_Test.Model
             PlayField pfWith2StartAnd1Finish = new PlayField();
             PlayField pfWith1StartAnd2Finish = new PlayField();
 
-            GameObject gS = new ObjectFinish();
-            GameObject gF = new ObjectStart();
-            GameObject gS2 = new ObjectFinish();
-            GameObject gF2 = new ObjectStart();
+            GameObject gS = new ObjectFinish(400, 200, 100, 100);
+            GameObject gF = new ObjectStart(0, 0, 100, 100);
+            GameObject gS2 = new ObjectFinish(400, 200, 100, 100);
+            GameObject gF2 = new ObjectStart(0, 0, 100, 100);
 
             // Act
             pfWithStart.AddObject(gS);
