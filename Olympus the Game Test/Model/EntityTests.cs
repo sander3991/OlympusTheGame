@@ -7,7 +7,7 @@ namespace Olympus_the_Game_Test.Model
     public class EntityTests
     {
         [TestMethod]
-        public void EntityTests()
+        public void EntityTest()
         {
 
         }
