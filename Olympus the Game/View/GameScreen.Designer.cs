@@ -51,7 +51,7 @@
             this.arrowPanel1.TabIndex = 3;
             this.arrowPanel1.Load += new System.EventHandler(this.arrowPanel1_Load);
             // 
-            // infoPanel1
+            // menuPanel
             // 
             this.menuPanel.Location = new System.Drawing.Point(20, 442);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(5);
