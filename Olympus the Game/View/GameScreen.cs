@@ -31,22 +31,43 @@ namespace Olympus_the_Game.View
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// MenuTab in de tab form word aangeklikt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuTab_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// InformatieTab in de tab form word aangeklikt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InformationTab_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void SettingsTab_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Het spel word gestopt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuitGame_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void QuitGame_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Het spel word gepauzeerd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PauseGame_Click(object sender, EventArgs e)
         {
 
         }
