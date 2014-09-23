@@ -44,7 +44,7 @@ namespace Olympus_the_Game
         {
             // Add gameloop to timer
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
-            timer.Interval = 16;
+            timer.Interval = 10;
 
             // Maak gamescreen aan
             gs = new GameScreen();
@@ -83,7 +83,7 @@ namespace Olympus_the_Game
             if (!gs.IsDisposed)
                 try
                 {
-                    gs.Invoke(new InvalidateDelegate(gs.Invalidate), new object[] { true });
+                    gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
                 }
                 catch (ObjectDisposedException) { }
         }

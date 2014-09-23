@@ -88,7 +88,7 @@
 
         #endregion
 
-        private GamePanel gamePanel1;
+        public GamePanel gamePanel1;
         private MenuPanel menuPanel;
         private ArrowPanel arrowPanel1;
         private InfoPanel infoPanel2;
