@@ -49,7 +49,6 @@
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(449, 304);
             this.arrowPanel1.TabIndex = 3;
-            this.arrowPanel1.Load += new System.EventHandler(this.arrowPanel1_Load);
             // 
             // menuPanel
             // 

@@ -42,9 +42,5 @@ namespace Olympus_the_Game.View
             this.Close();
         }
 
-        private void arrowPanel1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

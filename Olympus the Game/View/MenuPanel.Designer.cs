@@ -129,6 +129,7 @@
             this.LoadLevel.TabIndex = 5;
             this.LoadLevel.Text = "Laad level";
             this.LoadLevel.UseVisualStyleBackColor = true;
+            this.LoadLevel.Click += new System.EventHandler(this.LoadLevel_Click);
             // 
             // label1
             // 

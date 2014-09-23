@@ -16,9 +16,24 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sluit het spel door the Close functie te gebruiken van het bovenliggende form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void QuitGame_Click(object sender, EventArgs e)
         {
             this.ParentForm.Close();
+        }
+
+        /// <summary>
+        /// Laad een dialog waarin uit standaard levels gekozen kan worden
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadLevel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
