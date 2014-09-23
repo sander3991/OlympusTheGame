@@ -35,6 +35,8 @@
             this.PauseGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
+            this.LoadLevel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +53,8 @@
             // 
             // MenuTab
             // 
+            this.MenuTab.Controls.Add(this.label1);
+            this.MenuTab.Controls.Add(this.LoadLevel);
             this.MenuTab.Controls.Add(this.SpelUitleg);
             this.MenuTab.Controls.Add(this.label2);
             this.MenuTab.Controls.Add(this.PauseGame);
@@ -80,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 82);
+            this.label2.Location = new System.Drawing.Point(144, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 3;
@@ -88,7 +92,7 @@
             // 
             // PauseGame
             // 
-            this.PauseGame.Location = new System.Drawing.Point(5, 80);
+            this.PauseGame.Location = new System.Drawing.Point(6, 60);
             this.PauseGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PauseGame.Name = "PauseGame";
             this.PauseGame.Size = new System.Drawing.Size(132, 23);
@@ -99,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(144, 39);
+            this.label3.Location = new System.Drawing.Point(144, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 17);
             this.label3.TabIndex = 1;
@@ -107,7 +111,7 @@
             // 
             // QuitGame
             // 
-            this.QuitGame.Location = new System.Drawing.Point(5, 37);
+            this.QuitGame.Location = new System.Drawing.Point(6, 87);
             this.QuitGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.QuitGame.Name = "QuitGame";
             this.QuitGame.Size = new System.Drawing.Size(132, 23);
@@ -115,6 +119,25 @@
             this.QuitGame.Text = "Sluit af";
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
+            // 
+            // LoadLevel
+            // 
+            this.LoadLevel.Location = new System.Drawing.Point(6, 33);
+            this.LoadLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LoadLevel.Name = "LoadLevel";
+            this.LoadLevel.Size = new System.Drawing.Size(132, 23);
+            this.LoadLevel.TabIndex = 5;
+            this.LoadLevel.Text = "Laad level";
+            this.LoadLevel.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(144, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Laad een level";
             // 
             // MenuPanel
             // 
@@ -140,5 +163,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button QuitGame;
         private System.Windows.Forms.RichTextBox SpelUitleg;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button LoadLevel;
     }
 }
