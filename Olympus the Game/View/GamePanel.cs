@@ -11,16 +11,25 @@ namespace Olympus_the_Game.View
 {
     public partial class GamePanel : UserControl
     {
+
+        /// <summary>
+        /// Het speelveld dat moet worden getekend.
+        /// </summary>
+        private PlayField pf;
+
         /// <summary>
         /// Maak een nieuw GamePanel aan, deze krijgt als argument het model mee welke moet worden getekend.
         /// </summary>
-        public GamePanel(object model) // TODO Specify type
+        public GamePanel(PlayField pf) // TODO Specify type
         {
             // Initialize component
             InitializeComponent();
 
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
+
+            // Set background
+            this.BackgroundImage = Properties.Resources.Background;
         }
 
         /// <summary>
