@@ -50,8 +50,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void PaintPanel(object sender, PaintEventArgs e)
         {
-            Console.WriteLine();
-            e.Graphics.FillRectangle(Brushes.DeepSkyBlue, 100, System.DateTime.Now.Second % 100, 100, 100);
+            e.Graphics.FillRectangle(System.DateTime.Now.Second % 2 == 0 ? Brushes.Red : Brushes.DeepSkyBlue, 100, 100, 100, 100);
         }
     }
 }
