@@ -118,6 +118,9 @@
     <EmbeddedResource Include="View\InfoPanel.resx">
       <DependentUpon>InfoPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\LevelDialog.resx">
+      <DependentUpon>LevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MenuPanel.resx">
       <DependentUpon>MenuPanel.cs</DependentUpon>
     </EmbeddedResource>
