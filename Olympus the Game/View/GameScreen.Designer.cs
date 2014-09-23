@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
+            // 
+            // gamePanel1
+            // 
+            this.gamePanel1.Location = new System.Drawing.Point(13, 13);
+            this.gamePanel1.Name = "gamePanel1";
+            this.gamePanel1.Size = new System.Drawing.Size(785, 341);
+            this.gamePanel1.TabIndex = 0;
             // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 623);
+            this.Controls.Add(this.gamePanel1);
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";
@@ -44,5 +53,8 @@
         }
 
         #endregion
+
+        private GamePanel gamePanel1;
+
     }
 }
