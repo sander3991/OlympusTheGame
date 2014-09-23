@@ -33,7 +33,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void LoadLevel_Click(object sender, EventArgs e)
         {
-
+            LevelDialog ld = new LevelDialog();
+            ld.ShowDialog();
         }
     }
 }

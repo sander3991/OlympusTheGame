@@ -54,7 +54,7 @@
             // 
             this.menuPanel.Location = new System.Drawing.Point(20, 442);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(5);
-            this.menuPanel.Name = "infoPanel1";
+            this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(428, 322);
             this.menuPanel.TabIndex = 2;
             // 
@@ -77,7 +77,7 @@
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.gamePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";

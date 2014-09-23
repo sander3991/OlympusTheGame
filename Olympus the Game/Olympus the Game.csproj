@@ -89,7 +89,7 @@
       <DependentUpon>InfoPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LevelDialog.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
