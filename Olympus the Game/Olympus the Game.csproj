@@ -126,6 +126,15 @@
   <ItemGroup>
     <None Include="Properties\rsz_arrowup.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\rsz_arrowleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\rsz_arrowdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\rsz_arrowright.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
