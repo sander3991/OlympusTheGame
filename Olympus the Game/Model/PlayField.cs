@@ -12,7 +12,7 @@ namespace Olympus_the_Game
 
         private List<GameObject> gameObjects = new List<GameObject>();
 
-        private EntityPlayer player = new EntityPlayer();
+        private EntityPlayer player = new EntityPlayer(0,0,0,0);
 
         public EntityPlayer Player
         {
