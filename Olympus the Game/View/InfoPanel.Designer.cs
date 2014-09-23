@@ -43,11 +43,11 @@
             // 
             this.Menu.Controls.Add(this.MenuTab);
             this.Menu.Controls.Add(this.InformationTab);
-            this.Menu.Location = new System.Drawing.Point(2, 2);
-            this.Menu.Margin = new System.Windows.Forms.Padding(2);
+            this.Menu.Location = new System.Drawing.Point(3, 2);
+            this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu.Name = "Menu";
             this.Menu.SelectedIndex = 0;
-            this.Menu.Size = new System.Drawing.Size(313, 261);
+            this.Menu.Size = new System.Drawing.Size(417, 321);
             this.Menu.TabIndex = 3;
             // 
             // MenuTab
@@ -56,11 +56,11 @@
             this.MenuTab.Controls.Add(this.PauseGame);
             this.MenuTab.Controls.Add(this.label3);
             this.MenuTab.Controls.Add(this.QuitGame);
-            this.MenuTab.Location = new System.Drawing.Point(4, 22);
-            this.MenuTab.Margin = new System.Windows.Forms.Padding(2);
+            this.MenuTab.Location = new System.Drawing.Point(4, 25);
+            this.MenuTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MenuTab.Name = "MenuTab";
-            this.MenuTab.Padding = new System.Windows.Forms.Padding(2);
-            this.MenuTab.Size = new System.Drawing.Size(305, 235);
+            this.MenuTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MenuTab.Size = new System.Drawing.Size(409, 292);
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
             this.MenuTab.UseVisualStyleBackColor = true;
@@ -68,19 +68,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 67);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(144, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Pauzeer het spel";
             // 
             // PauseGame
             // 
-            this.PauseGame.Location = new System.Drawing.Point(4, 65);
-            this.PauseGame.Margin = new System.Windows.Forms.Padding(2);
+            this.PauseGame.Location = new System.Drawing.Point(5, 80);
+            this.PauseGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PauseGame.Name = "PauseGame";
-            this.PauseGame.Size = new System.Drawing.Size(99, 19);
+            this.PauseGame.Size = new System.Drawing.Size(132, 23);
             this.PauseGame.TabIndex = 2;
             this.PauseGame.Text = "Pauzeer spel";
             this.PauseGame.UseVisualStyleBackColor = true;
@@ -88,41 +87,42 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 32);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(144, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.Size = new System.Drawing.Size(105, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Sluit het spel af";
             // 
             // QuitGame
             // 
-            this.QuitGame.Location = new System.Drawing.Point(4, 30);
-            this.QuitGame.Margin = new System.Windows.Forms.Padding(2);
+            this.QuitGame.Location = new System.Drawing.Point(5, 37);
+            this.QuitGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.QuitGame.Name = "QuitGame";
-            this.QuitGame.Size = new System.Drawing.Size(99, 19);
+            this.QuitGame.Size = new System.Drawing.Size(132, 23);
             this.QuitGame.TabIndex = 0;
             this.QuitGame.Text = "Sluit af";
             this.QuitGame.UseVisualStyleBackColor = true;
+            this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
             // 
             // InformationTab
             // 
-            this.InformationTab.Location = new System.Drawing.Point(4, 22);
-            this.InformationTab.Margin = new System.Windows.Forms.Padding(2);
+            this.InformationTab.Location = new System.Drawing.Point(4, 25);
+            this.InformationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.InformationTab.Name = "InformationTab";
-            this.InformationTab.Padding = new System.Windows.Forms.Padding(2);
-            this.InformationTab.Size = new System.Drawing.Size(305, 235);
+            this.InformationTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InformationTab.Size = new System.Drawing.Size(409, 292);
             this.InformationTab.TabIndex = 1;
             this.InformationTab.Text = "Information";
             this.InformationTab.UseVisualStyleBackColor = true;
             // 
             // InfoPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Menu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InfoPanel";
-            this.Size = new System.Drawing.Size(313, 262);
+            this.Size = new System.Drawing.Size(417, 322);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();

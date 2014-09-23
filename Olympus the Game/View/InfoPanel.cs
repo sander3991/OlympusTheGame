@@ -15,5 +15,10 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
         }
+
+        private void QuitGame_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Close();
+        }
     }
 }
