@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OlympusTheGame
+namespace Olympus_the_Game
 {
     class OlympusTheGame
     {
         // Het scherm van het spel
         private GameScreen gs;
+
+        public static OlympusTheGame INSTANCE;
 
         /// <summary>
         /// Beginpunt van de applicatie
@@ -19,10 +21,10 @@ namespace OlympusTheGame
         static void Main()
         {
             // non-static object aanmaken
-            OlympusTheGame otg = new OlympusTheGame();
+            INSTANCE = new OlympusTheGame();
 
             // Game starten
-            otg.Start();
+            INSTANCE.Start();
         }
 
         /// <summary>
@@ -54,7 +56,7 @@ namespace OlympusTheGame
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.
         /// </summary>
-        private void RequestClose()
+        public void RequestClose()
         {
             // Verander parameter die afsluiten bijhoudt
             closeRequested = true;

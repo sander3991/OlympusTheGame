@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OlympusTheGame;
+using Olympus_the_Game;
 
 namespace Olympus_the_Game_Test.Model
 {

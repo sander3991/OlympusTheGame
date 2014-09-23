@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OlympusTheGame
+namespace Olympus_the_Game
 {
     public class EntityPlayer : Entity
     {

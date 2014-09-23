@@ -1,4 +1,4 @@
-﻿namespace OlympusTheGame
+﻿namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game;
 
 namespace Olympus_the_Game.View
 {
@@ -14,6 +15,12 @@ namespace Olympus_the_Game.View
         public GameScreen()
         {
             InitializeComponent();
+        }
+
+        private void Form_Close(object sender, FormClosingEventArgs e)
+        {
+            // Sluit spel af
+            OlympusTheGame.INSTANCE.RequestClose();
         }
     }
 }
