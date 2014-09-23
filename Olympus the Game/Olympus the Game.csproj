@@ -60,20 +60,56 @@
     <Compile Include="Model\ObjectFinish.cs" />
     <Compile Include="Model\ObjectStart.cs" />
     <Compile Include="Model\PlayField.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\ArrowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ArrowPanel.Designer.cs">
+      <DependentUpon>ArrowPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GamePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\GamePanel.Designer.cs">
+      <DependentUpon>GamePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InfoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\InfoPanel.Designer.cs">
+      <DependentUpon>InfoPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PlayFieldRender.cs" />
     <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ArrowPanel.resx">
+      <DependentUpon>ArrowPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\InfoPanel.resx">
+      <DependentUpon>InfoPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Naamloos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

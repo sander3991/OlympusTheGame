@@ -13,6 +13,13 @@ namespace Olympus_the_Game
         // Het scherm van het spel
         private GameScreen gs;
 
+        // de pijltjes toetsen
+
+        
+        // Tick counter
+        private int startTick = 0;
+        private int tickCount = 0;
+
         public static OlympusTheGame INSTANCE;
 
         /// <summary>
@@ -44,6 +51,21 @@ namespace Olympus_the_Game
             // Game loop
             while (!closeRequested)
             {
+                /**
+                 * moet in gameloop
+                 * application.run (enige twijfel, nadere verklaring benodigd)
+                 * 
+                **/
+
+                // Timer update
+                tickCount = Environment.TickCount;
+
+                // Refresh at 60FPS
+                if(tickCount > startTick + 16)
+                {
+                    startTick = tickCount;
+                }
+
                 // Gameloop step
                 GameLoopStep();
             }
