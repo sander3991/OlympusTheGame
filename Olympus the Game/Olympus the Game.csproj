@@ -60,12 +60,6 @@
     <Compile Include="Model\ObjectFinish.cs" />
     <Compile Include="Model\ObjectStart.cs" />
     <Compile Include="Model\PlayField.cs" />
-    <Compile Include="View\GamePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\GamePanel.Designer.cs">
-      <DependentUpon>GamePanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\GamePanel.resx">
-      <DependentUpon>GamePanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
