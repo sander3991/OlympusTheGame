@@ -16,7 +16,8 @@ namespace Olympus_the_Game
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
-        public EntityCreeper(int width, int height, int x, int y, int dx, int dy)
+        /// <param name="effectStrength">De sterkte van het exploderende object</param>
+        public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength) : base(width, height, x, y, dx, dy, explodeStrength)
         {
 
         }
@@ -27,6 +28,7 @@ namespace Olympus_the_Game
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        public EntityCreeper(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+        /// <param name="effectStrength">De sterkte van het exploderende object</param>
+        public EntityCreeper(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0, explodeStrength) { }
     }
 }
