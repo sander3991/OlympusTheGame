@@ -28,30 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Menu = new System.Windows.Forms.TabControl();
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
+            this.InformationTab = new System.Windows.Forms.TabPage();
             this.MenuTab = new System.Windows.Forms.TabPage();
             this.QuitGame = new System.Windows.Forms.Button();
-            this.InformationTab = new System.Windows.Forms.TabPage();
-            this.SettingsTab = new System.Windows.Forms.TabPage();
-            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.label1 = new System.Windows.Forms.Label();
             this.PauseGame = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.Menu.SuspendLayout();
+            this.Menu = new System.Windows.Forms.TabControl();
             this.MenuTab.SuspendLayout();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Menu
+            // gamePanel1
             // 
-            this.Menu.Controls.Add(this.MenuTab);
-            this.Menu.Controls.Add(this.InformationTab);
-            this.Menu.Controls.Add(this.SettingsTab);
-            this.Menu.Location = new System.Drawing.Point(17, 435);
-            this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Menu.Name = "Menu";
-            this.Menu.SelectedIndex = 0;
-            this.Menu.Size = new System.Drawing.Size(417, 321);
-            this.Menu.TabIndex = 0;
+            this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gamePanel1.Location = new System.Drawing.Point(17, 15);
+            this.gamePanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.gamePanel1.Name = "gamePanel1";
+            this.gamePanel1.Size = new System.Drawing.Size(1374, 413);
+            this.gamePanel1.TabIndex = 1;
+            // 
+            // InformationTab
+            // 
+            this.InformationTab.Location = new System.Drawing.Point(4, 25);
+            this.InformationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InformationTab.Name = "InformationTab";
+            this.InformationTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InformationTab.Size = new System.Drawing.Size(409, 292);
+            this.InformationTab.TabIndex = 1;
+            this.InformationTab.Text = "Information";
+            this.InformationTab.UseVisualStyleBackColor = true;
+            this.InformationTab.Click += new System.EventHandler(this.InformationTab_Click);
             // 
             // MenuTab
             // 
@@ -78,39 +86,6 @@
             this.QuitGame.Text = "Sluit af";
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
-            // 
-            // InformationTab
-            // 
-            this.InformationTab.Location = new System.Drawing.Point(4, 25);
-            this.InformationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InformationTab.Name = "InformationTab";
-            this.InformationTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InformationTab.Size = new System.Drawing.Size(409, 292);
-            this.InformationTab.TabIndex = 1;
-            this.InformationTab.Text = "Information";
-            this.InformationTab.UseVisualStyleBackColor = true;
-            this.InformationTab.Click += new System.EventHandler(this.InformationTab_Click);
-            // 
-            // SettingsTab
-            // 
-            this.SettingsTab.Location = new System.Drawing.Point(4, 25);
-            this.SettingsTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SettingsTab.Name = "SettingsTab";
-            this.SettingsTab.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SettingsTab.Size = new System.Drawing.Size(409, 292);
-            this.SettingsTab.TabIndex = 2;
-            this.SettingsTab.Text = "Settings";
-            this.SettingsTab.UseVisualStyleBackColor = true;
-            this.SettingsTab.Click += new System.EventHandler(this.SettingsTab_Click);
-            // 
-            // gamePanel1
-            // 
-            this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(17, 15);
-            this.gamePanel1.Margin = new System.Windows.Forms.Padding(5);
-            this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(1374, 413);
-            this.gamePanel1.TabIndex = 1;
             // 
             // label1
             // 
@@ -140,6 +115,17 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pauzeer het spel";
             // 
+            // Menu
+            // 
+            this.Menu.Controls.Add(this.MenuTab);
+            this.Menu.Controls.Add(this.InformationTab);
+            this.Menu.Location = new System.Drawing.Point(17, 435);
+            this.Menu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Menu.Name = "Menu";
+            this.Menu.SelectedIndex = 0;
+            this.Menu.Size = new System.Drawing.Size(417, 321);
+            this.Menu.TabIndex = 0;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -152,23 +138,22 @@
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Close);
-            this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl Menu;
-        private System.Windows.Forms.TabPage MenuTab;
-        private System.Windows.Forms.TabPage InformationTab;
-        private System.Windows.Forms.TabPage SettingsTab;
         private GamePanel gamePanel1;
-        private System.Windows.Forms.Button QuitGame;
+        private System.Windows.Forms.TabPage InformationTab;
+        private System.Windows.Forms.TabPage MenuTab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button PauseGame;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button QuitGame;
+        private System.Windows.Forms.TabControl Menu;
     }
 }

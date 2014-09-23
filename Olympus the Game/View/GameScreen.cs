@@ -51,15 +51,6 @@ namespace Olympus_the_Game.View
 
         }
 
-        /// <summary>
-        /// SettingsTab in de tab form word aangeklikt
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SettingsTab_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// Het spel word gestopt
