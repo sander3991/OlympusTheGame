@@ -56,6 +56,7 @@
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
+            this.arrowPanel1.Load += new System.EventHandler(this.arrowPanel1_Load);
             // 
             // GameScreen
             // 
