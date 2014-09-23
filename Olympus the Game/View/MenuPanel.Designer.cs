@@ -34,6 +34,7 @@
             this.PauseGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
+            this.SpelUitleg = new System.Windows.Forms.RichTextBox();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             // MenuTab
             // 
+            this.MenuTab.Controls.Add(this.SpelUitleg);
             this.MenuTab.Controls.Add(this.label2);
             this.MenuTab.Controls.Add(this.PauseGame);
             this.MenuTab.Controls.Add(this.label3);
@@ -102,6 +104,16 @@
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
             // 
+            // SpelUitleg
+            // 
+            this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SpelUitleg.Location = new System.Drawing.Point(37, 153);
+            this.SpelUitleg.Name = "SpelUitleg";
+            this.SpelUitleg.Size = new System.Drawing.Size(324, 95);
+            this.SpelUitleg.TabIndex = 4;
+            this.SpelUitleg.Text = "Doel van het spel:\n\nKrijg het poppetje van het huisje naar de ster, zonder dood t" +
+    "e gaan!";
+            // 
             // MenuPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Button PauseGame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button QuitGame;
+        private System.Windows.Forms.RichTextBox SpelUitleg;
     }
 }
