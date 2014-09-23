@@ -32,8 +32,8 @@
             this.ArrowKeyRight = new System.Windows.Forms.Button();
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
-            this.ArrowKeyUp = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ArrowKeyUp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,15 +76,6 @@
             this.ArrowKeyDown.Text = "Down";
             this.ArrowKeyDown.UseVisualStyleBackColor = true;
             // 
-            // ArrowKeyUp
-            // 
-            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 42);
-            this.ArrowKeyUp.Name = "ArrowKeyUp";
-            this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
-            this.ArrowKeyUp.TabIndex = 1;
-            this.ArrowKeyUp.Text = "Up";
-            this.ArrowKeyUp.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -94,6 +85,16 @@
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Controls";
+            // 
+            // ArrowKeyUp
+            // 
+            this.ArrowKeyUp.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowup;
+            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 42);
+            this.ArrowKeyUp.Name = "ArrowKeyUp";
+            this.ArrowKeyUp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
+            this.ArrowKeyUp.TabIndex = 1;
+            this.ArrowKeyUp.UseVisualStyleBackColor = true;
             // 
             // ArrowPanel
             // 
