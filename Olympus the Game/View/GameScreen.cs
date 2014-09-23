@@ -42,10 +42,5 @@ namespace Olympus_the_Game.View
         {
 
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
