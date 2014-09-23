@@ -4,23 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
 {
     class OlympusTheGame
     {
+
+        private delegate void InvalidateDelegate(bool b);
+
         // Het scherm van het spel
         private GameScreen gs;
 
-        // de pijltjes toetsen
+        private System.Timers.Timer timer = new System.Timers.Timer();
 
-        
         // Tick counter
         private int startTick = 0;
         private int tickCount = 0;
 
-        public static OlympusTheGame INSTANCE;
+        public static OlympusTheGame INSTANCE { get; private set; }
 
         /// <summary>
         /// Beginpunt van de applicatie
@@ -35,43 +38,20 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Deze variabele houdt bij of er aanvraag is geweest om af te sluiten.
-        /// </summary>
-        private bool closeRequested = false;
-
-
-        /// <summary>
         /// Deze methode wordt aangeroepen om de game te starten.
         /// </summary>
         private void Start()
         {
-            // Initialize game
-            Initialize();
+            // Add gameloop to timer
+            timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
+            timer.Interval = 16;
 
-            // Game loop
-            while (!closeRequested)
-            {
-                /**
-                 * moet in gameloop
-                 * application.run (enige twijfel, nadere verklaring benodigd)
-                 * 
-                **/
+            // Maak gamescreen aan
+            gs = new GameScreen();
 
-                // Timer update
-                tickCount = Environment.TickCount;
-
-                // Refresh at 60FPS
-                if(tickCount > startTick + 16)
-                {
-                    startTick = tickCount;
-                }
-
-                // Gameloop step
-                GameLoopStep();
-            }
-
-            // Clean up
-            CleanUp();
+            // Laat het scherm zien
+            timer.Start();
+            Application.Run(gs);
         }
 
         /// <summary>
@@ -80,40 +60,32 @@ namespace Olympus_the_Game
         /// </summary>
         public void RequestClose()
         {
-            // Verander parameter die afsluiten bijhoudt
-            closeRequested = true;
-        }
-
-        /// <summary>
-        /// Initialiseer game, dit is het laden van resources, aanmaken van schermen etc...
-        /// </summary>
-        private void Initialize()
-        {
-            // Maak gamescreen aan
-            gs = new GameScreen();
-
-            // Laat het scherm zien
-            Application.Run(gs);
+            // Stop timer
+            timer.Close();
+            timer.Stop();
         }
 
         /// <summary>
         /// 1 stap van de gameloop, deze wordt achter elkaar uitgevoerd totdat afsluiten wordt aangevraagd.
         /// </summary>
-        private void GameLoopStep()
+        private void GameLoopStep(object source, ElapsedEventArgs e)
         {
-            // Invalidate scherm zodat deze opnieuw wordt getekend
-            gs.Invalidate(true);
-        }
+            // Timer update
+            tickCount = Environment.TickCount;
 
-        /// <summary>
-        /// Release alle resources
-        /// </summary>
-        private void CleanUp()
-        {
-            // Clean up resources
+            // Refresh at 60FPS
+            if (tickCount > startTick + 16)
+            {
+                startTick = tickCount;
+            }
 
-            // Sluit het scherm
-            gs.Dispose();
+            // Update screen
+            if (!gs.IsDisposed)
+                try
+                {
+                    gs.Invoke(new InvalidateDelegate(gs.Invalidate), new object[] { true });
+                }
+                catch (ObjectDisposedException) { }
         }
     }
 }

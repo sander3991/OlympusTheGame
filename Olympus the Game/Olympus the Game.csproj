@@ -101,6 +101,9 @@
     <EmbeddedResource Include="View\ArrowPanel.resx">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GamePanel.resx">
+      <DependentUpon>GamePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
