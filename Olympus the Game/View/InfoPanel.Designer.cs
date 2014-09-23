@@ -32,48 +32,48 @@
             this.Statistieken = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
+            this.CreeperSpeedY = new System.Windows.Forms.Label();
+            this.CreeperSpeedYLabel = new System.Windows.Forms.Label();
+            this.CreeperSpeedX = new System.Windows.Forms.Label();
+            this.CreeperSpeedXLabel = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.CreeperY = new System.Windows.Forms.Label();
+            this.CreeperYLabel = new System.Windows.Forms.Label();
+            this.CreeperX = new System.Windows.Forms.Label();
+            this.CreeperXLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.SpiderSpeedY = new System.Windows.Forms.Label();
+            this.SpiderSpeedYLabel = new System.Windows.Forms.Label();
+            this.SpiderSpeedX = new System.Windows.Forms.Label();
+            this.SpiderSpeedXLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.SpiderY = new System.Windows.Forms.Label();
+            this.SpiderYLabel = new System.Windows.Forms.Label();
+            this.SpiderX = new System.Windows.Forms.Label();
+            this.SpiderXLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.TntSpeedY = new System.Windows.Forms.Label();
+            this.TntSpeedYLabel = new System.Windows.Forms.Label();
+            this.TntSpeedX = new System.Windows.Forms.Label();
+            this.TntSpeedXLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.TntY = new System.Windows.Forms.Label();
+            this.TntYLabel = new System.Windows.Forms.Label();
+            this.TntX = new System.Windows.Forms.Label();
+            this.TntXLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SpelUitleg = new System.Windows.Forms.RichTextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.SpelerSpeedY = new System.Windows.Forms.Label();
+            this.SpelerSpeedYLabel = new System.Windows.Forms.Label();
+            this.SpelerSpeedX = new System.Windows.Forms.Label();
+            this.SpelerSpeedXLabel = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.SpelerY = new System.Windows.Forms.Label();
+            this.SpelerYLabel = new System.Windows.Forms.Label();
+            this.SpelerX = new System.Windows.Forms.Label();
+            this.SpelerXLabel = new System.Windows.Forms.Label();
             this.StatistiekenTab.SuspendLayout();
             this.Statistieken.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -112,15 +112,15 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.richTextBox3);
-            this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.label28);
+            this.groupBox4.Controls.Add(this.CreeperSpeedY);
+            this.groupBox4.Controls.Add(this.CreeperSpeedYLabel);
+            this.groupBox4.Controls.Add(this.CreeperSpeedX);
+            this.groupBox4.Controls.Add(this.CreeperSpeedXLabel);
             this.groupBox4.Controls.Add(this.pictureBox4);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Controls.Add(this.label32);
+            this.groupBox4.Controls.Add(this.CreeperY);
+            this.groupBox4.Controls.Add(this.CreeperYLabel);
+            this.groupBox4.Controls.Add(this.CreeperX);
+            this.groupBox4.Controls.Add(this.CreeperXLabel);
             this.groupBox4.Location = new System.Drawing.Point(6, 173);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(313, 132);
@@ -139,41 +139,41 @@
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "The creeper follows you when you come too close and explodes when you hit it.";
             // 
-            // label25
+            // CreeperSpeedY
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(258, 55);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(16, 17);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "5";
+            this.CreeperSpeedY.AutoSize = true;
+            this.CreeperSpeedY.Location = new System.Drawing.Point(258, 55);
+            this.CreeperSpeedY.Name = "CreeperSpeedY";
+            this.CreeperSpeedY.Size = new System.Drawing.Size(16, 17);
+            this.CreeperSpeedY.TabIndex = 8;
+            this.CreeperSpeedY.Text = "5";
             // 
-            // label26
+            // CreeperSpeedYLabel
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(191, 55);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(74, 17);
-            this.label26.TabIndex = 7;
-            this.label26.Text = "Speed Y =";
+            this.CreeperSpeedYLabel.AutoSize = true;
+            this.CreeperSpeedYLabel.Location = new System.Drawing.Point(191, 55);
+            this.CreeperSpeedYLabel.Name = "CreeperSpeedYLabel";
+            this.CreeperSpeedYLabel.Size = new System.Drawing.Size(74, 17);
+            this.CreeperSpeedYLabel.TabIndex = 7;
+            this.CreeperSpeedYLabel.Text = "Speed Y =";
             // 
-            // label27
+            // CreeperSpeedX
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(258, 22);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(16, 17);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "5";
+            this.CreeperSpeedX.AutoSize = true;
+            this.CreeperSpeedX.Location = new System.Drawing.Point(258, 22);
+            this.CreeperSpeedX.Name = "CreeperSpeedX";
+            this.CreeperSpeedX.Size = new System.Drawing.Size(16, 17);
+            this.CreeperSpeedX.TabIndex = 6;
+            this.CreeperSpeedX.Text = "5";
             // 
-            // label28
+            // CreeperSpeedXLabel
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(191, 22);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(74, 17);
-            this.label28.TabIndex = 5;
-            this.label28.Text = "Speed X =";
+            this.CreeperSpeedXLabel.AutoSize = true;
+            this.CreeperSpeedXLabel.Location = new System.Drawing.Point(191, 22);
+            this.CreeperSpeedXLabel.Name = "CreeperSpeedXLabel";
+            this.CreeperSpeedXLabel.Size = new System.Drawing.Size(74, 17);
+            this.CreeperSpeedXLabel.TabIndex = 5;
+            this.CreeperSpeedXLabel.Text = "Speed X =";
             // 
             // pictureBox4
             // 
@@ -186,54 +186,54 @@
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
-            // label29
+            // CreeperY
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(109, 53);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(24, 17);
-            this.label29.TabIndex = 3;
-            this.label29.Text = "21";
+            this.CreeperY.AutoSize = true;
+            this.CreeperY.Location = new System.Drawing.Point(109, 53);
+            this.CreeperY.Name = "CreeperY";
+            this.CreeperY.Size = new System.Drawing.Size(24, 17);
+            this.CreeperY.TabIndex = 3;
+            this.CreeperY.Text = "21";
             // 
-            // label30
+            // CreeperYLabel
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(83, 53);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(33, 17);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "Y = ";
+            this.CreeperYLabel.AutoSize = true;
+            this.CreeperYLabel.Location = new System.Drawing.Point(83, 53);
+            this.CreeperYLabel.Name = "CreeperYLabel";
+            this.CreeperYLabel.Size = new System.Drawing.Size(33, 17);
+            this.CreeperYLabel.TabIndex = 2;
+            this.CreeperYLabel.Text = "Y = ";
             // 
-            // label31
+            // CreeperX
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(109, 22);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(32, 17);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "483";
+            this.CreeperX.AutoSize = true;
+            this.CreeperX.Location = new System.Drawing.Point(109, 22);
+            this.CreeperX.Name = "CreeperX";
+            this.CreeperX.Size = new System.Drawing.Size(32, 17);
+            this.CreeperX.TabIndex = 1;
+            this.CreeperX.Text = "483";
             // 
-            // label32
+            // CreeperXLabel
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(83, 22);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(33, 17);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "X = ";
+            this.CreeperXLabel.AutoSize = true;
+            this.CreeperXLabel.Location = new System.Drawing.Point(83, 22);
+            this.CreeperXLabel.Name = "CreeperXLabel";
+            this.CreeperXLabel.Size = new System.Drawing.Size(33, 17);
+            this.CreeperXLabel.TabIndex = 0;
+            this.CreeperXLabel.Text = "X = ";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.richTextBox2);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.SpiderSpeedY);
+            this.groupBox2.Controls.Add(this.SpiderSpeedYLabel);
+            this.groupBox2.Controls.Add(this.SpiderSpeedX);
+            this.groupBox2.Controls.Add(this.SpiderSpeedXLabel);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.SpiderY);
+            this.groupBox2.Controls.Add(this.SpiderYLabel);
+            this.groupBox2.Controls.Add(this.SpiderX);
+            this.groupBox2.Controls.Add(this.SpiderXLabel);
             this.groupBox2.Location = new System.Drawing.Point(6, 331);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(313, 132);
@@ -252,41 +252,41 @@
             this.richTextBox2.TabIndex = 9;
             this.richTextBox2.Text = "When you come to close to the spider, your speed decreases.";
             // 
-            // label9
+            // SpiderSpeedY
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(258, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(16, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "5";
+            this.SpiderSpeedY.AutoSize = true;
+            this.SpiderSpeedY.Location = new System.Drawing.Point(258, 55);
+            this.SpiderSpeedY.Name = "SpiderSpeedY";
+            this.SpiderSpeedY.Size = new System.Drawing.Size(16, 17);
+            this.SpiderSpeedY.TabIndex = 8;
+            this.SpiderSpeedY.Text = "5";
             // 
-            // label10
+            // SpiderSpeedYLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(191, 55);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Speed Y =";
+            this.SpiderSpeedYLabel.AutoSize = true;
+            this.SpiderSpeedYLabel.Location = new System.Drawing.Point(191, 55);
+            this.SpiderSpeedYLabel.Name = "SpiderSpeedYLabel";
+            this.SpiderSpeedYLabel.Size = new System.Drawing.Size(74, 17);
+            this.SpiderSpeedYLabel.TabIndex = 7;
+            this.SpiderSpeedYLabel.Text = "Speed Y =";
             // 
-            // label11
+            // SpiderSpeedX
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(258, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(16, 17);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "5";
+            this.SpiderSpeedX.AutoSize = true;
+            this.SpiderSpeedX.Location = new System.Drawing.Point(258, 22);
+            this.SpiderSpeedX.Name = "SpiderSpeedX";
+            this.SpiderSpeedX.Size = new System.Drawing.Size(16, 17);
+            this.SpiderSpeedX.TabIndex = 6;
+            this.SpiderSpeedX.Text = "5";
             // 
-            // label12
+            // SpiderSpeedXLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(191, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Speed X =";
+            this.SpiderSpeedXLabel.AutoSize = true;
+            this.SpiderSpeedXLabel.Location = new System.Drawing.Point(191, 22);
+            this.SpiderSpeedXLabel.Name = "SpiderSpeedXLabel";
+            this.SpiderSpeedXLabel.Size = new System.Drawing.Size(74, 17);
+            this.SpiderSpeedXLabel.TabIndex = 5;
+            this.SpiderSpeedXLabel.Text = "Speed X =";
             // 
             // pictureBox2
             // 
@@ -298,54 +298,54 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // label13
+            // SpiderY
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(109, 53);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 17);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "21";
+            this.SpiderY.AutoSize = true;
+            this.SpiderY.Location = new System.Drawing.Point(109, 53);
+            this.SpiderY.Name = "SpiderY";
+            this.SpiderY.Size = new System.Drawing.Size(24, 17);
+            this.SpiderY.TabIndex = 3;
+            this.SpiderY.Text = "21";
             // 
-            // label14
+            // SpiderYLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(83, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(33, 17);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Y = ";
+            this.SpiderYLabel.AutoSize = true;
+            this.SpiderYLabel.Location = new System.Drawing.Point(83, 53);
+            this.SpiderYLabel.Name = "SpiderYLabel";
+            this.SpiderYLabel.Size = new System.Drawing.Size(33, 17);
+            this.SpiderYLabel.TabIndex = 2;
+            this.SpiderYLabel.Text = "Y = ";
             // 
-            // label15
+            // SpiderX
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(109, 22);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(32, 17);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "483";
+            this.SpiderX.AutoSize = true;
+            this.SpiderX.Location = new System.Drawing.Point(109, 22);
+            this.SpiderX.Name = "SpiderX";
+            this.SpiderX.Size = new System.Drawing.Size(32, 17);
+            this.SpiderX.TabIndex = 1;
+            this.SpiderX.Text = "483";
             // 
-            // label16
+            // SpiderXLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(83, 22);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(33, 17);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "X = ";
+            this.SpiderXLabel.AutoSize = true;
+            this.SpiderXLabel.Location = new System.Drawing.Point(83, 22);
+            this.SpiderXLabel.Name = "SpiderXLabel";
+            this.SpiderXLabel.Size = new System.Drawing.Size(33, 17);
+            this.SpiderXLabel.TabIndex = 0;
+            this.SpiderXLabel.Text = "X = ";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.TntSpeedY);
+            this.groupBox1.Controls.Add(this.TntSpeedYLabel);
+            this.groupBox1.Controls.Add(this.TntSpeedX);
+            this.groupBox1.Controls.Add(this.TntSpeedXLabel);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.TntY);
+            this.groupBox1.Controls.Add(this.TntYLabel);
+            this.groupBox1.Controls.Add(this.TntX);
+            this.groupBox1.Controls.Add(this.TntXLabel);
             this.groupBox1.Location = new System.Drawing.Point(6, 488);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(313, 132);
@@ -364,41 +364,41 @@
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "The TNT block explodes directly when you touch it.";
             // 
-            // label1
+            // TntSpeedY
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(258, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "0";
+            this.TntSpeedY.AutoSize = true;
+            this.TntSpeedY.Location = new System.Drawing.Point(258, 55);
+            this.TntSpeedY.Name = "TntSpeedY";
+            this.TntSpeedY.Size = new System.Drawing.Size(16, 17);
+            this.TntSpeedY.TabIndex = 8;
+            this.TntSpeedY.Text = "0";
             // 
-            // label2
+            // TntSpeedYLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Speed Y =";
+            this.TntSpeedYLabel.AutoSize = true;
+            this.TntSpeedYLabel.Location = new System.Drawing.Point(191, 55);
+            this.TntSpeedYLabel.Name = "TntSpeedYLabel";
+            this.TntSpeedYLabel.Size = new System.Drawing.Size(74, 17);
+            this.TntSpeedYLabel.TabIndex = 7;
+            this.TntSpeedYLabel.Text = "Speed Y =";
             // 
-            // label3
+            // TntSpeedX
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "0";
+            this.TntSpeedX.AutoSize = true;
+            this.TntSpeedX.Location = new System.Drawing.Point(258, 22);
+            this.TntSpeedX.Name = "TntSpeedX";
+            this.TntSpeedX.Size = new System.Drawing.Size(16, 17);
+            this.TntSpeedX.TabIndex = 6;
+            this.TntSpeedX.Text = "0";
             // 
-            // label4
+            // TntSpeedXLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(191, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Speed X =";
+            this.TntSpeedXLabel.AutoSize = true;
+            this.TntSpeedXLabel.Location = new System.Drawing.Point(191, 22);
+            this.TntSpeedXLabel.Name = "TntSpeedXLabel";
+            this.TntSpeedXLabel.Size = new System.Drawing.Size(74, 17);
+            this.TntSpeedXLabel.TabIndex = 5;
+            this.TntSpeedXLabel.Text = "Speed X =";
             // 
             // pictureBox1
             // 
@@ -410,54 +410,53 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label5
+            // TntY
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(109, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 17);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "21";
+            this.TntY.AutoSize = true;
+            this.TntY.Location = new System.Drawing.Point(109, 53);
+            this.TntY.Name = "TntY";
+            this.TntY.Size = new System.Drawing.Size(24, 17);
+            this.TntY.TabIndex = 3;
+            this.TntY.Text = "21";
             // 
-            // label6
+            // TntYLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 17);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Y = ";
+            this.TntYLabel.AutoSize = true;
+            this.TntYLabel.Location = new System.Drawing.Point(83, 53);
+            this.TntYLabel.Name = "TntYLabel";
+            this.TntYLabel.Size = new System.Drawing.Size(33, 17);
+            this.TntYLabel.TabIndex = 2;
+            this.TntYLabel.Text = "Y = ";
             // 
-            // label7
+            // TntX
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(109, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "483";
+            this.TntX.Location = new System.Drawing.Point(109, 22);
+            this.TntX.Name = "TntX";
+            this.TntX.Size = new System.Drawing.Size(32, 17);
+            this.TntX.TabIndex = 1;
+            this.TntX.Text = "483";
             // 
-            // label8
+            // TntXLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(83, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "X = ";
+            this.TntXLabel.AutoSize = true;
+            this.TntXLabel.Location = new System.Drawing.Point(83, 22);
+            this.TntXLabel.Name = "TntXLabel";
+            this.TntXLabel.Size = new System.Drawing.Size(33, 17);
+            this.TntXLabel.TabIndex = 0;
+            this.TntXLabel.Text = "X = ";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.SpelUitleg);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.SpelerSpeedY);
+            this.groupBox3.Controls.Add(this.SpelerSpeedYLabel);
+            this.groupBox3.Controls.Add(this.SpelerSpeedX);
+            this.groupBox3.Controls.Add(this.SpelerSpeedXLabel);
             this.groupBox3.Controls.Add(this.pictureBox3);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.SpelerY);
+            this.groupBox3.Controls.Add(this.SpelerYLabel);
+            this.groupBox3.Controls.Add(this.SpelerX);
+            this.groupBox3.Controls.Add(this.SpelerXLabel);
             this.groupBox3.Location = new System.Drawing.Point(6, 15);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(313, 132);
@@ -476,41 +475,41 @@
             this.SpelUitleg.TabIndex = 9;
             this.SpelUitleg.Text = "This is you.";
             // 
-            // label17
+            // SpelerSpeedY
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(258, 55);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 17);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "5";
+            this.SpelerSpeedY.AutoSize = true;
+            this.SpelerSpeedY.Location = new System.Drawing.Point(258, 55);
+            this.SpelerSpeedY.Name = "SpelerSpeedY";
+            this.SpelerSpeedY.Size = new System.Drawing.Size(16, 17);
+            this.SpelerSpeedY.TabIndex = 8;
+            this.SpelerSpeedY.Text = "5";
             // 
-            // label18
+            // SpelerSpeedYLabel
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(191, 55);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 17);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Speed Y =";
+            this.SpelerSpeedYLabel.AutoSize = true;
+            this.SpelerSpeedYLabel.Location = new System.Drawing.Point(191, 55);
+            this.SpelerSpeedYLabel.Name = "SpelerSpeedYLabel";
+            this.SpelerSpeedYLabel.Size = new System.Drawing.Size(74, 17);
+            this.SpelerSpeedYLabel.TabIndex = 7;
+            this.SpelerSpeedYLabel.Text = "Speed Y =";
             // 
-            // label19
+            // SpelerSpeedX
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(258, 22);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(16, 17);
-            this.label19.TabIndex = 6;
-            this.label19.Text = "5";
+            this.SpelerSpeedX.AutoSize = true;
+            this.SpelerSpeedX.Location = new System.Drawing.Point(258, 22);
+            this.SpelerSpeedX.Name = "SpelerSpeedX";
+            this.SpelerSpeedX.Size = new System.Drawing.Size(16, 17);
+            this.SpelerSpeedX.TabIndex = 6;
+            this.SpelerSpeedX.Text = "5";
             // 
-            // label20
+            // SpelerSpeedXLabel
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(191, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 17);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "Speed X =";
+            this.SpelerSpeedXLabel.AutoSize = true;
+            this.SpelerSpeedXLabel.Location = new System.Drawing.Point(191, 22);
+            this.SpelerSpeedXLabel.Name = "SpelerSpeedXLabel";
+            this.SpelerSpeedXLabel.Size = new System.Drawing.Size(74, 17);
+            this.SpelerSpeedXLabel.TabIndex = 5;
+            this.SpelerSpeedXLabel.Text = "Speed X =";
             // 
             // pictureBox3
             // 
@@ -522,41 +521,41 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // label21
+            // SpelerY
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(109, 53);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(24, 17);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "21";
+            this.SpelerY.AutoSize = true;
+            this.SpelerY.Location = new System.Drawing.Point(109, 53);
+            this.SpelerY.Name = "SpelerY";
+            this.SpelerY.Size = new System.Drawing.Size(24, 17);
+            this.SpelerY.TabIndex = 3;
+            this.SpelerY.Text = "21";
             // 
-            // label22
+            // SpelerYLabel
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(83, 53);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(33, 17);
-            this.label22.TabIndex = 2;
-            this.label22.Text = "Y = ";
+            this.SpelerYLabel.AutoSize = true;
+            this.SpelerYLabel.Location = new System.Drawing.Point(83, 53);
+            this.SpelerYLabel.Name = "SpelerYLabel";
+            this.SpelerYLabel.Size = new System.Drawing.Size(33, 17);
+            this.SpelerYLabel.TabIndex = 2;
+            this.SpelerYLabel.Text = "Y = ";
             // 
-            // label23
+            // SpelerX
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(109, 22);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(32, 17);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "483";
+            this.SpelerX.AutoSize = true;
+            this.SpelerX.Location = new System.Drawing.Point(109, 22);
+            this.SpelerX.Name = "SpelerX";
+            this.SpelerX.Size = new System.Drawing.Size(32, 17);
+            this.SpelerX.TabIndex = 1;
+            this.SpelerX.Text = "483";
             // 
-            // label24
+            // SpelerXLabel
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(83, 22);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(33, 17);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "X = ";
+            this.SpelerXLabel.AutoSize = true;
+            this.SpelerXLabel.Location = new System.Drawing.Point(83, 22);
+            this.SpelerXLabel.Name = "SpelerXLabel";
+            this.SpelerXLabel.Size = new System.Drawing.Size(33, 17);
+            this.SpelerXLabel.TabIndex = 0;
+            this.SpelerXLabel.Text = "X = ";
             // 
             // InfoPanel
             // 
@@ -588,48 +587,48 @@
         private System.Windows.Forms.TabControl StatistiekenTab;
         private System.Windows.Forms.TabPage Statistieken;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label SpelerSpeedYLabel;
+        private System.Windows.Forms.Label SpelerSpeedX;
+        private System.Windows.Forms.Label SpelerSpeedXLabel;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label SpelerY;
+        private System.Windows.Forms.Label SpelerYLabel;
+        private System.Windows.Forms.Label SpelerX;
+        private System.Windows.Forms.Label SpelerXLabel;
+        private System.Windows.Forms.Label SpelerSpeedY;
         private System.Windows.Forms.RichTextBox SpelUitleg;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label CreeperSpeedY;
+        private System.Windows.Forms.Label CreeperSpeedYLabel;
+        private System.Windows.Forms.Label CreeperSpeedX;
+        private System.Windows.Forms.Label CreeperSpeedXLabel;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label CreeperY;
+        private System.Windows.Forms.Label CreeperYLabel;
+        private System.Windows.Forms.Label CreeperX;
+        private System.Windows.Forms.Label CreeperXLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label SpiderSpeedY;
+        private System.Windows.Forms.Label SpiderSpeedYLabel;
+        private System.Windows.Forms.Label SpiderSpeedX;
+        private System.Windows.Forms.Label SpiderSpeedXLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label SpiderY;
+        private System.Windows.Forms.Label SpiderYLabel;
+        private System.Windows.Forms.Label SpiderX;
+        private System.Windows.Forms.Label SpiderXLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label TntSpeedY;
+        private System.Windows.Forms.Label TntSpeedYLabel;
+        private System.Windows.Forms.Label TntSpeedX;
+        private System.Windows.Forms.Label TntSpeedXLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label TntY;
+        private System.Windows.Forms.Label TntYLabel;
+        private System.Windows.Forms.Label TntX;
+        private System.Windows.Forms.Label TntXLabel;
     }
 }
