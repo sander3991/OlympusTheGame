@@ -1,6 +1,6 @@
 ﻿namespace Olympus_the_Game.View
 {
-    partial class InfoPanel
+    partial class MenuPanel
     {
         /// <summary> 
         /// Required designer variable.

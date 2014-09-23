@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Olympus_the_Game.View
 {
-    public partial class InfoPanel : UserControl
+    public partial class MenuPanel : UserControl
     {
-        public InfoPanel()
+        public MenuPanel()
         {
             InitializeComponent();
         }
