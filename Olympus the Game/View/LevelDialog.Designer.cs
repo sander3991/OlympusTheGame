@@ -65,6 +65,7 @@
             this.DungeonLevel.TabIndex = 2;
             this.DungeonLevel.Text = "Dungeon";
             this.DungeonLevel.UseVisualStyleBackColor = true;
+            this.DungeonLevel.Click += new System.EventHandler(this.DungeonLevel_Click);
             // 
             // BeachLevel
             // 
@@ -74,6 +75,7 @@
             this.BeachLevel.TabIndex = 3;
             this.BeachLevel.Text = "Beach";
             this.BeachLevel.UseVisualStyleBackColor = true;
+            this.BeachLevel.Click += new System.EventHandler(this.BeachLevel_Click);
             // 
             // HellLevel
             // 
@@ -83,6 +85,7 @@
             this.HellLevel.TabIndex = 4;
             this.HellLevel.Text = "Hell";
             this.HellLevel.UseVisualStyleBackColor = true;
+            this.HellLevel.Click += new System.EventHandler(this.HellLevel_Click);
             // 
             // CloudsLevel
             // 
@@ -92,6 +95,7 @@
             this.CloudsLevel.TabIndex = 5;
             this.CloudsLevel.Text = "Clouds";
             this.CloudsLevel.UseVisualStyleBackColor = true;
+            this.CloudsLevel.Click += new System.EventHandler(this.CloudsLevel_Click);
             // 
             // KiesLevel
             // 
@@ -101,6 +105,7 @@
             this.KiesLevel.TabIndex = 6;
             this.KiesLevel.Text = "Laad .xml";
             this.KiesLevel.UseVisualStyleBackColor = true;
+            this.KiesLevel.Click += new System.EventHandler(this.KiesLevel_Click);
             // 
             // LevelDialog
             // 
