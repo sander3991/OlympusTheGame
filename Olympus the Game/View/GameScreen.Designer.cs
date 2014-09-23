@@ -29,43 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
-            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
+            this.infoPanel1 = new Olympus_the_Game.View.MenuPanel();
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
+            this.infoPanel2 = new Olympus_the_Game.View.InfoPanel();
             this.SuspendLayout();
+            // 
+            // arrowPanel1
+            // 
+            this.arrowPanel1.Location = new System.Drawing.Point(445, 448);
+            this.arrowPanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.arrowPanel1.Name = "arrowPanel1";
+            this.arrowPanel1.Size = new System.Drawing.Size(449, 304);
+            this.arrowPanel1.TabIndex = 3;
+            this.arrowPanel1.Load += new System.EventHandler(this.arrowPanel1_Load);
             // 
             // infoPanel1
             // 
-            this.infoPanel1.Location = new System.Drawing.Point(15, 359);
+            this.infoPanel1.Location = new System.Drawing.Point(20, 442);
+            this.infoPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(313, 262);
+            this.infoPanel1.Size = new System.Drawing.Size(417, 322);
             this.infoPanel1.TabIndex = 2;
             // 
             // gamePanel1
             // 
             this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(12, 12);
+            this.gamePanel1.Location = new System.Drawing.Point(16, 15);
+            this.gamePanel1.Margin = new System.Windows.Forms.Padding(5);
             this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(785, 341);
+            this.gamePanel1.Size = new System.Drawing.Size(1046, 419);
             this.gamePanel1.TabIndex = 0;
             // 
-            // arrowPanel1
+            // infoPanel2
             // 
-            this.arrowPanel1.Location = new System.Drawing.Point(334, 364);
-            this.arrowPanel1.Name = "arrowPanel1";
-            this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
-            this.arrowPanel1.TabIndex = 3;
-            this.arrowPanel1.Load += new System.EventHandler(this.arrowPanel1_Load);
+            this.infoPanel2.Location = new System.Drawing.Point(1081, 12);
+            this.infoPanel2.Name = "infoPanel2";
+            this.infoPanel2.Size = new System.Drawing.Size(344, 666);
+            this.infoPanel2.TabIndex = 4;
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 623);
+            this.ClientSize = new System.Drawing.Size(1437, 767);
+            this.Controls.Add(this.infoPanel2);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.infoPanel1);
             this.Controls.Add(this.gamePanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";
@@ -77,8 +90,9 @@
         #endregion
 
         private GamePanel gamePanel1;
-        private InfoPanel infoPanel1;
+        private MenuPanel infoPanel1;
         private ArrowPanel arrowPanel1;
+        private InfoPanel infoPanel2;
 
     }
 }
