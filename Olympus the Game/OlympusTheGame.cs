@@ -12,6 +12,10 @@ namespace Olympus_the_Game
     {
         // Het scherm van het spel
         private GameScreen gs;
+        
+        // Tick counter
+        private int startTick = 0;
+        private int tickCount = 0;
 
         public static OlympusTheGame INSTANCE;
 
@@ -44,6 +48,15 @@ namespace Olympus_the_Game
             // Game loop
             while (!closeRequested)
             {
+                // Timer update
+                tickCount = Environment.TickCount;
+
+                // Refresh at 60FPS
+                if(tickCount > startTick + 16)
+                {
+                    startTick = tickCount;
+                }
+
                 // Gameloop step
                 GameLoopStep();
             }
