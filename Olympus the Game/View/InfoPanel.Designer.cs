@@ -473,7 +473,7 @@
             this.SpelUitleg.ReadOnly = true;
             this.SpelUitleg.Size = new System.Drawing.Size(301, 48);
             this.SpelUitleg.TabIndex = 9;
-            this.SpelUitleg.Text = "This is you.";
+            this.SpelUitleg.Text = "Dit ben jij.";
             // 
             // SpelerSpeedY
             // 
