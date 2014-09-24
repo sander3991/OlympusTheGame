@@ -11,6 +11,9 @@ namespace Olympus_the_Game.View
 {
     public partial class InfoPanel : UserControl
     {
+        /// <summary>
+        /// Het infopanel bevat informatie over de mobs en over de speler
+        /// </summary>
         public InfoPanel()
         {
             InitializeComponent();
