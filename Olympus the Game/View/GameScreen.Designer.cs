@@ -37,47 +37,48 @@
             // 
             // infoPanel2
             // 
-            this.infoPanel2.Location = new System.Drawing.Point(1081, 12);
+            this.infoPanel2.Location = new System.Drawing.Point(995, 11);
+            this.infoPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.infoPanel2.Name = "infoPanel2";
-            this.infoPanel2.Size = new System.Drawing.Size(344, 666);
+            this.infoPanel2.Size = new System.Drawing.Size(258, 707);
             this.infoPanel2.TabIndex = 4;
             // 
             // arrowPanel1
             // 
-            this.arrowPanel1.Location = new System.Drawing.Point(458, 449);
-            this.arrowPanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.arrowPanel1.Location = new System.Drawing.Point(652, 471);
+            this.arrowPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.arrowPanel1.Name = "arrowPanel1";
-            this.arrowPanel1.Size = new System.Drawing.Size(449, 304);
+            this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
             // 
             // menuPanel
             // 
-            this.menuPanel.Location = new System.Drawing.Point(20, 442);
-            this.menuPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.menuPanel.Location = new System.Drawing.Point(323, 456);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(428, 322);
+            this.menuPanel.Size = new System.Drawing.Size(321, 262);
             this.menuPanel.TabIndex = 2;
             // 
             // gamePanel1
             // 
             this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(16, 15);
-            this.gamePanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.gamePanel1.Location = new System.Drawing.Point(12, 12);
+            this.gamePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(1046, 419);
+            this.gamePanel1.Size = new System.Drawing.Size(977, 436);
             this.gamePanel1.TabIndex = 0;
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1437, 767);
+            this.ClientSize = new System.Drawing.Size(1264, 985);
             this.Controls.Add(this.infoPanel2);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.gamePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus the Game";
