@@ -11,6 +11,8 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelDialog : Form
     {
+        private string Level { get; set; }
+
         public LevelDialog()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void DungeonLevel_Click(object sender, EventArgs e)
         {
-
+            Level = "Dungeon";
         }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void BeachLevel_Click(object sender, EventArgs e)
         {
-
+            Level = "Beach";
         }
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void HeavenLevel_Click(object sender, EventArgs e)
         {
-
+            Level = "Heaven";
         }
 
         /// <summary>
@@ -53,7 +55,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void HellLevel_Click(object sender, EventArgs e)
         {
-
+            Level = "Hell";
         }
 
         /// <summary>
