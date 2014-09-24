@@ -87,6 +87,58 @@ namespace Olympus_the_Game_Test.Model
 
         }
         [TestMethod]
+        public void EntityDistanceTest()
+        {
+            List<Entity> entities = new List<Entity>();
+            Entity player = new EntityPlayer(0, 0, 0, 0);
+            player.DX = 5;
+            player.DY = 10;
+            entities.Add(player);
+            entities.Add(new EntitySlower(0, 0, 0, 0, 5, 10));
+            entities.Add(new EntityCreeper(0, 0, 0, 0, 5, 10, 0));
+            entities.Add(new EntityExplode(0, 0, 0, 0, 5, 10, 0));
+            entities.Add(new EntityTimeBomb(0, 0, 0, 0, 5, 10, 0));
+            for (int i = 0; i < entities.Count; i++)
+            {
+                Entity ent1 = entities[i];
+                for(int j = 0; j < entities.Count; j++)
+                {
+                    Entity ent2 = entities[j];
+                    if (ent1 != ent2)
+                        Assert.IsTrue(ent1.DistanceToObject(ent2) == 0);
+                }
+            }
+
+            Entity e1 = new EntityPlayer(10, 10, 0, 0);
+            Entity e2 = new EntityPlayer(10, 10, 0, 5);
+            Entity e3 = new EntityPlayer(6, 6, 0, 0);
+            //Tests met gelijke groote van entities
+            Assert.IsTrue(e1.DistanceToObject(e2) == 5.0); //verticale afstand
+            e2.X = 5;
+            e2.Y = 0;
+            Assert.IsTrue(e1.DistanceToObject(e2) == 5); // horizontale afstand
+            e2.X = 4;
+            e2.Y = 3;
+            Assert.IsTrue(e1.DistanceToObject(e2) == 5); //Verticale afstand, pyhtagors Wortel van (3^2 + 4^2) == 5
+
+            //Tests met ongelijke grootte entities
+            e3.X = 2; //hierdoor is het midden van beide objecten op hetzelfde punt
+            e3.Y = 2;
+            Assert.IsTrue(e1.DistanceToObject(e3) == 0); //afstand is bepaald vana het midden van het object
+
+            e3.X = 10;
+            e3.Y = 2;
+            Assert.IsTrue(e1.DistanceToObject(e3) == 8); // Horizontale afstand
+            e3.X = 2;
+            e3.Y = 10;
+            Assert.IsTrue(e1.DistanceToObject(e3) == 8); // Verticale afstand
+            e3.X = 8;
+            e3.Y = 10;
+            Assert.IsTrue(e1.DistanceToObject(e3) == 10); //Schuine afstand
+            
+            
+        }
+        [TestMethod]
         public void EntityMoveTest()
         {
             List<Entity> entities = new List<Entity>();

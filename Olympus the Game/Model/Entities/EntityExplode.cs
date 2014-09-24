@@ -30,9 +30,5 @@ namespace Olympus_the_Game
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
-        public override void PaintObject()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
