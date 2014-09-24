@@ -24,6 +24,15 @@ namespace Olympus_the_Game
         private int tickCount = 0;
 
         public static OlympusTheGame INSTANCE { get; private set; }
+        public PlayField pf { get; private set; }
+
+        /// <summary>
+        /// Maak nieuw OlympusTheGame object
+        /// </summary>
+        public OlympusTheGame()
+        {
+            this.pf = new PlayField();
+        }
 
         /// <summary>
         /// Beginpunt van de applicatie

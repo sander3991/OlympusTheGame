@@ -11,7 +11,8 @@ namespace Olympus_the_Game.View
 {
     public partial class GamePanel : UserControl
     {
-
+        private static int BLOCK_SIZE = 50;
+        private static float SCALE = 1.0f;
         /// <summary>
         /// Het speelveld dat moet worden getekend.
         /// </summary>
@@ -23,7 +24,15 @@ namespace Olympus_the_Game.View
         public GamePanel(PlayField pf) // TODO Specify type
         {
             // Save vars
-            this.pf = pf;
+            this.pf = OlympusTheGame.INSTANCE.pf;
+            this.pf.AddObject(new ObjectStart(50, 50, 0, 0));
+            this.pf.AddObject(new ObjectFinish(50, 50, 800, 300));
+            this.pf.AddObject(new ObjectObstacle(50, 50, 60, 0));
+            this.pf.AddObject(new EntityCreeper(50, 50, 150, 60, 1.0f));
+            this.pf.AddObject(new EntityExplode(50, 50, 150, 0, 1.0f));
+            this.pf.AddObject(new EntityPlayer(50, 50, 0, 0));
+            this.pf.AddObject(new EntitySlower(50, 50, 200, 150));
+            this.pf.AddObject(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
 
             // Initialize component
             InitializeComponent();
@@ -50,7 +59,13 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void PaintPanel(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(System.DateTime.Now.Second % 2 == 0 ? Brushes.Red : Brushes.DeepSkyBlue, 100, 100, 100, 100);
+            List<GameObject> objects = pf.GetObjects();
+
+            // Loop through all gameobjects
+            foreach (GameObject go in objects)
+            {
+                e.Graphics.FillRectangle(Brushes.Black, go.X * SCALE, go.Y * SCALE, BLOCK_SIZE, BLOCK_SIZE);
+            }
         }
     }
 }
