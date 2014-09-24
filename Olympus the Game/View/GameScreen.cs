@@ -17,6 +17,11 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Functie die de applicatie laat afsluiten 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form_Close(object sender, FormClosingEventArgs e)
         {
             // Opent dialoog voor sluiten
