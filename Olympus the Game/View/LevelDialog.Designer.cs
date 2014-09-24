@@ -44,7 +44,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(344, 23);
+            this.richTextBox1.Size = new System.Drawing.Size(344, 40);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Laad een van de standaard levels die meegeleverd zijn.";
             // 
@@ -52,10 +52,10 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(42, 102);
+            this.richTextBox2.Location = new System.Drawing.Point(44, 93);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(265, 20);
+            this.richTextBox2.Size = new System.Drawing.Size(265, 35);
             this.richTextBox2.TabIndex = 1;
             this.richTextBox2.Text = "Laad zelf een (geëxporteerd) .xml bestand.";
             // 
@@ -71,7 +71,7 @@
             // 
             // DungeonLevel
             // 
-            this.DungeonLevel.Location = new System.Drawing.Point(19, 41);
+            this.DungeonLevel.Location = new System.Drawing.Point(20, 52);
             this.DungeonLevel.Name = "DungeonLevel";
             this.DungeonLevel.Size = new System.Drawing.Size(75, 23);
             this.DungeonLevel.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // BeachLevel
             // 
-            this.BeachLevel.Location = new System.Drawing.Point(100, 41);
+            this.BeachLevel.Location = new System.Drawing.Point(101, 52);
             this.BeachLevel.Name = "BeachLevel";
             this.BeachLevel.Size = new System.Drawing.Size(75, 23);
             this.BeachLevel.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             // HeavenLevel
             // 
-            this.HeavenLevel.Location = new System.Drawing.Point(181, 41);
+            this.HeavenLevel.Location = new System.Drawing.Point(182, 52);
             this.HeavenLevel.Name = "HeavenLevel";
             this.HeavenLevel.Size = new System.Drawing.Size(75, 23);
             this.HeavenLevel.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             // HellLevel
             // 
-            this.HellLevel.Location = new System.Drawing.Point(262, 41);
+            this.HellLevel.Location = new System.Drawing.Point(263, 52);
             this.HellLevel.Name = "HellLevel";
             this.HellLevel.Size = new System.Drawing.Size(75, 23);
             this.HellLevel.TabIndex = 6;
