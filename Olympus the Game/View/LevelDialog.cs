@@ -11,6 +11,9 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelDialog : Form
     {
+        /// <summary>
+        /// Deze waarde geeft de levelnaam van het gekozen level aan
+        /// </summary>
         private string Level { get; set; }
 
         public LevelDialog()

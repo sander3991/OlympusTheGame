@@ -27,7 +27,8 @@ namespace Olympus_the_Game.View
         }
 
         /// <summary>
-        /// Laad een dialog waarin uit standaard levels gekozen kan worden
+        /// Laad een dialog waarin uit standaard levels gekozen kan worden en waar
+        /// een .xml bestand kan worden ingeladen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
