@@ -36,9 +36,5 @@ namespace Olympus_the_Game
             health = MAXHEALTH;
         }
 
-        public override void PaintObject()
-        {
-            throw new System.NotImplementedException();
-}
     }
 }

@@ -99,9 +99,10 @@ namespace Olympus_the_Game
         /// <returns>De afstand tussen de twee game-objecten</returns>
         public double DistanceToObject(GameObject entity)
         {
-            int xDistance = entity.X + (entity.Width/2) - X + (Width/2); //bekijkt de afstand van het midden van beide objecten
-            int yDistance = entity.Y + (entity.Height / 2) - Y + (Height/2); //bekijkt de afstand van het midden van beide objecten
-            return Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2)); 
+            int xDistance = entity.X + (entity.Width/2) - X - (Width/2); //bekijkt de afstand van het midden van beide objecten
+            int yDistance = entity.Y + (entity.Height / 2) - Y - (Height/2); //bekijkt de afstand van het midden van beide objecten
+            double result = Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
+            return result; 
         }
         /// <summary>
         /// Helper method om te bepalen of de Y assen van de objecten elkaar kruisen
@@ -144,7 +145,5 @@ namespace Olympus_the_Game
         {
 
         }
-
-        public abstract void PaintObject();
     }
 }

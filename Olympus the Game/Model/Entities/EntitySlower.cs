@@ -34,10 +34,5 @@
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
-
-        public override void PaintObject()
-        {
-
-        }
     }
 }

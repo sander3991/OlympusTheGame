@@ -18,9 +18,5 @@ namespace Olympus_the_Game
         {
 
         }
-        public override void PaintObject()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
