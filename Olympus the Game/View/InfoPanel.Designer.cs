@@ -137,7 +137,8 @@
             this.richTextBox3.ReadOnly = true;
             this.richTextBox3.Size = new System.Drawing.Size(301, 48);
             this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "The creeper follows you when you come too close and explodes when you hit it.";
+            this.richTextBox3.Text = "De creeper volgt jou wanneer je te dichtbij komt en ontploft als hij je aanraakt!" +
+    "";
             // 
             // CreeperSpeedY
             // 
@@ -250,7 +251,7 @@
             this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(301, 48);
             this.richTextBox2.TabIndex = 9;
-            this.richTextBox2.Text = "When you come to close to the spider, your speed decreases.";
+            this.richTextBox2.Text = "Wanneer je dichtbij eens spider komt loop je langzamer!";
             // 
             // SpiderSpeedY
             // 
@@ -362,7 +363,7 @@
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(301, 48);
             this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "The TNT block explodes directly when you touch it.";
+            this.richTextBox1.Text = "De TNT blok ontploft direct wanneer je er tegenaan botst!";
             // 
             // TntSpeedY
             // 
