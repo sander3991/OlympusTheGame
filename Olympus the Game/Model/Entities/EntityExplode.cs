@@ -1,8 +1,6 @@
 ﻿using System;
-namespace Olympus_the_Game
-{
-    public class EntityExplode : Entity
-    {
+namespace Olympus_the_Game {
+    public class EntityExplode : Entity {
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
@@ -17,8 +15,8 @@ namespace Olympus_the_Game
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
-        public EntityExplode(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy)
-        {
+        public EntityExplode(int width, int height, int x, int y, int dx, int dy, double effectStrength)
+            : base(width, height, x, y, dx, dy) {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAI = false;
         }
@@ -32,11 +30,11 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
 
-        public override void OnCollide(GameObject gameObject) {
-            EntityPlayer player = gameObject as EntityPlayer;
-            
-            if(player != null){
-                if(DistanceToObject(player) < 50) {
+        public override void OnUpdate() {
+            EntityPlayer player = OlympusTheGame.INSTANCE.pf.Player;
+
+            if(player != null) {
+                if(DistanceToObject(player) < 100) {
                     player.Health--;
 
                     if(player.Health > 0) {
