@@ -8,7 +8,7 @@ namespace Olympus_the_Game
 {
     public abstract class Entity : GameObject
     {
-        public enum Type { PLAYER, SLOWER, TIMEBOMB, OBSTACLE, CREEPER, EXPLODE, HOME, FINISH, CAKE}
+        public enum Type { PLAYER, SLOWER, TIMEBOMB, OBSTACLE, CREEPER, EXPLODE, HOME, CAKE}
 
         private int dx;
         private int dy;

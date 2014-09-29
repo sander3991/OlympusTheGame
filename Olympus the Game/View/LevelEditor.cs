@@ -88,6 +88,24 @@ namespace Olympus_the_Game.View
                 case Entity.Type.TIMEBOMB:
                     this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
                     break;
+                case Entity.Type.SLOWER:
+                    this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
+                    break;
+                case Entity.Type.CAKE:
+                    this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
+                    break;
+                case Entity.Type.HOME:
+                    this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
+                    break;
+                case Entity.Type.CREEPER:
+                    this.pf.AddObject(new EntityCreeper(50, 50, l.X, l.Y, 1.0f));
+                    break;
+                case Entity.Type.OBSTACLE:
+                    this.pf.AddObject(new ObjectObstacle(50, 50, l.X, l.Y));
+                    break;
+                case Entity.Type.EXPLODE:
+                    this.pf.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
+                    break;
             }
             this.gamePanel1.Invalidate();
         }
