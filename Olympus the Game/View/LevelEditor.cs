@@ -16,9 +16,35 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Player_MouseDown(object sender, MouseEventArgs e)
         {
 
         }
+
+        private void Creeper_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Spider_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Tnt_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Cake_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
     }
 }

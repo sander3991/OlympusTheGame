@@ -70,16 +70,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 815);
+            this.ClientSize = new System.Drawing.Size(1264, 741);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.menuPanel1);
             this.Controls.Add(this.infoPanel1);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus The Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.ResumeLayout(false);
 
         }

@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -42,12 +36,12 @@
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.Player = new System.Windows.Forms.Panel();
+            this.Creeper = new System.Windows.Forms.Panel();
+            this.Spider = new System.Windows.Forms.Panel();
+            this.Tnt = new System.Windows.Forms.Panel();
+            this.TimeBomb = new System.Windows.Forms.Panel();
+            this.Cake = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,66 +52,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(978, 540);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.player;
-            this.pictureBox1.Location = new System.Drawing.Point(996, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Olympus_the_Game.Properties.Resources.creeper;
-            this.pictureBox2.Location = new System.Drawing.Point(996, 88);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Olympus_the_Game.Properties.Resources.spider;
-            this.pictureBox3.Location = new System.Drawing.Point(996, 164);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Olympus_the_Game.Properties.Resources.tnt;
-            this.pictureBox4.Location = new System.Drawing.Point(996, 240);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Olympus_the_Game.Properties.Resources.Background;
-            this.pictureBox5.Location = new System.Drawing.Point(996, 316);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Olympus_the_Game.Properties.Resources.Background;
-            this.pictureBox6.Location = new System.Drawing.Point(996, 392);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 6;
-            this.pictureBox6.TabStop = false;
             // 
             // richTextBox1
             // 
@@ -172,7 +106,7 @@
             this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(63, 70);
             this.richTextBox5.TabIndex = 11;
-            this.richTextBox5.Text = "Nog nader te bepalen";
+            this.richTextBox5.Text = "TimeBomb";
             // 
             // richTextBox6
             // 
@@ -183,7 +117,7 @@
             this.richTextBox6.ReadOnly = true;
             this.richTextBox6.Size = new System.Drawing.Size(63, 70);
             this.richTextBox6.TabIndex = 12;
-            this.richTextBox6.Text = "Nog nader te bepalen";
+            this.richTextBox6.Text = "Cake";
             // 
             // richTextBox7
             // 
@@ -196,15 +130,83 @@
             this.richTextBox7.TabIndex = 13;
             this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.";
             // 
+            // Player
+            // 
+            this.Player.AllowDrop = true;
+            this.Player.BackgroundImage = global::Olympus_the_Game.Properties.Resources.player;
+            this.Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Player.Location = new System.Drawing.Point(996, 12);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(70, 70);
+            this.Player.TabIndex = 14;
+            this.Player.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Player_MouseDown);
+            // 
+            // Creeper
+            // 
+            this.Creeper.AllowDrop = true;
+            this.Creeper.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
+            this.Creeper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Creeper.Location = new System.Drawing.Point(996, 88);
+            this.Creeper.Name = "Creeper";
+            this.Creeper.Size = new System.Drawing.Size(70, 70);
+            this.Creeper.TabIndex = 15;
+            this.Creeper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Creeper_MouseDown);
+            // 
+            // Spider
+            // 
+            this.Spider.AllowDrop = true;
+            this.Spider.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
+            this.Spider.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Spider.Location = new System.Drawing.Point(996, 164);
+            this.Spider.Name = "Spider";
+            this.Spider.Size = new System.Drawing.Size(70, 70);
+            this.Spider.TabIndex = 15;
+            this.Spider.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spider_MouseDown);
+            // 
+            // Tnt
+            // 
+            this.Tnt.AllowDrop = true;
+            this.Tnt.BackgroundImage = global::Olympus_the_Game.Properties.Resources.tnt;
+            this.Tnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Tnt.Location = new System.Drawing.Point(996, 240);
+            this.Tnt.Name = "Tnt";
+            this.Tnt.Size = new System.Drawing.Size(70, 70);
+            this.Tnt.TabIndex = 15;
+            this.Tnt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tnt_MouseDown);
+            // 
+            // TimeBomb
+            // 
+            this.TimeBomb.AllowDrop = true;
+            this.TimeBomb.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
+            this.TimeBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TimeBomb.Location = new System.Drawing.Point(996, 316);
+            this.TimeBomb.Name = "TimeBomb";
+            this.TimeBomb.Size = new System.Drawing.Size(70, 70);
+            this.TimeBomb.TabIndex = 15;
+            this.TimeBomb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeBomb_MouseDown);
+            // 
+            // Cake
+            // 
+            this.Cake.AllowDrop = true;
+            this.Cake.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
+            this.Cake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cake.Location = new System.Drawing.Point(996, 392);
+            this.Cake.Name = "Cake";
+            this.Cake.Size = new System.Drawing.Size(70, 70);
+            this.Cake.TabIndex = 15;
+            this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 733);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.Cake);
+            this.Controls.Add(this.TimeBomb);
+            this.Controls.Add(this.Tnt);
+            this.Controls.Add(this.Spider);
+            this.Controls.Add(this.Creeper);
+            this.Controls.Add(this.Player);
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.richTextBox5);
@@ -212,17 +214,9 @@
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,12 +224,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
@@ -243,5 +231,11 @@
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.RichTextBox richTextBox7;
+        private System.Windows.Forms.Panel Player;
+        private System.Windows.Forms.Panel Creeper;
+        private System.Windows.Forms.Panel Spider;
+        private System.Windows.Forms.Panel Tnt;
+        private System.Windows.Forms.Panel TimeBomb;
+        private System.Windows.Forms.Panel Cake;
     }
 }
