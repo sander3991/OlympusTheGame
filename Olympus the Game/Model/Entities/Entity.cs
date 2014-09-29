@@ -46,6 +46,7 @@ namespace Olympus_the_Game
         /// De Y-positie van de entity voordat Move() werd aangeroepen
         /// </summary>
         public int PreviousY { get; private set; }
+        public bool EntityControlledByAI { get; protected set; }
         /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>
@@ -69,6 +70,7 @@ namespace Olympus_the_Game
             DY = dy;
             PreviousX = X;
             PreviousY = Y;
+            EntityControlledByAI = true;
         }
 
         /// <summary>
