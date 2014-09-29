@@ -41,10 +41,11 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(9, 10);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(344, 40);
+            this.richTextBox1.Size = new System.Drawing.Size(298, 32);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Laad een van de standaard levels die meegeleverd zijn.";
             // 
@@ -52,18 +53,20 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(44, 93);
+            this.richTextBox2.Location = new System.Drawing.Point(9, 79);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(265, 35);
+            this.richTextBox2.Size = new System.Drawing.Size(298, 28);
             this.richTextBox2.TabIndex = 1;
             this.richTextBox2.Text = "Laad zelf een (geëxporteerd) .xml bestand.";
             // 
             // LoadXMLfile
             // 
-            this.LoadXMLfile.Location = new System.Drawing.Point(100, 128);
+            this.LoadXMLfile.Location = new System.Drawing.Point(98, 111);
+            this.LoadXMLfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LoadXMLfile.Name = "LoadXMLfile";
-            this.LoadXMLfile.Size = new System.Drawing.Size(140, 23);
+            this.LoadXMLfile.Size = new System.Drawing.Size(123, 19);
             this.LoadXMLfile.TabIndex = 2;
             this.LoadXMLfile.Text = "Laad .xml bestand";
             this.LoadXMLfile.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // DungeonLevel
             // 
-            this.DungeonLevel.Location = new System.Drawing.Point(20, 52);
+            this.DungeonLevel.Location = new System.Drawing.Point(11, 46);
+            this.DungeonLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DungeonLevel.Name = "DungeonLevel";
-            this.DungeonLevel.Size = new System.Drawing.Size(75, 23);
+            this.DungeonLevel.Size = new System.Drawing.Size(71, 19);
             this.DungeonLevel.TabIndex = 3;
             this.DungeonLevel.Text = "Dungeon";
             this.DungeonLevel.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@
             // 
             // BeachLevel
             // 
-            this.BeachLevel.Location = new System.Drawing.Point(101, 52);
+            this.BeachLevel.Location = new System.Drawing.Point(236, 46);
+            this.BeachLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BeachLevel.Name = "BeachLevel";
-            this.BeachLevel.Size = new System.Drawing.Size(75, 23);
+            this.BeachLevel.Size = new System.Drawing.Size(71, 19);
             this.BeachLevel.TabIndex = 4;
             this.BeachLevel.Text = "Beach";
             this.BeachLevel.UseVisualStyleBackColor = true;
@@ -91,9 +96,10 @@
             // 
             // HeavenLevel
             // 
-            this.HeavenLevel.Location = new System.Drawing.Point(182, 52);
+            this.HeavenLevel.Location = new System.Drawing.Point(161, 46);
+            this.HeavenLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HeavenLevel.Name = "HeavenLevel";
-            this.HeavenLevel.Size = new System.Drawing.Size(75, 23);
+            this.HeavenLevel.Size = new System.Drawing.Size(71, 19);
             this.HeavenLevel.TabIndex = 5;
             this.HeavenLevel.Text = "Heaven";
             this.HeavenLevel.UseVisualStyleBackColor = true;
@@ -101,9 +107,10 @@
             // 
             // HellLevel
             // 
-            this.HellLevel.Location = new System.Drawing.Point(263, 52);
+            this.HellLevel.Location = new System.Drawing.Point(86, 46);
+            this.HellLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HellLevel.Name = "HellLevel";
-            this.HellLevel.Size = new System.Drawing.Size(75, 23);
+            this.HellLevel.Size = new System.Drawing.Size(71, 19);
             this.HellLevel.TabIndex = 6;
             this.HellLevel.Text = "Hell";
             this.HellLevel.UseVisualStyleBackColor = true;
@@ -111,9 +118,9 @@
             // 
             // LevelDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 172);
+            this.ClientSize = new System.Drawing.Size(323, 156);
             this.Controls.Add(this.HellLevel);
             this.Controls.Add(this.HeavenLevel);
             this.Controls.Add(this.BeachLevel);
@@ -123,6 +130,7 @@
             this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Location = new System.Drawing.Point(100, 120);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LevelDialog";
             this.Text = "Kies een level";
             this.ResumeLayout(false);

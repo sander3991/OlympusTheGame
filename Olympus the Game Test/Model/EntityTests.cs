@@ -56,12 +56,15 @@ namespace Olympus_the_Game_Test.Model
                 }
             }
 
-            GameObject go1, go2;
+            GameObject go1, go2, go3;
             go1 = new ObjectStart(10, 10, 0, 0);
             go2 = new ObjectFinish(10, 10, 5, 5);
+            go3 = new ObjectFinish(5, 5, 3, 3);
 
             Assert.IsTrue(go1.CollidesWithObject(go2));
             Assert.IsTrue(go2.CollidesWithObject(go1));
+            Assert.IsTrue(go3.CollidesWithObject(go1));
+            Assert.IsTrue(go1.CollidesWithObject(go3));
         }
 
         [TestMethod]
