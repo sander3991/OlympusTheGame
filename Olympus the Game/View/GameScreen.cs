@@ -37,7 +37,7 @@ namespace Olympus_the_Game.View
 
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-
+            OlympusTheGame.INSTANCE.Controller.ReadInput(e);
         }
     }
 }

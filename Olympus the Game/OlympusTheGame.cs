@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using System.Net;
+using System.Threading;
 
 namespace Olympus_the_Game
 {
@@ -43,6 +45,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
+        [STAThread]
         static void Main()
         {
             // non-static object aanmaken
