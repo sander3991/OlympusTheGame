@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
-    
 {
     public class Controller
     {
@@ -28,12 +27,12 @@ namespace Olympus_the_Game
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.W || e.KeyCode == Keys.S) 
+                e.KeyCode == Keys.W || e.KeyCode == Keys.S)
             {
                 // Geef de speed van 1 mee
                 MovePlayer(e, 1);
             }
-                
+
         }
 
         public void OnKeyUp(KeyEventArgs e)
@@ -51,7 +50,7 @@ namespace Olympus_the_Game
             {
                 MovePlayer(e, 0);
             }
-            
+
         }
 
         /// <summary>
@@ -71,7 +70,7 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.pf.Player.DY = -speed;
             else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 OlympusTheGame.INSTANCE.pf.Player.DY = speed;
-            
+
         }
 
         /// <summary>
@@ -80,26 +79,27 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="speed"></param>
         /// <param name="horizontaal"></param>
- 
+
         public void MovePlayer(int speed, bool horizontaal)
         {
             if (horizontaal)
                 OlympusTheGame.INSTANCE.pf.Player.DX = speed;
             else
                 OlympusTheGame.INSTANCE.pf.Player.DY = speed;
-                
+
         }
 
         //beweeg de speler vertikaal met de toetsen op het scherm.
-        
-        
+
+
 
         public void Update()
         {
             EntityPlayer player = PlayField.Player;
             player.Move();
             List<GameObject> gameObjects = PlayField.GetObjects();
-            foreach(GameObject o in gameObjects){
+            foreach (GameObject o in gameObjects)
+            {
                 if (player.CollidesWithObject(o))
                 {
                     if (o.IsSolid)
@@ -129,15 +129,19 @@ namespace Olympus_the_Game
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;
-                if (e != null && e.EntityControlledByAI)
+                if (e != null)
                 {
-                    e.DX = rand.Next(3) - 1;
-                    e.DY = rand.Next(3) - 1;
+                    if (e.EntityControlledByAI)
+                    {
+                        e.DX = rand.Next(3) - 1;
+                        e.DY = rand.Next(3) - 1;
+                    }
+                    e.OnUpdate();
                 }
             }
         }
 
 
-        
+
     }
 }

@@ -45,6 +45,6 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.Controller.OnKeyUp(e);
         }
 
-        
+
     }
 }

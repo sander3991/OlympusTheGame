@@ -8,8 +8,6 @@ namespace Olympus_the_Game
 {
     public abstract class Entity : GameObject
     {
-        public enum Type { PLAYER, SLOWER, TIMEBOMB, OBSTACLE, CREEPER, EXPLODE, HOME, FINISH, CAKE}
-
         private int dx;
         private int dy;
         /// <summary>
@@ -84,6 +82,13 @@ namespace Olympus_the_Game
             PreviousY = Y;
             X += DX;
             Y += DY;
+        }
+        /// <summary>
+        /// Elke keer als het scherm geupdate wordt, wordt deze functie aangeroepen
+        /// </summary>
+        public virtual void OnUpdate()
+        {
+
         }
     }
 }
