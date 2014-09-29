@@ -19,30 +19,38 @@ namespace Olympus_the_Game
             this.PlayField = pf;
         }
 
-        public void ReadInput(KeyEventArgs e)
+        public void OnKeyDown(KeyEventArgs e)
         {
-            // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down) 
             {
-                MovePlayer(e);
+                MovePlayer(e, 1);
             }
                 
         }
 
+        public void OnKeyUp(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                MovePlayer(e, 0);
+            }
+        }
+
         // Beweeg de speler met toetsen die zijn toegewezen
-        private void MovePlayer(KeyEventArgs e)
+        private void MovePlayer(KeyEventArgs e, int speed)
         {
             // Toetsen voor naar links en naar rechts.
-            if (e.KeyCode == Keys.Left)
-                OlympusTheGame.INSTANCE.pf.Player.DX = -1;
-            else if (e.KeyCode == Keys.Right)
-                OlympusTheGame.INSTANCE.pf.Player.DX = 1;
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+                OlympusTheGame.INSTANCE.pf.Player.DX = -speed;
+            else if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
+                OlympusTheGame.INSTANCE.pf.Player.DX = speed;
             // Toetsen voor naar boven en naar beneden.
             else if (e.KeyCode == Keys.Up)
-                OlympusTheGame.INSTANCE.pf.Player.DY = -1;
+                OlympusTheGame.INSTANCE.pf.Player.DY = -speed;
             else if (e.KeyCode == Keys.Down)
-                OlympusTheGame.INSTANCE.pf.Player.DY = 1;
+                OlympusTheGame.INSTANCE.pf.Player.DY = speed;
         }
 
         // Beweeg de speler met de toetsen op het scherm
