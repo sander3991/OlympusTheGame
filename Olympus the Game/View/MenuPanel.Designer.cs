@@ -55,6 +55,7 @@
             // 
             // MenuTab
             // 
+            this.MenuTab.BackColor = System.Drawing.Color.White;
             this.MenuTab.Controls.Add(this.label4);
             this.MenuTab.Controls.Add(this.LevelEditor);
             this.MenuTab.Controls.Add(this.label1);
@@ -64,6 +65,7 @@
             this.MenuTab.Controls.Add(this.PauseGame);
             this.MenuTab.Controls.Add(this.label3);
             this.MenuTab.Controls.Add(this.QuitGame);
+            this.MenuTab.ForeColor = System.Drawing.Color.Black;
             this.MenuTab.Location = new System.Drawing.Point(4, 22);
             this.MenuTab.Margin = new System.Windows.Forms.Padding(2);
             this.MenuTab.Name = "MenuTab";
@@ -71,7 +73,6 @@
             this.MenuTab.Size = new System.Drawing.Size(305, 217);
             this.MenuTab.TabIndex = 0;
             this.MenuTab.Text = "Menu";
-            this.MenuTab.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -173,9 +174,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Menu);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(321, 254);
+            this.Size = new System.Drawing.Size(321, 346);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();
