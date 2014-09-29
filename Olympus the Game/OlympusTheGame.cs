@@ -23,6 +23,9 @@ namespace Olympus_the_Game
         private int startTick = 0;
         private int tickCount = 0;
 
+        /// <summary>
+        /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
+        /// </summary>
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField pf { get; private set; }
 
@@ -31,7 +34,8 @@ namespace Olympus_the_Game
         /// </summary>
         public OlympusTheGame()
         {
-            this.pf = new PlayField();
+            // TODO Verwijderen
+            this.pf = new PlayField(100, 100);
         }
 
         /// <summary>
@@ -92,7 +96,7 @@ namespace Olympus_the_Game
             if (!gs.IsDisposed)
                 try
                 {
-                    //gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
+                    gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
                 }
                 catch (ObjectDisposedException) { }
         }
