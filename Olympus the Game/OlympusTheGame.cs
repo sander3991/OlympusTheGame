@@ -90,7 +90,6 @@ namespace Olympus_the_Game
         {
             // Timer update
             tickCount = Environment.TickCount;
-
             // Refresh at 60FPS
             if (tickCount > startTick + 16)
             {
@@ -99,6 +98,9 @@ namespace Olympus_the_Game
 
             // Controller update
             Controller.Update();
+
+            if (tickCount % 1000 == 0)
+                Controller.UpdateEntityAI();
 
             // Update screen
             if (!gs.IsDisposed)

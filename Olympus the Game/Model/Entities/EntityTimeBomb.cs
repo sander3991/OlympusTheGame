@@ -24,7 +24,7 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het object</param>
         public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy, effectStrength)
         {
-
+            EntityControlledByAI = false;
         }
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
@@ -36,6 +36,9 @@ namespace Olympus_the_Game
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         /// <param name="effectStrength">De sterkte van het object</param>
-        public EntityTimeBomb(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
+        public EntityTimeBomb(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { 
+        
+        
+        }
     }
 }

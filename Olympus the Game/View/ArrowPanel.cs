@@ -17,30 +17,35 @@ namespace Olympus_the_Game.View
 
         }
         // Kijk welke button is ingedrukt
-        private void ArrowKeyRight_MouseDown(object sender, MouseEventArgs e)
+        private void ArrowKey_MouseDown(object sender, MouseEventArgs e)
         {
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(1, true);
+            Button b = (Button)sender;
+            string richting = b.Name.ToString();
+            switch (richting)
+            {
+                case "ArrowKeyRight":
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(1, true);
+                    break;
+                case "ArrowKeyLeft":
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-1, true);
+                    break;
+                case "ArrowKeyUp":
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-1, false);
+                    break;
+                case "ArrowKeyDown":
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(1, false);
+                    break;
+            }
         }
-        private void ArrowKeyLeft_MouseDown(object sender, MouseEventArgs e)
-        {
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(-1, true);
-        }
-
-        private void ArrowKeyUp_MouseDown(object sender, MouseEventArgs e)
-        {
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(-1, false);
-        }
-
-        private void ArrowKeyDown_MouseDown(object sender, MouseEventArgs e)
-        {
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(1, false);
-        }
+        
         // Zet alles stil
         private void StopMoving(object sender, MouseEventArgs e)
         {
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, true);
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
         }
+
+        
 
         
 

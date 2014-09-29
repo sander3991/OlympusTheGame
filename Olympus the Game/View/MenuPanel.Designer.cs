@@ -120,10 +120,12 @@
             // 
             this.SpelUitleg.BackColor = System.Drawing.SystemColors.Menu;
             this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SpelUitleg.DetectUrls = false;
             this.SpelUitleg.Location = new System.Drawing.Point(28, 138);
             this.SpelUitleg.Margin = new System.Windows.Forms.Padding(2);
             this.SpelUitleg.Name = "SpelUitleg";
             this.SpelUitleg.ReadOnly = true;
+            this.SpelUitleg.ShortcutsEnabled = false;
             this.SpelUitleg.Size = new System.Drawing.Size(243, 64);
             this.SpelUitleg.TabIndex = 4;
             this.SpelUitleg.Text = "Doel van het spel:\n\nKrijg het poppetje van het huisje naar de ster zonder dood te" +

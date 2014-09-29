@@ -92,13 +92,24 @@ namespace Olympus_the_Game
 
         public void Update()
         {
-            PlayField.Player.Move();
-            foreach(GameObject o in PlayField.GetObjects()){
+            EntityPlayer player = PlayField.Player;
+            player.Move();
+            List<GameObject> gameObjects = PlayField.GetObjects();
+            foreach(GameObject o in gameObjects){
+                if (player.CollidesWithObject(o))
+                {
+                    if (o.IsSolid)
+                    {
+                        player.X = player.PreviousX;
+                        player.Y = player.PreviousY;
+                    }
+                }
+            }
+            foreach (GameObject o in gameObjects)
+            {
                 Entity e = o as Entity;
                 if (e != null)
-                {
                     e.Move();
-                }
             }
         }
 
@@ -107,6 +118,20 @@ namespace Olympus_the_Game
             throw new System.NotImplementedException();
         }
 
+        public void UpdateEntityAI()
+        {
+            Random rand = new Random();
+            List<GameObject> gameObjects = PlayField.GetObjects();
+            foreach (GameObject o in gameObjects)
+            {
+                Entity e = o as Entity;
+                if (e != null && e.EntityControlledByAI)
+                {
+                    e.DX = rand.Next(3) - 1;
+                    e.DY = rand.Next(3) - 1;
+                }
+            }
+        }
 
 
         

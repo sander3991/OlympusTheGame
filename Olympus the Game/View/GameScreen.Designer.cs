@@ -37,6 +37,7 @@
             // 
             // arrowPanel1
             // 
+            this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.arrowPanel1.Location = new System.Drawing.Point(588, 560);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
@@ -44,6 +45,7 @@
             // 
             // menuPanel1
             // 
+            this.menuPanel1.BackColor = System.Drawing.Color.Transparent;
             this.menuPanel1.Location = new System.Drawing.Point(931, 557);
             this.menuPanel1.Name = "menuPanel1";
             this.menuPanel1.Size = new System.Drawing.Size(321, 250);
@@ -51,6 +53,7 @@
             // 
             // infoPanel1
             // 
+            this.infoPanel1.BackColor = System.Drawing.Color.Transparent;
             this.infoPanel1.Location = new System.Drawing.Point(995, 11);
             this.infoPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.infoPanel1.Name = "infoPanel1";

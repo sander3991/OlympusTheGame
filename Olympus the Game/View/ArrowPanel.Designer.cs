@@ -58,7 +58,7 @@
             this.ArrowKeyRight.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyRight.TabIndex = 4;
             this.ArrowKeyRight.UseVisualStyleBackColor = true;
-            this.ArrowKeyRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKeyRight_MouseDown);
+            this.ArrowKeyRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
             // ArrowKeyLeft
@@ -70,7 +70,7 @@
             this.ArrowKeyLeft.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyLeft.TabIndex = 3;
             this.ArrowKeyLeft.UseVisualStyleBackColor = true;
-            this.ArrowKeyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKeyLeft_MouseDown);
+            this.ArrowKeyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
             // ArrowKeyDown
@@ -82,7 +82,7 @@
             this.ArrowKeyDown.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyDown.TabIndex = 2;
             this.ArrowKeyDown.UseVisualStyleBackColor = true;
-            this.ArrowKeyDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKeyDown_MouseDown);
+            this.ArrowKeyDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
             // ArrowKeyUp
@@ -95,7 +95,7 @@
             this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyUp.TabIndex = 1;
             this.ArrowKeyUp.UseVisualStyleBackColor = true;
-            this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKeyUp_MouseDown);
+            this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
             // label1

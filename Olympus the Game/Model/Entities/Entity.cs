@@ -8,6 +8,8 @@ namespace Olympus_the_Game
 {
     public abstract class Entity : GameObject
     {
+        public enum Type { PLAYER, SLOWER, TIMEBOMB, OBSTACLE, CREEPER, EXPLODE, HOME, FINISH, CAKE}
+
         private int dx;
         private int dy;
         /// <summary>
@@ -39,6 +41,15 @@ namespace Olympus_the_Game
             }
         }
         /// <summary>
+        /// De X-positie van de entity voordat Move() werd aangeroepen
+        /// </summary>
+        public int PreviousX { get; private set; }
+        /// <summary>
+        /// De Y-positie van de entity voordat Move() werd aangeroepen
+        /// </summary>
+        public int PreviousY { get; private set; }
+        public bool EntityControlledByAI { get; protected set; }
+        /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
@@ -59,6 +70,9 @@ namespace Olympus_the_Game
         {
             DX = dx;
             DY = dy;
+            PreviousX = X;
+            PreviousY = Y;
+            EntityControlledByAI = true;
         }
 
         /// <summary>
@@ -66,6 +80,8 @@ namespace Olympus_the_Game
         /// </summary>
         public void Move()
         {
+            PreviousX = X;
+            PreviousY = Y;
             X += DX;
             Y += DY;
         }
