@@ -16,7 +16,7 @@ namespace Olympus_the_Game
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
         public ObjectFinish(int width, int height, int x, int y) : base(width, height, x , y)
         {
-
+            IsSolid = false;
         }
     }
 }

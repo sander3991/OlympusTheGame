@@ -92,12 +92,31 @@ namespace Olympus_the_Game
 
         public void Update()
         {
-            PlayField.Player.Move();
-            foreach(GameObject o in PlayField.GetObjects()){
+            EntityPlayer player = PlayField.Player;
+            player.Move();
+            List<GameObject> gameObjects = PlayField.GetObjects();
+            foreach(GameObject o in gameObjects){
+                if (player.CollidesWithObject(o))
+                {
+                    if (o.IsSolid)
+                    {
+                        player.X = player.PreviousX;
+                        player.Y = player.PreviousY;
+                    }
+                }
                 Entity e = o as Entity;
                 if (e != null)
                 {
                     e.Move();
+                    foreach (GameObject o2 in gameObjects) 
+                    {
+                        if (o != o2 && o.CollidesWithObject(o2))
+                        {
+                            e.X = e.PreviousX;
+                            e.Y = e.PreviousY;
+                            o.OnCollide(o2);
+                        }
+                    }
                 }
             }
         }

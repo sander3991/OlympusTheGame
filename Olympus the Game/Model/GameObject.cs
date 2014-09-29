@@ -83,6 +83,11 @@ namespace Olympus_the_Game
                     y = 0;
             }
         }
+
+        /// <summary>
+        /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
+        /// </summary>
+        public bool IsSolid { get; protected set; }
         /// <summary>
         /// Initialiseert een GameObject
         /// </summary>
@@ -96,6 +101,7 @@ namespace Olympus_the_Game
             Y = y;
             Width = width;
             Height = height;
+            IsSolid = true;
         }
 
         /// <summary>
@@ -115,7 +121,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="entity">Het GameObject waarmee vergeleken wordt</param>
         /// <returns>True als ze elkaar kruisen, anders false</returns>
-        private bool CollidesWithY(GameObject entity)
+        public bool CollidesWithY(GameObject entity)
         {
             if(Y >= entity.Y)
                 return  (entity.Y + entity.Height) > Y;
@@ -126,7 +132,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="entity">Het GameObject waarmee vergeleken wordt</param>
         /// <returns>True als ze elkaar kruisen, anders false</returns>
-        private bool CollidesWithX(GameObject entity)
+        public bool CollidesWithX(GameObject entity)
         {
             if( X >= entity.X )
                 return (entity.X + entity.Width) > X;
@@ -149,7 +155,7 @@ namespace Olympus_the_Game
         /// <param name="gameObject">Het object waarmee gekruist wordt</param>
         public virtual void OnCollide(GameObject gameObject)
         {
-
+            
         }
     }
 }

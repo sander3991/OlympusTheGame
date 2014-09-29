@@ -39,6 +39,14 @@ namespace Olympus_the_Game
             }
         }
         /// <summary>
+        /// De X-positie van de entity voordat Move() werd aangeroepen
+        /// </summary>
+        public int PreviousX { get; private set; }
+        /// <summary>
+        /// De Y-positie van de entity voordat Move() werd aangeroepen
+        /// </summary>
+        public int PreviousY { get; private set; }
+        /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
@@ -59,6 +67,8 @@ namespace Olympus_the_Game
         {
             DX = dx;
             DY = dy;
+            PreviousX = X;
+            PreviousY = Y;
         }
 
         /// <summary>
@@ -66,6 +76,8 @@ namespace Olympus_the_Game
         /// </summary>
         public void Move()
         {
+            PreviousX = X;
+            PreviousY = Y;
             X += DX;
             Y += DY;
         }
