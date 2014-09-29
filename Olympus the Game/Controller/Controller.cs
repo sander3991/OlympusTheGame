@@ -21,11 +21,13 @@ namespace Olympus_the_Game
 
         public void OnKeyDown(KeyEventArgs e)
         {
+            // Kijk of de gebruiker standaard besturings toetsen invoert
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S) 
             {
+                // Geef de speed van 1 mee
                 MovePlayer(e, 1);
             }
                 
@@ -33,17 +35,23 @@ namespace Olympus_the_Game
 
         public void OnKeyUp(KeyEventArgs e)
         {
+            // Kijk of de speler de standaard besturings toetsen loslaat
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S)
             {
+                // Zet dan de speel op 0
                 MovePlayer(e, 0);
             }
             
         }
 
-        // Beweeg de speler met toetsen die zijn toegewezen
+        /// <summary>
+        ///  Beweeg de speler met toetsen die zijn toegewezen
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="speed"></param>
         private void MovePlayer(KeyEventArgs e, int speed)
         {
             // Toetsen voor naar links en naar rechts.
@@ -56,8 +64,7 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.pf.Player.DY = -speed;
             else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 OlympusTheGame.INSTANCE.pf.Player.DY = speed;
-            else if (e.KeyCode == Keys.S)
-                MessageBox.Show(e.ToString());
+            
         }
 
         // Beweeg de speler met de toetsen op het scherm
