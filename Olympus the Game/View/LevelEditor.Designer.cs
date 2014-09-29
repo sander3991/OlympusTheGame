@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Player = new System.Windows.Forms.PictureBox();
+            this.Creeper = new System.Windows.Forms.PictureBox();
+            this.Spider = new System.Windows.Forms.PictureBox();
+            this.TnT = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -42,10 +42,10 @@
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Creeper)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TnT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
@@ -59,45 +59,49 @@
             this.panel1.Size = new System.Drawing.Size(978, 540);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // Player
             // 
-            this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.player;
-            this.pictureBox1.Location = new System.Drawing.Point(996, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Player.Image = global::Olympus_the_Game.Properties.Resources.player;
+            this.Player.Location = new System.Drawing.Point(996, 12);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(70, 70);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Player.TabIndex = 1;
+            this.Player.TabStop = false;
+            this.Player.Click += new System.EventHandler(this.Player_MouseDown);
             // 
-            // pictureBox2
+            // Creeper
             // 
-            this.pictureBox2.Image = global::Olympus_the_Game.Properties.Resources.creeper;
-            this.pictureBox2.Location = new System.Drawing.Point(996, 88);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.Creeper.Image = global::Olympus_the_Game.Properties.Resources.creeper;
+            this.Creeper.Location = new System.Drawing.Point(996, 88);
+            this.Creeper.Name = "Creeper";
+            this.Creeper.Size = new System.Drawing.Size(70, 70);
+            this.Creeper.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Creeper.TabIndex = 2;
+            this.Creeper.TabStop = false;
+            this.Creeper.Click += new System.EventHandler(this.Creeper_MouseDown);
             // 
-            // pictureBox3
+            // Spider
             // 
-            this.pictureBox3.Image = global::Olympus_the_Game.Properties.Resources.spider;
-            this.pictureBox3.Location = new System.Drawing.Point(996, 164);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.Spider.Image = global::Olympus_the_Game.Properties.Resources.spider;
+            this.Spider.Location = new System.Drawing.Point(996, 164);
+            this.Spider.Name = "Spider";
+            this.Spider.Size = new System.Drawing.Size(70, 70);
+            this.Spider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Spider.TabIndex = 3;
+            this.Spider.TabStop = false;
+            this.Spider.Click += new System.EventHandler(this.Spider_MouseDown);
             // 
-            // pictureBox4
+            // TnT
             // 
-            this.pictureBox4.Image = global::Olympus_the_Game.Properties.Resources.tnt;
-            this.pictureBox4.Location = new System.Drawing.Point(996, 240);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
+            this.TnT.Image = global::Olympus_the_Game.Properties.Resources.tnt;
+            this.TnT.Location = new System.Drawing.Point(996, 240);
+            this.TnT.Name = "TnT";
+            this.TnT.Size = new System.Drawing.Size(70, 70);
+            this.TnT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TnT.TabIndex = 4;
+            this.TnT.TabStop = false;
+            this.TnT.Click += new System.EventHandler(this.TnT_MouseDown);
             // 
             // pictureBox5
             // 
@@ -203,8 +207,8 @@
             this.ClientSize = new System.Drawing.Size(1168, 733);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.TnT);
+            this.Controls.Add(this.Spider);
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.richTextBox5);
@@ -212,15 +216,15 @@
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Creeper);
+            this.Controls.Add(this.Player);
             this.Controls.Add(this.panel1);
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Creeper)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Spider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TnT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
@@ -230,10 +234,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox Player;
+        private System.Windows.Forms.PictureBox Creeper;
+        private System.Windows.Forms.PictureBox Spider;
+        private System.Windows.Forms.PictureBox TnT;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.RichTextBox richTextBox1;
