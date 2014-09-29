@@ -85,7 +85,7 @@ namespace Olympus_the_Game
 
         /// <summary>
         /// 1 stap van de gameloop, deze wordt achter elkaar uitgevoerd totdat afsluiten wordt aangevraagd.
-        /// </summary>
+        /// </summary>  
         private void GameLoopStep(object source, ElapsedEventArgs e)
         {
             // Timer update
