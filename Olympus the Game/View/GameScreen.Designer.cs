@@ -61,7 +61,7 @@
             // infoPanel1
             // 
             this.infoPanel1.Location = new System.Drawing.Point(995, 11);
-            this.infoPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infoPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.infoPanel1.Name = "infoPanel1";
             this.infoPanel1.Size = new System.Drawing.Size(258, 541);
             this.infoPanel1.TabIndex = 0;

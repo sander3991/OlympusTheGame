@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.DoubleBuffered = true;
             this.Name = "GamePanel";
+            this.SizeChanged += new System.EventHandler(this.Panel_resized);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintPanel);
             this.ResumeLayout(false);
 

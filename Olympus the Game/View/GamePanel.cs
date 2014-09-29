@@ -14,7 +14,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
-        private float SCALE = 1.0f;
+        private double SCALE = 1.0f;
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
@@ -42,11 +42,10 @@ namespace Olympus_the_Game.View
         /// </summary>
         public GamePanel()
             : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500, PlayField.GetDefaultMap(1000, 500)) : OlympusTheGame.INSTANCE.pf)
-        {}
+        { }
 
         private void Init()
         {
-
             // Build imagelist
             this.ImageList.Add(typeof(EntityCreeper), Properties.Resources.creeper);
             this.ImageList.Add(typeof(EntityExplode), Properties.Resources.tnt);
@@ -65,6 +64,11 @@ namespace Olympus_the_Game.View
 
             // Set background
             this.BackgroundImage = Properties.Resources.Background;
+        }
+
+        public void setPlayField(PlayField pf) {
+            // Set playfield
+            this.pf = pf;
         }
 
         /// <summary>
@@ -110,6 +114,15 @@ namespace Olympus_the_Game.View
             // Add border
             Pen p = new Pen(Brushes.Black);
             g.DrawRectangle(p, target);
+        }
+
+        private void Panel_resized(object sender, EventArgs e)
+        {
+            // Fix playfield scaling
+            double ratioWidth = (double)this.pf.WIDTH / (double)this.Size.Width;
+            double ratioHeight = (double)this.pf.HEIGHT / (double)this.Size.Height;
+            this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
+            this.Size = new Size((int)((double)this.pf.WIDTH * SCALE), (int)((double)this.pf.HEIGHT * SCALE));
         }
     }
 }
