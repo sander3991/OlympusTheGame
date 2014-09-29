@@ -55,7 +55,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    x = value;
+                    if (OlympusTheGame.INSTANCE == null || value + Width <= OlympusTheGame.INSTANCE.pf.WIDTH)
+                        x = value;
+                    else
+                        x = OlympusTheGame.INSTANCE.pf.WIDTH - Width;
                 else
                     x = 0;
             }
@@ -72,7 +75,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    y = value;
+                    if (OlympusTheGame.INSTANCE == null || value + Height <= OlympusTheGame.INSTANCE.pf.HEIGHT)
+                        y = value;
+                    else
+                        y = OlympusTheGame.INSTANCE.pf.HEIGHT - Height;
                 else
                     y = 0;
             }
