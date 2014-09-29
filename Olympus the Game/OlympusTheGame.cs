@@ -97,6 +97,9 @@ namespace Olympus_the_Game
                 startTick = tickCount;
             }
 
+            // Controller update
+            Controller.Update();
+
             // Update screen
             if (!gs.IsDisposed)
             {

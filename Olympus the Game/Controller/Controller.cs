@@ -53,7 +53,15 @@ namespace Olympus_the_Game
 
         public void Update()
         {
-            throw new System.NotImplementedException();
+            PlayField.Player.DX = 1;
+            PlayField.Player.Move();
+            foreach(GameObject o in PlayField.GetObjects()){
+                Entity e = o as Entity;
+                if (e != null)
+                {
+                    e.Move();
+                }
+            }
         }
 
         public void Draw()
