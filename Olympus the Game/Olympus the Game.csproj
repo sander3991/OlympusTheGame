@@ -94,6 +94,12 @@
     <Compile Include="View\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LevelEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LevelEditor.Designer.cs">
+      <DependentUpon>LevelEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MenuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LevelEditor.resx">
+      <DependentUpon>LevelEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MenuPanel.resx">
       <DependentUpon>MenuPanel.cs</DependentUpon>
@@ -158,6 +167,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tnt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timebomb.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

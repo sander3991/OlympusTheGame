@@ -79,6 +79,7 @@
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus The Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.ResumeLayout(false);
 
         }

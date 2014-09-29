@@ -42,20 +42,16 @@ namespace Olympus_the_Game.View
 
         private void Init()
         {
-            this.pf.AddObject(new ObjectStart(50, 50, 0, 0));
-            this.pf.AddObject(new ObjectFinish(150, 150, 800, 300));
-            this.pf.AddObject(new ObjectObstacle(50, 50, 60, 0));
-            this.pf.AddObject(new EntityCreeper(50, 50, 150, 60, 1.0f));
-            this.pf.AddObject(new EntityExplode(50, 50, 150, 0, 1.0f));
-            this.pf.AddObject(new EntityPlayer(50, 50, 0, 0));
-            this.pf.AddObject(new EntitySlower(50, 50, 200, 150));
-            this.pf.AddObject(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
 
             // Build imagelist
             this.ImageList.Add(typeof(EntityCreeper), Properties.Resources.creeper);
             this.ImageList.Add(typeof(EntityExplode), Properties.Resources.tnt);
             this.ImageList.Add(typeof(EntitySlower), Properties.Resources.spider);
             this.ImageList.Add(typeof(EntityPlayer), Properties.Resources.player);
+            this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
+            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.missing);
+            this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
+            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.dirt);
 
             // Initialize component
             InitializeComponent();
@@ -92,7 +88,7 @@ namespace Olympus_the_Game.View
             Bitmap bm = null;
             ImageList.TryGetValue(go.GetType(), out bm);
             if (bm == null)
-                bm = Properties.Resources.rsz_arrowup; // TODO Change not implemented picture
+                bm = Properties.Resources.missing; // TODO Change not implemented picture
 
             // Generate target rectangle
             Rectangle target = new Rectangle(
