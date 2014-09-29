@@ -16,24 +16,34 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
-        private void Player_MouseDown(object sender, EventArgs e)
+        private void Player_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Player.Image, DragDropEffects.Copy | DragDropEffects.Move);
+
         }
 
-        private void Creeper_MouseDown(object sender, EventArgs e)
+        private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Player.Image, DragDropEffects.Copy | DragDropEffects.Move);
+
         }
 
-        private void Spider_MouseDown(object sender, EventArgs e)
+        private void Spider_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Player.Image, DragDropEffects.Copy | DragDropEffects.Move);
+
         }
 
-        private void TnT_MouseDown(object sender, EventArgs e)
+        private void Tnt_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Player.Image, DragDropEffects.Copy | DragDropEffects.Move);
+
+        }
+
+        private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Cake_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
 
     }

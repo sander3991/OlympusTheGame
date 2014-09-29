@@ -139,6 +139,7 @@
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(70, 70);
             this.Player.TabIndex = 14;
+            this.Player.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Player_MouseDown);
             // 
             // Creeper
             // 
@@ -149,6 +150,7 @@
             this.Creeper.Name = "Creeper";
             this.Creeper.Size = new System.Drawing.Size(70, 70);
             this.Creeper.TabIndex = 15;
+            this.Creeper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Creeper_MouseDown);
             // 
             // Spider
             // 
@@ -159,6 +161,7 @@
             this.Spider.Name = "Spider";
             this.Spider.Size = new System.Drawing.Size(70, 70);
             this.Spider.TabIndex = 15;
+            this.Spider.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spider_MouseDown);
             // 
             // Tnt
             // 
@@ -169,6 +172,7 @@
             this.Tnt.Name = "Tnt";
             this.Tnt.Size = new System.Drawing.Size(70, 70);
             this.Tnt.TabIndex = 15;
+            this.Tnt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tnt_MouseDown);
             // 
             // TimeBomb
             // 
@@ -179,6 +183,7 @@
             this.TimeBomb.Name = "TimeBomb";
             this.TimeBomb.Size = new System.Drawing.Size(70, 70);
             this.TimeBomb.TabIndex = 15;
+            this.TimeBomb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeBomb_MouseDown);
             // 
             // Cake
             // 
@@ -189,6 +194,7 @@
             this.Cake.Name = "Cake";
             this.Cake.Size = new System.Drawing.Size(70, 70);
             this.Cake.TabIndex = 15;
+            this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
             // 
             // LevelEditor
             // 
