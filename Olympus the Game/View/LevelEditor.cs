@@ -51,6 +51,11 @@ namespace Olympus_the_Game.View
             Cake.DoDragDrop(typeof(ObjectFinish).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
         }
 
+        /// <summary>
+        /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void enter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(string)))
@@ -63,6 +68,11 @@ namespace Olympus_the_Game.View
             }
         }
 
+        /// <summary>
+        /// Weergeef de locatie waar het object geplaatst is
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void drag_drop(object sender, DragEventArgs e)
         {
             // Get relative location
