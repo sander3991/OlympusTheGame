@@ -55,7 +55,7 @@
             // 
             // MenuTab
             // 
-            this.MenuTab.BackColor = System.Drawing.Color.White;
+            this.MenuTab.BackColor = System.Drawing.SystemColors.Control;
             this.MenuTab.Controls.Add(this.label4);
             this.MenuTab.Controls.Add(this.LevelEditor);
             this.MenuTab.Controls.Add(this.label1);
@@ -177,7 +177,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Menu);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(321, 346);
+            this.Size = new System.Drawing.Size(321, 254);
             this.Menu.ResumeLayout(false);
             this.MenuTab.ResumeLayout(false);
             this.MenuTab.PerformLayout();
