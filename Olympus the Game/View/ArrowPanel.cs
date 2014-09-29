@@ -62,10 +62,7 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
+        
 
 
 
