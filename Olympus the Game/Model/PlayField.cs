@@ -12,7 +12,7 @@ namespace Olympus_the_Game
 
         private List<GameObject> gameObjects;
 
-        private EntityPlayer player = new EntityPlayer(0,0,0,0);
+        private EntityPlayer player;
 
         public EntityPlayer Player
         {
@@ -20,9 +20,9 @@ namespace Olympus_the_Game
             {
                 return player;
             }
-            set
+            private set
             {
-                return;
+                player = value;
             }
         }
 
@@ -34,6 +34,7 @@ namespace Olympus_the_Game
                 gameObjects = objects;
             else
                 gameObjects = new List<GameObject>();
+            Player = new EntityPlayer(50, 50, 0, 0);
         }
 
         public PlayField(int width, int height) : this(width, height, PlayField.GetDefaultMap(width, height)) { }
@@ -62,7 +63,6 @@ namespace Olympus_the_Game
             objects.Add(new ObjectObstacle(50, 50, 60, 0));
             objects.Add(new EntityCreeper(50, 50, 150, 60, 1.0f));
             objects.Add(new EntityExplode(50, 50, 150, 0, 1.0f));
-            objects.Add(new EntityPlayer(50, 50, 0, 0));
             objects.Add(new EntitySlower(50, 50, 200, 150));
             objects.Add(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
             return objects;
