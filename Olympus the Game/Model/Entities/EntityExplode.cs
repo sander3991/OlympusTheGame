@@ -30,23 +30,14 @@ namespace Olympus_the_Game {
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
 
-        public override void OnUpdate() {
-            EntityPlayer player = OlympusTheGame.INSTANCE.pf.Player;
+        public override void OnCollide(GameObject gameObject) {
+            EntityPlayer player = gameObject as EntityPlayer;
 
-            if(player != null) {
-                if(DistanceToObject(player) < 100) {
-                    player.Health--;
+            if(player != null){
+                player.Health--;
+                player.X = 0;
+                player.Y = 0;
 
-                    if(player.Health > 0) {
-                        player.X = 0;
-                        player.Y = 0;
-                    } else {
-                        /**
-                         * Here be dragons
-                         * Just kidding, hier is code voor game over scherm wanneer klaar
-                        **/
-                    }
-                }
             }
         }
     }
