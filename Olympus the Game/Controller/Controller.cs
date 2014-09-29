@@ -35,9 +35,9 @@ namespace Olympus_the_Game
         {
             // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Left)
-                OlympusTheGame.INSTANCE.pf.Player.DX = 1;
-            else if (e.KeyCode == Keys.Right)
                 OlympusTheGame.INSTANCE.pf.Player.DX = -1;
+            else if (e.KeyCode == Keys.Right)
+                OlympusTheGame.INSTANCE.pf.Player.DX = 1;
             // Toetsen voor naar boven en naar beneden.
             else if (e.KeyCode == Keys.Up)
                 OlympusTheGame.INSTANCE.pf.Player.DY = -1;
