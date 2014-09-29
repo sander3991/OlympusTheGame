@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View
 
         private void Player_MouseDown(object sender, MouseEventArgs e)
         {
-
+            
         }
 
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
