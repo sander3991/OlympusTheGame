@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -42,18 +42,8 @@
             this.Tnt = new System.Windows.Forms.Panel();
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.BackgroundImage = global::Olympus_the_Game.Properties.Resources.Background;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(978, 540);
-            this.panel1.TabIndex = 0;
-            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
-            this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
             // 
             // richTextBox1
             // 
@@ -198,12 +188,25 @@
             this.Cake.TabIndex = 15;
             this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
             // 
+            // gamePanel1
+            // 
+            this.gamePanel1.AllowDrop = true;
+            this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
+            this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gamePanel1.Location = new System.Drawing.Point(12, 12);
+            this.gamePanel1.Name = "gamePanel1";
+            this.gamePanel1.Size = new System.Drawing.Size(964, 482);
+            this.gamePanel1.TabIndex = 16;
+            this.gamePanel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
+            this.gamePanel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.Cake);
             this.Controls.Add(this.TimeBomb);
             this.Controls.Add(this.Tnt);
@@ -217,7 +220,6 @@
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.panel1);
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
             this.ResumeLayout(false);
@@ -226,7 +228,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
@@ -240,5 +241,6 @@
         private System.Windows.Forms.Panel Tnt;
         private System.Windows.Forms.Panel TimeBomb;
         private System.Windows.Forms.Panel Cake;
+        private GamePanel gamePanel1;
     }
 }

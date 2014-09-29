@@ -14,11 +14,14 @@ namespace Olympus_the_Game.View
         public LevelEditor()
         {
             InitializeComponent();
+
+            this.gamePanel1.setPlayField(new PlayField(1000, 500, new List<GameObject>()));
+            this.gamePanel1.Invalidate();
         }
 
         private void Player_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Player.BackgroundImage, DragDropEffects.Copy | DragDropEffects.Move);
+            Player.DoDragDrop(typeof(EntityPlayer).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
@@ -46,18 +49,24 @@ namespace Olympus_the_Game.View
             Cake.DoDragDrop(Cake.BackgroundImage, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
-        private void panel1_DragEnter(object sender, DragEventArgs e)
+        private void enter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text))
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
                 e.Effect = DragDropEffects.Copy;
+            }
             else
+            {
                 e.Effect = DragDropEffects.None;
+            }
         }
 
-        private void panel1_DragDrop(object sender, DragEventArgs e)
+        private void drag_drop(object sender, DragEventArgs e)
         {
-            
-        }
+            // Get relative location
+            Point l = this.gamePanel1.PointToClient(new Point(e.X, e.Y));
 
+            MessageBox.Show(string.Format("Drop: {0} \nX:{1} Y:{2}\nX:{3} Y:{4}", e.Data, l.X, l.Y, e.X, e.Y));
+        }
     }
 }
