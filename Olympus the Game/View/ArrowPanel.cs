@@ -16,6 +16,11 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
+        private void ArrowKeyUp_Click(object sender, EventArgs e)
+        {
+            OlympusTheGame.INSTANCE.Controller.MovePlayer(sender);
+        }
+
 
     }
 }
