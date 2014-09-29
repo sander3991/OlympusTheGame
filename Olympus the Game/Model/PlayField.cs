@@ -54,7 +54,7 @@ namespace Olympus_the_Game
             gameObjects.Add(entity);
         }
 
-        private static List<GameObject> GetDefaultMap(int width, int height)
+        public static List<GameObject> GetDefaultMap(int width, int height)
         {
             List<GameObject> objects = new List<GameObject>();
             objects.Add(new ObjectStart(50, 50, 0, 0));
