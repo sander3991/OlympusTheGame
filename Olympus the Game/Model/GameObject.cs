@@ -124,7 +124,7 @@ namespace Olympus_the_Game
         {
             if( X >= entity.X )
                 return (entity.X + entity.Width) > X;
-            return (X + Height) > entity.X;
+            return (X + Width) > entity.X;
         }
         /// <summary>
         /// Kijkt of de gegeven GameObject kruist over het huidige object.
