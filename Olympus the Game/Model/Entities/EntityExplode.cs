@@ -6,7 +6,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
-        public readonly double EffectStrenght;
+        public readonly double EffectStrength;
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
         /// </summary>
@@ -19,7 +19,7 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityExplode(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy)
         {
-            EffectStrenght = Math.Max(0, effectStrength);
+            EffectStrength = Math.Max(0, effectStrength);
         }
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie
@@ -35,9 +35,19 @@ namespace Olympus_the_Game
             EntityPlayer player = gameObject as EntityPlayer;
             
             if(player != null){
-                player.Health--;
-                player.X = 0;
-                player.Y = 0;
+                if(DistanceToObject(player) < 50) {
+                    player.Health--;
+
+                    if(player.Health > 0) {
+                        player.X = 0;
+                        player.Y = 0;
+                    } else {
+                        /**
+                         * Here be dragons
+                         * Just kidding, hier is code voor game over scherm wanneer klaar
+                        **/
+                    }
+                }
             }
         }
     }
