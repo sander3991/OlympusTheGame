@@ -54,13 +54,14 @@ namespace Olympus_the_Game.View
             this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
             this.ImageList.Add(typeof(ObjectStart), Properties.Resources.missing);
             this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
-            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.dirt);
+            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.cobble);
 
             // Initialize component
             InitializeComponent();
 
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
+            
 
             // Set background
             this.BackgroundImage = Properties.Resources.Background;

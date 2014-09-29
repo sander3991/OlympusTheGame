@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
-            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.menuPanel1 = new Olympus_the_Game.View.MenuPanel();
             this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
             // arrowPanel1
@@ -41,15 +41,6 @@
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
-            // 
-            // gamePanel1
-            // 
-            this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
-            this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(12, 11);
-            this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(978, 489);
-            this.gamePanel1.TabIndex = 2;
             // 
             // menuPanel1
             // 
@@ -66,11 +57,21 @@
             this.infoPanel1.Size = new System.Drawing.Size(258, 541);
             this.infoPanel1.TabIndex = 0;
             // 
+            // gamePanel1
+            // 
+            this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
+            this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gamePanel1.Location = new System.Drawing.Point(12, 11);
+            this.gamePanel1.Name = "gamePanel1";
+            this.gamePanel1.Size = new System.Drawing.Size(978, 489);
+            this.gamePanel1.TabIndex = 2;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
+            this.ClientSize = new System.Drawing.Size(1264, 861);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.menuPanel1);
