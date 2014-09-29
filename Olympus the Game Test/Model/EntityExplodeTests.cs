@@ -7,13 +7,13 @@ namespace Olympus_the_Game_Test
     [TestClass]
     public class UnitTest1
     {
-        EntityPlayer ep = new EntityPlayer(10, 10, 49, 49);
+        EntityPlayer ep = new EntityPlayer(10, 10, 49, 0);
         EntityExplode ee = new EntityExplode(10, 10, 0, 0, 10);
 
         [TestMethod]
         public void Collides()
         {
-            Assert.IsTrue(ee.CollidesWithObject(ep));
+            Assert.IsFalse(ee.CollidesWithObject(ep));
         }
 
         [TestMethod]
@@ -33,8 +33,8 @@ namespace Olympus_the_Game_Test
         public void KillPlayer() 
         {
             for(int i = 0; i < 5; i++) {
-                ep.X = 49;
-                ep.Y = 49;
+                ep.X = 0;
+                ep.Y = 0;
                 ee.OnCollide(ep);
             }
 
