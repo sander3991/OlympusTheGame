@@ -7,14 +7,14 @@
       <FileName>Controller\Controller.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Olympus_the_Game.Entity" Collapsed="true">
+  <Class Name="Olympus_the_Game.Entity">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAQAAAAAAIAAAAAAAAAAgAAAAAAAAABAA=</HashCode>
       <FileName>Model\Entities\Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Olympus_the_Game.EntityCreeper" Collapsed="true">
+  <Class Name="Olympus_the_Game.EntityCreeper">
     <Position X="9.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -28,7 +28,7 @@
       <FileName>Model\Entities\EntityExplode.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Olympus_the_Game.EntityPlayer" Collapsed="true">
+  <Class Name="Olympus_the_Game.EntityPlayer">
     <Position X="11.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAg=</HashCode>
@@ -49,7 +49,7 @@
       <FileName>Model\Entities\EntityTimeBomb.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Olympus_the_Game.GameObject" Collapsed="true">
+  <Class Name="Olympus_the_Game.GameObject">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAACAABAAAAAQAQAAAAEAAAAAAAAAAAABgAABgYgA=</HashCode>
