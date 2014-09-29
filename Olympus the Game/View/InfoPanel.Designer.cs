@@ -123,7 +123,7 @@
             this.groupBox4.Controls.Add(this.CreeperYLabel);
             this.groupBox4.Controls.Add(this.CreeperX);
             this.groupBox4.Controls.Add(this.CreeperXLabel);
-            this.groupBox4.Location = new System.Drawing.Point(4, 141);
+            this.groupBox4.Location = new System.Drawing.Point(5, 174);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -249,7 +249,7 @@
             this.groupBox2.Controls.Add(this.SpiderYLabel);
             this.groupBox2.Controls.Add(this.SpiderX);
             this.groupBox2.Controls.Add(this.SpiderXLabel);
-            this.groupBox2.Location = new System.Drawing.Point(4, 269);
+            this.groupBox2.Location = new System.Drawing.Point(5, 285);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);

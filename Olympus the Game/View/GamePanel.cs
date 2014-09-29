@@ -48,6 +48,10 @@ namespace Olympus_the_Game.View
             this.ImageList.Add(typeof(EntityExplode), Properties.Resources.tnt);
             this.ImageList.Add(typeof(EntitySlower), Properties.Resources.spider);
             this.ImageList.Add(typeof(EntityPlayer), Properties.Resources.player);
+            this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
+            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.missing);
+            this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
+            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.dirt);
 
             // Initialize component
             InitializeComponent();
@@ -84,7 +88,7 @@ namespace Olympus_the_Game.View
             Bitmap bm = null;
             ImageList.TryGetValue(go.GetType(), out bm);
             if (bm == null)
-                bm = Properties.Resources.rsz_arrowup; // TODO Change not implemented picture
+                bm = Properties.Resources.missing; // TODO Change not implemented picture
 
             // Generate target rectangle
             Rectangle target = new Rectangle(
