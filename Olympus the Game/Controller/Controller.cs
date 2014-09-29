@@ -22,6 +22,18 @@ namespace Olympus_the_Game
         public void ReadInput(KeyEventArgs e)
         {
             // Toetsen voor naar links en naar rechts.
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down) 
+            {
+                MovePlayer(e);
+            }
+                
+        }
+
+        // Beweeg de speler met toetsen die zijn toegewezen
+        private void MovePlayer(KeyEventArgs e)
+        {
+            // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Left)
                 OlympusTheGame.INSTANCE.pf.Player.DX = 1;
             else if (e.KeyCode == Keys.Right)
@@ -31,7 +43,12 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.pf.Player.DY = -1;
             else if (e.KeyCode == Keys.Down)
                 OlympusTheGame.INSTANCE.pf.Player.DY = 1;
+        }
 
+        // Beweeg de speler met de toetsen op het scherm
+        internal void MovePlayer(object sender)
+        {
+            MessageBox.Show(sender.ToString());
         }
 
         public void Update()
@@ -43,5 +60,9 @@ namespace Olympus_the_Game
         {
             throw new System.NotImplementedException();
         }
+
+
+
+        
     }
 }

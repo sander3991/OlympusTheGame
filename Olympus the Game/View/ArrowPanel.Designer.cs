@@ -89,6 +89,7 @@
             this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyUp.TabIndex = 1;
             this.ArrowKeyUp.UseVisualStyleBackColor = true;
+            this.ArrowKeyUp.Click += new System.EventHandler(this.ArrowKeyUp_Click);
             // 
             // label1
             // 
