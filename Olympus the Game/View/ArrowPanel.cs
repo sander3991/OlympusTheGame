@@ -11,12 +11,19 @@ namespace Olympus_the_Game.View
 {
     public partial class ArrowPanel : UserControl
     {
+        // Punt zodat het panel versleept kan worden
+        public Point MouseDownLocation { get; set; }
+
         public ArrowPanel()
         {
             InitializeComponent();
 
         }
-        // Kijk welke button is ingedrukt
+        /// <summary>
+        /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ArrowKey_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = (Button)sender;
@@ -38,13 +45,22 @@ namespace Olympus_the_Game.View
             }
         }
         
-        // Zet alles stil
+        /// <summary>
+        /// Functie om de speler stil te zetten
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StopMoving(object sender, MouseEventArgs e)
         {
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, true);
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
         }
 
+        /// <summary>
+        /// Functie om het panel op runtime te verslepen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -52,7 +68,11 @@ namespace Olympus_the_Game.View
                 MouseDownLocation = e.Location;
             }
         }
-
+        /// <summary>
+        /// Functie die het scherm plaatst als je die muis loslaat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -63,19 +83,5 @@ namespace Olympus_the_Game.View
         }
 
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public Point MouseDownLocation { get; set; }
     }
 }
