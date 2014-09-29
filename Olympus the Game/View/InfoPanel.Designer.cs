@@ -74,6 +74,17 @@
             this.SpelerYLabel = new System.Windows.Forms.Label();
             this.SpelerX = new System.Windows.Forms.Label();
             this.SpelerXLabel = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.StatistiekenTab.SuspendLayout();
             this.Statistieken.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -84,13 +95,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // StatistiekenTab
             // 
             this.StatistiekenTab.Controls.Add(this.Statistieken);
             this.StatistiekenTab.Location = new System.Drawing.Point(2, 2);
-            this.StatistiekenTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StatistiekenTab.Margin = new System.Windows.Forms.Padding(2);
             this.StatistiekenTab.Name = "StatistiekenTab";
             this.StatistiekenTab.SelectedIndex = 0;
             this.StatistiekenTab.Size = new System.Drawing.Size(250, 532);
@@ -98,14 +111,15 @@
             // 
             // Statistieken
             // 
+            this.Statistieken.Controls.Add(this.groupBox5);
             this.Statistieken.Controls.Add(this.groupBox4);
             this.Statistieken.Controls.Add(this.groupBox2);
             this.Statistieken.Controls.Add(this.groupBox1);
             this.Statistieken.Controls.Add(this.groupBox3);
             this.Statistieken.Location = new System.Drawing.Point(4, 22);
-            this.Statistieken.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Statistieken.Margin = new System.Windows.Forms.Padding(2);
             this.Statistieken.Name = "Statistieken";
-            this.Statistieken.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Statistieken.Padding = new System.Windows.Forms.Padding(2);
             this.Statistieken.Size = new System.Drawing.Size(242, 506);
             this.Statistieken.TabIndex = 0;
             this.Statistieken.Text = "Statistieken";
@@ -123,11 +137,11 @@
             this.groupBox4.Controls.Add(this.CreeperYLabel);
             this.groupBox4.Controls.Add(this.CreeperX);
             this.groupBox4.Controls.Add(this.CreeperXLabel);
-            this.groupBox4.Location = new System.Drawing.Point(5, 174);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(3, 105);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(235, 107);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(235, 97);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Creeper";
@@ -137,10 +151,10 @@
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.Location = new System.Drawing.Point(4, 63);
-            this.richTextBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox3.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(226, 39);
+            this.richTextBox3.Size = new System.Drawing.Size(226, 31);
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "De creeper volgt jou wanneer je te dichtbij komt en ontploft als hij je aanraakt!" +
     "";
@@ -189,7 +203,7 @@
             // 
             this.pictureBox4.Image = global::Olympus_the_Game.Properties.Resources.creeper;
             this.pictureBox4.Location = new System.Drawing.Point(4, 18);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.MaximumSize = new System.Drawing.Size(43, 41);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(43, 41);
@@ -249,11 +263,11 @@
             this.groupBox2.Controls.Add(this.SpiderYLabel);
             this.groupBox2.Controls.Add(this.SpiderX);
             this.groupBox2.Controls.Add(this.SpiderXLabel);
-            this.groupBox2.Location = new System.Drawing.Point(5, 285);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(4, 206);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(235, 107);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(235, 97);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Spider";
@@ -263,10 +277,10 @@
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Location = new System.Drawing.Point(4, 63);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(226, 39);
+            this.richTextBox2.Size = new System.Drawing.Size(226, 31);
             this.richTextBox2.TabIndex = 9;
             this.richTextBox2.Text = "Wanneer je dichtbij een spider komt loop je langzamer!";
             // 
@@ -314,7 +328,7 @@
             // 
             this.pictureBox2.Image = global::Olympus_the_Game.Properties.Resources.spider;
             this.pictureBox2.Location = new System.Drawing.Point(4, 18);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(43, 41);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,11 +387,11 @@
             this.groupBox1.Controls.Add(this.TntYLabel);
             this.groupBox1.Controls.Add(this.TntX);
             this.groupBox1.Controls.Add(this.TntXLabel);
-            this.groupBox1.Location = new System.Drawing.Point(4, 396);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(2, 307);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(235, 107);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(235, 97);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TNT";
@@ -387,10 +401,10 @@
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Location = new System.Drawing.Point(4, 63);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(226, 39);
+            this.richTextBox1.Size = new System.Drawing.Size(226, 31);
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "Het TNT blok ontploft direct wanneer je er tegenaan botst!";
             // 
@@ -438,7 +452,7 @@
             // 
             this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.tnt;
             this.pictureBox1.Location = new System.Drawing.Point(4, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(43, 41);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -496,11 +510,11 @@
             this.groupBox3.Controls.Add(this.SpelerYLabel);
             this.groupBox3.Controls.Add(this.SpelerX);
             this.groupBox3.Controls.Add(this.SpelerXLabel);
-            this.groupBox3.Location = new System.Drawing.Point(4, 12);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(235, 107);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(235, 97);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Speler";
@@ -510,10 +524,10 @@
             this.SpelUitleg.BackColor = System.Drawing.SystemColors.Menu;
             this.SpelUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpelUitleg.Location = new System.Drawing.Point(4, 63);
-            this.SpelUitleg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SpelUitleg.Margin = new System.Windows.Forms.Padding(2);
             this.SpelUitleg.Name = "SpelUitleg";
             this.SpelUitleg.ReadOnly = true;
-            this.SpelUitleg.Size = new System.Drawing.Size(226, 39);
+            this.SpelUitleg.Size = new System.Drawing.Size(226, 31);
             this.SpelUitleg.TabIndex = 9;
             this.SpelUitleg.Text = "Dit ben jij.";
             // 
@@ -561,7 +575,7 @@
             // 
             this.pictureBox3.Image = global::Olympus_the_Game.Properties.Resources.player;
             this.pictureBox3.Location = new System.Drawing.Point(4, 18);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(43, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -608,12 +622,135 @@
             this.SpelerXLabel.TabIndex = 0;
             this.SpelerXLabel.Text = "X = ";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.richTextBox4);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.pictureBox5);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Location = new System.Drawing.Point(2, 408);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Size = new System.Drawing.Size(235, 97);
+            this.groupBox5.TabIndex = 12;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Tijd bom";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Location = new System.Drawing.Point(4, 63);
+            this.richTextBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.ReadOnly = true;
+            this.richTextBox4.Size = new System.Drawing.Size(226, 31);
+            this.richTextBox4.TabIndex = 9;
+            this.richTextBox4.Text = "De tijdbom gaat af na 3 seconden wanneer je in de buurt komt!";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(194, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(143, 45);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Speed Y =";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(194, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(143, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Speed X =";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Olympus_the_Game.Properties.Resources.timebomb;
+            this.pictureBox5.Location = new System.Drawing.Point(4, 18);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(82, 43);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "21";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(62, 43);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Y = ";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(82, 18);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 14);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "483";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(62, 18);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "X = ";
+            // 
             // InfoPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.StatistiekenTab);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InfoPanel";
             this.Size = new System.Drawing.Size(258, 541);
             this.StatistiekenTab.ResumeLayout(false);
@@ -630,6 +767,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -682,5 +822,16 @@
         private System.Windows.Forms.Label TntYLabel;
         private System.Windows.Forms.Label TntX;
         private System.Windows.Forms.Label TntXLabel;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

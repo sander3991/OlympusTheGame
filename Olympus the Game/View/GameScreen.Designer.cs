@@ -48,7 +48,7 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 11);
             this.gamePanel1.Name = "gamePanel1";
-            this.gamePanel1.Size = new System.Drawing.Size(978, 540);
+            this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
             // menuPanel1
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 741);
+            this.ClientSize = new System.Drawing.Size(1264, 985);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.menuPanel1);
