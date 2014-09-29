@@ -38,7 +38,7 @@ namespace Olympus_the_Game.View
 
         private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
         {
-            TimeBomb.DoDragDrop(TimeBomb.Container, DragDropEffects.Copy | DragDropEffects.Move);
+            TimeBomb.DoDragDrop(TimeBomb, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
