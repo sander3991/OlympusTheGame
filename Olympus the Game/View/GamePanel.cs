@@ -21,22 +21,27 @@ namespace Olympus_the_Game.View
         /// </summary>
         private PlayField pf;
 
+        /// <summary>
+        /// List of images used by this view
+        /// </summary>
         private Dictionary<Type, Bitmap> ImageList = new Dictionary<Type, Bitmap>();
 
         /// <summary>
         /// Maak een nieuw GamePanel aan, deze krijgt als argument het model mee welke moet worden getekend.
         /// </summary>
-        public GamePanel() // TODO Specify type
+        public GamePanel(PlayField pf) // TODO Specify type
         {
             // Save vars
-            try
-            {
-                this.pf = OlympusTheGame.INSTANCE.pf;
-            }
-            catch (NullReferenceException) // Added so IDE won't complain
-            {
-                this.pf = new PlayField();
-            }
+            this.pf = pf;
+            Init();
+        }
+
+        public GamePanel()
+            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500) : OlympusTheGame.INSTANCE.pf)
+        {}
+
+        private void Init()
+        {
             this.pf.AddObject(new ObjectStart(50, 50, 0, 0));
             this.pf.AddObject(new ObjectFinish(150, 150, 800, 300));
             this.pf.AddObject(new ObjectObstacle(50, 50, 60, 0));

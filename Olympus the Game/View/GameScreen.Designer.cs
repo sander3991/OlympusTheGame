@@ -87,7 +87,7 @@
 
         private InfoPanel infoPanel1;
         private MenuPanel menuPanel1;
-        private GamePanel gamePanel1;
+        public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
     }
 }
