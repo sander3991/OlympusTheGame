@@ -14,7 +14,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
-        private float SCALE = 1.0f;
+        private double SCALE = 1.0f;
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
@@ -36,26 +36,25 @@ namespace Olympus_the_Game.View
             Init();
         }
 
+        /// <summary>
+        /// Lege constructor, deze implementeert het gewone gedrag. Bij aanmaken wordt er gekeken of er een game draait, zo ja, wordt dit speelveld gebruikt.
+        /// Als er geen game draait, wordt er een standaard speelveld gebruikt.
+        /// </summary>
         public GamePanel()
-            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500) : OlympusTheGame.INSTANCE.pf)
-        {}
+            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500, PlayField.GetDefaultMap(1000, 500)) : OlympusTheGame.INSTANCE.pf)
+        { }
 
         private void Init()
         {
-            this.pf.AddObject(new ObjectStart(50, 50, 0, 0));
-            this.pf.AddObject(new ObjectFinish(150, 150, 800, 300));
-            this.pf.AddObject(new ObjectObstacle(50, 50, 60, 0));
-            this.pf.AddObject(new EntityCreeper(50, 50, 150, 60, 1.0f));
-            this.pf.AddObject(new EntityExplode(50, 50, 150, 0, 1.0f));
-            this.pf.AddObject(new EntityPlayer(50, 50, 0, 0));
-            this.pf.AddObject(new EntitySlower(50, 50, 200, 150));
-            this.pf.AddObject(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
-
             // Build imagelist
             this.ImageList.Add(typeof(EntityCreeper), Properties.Resources.creeper);
             this.ImageList.Add(typeof(EntityExplode), Properties.Resources.tnt);
             this.ImageList.Add(typeof(EntitySlower), Properties.Resources.spider);
             this.ImageList.Add(typeof(EntityPlayer), Properties.Resources.player);
+            this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
+            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.missing);
+            this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
+            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.dirt);
 
             // Initialize component
             InitializeComponent();
@@ -65,6 +64,11 @@ namespace Olympus_the_Game.View
 
             // Set background
             this.BackgroundImage = Properties.Resources.Background;
+        }
+
+        public void setPlayField(PlayField pf) {
+            // Set playfield
+            this.pf = pf;
         }
 
         /// <summary>
@@ -92,7 +96,7 @@ namespace Olympus_the_Game.View
             Bitmap bm = null;
             ImageList.TryGetValue(go.GetType(), out bm);
             if (bm == null)
-                bm = Properties.Resources.rsz_arrowup; // TODO Change not implemented picture
+                bm = Properties.Resources.missing; // TODO Change not implemented picture
 
             // Generate target rectangle
             Rectangle target = new Rectangle(
@@ -110,6 +114,15 @@ namespace Olympus_the_Game.View
             // Add border
             Pen p = new Pen(Brushes.Black);
             g.DrawRectangle(p, target);
+        }
+
+        private void Panel_resized(object sender, EventArgs e)
+        {
+            // Fix playfield scaling
+            double ratioWidth = (double)this.pf.WIDTH / (double)this.Size.Width;
+            double ratioHeight = (double)this.pf.HEIGHT / (double)this.Size.Height;
+            this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
+            this.Size = new Size((int)((double)this.pf.WIDTH * SCALE), (int)((double)this.pf.HEIGHT * SCALE));
         }
     }
 }

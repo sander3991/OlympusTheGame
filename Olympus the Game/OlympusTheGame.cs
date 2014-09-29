@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using System.Net;
+using System.Threading;
 
 namespace Olympus_the_Game
 {
@@ -28,6 +30,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField pf { get; private set; }
+        public Controller Controller { get; private set; }
 
         /// <summary>
         /// Maak nieuw OlympusTheGame object
@@ -35,12 +38,14 @@ namespace Olympus_the_Game
         public OlympusTheGame()
         {
             // TODO Verwijderen
-            this.pf = new PlayField(100, 100);
+            this.pf = new PlayField(1000, 500);
+            this.Controller = new Controller(this.pf);
         }
 
         /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
+        [STAThread]
         static void Main()
         {
             // non-static object aanmaken
@@ -94,11 +99,13 @@ namespace Olympus_the_Game
 
             // Update screen
             if (!gs.IsDisposed)
+            {
                 try
                 {
                     gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
                 }
                 catch (ObjectDisposedException) { }
+            }
         }
     }
 }
