@@ -41,6 +41,7 @@
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,7 +64,7 @@
             this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.player;
             this.pictureBox1.Location = new System.Drawing.Point(996, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -71,9 +72,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Olympus_the_Game.Properties.Resources.creeper;
-            this.pictureBox2.Location = new System.Drawing.Point(996, 98);
+            this.pictureBox2.Location = new System.Drawing.Point(996, 88);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox2.Size = new System.Drawing.Size(70, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -81,9 +82,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Olympus_the_Game.Properties.Resources.spider;
-            this.pictureBox3.Location = new System.Drawing.Point(996, 184);
+            this.pictureBox3.Location = new System.Drawing.Point(996, 164);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox3.Size = new System.Drawing.Size(70, 70);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
@@ -91,9 +92,9 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Olympus_the_Game.Properties.Resources.tnt;
-            this.pictureBox4.Location = new System.Drawing.Point(996, 270);
+            this.pictureBox4.Location = new System.Drawing.Point(996, 240);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox4.Size = new System.Drawing.Size(70, 70);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
@@ -101,9 +102,9 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Olympus_the_Game.Properties.Resources.Background;
-            this.pictureBox5.Location = new System.Drawing.Point(996, 356);
+            this.pictureBox5.Location = new System.Drawing.Point(996, 316);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox5.Size = new System.Drawing.Size(70, 70);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
@@ -111,9 +112,9 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Olympus_the_Game.Properties.Resources.Background;
-            this.pictureBox6.Location = new System.Drawing.Point(996, 442);
+            this.pictureBox6.Location = new System.Drawing.Point(996, 392);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox6.Size = new System.Drawing.Size(70, 70);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 6;
             this.pictureBox6.TabStop = false;
@@ -122,10 +123,10 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(1091, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(1072, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox1.Size = new System.Drawing.Size(63, 70);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "Speler";
             // 
@@ -133,10 +134,10 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(1091, 98);
+            this.richTextBox2.Location = new System.Drawing.Point(1072, 88);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox2.Size = new System.Drawing.Size(63, 70);
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "Creeper";
             // 
@@ -144,10 +145,10 @@
             // 
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Location = new System.Drawing.Point(1091, 184);
+            this.richTextBox3.Location = new System.Drawing.Point(1072, 164);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox3.Size = new System.Drawing.Size(63, 70);
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "Spider";
             // 
@@ -155,10 +156,10 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox4.Location = new System.Drawing.Point(1091, 270);
+            this.richTextBox4.Location = new System.Drawing.Point(1072, 240);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
-            this.richTextBox4.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox4.Size = new System.Drawing.Size(63, 70);
             this.richTextBox4.TabIndex = 10;
             this.richTextBox4.Text = "TnT";
             // 
@@ -166,10 +167,10 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox5.Location = new System.Drawing.Point(1091, 356);
+            this.richTextBox5.Location = new System.Drawing.Point(1072, 316);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.ReadOnly = true;
-            this.richTextBox5.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox5.Size = new System.Drawing.Size(63, 70);
             this.richTextBox5.TabIndex = 11;
             this.richTextBox5.Text = "Nog nader te bepalen";
             // 
@@ -177,28 +178,40 @@
             // 
             this.richTextBox6.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox6.Location = new System.Drawing.Point(1091, 442);
+            this.richTextBox6.Location = new System.Drawing.Point(1072, 392);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.ReadOnly = true;
-            this.richTextBox6.Size = new System.Drawing.Size(146, 80);
+            this.richTextBox6.Size = new System.Drawing.Size(63, 70);
             this.richTextBox6.TabIndex = 12;
             this.richTextBox6.Text = "Nog nader te bepalen";
+            // 
+            // richTextBox7
+            // 
+            this.richTextBox7.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox7.Location = new System.Drawing.Point(996, 494);
+            this.richTextBox7.Name = "richTextBox7";
+            this.richTextBox7.ReadOnly = true;
+            this.richTextBox7.Size = new System.Drawing.Size(163, 58);
+            this.richTextBox7.TabIndex = 13;
+            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.";
             // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 733);
+            this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -229,5 +242,6 @@
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.RichTextBox richTextBox7;
     }
 }
