@@ -94,11 +94,13 @@ namespace Olympus_the_Game
 
             // Update screen
             if (!gs.IsDisposed)
+            {
                 try
                 {
                     gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
                 }
                 catch (ObjectDisposedException) { }
+            }
         }
     }
 }
