@@ -23,32 +23,32 @@ namespace Olympus_the_Game.View
 
         private void Player_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(typeof(EntityPlayer).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            Player.DoDragDrop(Entity.Type.PLAYER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(typeof(EntityCreeper).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            Player.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Spider_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(typeof(EntitySlower).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            Player.DoDragDrop(Entity.Type.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Tnt_MouseDown(object sender, MouseEventArgs e)
         {
-            Tnt.DoDragDrop(typeof(EntityExplode).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            Tnt.DoDragDrop(Entity.Type.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
         {
-            TimeBomb.DoDragDrop(typeof(EntityTimeBomb).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            TimeBomb.DoDragDrop(Entity.Type.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
         {
-            Cake.DoDragDrop(typeof(ObjectFinish).ToString(), DragDropEffects.Copy | DragDropEffects.Move);
+            Cake.DoDragDrop(Entity.Type.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void enter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(string)))
+            if (e.Data.GetDataPresent(typeof(Entity.Type)))
             {
                 e.Effect = DragDropEffects.Move;
             }
@@ -80,7 +80,15 @@ namespace Olympus_the_Game.View
             l = new Point((int)((double)l.X / this.gamePanel1.SCALE), (int)((double)l.Y / this.gamePanel1.SCALE));
 
             // Add object
-            this.pf.AddObject(new EntityPlayer(50, 50, l.X, l.Y));
+            switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
+            {
+                case Entity.Type.PLAYER:
+                    this.pf.AddObject(new EntityPlayer(50, 50, l.X, l.Y));
+                    break;
+                case Entity.Type.TIMEBOMB:
+                    this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
+                    break;
+            }
             this.gamePanel1.Invalidate();
         }
     }

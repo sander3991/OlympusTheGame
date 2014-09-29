@@ -222,6 +222,8 @@
             this.Controls.Add(this.richTextBox1);
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.ResumeLayout(false);
 
         }
