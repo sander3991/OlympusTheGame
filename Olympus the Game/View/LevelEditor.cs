@@ -83,7 +83,8 @@ namespace Olympus_the_Game.View
             switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
             {
                 case Entity.Type.PLAYER:
-                    this.pf.AddObject(new EntityPlayer(50, 50, l.X, l.Y));
+                    this.pf.Player.X = l.X;
+                    this.pf.Player.Y = l.Y;
                     break;
                 case Entity.Type.TIMEBOMB:
                     this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
@@ -92,9 +93,11 @@ namespace Olympus_the_Game.View
                     this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
                     break;
                 case Entity.Type.CAKE:
+                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                     this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
                     break;
                 case Entity.Type.HOME:
+                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                     this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
                     break;
                 case Entity.Type.CREEPER:
