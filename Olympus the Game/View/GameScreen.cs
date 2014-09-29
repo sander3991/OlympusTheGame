@@ -34,5 +34,10 @@ namespace Olympus_the_Game.View
             else
                 e.Cancel = true;
         }
+
+        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
