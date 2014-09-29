@@ -20,6 +20,7 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength) : base(width, height, x, y, dx, dy, explodeStrength)
         {
+            EntityControlledByAI = true;
         }
 
         /// <summary>

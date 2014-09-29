@@ -125,10 +125,14 @@ namespace Olympus_the_Game
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;
-                if (e != null && e.EntityControlledByAI)
+                if (e != null)
                 {
-                    e.DX = rand.Next(3) - 1;
-                    e.DY = rand.Next(3) - 1;
+                    if (e.EntityControlledByAI)
+                    {
+                        e.DX = rand.Next(3) - 1;
+                        e.DY = rand.Next(3) - 1;
+                    }
+                    e.OnUpdate();
                 }
             }
         }
