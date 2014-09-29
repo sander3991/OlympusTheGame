@@ -9,10 +9,9 @@ namespace Olympus_the_Game
     {
         public readonly int WIDTH;
         public readonly int HEIGHT;
-
         private List<GameObject> gameObjects;
-
         private EntityPlayer player;
+        public int gameSpeed = 2;
 
         public EntityPlayer Player
         {
