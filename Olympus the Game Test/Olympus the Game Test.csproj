@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Model\PlayFieldTest.cs" />
     <Compile Include="Model\EntityTests.cs" />
+    <Compile Include="Model\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
