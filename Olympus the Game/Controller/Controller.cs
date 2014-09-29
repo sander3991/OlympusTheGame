@@ -44,6 +44,10 @@ namespace Olympus_the_Game
                 // Zet dan de speel op 0
                 MovePlayer(e, 0);
             }
+            else
+            {
+                MovePlayer(e, 0);
+            }
             
         }
 
@@ -67,11 +71,24 @@ namespace Olympus_the_Game
             
         }
 
-        // Beweeg de speler met de toetsen op het scherm
-        internal void MovePlayer(object sender)
+        /// <summary>
+        /// Beweeg de speler horizontaal met de toetsen op het scherm
+        /// </summary>
+        /// <param name="speed"></param>
+        /// <param name="horizontaal"></param>
+ 
+        public void MovePlayer(int speed, bool horizontaal)
         {
-            MessageBox.Show(sender.ToString());
+            if (horizontaal)
+                OlympusTheGame.INSTANCE.pf.Player.DX = speed;
+            else
+                OlympusTheGame.INSTANCE.pf.Player.DY = speed;
+                
         }
+
+        //beweeg de speler vertikaal met de toetsen op het scherm.
+        
+        
 
         public void Update()
         {
