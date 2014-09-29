@@ -14,7 +14,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
-        private double SCALE = 1.0f;
+        public double SCALE {get; private set;}
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
@@ -33,6 +33,7 @@ namespace Olympus_the_Game.View
         {
             // Save vars
             this.pf = pf;
+            this.SCALE = 1.0f;
             Init();
         }
 
