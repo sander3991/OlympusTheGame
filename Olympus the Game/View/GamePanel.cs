@@ -36,8 +36,12 @@ namespace Olympus_the_Game.View
             Init();
         }
 
+        /// <summary>
+        /// Lege constructor, deze implementeert het gewone gedrag. Bij aanmaken wordt er gekeken of er een game draait, zo ja, wordt dit speelveld gebruikt.
+        /// Als er geen game draait, wordt er een standaard speelveld gebruikt.
+        /// </summary>
         public GamePanel()
-            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500) : OlympusTheGame.INSTANCE.pf)
+            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500, PlayField.GetDefaultMap(1000, 500)) : OlympusTheGame.INSTANCE.pf)
         {}
 
         private void Init()
