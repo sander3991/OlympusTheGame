@@ -11,12 +11,12 @@ namespace Olympus_the_Game_Test.Model
         public void TestAddGameObjects()
         {
             // Allocate
-            PlayField pf = new PlayField();
-            PlayField pfWithStart = new PlayField();
-            PlayField pfWithFinish = new PlayField();
-            PlayField pfWithStartAndFinish = new PlayField();
-            PlayField pfWith2StartAnd1Finish = new PlayField();
-            PlayField pfWith1StartAnd2Finish = new PlayField();
+            PlayField pf = new PlayField(100, 100);
+            PlayField pfWithStart = new PlayField(100 ,100);
+            PlayField pfWithFinish = new PlayField(100, 100);
+            PlayField pfWithStartAndFinish = new PlayField(100, 100);
+            PlayField pfWith2StartAnd1Finish = new PlayField(100, 100);
+            PlayField pfWith1StartAnd2Finish = new PlayField(100, 100);
 
             GameObject gS = new ObjectFinish(400, 200, 100, 100);
             GameObject gF = new ObjectStart(0, 0, 100, 100);
