@@ -36,7 +36,7 @@ namespace Olympus_the_Game
         public OlympusTheGame()
         {
             // TODO Verwijderen
-            this.pf = new PlayField(100, 100);
+            this.pf = new PlayField(1000, 1000);
             this.Controller = new Controller(this.pf);
         }
 
