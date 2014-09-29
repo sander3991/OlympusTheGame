@@ -45,16 +45,40 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
         }
 
-        
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+            }
+        }
 
-        
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
+        }
 
-        
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
 
 
 
-        
 
 
+
+
+
+
+
+
+
+
+        public Point MouseDownLocation { get; set; }
     }
 }

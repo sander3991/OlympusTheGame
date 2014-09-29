@@ -12,14 +12,17 @@ namespace Olympus_the_Game
     public class Controller
     {
         public PlayField PlayField { get; private set; }
+        
 
         public Controller(PlayField pf)
         {
             this.PlayField = pf;
+            
         }
 
         public void OnKeyDown(KeyEventArgs e)
         {
+
             // Kijk of de gebruiker standaard besturings toetsen invoert
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
@@ -71,7 +74,8 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Beweeg de speler horizontaal met de toetsen op het scherm
+        /// Beweeg de speler op het scherm
+        /// Geef aan of deze beweging horizontaal moet zijn
         /// </summary>
         /// <param name="speed"></param>
         /// <param name="horizontaal"></param>
