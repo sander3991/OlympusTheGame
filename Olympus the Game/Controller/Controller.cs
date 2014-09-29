@@ -2,15 +2,11 @@
 {
     public class Controller
     {
-        public PlayField PlayField
+        public PlayField PlayField { get; private set; }
+
+        public Controller(PlayField pf)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.PlayField = pf;
         }
 
         public void ReadInput()

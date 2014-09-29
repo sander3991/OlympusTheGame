@@ -28,6 +28,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField pf { get; private set; }
+        public Controller Controller { get; private set; }
 
         /// <summary>
         /// Maak nieuw OlympusTheGame object
@@ -36,6 +37,7 @@ namespace Olympus_the_Game
         {
             // TODO Verwijderen
             this.pf = new PlayField(100, 100);
+            this.Controller = new Controller(this.pf);
         }
 
         /// <summary>
