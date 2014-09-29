@@ -7,7 +7,7 @@ namespace Olympus_the_Game_Test
     [TestClass]
     public class UnitTest1
     {
-        EntityPlayer ep = new EntityPlayer(10, 10, 0, 0);
+        EntityPlayer ep = new EntityPlayer(10, 10, 49, 49);
         EntityExplode ee = new EntityExplode(10, 10, 0, 0, 10);
 
         [TestMethod]
@@ -33,8 +33,8 @@ namespace Olympus_the_Game_Test
         public void KillPlayer() 
         {
             for(int i = 0; i < 5; i++) {
-                ep.X = 10;
-                ep.Y = 10;
+                ep.X = 49;
+                ep.Y = 49;
                 ee.OnCollide(ep);
             }
 
