@@ -26,10 +26,17 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Maak een nieuw GamePanel aan, deze krijgt als argument het model mee welke moet worden getekend.
         /// </summary>
-        public GamePanel(PlayField pf) // TODO Specify type
+        public GamePanel() // TODO Specify type
         {
             // Save vars
-            this.pf = OlympusTheGame.INSTANCE.pf;
+            try
+            {
+                this.pf = OlympusTheGame.INSTANCE.pf;
+            }
+            catch (NullReferenceException) // Added so IDE won't complain
+            {
+                this.pf = new PlayField();
+            }
             this.pf.AddObject(new ObjectStart(50, 50, 0, 0));
             this.pf.AddObject(new ObjectFinish(150, 150, 800, 300));
             this.pf.AddObject(new ObjectObstacle(50, 50, 60, 0));
@@ -53,14 +60,6 @@ namespace Olympus_the_Game.View
 
             // Set background
             this.BackgroundImage = Properties.Resources.Background;
-        }
-
-        /// <summary>
-        /// Lege constructor, om compitabiliteit toe te voegen.
-        /// </summary>
-        public GamePanel()
-            : this(null)
-        {
         }
 
         /// <summary>
