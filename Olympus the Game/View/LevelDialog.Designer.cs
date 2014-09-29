@@ -53,11 +53,11 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(9, 79);
+            this.richTextBox2.Location = new System.Drawing.Point(49, 79);
             this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(298, 28);
+            this.richTextBox2.Size = new System.Drawing.Size(245, 28);
             this.richTextBox2.TabIndex = 1;
             this.richTextBox2.Text = "Laad zelf een (geëxporteerd) .xml bestand.";
             // 
