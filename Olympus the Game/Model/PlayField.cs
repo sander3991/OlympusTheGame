@@ -26,6 +26,12 @@ namespace Olympus_the_Game
             }
         }
 
+        public PlayField(int width, int height)
+        {
+            WIDTH = width;
+            HEIGHT = height;
+        }
+
         /// <summary>
         /// Verkrijgt alle gameObjects die op het veld zijn
         /// </summary>
