@@ -37,5 +37,11 @@ namespace Olympus_the_Game.View
             LevelDialog ld = new LevelDialog();
             ld.ShowDialog();
         }
+
+        private void LevelEditor_Click(object sender, EventArgs e)
+        {
+            LevelEditor le = new LevelEditor();
+            le.ShowDialog();
+        }
     }
 }

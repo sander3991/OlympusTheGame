@@ -31,7 +31,7 @@
             this.Menu = new System.Windows.Forms.TabControl();
             this.MenuTab = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LevelEditor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LoadLevel = new System.Windows.Forms.Button();
             this.SpelUitleg = new System.Windows.Forms.RichTextBox();
@@ -56,7 +56,7 @@
             // MenuTab
             // 
             this.MenuTab.Controls.Add(this.label4);
-            this.MenuTab.Controls.Add(this.button1);
+            this.MenuTab.Controls.Add(this.LevelEditor);
             this.MenuTab.Controls.Add(this.label1);
             this.MenuTab.Controls.Add(this.LoadLevel);
             this.MenuTab.Controls.Add(this.SpelUitleg);
@@ -83,15 +83,16 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Maak je eigen level";
             // 
-            // button1
+            // LevelEditor
             // 
-            this.button1.Location = new System.Drawing.Point(4, 106);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 19);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Level Editor";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LevelEditor.Location = new System.Drawing.Point(4, 106);
+            this.LevelEditor.Margin = new System.Windows.Forms.Padding(2);
+            this.LevelEditor.Name = "LevelEditor";
+            this.LevelEditor.Size = new System.Drawing.Size(99, 19);
+            this.LevelEditor.TabIndex = 7;
+            this.LevelEditor.Text = "Level Editor";
+            this.LevelEditor.UseVisualStyleBackColor = true;
+            this.LevelEditor.Click += new System.EventHandler(this.LevelEditor_Click);
             // 
             // label1
             // 
@@ -194,6 +195,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LoadLevel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LevelEditor;
     }
 }
