@@ -169,8 +169,10 @@
             // TimeBomb
             // 
             this.TimeBomb.AllowDrop = true;
+            this.TimeBomb.BackColor = System.Drawing.Color.Transparent;
             this.TimeBomb.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
             this.TimeBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TimeBomb.ForeColor = System.Drawing.Color.Transparent;
             this.TimeBomb.Location = new System.Drawing.Point(996, 316);
             this.TimeBomb.Name = "TimeBomb";
             this.TimeBomb.Size = new System.Drawing.Size(70, 70);
@@ -180,8 +182,10 @@
             // Cake
             // 
             this.Cake.AllowDrop = true;
+            this.Cake.BackColor = System.Drawing.Color.Transparent;
             this.Cake.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
             this.Cake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cake.ForeColor = System.Drawing.Color.Transparent;
             this.Cake.Location = new System.Drawing.Point(996, 392);
             this.Cake.Name = "Cake";
             this.Cake.Size = new System.Drawing.Size(70, 70);
