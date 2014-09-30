@@ -272,7 +272,7 @@
             this.Controls.Add(this.XLocationInput);
             this.Controls.Add(this.EntityImageLarge);
             this.Name = "DetailEditor";
-            this.Size = new System.Drawing.Size(894, 179);
+            this.Size = new System.Drawing.Size(909, 179);
             this.ResumeLayout(false);
             this.PerformLayout();
 

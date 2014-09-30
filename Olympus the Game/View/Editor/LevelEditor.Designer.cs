@@ -193,7 +193,7 @@
             // 
             this.detailEditor1.Location = new System.Drawing.Point(56, 523);
             this.detailEditor1.Name = "detailEditor1";
-            this.detailEditor1.Size = new System.Drawing.Size(883, 179);
+            this.detailEditor1.Size = new System.Drawing.Size(920, 179);
             this.detailEditor1.TabIndex = 17;
             // 
             // gamePanel1
