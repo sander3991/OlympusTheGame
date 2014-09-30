@@ -40,5 +40,25 @@ namespace Olympus_the_Game
         
         
         }
+
+        public override void OnUpdate() {
+            EntityPlayer player = OlympusTheGame.INSTANCE.pf.Player;
+
+            if(player != null) {
+                if(DistanceToObject(player) < 100) {
+                    player.Health--;
+
+                    if(player.Health > 0) {
+                        player.X = 0;
+                        player.Y = 0;
+                    } else {
+                        /**
+                         * Here be dragons
+                         * Just kidding, hier is code voor game over scherm wanneer klaar
+                        **/
+                    }
+                }
+            }
+        }
     }
 }

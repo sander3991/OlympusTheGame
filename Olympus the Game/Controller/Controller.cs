@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
-    
 {
     public class Controller
     {
@@ -20,7 +19,10 @@ namespace Olympus_the_Game
         {
             this.PlayField = pf;
         }
-
+        /// <summary>
+        /// Stuurt informatie door als de gebruiker op een toets heeft geklikt.
+        /// </summary>
+        /// <param name="e"></param>
         public void OnKeyDown(KeyEventArgs e)
         {
             // Kijk of de gebruiker standaard besturings toetsen invoert
@@ -29,12 +31,13 @@ namespace Olympus_the_Game
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S) 
             {
-                // Geef de speed van 1 mee
-                MovePlayer(e, 1);
+                MovePlayer(e, OlympusTheGame.INSTANCE.pf.gameSpeed);
             }
-                
         }
-
+        /// <summary>
+        /// Stuurt informatie door als de gebruiker een toets loslaat.
+        /// </summary>
+        /// <param name="e"></param>
         public void OnKeyUp(KeyEventArgs e)
         {
             // Kijk of de speler de standaard besturings toetsen loslaat
@@ -43,14 +46,13 @@ namespace Olympus_the_Game
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S)
             {
-                // Zet dan de speel op 0
+                // Zet dan de speed op 0
                 MovePlayer(e, 0);
             }
             else
             {
                 MovePlayer(e, 0);
             }
-            
         }
 
         /// <summary>
@@ -70,34 +72,29 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.pf.Player.DY = -speed;
             else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 OlympusTheGame.INSTANCE.pf.Player.DY = speed;
-            
         }
 
         /// <summary>
-        /// Beweeg de speler horizontaal met de toetsen op het scherm
+        /// Beweeg de speler op het scherm
+        /// Geef aan of deze beweging horizontaal moet zijn
         /// </summary>
         /// <param name="speed"></param>
         /// <param name="horizontaal"></param>
- 
         public void MovePlayer(int speed, bool horizontaal)
         {
             if (horizontaal)
                 OlympusTheGame.INSTANCE.pf.Player.DX = speed;
             else
                 OlympusTheGame.INSTANCE.pf.Player.DY = speed;
-                
         }
-
-        //beweeg de speler vertikaal met de toetsen op het scherm.
-        
-        
 
         public void Update()
         {
             EntityPlayer player = PlayField.Player;
             player.Move();
             List<GameObject> gameObjects = PlayField.GetObjects();
-            foreach(GameObject o in gameObjects){
+            foreach (GameObject o in gameObjects)
+            {
                 if (player.CollidesWithObject(o))
                 {
                     o.OnCollide(player);

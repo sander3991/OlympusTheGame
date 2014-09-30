@@ -34,5 +34,16 @@
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+
+        public override void OnUpdate()
+        {
+            EntityPlayer player = OlympusTheGame.INSTANCE.pf.Player;
+            int PreviousSpeed = OlympusTheGame.INSTANCE.pf.gameSpeed;
+
+            if (DistanceToObject(player) < 100)
+                OlympusTheGame.INSTANCE.pf.gameSpeed = 1;
+            else
+                OlympusTheGame.INSTANCE.pf.gameSpeed = PreviousSpeed; // werkt nog niet 
+        }
     }
 }
