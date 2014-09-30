@@ -11,7 +11,6 @@ namespace Olympus_the_Game
         public readonly int HEIGHT;
         private List<GameObject> gameObjects = new List<GameObject>();
         private EntityPlayer player;
-        public int gameSpeed = 3;
 
         public EntityPlayer Player
         {

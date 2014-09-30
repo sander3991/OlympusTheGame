@@ -41,7 +41,6 @@
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            int PreviousSpeed = OlympusTheGame.INSTANCE.Playfield.gameSpeed;
 
             double distance = DistanceToObject(player);
             if (distance < 100 && !isSlowingPlayer)
