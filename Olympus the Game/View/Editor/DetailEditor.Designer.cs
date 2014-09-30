@@ -143,9 +143,10 @@
             // Splitter
             // 
             this.Splitter.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Splitter.Location = new System.Drawing.Point(377, 0);
+            this.Splitter.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
+            this.Splitter.Location = new System.Drawing.Point(367, 0);
             this.Splitter.Name = "Splitter";
-            this.Splitter.Size = new System.Drawing.Size(10, 179);
+            this.Splitter.Size = new System.Drawing.Size(20, 179);
             this.Splitter.TabIndex = 15;
             // 
             // EntityNaamLabel
@@ -163,7 +164,7 @@
             this.SpeelveldUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpeelveldUitleg.Location = new System.Drawing.Point(197, 48);
             this.SpeelveldUitleg.Name = "SpeelveldUitleg";
-            this.SpeelveldUitleg.Size = new System.Drawing.Size(174, 41);
+            this.SpeelveldUitleg.Size = new System.Drawing.Size(164, 41);
             this.SpeelveldUitleg.TabIndex = 17;
             this.SpeelveldUitleg.Text = "Pas waardes en eigenschappen van het speelveld aan.";
             // 
