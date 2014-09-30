@@ -83,6 +83,20 @@ namespace Olympus_the_Game.View
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
         }
+        /// <summary>
+        /// Resetten met dubbel klik
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuStrip1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Left.ToString(),this.Top.ToString());
+
+            this.Left = 560 + menuStrip1.Size.Height;
+            this.Top = 588 - menuStrip1.Size.Height;
+
+            
+        }
 
         
         
