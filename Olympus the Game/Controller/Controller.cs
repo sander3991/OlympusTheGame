@@ -29,7 +29,7 @@ namespace Olympus_the_Game
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S)
             {
-                MovePlayer(e, 1);
+                MovePlayer(e, OlympusTheGame.INSTANCE.pf.gameSpeed);
             }
         }
         /// <summary>
