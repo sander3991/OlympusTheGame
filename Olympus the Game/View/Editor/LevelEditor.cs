@@ -137,14 +137,19 @@ namespace Olympus_the_Game.View
                 case MouseButtons.Left:
                     break;
                 case MouseButtons.Right:
-                    RemoveObjectAtLocation(this.gamePanelEditor.PointToClient(Cursor.Position));
+                    RemoveObjectAtLocation(this.gamePanelEditor.TranslatePlayFieldToPanel(this.gamePanelEditor.PointToClient(Cursor.Position)));
+                    this.gamePanelEditor.Invalidate();
                     break;
             }
         }
 
         private void RemoveObjectAtLocation(Point p)
         {
-            MessageBox.Show("Removing: " + p.ToString());
+            List<GameObject> objects = this.pf.GetObjectsAtLocation(p.X, p.Y);
+            if (objects != null && objects.Count > 0)
+            {
+                this.pf.GetObjects().Remove(objects.Last());
+            }
         }
 
     }
