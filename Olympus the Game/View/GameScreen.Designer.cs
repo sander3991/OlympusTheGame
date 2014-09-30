@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
-            this.menuPanel1 = new Olympus_the_Game.View.MenuPanel();
             this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
@@ -39,20 +38,11 @@
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(588, 587);
+            this.arrowPanel1.Location = new System.Drawing.Point(915, 602);
             this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
-            // 
-            // menuPanel1
-            // 
-            this.menuPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.menuPanel1.Location = new System.Drawing.Point(931, 587);
-            this.menuPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
-            this.menuPanel1.Name = "menuPanel1";
-            this.menuPanel1.Size = new System.Drawing.Size(321, 250);
-            this.menuPanel1.TabIndex = 1;
             // 
             // infoPanel1
             // 
@@ -88,7 +78,6 @@
             this.ClientSize = new System.Drawing.Size(1264, 861);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
-            this.Controls.Add(this.menuPanel1);
             this.Controls.Add(this.infoPanel1);
             this.Controls.Add(this.customMenuBar1);
             this.DoubleBuffered = true;
@@ -108,7 +97,6 @@
         #endregion
 
         private InfoPanel infoPanel1;
-        private MenuPanel menuPanel1;
         public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
         private MenuBar.CustomMenuBar customMenuBar1;
