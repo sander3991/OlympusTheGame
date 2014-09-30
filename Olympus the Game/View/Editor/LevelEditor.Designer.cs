@@ -43,6 +43,7 @@
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
+            this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -200,12 +201,20 @@
             this.gamePanel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             // 
+            // detailEditor1
+            // 
+            this.detailEditor1.Location = new System.Drawing.Point(81, 525);
+            this.detailEditor1.Name = "detailEditor1";
+            this.detailEditor1.Size = new System.Drawing.Size(844, 179);
+            this.detailEditor1.TabIndex = 17;
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.detailEditor1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.Cake);
             this.Controls.Add(this.TimeBomb);
@@ -244,5 +253,6 @@
         private System.Windows.Forms.Panel TimeBomb;
         private System.Windows.Forms.Panel Cake;
         private GamePanel gamePanel1;
+        private Editor.DetailEditor detailEditor1;
     }
 }

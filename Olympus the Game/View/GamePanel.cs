@@ -89,7 +89,8 @@ namespace Olympus_the_Game.View
             }
 
             // Draw player
-            draw(pf.Player, e.Graphics);
+            if(pf.Player != null)
+                draw(pf.Player, e.Graphics);
         }
 
         private void draw(GameObject go, Graphics g)
