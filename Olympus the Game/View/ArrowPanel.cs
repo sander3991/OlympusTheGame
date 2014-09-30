@@ -56,24 +56,26 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
         }
 
+       
         /// <summary>
         /// Functie om het panel op runtime te verslepen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 MouseDownLocation = e.Location;
             }
         }
+
         /// <summary>
         /// Functie die het scherm plaatst als je die muis loslaat
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
@@ -82,6 +84,7 @@ namespace Olympus_the_Game.View
             }
         }
 
+        
         
     }
 }
