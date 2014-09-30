@@ -53,7 +53,7 @@ namespace Olympus_the_Game.View
             this.ImageList.Add(typeof(EntitySlower), Properties.Resources.spider);
             this.ImageList.Add(typeof(EntityPlayer), Properties.Resources.player);
             this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
-            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.missing);
+            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.huis);
             this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
             this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.cobble);
 
@@ -103,10 +103,9 @@ namespace Olympus_the_Game.View
 
             // Generate target rectangle
             Rectangle target = new Rectangle(
-                (int)((float)go.X * SCALE),
-                (int)((float)go.Y * SCALE),
-                (int)((float)go.Width * SCALE),
-                (int)((float)go.Height * SCALE));
+                TranslatePanelToPlayField(new Point(go.X, go.Y)),
+                new Size((int)((float)go.Width * SCALE),
+                (int)((float)go.Height * SCALE)));
 
             //  Draw picture
             g.DrawImage(bm,
@@ -126,6 +125,16 @@ namespace Olympus_the_Game.View
             double ratioHeight = (double)this.pf.HEIGHT / (double)this.Size.Height;
             this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
             this.Size = new Size((int)((double)this.pf.WIDTH * SCALE), (int)((double)this.pf.HEIGHT * SCALE));
+        }
+
+        public Point TranslatePanelToPlayField(Point p)
+        {
+            return new Point((int)((double) p.X * SCALE), (int)((double) p.Y * SCALE));
+        }
+
+        public Point TranslatePlayFieldToPanel(Point p)
+        {
+            return new Point((int)((double)p.X / SCALE), (int)((double)p.Y / SCALE));
         }
     }
 }
