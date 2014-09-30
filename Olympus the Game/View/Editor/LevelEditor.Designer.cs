@@ -42,6 +42,10 @@
             this.Tnt = new System.Windows.Forms.Panel();
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
+            this.Home = new System.Windows.Forms.Panel();
+            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
+            this.Obstakel = new System.Windows.Forms.Panel();
+            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
@@ -116,10 +120,10 @@
             // 
             this.richTextBox7.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox7.Location = new System.Drawing.Point(996, 494);
+            this.richTextBox7.Location = new System.Drawing.Point(996, 644);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(163, 58);
+            this.richTextBox7.Size = new System.Drawing.Size(139, 58);
             this.richTextBox7.TabIndex = 13;
             this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.";
             // 
@@ -189,6 +193,50 @@
             this.Cake.TabIndex = 15;
             this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
             // 
+            // Home
+            // 
+            this.Home.AllowDrop = true;
+            this.Home.BackgroundImage = global::Olympus_the_Game.Properties.Resources.huis;
+            this.Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Home.Location = new System.Drawing.Point(996, 468);
+            this.Home.Name = "Home";
+            this.Home.Size = new System.Drawing.Size(70, 70);
+            this.Home.TabIndex = 17;
+            this.Home.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Home_MouseDown);
+            // 
+            // richTextBox8
+            // 
+            this.richTextBox8.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox8.Location = new System.Drawing.Point(1072, 468);
+            this.richTextBox8.Name = "richTextBox8";
+            this.richTextBox8.ReadOnly = true;
+            this.richTextBox8.Size = new System.Drawing.Size(63, 70);
+            this.richTextBox8.TabIndex = 16;
+            this.richTextBox8.Text = "Home";
+            // 
+            // Obstakel
+            // 
+            this.Obstakel.AllowDrop = true;
+            this.Obstakel.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
+            this.Obstakel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Obstakel.Location = new System.Drawing.Point(996, 544);
+            this.Obstakel.Name = "Obstakel";
+            this.Obstakel.Size = new System.Drawing.Size(70, 70);
+            this.Obstakel.TabIndex = 17;
+            this.Obstakel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Obstakel_MouseDown);
+            // 
+            // richTextBox9
+            // 
+            this.richTextBox9.BackColor = System.Drawing.SystemColors.Menu;
+            this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox9.Location = new System.Drawing.Point(1072, 544);
+            this.richTextBox9.Name = "richTextBox9";
+            this.richTextBox9.ReadOnly = true;
+            this.richTextBox9.Size = new System.Drawing.Size(63, 70);
+            this.richTextBox9.TabIndex = 16;
+            this.richTextBox9.Text = "Obstakel";
+            // 
             // detailEditor1
             // 
             this.detailEditor1.Location = new System.Drawing.Point(56, 523);
@@ -214,6 +262,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.Obstakel);
+            this.Controls.Add(this.richTextBox9);
+            this.Controls.Add(this.Home);
+            this.Controls.Add(this.richTextBox8);
             this.Controls.Add(this.detailEditor1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.Cake);
@@ -254,5 +306,9 @@
         private System.Windows.Forms.Panel Cake;
         private GamePanel gamePanel1;
         private Editor.DetailEditor detailEditor1;
+        private System.Windows.Forms.Panel Home;
+        private System.Windows.Forms.RichTextBox richTextBox8;
+        private System.Windows.Forms.Panel Obstakel;
+        private System.Windows.Forms.RichTextBox richTextBox9;
     }
 }

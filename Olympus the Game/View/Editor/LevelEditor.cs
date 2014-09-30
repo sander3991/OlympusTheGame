@@ -51,6 +51,16 @@ namespace Olympus_the_Game.View
             Cake.DoDragDrop(Entity.Type.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
+        private void Home_MouseDown(object sender, MouseEventArgs e)
+        {
+            Home.DoDragDrop(Entity.Type.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+        }
+
+        private void Obstakel_MouseDown(object sender, MouseEventArgs e)
+        {
+            Obstakel.DoDragDrop(Entity.Type.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
+        }
+
         /// <summary>
         /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
         /// </summary>
@@ -112,5 +122,6 @@ namespace Olympus_the_Game.View
             }
             this.gamePanel1.Invalidate();
         }
+
     }
 }

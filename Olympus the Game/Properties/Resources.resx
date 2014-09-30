@@ -124,14 +124,14 @@
   <data name="rsz_arrowup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>rsz_arrowup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cobble" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cobble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rsz_arrowright" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>rsz_arrowright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="timebomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\timebomb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Naamloos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,16 +151,19 @@
   <data name="rsz_arrowdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>rsz_arrowdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rsz_1dragbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rsz_1dragbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="creeper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\creeper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="timebomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\timebomb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cobble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cobble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rsz_1dragbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rsz_1dragbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="huis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\huis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
