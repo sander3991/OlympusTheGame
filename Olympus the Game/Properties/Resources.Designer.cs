@@ -133,6 +133,16 @@ namespace Olympus_the_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rsz_1dragbutton {
+            get {
+                object obj = ResourceManager.GetObject("rsz_1dragbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rsz_arrowdown {
             get {
                 object obj = ResourceManager.GetObject("rsz_arrowdown", resourceCulture);
