@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.SleepKnop = new System.Windows.Forms.Button();
             this.ArrowKeyRight = new System.Windows.Forms.Button();
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,18 +53,10 @@
             this.panel1.Size = new System.Drawing.Size(330, 241);
             this.panel1.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Controls";
-            // 
             // SleepKnop
             // 
+            this.SleepKnop.FlatAppearance.BorderSize = 0;
+            this.SleepKnop.ForeColor = System.Drawing.Color.Transparent;
             this.SleepKnop.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
             this.SleepKnop.Location = new System.Drawing.Point(287, 3);
             this.SleepKnop.Name = "SleepKnop";
@@ -122,6 +114,16 @@
             this.ArrowKeyUp.UseVisualStyleBackColor = true;
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Controls";
             // 
             // ArrowPanel
             // 
