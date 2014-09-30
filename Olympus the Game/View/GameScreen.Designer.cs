@@ -33,12 +33,14 @@
             this.menuPanel1 = new Olympus_the_Game.View.MenuPanel();
             this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
+            this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
             this.SuspendLayout();
             // 
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(588, 560);
+            this.arrowPanel1.Location = new System.Drawing.Point(588, 587);
+            this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
@@ -46,7 +48,8 @@
             // menuPanel1
             // 
             this.menuPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.menuPanel1.Location = new System.Drawing.Point(931, 557);
+            this.menuPanel1.Location = new System.Drawing.Point(931, 587);
+            this.menuPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.menuPanel1.Name = "menuPanel1";
             this.menuPanel1.Size = new System.Drawing.Size(321, 250);
             this.menuPanel1.TabIndex = 1;
@@ -54,7 +57,7 @@
             // infoPanel1
             // 
             this.infoPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.infoPanel1.Location = new System.Drawing.Point(995, 11);
+            this.infoPanel1.Location = new System.Drawing.Point(995, 41);
             this.infoPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.infoPanel1.Name = "infoPanel1";
             this.infoPanel1.Size = new System.Drawing.Size(258, 541);
@@ -64,10 +67,18 @@
             // 
             this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gamePanel1.Location = new System.Drawing.Point(12, 11);
+            this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
+            // 
+            // customMenuBar1
+            // 
+            this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
+            this.customMenuBar1.Name = "customMenuBar1";
+            this.customMenuBar1.Size = new System.Drawing.Size(1264, 24);
+            this.customMenuBar1.TabIndex = 4;
+            this.customMenuBar1.Text = "customMenuBar1";
             // 
             // GameScreen
             // 
@@ -79,8 +90,10 @@
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.menuPanel1);
             this.Controls.Add(this.infoPanel1);
+            this.Controls.Add(this.customMenuBar1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.MainMenuStrip = this.customMenuBar1;
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus The Game";
@@ -88,6 +101,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -97,5 +111,6 @@
         private MenuPanel menuPanel1;
         public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
+        private MenuBar.CustomMenuBar customMenuBar1;
     }
 }
