@@ -56,26 +56,12 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
         }
 
-       
         /// <summary>
         /// Functie om het panel op runtime te verslepen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                MouseDownLocation = e.Location;
-            }
-        }
-
-        /// <summary>
-        /// Functie die het scherm plaatst als je die muis loslaat
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void menuStrip1_MouseMove(object sender, MouseEventArgs e)
+        private void SleepKnop_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
@@ -84,19 +70,25 @@ namespace Olympus_the_Game.View
             }
         }
         /// <summary>
+        /// Functie die het scherm plaatst als je die muis loslaat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SleepKnop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
+        }
+
+        /// <summary>
         /// Resetten met dubbel klik
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void menuStrip1_DoubleClick(object sender, EventArgs e)
-        {
-            MessageBox.Show(this.Left.ToString(),this.Top.ToString());
-
-            this.Left = 560 + menuStrip1.Size.Height;
-            this.Top = 588 - menuStrip1.Size.Height;
-
-            
-        }
+        
 
         
         
