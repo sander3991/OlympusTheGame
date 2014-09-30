@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.EntityImageLarge = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.XLocationInput = new System.Windows.Forms.TextBox();
             this.EntityXLocation = new System.Windows.Forms.Label();
             this.EntityYLocation = new System.Windows.Forms.Label();
             this.EntitySpeed = new System.Windows.Forms.Label();
             this.ObjectTexture = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.YLocationInput = new System.Windows.Forms.TextBox();
+            this.SpeedInput = new System.Windows.Forms.TextBox();
+            this.TextureInput = new System.Windows.Forms.ComboBox();
             this.EntityUitleg = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.EntityNaamLabel = new System.Windows.Forms.Label();
             this.SpeelveldUitleg = new System.Windows.Forms.RichTextBox();
             this.SpeelveldLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TitelInput = new System.Windows.Forms.TextBox();
+            this.GrootteYInput = new System.Windows.Forms.TextBox();
             this.SpeelveldTitelLabel = new System.Windows.Forms.Label();
             this.SpeelveldYLabel = new System.Windows.Forms.Label();
             this.SpeelveldXLabel = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.GrootteXInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // EntityImageLarge
@@ -59,12 +59,12 @@
             this.EntityImageLarge.Size = new System.Drawing.Size(125, 125);
             this.EntityImageLarge.TabIndex = 0;
             // 
-            // textBox1
+            // XLocationInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(593, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.XLocationInput.Location = new System.Drawing.Point(593, 48);
+            this.XLocationInput.Name = "XLocationInput";
+            this.XLocationInput.Size = new System.Drawing.Size(100, 20);
+            this.XLocationInput.TabIndex = 1;
             // 
             // EntityXLocation
             // 
@@ -102,32 +102,32 @@
             this.ObjectTexture.TabIndex = 7;
             this.ObjectTexture.Text = "Texture: ";
             // 
-            // textBox2
+            // YLocationInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(593, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.YLocationInput.Location = new System.Drawing.Point(593, 78);
+            this.YLocationInput.Name = "YLocationInput";
+            this.YLocationInput.Size = new System.Drawing.Size(100, 20);
+            this.YLocationInput.TabIndex = 8;
             // 
-            // textBox3
+            // SpeedInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(593, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.SpeedInput.Location = new System.Drawing.Point(593, 110);
+            this.SpeedInput.Name = "SpeedInput";
+            this.SpeedInput.Size = new System.Drawing.Size(100, 20);
+            this.SpeedInput.TabIndex = 9;
             // 
-            // comboBox2
+            // TextureInput
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.TextureInput.FormattingEnabled = true;
+            this.TextureInput.Items.AddRange(new object[] {
             "Wood",
             "Cobblestone",
             "Bricks",
             "Gold"});
-            this.comboBox2.Location = new System.Drawing.Point(593, 141);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 13;
+            this.TextureInput.Location = new System.Drawing.Point(593, 141);
+            this.TextureInput.Name = "TextureInput";
+            this.TextureInput.Size = new System.Drawing.Size(100, 21);
+            this.TextureInput.TabIndex = 13;
             // 
             // EntityUitleg
             // 
@@ -176,19 +176,19 @@
             this.SpeelveldLabel.TabIndex = 18;
             this.SpeelveldLabel.Text = "Speelveld";
             // 
-            // textBox4
+            // TitelInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(62, 113);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 24;
+            this.TitelInput.Location = new System.Drawing.Point(62, 113);
+            this.TitelInput.Name = "TitelInput";
+            this.TitelInput.Size = new System.Drawing.Size(100, 20);
+            this.TitelInput.TabIndex = 24;
             // 
-            // textBox5
+            // GrootteYInput
             // 
-            this.textBox5.Location = new System.Drawing.Point(62, 81);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 23;
+            this.GrootteYInput.Location = new System.Drawing.Point(62, 81);
+            this.GrootteYInput.Name = "GrootteYInput";
+            this.GrootteYInput.Size = new System.Drawing.Size(100, 20);
+            this.GrootteYInput.TabIndex = 23;
             // 
             // SpeelveldTitelLabel
             // 
@@ -217,36 +217,36 @@
             this.SpeelveldXLabel.TabIndex = 20;
             this.SpeelveldXLabel.Text = "Grootte X: ";
             // 
-            // textBox6
+            // GrootteXInput
             // 
-            this.textBox6.Location = new System.Drawing.Point(62, 51);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 19;
+            this.GrootteXInput.Location = new System.Drawing.Point(62, 51);
+            this.GrootteXInput.Name = "GrootteXInput";
+            this.GrootteXInput.Size = new System.Drawing.Size(100, 20);
+            this.GrootteXInput.TabIndex = 19;
             // 
             // DetailEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.TitelInput);
+            this.Controls.Add(this.GrootteYInput);
             this.Controls.Add(this.SpeelveldTitelLabel);
             this.Controls.Add(this.SpeelveldYLabel);
             this.Controls.Add(this.SpeelveldXLabel);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.GrootteXInput);
             this.Controls.Add(this.SpeelveldLabel);
             this.Controls.Add(this.SpeelveldUitleg);
             this.Controls.Add(this.EntityNaamLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.EntityUitleg);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TextureInput);
+            this.Controls.Add(this.SpeedInput);
+            this.Controls.Add(this.YLocationInput);
             this.Controls.Add(this.ObjectTexture);
             this.Controls.Add(this.EntitySpeed);
             this.Controls.Add(this.EntityYLocation);
             this.Controls.Add(this.EntityXLocation);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.XLocationInput);
             this.Controls.Add(this.EntityImageLarge);
             this.Name = "DetailEditor";
             this.Size = new System.Drawing.Size(894, 179);
@@ -258,24 +258,24 @@
         #endregion
 
         private System.Windows.Forms.Panel EntityImageLarge;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox XLocationInput;
         private System.Windows.Forms.Label EntityXLocation;
         private System.Windows.Forms.Label EntityYLocation;
         private System.Windows.Forms.Label EntitySpeed;
         private System.Windows.Forms.Label ObjectTexture;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox YLocationInput;
+        private System.Windows.Forms.TextBox SpeedInput;
+        private System.Windows.Forms.ComboBox TextureInput;
         private System.Windows.Forms.RichTextBox EntityUitleg;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label EntityNaamLabel;
         private System.Windows.Forms.RichTextBox SpeelveldUitleg;
         private System.Windows.Forms.Label SpeelveldLabel;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TitelInput;
+        private System.Windows.Forms.TextBox GrootteYInput;
         private System.Windows.Forms.Label SpeelveldTitelLabel;
         private System.Windows.Forms.Label SpeelveldYLabel;
         private System.Windows.Forms.Label SpeelveldXLabel;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox GrootteXInput;
     }
 }
