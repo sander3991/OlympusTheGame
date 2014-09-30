@@ -12,7 +12,9 @@ namespace Olympus_the_Game
     public class Controller
     {
         public PlayField PlayField { get; private set; }
-        
+        public delegate void UpdateEvent();
+        public event UpdateEvent UpdateEvents;
+
         public Controller(PlayField pf)
         {
             this.PlayField = pf;
@@ -27,7 +29,7 @@ namespace Olympus_the_Game
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.W || e.KeyCode == Keys.S)
+                e.KeyCode == Keys.W || e.KeyCode == Keys.S) 
             {
                 MovePlayer(e, OlympusTheGame.INSTANCE.pf.gameSpeed);
             }
@@ -95,6 +97,7 @@ namespace Olympus_the_Game
             {
                 if (player.CollidesWithObject(o))
                 {
+                    o.OnCollide(player);
                     if (o.IsSolid)
                     {
                         player.X = player.PreviousX;
@@ -129,12 +132,13 @@ namespace Olympus_the_Game
                         e.DX = rand.Next(3) - 1;
                         e.DY = rand.Next(3) - 1;
                     }
-                    e.OnUpdate();
                 }
             }
+            if(UpdateEvents != null)
+                UpdateEvents();
         }
 
 
-
+        
     }
 }
