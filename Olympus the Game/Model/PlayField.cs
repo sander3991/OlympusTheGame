@@ -25,18 +25,35 @@ namespace Olympus_the_Game
             }
         }
 
-        public PlayField(int width, int height, List<GameObject> objects)
+        public PlayField(int width, int height)
         {
             WIDTH = width;
             HEIGHT = height;
-            if (objects != null)
-                gameObjects = objects;
-            else
-                gameObjects = new List<GameObject>();
-            Player = new EntityPlayer(50, 50, 0, 0);
         }
 
-        public PlayField(int width, int height) : this(width, height, PlayField.GetDefaultMap(width, height)) { }
+        public void InitializeGameObjects()
+        {
+            this.InitializeGameobjects(GetDefaultMap(WIDTH, HEIGHT));
+        }
+
+        public void InitializeGameobjects(List<GameObject> objects)
+        {
+            if (objects == null)
+                new ArgumentException("Geen lijst met gameobjects meegegeven");
+            gameObjects = objects;
+            for (int i = 0; i < objects.Count; i++)
+            {
+                EntityPlayer player = objects[i] as EntityPlayer;
+                if (player != null)
+                {
+                    Player = player;
+                    gameObjects.Remove(player);
+                }
+            }
+            if(Player == null)
+                Player = new EntityPlayer(50, 50, 0, 0);
+
+        }
 
         /// <summary>
         /// Verkrijgt alle gameObjects die op het veld zijn
