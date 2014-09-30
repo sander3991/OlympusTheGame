@@ -48,6 +48,8 @@
             this.SpeelveldYLabel = new System.Windows.Forms.Label();
             this.SpeelveldXLabel = new System.Windows.Forms.Label();
             this.GrootteXInput = new System.Windows.Forms.TextBox();
+            this.ToepassenSpeelveld = new System.Windows.Forms.Button();
+            this.ToepassenEntity = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EntityImageLarge
@@ -225,10 +227,30 @@
             this.GrootteXInput.Size = new System.Drawing.Size(100, 20);
             this.GrootteXInput.TabIndex = 19;
             // 
+            // ToepassenSpeelveld
+            // 
+            this.ToepassenSpeelveld.Location = new System.Drawing.Point(272, 144);
+            this.ToepassenSpeelveld.Name = "ToepassenSpeelveld";
+            this.ToepassenSpeelveld.Size = new System.Drawing.Size(75, 23);
+            this.ToepassenSpeelveld.TabIndex = 25;
+            this.ToepassenSpeelveld.Text = "Toepassen";
+            this.ToepassenSpeelveld.UseVisualStyleBackColor = true;
+            // 
+            // ToepassenEntity
+            // 
+            this.ToepassenEntity.Location = new System.Drawing.Point(801, 144);
+            this.ToepassenEntity.Name = "ToepassenEntity";
+            this.ToepassenEntity.Size = new System.Drawing.Size(75, 23);
+            this.ToepassenEntity.TabIndex = 26;
+            this.ToepassenEntity.Text = "Toepassen";
+            this.ToepassenEntity.UseVisualStyleBackColor = true;
+            // 
             // DetailEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ToepassenEntity);
+            this.Controls.Add(this.ToepassenSpeelveld);
             this.Controls.Add(this.TitelInput);
             this.Controls.Add(this.GrootteYInput);
             this.Controls.Add(this.SpeelveldTitelLabel);
@@ -278,5 +300,7 @@
         private System.Windows.Forms.Label SpeelveldYLabel;
         private System.Windows.Forms.Label SpeelveldXLabel;
         private System.Windows.Forms.TextBox GrootteXInput;
+        private System.Windows.Forms.Button ToepassenSpeelveld;
+        private System.Windows.Forms.Button ToepassenEntity;
     }
 }
