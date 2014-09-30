@@ -13,6 +13,8 @@ namespace Olympus_the_Game
     public class Controller
     {
         public PlayField PlayField { get; private set; }
+        public delegate void UpdateEvent();
+        public event UpdateEvent UpdateEvents;
 
         public Controller(PlayField pf)
         {
@@ -98,6 +100,7 @@ namespace Olympus_the_Game
             foreach(GameObject o in gameObjects){
                 if (player.CollidesWithObject(o))
                 {
+                    o.OnCollide(player);
                     if (o.IsSolid)
                     {
                         player.X = player.PreviousX;
@@ -132,9 +135,10 @@ namespace Olympus_the_Game
                         e.DX = rand.Next(3) - 1;
                         e.DY = rand.Next(3) - 1;
                     }
-                    e.OnUpdate();
                 }
             }
+            if(UpdateEvents != null)
+                UpdateEvents();
         }
 
 

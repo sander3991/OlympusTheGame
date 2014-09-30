@@ -85,12 +85,5 @@ namespace Olympus_the_Game
             X += DX;
             Y += DY;
         }
-        /// <summary>
-        /// Elke keer als het scherm geupdate wordt, wordt deze functie aangeroepen
-        /// </summary>
-        public virtual void OnUpdate()
-        {
-
-        }
     }
 }
