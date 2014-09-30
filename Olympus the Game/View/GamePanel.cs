@@ -42,7 +42,7 @@ namespace Olympus_the_Game.View
         /// Als er geen game draait, wordt er een standaard speelveld gebruikt.
         /// </summary>
         public GamePanel()
-            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500, PlayField.GetDefaultMap(1000, 500)) : OlympusTheGame.INSTANCE.pf)
+            : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500) : OlympusTheGame.INSTANCE.Playfield)
         { }
 
         private void Init()

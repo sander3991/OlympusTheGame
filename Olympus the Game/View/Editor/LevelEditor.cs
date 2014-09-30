@@ -11,7 +11,7 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelEditor : Form
     {
-        private PlayField pf = new PlayField(1000, 500, new List<GameObject>());
+        private PlayField pf = new PlayField(1000, 500);
 
         public LevelEditor()
         {

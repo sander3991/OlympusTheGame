@@ -25,6 +25,7 @@ namespace Olympus_the_Game
         public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
         }
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
@@ -41,8 +42,8 @@ namespace Olympus_the_Game
         
         }
 
-        public override void OnUpdate() {
-            EntityPlayer player = OlympusTheGame.INSTANCE.pf.Player;
+        public void OnUpdate() {
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
             if(player != null) {
                 if(DistanceToObject(player) < 100) {
