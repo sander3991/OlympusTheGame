@@ -11,12 +11,14 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelEditor : Form
     {
-        private PlayField pf = new PlayField(1000, 500);
+        private PlayField pf;
 
         public LevelEditor()
         {
             InitializeComponent();
 
+            this.pf = new PlayField(1000, 500);
+            this.pf.InitializeGameobjects(new List<GameObject>() { new EntityPlayer(50, 50, 0, 0) });
             this.gamePanel1.setPlayField(this.pf);
             this.gamePanel1.Invalidate();
         }
