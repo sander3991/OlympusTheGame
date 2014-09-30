@@ -183,6 +183,9 @@
   <ItemGroup>
     <None Include="Resources\cobble.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_1dragbutton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
