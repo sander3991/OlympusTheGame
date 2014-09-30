@@ -38,7 +38,7 @@
             this.SpeedInput = new System.Windows.Forms.TextBox();
             this.TextureInput = new System.Windows.Forms.ComboBox();
             this.EntityUitleg = new System.Windows.Forms.RichTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Splitter = new System.Windows.Forms.Panel();
             this.EntityNaamLabel = new System.Windows.Forms.Label();
             this.SpeelveldUitleg = new System.Windows.Forms.RichTextBox();
             this.SpeelveldLabel = new System.Windows.Forms.Label();
@@ -140,13 +140,13 @@
             this.EntityUitleg.Text = "Pas meerdere waardes aan van de geselecteerde entity door middel van deze DetailE" +
     "ditor.";
             // 
-            // panel2
+            // Splitter
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Location = new System.Drawing.Point(377, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 179);
-            this.panel2.TabIndex = 15;
+            this.Splitter.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Splitter.Location = new System.Drawing.Point(377, 0);
+            this.Splitter.Name = "Splitter";
+            this.Splitter.Size = new System.Drawing.Size(10, 179);
+            this.Splitter.TabIndex = 15;
             // 
             // EntityNaamLabel
             // 
@@ -237,7 +237,7 @@
             this.Controls.Add(this.SpeelveldLabel);
             this.Controls.Add(this.SpeelveldUitleg);
             this.Controls.Add(this.EntityNaamLabel);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.Splitter);
             this.Controls.Add(this.EntityUitleg);
             this.Controls.Add(this.TextureInput);
             this.Controls.Add(this.SpeedInput);
@@ -267,7 +267,7 @@
         private System.Windows.Forms.TextBox SpeedInput;
         private System.Windows.Forms.ComboBox TextureInput;
         private System.Windows.Forms.RichTextBox EntityUitleg;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Splitter;
         private System.Windows.Forms.Label EntityNaamLabel;
         private System.Windows.Forms.RichTextBox SpeelveldUitleg;
         private System.Windows.Forms.Label SpeelveldLabel;
