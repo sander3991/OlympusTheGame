@@ -82,5 +82,27 @@ namespace Olympus_the_Game
             objects.Add(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
             return objects;
         }
+
+        /// <summary>
+        /// Haalt alle objecten op op de locatie
+        /// </summary>
+        /// <param name="x">De X locatie waarop gecontroleerd moet worden</param>
+        /// <param name="y">De Y Locatie waarop gecontroleerd moet worden</param>
+        /// <returns><code>null</code> als er niks is gevonden, anders een <code>List</code> met <code>GameObject</code></returns>
+        public List<GameObject> GetObjectsAtLocation(int x, int y)
+        {
+            List<GameObject> objectList = new List<GameObject>();
+            for (int i = 0; i < gameObjects.Count; i++ )
+            {
+                GameObject o = gameObjects[i];
+                if (o.X <= x && (o.X + o.Width) >= x && o.Y <= y && (o.Y + o.Height) >= y)
+                    objectList.Add(o);
+
+            }
+            if (Player != null && Player.X >= x && (Player.X + Player.Width) <= x && Player.Y >= y && (Player.Y + Player.Height) <= y)
+                objectList.Add(Player);
+
+            return objectList.Count == 0 ? null : objectList;
+        }
     }
 }
