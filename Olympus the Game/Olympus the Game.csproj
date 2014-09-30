@@ -100,6 +100,12 @@
     <Compile Include="View\Editor\LevelEditor.Designer.cs">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MenuBar\CustomMenuBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\MenuBar\CustomMenuBar.Designer.cs">
+      <DependentUpon>CustomMenuBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MenuBar\MenuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
