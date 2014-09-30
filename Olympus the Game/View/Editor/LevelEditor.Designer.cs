@@ -42,8 +42,8 @@
             this.Tnt = new System.Windows.Forms.Panel();
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
-            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
+            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -189,6 +189,13 @@
             this.Cake.TabIndex = 15;
             this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
             // 
+            // detailEditor1
+            // 
+            this.detailEditor1.Location = new System.Drawing.Point(56, 523);
+            this.detailEditor1.Name = "detailEditor1";
+            this.detailEditor1.Size = new System.Drawing.Size(883, 179);
+            this.detailEditor1.TabIndex = 17;
+            // 
             // gamePanel1
             // 
             this.gamePanel1.AllowDrop = true;
@@ -200,13 +207,6 @@
             this.gamePanel1.TabIndex = 16;
             this.gamePanel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
-            // 
-            // detailEditor1
-            // 
-            this.detailEditor1.Location = new System.Drawing.Point(81, 525);
-            this.detailEditor1.Name = "detailEditor1";
-            this.detailEditor1.Size = new System.Drawing.Size(844, 179);
-            this.detailEditor1.TabIndex = 17;
             // 
             // LevelEditor
             // 
