@@ -70,6 +70,12 @@
     <Compile Include="View\ArrowPanel.Designer.cs">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Editor\DetailEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Editor\DetailEditor.Designer.cs">
+      <DependentUpon>DetailEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArrowPanel.resx">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Editor\DetailEditor.resx">
+      <DependentUpon>DetailEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GamePanel.resx">
       <DependentUpon>GamePanel.cs</DependentUpon>

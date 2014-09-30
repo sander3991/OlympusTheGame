@@ -9,6 +9,45 @@ namespace Olympus_the_Game
     {
         public const int MAXHEALTH = 5;
         private int health;
+        private double speedModifier = 1;
+        private int dx;
+        private int dy;
+        public double SpeedModifier
+        {
+            get
+            {
+                return speedModifier;
+            }
+            set
+            {
+                double prevSpeed = speedModifier;
+                speedModifier = value;
+                DX = Convert.ToInt32(DX / prevSpeed * speedModifier);
+                DY = Convert.ToInt32(DY / prevSpeed * speedModifier);
+            }
+        }
+        public override int DX
+        {
+            get
+            {
+                return dx;
+            }
+            set
+            {
+                dx = Convert.ToInt32(value * speedModifier);
+            }
+        }
+        public override int DY
+        {
+            get
+            {
+                return dy;
+            }
+            set
+            {
+                dy = Convert.ToInt32(value * speedModifier);
+            }
+        }
         public int Health
         {
             get

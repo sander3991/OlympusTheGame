@@ -31,16 +31,16 @@ namespace Olympus_the_Game.View
             switch (richting)
             {
                 case "ArrowKeyRight":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(OlympusTheGame.INSTANCE.Playfield.gameSpeed, true);
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(2, true);
                     break;
                 case "ArrowKeyLeft":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-OlympusTheGame.INSTANCE.Playfield.gameSpeed, true);
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-2, true);
                     break;
                 case "ArrowKeyUp":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-OlympusTheGame.INSTANCE.Playfield.gameSpeed, false);
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-2, false);
                     break;
                 case "ArrowKeyDown":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(OlympusTheGame.INSTANCE.Playfield.gameSpeed, false);
+                    OlympusTheGame.INSTANCE.Controller.MovePlayer(2, false);
                     break;
             }
         }

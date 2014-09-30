@@ -10,7 +10,9 @@
         /// De sterkte van het effect van deze entity
         /// </summary>
         public const double EFFECTSTRENGTH = 0.5;
-        
+
+        private bool isSlowingPlayer = false;
+
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
@@ -20,7 +22,8 @@
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
-        public EntitySlower(int width, int height, int x, int y, int dx, int dy) : base(width, height, x, y, dx, dy)
+        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
+            : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
         }
@@ -38,12 +41,18 @@
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            int PreviousSpeed = OlympusTheGame.INSTANCE.Playfield.gameSpeed;
 
-            if (DistanceToObject(player) < 100)
-                OlympusTheGame.INSTANCE.Playfield.gameSpeed = 1;
-            else
-                OlympusTheGame.INSTANCE.Playfield.gameSpeed = PreviousSpeed; // werkt nog niet 
+            double distance = DistanceToObject(player);
+            if (distance < 100 && !isSlowingPlayer)
+            {
+                player.SpeedModifier = player.SpeedModifier / 2;
+                isSlowingPlayer = true;
+            }
+            else if (distance >= 100 && isSlowingPlayer)
+            {
+                player.SpeedModifier = player.SpeedModifier * 2;
+                isSlowingPlayer = false;
+            }
         }
     }
 }

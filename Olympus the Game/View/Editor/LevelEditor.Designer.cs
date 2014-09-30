@@ -42,6 +42,7 @@
             this.Tnt = new System.Windows.Forms.Panel();
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
+            this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
@@ -169,10 +170,8 @@
             // TimeBomb
             // 
             this.TimeBomb.AllowDrop = true;
-            this.TimeBomb.BackColor = System.Drawing.Color.Transparent;
             this.TimeBomb.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
             this.TimeBomb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TimeBomb.ForeColor = System.Drawing.Color.Transparent;
             this.TimeBomb.Location = new System.Drawing.Point(996, 316);
             this.TimeBomb.Name = "TimeBomb";
             this.TimeBomb.Size = new System.Drawing.Size(70, 70);
@@ -182,15 +181,20 @@
             // Cake
             // 
             this.Cake.AllowDrop = true;
-            this.Cake.BackColor = System.Drawing.Color.Transparent;
             this.Cake.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
             this.Cake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Cake.ForeColor = System.Drawing.Color.Transparent;
             this.Cake.Location = new System.Drawing.Point(996, 392);
             this.Cake.Name = "Cake";
             this.Cake.Size = new System.Drawing.Size(70, 70);
             this.Cake.TabIndex = 15;
             this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
+            // 
+            // detailEditor1
+            // 
+            this.detailEditor1.Location = new System.Drawing.Point(56, 523);
+            this.detailEditor1.Name = "detailEditor1";
+            this.detailEditor1.Size = new System.Drawing.Size(883, 179);
+            this.detailEditor1.TabIndex = 17;
             // 
             // gamePanel1
             // 
@@ -210,6 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.detailEditor1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.Cake);
             this.Controls.Add(this.TimeBomb);
@@ -248,5 +253,6 @@
         private System.Windows.Forms.Panel TimeBomb;
         private System.Windows.Forms.Panel Cake;
         private GamePanel gamePanel1;
+        private Editor.DetailEditor detailEditor1;
     }
 }
