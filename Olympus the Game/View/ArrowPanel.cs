@@ -82,15 +82,7 @@ namespace Olympus_the_Game.View
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
         }
-
-        /// <summary>
-        /// Resetten met dubbel klik
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        
-
-        
         
     }
 }
+                

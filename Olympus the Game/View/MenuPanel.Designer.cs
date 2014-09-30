@@ -39,6 +39,7 @@
             this.PauseGame = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.QuitGame = new System.Windows.Forms.Button();
+            this.MoveButton = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.MenuTab.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@
             // MenuTab
             // 
             this.MenuTab.BackColor = System.Drawing.SystemColors.Control;
+            this.MenuTab.Controls.Add(this.MoveButton);
             this.MenuTab.Controls.Add(this.label4);
             this.MenuTab.Controls.Add(this.LevelEditor);
             this.MenuTab.Controls.Add(this.label1);
@@ -172,6 +174,17 @@
             this.QuitGame.UseVisualStyleBackColor = true;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
             // 
+            // MoveButton
+            // 
+            this.MoveButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
+            this.MoveButton.Location = new System.Drawing.Point(260, 6);
+            this.MoveButton.Name = "MoveButton";
+            this.MoveButton.Size = new System.Drawing.Size(40, 40);
+            this.MoveButton.TabIndex = 9;
+            this.MoveButton.UseVisualStyleBackColor = true;
+            this.MoveButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveButton_MouseDown);
+            this.MoveButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoveButton_MouseMove);
+            // 
             // MenuPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Button LoadLevel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button LevelEditor;
+        private System.Windows.Forms.Button MoveButton;
     }
 }
