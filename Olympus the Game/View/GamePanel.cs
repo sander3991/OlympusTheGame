@@ -103,7 +103,7 @@ namespace Olympus_the_Game.View
 
             // Generate target rectangle
             Rectangle target = new Rectangle(
-                TranslatePanelToPlayField(new Point(go.X, go.Y)),
+                TranslatePlayFieldToPanel(new Point(go.X, go.Y)),
                 new Size((int)((float)go.Width * SCALE),
                 (int)((float)go.Height * SCALE)));
 
@@ -129,12 +129,22 @@ namespace Olympus_the_Game.View
 
         public Point TranslatePanelToPlayField(Point p)
         {
-            return new Point((int)((double) p.X * SCALE), (int)((double) p.Y * SCALE));
+            return new Point((int)((double) p.X / SCALE), (int)((double) p.Y / SCALE));
         }
 
         public Point TranslatePlayFieldToPanel(Point p)
         {
-            return new Point((int)((double)p.X / SCALE), (int)((double)p.Y / SCALE));
+            return new Point((int)((double)p.X * SCALE), (int)((double)p.Y * SCALE));
+        }
+
+        public Point getCursorPosition()
+        {
+            return this.PointToClient(Cursor.Position);
+        }
+
+        public Point getCursorPlayFieldPosition()
+        {
+            return TranslatePanelToPlayField(getCursorPosition());
         }
     }
 }

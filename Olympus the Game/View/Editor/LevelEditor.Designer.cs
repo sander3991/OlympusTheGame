@@ -270,6 +270,8 @@
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
+            this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
+            this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
             // Menubar
             // 
@@ -334,6 +336,7 @@
             this.MainMenuStrip = this.Menubar;
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.Menubar.ResumeLayout(false);

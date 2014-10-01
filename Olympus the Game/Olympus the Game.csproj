@@ -88,6 +88,12 @@
     <Compile Include="View\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InfoBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\InfoBox.Designer.cs">
+      <DependentUpon>InfoBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\InfoPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InfoBox.resx">
+      <DependentUpon>InfoBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InfoPanel.resx">
       <DependentUpon>InfoPanel.cs</DependentUpon>
