@@ -54,5 +54,7 @@
                 isSlowingPlayer = false;
             }
         }
+
     }
 }
+

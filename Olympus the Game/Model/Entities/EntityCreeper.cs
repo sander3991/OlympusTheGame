@@ -73,5 +73,10 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
             }
         }
+
+        public override string ToString()
+        {
+            return "Creeper";
+        }
     }
 }

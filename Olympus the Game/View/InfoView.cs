@@ -17,19 +17,6 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
-
-            foreach (GameObject g in Entitys)
-            {
-                Entity e = g as Entity;
-                if (e != null)
-                {
-                    string posX = g.X.ToString();
-                    string posY = g.Y.ToString();
-                    listView1.Items.Add(posX);
-                    listView1.Items.Add(posY);
-                }
-                //string naam = GameObject.Type.
                 
 
             }
