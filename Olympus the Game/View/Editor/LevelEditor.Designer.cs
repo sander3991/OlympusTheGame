@@ -55,6 +55,7 @@
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
             this.LevelEditorMenuBar.SuspendLayout();
             this.SuspendLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             // 
             // richTextBox1
             // 
