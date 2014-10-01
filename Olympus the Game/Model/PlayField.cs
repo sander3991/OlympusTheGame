@@ -10,19 +10,8 @@ namespace Olympus_the_Game
         public readonly int WIDTH;
         public readonly int HEIGHT;
         private List<GameObject> gameObjects = new List<GameObject>();
-        private EntityPlayer player;
-
-        public EntityPlayer Player
-        {
-            get
-            {
-                return player;
-            }
-            private set
-            {
-                player = value;
-            }
-        }
+        
+        public EntityPlayer Player {get; private set;}
 
         public PlayField(int width, int height)
         {
@@ -83,8 +72,8 @@ namespace Olympus_the_Game
             }
             if (start != null)
             {
-                player.X = (start.X + start.Width) / 2 - (player.Width / 2);
-                player.Y = (start.Y + start.Height) / 2 - (player.Height / 2);
+                Player.X = (start.X + start.Width) / 2 - (Player.Width / 2);
+                Player.Y = (start.Y + start.Height) / 2 - (Player.Height / 2);
             }
         }
 
