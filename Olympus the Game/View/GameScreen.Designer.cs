@@ -33,6 +33,7 @@
             this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
+            this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.SuspendLayout();
             // 
             // arrowPanel1
@@ -47,7 +48,7 @@
             // infoPanel1
             // 
             this.infoPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.infoPanel1.Location = new System.Drawing.Point(995, 41);
+            this.infoPanel1.Location = new System.Drawing.Point(589, 560);
             this.infoPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.infoPanel1.Name = "infoPanel1";
             this.infoPanel1.Size = new System.Drawing.Size(258, 541);
@@ -70,12 +71,20 @@
             this.customMenuBar1.TabIndex = 4;
             this.customMenuBar1.Text = "customMenuBar1";
             // 
+            // infoView1
+            // 
+            this.infoView1.Location = new System.Drawing.Point(1008, 41);
+            this.infoView1.Name = "infoView1";
+            this.infoView1.Size = new System.Drawing.Size(240, 489);
+            this.infoView1.TabIndex = 5;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
-            this.ClientSize = new System.Drawing.Size(1264, 861);
+            this.ClientSize = new System.Drawing.Size(1264, 741);
+            this.Controls.Add(this.infoView1);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.infoPanel1);
@@ -100,5 +109,6 @@
         public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
         private MenuBar.CustomMenuBar customMenuBar1;
+        private InfoView infoView1;
     }
 }
