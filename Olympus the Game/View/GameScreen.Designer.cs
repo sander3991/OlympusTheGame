@@ -109,6 +109,6 @@
         public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
         private MenuBar.CustomMenuBar customMenuBar1;
-        private InfoView infoView1;
+        public InfoView infoView1;
     }
 }

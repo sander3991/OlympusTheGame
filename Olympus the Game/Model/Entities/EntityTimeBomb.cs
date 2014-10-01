@@ -42,7 +42,8 @@ namespace Olympus_the_Game
         
         }
 
-        public void OnUpdate() {
+        public void OnUpdate() 
+        {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
             if(player != null) {
@@ -61,5 +62,12 @@ namespace Olympus_the_Game
                 }
             }
         }
+
+        public override string ToString()
+        {
+            return "TimeBomb";
+        }
+
+
     }
 }

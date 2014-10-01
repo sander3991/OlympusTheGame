@@ -37,6 +37,11 @@ namespace Olympus_the_Game.View
             }
         }
 
+        public void update()
+        {
+            
+        }
+
         /// <summary>
         /// Functie om het panel op runtime te verslepen
         /// </summary>
@@ -62,6 +67,11 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+        }
+
+        private void DragButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Init();
         }
     }
 }
