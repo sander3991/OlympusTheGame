@@ -19,6 +19,7 @@ namespace Olympus_the_Game {
             : base(width, height, x, y, dx, dy) {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAI = false;
+            ObjectType = Type.EXPLODE;
         }
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie

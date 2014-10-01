@@ -9,7 +9,10 @@
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        public ObjectObstacle(int width, int height, int x, int y) : base(width, height, x, y) { }
+        public ObjectObstacle(int width, int height, int x, int y) : base(width, height, x, y) 
+        {
+            ObjectType = Type.OBSTACLE;
+        }
 
         public override string ToString()
         {

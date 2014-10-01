@@ -73,6 +73,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, 0, 0)
         {
             health = MAXHEALTH;
+            ObjectType = Type.PLAYER;
         }
 
     }

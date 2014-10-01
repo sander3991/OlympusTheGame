@@ -26,6 +26,7 @@ namespace Olympus_the_Game
         {
             EntityControlledByAI = false;
             OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
+            ObjectType = Type.TIMEBOMB;
         }
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
