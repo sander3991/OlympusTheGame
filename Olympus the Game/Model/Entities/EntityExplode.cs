@@ -32,12 +32,9 @@ namespace Olympus_the_Game {
 
         public override void OnCollide(GameObject gameObject) {
             EntityPlayer player = gameObject as EntityPlayer;
-
-            if(player != null){
-                player.Health--;
-                player.X = 0;
-                player.Y = 0;
-
+            if(player != null) {
+                player.Health -= Convert.ToInt32(EffectStrength);
+                OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
             }
         }
 
