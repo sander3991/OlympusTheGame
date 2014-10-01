@@ -13,12 +13,13 @@ namespace Olympus_the_Game
 {
     class OlympusTheGame
     {
+
         private delegate void InvalidateDelegate(bool b);
 
         // Het scherm van het spel
         private GameScreen gs;
 
-        public System.Timers.Timer timer = new System.Timers.Timer();
+        private System.Timers.Timer timer = new System.Timers.Timer();
 
         // Tick counter
         private int startTick = 0;
@@ -30,7 +31,6 @@ namespace Olympus_the_Game
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField Playfield { get; private set; }
         public Controller Controller { get; private set; }
-        public InfoView Infoview { get; set; }
         
         /// <summary>
         /// Maak nieuw OlympusTheGame object
@@ -65,12 +65,12 @@ namespace Olympus_the_Game
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
             timer.Interval = 10;
             Playfield.InitializeGameObjects();
-            //Playfield.SaveToXml("Test.xml");
+            // Maak gamescreen aan
             gs = new GameScreen();
 
             // Laat het scherm zien
             timer.Start();
-            
+
             
             Application.Run(gs);
         }
@@ -102,22 +102,8 @@ namespace Olympus_the_Game
             // Controller update
             Controller.Update();
 
-            
-            
             if (tickCount % 1000 == 0)
                 Controller.UpdateEntityAI();
-
-            // Update screen
-            if (!gs.IsDisposed)
-            {
-                try
-                {
-                    gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
-                }
-                catch (ObjectDisposedException) { }
-            }
-
-            
         }
     }
 }
