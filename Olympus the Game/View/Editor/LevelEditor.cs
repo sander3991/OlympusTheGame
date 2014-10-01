@@ -168,5 +168,20 @@ namespace Olympus_the_Game.View
 
         }
 
+        private void Opslaan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Inladen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Afsluiten_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

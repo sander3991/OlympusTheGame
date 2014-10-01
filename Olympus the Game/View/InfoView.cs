@@ -17,12 +17,8 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+                
 
-            foreach (GameObject g in Entitys)
-            {
-                String posX = g.X.ToString();
-                listView1.Items.Add(posX);
             }
 
         }
