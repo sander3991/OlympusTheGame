@@ -120,6 +120,8 @@ namespace Olympus_the_Game
                         {
                             e.OnCollide(o2);
                             o2.OnCollide(e);
+                            e.X = e.PreviousX;
+                            e.Y = e.PreviousY;
                             e.DX = -e.DX;
                             e.DY = -e.DY;
                         }
