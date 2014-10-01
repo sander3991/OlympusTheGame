@@ -46,8 +46,9 @@
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.Obstakel = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -237,13 +238,6 @@
             this.richTextBox9.TabIndex = 16;
             this.richTextBox9.Text = "Obstakel";
             // 
-            // detailEditor1
-            // 
-            this.detailEditor1.Location = new System.Drawing.Point(56, 523);
-            this.detailEditor1.Name = "detailEditor1";
-            this.detailEditor1.Size = new System.Drawing.Size(920, 179);
-            this.detailEditor1.TabIndex = 17;
-            // 
             // gamePanelEditor
             // 
             this.gamePanelEditor.AllowDrop = true;
@@ -256,6 +250,21 @@
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
+            this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
+            // 
+            // entityEditor1
+            // 
+            this.entityEditor1.Location = new System.Drawing.Point(459, 520);
+            this.entityEditor1.Name = "entityEditor1";
+            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
+            this.entityEditor1.TabIndex = 18;
+            // 
+            // speelveldEditor1
+            // 
+            this.speelveldEditor1.Location = new System.Drawing.Point(57, 526);
+            this.speelveldEditor1.Name = "speelveldEditor1";
+            this.speelveldEditor1.Size = new System.Drawing.Size(360, 170);
+            this.speelveldEditor1.TabIndex = 19;
             // 
             // LevelEditor
             // 
@@ -263,11 +272,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.speelveldEditor1);
+            this.Controls.Add(this.entityEditor1);
             this.Controls.Add(this.Obstakel);
             this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.Home);
             this.Controls.Add(this.richTextBox8);
-            this.Controls.Add(this.detailEditor1);
             this.Controls.Add(this.gamePanelEditor);
             this.Controls.Add(this.Cake);
             this.Controls.Add(this.TimeBomb);
@@ -306,10 +316,11 @@
         private System.Windows.Forms.Panel TimeBomb;
         private System.Windows.Forms.Panel Cake;
         private GamePanel gamePanelEditor;
-        private Editor.DetailEditor detailEditor1;
         private System.Windows.Forms.Panel Home;
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.Panel Obstakel;
         private System.Windows.Forms.RichTextBox richTextBox9;
+        private EntityEditor entityEditor1;
+        private SpeelveldEditor speelveldEditor1;
     }
 }

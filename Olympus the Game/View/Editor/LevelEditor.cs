@@ -143,13 +143,29 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void RemoveObjectAtLocation(Point p)
+        private GameObject getObjectAtLocation(Point p)
         {
             List<GameObject> objects = this.pf.GetObjectsAtLocation(p.X, p.Y);
             if (objects != null && objects.Count > 0)
             {
-                this.pf.GetObjects().Remove(objects.Last());
+                return objects.Last();
             }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void RemoveObjectAtLocation(Point p)
+        {
+            this.pf.GetObjects().Remove(getObjectAtLocation(p));
+        }
+
+        private GameObject currentDraggingObject = null;
+
+        private void Start_InPanel_Drag(object sender, MouseEventArgs e)
+        {
+
         }
 
     }
