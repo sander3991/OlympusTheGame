@@ -265,6 +265,17 @@ namespace Olympus_the_Game.View
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// Bij een dubbelklik word gekeken waarop is geklikt, vervolgens kan
+        /// dit worden gebruikt voor de EntityEditor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Mouse_DoubleClick(object sender, EventArgs e)
+        {
+            Console.WriteLine(this.gamePanelEditor.getObjectAtCursor());
+        }
+
         private void ApplyPlayfieldChanges()
         {
             PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
