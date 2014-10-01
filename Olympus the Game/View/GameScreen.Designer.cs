@@ -84,10 +84,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1264, 741);
-            this.Controls.Add(this.infoView1);
+            
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.infoPanel1);
+            this.Controls.Add(this.infoView1);
             this.Controls.Add(this.customMenuBar1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
