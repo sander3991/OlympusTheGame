@@ -65,7 +65,7 @@ namespace Olympus_the_Game.View
             
 
             // Set background
-            this.BackgroundImage = Properties.Resources.Background;
+            this.BackgroundImage = Properties.Resources.timebomb;
         }
 
         public void setPlayField(PlayField pf) {
