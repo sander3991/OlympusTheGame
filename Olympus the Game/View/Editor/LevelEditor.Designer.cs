@@ -336,6 +336,7 @@
             this.MainMenuStrip = this.Menubar;
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.Menubar.ResumeLayout(false);
