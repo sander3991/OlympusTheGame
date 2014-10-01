@@ -46,7 +46,6 @@
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.Obstakel = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.detailEditor1 = new Olympus_the_Game.View.Editor.DetailEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
@@ -237,13 +236,6 @@
             this.richTextBox9.TabIndex = 16;
             this.richTextBox9.Text = "Obstakel";
             // 
-            // detailEditor1
-            // 
-            this.detailEditor1.Location = new System.Drawing.Point(56, 523);
-            this.detailEditor1.Name = "detailEditor1";
-            this.detailEditor1.Size = new System.Drawing.Size(920, 179);
-            this.detailEditor1.TabIndex = 17;
-            // 
             // gamePanelEditor
             // 
             this.gamePanelEditor.AllowDrop = true;
@@ -267,7 +259,6 @@
             this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.Home);
             this.Controls.Add(this.richTextBox8);
-            this.Controls.Add(this.detailEditor1);
             this.Controls.Add(this.gamePanelEditor);
             this.Controls.Add(this.Cake);
             this.Controls.Add(this.TimeBomb);
@@ -306,7 +297,6 @@
         private System.Windows.Forms.Panel TimeBomb;
         private System.Windows.Forms.Panel Cake;
         private GamePanel gamePanelEditor;
-        private Editor.DetailEditor detailEditor1;
         private System.Windows.Forms.Panel Home;
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.Panel Obstakel;
