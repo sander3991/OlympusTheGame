@@ -13,9 +13,18 @@ namespace Olympus_the_Game.View
     {
         public event Action ApplyClick;
 
-        public int EnteredWidth { get; private set; }
+        private Size prop_size;
 
-        public int EnteredHeight { get; private set; }
+        public Size EnteredSize { 
+            get {
+                return prop_size;
+            } 
+            set { 
+                prop_size = value;
+                this.GrootteXInput.Text = prop_size.Width.ToString();
+                this.GrootteYInput.Text = prop_size.Height.ToString();
+            }
+        }
 
         public string Title
         {
@@ -33,18 +42,15 @@ namespace Olympus_the_Game.View
 
         private void ClickCallback(object source, EventArgs e)
         {
-            int height, width;
-
             // Parse info
             try
             {
                 // Parse height and width
-                height = Convert.ToInt32(this.GrootteYInput.Text);
-                width = Convert.ToInt32(this.GrootteXInput.Text);
+                int height = Convert.ToInt32(this.GrootteYInput.Text);
+                int width = Convert.ToInt32(this.GrootteXInput.Text);
 
                 // If no exceptions raised
-                Height = height;
-                Width = width;
+                EnteredSize = new Size(width, height);
 
                 // Only call this when valid change happened
                 ApplyClick();

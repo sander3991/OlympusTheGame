@@ -258,6 +258,7 @@
             this.speelveldEditor1.Name = "speelveldEditor1";
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
             this.speelveldEditor1.TabIndex = 19;
+            this.speelveldEditor1.ApplyClick += new System.Action(this.ApplyPlayfieldChanges);
             // 
             // entityEditor1
             // 
@@ -277,6 +278,7 @@
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            this.gamePanelEditor.DoubleClick += new System.EventHandler(this.Mouse_DoubleClick);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
