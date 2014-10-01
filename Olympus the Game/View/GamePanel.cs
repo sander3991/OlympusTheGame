@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace Olympus_the_Game.View
 {
+    /// <summary>
+    /// This is a graphical representation of a PlayField.
+    /// </summary>
     public partial class GamePanel : UserControl
     {
         /// <summary>
@@ -17,9 +20,13 @@ namespace Olympus_the_Game.View
         public double SCALE { get; private set; }
 
         /// <summary>
-        /// Het speelveld dat moet worden getekend.
+        /// Variabele die Playfield bijhoudt.
         /// </summary>
         private PlayField prop_playfield;
+
+        /// <summary>
+        /// Het speelveld dat moet worden getekend.
+        /// </summary>
         public PlayField Playfield
         {
             get
@@ -28,6 +35,7 @@ namespace Olympus_the_Game.View
             }
             set
             {
+                // Change value and recalculate scale and size
                 prop_playfield = value;
                 Recalculate();
             }
@@ -38,8 +46,13 @@ namespace Olympus_the_Game.View
         /// </summary>
         private Dictionary<Type, Bitmap> ImageList = new Dictionary<Type, Bitmap>();
 
+        /// <summary>
+        /// De maximale Size die dit GamePanel mag hebben.
+        /// Deze wordt gevuld met de eerste gegeven Size.
+        /// </summary>
         private Size MAX_SIZE = Size.Empty;
 
+        
         #region Setup
 
         /// <summary>
@@ -47,13 +60,10 @@ namespace Olympus_the_Game.View
         /// </summary>
         public GamePanel(PlayField pf) // TODO Specify type
         {
-            // Save vars
+            // Save variables
             this.Playfield = pf;
-            this.SCALE = 1.0f;
-            Init();
 
-            // Register to update
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += delegate() { this.Invalidate(); };
+            InitializeComponent();
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace Olympus_the_Game.View
             : this(OlympusTheGame.INSTANCE == null ? new PlayField(1000, 500) : OlympusTheGame.INSTANCE.Playfield)
         { }
 
-        private void Init()
+        private void Init(object sender, EventArgs e)
         {
             // Build imagelist
             this.ImageList.Add(typeof(EntityCreeper), Properties.Resources.creeper);
@@ -76,15 +86,14 @@ namespace Olympus_the_Game.View
             this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
             this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.cobble);
 
-            // Initialize component
-            InitializeComponent();
-
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
 
-
             // Set background
-            this.BackgroundImage = Properties.Resources.timebomb;
+            this.BackgroundImage = Properties.Resources.background;
+
+            // Register to updateloop
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
         }
 
         #endregion
@@ -207,5 +216,10 @@ namespace Olympus_the_Game.View
         }
 
         #endregion
+
+        private void Init()
+        {
+
+        }
     }
 }
