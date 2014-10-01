@@ -26,6 +26,7 @@
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
+            Type = ObjectType.SLOWER;
         }
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
@@ -53,6 +54,11 @@
                 player.SpeedModifier = player.SpeedModifier * 2;
                 isSlowingPlayer = false;
             }
+        }
+
+        public override string ToString()
+        {
+            return "Slower";
         }
 
     }

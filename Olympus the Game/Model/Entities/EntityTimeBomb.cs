@@ -26,6 +26,7 @@ namespace Olympus_the_Game
         {
             EntityControlledByAI = false;
             OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
+            Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
@@ -42,7 +43,8 @@ namespace Olympus_the_Game
         
         }
 
-        public void OnUpdate() {
+        public void OnUpdate() 
+        {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
             if(player != null) {
@@ -61,5 +63,12 @@ namespace Olympus_the_Game
                 }
             }
         }
+
+        public override string ToString()
+        {
+            return "TimeBomb";
+        }
+
+
     }
 }

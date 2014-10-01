@@ -75,6 +75,7 @@
             this.DragButton.Size = new System.Drawing.Size(40, 40);
             this.DragButton.TabIndex = 3;
             this.DragButton.UseVisualStyleBackColor = true;
+            this.DragButton.Click += new System.EventHandler(this.DragButton_Click);
             this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
             this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 
@@ -92,7 +93,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader EntityName;
         private System.Windows.Forms.ColumnHeader PosX;
         private System.Windows.Forms.ColumnHeader PosY;

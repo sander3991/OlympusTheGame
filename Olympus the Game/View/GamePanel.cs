@@ -14,17 +14,31 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
-        public double SCALE {get; private set;}
+        public double SCALE { get; private set; }
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
         /// </summary>
-        private PlayField pf;
+        private PlayField prop_playfield;
+        public PlayField Playfield
+        {
+            get
+            {
+                return prop_playfield;
+            }
+            set
+            {
+                prop_playfield = value;
+                Recalculate();
+            }
+        }
 
         /// <summary>
         /// List of images used by this view
         /// </summary>
         private Dictionary<Type, Bitmap> ImageList = new Dictionary<Type, Bitmap>();
+
+        #region Setup
 
         /// <summary>
         /// Maak een nieuw GamePanel aan, deze krijgt als argument het model mee welke moet worden getekend.
@@ -32,7 +46,7 @@ namespace Olympus_the_Game.View
         public GamePanel(PlayField pf) // TODO Specify type
         {
             // Save vars
-            this.pf = pf;
+            this.Playfield = pf;
             this.SCALE = 1.0f;
             Init();
         }
@@ -62,36 +76,15 @@ namespace Olympus_the_Game.View
 
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
-            
+
 
             // Set background
             this.BackgroundImage = Properties.Resources.timebomb;
         }
 
-        public void setPlayField(PlayField pf) {
-            // Set playfield
-            this.pf = pf;
-        }
+        #endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PaintPanel(object sender, PaintEventArgs e)
-        {
-            List<GameObject> objects = pf.GetObjects();
-
-            // Loop through all gameobjects
-            foreach (GameObject go in objects)
-            {
-                draw(go, e.Graphics);
-            }
-
-            // Draw player
-            if(pf.Player != null)
-                draw(pf.Player, e.Graphics);
-        }
+        #region Draw Functions
 
         private void draw(GameObject go, Graphics g)
         {
@@ -118,18 +111,47 @@ namespace Olympus_the_Game.View
             g.DrawRectangle(p, target);
         }
 
+        private void Repaint(Graphics g)
+        {
+            List<GameObject> objects = Playfield.GetObjects();
+
+            // Loop through all gameobjects
+            foreach (GameObject go in objects)
+            {
+                draw(go, g);
+            }
+
+            // Draw player
+            if (Playfield.Player != null)
+                draw(Playfield.Player, g);
+        }
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PaintPanel(object sender, PaintEventArgs e)
+        {
+            Repaint(e.Graphics);
+        }
+
         private void Panel_resized(object sender, EventArgs e)
         {
-            // Fix playfield scaling
-            double ratioWidth = (double)this.pf.WIDTH / (double)this.Size.Width;
-            double ratioHeight = (double)this.pf.HEIGHT / (double)this.Size.Height;
-            this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
-            this.Size = new Size((int)((double)this.pf.WIDTH * SCALE), (int)((double)this.pf.HEIGHT * SCALE));
+            Recalculate();
         }
+
+        #endregion
+
+        #region ScaleFunctions
 
         public Point TranslatePanelToPlayField(Point p)
         {
-            return new Point((int)((double) p.X / SCALE), (int)((double) p.Y / SCALE));
+            return new Point((int)((double)p.X / SCALE), (int)((double)p.Y / SCALE));
         }
 
         public Point TranslatePlayFieldToPanel(Point p)
@@ -146,5 +168,37 @@ namespace Olympus_the_Game.View
         {
             return TranslatePanelToPlayField(getCursorPosition());
         }
+
+        public void Recalculate()
+        {
+            // Fix playfield scaling
+            double ratioWidth = (double)this.Playfield.WIDTH / (double)this.Size.Width;
+            double ratioHeight = (double)this.Playfield.HEIGHT / (double)this.Size.Height;
+            this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
+            this.Size = new Size((int)((double)this.Playfield.WIDTH * SCALE), (int)((double)this.Playfield.HEIGHT * SCALE));
+        }
+
+        #endregion
+
+        #region Locations
+
+        public GameObject getObjectAtCursor()
+        {
+            Point p = this.getCursorPlayFieldPosition();
+            // Get list of objects at that location
+            List<GameObject> objects = this.Playfield.GetObjectsAtLocation(p.X, p.Y);
+
+            // If there is a last object, return it
+            if (objects != null && objects.Count > 0)
+            {
+                return objects.Last();
+            }
+            else // Else return null
+            {
+                return null;
+            }
+        }
+
+        #endregion
     }
 }

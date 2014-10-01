@@ -18,153 +18,51 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = new PlayField(1000, 500);
-            this.pf.InitializeGameobjects(new List<GameObject>() { new EntityPlayer(50, 50, 0, 0) });
-            this.gamePanelEditor.setPlayField(this.pf);
+            this.gamePanelEditor.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
         }
 
-        private void Player_MouseDown(object sender, MouseEventArgs e)
-        {
-            Player.DoDragDrop(Entity.Type.PLAYER, DragDropEffects.Copy | DragDropEffects.Move);
-        }
+        #region Drag and Drop
 
+        #region MouseDown
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
+            Creeper.DoDragDrop(ObjectType.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Spider_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Entity.Type.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
+            Spider.DoDragDrop(ObjectType.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Tnt_MouseDown(object sender, MouseEventArgs e)
         {
-            Tnt.DoDragDrop(Entity.Type.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
+            Tnt.DoDragDrop(ObjectType.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
         {
-            TimeBomb.DoDragDrop(Entity.Type.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
+            TimeBomb.DoDragDrop(ObjectType.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
         {
-            Cake.DoDragDrop(Entity.Type.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
+            Cake.DoDragDrop(ObjectType.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Home_MouseDown(object sender, MouseEventArgs e)
         {
-            Home.DoDragDrop(Entity.Type.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+            Home.DoDragDrop(ObjectType.HOME, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Obstakel_MouseDown(object sender, MouseEventArgs e)
         {
-            Obstakel.DoDragDrop(Entity.Type.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
+            Obstakel.DoDragDrop(ObjectType.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
-        /// <summary>
-        /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void enter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(Entity.Type)))
-            {
-                e.Effect = DragDropEffects.Move;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
+        #endregion
 
-        /// <summary>
-        /// Weergeef de locatie waar het object geplaatst is
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void drag_drop(object sender, DragEventArgs e)
-        {
-            // Get relative location
-            /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
-            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
-            Point l = gamePanelEditor.getCursorPlayFieldPosition();
-
-            // Add object
-            switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
-            {
-                case Entity.Type.PLAYER:
-                    this.pf.Player.X = l.X;
-                    this.pf.Player.Y = l.Y;
-                    break;
-                case Entity.Type.TIMEBOMB:
-                    this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
-                    break;
-                case Entity.Type.SLOWER:
-                    this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
-                    break;
-                case Entity.Type.CAKE:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
-                    this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
-                    break;
-                case Entity.Type.HOME:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
-                    this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
-                    break;
-                case Entity.Type.CREEPER:
-                    this.pf.AddObject(new EntityCreeper(50, 50, l.X, l.Y, 1.0f));
-                    break;
-                case Entity.Type.OBSTACLE:
-                    this.pf.AddObject(new ObjectObstacle(50, 50, l.X, l.Y));
-                    break;
-                case Entity.Type.EXPLODE:
-                    this.pf.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
-                    break;
-            }
-            this.gamePanelEditor.Invalidate();
-        }
-
-        /// <summary>
-        /// Als er op de muis wordt geklikt wordt deze methode aangeroepen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Mouse_Clicked(object sender, MouseEventArgs e)
-        {
-            switch (e.Button)
-            {
-                case MouseButtons.Right:
-                    RemoveObjectAtLocation(this.gamePanelEditor.getCursorPosition());
-                    this.gamePanelEditor.Invalidate();
-                    break;
-            }
-        }
-
-        private GameObject getObjectAtLocation(Point p)
-        {
-            // Translate to PlayField coordinate
-            Point pt = this.gamePanelEditor.TranslatePanelToPlayField(p);
-
-            // Get list of objects at that location
-            List<GameObject> objects = this.pf.GetObjectsAtLocation(pt.X, pt.Y);
-
-            // If there is a last object, return it
-            if (objects != null && objects.Count > 0)
-            {
-                return objects.Last();
-            }
-            else // Else return null
-            {
-                return null;
-            }
-        }
-
-        private void RemoveObjectAtLocation(Point p)
-        {
-            this.pf.GetObjects().Remove(getObjectAtLocation(p));
-        }
+        #region Inpanel Drag and Drop
 
         private GameObject currentDraggingObject = null;
         private Point offset = Point.Empty;
@@ -172,7 +70,7 @@ namespace Olympus_the_Game.View
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
         {
             // Set current dragging object
-            this.currentDraggingObject = getObjectAtLocation(gamePanelEditor.getCursorPosition());
+            this.currentDraggingObject = gamePanelEditor.getObjectAtCursor();
             if (this.currentDraggingObject != null)
                 this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
         }
@@ -197,6 +95,89 @@ namespace Olympus_the_Game.View
                 this.currentDraggingObject = null;
             }
         }
+
+        #endregion
+
+        /// <summary>
+        /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void enter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ObjectType)))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        /// <summary>
+        /// Weergeef de locatie waar het object geplaatst is
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void drag_drop(object sender, DragEventArgs e)
+        {
+            // Get relative location
+            /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
+            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
+            Point l = gamePanelEditor.getCursorPlayFieldPosition();
+
+            // Add object
+            switch ((ObjectType)e.Data.GetData(typeof(ObjectType)))
+            {
+                case ObjectType.TIMEBOMB:
+                    this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
+                    break;
+                case ObjectType.SLOWER:
+                    this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
+                    break;
+                case ObjectType.CAKE:
+                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                    this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
+                    break;
+                case ObjectType.HOME:
+                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                    this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
+                    break;
+                case ObjectType.CREEPER:
+                    this.pf.AddObject(new EntityCreeper(50, 50, l.X, l.Y, 1.0f));
+                    break;
+                case ObjectType.OBSTACLE:
+                    this.pf.AddObject(new ObjectObstacle(50, 50, l.X, l.Y));
+                    break;
+                case ObjectType.EXPLODE:
+                    this.pf.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
+                    break;
+            }
+            this.gamePanelEditor.Invalidate();
+        }
+
+        #endregion
+
+        #region Remove
+
+        /// <summary>
+        /// Als er op de muis wordt geklikt wordt deze methode aangeroepen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Mouse_Clicked(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Right:
+                    gamePanelEditor.Playfield.GetObjects().Remove(gamePanelEditor.getObjectAtCursor());
+                    this.gamePanelEditor.Invalidate();
+                    break;
+            }
+        }
+
+        #endregion
 
         private void Opslaan_Click(object sender, EventArgs e)
         {
