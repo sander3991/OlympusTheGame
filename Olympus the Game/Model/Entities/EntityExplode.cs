@@ -19,7 +19,7 @@ namespace Olympus_the_Game {
             : base(width, height, x, y, dx, dy) {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAI = false;
-            ObjectType = Type.EXPLODE;
+            Type = ObjectType.EXPLODE;
         }
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie
@@ -33,12 +33,9 @@ namespace Olympus_the_Game {
 
         public override void OnCollide(GameObject gameObject) {
             EntityPlayer player = gameObject as EntityPlayer;
-
-            if(player != null){
-                player.Health--;
-                player.X = 0;
-                player.Y = 0;
-
+            if(player != null) {
+                player.Health -= Convert.ToInt32(EffectStrength);
+                OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
             }
         }
 
