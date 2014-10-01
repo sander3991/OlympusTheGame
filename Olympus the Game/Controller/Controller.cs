@@ -12,8 +12,7 @@ namespace Olympus_the_Game
     public class Controller
     {
         public PlayField PlayField { get; private set; }
-        public delegate void UpdateEvent();
-        public event UpdateEvent UpdateEvents;
+        public event Action UpdateEvents;
         
         public Controller(PlayField pf)
         {

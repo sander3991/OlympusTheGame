@@ -2,44 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Olympus_the_Game
 {
-    public class PlayField
+    public class PlayField : IXmlSerializable
     {
-        public readonly int WIDTH;
-        public readonly int HEIGHT;
+        private static int ID = 0;
+        public int WIDTH { get; private set; }
+        public int HEIGHT { get; private set; }
         private List<GameObject> gameObjects = new List<GameObject>();
-        
         public EntityPlayer Player {get; private set;}
-
+        public string Name { get; set; }
+        public bool IsInitialized { get; private set; }
+        public PlayField() : this(1000, 500) { }
         public PlayField(int width, int height)
         {
             WIDTH = width;
             HEIGHT = height;
+            Name = "Map_" + ID++;
+            IsInitialized = false;
         }
 
         public void InitializeGameObjects()
         {
-            this.InitializeGameobjects(GetDefaultMap(WIDTH, HEIGHT));
+            if(!IsInitialized)
+                this.InitializeGameobjects(GetDefaultMap(WIDTH, HEIGHT));
         }
 
         public void InitializeGameobjects(List<GameObject> objects)
         {
-            if (objects == null)
-                new ArgumentException("Geen lijst met gameobjects meegegeven");
-            gameObjects = objects;
-            for (int i = 0; i < objects.Count; i++)
+            if (!IsInitialized)
             {
-                EntityPlayer player = objects[i] as EntityPlayer;
-                if (player != null)
+                if (objects == null)
+                    new ArgumentException("Geen lijst met gameobjects meegegeven");
+                gameObjects = objects;
+                for (int i = 0; i < objects.Count; i++)
                 {
-                    Player = player;
-                    gameObjects.Remove(player);
+                    EntityPlayer player = objects[i] as EntityPlayer;
+                    if (player != null)
+                    {
+                        Player = player;
+                        gameObjects.Remove(player);
+                    }
                 }
+                if (Player == null)
+                    Player = new EntityPlayer(50, 50, 0, 0);
+                IsInitialized = true;
             }
-            if(Player == null)
-                Player = new EntityPlayer(50, 50, 0, 0);
 
         }
 
@@ -110,6 +122,56 @@ namespace Olympus_the_Game
                 objectList.Add(Player);
 
             return objectList.Count == 0 ? null : objectList;
+        }
+
+        public void SaveToXml(string fileName)
+        {
+            StreamWriter file = new StreamWriter(fileName);
+            new XmlSerializer(typeof(PlayField)).Serialize(file, this);
+            file.Close();
+        }
+
+        public static PlayField GetFromXml(string fileName)
+        {
+            StreamReader file = new StreamReader(fileName);
+            Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(file));
+            PlayField pf = o as PlayField;
+            file.Close();
+            return pf;
+        }
+
+        public System.Xml.Schema.XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+        public void ReadXml(System.Xml.XmlReader reader)
+        {
+            reader.Read();
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                reader.Read();
+            }
+            return;
+        }
+
+        public void WriteXml(System.Xml.XmlWriter writer)
+        {
+            writer.WriteElementString("Name", Name);
+            writer.WriteElementString("Width", WIDTH.ToString());
+            writer.WriteElementString("Height", HEIGHT.ToString());
+            writer.WriteStartElement("GameObjects");
+            foreach (GameObject o in gameObjects)
+            {
+                writer.WriteStartElement("GameObject");
+                writer.WriteAttributeString("Type", o.Type.ToString());
+                writer.WriteElementString("X", o.X.ToString());
+                writer.WriteElementString("Y", o.Y.ToString());
+                writer.WriteElementString("Width", o.Width.ToString());
+                writer.WriteElementString("Height", o.Height.ToString());
+                writer.WriteEndElement();
+            }
+            writer.WriteEndElement();
         }
     }
 }

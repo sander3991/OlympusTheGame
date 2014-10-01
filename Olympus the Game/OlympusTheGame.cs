@@ -38,7 +38,7 @@ namespace Olympus_the_Game
         public OlympusTheGame()
         {
             // TODO Verwijderen
-            this.Playfield = new PlayField(1000, 500);
+            this.Playfield = PlayField.GetFromXml("test.xml");
             this.Controller = new Controller(this.Playfield);
             
         }
@@ -65,7 +65,6 @@ namespace Olympus_the_Game
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
             timer.Interval = 10;
             Playfield.InitializeGameObjects();
-            //Playfield.SaveToXml("Test.xml");
             gs = new GameScreen();
 
             // Laat het scherm zien
