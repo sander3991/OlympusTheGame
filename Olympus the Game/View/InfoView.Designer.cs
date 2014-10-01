@@ -13,6 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -75,6 +76,7 @@
             this.DragButton.Size = new System.Drawing.Size(40, 40);
             this.DragButton.TabIndex = 3;
             this.DragButton.UseVisualStyleBackColor = true;
+            this.DragButton.Click += new System.EventHandler(this.DragButton_Click);
             this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
             this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 

@@ -22,6 +22,7 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
             EntityControlledByAI = true;
+            Type = ObjectType.CREEPER;
         }
 
         /// <summary>

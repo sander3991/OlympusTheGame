@@ -17,14 +17,14 @@
   <Class Name="Olympus_the_Game.EntityCreeper">
     <Position X="9.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Model\Entities\EntityCreeper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.EntityExplode" Collapsed="true">
     <Position X="8.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Entities\EntityExplode.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,56 +38,49 @@
   <Class Name="Olympus_the_Game.EntitySlower" Collapsed="true">
     <Position X="5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABACAAAAAABEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAABACAAAAAABEAAAA=</HashCode>
       <FileName>Model\Entities\EntitySlower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.EntityTimeBomb" Collapsed="true">
     <Position X="7.25" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAEAAAA=</HashCode>
       <FileName>Model\Entities\EntityTimeBomb.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.GameObject">
     <Position X="9.5" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="Olympus_the_Game.GameObject.Type" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Model\GameObject.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>IAAAACAABAAAAAQAQAAAAEAAAAAAAgAAAABgAABgYgA=</HashCode>
+      <HashCode>IAAAACAABAAAAAQAQAAAAEAAAAAAAgAAAQBgAABgYgA=</HashCode>
       <FileName>Model\GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.ObjectFinish" Collapsed="true">
     <Position X="14" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ObjectFinish.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.ObjectObstacle" Collapsed="true">
     <Position X="16.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ObjectObstacle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.ObjectStart" Collapsed="true">
     <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ObjectStart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.PlayField" Collapsed="true">
     <Position X="20.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAABABAAAAAAAAABAQAAAABAAABAQBQAQA=</HashCode>
+      <HashCode>AQAAAAAAAAAABABAAAAAAAAABAQAAAAAAAABAQBQAQA=</HashCode>
       <FileName>Model\PlayField.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -108,7 +101,7 @@
   <Class Name="Olympus_the_Game.View.GamePanel" Collapsed="true">
     <Position X="22.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAABADAMAAAAAAKAAQACAAAAAAAAAAASAAAAAAA=</HashCode>
+      <HashCode>BAAAAAAIADEMgAIAAAKAAQACAAAAAIEAAAASAgAAAAA=</HashCode>
       <FileName>View\GamePanel.cs</FileName>
     </TypeIdentifier>
   </Class>

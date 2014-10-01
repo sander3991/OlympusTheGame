@@ -8,21 +8,6 @@ namespace Olympus_the_Game
 {
     public abstract class Entity : GameObject
     {
-        public delegate void EntityMoveHandler();
-        public event EntityMoveHandler EntityMoved;
-
-        protected virtual void OnMoveChanged()
-        {
-            if (EntityMoved != null)
-            {
-                EntityMoved();
-            }
-            else
-            {
-                
-            }
-        }
-
         private int dx;
         private int dy;
         /// <summary>
@@ -78,7 +63,6 @@ namespace Olympus_the_Game
             X += DX;
             Y += DY;
 
-            OnMoveChanged();
         }
     }
 }

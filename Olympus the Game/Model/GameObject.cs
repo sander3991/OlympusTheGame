@@ -5,14 +5,24 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    public enum ObjectType
+    {
+        PLAYER,
+        SLOWER,
+        TIMEBOMB,
+        OBSTACLE,
+        CREEPER,
+        EXPLODE,
+        HOME,
+        CAKE
+    }
     public abstract class GameObject
     {
-        public enum Type { PLAYER, SLOWER, TIMEBOMB, OBSTACLE, CREEPER, EXPLODE, HOME, CAKE }
-
         private int x;
         private int y;
         private int height;
         private int width;
+        public ObjectType Type { get; protected set; }
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>

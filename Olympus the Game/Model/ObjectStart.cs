@@ -17,6 +17,12 @@ namespace Olympus_the_Game
         public ObjectStart(int width, int height, int x, int y) : base(width, height, x, y)
         {
             IsSolid = false;
+            Type = ObjectType.HOME;
+        }
+
+        public override string ToString()
+        {
+            return "Start";
         }
     }
 }
