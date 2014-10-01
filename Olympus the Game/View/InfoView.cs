@@ -78,12 +78,7 @@ namespace Olympus_the_Game.View
                     listView1.Items.Add(LVItem);
                 }
             }
-            listView1.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
-
-            listView1.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
-
-            listView1.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
-            listView1.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             
             this.Invalidate(true);
         }
