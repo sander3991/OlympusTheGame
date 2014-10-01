@@ -182,7 +182,6 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="Klassen Diagram.cd" />
-    <None Include="Resources\Naamloos.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\arrowUp.png" />
@@ -231,6 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\huis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Naamloos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\058a34b66523f7646810c354f4734bd9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
