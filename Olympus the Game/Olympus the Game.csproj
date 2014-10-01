@@ -118,7 +118,7 @@
     <Compile Include="View\MenuBar\MenuPanel.Designer.cs">
       <DependentUpon>MenuPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="OlympusTheGame.cs" />
+    <Compile Include="View\OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
