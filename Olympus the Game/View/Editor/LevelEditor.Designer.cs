@@ -279,7 +279,7 @@
             this.toolStripMenuItem2});
             this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
             this.customMenuBar1.Name = "customMenuBar1";
-            this.customMenuBar1.Size = new System.Drawing.Size(1087, 24);
+            this.customMenuBar1.Size = new System.Drawing.Size(1084, 24);
             this.customMenuBar1.TabIndex = 20;
             this.customMenuBar1.Text = "customMenuBar1";
             // 
@@ -300,7 +300,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
-            this.ClientSize = new System.Drawing.Size(1087, 733);
+            this.ClientSize = new System.Drawing.Size(1084, 696);
             this.Controls.Add(this.customMenuBar1);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
