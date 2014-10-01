@@ -104,8 +104,6 @@ namespace Olympus_the_Game
 
             
             
-            
-
             if (tickCount % 1000 == 0)
                 Controller.UpdateEntityAI();
 

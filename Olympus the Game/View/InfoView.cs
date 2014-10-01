@@ -16,6 +16,7 @@ namespace Olympus_the_Game.View
         public InfoView()
         {
             InitializeComponent();
+            
         }
 
         public void Init()
@@ -39,7 +40,20 @@ namespace Olympus_the_Game.View
 
         public void update()
         {
-            
+            listView1.Items.Clear();
+            foreach (GameObject g in Entitys)
+            {
+                Entity e = g as Entity;
+                if (e != null)
+                {
+                    string itemNaam = e.ToString();
+                    ListViewItem LVItem = new ListViewItem(itemNaam);
+
+                    LVItem.SubItems.Add(e.X.ToString());
+                    LVItem.SubItems.Add(e.Y.ToString());
+                    listView1.Items.Add(LVItem);
+                }
+            }
         }
 
         /// <summary>
@@ -69,9 +83,11 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void DragButton_MouseClick(object sender, MouseEventArgs e)
+        private void DragButton_Click(object sender, EventArgs e)
         {
-            this.Init();
+            this.update();
         }
+
+        
     }
 }
