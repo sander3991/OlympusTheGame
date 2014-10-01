@@ -18,6 +18,7 @@ namespace Olympus_the_Game
         public Controller(PlayField pf)
         {
             this.PlayField = pf;
+            hasCollided = new Dictionary<GameObject, GameObject>();
         }
         /// <summary>
         /// Stuurt informatie door als de gebruiker op een toets heeft geklikt.
@@ -105,11 +106,25 @@ namespace Olympus_the_Game
                     }
                 }
             }
+            List<GameObject> listWithPlayer = new List<GameObject>(gameObjects);
+            listWithPlayer.Add(player);
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;
                 if (e != null)
+                {
                     e.Move();
+                    foreach (GameObject o2 in listWithPlayer)
+                    {
+                        if(!e.Equals(o2) && e.CollidesWithObject(o2))
+                        {
+                            e.OnCollide(o2);
+                            o2.OnCollide(e);
+                            e.DX = -e.DX;
+                            e.DY = -e.DY;
+                        }
+                    }
+                }
             }
         }
 
