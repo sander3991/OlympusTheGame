@@ -179,14 +179,50 @@ namespace Olympus_the_Game.View
 
         #endregion
 
+        /// <summary>
+        /// Sla .xml bestand op
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Opslaan_Click(object sender, EventArgs e)
         {
+            System.IO.Stream fileStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((fileStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    fileStream.Close();
+                }
+            }
         }
 
+        /// <summary>
+        /// Open .xml bestand
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Inladen_Click(object sender, EventArgs e)
         {
+            System.IO.Stream fileStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((fileStream = openFileDialog1.OpenFile()) != null)
+                {
+                    fileStream.Close();
+                }
+            }
         }
 
         private void Afsluiten_Click(object sender, EventArgs e)
