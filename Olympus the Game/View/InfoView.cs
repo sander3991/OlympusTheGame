@@ -24,8 +24,10 @@ namespace Olympus_the_Game.View
         private void OnLoad(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
+            
             if(OlympusTheGame.INSTANCE.Controller != null)
                 OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { update(); };
+            
         }
 
         /// <summary>
@@ -76,6 +78,13 @@ namespace Olympus_the_Game.View
                     listView1.Items.Add(LVItem);
                 }
             }
+            listView1.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            listView1.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            listView1.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
+            
             this.Invalidate(true);
         }
     }
