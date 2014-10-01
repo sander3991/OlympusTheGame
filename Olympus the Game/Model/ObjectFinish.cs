@@ -17,7 +17,7 @@ namespace Olympus_the_Game
         public ObjectFinish(int width, int height, int x, int y) : base(width, height, x , y)
         {
             IsSolid = false;
-            ObjectType = Type.CAKE;
+            Type = ObjectType.CAKE;
         }
 
         public override string ToString()

@@ -65,7 +65,7 @@ namespace Olympus_the_Game
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
             timer.Interval = 10;
             Playfield.InitializeGameObjects();
-            // Maak gamescreen aan
+            Playfield.SaveToXml("Test.xml");
             gs = new GameScreen();
 
             // Laat het scherm zien

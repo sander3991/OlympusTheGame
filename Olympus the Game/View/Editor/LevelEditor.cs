@@ -27,37 +27,37 @@ namespace Olympus_the_Game.View
         #region MouseDown
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
-            Creeper.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
+            Creeper.DoDragDrop(ObjectType.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Spider_MouseDown(object sender, MouseEventArgs e)
         {
-            Spider.DoDragDrop(Entity.Type.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
+            Spider.DoDragDrop(ObjectType.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Tnt_MouseDown(object sender, MouseEventArgs e)
         {
-            Tnt.DoDragDrop(Entity.Type.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
+            Tnt.DoDragDrop(ObjectType.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
         {
-            TimeBomb.DoDragDrop(Entity.Type.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
+            TimeBomb.DoDragDrop(ObjectType.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
         {
-            Cake.DoDragDrop(Entity.Type.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
+            Cake.DoDragDrop(ObjectType.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Home_MouseDown(object sender, MouseEventArgs e)
         {
-            Home.DoDragDrop(Entity.Type.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+            Home.DoDragDrop(ObjectType.HOME, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Obstakel_MouseDown(object sender, MouseEventArgs e)
         {
-            Obstakel.DoDragDrop(Entity.Type.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
+            Obstakel.DoDragDrop(ObjectType.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         #endregion
@@ -105,7 +105,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void enter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(Entity.Type)))
+            if (e.Data.GetDataPresent(typeof(ObjectType)))
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -128,29 +128,29 @@ namespace Olympus_the_Game.View
             Point l = gamePanelEditor.getCursorPlayFieldPosition();
 
             // Add object
-            switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
+            switch ((ObjectType)e.Data.GetData(typeof(ObjectType)))
             {
-                case Entity.Type.TIMEBOMB:
+                case ObjectType.TIMEBOMB:
                     this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
                     break;
-                case Entity.Type.SLOWER:
+                case ObjectType.SLOWER:
                     this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
                     break;
-                case Entity.Type.CAKE:
+                case ObjectType.CAKE:
                     this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                     this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
                     break;
-                case Entity.Type.HOME:
+                case ObjectType.HOME:
                     this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                     this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
                     break;
-                case Entity.Type.CREEPER:
+                case ObjectType.CREEPER:
                     this.pf.AddObject(new EntityCreeper(50, 50, l.X, l.Y, 1.0f));
                     break;
-                case Entity.Type.OBSTACLE:
+                case ObjectType.OBSTACLE:
                     this.pf.AddObject(new ObjectObstacle(50, 50, l.X, l.Y));
                     break;
-                case Entity.Type.EXPLODE:
+                case ObjectType.EXPLODE:
                     this.pf.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
                     break;
             }
