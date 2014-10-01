@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = new PlayField(1000, 500);
-            this.gamePanelEditor.setPlayField(this.pf);
+            this.gamePanelEditor.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
         }
 
