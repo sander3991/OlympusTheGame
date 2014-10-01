@@ -189,15 +189,21 @@ namespace Olympus_the_Game.View
             System.IO.Stream fileStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            // Weergeef .xml bestanden in eerste instantie
             saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
 
+            // Als er op OK is geklikt
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                // en er is een naam ingevoerd
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
+                    // sluit dan de stream
                     fileStream.Close();
+
+                    // Hier moet natuurlijk sander's xml opgeslagen worden
                 }
             }
         }
@@ -216,15 +222,25 @@ namespace Olympus_the_Game.View
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
+            // als er op OK word gedrukt
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                // en er is een bestand geselecteerd
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
+                    // sluit dan de stream
                     fileStream.Close();
+
+                    // hier moet code komen die het bestand gaat parsen
                 }
             }
         }
 
+        /// <summary>
+        /// Sluit het LevelEditor scherm af
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Afsluiten_Click(object sender, EventArgs e)
         {
             this.Close();
