@@ -30,7 +30,7 @@ namespace Olympus_the_Game
                 e.KeyCode == Keys.W || e.KeyCode == Keys.S)
             {
                 // Geef de speed van 1 mee
-                MovePlayer(e, 1);
+                MovePlayer(e, 2);
             }
 
         }
