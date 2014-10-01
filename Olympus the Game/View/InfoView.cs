@@ -62,6 +62,7 @@ namespace Olympus_the_Game.View
                         ListViewItem LVItem = new ListViewItem(itemNaam);
                         LVItem.SubItems.Add(e.X.ToString());
                         LVItem.SubItems.Add(e.Y.ToString());
+                        LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
                         listView1.Items.Add(LVItem);
                     }
                 }
