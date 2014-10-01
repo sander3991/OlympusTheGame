@@ -146,6 +146,7 @@ namespace Olympus_the_Game
 
         public void UpdateEntityAI()
         {
+            if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
             Random rand = new Random();
             List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GetObjects();
             foreach (GameObject o in gameObjects)
