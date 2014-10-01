@@ -258,6 +258,7 @@
             this.speelveldEditor1.Name = "speelveldEditor1";
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
             this.speelveldEditor1.TabIndex = 19;
+            this.speelveldEditor1.ApplyClick += new System.Action(this.ApplyPlayfieldChanges);
             // 
             // entityEditor1
             // 

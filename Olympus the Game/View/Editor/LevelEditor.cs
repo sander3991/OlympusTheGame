@@ -157,6 +157,8 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
+        
+
         #endregion
 
         #region Remove
@@ -274,5 +276,11 @@ namespace Olympus_the_Game.View
             Console.WriteLine(this.gamePanelEditor.getObjectAtCursor());
         }
 
+        private void ApplyPlayfieldChanges()
+        {
+            PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
+            newPF.InitializeGameobjects(gamePanelEditor.Playfield.GetObjects());
+            gamePanelEditor.Playfield = newPF;
+        }
     }
 }
