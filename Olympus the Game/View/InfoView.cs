@@ -21,7 +21,7 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            
+
         }
         /// <summary>
         /// Vult de lijst met de start posities
@@ -29,44 +29,42 @@ namespace Olympus_the_Game.View
         public void Init()
         {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += update;
-            foreach(GameObject g in Entitys)
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += () => { Invalidate(); };
+            foreach (GameObject g in Entitys)
             {
                 Entity e = g as Entity;
                 if (e != null)
                 {
                     string itemNaam = e.ToString();
                     ListViewItem LVItem = new ListViewItem(itemNaam);
-                    
+
                     LVItem.SubItems.Add(e.X.ToString());
                     LVItem.SubItems.Add(e.Y.ToString());
                     listView1.Items.Add(LVItem);
                 }
             }
-            
+
         }
         /// <summary>
         /// Update de items
         /// </summary>
-        public void update()
+        public void update(object sender, PaintEventArgs pea)
         {
-            if (cout++ % 10 == 0)
+            listView1.Items.Clear();
+            foreach (GameObject g in Entitys)
             {
-                listView1.Items.Clear();
-                foreach (GameObject g in Entitys)
+                Entity e = g as Entity;
+                if (e != null)
                 {
-                    Entity e = g as Entity;
-                    if (e != null)
-                    {
-                        string itemNaam = e.ToString();
-                        ListViewItem LVItem = new ListViewItem(itemNaam);
-                        LVItem.SubItems.Add(e.X.ToString());
-                        LVItem.SubItems.Add(e.Y.ToString());
-                        listView1.Items.Add(LVItem);
-                    }
+                    string itemNaam = e.ToString();
+                    ListViewItem LVItem = new ListViewItem(itemNaam);
+                    LVItem.SubItems.Add(e.X.ToString());
+                    LVItem.SubItems.Add(e.Y.ToString());
+                    listView1.Items.Add(LVItem);
                 }
             }
-            
+
+
         }
 
         /// <summary>
@@ -101,6 +99,11 @@ namespace Olympus_the_Game.View
             update();
         }
 
-        
+        private void update()
+        {
+
+        }
+
+
     }
 }

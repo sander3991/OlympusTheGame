@@ -64,14 +64,17 @@ namespace Olympus_the_Game
             // Add gameloop to timer
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
             timer.Interval = 10;
+
+            // TODO Remove
             Playfield.InitializeGameObjects();
+
             // Maak gamescreen aan
             gs = new GameScreen();
 
-            // Laat het scherm zien
+            // Start timer
             timer.Start();
 
-            
+            // Start applicatie
             Application.Run(gs);
         }
 
@@ -82,7 +85,6 @@ namespace Olympus_the_Game
         public void RequestClose()
         {
             // Stop timer
-            timer.Close();
             timer.Stop();
         }
 
