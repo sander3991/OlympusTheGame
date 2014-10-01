@@ -22,7 +22,9 @@ namespace Olympus_the_Game.View
             InitializeComponent();
             this.DoubleBuffered = true;
         }
-
+        /// <summary>
+        /// Vult de lijst met de start posities
+        /// </summary>
         public void Init()
         {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
@@ -42,7 +44,9 @@ namespace Olympus_the_Game.View
             }
 
         }
-
+        /// <summary>
+        /// Update de items
+        /// </summary>
         public void update()
         {
             listView1.Items.Clear();
