@@ -36,7 +36,6 @@ namespace Olympus_the_Game
 
         public void OnUpdate() {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            Console.WriteLine("A");
             if(player != null){
                 if(DistanceToObject(player) < 150){
                     this.EntityControlledByAI = false;
