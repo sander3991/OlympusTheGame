@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Olympus_the_Game;
 
 namespace Olympus_the_Game
 {
@@ -43,8 +44,7 @@ namespace Olympus_the_Game
         
         }
 
-        public void OnUpdate() 
-        {
+        public void OnUpdate() {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
             if(player != null) {
