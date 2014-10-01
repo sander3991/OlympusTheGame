@@ -273,7 +273,9 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void Mouse_DoubleClick(object sender, EventArgs e)
         {
-            Console.WriteLine(this.gamePanelEditor.getObjectAtCursor());
+            GameObject go = this.gamePanelEditor.getObjectAtCursor();
+            this.entityEditor1.LoadData(go);
+            
         }
 
         private void ApplyPlayfieldChanges()
