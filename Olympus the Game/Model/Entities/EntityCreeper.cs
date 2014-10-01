@@ -36,7 +36,6 @@ namespace Olympus_the_Game
 
         public void OnUpdate() {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            Console.WriteLine("A");
             if(player != null){
                 if(DistanceToObject(player) < 150){
                     this.EntityControlledByAI = false;
@@ -52,6 +51,15 @@ namespace Olympus_the_Game
                     } else {
                         this.DY = 1;
                     }
+
+                    if(this.X == player.X) {
+                        this.DX = 0;
+                    }
+
+                    if(this.Y == player.Y){
+                        this.DY = 0;
+                    }
+
                 } else {
                     this.EntityControlledByAI = true;
                 }
