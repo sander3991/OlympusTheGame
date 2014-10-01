@@ -38,6 +38,8 @@ namespace Olympus_the_Game.View
         /// </summary>
         private Dictionary<Type, Bitmap> ImageList = new Dictionary<Type, Bitmap>();
 
+        private Size MAX_SIZE = Size.Empty;
+
         #region Setup
 
         /// <summary>
@@ -49,6 +51,9 @@ namespace Olympus_the_Game.View
             this.Playfield = pf;
             this.SCALE = 1.0f;
             Init();
+
+            // Register to update
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += () => { this.Invalidate(); };
         }
 
         /// <summary>
@@ -142,6 +147,8 @@ namespace Olympus_the_Game.View
 
         private void Panel_resized(object sender, EventArgs e)
         {
+            if (Size.Empty.Equals(MAX_SIZE))
+                MAX_SIZE = this.Size;
             Recalculate();
         }
 
@@ -172,8 +179,8 @@ namespace Olympus_the_Game.View
         public void Recalculate()
         {
             // Fix playfield scaling
-            double ratioWidth = (double)this.Playfield.WIDTH / (double)this.Size.Width;
-            double ratioHeight = (double)this.Playfield.HEIGHT / (double)this.Size.Height;
+            double ratioWidth = (double)this.Playfield.WIDTH / (double)MAX_SIZE.Width;
+            double ratioHeight = (double)this.Playfield.HEIGHT / (double)MAX_SIZE.Height;
             this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
             this.Size = new Size((int)((double)this.Playfield.WIDTH * SCALE), (int)((double)this.Playfield.HEIGHT * SCALE));
         }

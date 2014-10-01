@@ -104,16 +104,6 @@ namespace Olympus_the_Game
 
             if (tickCount % 1000 == 0)
                 Controller.UpdateEntityAI();
-
-            // Update screen
-            if (!gs.IsDisposed)
-            {
-                try
-                {
-                    gs.Invoke(new InvalidateDelegate(gs.gamePanel1.Invalidate), new object[] { true });
-                }
-                catch (ObjectDisposedException) { }
-            }
         }
     }
 }
