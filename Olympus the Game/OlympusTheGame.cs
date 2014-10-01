@@ -18,7 +18,7 @@ namespace Olympus_the_Game
         // Het scherm van het spel
         private GameScreen gs;
 
-        private System.Timers.Timer timer = new System.Timers.Timer();
+        public System.Timers.Timer timer = new System.Timers.Timer();
 
         // Tick counter
         private int startTick = 0;

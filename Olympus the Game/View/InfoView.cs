@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Olympus_the_Game.View;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using System.Net;
+using System.Threading;
+using System.Drawing;
 
 namespace Olympus_the_Game.View
 {
@@ -13,10 +16,11 @@ namespace Olympus_the_Game.View
     {
         public Point MouseDownLocation { get; set; }
         public List<GameObject> Entitys { get; set; }
+        
         public InfoView()
         {
             InitializeComponent();
-            
+            this.DoubleBuffered = true;
         }
 
         public void Init()
@@ -36,6 +40,7 @@ namespace Olympus_the_Game.View
                     listView1.Items.Add(LVItem);
                 }
             }
+
         }
 
         public void update()
@@ -85,7 +90,7 @@ namespace Olympus_the_Game.View
 
         private void DragButton_Click(object sender, EventArgs e)
         {
-            this.update();
+            update();
         }
 
         
