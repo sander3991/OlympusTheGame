@@ -11,6 +11,8 @@ namespace Olympus_the_Game.View
 {
     public partial class MenuPanel : UserControl
     {
+        // Mouse location om het panel te verslepen
+        public Point MouseDownLocation { get; set; }
         public MenuPanel()
         {
             InitializeComponent();
@@ -42,6 +44,33 @@ namespace Olympus_the_Game.View
         {
             LevelEditor le = new LevelEditor();
             le.ShowDialog();
+        }
+
+        /// <summary>
+        /// Functie om het panel op runtime te verslepen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
+        }
+        /// <summary>
+        /// Functie die het scherm plaatst als je die muis loslaat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MoveButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
         }
     }
 }

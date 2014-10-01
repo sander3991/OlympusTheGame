@@ -70,6 +70,12 @@
     <Compile Include="View\ArrowPanel.Designer.cs">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Editor\DetailEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Editor\DetailEditor.Designer.cs">
+      <DependentUpon>DetailEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,19 +100,25 @@
     <Compile Include="View\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LevelEditor.cs">
+    <Compile Include="View\Editor\LevelEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LevelEditor.Designer.cs">
+    <Compile Include="View\Editor\LevelEditor.Designer.cs">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuPanel.cs">
+    <Compile Include="View\MenuBar\CustomMenuBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\MenuBar\CustomMenuBar.Designer.cs">
+      <DependentUpon>CustomMenuBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuBar\MenuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\MenuPanel.Designer.cs">
+    <Compile Include="View\MenuBar\MenuPanel.Designer.cs">
       <DependentUpon>MenuPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="OlympusTheGame.cs" />
+    <Compile Include="View\OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArrowPanel.resx">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Editor\DetailEditor.resx">
+      <DependentUpon>DetailEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GamePanel.resx">
       <DependentUpon>GamePanel.cs</DependentUpon>
@@ -130,10 +145,10 @@
     <EmbeddedResource Include="View\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LevelEditor.resx">
+    <EmbeddedResource Include="View\Editor\LevelEditor.resx">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MenuPanel.resx">
+    <EmbeddedResource Include="View\MenuBar\MenuPanel.resx">
       <DependentUpon>MenuPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -182,6 +197,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cobble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_1dragbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huis.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

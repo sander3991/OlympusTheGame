@@ -29,7 +29,7 @@ namespace Olympus_the_Game
         /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
         /// </summary>
         public static OlympusTheGame INSTANCE { get; private set; }
-        public PlayField pf { get; private set; }
+        public PlayField Playfield { get; private set; }
         public Controller Controller { get; private set; }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Olympus_the_Game
         public OlympusTheGame()
         {
             // TODO Verwijderen
-            this.pf = new PlayField(1000, 500);
-            this.Controller = new Controller(this.pf);
+            this.Playfield = new PlayField(1000, 500);
+            this.Controller = new Controller(this.Playfield);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Olympus_the_Game
             // Add gameloop to timer
             timer.Elapsed += new ElapsedEventHandler(GameLoopStep);
             timer.Interval = 10;
-
+            Playfield.InitializeGameObjects();
             // Maak gamescreen aan
             gs = new GameScreen();
 

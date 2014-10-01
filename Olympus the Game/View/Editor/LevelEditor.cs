@@ -11,14 +11,16 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelEditor : Form
     {
-        private PlayField pf = new PlayField(1000, 500, new List<GameObject>());
+        private PlayField pf;
 
         public LevelEditor()
         {
             InitializeComponent();
 
-            this.gamePanel1.setPlayField(this.pf);
-            this.gamePanel1.Invalidate();
+            this.pf = new PlayField(1000, 500);
+            this.pf.InitializeGameobjects(new List<GameObject>() { new EntityPlayer(50, 50, 0, 0) });
+            this.gamePanelEditor.setPlayField(this.pf);
+            this.gamePanelEditor.Invalidate();
         }
 
         private void Player_MouseDown(object sender, MouseEventArgs e)
@@ -51,6 +53,16 @@ namespace Olympus_the_Game.View
             Cake.DoDragDrop(Entity.Type.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
+        private void Home_MouseDown(object sender, MouseEventArgs e)
+        {
+            Home.DoDragDrop(Entity.Type.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+        }
+
+        private void Obstakel_MouseDown(object sender, MouseEventArgs e)
+        {
+            Obstakel.DoDragDrop(Entity.Type.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
+        }
+
         /// <summary>
         /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
         /// </summary>
@@ -76,8 +88,8 @@ namespace Olympus_the_Game.View
         private void drag_drop(object sender, DragEventArgs e)
         {
             // Get relative location
-            Point l = this.gamePanel1.PointToClient(new Point(e.X, e.Y));
-            l = new Point((int)((double)l.X / this.gamePanel1.SCALE), (int)((double)l.Y / this.gamePanel1.SCALE));
+            Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
+            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));
 
             // Add object
             switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
@@ -110,7 +122,35 @@ namespace Olympus_the_Game.View
                     this.pf.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
                     break;
             }
-            this.gamePanel1.Invalidate();
+            this.gamePanelEditor.Invalidate();
         }
+
+        /// <summary>
+        /// Als er op de muis wordt geklikt wordt deze methode aangeroepen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Mouse_Clicked(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    break;
+                case MouseButtons.Right:
+                    RemoveObjectAtLocation(this.gamePanelEditor.TranslatePlayFieldToPanel(this.gamePanelEditor.PointToClient(Cursor.Position)));
+                    this.gamePanelEditor.Invalidate();
+                    break;
+            }
+        }
+
+        private void RemoveObjectAtLocation(Point p)
+        {
+            List<GameObject> objects = this.pf.GetObjectsAtLocation(p.X, p.Y);
+            if (objects != null && objects.Count > 0)
+            {
+                this.pf.GetObjects().Remove(objects.Last());
+            }
+        }
+
     }
 }

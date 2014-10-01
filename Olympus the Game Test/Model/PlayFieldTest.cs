@@ -7,7 +7,7 @@ namespace Olympus_the_Game_Test.Model
     [TestClass]
     public class PlayFieldTest
     {
-        /*[TestMethod]
+        [TestMethod]
         public void TestAddGameObjects()
         {
             // Allocate
@@ -81,6 +81,16 @@ namespace Olympus_the_Game_Test.Model
             // Act / Assert
             Assert.AreEqual(2, pfWithStartAndFinish.GetObjects().Count);
             Assert.IsTrue(pfWithStartAndFinish.GetObjects().Contains(gS) && pfWithStartAndFinish.GetObjects().Contains(gF));
-        }*/
+        }
+
+        [TestMethod]
+        public void TestGetGameObjects()
+        {
+            PlayField pf = new PlayField(100, 100);
+            pf.AddObject(new EntityPlayer(10, 10, 0, 0));
+            pf.AddObject(new EntityPlayer(10, 10, 0, 0));
+            pf.AddObject(new EntityPlayer(10, 10, 10, 10));
+            Assert.IsTrue(pf.GetObjectsAtLocation(5, 5).Count == 2);
+        }
     }
 }

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gamePanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gamePanelEditor.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAACYVJREFUWEdNl+dX
+        wgAADsIBFShKgAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAACYVJREFUWEdNl+dX
         VmcWxe9fMGtmzeeZVBM1GkvsPcaGYKc3AWkqTRALgi12FMSC0kTpSlFREBEJKsbedaLJzJqaNc6aP2LP
         8zuv1/HDWfDCe59nn3322edcb/3lhcq7FKQN3SEWuZ0LxN+SG6YotWmaBb/nXJindRfnK67mG4vM9u+0
         +uxMbR8I17YfwpTfFayNVxYpvWWG1pyb9f5ZvsPnhNMTtKp+shYd+kwhBz+18zjD43KCh4nsi+6iSwuU
@@ -165,7 +165,4 @@
         Ov+6w144aEE6CRBcxvm0KIFRcSev9Vv7Q/U/sIax/DYwa1cAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="customMenuBar1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

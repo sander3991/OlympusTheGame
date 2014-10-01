@@ -13,31 +13,11 @@ namespace Olympus_the_Game
         /// <summary>
         /// De verandering in X per gametick.
         /// </summary>
-        public int DX
-        {
-            get
-            {
-                return dx;
-            }
-            set
-            {
-                dx = value;
-            }
-        }
+        public virtual int DX {get;set;}
          /// <summary>
          /// De verandering in Y per gametick.
          /// </summary>
-        public int DY
-        {
-            get
-            {
-                return dy;
-            }
-            set
-            {
-                dy = value;
-            }
-        }
+        public virtual int DY {get;set;}
         /// <summary>
         /// De X-positie van de entity voordat Move() werd aangeroepen
         /// </summary>
@@ -82,13 +62,6 @@ namespace Olympus_the_Game
             PreviousY = Y;
             X += DX;
             Y += DY;
-        }
-        /// <summary>
-        /// Elke keer als het scherm geupdate wordt, wordt deze functie aangeroepen
-        /// </summary>
-        public virtual void OnUpdate()
-        {
-
         }
     }
 }
