@@ -16,12 +16,12 @@ namespace Olympus_the_Game.View
     {
         public Point MouseDownLocation { get; set; }
         public List<GameObject> Entitys { get; set; }
-        int cout = 0;
+        private int cout = 0;
         public InfoView()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += update;
+            
         }
         /// <summary>
         /// Vult de lijst met de start posities
@@ -29,7 +29,7 @@ namespace Olympus_the_Game.View
         public void Init()
         {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
-
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += update;
             foreach(GameObject g in Entitys)
             {
                 Entity e = g as Entity;
@@ -50,8 +50,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void update()
         {
-
-            if (cout % 10 == 0)
+            if (cout++ % 10 == 0)
             {
                 listView1.Items.Clear();
                 foreach (GameObject g in Entitys)
@@ -61,14 +60,13 @@ namespace Olympus_the_Game.View
                     {
                         string itemNaam = e.ToString();
                         ListViewItem LVItem = new ListViewItem(itemNaam);
-
                         LVItem.SubItems.Add(e.X.ToString());
                         LVItem.SubItems.Add(e.Y.ToString());
                         listView1.Items.Add(LVItem);
                     }
                 }
             }
-            cout++;
+            
         }
 
         /// <summary>
