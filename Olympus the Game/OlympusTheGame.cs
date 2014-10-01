@@ -13,7 +13,6 @@ namespace Olympus_the_Game
 {
     class OlympusTheGame
     {
-
         private delegate void InvalidateDelegate(bool b);
 
         // Het scherm van het spel
@@ -31,6 +30,7 @@ namespace Olympus_the_Game
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField Playfield { get; private set; }
         public Controller Controller { get; private set; }
+        public InfoView Infoview { get; set; }
         
         /// <summary>
         /// Maak nieuw OlympusTheGame object
@@ -70,7 +70,7 @@ namespace Olympus_the_Game
 
             // Laat het scherm zien
             timer.Start();
-
+            
             
             Application.Run(gs);
         }
@@ -102,6 +102,10 @@ namespace Olympus_the_Game
             // Controller update
             Controller.Update();
 
+            
+            
+            
+
             if (tickCount % 1000 == 0)
                 Controller.UpdateEntityAI();
 
@@ -114,6 +118,8 @@ namespace Olympus_the_Game
                 }
                 catch (ObjectDisposedException) { }
             }
+
+            
         }
     }
 }
