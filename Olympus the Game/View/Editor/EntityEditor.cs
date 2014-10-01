@@ -15,5 +15,13 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Laad de data van de entity in de EntityEditor
+        /// </summary>
+        public void LoadData(GameObject go)
+        {
+
+        }
     }
 }

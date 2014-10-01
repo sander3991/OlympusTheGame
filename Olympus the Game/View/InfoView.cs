@@ -50,23 +50,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void update()
         {
-            if (cout++ % 10 == 0)
-            {
-                listView1.Items.Clear();
-                foreach (GameObject g in Entitys)
-                {
-                    Entity e = g as Entity;
-                    if (e != null)
-                    {
-                        string itemNaam = e.ToString();
-                        ListViewItem LVItem = new ListViewItem(itemNaam);
-                        LVItem.SubItems.Add(e.X.ToString());
-                        LVItem.SubItems.Add(e.Y.ToString());
-                        LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
-                        listView1.Items.Add(LVItem);
-                    }
-                }
-            }
+            
             
         }
 
