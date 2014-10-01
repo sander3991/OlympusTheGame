@@ -36,9 +36,11 @@ namespace Olympus_the_Game
 
         public void OnUpdate() {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-
+            Console.WriteLine("A");
             if(player != null){
                 if(DistanceToObject(player) < 150){
+                    this.EntityControlledByAI = false;
+
                     if(this.X - player.X > 0){
                         this.DX = -1;
                     } else {
@@ -50,13 +52,17 @@ namespace Olympus_the_Game
                     } else {
                         this.DY = 1;
                     }
+                } else {
+                    this.EntityControlledByAI = true;
                 }
+            }   
+        }
 
-                if(DistanceToObject(player) < 50){
-                    player.Health--;
-                    player.X = 0;
-                    player.Y = 0;
-                }
+        public override void OnCollide(GameObject gameObject) {
+            EntityPlayer player = gameObject as EntityPlayer;
+            if(player != null) {
+                player.Health -= Convert.ToInt32(EffectStrength);
+                OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
             }
         }
     }
