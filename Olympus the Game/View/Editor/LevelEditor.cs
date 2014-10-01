@@ -22,6 +22,9 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
+        #region Drag and Drop
+
+        #region MouseDown
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
             Creeper.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
@@ -57,6 +60,44 @@ namespace Olympus_the_Game.View
             Obstakel.DoDragDrop(Entity.Type.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
+        #endregion
+
+        #region Inpanel Drag and Drop
+
+        private GameObject currentDraggingObject = null;
+        private Point offset = Point.Empty;
+
+        private void Start_InPanel_Drag(object sender, MouseEventArgs e)
+        {
+            // Set current dragging object
+            this.currentDraggingObject = gamePanelEditor.getObjectAtCursor();
+            if (this.currentDraggingObject != null)
+                this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
+        }
+
+        private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
+        {
+            if (this.currentDraggingObject != null)
+            {
+                Point p = gamePanelEditor.getCursorPlayFieldPosition();
+                this.currentDraggingObject.X = p.X - this.offset.X;
+                this.currentDraggingObject.Y = p.Y - this.offset.Y;
+                this.gamePanelEditor.Invalidate();
+            }
+
+            this.FindForm().Text = gamePanelEditor.getCursorPosition().ToString() + " " + gamePanelEditor.getCursorPlayFieldPosition().ToString() + " " + gamePanelEditor.SCALE;
+        }
+
+        private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
+        {
+            if (this.currentDraggingObject != null)
+            {
+                this.currentDraggingObject = null;
+            }
+        }
+
+        #endregion
+
         /// <summary>
         /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
         /// </summary>
@@ -66,7 +107,7 @@ namespace Olympus_the_Game.View
         {
             if (e.Data.GetDataPresent(typeof(Entity.Type)))
             {
-                e.Effect = DragDropEffects.Move;
+                e.Effect = DragDropEffects.Copy;
             }
             else
             {
@@ -116,6 +157,10 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
+        #endregion
+
+        #region Remove
+
         /// <summary>
         /// Als er op de muis wordt geklikt wordt deze methode aangeroepen
         /// </summary>
@@ -126,67 +171,13 @@ namespace Olympus_the_Game.View
             switch (e.Button)
             {
                 case MouseButtons.Right:
-                    RemoveObjectAtLocation(this.gamePanelEditor.getCursorPosition());
+                    gamePanelEditor.Playfield.GetObjects().Remove(gamePanelEditor.getObjectAtCursor());
                     this.gamePanelEditor.Invalidate();
                     break;
             }
         }
 
-        private GameObject getObjectAtLocation(Point p)
-        {
-            // Translate to PlayField coordinate
-            Point pt = this.gamePanelEditor.TranslatePanelToPlayField(p);
-
-            // Get list of objects at that location
-            List<GameObject> objects = this.pf.GetObjectsAtLocation(pt.X, pt.Y);
-
-            // If there is a last object, return it
-            if (objects != null && objects.Count > 0)
-            {
-                return objects.Last();
-            }
-            else // Else return null
-            {
-                return null;
-            }
-        }
-
-        private void RemoveObjectAtLocation(Point p)
-        {
-            this.pf.GetObjects().Remove(getObjectAtLocation(p));
-        }
-
-        private GameObject currentDraggingObject = null;
-        private Point offset = Point.Empty;
-
-        private void Start_InPanel_Drag(object sender, MouseEventArgs e)
-        {
-            // Set current dragging object
-            this.currentDraggingObject = getObjectAtLocation(gamePanelEditor.getCursorPosition());
-            if (this.currentDraggingObject != null)
-                this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
-        }
-
-        private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
-        {
-            if (this.currentDraggingObject != null)
-            {
-                Point p = gamePanelEditor.getCursorPlayFieldPosition();
-                this.currentDraggingObject.X = p.X - this.offset.X;
-                this.currentDraggingObject.Y = p.Y - this.offset.Y;
-                this.gamePanelEditor.Invalidate();
-            }
-
-            this.FindForm().Text = gamePanelEditor.getCursorPosition().ToString() + " " + gamePanelEditor.getCursorPlayFieldPosition().ToString() + " " + gamePanelEditor.SCALE;
-        }
-
-        private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
-        {
-            if (this.currentDraggingObject != null)
-            {
-                this.currentDraggingObject = null;
-            }
-        }
+        #endregion
 
         private void Opslaan_Click(object sender, EventArgs e)
         {

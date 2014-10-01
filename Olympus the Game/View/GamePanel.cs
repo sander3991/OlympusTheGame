@@ -179,5 +179,26 @@ namespace Olympus_the_Game.View
         }
 
         #endregion
+
+        #region Locations
+
+        public GameObject getObjectAtCursor()
+        {
+            Point p = this.getCursorPlayFieldPosition();
+            // Get list of objects at that location
+            List<GameObject> objects = this.Playfield.GetObjectsAtLocation(p.X, p.Y);
+
+            // If there is a last object, return it
+            if (objects != null && objects.Count > 0)
+            {
+                return objects.Last();
+            }
+            else // Else return null
+            {
+                return null;
+            }
+        }
+
+        #endregion
     }
 }
