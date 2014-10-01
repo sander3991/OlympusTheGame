@@ -16,25 +16,27 @@ namespace Olympus_the_Game.View
         public InfoView()
         {
             InitializeComponent();
+        }
 
+        public void Init()
+        {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
 
-            foreach (GameObject g in Entitys)
+            foreach(GameObject g in Entitys)
             {
                 Entity e = g as Entity;
                 if (e != null)
                 {
-                    string posX = g.X.ToString();
-                    string posY = g.Y.ToString();
-                    listView1.Items.Add(posX);
-                    listView1.Items.Add(posY);
+                    string itemNaam = e.ToString();
+                    ListViewItem LVItem = new ListViewItem(itemNaam);
+                    
+                    LVItem.SubItems.Add(e.X.ToString());
+                    LVItem.SubItems.Add(e.Y.ToString());
+                    listView1.Items.Add(LVItem);
                 }
-                //string naam = GameObject.Type.
-                
-
             }
-
         }
+
         /// <summary>
         /// Functie om het panel op runtime te verslepen
         /// </summary>

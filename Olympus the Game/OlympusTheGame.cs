@@ -31,7 +31,7 @@ namespace Olympus_the_Game
         public static OlympusTheGame INSTANCE { get; private set; }
         public PlayField Playfield { get; private set; }
         public Controller Controller { get; private set; }
-
+        
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
@@ -40,6 +40,7 @@ namespace Olympus_the_Game
             // TODO Verwijderen
             this.Playfield = new PlayField(1000, 500);
             this.Controller = new Controller(this.Playfield);
+            
         }
 
         /// <summary>
@@ -69,6 +70,8 @@ namespace Olympus_the_Game
 
             // Laat het scherm zien
             timer.Start();
+
+            
             Application.Run(gs);
         }
 

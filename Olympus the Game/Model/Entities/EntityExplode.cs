@@ -40,5 +40,10 @@ namespace Olympus_the_Game {
 
             }
         }
+
+        public override string ToString()
+        {
+            return "Explode";
+        }
     }
 }

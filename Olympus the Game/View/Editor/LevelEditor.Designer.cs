@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.Player = new System.Windows.Forms.Panel();
             this.Creeper = new System.Windows.Forms.Panel();
-            this.Spider = new System.Windows.Forms.Panel();
             this.Tnt = new System.Windows.Forms.Panel();
             this.TimeBomb = new System.Windows.Forms.Panel();
             this.Cake = new System.Windows.Forms.Panel();
@@ -46,26 +43,16 @@
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.Obstakel = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
-            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.Spider = new System.Windows.Forms.Panel();
+            this.Menubar = new System.Windows.Forms.MenuStrip();
+            this.Opslaan = new System.Windows.Forms.ToolStripMenuItem();
+            this.Inladen = new System.Windows.Forms.ToolStripMenuItem();
+            this.Afsluiten = new System.Windows.Forms.ToolStripMenuItem();
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
-            this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Creeper.SuspendLayout();
-            this.customMenuBar1.SuspendLayout();
+            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.Menubar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(1003, 36);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(63, 50);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "Speler";
             // 
             // richTextBox2
             // 
@@ -133,39 +120,16 @@
             this.richTextBox7.TabIndex = 13;
             this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.";
             // 
-            // Player
-            // 
-            this.Player.AllowDrop = true;
-            this.Player.BackgroundImage = global::Olympus_the_Game.Properties.Resources.player;
-            this.Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Player.Location = new System.Drawing.Point(935, 36);
-            this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(50, 50);
-            this.Player.TabIndex = 14;
-            this.Player.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Player_MouseDown);
-            // 
             // Creeper
             // 
             this.Creeper.AllowDrop = true;
             this.Creeper.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
             this.Creeper.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Creeper.Controls.Add(this.Spider);
             this.Creeper.Location = new System.Drawing.Point(935, 92);
             this.Creeper.Name = "Creeper";
             this.Creeper.Size = new System.Drawing.Size(50, 50);
             this.Creeper.TabIndex = 15;
             this.Creeper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Creeper_MouseDown);
-            // 
-            // Spider
-            // 
-            this.Spider.AllowDrop = true;
-            this.Spider.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
-            this.Spider.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Spider.Location = new System.Drawing.Point(0, 56);
-            this.Spider.Name = "Spider";
-            this.Spider.Size = new System.Drawing.Size(50, 50);
-            this.Spider.TabIndex = 15;
-            this.Spider.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spider_MouseDown);
             // 
             // Tnt
             // 
@@ -175,7 +139,7 @@
             this.Tnt.Location = new System.Drawing.Point(935, 204);
             this.Tnt.Name = "Tnt";
             this.Tnt.Size = new System.Drawing.Size(50, 50);
-            this.Tnt.TabIndex = 15;
+            this.Tnt.TabIndex = 17;
             this.Tnt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Tnt_MouseDown);
             // 
             // TimeBomb
@@ -186,7 +150,7 @@
             this.TimeBomb.Location = new System.Drawing.Point(935, 260);
             this.TimeBomb.Name = "TimeBomb";
             this.TimeBomb.Size = new System.Drawing.Size(50, 50);
-            this.TimeBomb.TabIndex = 15;
+            this.TimeBomb.TabIndex = 18;
             this.TimeBomb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeBomb_MouseDown);
             // 
             // Cake
@@ -197,7 +161,7 @@
             this.Cake.Location = new System.Drawing.Point(935, 316);
             this.Cake.Name = "Cake";
             this.Cake.Size = new System.Drawing.Size(50, 50);
-            this.Cake.TabIndex = 15;
+            this.Cake.TabIndex = 19;
             this.Cake.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cake_MouseDown);
             // 
             // Home
@@ -208,7 +172,7 @@
             this.Home.Location = new System.Drawing.Point(935, 372);
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(50, 50);
-            this.Home.TabIndex = 17;
+            this.Home.TabIndex = 20;
             this.Home.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Home_MouseDown);
             // 
             // richTextBox8
@@ -219,7 +183,7 @@
             this.richTextBox8.Name = "richTextBox8";
             this.richTextBox8.ReadOnly = true;
             this.richTextBox8.Size = new System.Drawing.Size(63, 50);
-            this.richTextBox8.TabIndex = 16;
+            this.richTextBox8.TabIndex = 21;
             this.richTextBox8.Text = "Home";
             // 
             // Obstakel
@@ -230,7 +194,7 @@
             this.Obstakel.Location = new System.Drawing.Point(935, 428);
             this.Obstakel.Name = "Obstakel";
             this.Obstakel.Size = new System.Drawing.Size(50, 50);
-            this.Obstakel.TabIndex = 17;
+            this.Obstakel.TabIndex = 22;
             this.Obstakel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Obstakel_MouseDown);
             // 
             // richTextBox9
@@ -241,8 +205,66 @@
             this.richTextBox9.Name = "richTextBox9";
             this.richTextBox9.ReadOnly = true;
             this.richTextBox9.Size = new System.Drawing.Size(63, 50);
-            this.richTextBox9.TabIndex = 16;
+            this.richTextBox9.TabIndex = 23;
             this.richTextBox9.Text = "Obstakel";
+            // 
+            // Spider
+            // 
+            this.Spider.AllowDrop = true;
+            this.Spider.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
+            this.Spider.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Spider.Location = new System.Drawing.Point(935, 148);
+            this.Spider.Name = "Spider";
+            this.Spider.Size = new System.Drawing.Size(50, 50);
+            this.Spider.TabIndex = 18;
+            this.Spider.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Spider_MouseDown);
+            // 
+            // Menubar
+            // 
+            this.Menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Opslaan,
+            this.Inladen,
+            this.Afsluiten});
+            this.Menubar.Location = new System.Drawing.Point(0, 0);
+            this.Menubar.Name = "Menubar";
+            this.Menubar.Size = new System.Drawing.Size(1084, 24);
+            this.Menubar.TabIndex = 24;
+            this.Menubar.Text = "menuStrip1";
+            // 
+            // Opslaan
+            // 
+            this.Opslaan.Name = "Opslaan";
+            this.Opslaan.Size = new System.Drawing.Size(104, 20);
+            this.Opslaan.Text = "Opslaan als .xml";
+            this.Opslaan.Click += new System.EventHandler(this.Opslaan_Click);
+            // 
+            // Inladen
+            // 
+            this.Inladen.Name = "Inladen";
+            this.Inladen.Size = new System.Drawing.Size(128, 20);
+            this.Inladen.Text = ".xml bestand inladen";
+            this.Inladen.Click += new System.EventHandler(this.Inladen_Click);
+            // 
+            // Afsluiten
+            // 
+            this.Afsluiten.Name = "Afsluiten";
+            this.Afsluiten.Size = new System.Drawing.Size(55, 20);
+            this.Afsluiten.Text = "Sluit af";
+            this.Afsluiten.Click += new System.EventHandler(this.Afsluiten_Click);
+            // 
+            // speelveldEditor1
+            // 
+            this.speelveldEditor1.Location = new System.Drawing.Point(12, 498);
+            this.speelveldEditor1.Name = "speelveldEditor1";
+            this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
+            this.speelveldEditor1.TabIndex = 19;
+            // 
+            // entityEditor1
+            // 
+            this.entityEditor1.Location = new System.Drawing.Point(399, 498);
+            this.entityEditor1.Name = "entityEditor1";
+            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
+            this.entityEditor1.TabIndex = 18;
             // 
             // gamePanelEditor
             // 
@@ -257,43 +279,8 @@
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
-            // 
-            // entityEditor1
-            // 
-            this.entityEditor1.Location = new System.Drawing.Point(399, 498);
-            this.entityEditor1.Name = "entityEditor1";
-            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
-            this.entityEditor1.TabIndex = 18;
-            // 
-            // speelveldEditor1
-            // 
-            this.speelveldEditor1.Location = new System.Drawing.Point(12, 498);
-            this.speelveldEditor1.Name = "speelveldEditor1";
-            this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
-            this.speelveldEditor1.TabIndex = 19;
-            // 
-            // customMenuBar1
-            // 
-            this.customMenuBar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
-            this.customMenuBar1.Name = "customMenuBar1";
-            this.customMenuBar1.Size = new System.Drawing.Size(1084, 24);
-            this.customMenuBar1.TabIndex = 20;
-            this.customMenuBar1.Text = "customMenuBar1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(82, 20);
-            this.toolStripMenuItem1.Text = "Laad .xml in";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(55, 20);
-            this.toolStripMenuItem2.Text = "Sluit af";
+            this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
+            this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
             // LevelEditor
             // 
@@ -301,7 +288,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1084, 696);
-            this.Controls.Add(this.customMenuBar1);
+            this.Controls.Add(this.Spider);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
             this.Controls.Add(this.Obstakel);
@@ -313,21 +300,21 @@
             this.Controls.Add(this.TimeBomb);
             this.Controls.Add(this.Tnt);
             this.Controls.Add(this.Creeper);
-            this.Controls.Add(this.Player);
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Menubar);
+            this.MainMenuStrip = this.Menubar;
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
-            this.Creeper.ResumeLayout(false);
-            this.customMenuBar1.ResumeLayout(false);
-            this.customMenuBar1.PerformLayout();
+            this.Menubar.ResumeLayout(false);
+            this.Menubar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,14 +322,12 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.Panel Player;
         private System.Windows.Forms.Panel Creeper;
         private System.Windows.Forms.Panel Spider;
         private System.Windows.Forms.Panel Tnt;
@@ -355,8 +340,10 @@
         private System.Windows.Forms.RichTextBox richTextBox9;
         private EntityEditor entityEditor1;
         private SpeelveldEditor speelveldEditor1;
-        private MenuBar.CustomMenuBar customMenuBar1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.MenuStrip Menubar;
+        private System.Windows.Forms.ToolStripMenuItem Opslaan;
+        private System.Windows.Forms.ToolStripMenuItem Inladen;
+        private System.Windows.Forms.ToolStripMenuItem Afsluiten;
+
     }
 }
