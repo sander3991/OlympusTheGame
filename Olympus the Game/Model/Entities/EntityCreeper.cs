@@ -51,6 +51,15 @@ namespace Olympus_the_Game
                     } else {
                         this.DY = 1;
                     }
+
+                    if(this.X == player.X) {
+                        this.DX = 0;
+                    }
+
+                    if(this.Y == player.Y){
+                        this.DY = 0;
+                    }
+
                 } else {
                     this.EntityControlledByAI = true;
                 }
