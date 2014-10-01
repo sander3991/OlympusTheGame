@@ -12,9 +12,19 @@ namespace Olympus_the_Game.View
     public partial class InfoView : UserControl
     {
         public Point MouseDownLocation { get; set; }
+        public List<GameObject> Entitys { get; set; }
         public InfoView()
         {
             InitializeComponent();
+
+            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+
+            foreach (GameObject g in Entitys)
+            {
+                String posX = g.X.ToString();
+                listView1.Items.Add(posX);
+            }
+
         }
         /// <summary>
         /// Functie om het panel op runtime te verslepen

@@ -43,6 +43,7 @@
             this.PosX,
             this.PosY,
             this.EntitySpeed});
+            this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(-8, -1);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(248, 436);
