@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Olympus_the_Game.View.Editor
+namespace Olympus_the_Game.View
 {
-    public partial class DetailEditor : UserControl
+    public partial class EntityEditor : UserControl
     {
-        public DetailEditor()
+        public EntityEditor()
         {
             InitializeComponent();
         }

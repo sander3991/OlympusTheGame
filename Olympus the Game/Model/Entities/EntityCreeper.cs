@@ -20,6 +20,7 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength) : base(width, height, x, y, dx, dy, explodeStrength)
         {
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
             EntityControlledByAI = true;
         }
 
@@ -33,9 +34,30 @@ namespace Olympus_the_Game
         /// <param name="effectStrength">De sterkte van het exploderende object</param>
         public EntityCreeper(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0, explodeStrength) { }
 
-        //public override void OnCollide(GameObject gameObject) {
-        //    OlympusTheGame.INSTANCE.pf.Player.Health--;
+        public void OnUpdate() {
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
-        //}
+            if(player != null){
+                if(DistanceToObject(player) < 150){
+                    if(this.X - player.X > 0){
+                        this.DX = -1;
+                    } else {
+                        this.DX = 1;
+                    }
+
+                    if(this.Y - player.Y > 0){
+                        this.DY = -1;
+                    } else {
+                        this.DY = 1;
+                    }
+                }
+
+                if(DistanceToObject(player) < 50){
+                    player.Health--;
+                    player.X = 0;
+                    player.Y = 0;
+                }
+            }
+        }
     }
 }
