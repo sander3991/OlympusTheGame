@@ -126,6 +126,8 @@ namespace Olympus_the_Game
                     }
                 }
             }
+            if (UpdateEvents != null)
+                UpdateEvents();
         }
 
         public void Draw()
@@ -149,8 +151,6 @@ namespace Olympus_the_Game
                     }
                 }
             }
-            if(UpdateEvents != null)
-                UpdateEvents();
         }
 
 
