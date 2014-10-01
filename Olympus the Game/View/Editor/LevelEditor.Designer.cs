@@ -46,9 +46,9 @@
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.Obstakel = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
-            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
+            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -238,6 +238,20 @@
             this.richTextBox9.TabIndex = 16;
             this.richTextBox9.Text = "Obstakel";
             // 
+            // speelveldEditor1
+            // 
+            this.speelveldEditor1.Location = new System.Drawing.Point(57, 526);
+            this.speelveldEditor1.Name = "speelveldEditor1";
+            this.speelveldEditor1.Size = new System.Drawing.Size(360, 170);
+            this.speelveldEditor1.TabIndex = 19;
+            // 
+            // entityEditor1
+            // 
+            this.entityEditor1.Location = new System.Drawing.Point(459, 520);
+            this.entityEditor1.Name = "entityEditor1";
+            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
+            this.entityEditor1.TabIndex = 18;
+            // 
             // gamePanelEditor
             // 
             this.gamePanelEditor.AllowDrop = true;
@@ -251,20 +265,8 @@
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
-            // 
-            // entityEditor1
-            // 
-            this.entityEditor1.Location = new System.Drawing.Point(459, 520);
-            this.entityEditor1.Name = "entityEditor1";
-            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
-            this.entityEditor1.TabIndex = 18;
-            // 
-            // speelveldEditor1
-            // 
-            this.speelveldEditor1.Location = new System.Drawing.Point(57, 526);
-            this.speelveldEditor1.Name = "speelveldEditor1";
-            this.speelveldEditor1.Size = new System.Drawing.Size(360, 170);
-            this.speelveldEditor1.TabIndex = 19;
+            this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
+            this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
             // LevelEditor
             // 

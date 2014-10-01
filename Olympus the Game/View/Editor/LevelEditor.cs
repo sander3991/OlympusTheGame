@@ -88,8 +88,9 @@ namespace Olympus_the_Game.View
         private void drag_drop(object sender, DragEventArgs e)
         {
             // Get relative location
-            Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
-            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));
+            /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
+            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
+            Point l = gamePanelEditor.getCursorPlayFieldPosition();
 
             // Add object
             switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
@@ -134,10 +135,8 @@ namespace Olympus_the_Game.View
         {
             switch (e.Button)
             {
-                case MouseButtons.Left:
-                    break;
                 case MouseButtons.Right:
-                    RemoveObjectAtLocation(this.gamePanelEditor.TranslatePlayFieldToPanel(this.gamePanelEditor.PointToClient(Cursor.Position)));
+                    RemoveObjectAtLocation(this.gamePanelEditor.getCursorPosition());
                     this.gamePanelEditor.Invalidate();
                     break;
             }
@@ -145,12 +144,18 @@ namespace Olympus_the_Game.View
 
         private GameObject getObjectAtLocation(Point p)
         {
-            List<GameObject> objects = this.pf.GetObjectsAtLocation(p.X, p.Y);
+            // Translate to PlayField coordinate
+            Point pt = this.gamePanelEditor.TranslatePanelToPlayField(p);
+
+            // Get list of objects at that location
+            List<GameObject> objects = this.pf.GetObjectsAtLocation(pt.X, pt.Y);
+
+            // If there is a last object, return it
             if (objects != null && objects.Count > 0)
             {
                 return objects.Last();
             }
-            else
+            else // Else return null
             {
                 return null;
             }
@@ -162,10 +167,35 @@ namespace Olympus_the_Game.View
         }
 
         private GameObject currentDraggingObject = null;
+        private Point offset = Point.Empty;
 
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
         {
+            // Set current dragging object
+            this.currentDraggingObject = getObjectAtLocation(gamePanelEditor.getCursorPosition());
+            if (this.currentDraggingObject != null)
+                this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
+        }
 
+        private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
+        {
+            if (this.currentDraggingObject != null)
+            {
+                Point p = gamePanelEditor.getCursorPlayFieldPosition();
+                this.currentDraggingObject.X = p.X - this.offset.X;
+                this.currentDraggingObject.Y = p.Y - this.offset.Y;
+                this.gamePanelEditor.Invalidate();
+            }
+
+            this.FindForm().Text = gamePanelEditor.getCursorPosition().ToString() + " " + gamePanelEditor.getCursorPlayFieldPosition().ToString() + " " + gamePanelEditor.SCALE;
+        }
+
+        private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
+        {
+            if (this.currentDraggingObject != null)
+            {
+                this.currentDraggingObject = null;
+            }
         }
 
     }
