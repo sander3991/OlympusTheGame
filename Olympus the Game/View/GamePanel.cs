@@ -53,7 +53,7 @@ namespace Olympus_the_Game.View
             Init();
 
             // Register to update
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += () => { this.Invalidate(); };
+            OlympusTheGame.INSTANCE.Controller.UpdateEvents += delegate() { this.Invalidate(); };
         }
 
         /// <summary>

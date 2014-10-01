@@ -88,6 +88,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "InfoView";
             this.Size = new System.Drawing.Size(240, 487);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.update);
             this.ResumeLayout(false);
 
         }
