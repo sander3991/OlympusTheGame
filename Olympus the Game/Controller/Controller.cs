@@ -18,7 +18,6 @@ namespace Olympus_the_Game
         public Controller(PlayField pf)
         {
             this.PlayField = pf;
-            hasCollided = new Dictionary<GameObject, GameObject>();
         }
         /// <summary>
         /// Stuurt informatie door als de gebruiker op een toets heeft geklikt.
