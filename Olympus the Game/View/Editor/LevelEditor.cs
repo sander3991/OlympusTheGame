@@ -18,24 +18,18 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = new PlayField(1000, 500);
-            this.pf.InitializeGameobjects(new List<GameObject>() { new EntityPlayer(50, 50, 0, 0) });
             this.gamePanelEditor.setPlayField(this.pf);
             this.gamePanelEditor.Invalidate();
         }
 
-        private void Player_MouseDown(object sender, MouseEventArgs e)
-        {
-            Player.DoDragDrop(Entity.Type.PLAYER, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
         private void Creeper_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
+            Creeper.DoDragDrop(Entity.Type.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Spider_MouseDown(object sender, MouseEventArgs e)
         {
-            Player.DoDragDrop(Entity.Type.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
+            Spider.DoDragDrop(Entity.Type.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Tnt_MouseDown(object sender, MouseEventArgs e)
@@ -95,10 +89,6 @@ namespace Olympus_the_Game.View
             // Add object
             switch ((Entity.Type)e.Data.GetData(typeof(Entity.Type)))
             {
-                case Entity.Type.PLAYER:
-                    this.pf.Player.X = l.X;
-                    this.pf.Player.Y = l.Y;
-                    break;
                 case Entity.Type.TIMEBOMB:
                     this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
                     break;
