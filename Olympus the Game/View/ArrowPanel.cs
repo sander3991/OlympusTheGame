@@ -26,7 +26,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void ArrowKey_MouseDown(object sender, MouseEventArgs e)
         {
-            Button b = (Button)sender;
+            Button b = sender as Button;
             string richting = b.Name.ToString();
             switch (richting)
             {

@@ -52,18 +52,32 @@ namespace Olympus_the_Game.View
         {
             if (cout++ % 10 == 0)
             {
-                listView1.Items.Clear();
+                try
+                {
+                    listView1.Items.Clear();
+                }
+                catch (Exception ex)
+                {
+                    
+                }
                 foreach (GameObject g in Entitys)
                 {
                     Entity e = g as Entity;
                     if (e != null)
                     {
-                        string itemNaam = e.ToString();
-                        ListViewItem LVItem = new ListViewItem(itemNaam);
+                        ListViewItem LVItem = new ListViewItem(e.ToString());
                         LVItem.SubItems.Add(e.X.ToString());
                         LVItem.SubItems.Add(e.Y.ToString());
                         LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
-                        listView1.Items.Add(LVItem);
+                        try
+                        {
+                            listView1.Items.Add(LVItem);
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                        
                     }
                 }
             }
