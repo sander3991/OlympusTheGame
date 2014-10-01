@@ -69,13 +69,31 @@ namespace Olympus_the_Game
         {
             gameObjects.Add(entity);
         }
+        /// <summary>
+        /// Zet de speler op de home locatie neer
+        /// </summary>
+        public void SetPlayerHome()
+        {
+            ObjectStart start = null;
+            foreach(GameObject o in gameObjects)
+            {
+                start = o as ObjectStart;
+                if(o != null)
+                    break;
+            }
+            if (start != null)
+            {
+                player.X = (start.X + start.Width) / 2 - (player.Width / 2);
+                player.Y = (start.Y + start.Height) / 2 - (player.Height / 2);
+            }
+        }
 
         public static List<GameObject> GetDefaultMap(int width, int height)
         {
             List<GameObject> objects = new List<GameObject>();
-            objects.Add(new ObjectStart(50, 50, 0, 0));
+            objects.Add(new ObjectStart(150, 150, 0, 0));
             objects.Add(new ObjectFinish(150, 150, 800, 300));
-            objects.Add(new ObjectObstacle(50, 50, 60, 0));
+            objects.Add(new ObjectObstacle(50, 50, 250, 250));
             objects.Add(new EntityCreeper(50, 50, 150, 60, 1.0f));
             objects.Add(new EntityExplode(50, 50, 150, 0, 1.0f));
             objects.Add(new EntitySlower(50, 50, 200, 150));

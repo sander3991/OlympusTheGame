@@ -120,12 +120,19 @@ namespace Olympus_the_Game
                         {
                             e.OnCollide(o2);
                             o2.OnCollide(e);
-                            e.DX = -e.DX;
-                            e.DY = -e.DY;
+                            e.X = e.PreviousX;
+                            e.Y = e.PreviousY;
+                            if (e.EntityControlledByAI)
+                            {
+                                e.DX = -e.DX;
+                                e.DY = -e.DY;
+                            }
                         }
                     }
                 }
             }
+            if (UpdateEvents != null)
+                UpdateEvents();
         }
 
         public void Draw()
@@ -149,8 +156,6 @@ namespace Olympus_the_Game
                     }
                 }
             }
-            if(UpdateEvents != null)
-                UpdateEvents();
         }
 
 
