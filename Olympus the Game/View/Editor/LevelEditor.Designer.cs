@@ -47,6 +47,8 @@
             this.Obstakel = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -249,12 +251,28 @@
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             // 
+            // entityEditor1
+            // 
+            this.entityEditor1.Location = new System.Drawing.Point(459, 520);
+            this.entityEditor1.Name = "entityEditor1";
+            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
+            this.entityEditor1.TabIndex = 18;
+            // 
+            // speelveldEditor1
+            // 
+            this.speelveldEditor1.Location = new System.Drawing.Point(57, 526);
+            this.speelveldEditor1.Name = "speelveldEditor1";
+            this.speelveldEditor1.Size = new System.Drawing.Size(360, 170);
+            this.speelveldEditor1.TabIndex = 19;
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1168, 733);
+            this.Controls.Add(this.speelveldEditor1);
+            this.Controls.Add(this.entityEditor1);
             this.Controls.Add(this.Obstakel);
             this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.Home);
@@ -301,5 +319,7 @@
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.Panel Obstakel;
         private System.Windows.Forms.RichTextBox richTextBox9;
+        private EntityEditor entityEditor1;
+        private SpeelveldEditor speelveldEditor1;
     }
 }
