@@ -18,5 +18,10 @@ namespace Olympus_the_Game
         {
             IsSolid = false;
         }
+
+        public override string ToString()
+        {
+            return "Start";
+        }
     }
 }
