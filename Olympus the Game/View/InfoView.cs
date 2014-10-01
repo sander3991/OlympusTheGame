@@ -69,10 +69,10 @@ namespace Olympus_the_Game.View
                 Entity e = g as Entity;
                 if (e != null)
                 {
-                    string itemNaam = e.ToString();
-                    ListViewItem LVItem = new ListViewItem(itemNaam);
+                    ListViewItem LVItem = new ListViewItem(e.ToString());
                     LVItem.SubItems.Add(e.X.ToString());
                     LVItem.SubItems.Add(e.Y.ToString());
+                    LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
                     listView1.Items.Add(LVItem);
                 }
             }
