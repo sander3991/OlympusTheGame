@@ -257,6 +257,9 @@
   <ItemGroup>
     <None Include="Resources\hell.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hart1.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
