@@ -9,7 +9,16 @@ namespace Olympus_the_Game
     {
         protected int duration;
         protected int start;
-        
+
+        public override float Frame
+        {
+            get
+            {
+                return (float)(Environment.TickCount - start) / (float)duration;
+            }
+            set { }
+        }
+
         public AnimatedSprite(int width, int height, int x, int y)
             : base(width, height, x, y)
         {

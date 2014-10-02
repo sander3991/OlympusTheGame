@@ -7,14 +7,6 @@ namespace Olympus_the_Game
 {
     class SpriteExplosion : AnimatedSprite
     {
-        public override float Frame
-        {
-            get
-            {
-                return (float)(Environment.TickCount - start) / (float)duration;
-            }
-            set { }
-        }
         public SpriteExplosion(GameObject entity) : base(entity.Width, entity.Height, entity.X, entity.Y)
         {
             Type = ObjectType.SPRITEEXPLOSION;
