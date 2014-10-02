@@ -79,8 +79,8 @@ namespace Olympus_the_Game.View
         }
 
         /// <summary>
-        /// Krijg de waardes van de ingevoerde X en Y en pas
-        /// deze toe op de geselecteerde entity
+        /// Krijg de waardes van de ingevoerde X en Y en 
+        /// pas deze toe op de geselecteerde entity
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
