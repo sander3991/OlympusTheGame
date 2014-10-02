@@ -80,6 +80,7 @@
             this.TextureInput.Name = "TextureInput";
             this.TextureInput.Size = new System.Drawing.Size(100, 21);
             this.TextureInput.TabIndex = 35;
+            this.TextureInput.Visible = false;
             // 
             // YLocationInput
             // 
@@ -96,6 +97,7 @@
             this.ObjectTexture.Size = new System.Drawing.Size(49, 13);
             this.ObjectTexture.TabIndex = 32;
             this.ObjectTexture.Text = "Texture: ";
+            this.ObjectTexture.Visible = false;
             // 
             // EntityYLocation
             // 
