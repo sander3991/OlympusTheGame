@@ -56,10 +56,8 @@ namespace Olympus_the_Game
             }
             set
             {
-                if (value >= 0 && value <= MAXHEALTH)
-                {
-                    health = value;
-                }
+                health = Math.Max(0, value);
+                health = Math.Min(MAXHEALTH, value);
             }
         }
         /// <summary>
