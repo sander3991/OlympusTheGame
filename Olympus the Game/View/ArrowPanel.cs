@@ -17,7 +17,6 @@ namespace Olympus_the_Game.View
         public ArrowPanel()
         {
             InitializeComponent();
-
         }
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
@@ -81,6 +80,33 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //OlympusTheGame.INSTANCE.Controller.CustomRight = 76;
+            //OlympusTheGame.INSTANCE.Controller.CustomLeft = 74;
+            //OlympusTheGame.INSTANCE.Controller.CustomUp = 73;
+            //OlympusTheGame.INSTANCE.Controller.CustomDown = 75;
+            try
+            {
+                if (!String.IsNullOrEmpty(textBox1.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBox1.Text[0]));
+                if (!String.IsNullOrEmpty(textBox2.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBox2.Text[0]));
+                if (!String.IsNullOrEmpty(textBox3.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBox3.Text[0]));
+                if (!String.IsNullOrEmpty(textBox4.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
+
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Onjuiste toetsen geselecteerd");
+            }
+            
+            //int wat = Convert.ToInt32(textBox1.Text[0]);
+            //MessageBox.Show(wat.ToString());
         }
         
     }

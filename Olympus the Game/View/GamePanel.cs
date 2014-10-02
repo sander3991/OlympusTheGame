@@ -46,7 +46,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// List of images used by this view
         /// </summary>
-        private Dictionary<ObjectType, Bitmap> ImageList = new Dictionary<ObjectType, Bitmap>();
+        //private Dictionary<ObjectType, Bitmap> ImageList = new Dictionary<ObjectType, Bitmap>();
 
         /// <summary>
         /// De maximale Size die dit GamePanel mag hebben.
@@ -54,7 +54,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         private Size MAX_SIZE = Size.Empty;
 
-        
+
         #region Setup
 
         /// <summary>
@@ -78,17 +78,6 @@ namespace Olympus_the_Game.View
 
         private void Init(object sender, EventArgs e)
         {
-            // Build imagelist
-            this.ImageList.Add(ObjectType.CREEPER, ConvertBitmap(Properties.Resources.creeper));
-            this.ImageList.Add(ObjectType.EXPLODE, ConvertBitmap(Properties.Resources.tnt));
-            this.ImageList.Add(ObjectType.SLOWER, ConvertBitmap(Properties.Resources.spider));
-            this.ImageList.Add(ObjectType.PLAYER, ConvertBitmap(Properties.Resources.player));
-            this.ImageList.Add(ObjectType.TIMEBOMB, ConvertBitmap(Properties.Resources.timebomb));
-            this.ImageList.Add(ObjectType.HOME, ConvertBitmap(Properties.Resources.huis));
-            this.ImageList.Add(ObjectType.CAKE, ConvertBitmap(Properties.Resources.cake));
-            this.ImageList.Add(ObjectType.OBSTACLE, ConvertBitmap(Properties.Resources.cobble));
-            this.ImageList.Add(ObjectType.UNKNOWN, ConvertBitmap(Properties.Resources.missing));
-
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
 
@@ -96,7 +85,8 @@ namespace Olympus_the_Game.View
             this.BackgroundImage = Properties.Resources.background;
 
             // Register to updateloop
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+            if (OlympusTheGame.INSTANCE != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
         }
 
         #endregion
@@ -110,24 +100,18 @@ namespace Olympus_the_Game.View
         /// <returns></returns>
         private Bitmap ConvertBitmap(Bitmap bm)
         {
-            return new Bitmap(bm, new Size(50, 50));
+            return new Bitmap(bm, 50, 50);
         }
 
         private void draw(GameObject go, Graphics g)
         {
 
-            // Select bitmap
-            Bitmap bm = null;
-            ImageList.TryGetValue(go.Type, out bm);
-            if (bm == null) return;
-
-            Size s = new Size((int)((float)go.Width * SCALE),(int)((float)go.Height * SCALE));
+            Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
 
             // Generate target rectangle
-            //Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
-            Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), new Size(go.Width, go.Height));
-            // Set scale
-            //g.Transform = new Matrix((float)SCALE, 0.0f , 0.0f, (float)SCALE, 0.0f, 0.0f);
+            Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
+
+            Bitmap bm = ImagePool.GetPicture(go.Type, s);
 
             //  Draw picture
             g.DrawImageUnscaledAndClipped(bm,
@@ -229,10 +213,5 @@ namespace Olympus_the_Game.View
         }
 
         #endregion
-
-        private void Init()
-        {
-
-        }
     }
 }

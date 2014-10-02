@@ -88,6 +88,7 @@
     <Compile Include="View\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ImagePool.cs" />
     <Compile Include="View\InfoBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

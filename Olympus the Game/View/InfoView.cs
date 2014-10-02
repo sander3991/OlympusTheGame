@@ -27,7 +27,7 @@ namespace Olympus_the_Game.View
         {
             this.DoubleBuffered = true;
             
-            if(OlympusTheGame.INSTANCE.Controller != null)
+            if(OlympusTheGame.INSTANCE != null)
                 OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { update(); };
             IsResized = false;
         }
