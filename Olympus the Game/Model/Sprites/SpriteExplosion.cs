@@ -20,6 +20,16 @@ namespace Olympus_the_Game
         {
             Type = ObjectType.SPRITEEXPLOSION;
             duration = 1000;
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+        }
+
+        public void OnUpdate()
+        {
+            if((Environment.TickCount - start) > duration)
+            {
+                OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
+                OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            }
         }
     }
 }
