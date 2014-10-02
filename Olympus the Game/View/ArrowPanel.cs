@@ -90,12 +90,17 @@ namespace Olympus_the_Game.View
             //OlympusTheGame.INSTANCE.Controller.CustomDown = 75;
             try
             {
-                OlympusTheGame.INSTANCE.Controller.CustomRight =Convert.ToInt32(Char.ToUpper(textBox1.Text[0]));
-                OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBox2.Text[0]));
-                OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBox3.Text[0]));
-                OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
+                if (!String.IsNullOrEmpty(textBox1.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBox1.Text[0]));
+                if (!String.IsNullOrEmpty(textBox2.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBox2.Text[0]));
+                if (!String.IsNullOrEmpty(textBox3.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBox3.Text[0]));
+                if (!String.IsNullOrEmpty(textBox4.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
+
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 MessageBox.Show("Onjuiste toetsen geselecteerd");
             }
