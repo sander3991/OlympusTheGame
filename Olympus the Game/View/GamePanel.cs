@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game.View
 {
@@ -106,23 +107,17 @@ namespace Olympus_the_Game.View
 
         private void draw(GameObject go, Graphics g)
         {
-
             Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
 
             // Generate target rectangle
             Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
 
-            Bitmap bm = null;
-            if (ImagePool.IsDynamic(go.Type))
-            {
-                AnimatedSprite aspr = go as AnimatedSprite;
-                bm = ImagePool.GetDynamicPicture(go.Type, s, aspr.FrameID);
-            }
-            else
-                bm = ImagePool.GetPicture(go.Type, s);
+            Sprite bm = ImagePool.GetPicture(go.Type, s);
+
+            
 
             //  Draw picture
-            g.DrawImageUnscaled(bm,
+            g.DrawImageUnscaled(bm[go.Frame],
                 target);
 
             AnimatedSprite sprite = go as AnimatedSprite;

@@ -60,7 +60,7 @@
     <Compile Include="Model\ObjectFinish.cs" />
     <Compile Include="Model\ObjectStart.cs" />
     <Compile Include="Model\PlayField.cs" />
-    <Compile Include="Model\Sprites\Sprite.cs" />
+    <Compile Include="Model\Sprites\AnimatedSprite.cs" />
     <Compile Include="Model\Sprites\SpriteExplosion.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -91,7 +91,8 @@
     <Compile Include="View\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ImagePool.cs" />
+    <Compile Include="View\Imaging\ImagePool.cs" />
+    <Compile Include="View\Imaging\Sprite.cs" />
     <Compile Include="View\InfoBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
