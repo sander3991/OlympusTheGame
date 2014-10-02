@@ -135,47 +135,7 @@ namespace Olympus_the_Game
 
         public void SaveToXml(string fileName)
         {
-            StreamWriter file = new StreamWriter(fileName);
-            new XmlSerializer(typeof(PlayField)).Serialize(file, this);
-            file.Close();
-        }
-
-        public static PlayField GetFromXml(string fileName)
-        {
-            try
-            {
-                StreamReader file = new StreamReader(fileName);
-                Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(file));
-                PlayField pf = o as PlayField;
-                file.Close();
-                return pf;
-            }
-            catch(FileNotFoundException)
-            {
-                Console.WriteLine("Bestand \"{0}\" niet gevonden", fileName);
-            }
-            catch(ArgumentException)
-            {
-                Console.WriteLine("Onjuiste string meegegeven: {0}", fileName);
-            }
-            return null;
-        }
-
-        internal static PlayField GetFromResource(string xml)
-        {
-            try
-            {
-                StringReader str = new StringReader(xml);
-                Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(str));
-                PlayField pf = o as PlayField;
-                str.Close();
-                return pf;
-            }
-            catch (InvalidOperationException)
-            {
-                Console.WriteLine("Something went wrong when reading the resource");
-                return null;
-            }
+            PlayFieldToXml.WriteToXml(fileName, this);
         }
 
         public System.Xml.Schema.XmlSchema GetSchema()
