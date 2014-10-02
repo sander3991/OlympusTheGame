@@ -40,9 +40,11 @@ namespace Olympus_the_Game
         /// </summary>
         public OlympusTheGame()
         {
-            // TODO Verwijderen
-            this.Playfield = new PlayField(1000, 500);
-            this.Controller = new Controller(this.Playfield);
+            this.Controller = new Controller();
+        }
+
+        public void Initialize()
+        {
         }
 
         /// <summary>
@@ -53,7 +55,6 @@ namespace Olympus_the_Game
         {
             // non-static object aanmaken
             INSTANCE = new OlympusTheGame();
-
             // Game starten
             INSTANCE.Start();
         }
@@ -63,6 +64,12 @@ namespace Olympus_the_Game
         /// </summary>
         private void Start()
         {
+            this.Playfield = PlayField.GetFromXml("Kek.xml");
+            if (this.Playfield == null)
+            {
+                this.Playfield = new PlayField();
+                this.Playfield.InitializeGameObjects();
+            }
             // Add gameloop to timer
             GameTimer.Tick += this.Controller.ExecuteUpdateGameEvent;
             GameTimer.Interval = 10;
