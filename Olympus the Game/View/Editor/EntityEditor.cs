@@ -21,43 +21,66 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void LoadData(GameObject go)
         {
-            XLocationInput.Text = go.X.ToString();
-            YLocationInput.Text = go.Y.ToString();
-            EntityNaamLabel.Text = go.Type.ToString();
             
+            // Deze if statement is nodig om een NullReference error te voorkomen
+            if (go != null)
+            {
+                // Maak alle X en Y inputs visible 
+                XLocationInput.Visible = true;
+                YLocationInput.Visible = true;
+                EntityYLocation.Visible = true;
+                EntityXLocation.Visible = true;
 
-            if (go.Type.ToString() == "CREEPER")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
+                // Verkrijg de waardes van het GameObject
+                XLocationInput.Text = go.X.ToString();
+                YLocationInput.Text = go.Y.ToString();
+                EntityNaamLabel.Text = go.Type.ToString();
+
+
+
+                // Laat het plaatje van het GameObject zien
+                if (go.Type.ToString() == "CREEPER")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
+                }
+                else if (go.Type.ToString() == "SLOWER")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
+                }
+                else if (go.Type.ToString() == "EXPLODE")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.tnt;
+                }
+                else if (go.Type.ToString() == "TIMEBOMB")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
+                }
+                else if (go.Type.ToString() == "CAKE")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
+                }
+                else if (go.Type.ToString() == "HOME")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.huis;
+                }
+                else if (go.Type.ToString() == "OBSTACLE")
+                {
+                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
+                }
+                else
+                {
+                    Console.WriteLine("Type niet bekend");
+                }
             }
-            else if (go.Type.ToString() == "SLOWER")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
-            }
-            else if (go.Type.ToString() == "EXPLODE")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.tnt;
-            }
-            else if (go.Type.ToString() == "TIMEBOMB")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
-            }
-            else if (go.Type.ToString() == "CAKE")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
-            }
-            else if (go.Type.ToString() == "HOME")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.huis;
-            }
-            else if (go.Type.ToString() == "OBSTACLE")
-            {
-                EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
-            }
-            else
-            {
-                Console.WriteLine("Type niet bekend");
-            }
+        }
+
+        private void XChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void YChanged(object sender, EventArgs e)
+        {
 
         }
 

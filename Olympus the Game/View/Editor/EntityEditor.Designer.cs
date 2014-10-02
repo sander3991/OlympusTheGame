@@ -72,6 +72,8 @@
             this.YLocationInput.Name = "YLocationInput";
             this.YLocationInput.Size = new System.Drawing.Size(100, 20);
             this.YLocationInput.TabIndex = 33;
+            this.YLocationInput.Visible = false;
+            this.YLocationInput.TextChanged += new System.EventHandler(this.YChanged);
             // 
             // EntityYLocation
             // 
@@ -81,6 +83,7 @@
             this.EntityYLocation.Size = new System.Drawing.Size(20, 13);
             this.EntityYLocation.TabIndex = 30;
             this.EntityYLocation.Text = "Y: ";
+            this.EntityYLocation.Visible = false;
             // 
             // EntityXLocation
             // 
@@ -90,6 +93,7 @@
             this.EntityXLocation.Size = new System.Drawing.Size(20, 13);
             this.EntityXLocation.TabIndex = 29;
             this.EntityXLocation.Text = "X: ";
+            this.EntityXLocation.Visible = false;
             // 
             // XLocationInput
             // 
@@ -97,6 +101,8 @@
             this.XLocationInput.Name = "XLocationInput";
             this.XLocationInput.Size = new System.Drawing.Size(100, 20);
             this.XLocationInput.TabIndex = 28;
+            this.XLocationInput.Visible = false;
+            this.XLocationInput.TextChanged += new System.EventHandler(this.XChanged);
             // 
             // EntityImageLarge
             // 
