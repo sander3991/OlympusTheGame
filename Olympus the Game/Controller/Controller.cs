@@ -20,7 +20,13 @@ namespace Olympus_the_Game
         /// Deze wordt gebruikt voor alle events die niet zo vaak hoeven te gebeuren, zoals updaten statistiek etc.
         /// </summary>
         public event Action UpdateSlowEvents;
-        
+
+       
+        public int CustomRight { get; set; }
+        public int CustomLeft { get; set; }
+        public int CustomUp { get; set; }
+        public int CustomDown { get; set; }
+         
         public Controller(PlayField pf)
         {
             // Add Update to UpdateEvents
@@ -28,6 +34,7 @@ namespace Olympus_the_Game
 
             // Add AIUpdate to UpdateEvents
             UpdateGameEvents += UpdateEntityAI;
+
         }
 
         /// <summary>
@@ -45,6 +52,26 @@ namespace Olympus_the_Game
                 // Geef de speed van 1 mee
                 MovePlayer(e, 2);
             }
+            else
+            {
+                CustomMovePlayer(e, 2);
+            }
+            
+        }
+
+        private void CustomMovePlayer(KeyEventArgs e, int speed)
+        {
+            if (e.KeyValue == CustomRight)
+                MovePlayer(speed, true);
+
+            else if (e.KeyValue == CustomLeft)
+                MovePlayer(-speed, true);
+
+            else if (e.KeyValue == CustomDown)
+                MovePlayer(speed, false);
+
+            else if (e.KeyValue == CustomUp)
+                MovePlayer(-speed, false);
         }
         /// <summary>
         /// Stuurt informatie door als de gebruiker een toets loslaat.
@@ -63,6 +90,7 @@ namespace Olympus_the_Game
             }
             else
             {
+                CustomMovePlayer(e , 0);
                 MovePlayer(e, 0);
             }
         }
