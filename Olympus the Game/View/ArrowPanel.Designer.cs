@@ -58,16 +58,17 @@
             this.panel1.Controls.Add(this.ArrowKeyDown);
             this.panel1.Controls.Add(this.ArrowKeyUp);
             this.panel1.Controls.Add(this.LabelControl);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(330, 241);
+            this.panel1.Size = new System.Drawing.Size(337, 205);
             this.panel1.TabIndex = 2;
             // 
             // ButtonAanpassen
             // 
             this.ButtonAanpassen.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ButtonAanpassen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAanpassen.Location = new System.Drawing.Point(3, 86);
+            this.ButtonAanpassen.Location = new System.Drawing.Point(12, 70);
             this.ButtonAanpassen.Name = "ButtonAanpassen";
             this.ButtonAanpassen.Size = new System.Drawing.Size(76, 40);
             this.ButtonAanpassen.TabIndex = 5;
@@ -78,7 +79,7 @@
             // textBoxDown
             // 
             this.textBoxDown.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxDown.Location = new System.Drawing.Point(30, 60);
+            this.textBoxDown.Location = new System.Drawing.Point(39, 44);
             this.textBoxDown.Name = "textBoxDown";
             this.textBoxDown.Size = new System.Drawing.Size(21, 20);
             this.textBoxDown.TabIndex = 3;
@@ -89,7 +90,7 @@
             // textBoxUp
             // 
             this.textBoxUp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxUp.Location = new System.Drawing.Point(30, 34);
+            this.textBoxUp.Location = new System.Drawing.Point(39, 18);
             this.textBoxUp.Name = "textBoxUp";
             this.textBoxUp.Size = new System.Drawing.Size(21, 20);
             this.textBoxUp.TabIndex = 1;
@@ -100,7 +101,7 @@
             // textBoxLeft
             // 
             this.textBoxLeft.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxLeft.Location = new System.Drawing.Point(3, 60);
+            this.textBoxLeft.Location = new System.Drawing.Point(12, 44);
             this.textBoxLeft.Name = "textBoxLeft";
             this.textBoxLeft.Size = new System.Drawing.Size(21, 20);
             this.textBoxLeft.TabIndex = 2;
@@ -111,7 +112,7 @@
             // textBoxRight
             // 
             this.textBoxRight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxRight.Location = new System.Drawing.Point(57, 60);
+            this.textBoxRight.Location = new System.Drawing.Point(66, 44);
             this.textBoxRight.Name = "textBoxRight";
             this.textBoxRight.Size = new System.Drawing.Size(21, 20);
             this.textBoxRight.TabIndex = 4;
@@ -136,7 +137,7 @@
             // 
             this.ArrowKeyRight.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyRight.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowright;
-            this.ArrowKeyRight.Location = new System.Drawing.Point(216, 154);
+            this.ArrowKeyRight.Location = new System.Drawing.Point(214, 110);
             this.ArrowKeyRight.Name = "ArrowKeyRight";
             this.ArrowKeyRight.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyRight.TabIndex = 9;
@@ -148,7 +149,7 @@
             // 
             this.ArrowKeyLeft.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyLeft.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowleft;
-            this.ArrowKeyLeft.Location = new System.Drawing.Point(24, 154);
+            this.ArrowKeyLeft.Location = new System.Drawing.Point(22, 110);
             this.ArrowKeyLeft.Name = "ArrowKeyLeft";
             this.ArrowKeyLeft.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyLeft.TabIndex = 7;
@@ -160,7 +161,7 @@
             // 
             this.ArrowKeyDown.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyDown.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowdown;
-            this.ArrowKeyDown.Location = new System.Drawing.Point(120, 154);
+            this.ArrowKeyDown.Location = new System.Drawing.Point(118, 110);
             this.ArrowKeyDown.Name = "ArrowKeyDown";
             this.ArrowKeyDown.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyDown.TabIndex = 8;
@@ -172,7 +173,7 @@
             // 
             this.ArrowKeyUp.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyUp.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowup;
-            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 64);
+            this.ArrowKeyUp.Location = new System.Drawing.Point(118, 20);
             this.ArrowKeyUp.Name = "ArrowKeyUp";
             this.ArrowKeyUp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);

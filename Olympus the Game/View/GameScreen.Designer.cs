@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
@@ -42,10 +42,10 @@
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(889, 536);
+            this.arrowPanel1.Location = new System.Drawing.Point(911, 536);
             this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
-            this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
+            this.arrowPanel1.Size = new System.Drawing.Size(337, 207);
             this.arrowPanel1.TabIndex = 3;
             // 
             // gamePanel1
@@ -53,9 +53,10 @@
             this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
+            this.gamePanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.gamePanel1.Name = "gamePanel1";
-            playField2.Name = "Map_0";
-            this.gamePanel1.Playfield = playField2;
+            playField1.Name = "Map_0";
+            this.gamePanel1.Playfield = playField1;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 

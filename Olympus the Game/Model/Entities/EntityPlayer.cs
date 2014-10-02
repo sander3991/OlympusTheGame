@@ -12,6 +12,7 @@ namespace Olympus_the_Game
         private double speedModifier = 1;
         private int dx;
         private int dy;
+        public static int PlayerSpeed { get; set; }
         public double SpeedModifier
         {
             get
