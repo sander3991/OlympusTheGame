@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonAanpassen = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -39,7 +39,7 @@
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelControl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ButtonAanpassen);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
@@ -57,23 +57,23 @@
             this.panel1.Controls.Add(this.ArrowKeyLeft);
             this.panel1.Controls.Add(this.ArrowKeyDown);
             this.panel1.Controls.Add(this.ArrowKeyUp);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.LabelControl);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 241);
             this.panel1.TabIndex = 2;
             // 
-            // button1
+            // ButtonAanpassen
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Toetsen aanpassen";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonAanpassen.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ButtonAanpassen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAanpassen.Location = new System.Drawing.Point(3, 86);
+            this.ButtonAanpassen.Name = "ButtonAanpassen";
+            this.ButtonAanpassen.Size = new System.Drawing.Size(76, 40);
+            this.ButtonAanpassen.TabIndex = 5;
+            this.ButtonAanpassen.Text = "Toetsen aanpassen";
+            this.ButtonAanpassen.UseVisualStyleBackColor = false;
+            this.ButtonAanpassen.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
@@ -177,15 +177,16 @@
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
-            // label1
+            // LabelControl
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Controls";
+            this.LabelControl.AutoSize = true;
+            this.LabelControl.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LabelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelControl.Location = new System.Drawing.Point(0, 0);
+            this.LabelControl.Name = "LabelControl";
+            this.LabelControl.Size = new System.Drawing.Size(60, 13);
+            this.LabelControl.TabIndex = 0;
+            this.LabelControl.Text = "Besturing";
             // 
             // ArrowPanel
             // 
@@ -208,9 +209,9 @@
         private System.Windows.Forms.Button ArrowKeyLeft;
         private System.Windows.Forms.Button ArrowKeyDown;
         private System.Windows.Forms.Button ArrowKeyUp;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelControl;
         private System.Windows.Forms.Button SleepKnop;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonAanpassen;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;

@@ -84,10 +84,6 @@ namespace Olympus_the_Game.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //OlympusTheGame.INSTANCE.Controller.CustomRight = 76;
-            //OlympusTheGame.INSTANCE.Controller.CustomLeft = 74;
-            //OlympusTheGame.INSTANCE.Controller.CustomUp = 73;
-            //OlympusTheGame.INSTANCE.Controller.CustomDown = 75;
             try
             {
                 if (!String.IsNullOrEmpty(textBox1.Text))
@@ -122,7 +118,11 @@ namespace Olympus_the_Game.View
                 tb.SelectionLength = tb.Text.Length;
             }
         }
-
+        /// <summary>
+        /// Selecteer alle tekst als user er in klikt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_EnterWithMouse(object sender, MouseEventArgs e)
         {
             TextBox tb = sender as TextBox;
