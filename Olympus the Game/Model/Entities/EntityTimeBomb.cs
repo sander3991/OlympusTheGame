@@ -45,8 +45,7 @@ namespace Olympus_the_Game
         public EntityTimeBomb(int width, int height, int x, int y, double effectStrength)
             : this(width, height, x, y, 0, 0, effectStrength)
         {
-
-
+            
         }
 
         public void OnUpdate()
