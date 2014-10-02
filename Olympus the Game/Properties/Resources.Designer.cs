@@ -71,6 +71,37 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Map_0&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;HOME&quot;&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;300&lt;/Y&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;CAKE&quot;&gt;
+        ///      &lt;X&gt;800&lt;/X&gt;
+        ///      &lt;Y&gt;300&lt;/Y&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;OBSTACLE&quot;&gt;
+        ///      &lt;X&gt;250&lt;/X&gt;
+        ///      &lt;Y&gt;250&lt;/Y&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string beach {
+            get {
+                return ResourceManager.GetString("beach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cake {
@@ -107,6 +138,47 @@ namespace Olympus_the_Game.Properties {
             get {
                 object obj = ResourceManager.GetObject("dirt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dirt1 {
+            get {
+                object obj = ResourceManager.GetObject("dirt1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Map_0&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;HOME&quot;&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;CAKE&quot;&gt;
+        ///      &lt;X&gt;800&lt;/X&gt;
+        ///      &lt;Y&gt;300&lt;/Y&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;OBSTACLE&quot;&gt;
+        ///      &lt;X&gt;250&lt;/X&gt;
+        ///      &lt;Y&gt;250&lt;/Y&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///     [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string hell {
+            get {
+                return ResourceManager.GetString("hell", resourceCulture);
             }
         }
         

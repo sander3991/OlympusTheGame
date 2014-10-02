@@ -43,10 +43,6 @@ namespace Olympus_the_Game
             this.Controller = new Controller();
         }
 
-        public void Initialize()
-        {
-        }
-
         /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
@@ -64,7 +60,7 @@ namespace Olympus_the_Game
         /// </summary>
         private void Start()
         {
-            this.Playfield = PlayField.GetFromXml("Kek.xml");
+            this.Playfield = PlayField.GetFromResource(Properties.Resources.hell);
             if (this.Playfield == null)
             {
                 this.Playfield = new PlayField();

@@ -154,8 +154,28 @@ namespace Olympus_the_Game
             {
                 Console.WriteLine("Bestand \"{0}\" niet gevonden", fileName);
             }
+            catch(ArgumentException)
+            {
+                Console.WriteLine("Onjuiste string meegegeven: {0}", fileName);
+            }
             return null;
+        }
 
+        internal static PlayField GetFromResource(string xml)
+        {
+            try
+            {
+                StringReader str = new StringReader(xml);
+                Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(str));
+                PlayField pf = o as PlayField;
+                str.Close();
+                return pf;
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("Something went wrong when reading the resource");
+                return null;
+            }
         }
 
         public System.Xml.Schema.XmlSchema GetSchema()
@@ -172,6 +192,7 @@ namespace Olympus_the_Game
             int objectHeight = -1;
             int objectY = -1;
             int objectX = -1;
+            int explodeStrength = -1;
             ///boolean om te kijken of hij bezig is met het lezen van een object.
             bool isReadingObject = false;
             while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
@@ -208,6 +229,9 @@ namespace Olympus_the_Game
                             case "Y":
                                 objectY = Convert.ToInt32(reader.Value);
                                 break;
+                            case "ExplodeStrength":
+                                explodeStrength = Convert.ToInt32(reader.Value);
+                                break;
                             case "GameObject":
                                 if (!reader.HasAttributes) //Heeft het huidige object attributen, in het attribuut staat namelijk het object type
                                     Console.WriteLine("Bij het lezen van het XML bestand is er wat fout gegaan, er mist een class in de GameObject attribuut!");
@@ -230,37 +254,47 @@ namespace Olympus_the_Game
                     case XmlNodeType.EndElement:
                         if(reader.LocalName == "GameObject")
                         {
+                            bool hasAllParameters = true;
                             //controleer of alle gegevens erin staan
                             if((objectType == ObjectType.UNKNOWN) || (objectX == -1) || (objectY == -1) || (objectHeight == -1) || (objectWidth == -1))
                             {
                                 Console.WriteLine("Niet alle parameters van de entity zijn ingelezen!");
-                                continue;
+                                hasAllParameters = false;
                             }
-                            switch (objectType)
+                            if(objectType == ObjectType.CREEPER || objectType == ObjectType.TIMEBOMB || objectType == ObjectType.EXPLODE)
+                                if (explodeStrength == -1)
+                                {
+                                    Console.WriteLine("Er mist een explodeer parameter!");
+                                    hasAllParameters = false;
+                                }
+                            if (hasAllParameters)
                             {
-                                case ObjectType.SLOWER:
-                                    AddObject(new EntitySlower(objectWidth, objectHeight, objectX, objectY));
-                                    break;
-                                case ObjectType.TIMEBOMB:
-                                    AddObject(new EntityTimeBomb(objectWidth, objectHeight, objectX, objectY, 5));
-                                    break;
-                                case ObjectType.OBSTACLE:
-                                    AddObject(new ObjectObstacle(objectWidth, objectHeight, objectX, objectY));
-                                    break;
-                                case ObjectType.CREEPER:
-                                    AddObject(new EntityCreeper(objectWidth, objectHeight, objectX, objectY, 5));
-                                    break;
-                                case ObjectType.EXPLODE:
-                                    AddObject(new EntityExplode(objectWidth, objectHeight, objectX, objectY, 5));
-                                    break;
-                                case ObjectType.HOME:
-                                    AddObject(new ObjectStart(objectWidth, objectHeight, objectX, objectY));
-                                    break;
-                                case ObjectType.CAKE:
-                                    AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
-                                    break;
-                                default:
-                                    break;
+                                switch (objectType)
+                                {
+                                    case ObjectType.SLOWER:
+                                        AddObject(new EntitySlower(objectWidth, objectHeight, objectX, objectY));
+                                        break;
+                                    case ObjectType.TIMEBOMB:
+                                        AddObject(new EntityTimeBomb(objectWidth, objectHeight, objectX, objectY, explodeStrength));
+                                        break;
+                                    case ObjectType.OBSTACLE:
+                                        AddObject(new ObjectObstacle(objectWidth, objectHeight, objectX, objectY));
+                                        break;
+                                    case ObjectType.CREEPER:
+                                        AddObject(new EntityCreeper(objectWidth, objectHeight, objectX, objectY, explodeStrength));
+                                        break;
+                                    case ObjectType.EXPLODE:
+                                        AddObject(new EntityExplode(objectWidth, objectHeight, objectX, objectY, explodeStrength));
+                                        break;
+                                    case ObjectType.HOME:
+                                        AddObject(new ObjectStart(objectWidth, objectHeight, objectX, objectY));
+                                        break;
+                                    case ObjectType.CAKE:
+                                        AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
                             //Naar default om de controle voor de volgende te resetten
                             objectType = ObjectType.UNKNOWN;
@@ -268,6 +302,7 @@ namespace Olympus_the_Game
                             objectY = -1;
                             objectWidth = 1;
                             objectHeight = -1;
+                            explodeStrength = -1;
                         }
                         break;
                 }
@@ -296,6 +331,9 @@ namespace Olympus_the_Game
                 writer.WriteElementString("Y", o.Y.ToString());
                 writer.WriteElementString("Width", o.Width.ToString());
                 writer.WriteElementString("Height", o.Height.ToString());
+                EntityExplode explode = o as EntityExplode;
+                if (explode != null)
+                    writer.WriteElementString("ExplodeStrength", explode.EffectStrength.ToString());
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();
