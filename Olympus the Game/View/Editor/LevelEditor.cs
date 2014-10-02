@@ -343,5 +343,16 @@ namespace Olympus_the_Game.View
                 this.pf.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
             }
         }
+
+        /// <summary>
+        /// Zodra de editor geladen is focus dan op het panel
+        /// zodat de nummertoetsen werken
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Load(object sender, EventArgs e)
+        {
+            gamePanelEditor.Select();
+        }
     }
 }

@@ -78,17 +78,6 @@ namespace Olympus_the_Game.View
 
         private void Init(object sender, EventArgs e)
         {
-            // Build imagelist
-            /*this.ImageList.Add(ObjectType.CREEPER, ConvertBitmap(Properties.Resources.creeper));
-            this.ImageList.Add(ObjectType.EXPLODE, ConvertBitmap(Properties.Resources.tnt));
-            this.ImageList.Add(ObjectType.SLOWER, ConvertBitmap(Properties.Resources.spider));
-            this.ImageList.Add(ObjectType.PLAYER, ConvertBitmap(Properties.Resources.player));
-            this.ImageList.Add(ObjectType.TIMEBOMB, ConvertBitmap(Properties.Resources.timebomb));
-            this.ImageList.Add(ObjectType.HOME, ConvertBitmap(Properties.Resources.huis));
-            this.ImageList.Add(ObjectType.CAKE, ConvertBitmap(Properties.Resources.cake));
-            this.ImageList.Add(ObjectType.OBSTACLE, ConvertBitmap(Properties.Resources.cobble));
-            this.ImageList.Add(ObjectType.UNKNOWN, ConvertBitmap(Properties.Resources.missing));*/
-
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
 

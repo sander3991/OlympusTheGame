@@ -64,7 +64,7 @@
             this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(63, 50);
             this.richTextBox2.TabIndex = 8;
-            this.richTextBox2.Text = "Creeper";
+            this.richTextBox2.Text = "Creeper\n\nToets 1";
             // 
             // richTextBox3
             // 
@@ -75,7 +75,7 @@
             this.richTextBox3.ReadOnly = true;
             this.richTextBox3.Size = new System.Drawing.Size(63, 50);
             this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "Spider";
+            this.richTextBox3.Text = "Spider\n\nToets 2";
             // 
             // richTextBox4
             // 
@@ -86,7 +86,7 @@
             this.richTextBox4.ReadOnly = true;
             this.richTextBox4.Size = new System.Drawing.Size(63, 50);
             this.richTextBox4.TabIndex = 10;
-            this.richTextBox4.Text = "TnT";
+            this.richTextBox4.Text = "TnT\n\nToets 3";
             // 
             // richTextBox5
             // 
@@ -97,7 +97,7 @@
             this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(63, 50);
             this.richTextBox5.TabIndex = 11;
-            this.richTextBox5.Text = "TimeBomb";
+            this.richTextBox5.Text = "TimeBomb\n\nToets 4";
             // 
             // richTextBox6
             // 
@@ -108,7 +108,7 @@
             this.richTextBox6.ReadOnly = true;
             this.richTextBox6.Size = new System.Drawing.Size(63, 50);
             this.richTextBox6.TabIndex = 12;
-            this.richTextBox6.Text = "Cake";
+            this.richTextBox6.Text = "Cake\n\nToets 5";
             // 
             // richTextBox7
             // 
@@ -187,7 +187,7 @@
             this.richTextBox8.ReadOnly = true;
             this.richTextBox8.Size = new System.Drawing.Size(63, 50);
             this.richTextBox8.TabIndex = 21;
-            this.richTextBox8.Text = "Home";
+            this.richTextBox8.Text = "Home\n\nToets 6";
             // 
             // Obstakel
             // 
@@ -209,7 +209,7 @@
             this.richTextBox9.ReadOnly = true;
             this.richTextBox9.Size = new System.Drawing.Size(63, 50);
             this.richTextBox9.TabIndex = 23;
-            this.richTextBox9.Text = "Obstakel";
+            this.richTextBox9.Text = "Obstakel\n\nToets 6";
             // 
             // Spider
             // 
@@ -282,6 +282,7 @@
             this.gamePanelEditor.Playfield = playField1;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
+            this.gamePanelEditor.Load += new System.EventHandler(this.Load);
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.DoubleClick += new System.EventHandler(this.Mouse_DoubleClick);
