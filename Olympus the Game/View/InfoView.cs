@@ -65,7 +65,9 @@ namespace Olympus_the_Game.View
         {
             update();
         }
-
+        /// <summary>
+        /// Update alle items in de list view
+        /// </summary>
         private void update()
         {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();

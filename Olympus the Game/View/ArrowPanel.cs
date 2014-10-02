@@ -17,6 +17,10 @@ namespace Olympus_the_Game.View
         public ArrowPanel()
         {
             InitializeComponent();
+            textBoxRight.MaxLength = 1;
+            textBoxLeft.MaxLength = 1;
+            textBoxUp.MaxLength = 1;
+            textBoxDown.MaxLength = 1;
         }
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
@@ -87,14 +91,14 @@ namespace Olympus_the_Game.View
         {
             try
             {
-                if (!String.IsNullOrEmpty(textBox1.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBox1.Text[0]));
-                if (!String.IsNullOrEmpty(textBox2.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBox2.Text[0]));
-                if (!String.IsNullOrEmpty(textBox3.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBox3.Text[0]));
-                if (!String.IsNullOrEmpty(textBox4.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxRight.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxLeft.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBoxLeft.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxUp.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBoxUp.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxDown.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBoxDown.Text[0]));
 
             }
             catch (FormatException)
