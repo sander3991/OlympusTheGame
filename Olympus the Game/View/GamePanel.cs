@@ -54,7 +54,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         private Size MAX_SIZE = Size.Empty;
 
-        
+
         #region Setup
 
         /// <summary>
@@ -85,7 +85,8 @@ namespace Olympus_the_Game.View
             this.BackgroundImage = Properties.Resources.background;
 
             // Register to updateloop
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+            if (OlympusTheGame.INSTANCE != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
         }
 
         #endregion
@@ -105,7 +106,7 @@ namespace Olympus_the_Game.View
         private void draw(GameObject go, Graphics g)
         {
 
-            Size s = new Size((int)((float)go.Width * SCALE),(int)((float)go.Height * SCALE));
+            Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
 
             // Generate target rectangle
             Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
