@@ -54,11 +54,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.heart1 = new System.Windows.Forms.PictureBox();
-            this.heart2 = new System.Windows.Forms.PictureBox();
-            this.heart3 = new System.Windows.Forms.PictureBox();
-            this.heart4 = new System.Windows.Forms.PictureBox();
-            this.heart5 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).BeginInit();
@@ -75,11 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -394,46 +384,6 @@
             this.button1.TabIndex = 14;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // heart2
-            // 
-            this.heart2.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.heart2.Location = new System.Drawing.Point(40, 105);
-            this.heart2.Name = "heart2";
-            this.heart2.Size = new System.Drawing.Size(29, 25);
-            this.heart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.heart2.TabIndex = 12;
-            this.heart2.TabStop = false;
-            // 
-            // heart3
-            // 
-            this.heart3.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.heart3.Location = new System.Drawing.Point(78, 106);
-            this.heart3.Name = "heart3";
-            this.heart3.Size = new System.Drawing.Size(29, 25);
-            this.heart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.heart3.TabIndex = 13;
-            this.heart3.TabStop = false;
-            // 
-            // heart4
-            // 
-            this.heart4.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.heart4.Location = new System.Drawing.Point(113, 106);
-            this.heart4.Name = "heart4";
-            this.heart4.Size = new System.Drawing.Size(29, 25);
-            this.heart4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.heart4.TabIndex = 14;
-            this.heart4.TabStop = false;
-            // 
-            // heart5
-            // 
-            this.heart5.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.heart5.Location = new System.Drawing.Point(152, 106);
-            this.heart5.Name = "heart5";
-            this.heart5.Size = new System.Drawing.Size(29, 25);
-            this.heart5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.heart5.TabIndex = 15;
-            this.heart5.TabStop = false;
-            // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +396,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
             this.Size = new System.Drawing.Size(692, 162);
+            this.Load += new System.EventHandler(this.InfoBox_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();
@@ -462,11 +413,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();
             this.ResumeLayout(false);
 
         }

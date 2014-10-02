@@ -15,7 +15,8 @@ namespace Olympus_the_Game
         EXPLODE,
         HOME,
         CAKE,
-        UNKNOWN
+        UNKNOWN,
+        SPRITEEXPLOSION
     }
     public abstract class GameObject
     {
@@ -175,6 +176,14 @@ namespace Olympus_the_Game
         public virtual void OnCollide(GameObject gameObject)
         {
             
+        }
+
+        /// <summary>
+        /// Wordt aangeroepen als een object verwijderd wordt van het speelveld
+        /// </summary>
+        public virtual void OnRemoved()
+        {
+
         }
     }
 }

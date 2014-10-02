@@ -64,19 +64,25 @@ namespace Olympus_the_Game
                             
                 if (stopwatch.ElapsedMilliseconds >= 3000 && DistanceToObject(player) < 100)
                 {
-                    OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
-                    stopwatch.Restart();
+                    PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+                    pf.SetPlayerHome();
+                    pf.RemoveObject(this);
+                    stopwatch.Stop();
                 }
-
-
             }
+        }
+        public override void OnRemoved()
+        {
+            Controller contr = OlympusTheGame.INSTANCE.Controller;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            contr.UpdateGameEvents -= OnUpdate;
+            pf.AddObject(new SpriteExplosion(this));
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()
         {
             return "TimeBomb";
         }
-
-
     }
 }

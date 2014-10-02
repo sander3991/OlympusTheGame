@@ -70,6 +70,11 @@ namespace Olympus_the_Game
         {
             gameObjects.Add(entity);
         }
+        public void RemoveObject(GameObject entity)
+        {
+            gameObjects.Remove(entity);
+            entity.OnRemoved();
+        }
         /// <summary>
         /// Zet de speler op de home locatie neer
         /// </summary>

@@ -60,6 +60,8 @@
     <Compile Include="Model\ObjectFinish.cs" />
     <Compile Include="Model\ObjectStart.cs" />
     <Compile Include="Model\PlayField.cs" />
+    <Compile Include="Model\Sprites\Sprite.cs" />
+    <Compile Include="Model\Sprites\SpriteExplosion.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +261,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hart1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpriteExplosion.bmp" />
+    <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

@@ -16,8 +16,12 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
-        public void HealthHearts(int Health)
+        public void Update(int Health)
         {
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
+            SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
+            SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
             for (int i = 0; i <= Health; i++)
             {
                 switch (i)
@@ -48,5 +52,13 @@ namespace Olympus_the_Game.View
 
             }
         }
+
+        private void InfoBox_Load(object sender, EventArgs e)
+        {
+            if (OlympusTheGame.INSTANCE != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { Update(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
+        }
+
+
     }
 }

@@ -61,6 +61,11 @@
             return "Slower";
         }
 
+        public override void OnRemoved()
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
+
     }
 }
 

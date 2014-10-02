@@ -72,12 +72,22 @@ namespace Olympus_the_Game
             if(player != null) {
                 player.Health -= Convert.ToInt32(EffectStrength);
                 OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
+                OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
             }
         }
 
         public override string ToString()
         {
             return "Creeper";
+        }
+
+        public override void OnRemoved()
+        {
+            Controller contr = OlympusTheGame.INSTANCE.Controller;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            contr.UpdateGameEvents -= OnUpdate;
+            pf.AddObject(new SpriteExplosion(this));
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
     }
 }
