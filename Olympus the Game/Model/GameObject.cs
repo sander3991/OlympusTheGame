@@ -14,7 +14,8 @@ namespace Olympus_the_Game
         CREEPER,
         EXPLODE,
         HOME,
-        CAKE
+        CAKE,
+        UNKNOWN
     }
     public abstract class GameObject
     {
@@ -23,6 +24,12 @@ namespace Olympus_the_Game
         private int height;
         private int width;
         public ObjectType Type { get; protected set; }
+
+        public GameObject()
+        {
+            Type = ObjectType.UNKNOWN;
+        }
+
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>
