@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -207,7 +207,7 @@
             this.richTextBox9.ReadOnly = true;
             this.richTextBox9.Size = new System.Drawing.Size(63, 50);
             this.richTextBox9.TabIndex = 23;
-            this.richTextBox9.Text = "Obstakel\n\nToets 6";
+            this.richTextBox9.Text = "Obstakel\n\nToets 7";
             // 
             // Spider
             // 
@@ -276,8 +276,8 @@
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
             this.gamePanelEditor.Name = "gamePanelEditor";
-            playField2.Name = "Map_1";
-            this.gamePanelEditor.Playfield = playField2;
+            playField1.Name = "Map_1";
+            this.gamePanelEditor.Playfield = playField1;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
