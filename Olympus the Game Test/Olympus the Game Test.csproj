@@ -51,9 +51,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Model\PlayFieldTest.cs" />
-    <Compile Include="Model\EntityTests.cs" />
+    <Compile Include="Model\Entities\EntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\EntityExplodeTests.cs" />
+    <Compile Include="Model\Entities\EntityExplodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Olympus the Game\Olympus the Game.csproj">
