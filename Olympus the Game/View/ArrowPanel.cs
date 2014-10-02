@@ -67,6 +67,7 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+            this.BringToFront();
         }
         /// <summary>
         /// Functie die het scherm plaatst als je die muis loslaat
