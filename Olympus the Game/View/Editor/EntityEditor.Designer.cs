@@ -46,6 +46,7 @@
             this.ToepassenEntity.TabIndex = 38;
             this.ToepassenEntity.Text = "Toepassen";
             this.ToepassenEntity.UseVisualStyleBackColor = true;
+            this.ToepassenEntity.Click += new System.EventHandler(this.ToepassenEntity_Click);
             // 
             // EntityNaamLabel
             // 
@@ -73,7 +74,6 @@
             this.YLocationInput.Size = new System.Drawing.Size(100, 20);
             this.YLocationInput.TabIndex = 33;
             this.YLocationInput.Visible = false;
-            this.YLocationInput.TextChanged += new System.EventHandler(this.YChanged);
             // 
             // EntityYLocation
             // 
@@ -102,7 +102,6 @@
             this.XLocationInput.Size = new System.Drawing.Size(100, 20);
             this.XLocationInput.TabIndex = 28;
             this.XLocationInput.Visible = false;
-            this.XLocationInput.TextChanged += new System.EventHandler(this.XChanged);
             // 
             // EntityImageLarge
             // 

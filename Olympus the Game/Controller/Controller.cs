@@ -27,7 +27,7 @@ namespace Olympus_the_Game
         public int CustomUp { get; set; }
         public int CustomDown { get; set; }
          
-        public Controller(PlayField pf)
+        public Controller()
         {
             // Add Update to UpdateEvents
             UpdateGameEvents += Update;

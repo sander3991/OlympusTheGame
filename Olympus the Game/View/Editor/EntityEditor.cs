@@ -11,6 +11,8 @@ namespace Olympus_the_Game.View
 {
     public partial class EntityEditor : UserControl
     {
+        private GameObject SelectedObject;
+
         public EntityEditor()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void LoadData(GameObject go)
         {
-            
+
             // Deze if statement is nodig om een NullReference error te voorkomen
             if (go != null)
             {
@@ -36,6 +38,8 @@ namespace Olympus_the_Game.View
                 YLocationInput.Text = go.Y.ToString();
                 EntityNaamLabel.Text = go.Type.ToString();
 
+                // Bewaar GameObject
+                SelectedObject = go;
 
 
                 // Laat het plaatje van het GameObject zien
@@ -74,14 +78,23 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void XChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Krijg de waardes van de ingevoerde X en Y en 
+        /// pas deze toe op de geselecteerde entity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToepassenEntity_Click(object sender, EventArgs e)
         {
+            int X;
+            int Y;
+            X = Convert.ToInt32(XLocationInput.Text);
+            Y = Convert.ToInt32(YLocationInput.Text);
+            X = int.Parse(XLocationInput.Text);
+            Y = int.Parse(YLocationInput.Text);
 
-        }
-
-        private void YChanged(object sender, EventArgs e)
-        {
-
+            SelectedObject.X = X;
+            SelectedObject.Y = Y;
         }
 
     }

@@ -157,7 +157,7 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
-        
+
 
         #endregion
 
@@ -280,8 +280,68 @@ namespace Olympus_the_Game.View
         private void ApplyPlayfieldChanges()
         {
             PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
-            newPF.InitializeGameobjects(gamePanelEditor.Playfield.GetObjects());
+            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GetObjects());
             gamePanelEditor.Playfield = newPF;
+        }
+
+        /// <summary>
+        /// Plaats entities in het veld door de nummertoetsen 1 tot en met 7 te gebruiken
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PlaatsEntity(object sender, KeyPressEventArgs e)
+        {
+
+            // Creeper
+            if (e.KeyChar == (char)Keys.D1)
+            {
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+            }
+
+            // Spider
+            else if (e.KeyChar == (char)Keys.D2)
+            {
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
+            }
+
+            // TnT
+            else if (e.KeyChar == (char)Keys.D3)
+            {
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
+            }
+
+            // TimeBomb
+            else if (e.KeyChar == (char)Keys.D4)
+            {
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
+            }
+
+            // Cake
+            else if (e.KeyChar == (char)Keys.D5)
+            {
+                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+            }
+
+            // Home
+            else if (e.KeyChar == (char)Keys.D6)
+            {
+                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+            }
+
+            // Obstakel
+            else if (e.KeyChar == (char)Keys.D7)
+            {
+                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                this.pf.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+            }
         }
     }
 }

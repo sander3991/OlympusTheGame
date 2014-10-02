@@ -117,10 +117,11 @@
             this.richTextBox7.Location = new System.Drawing.Point(935, 498);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(131, 99);
+            this.richTextBox7.Size = new System.Drawing.Size(131, 113);
             this.richTextBox7.TabIndex = 13;
-            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.\n\nDubbelklik op een en" +
-    "titeit om deze in de EntityEditor aan te passen.";
+            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben, of gebruik de toetese" +
+    "n 1 tot en met 8.\n\nDubbelklik op een entiteit om deze in de EntityEditor aan te " +
+    "passen.";
             // 
             // Creeper
             // 
@@ -284,6 +285,7 @@
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.gamePanelEditor.DoubleClick += new System.EventHandler(this.Mouse_DoubleClick);
+            this.gamePanelEditor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaatsEntity);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
