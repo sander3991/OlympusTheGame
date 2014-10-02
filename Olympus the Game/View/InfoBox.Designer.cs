@@ -188,7 +188,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // SpelerY
             // 
@@ -397,6 +396,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
             this.Size = new System.Drawing.Size(692, 162);
+            this.Load += new System.EventHandler(this.InfoBox_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();

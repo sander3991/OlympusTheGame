@@ -49,10 +49,12 @@ namespace Olympus_the_Game.View
             }
         }
 
-
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void InfoBox_Load(object sender, EventArgs e)
         {
-            HealthHearts(OlympusTheGame.INSTANCE.Playfield.Player.Health);
+            if (OlympusTheGame.INSTANCE != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { HealthHearts(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
         }
+
+
     }
 }
