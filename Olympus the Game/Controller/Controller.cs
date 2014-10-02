@@ -11,14 +11,25 @@ namespace Olympus_the_Game
 {
     public class Controller
     {
-        public PlayField PlayField { get; private set; }
-        public delegate void UpdateEvent();
-        public event UpdateEvent UpdateEvents;
+        /// <summary>
+        /// Deze wordt gebruikt voor alle game events
+        /// </summary>
+        public event Action UpdateGameEvents;
+
+        /// <summary>
+        /// Deze wordt gebruikt voor alle events die niet zo vaak hoeven te gebeuren, zoals updaten statistiek etc.
+        /// </summary>
+        public event Action UpdateSlowEvents;
         
         public Controller(PlayField pf)
         {
-            this.PlayField = pf;
+            // Add Update to UpdateEvents
+            UpdateGameEvents += Update;
+
+            // Add AIUpdate to UpdateEvents
+            UpdateGameEvents += UpdateEntityAI;
         }
+
         /// <summary>
         /// Stuurt informatie door als de gebruiker op een toets heeft geklikt.
         /// </summary>
@@ -91,9 +102,9 @@ namespace Olympus_the_Game
 
         public void Update()
         {
-            EntityPlayer player = PlayField.Player;
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             player.Move();
-            List<GameObject> gameObjects = PlayField.GetObjects();
+            List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GetObjects();
             foreach (GameObject o in gameObjects)
             {
                 if (player.CollidesWithObject(o))
@@ -131,19 +142,13 @@ namespace Olympus_the_Game
                     }
                 }
             }
-            if (UpdateEvents != null)
-                UpdateEvents();
-        }
-
-        public void Draw()
-        {
-            throw new System.NotImplementedException();
         }
 
         public void UpdateEntityAI()
         {
+            if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
             Random rand = new Random();
-            List<GameObject> gameObjects = PlayField.GetObjects();
+            List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GetObjects();
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;
@@ -158,7 +163,24 @@ namespace Olympus_the_Game
             }
         }
 
+        /// <summary>
+        /// Execute the UpdateGameEvent in the Controller, this method should only be called from within OlympusTheGame.
+        /// </summary>
+        public void ExecuteUpdateGameEvent(object source, EventArgs ea)
+        {
+            if (UpdateGameEvents != null)
+                UpdateGameEvents();
+        }
 
-
+        /// <summary>
+        /// Executes the UpdateSlowEvent in the Controller, this method should only be called from within OlympusTheGame.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="ea"></param>
+        public void ExecuteUpdateSlowEvent(object source, EventArgs ea)
+        {
+            if (UpdateSlowEvents != null)
+                UpdateSlowEvents();
+        }
     }
 }

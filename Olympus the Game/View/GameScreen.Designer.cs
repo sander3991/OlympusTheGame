@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // arrowPanel1
@@ -73,7 +75,9 @@
             // 
             // infoView1
             // 
+            this.infoView1.Entitys = null;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
+            this.infoView1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoView1.Name = "infoView1";
             this.infoView1.Size = new System.Drawing.Size(240, 489);
             this.infoView1.TabIndex = 5;
@@ -84,7 +88,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1264, 741);
-            
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
             this.Controls.Add(this.infoPanel1);
@@ -111,5 +114,6 @@
         private ArrowPanel arrowPanel1;
         private MenuBar.CustomMenuBar customMenuBar1;
         public InfoView infoView1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
