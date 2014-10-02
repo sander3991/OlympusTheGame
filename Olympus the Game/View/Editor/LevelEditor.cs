@@ -23,6 +23,8 @@ namespace Olympus_the_Game.View
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
+
+            int EntityCount = pf.GetObjects().Count;
         }
 
         #region Drag and Drop
@@ -300,6 +302,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                EntityCount.Text = pf.GetObjects().Count.ToString();
             }
 
             // Spider

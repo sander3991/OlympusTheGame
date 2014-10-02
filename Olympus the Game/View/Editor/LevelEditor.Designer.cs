@@ -52,6 +52,7 @@
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.EntityCount = new System.Windows.Forms.Label();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,12 +290,22 @@
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
             this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
+            // EntityCount
+            // 
+            this.EntityCount.AutoSize = true;
+            this.EntityCount.Location = new System.Drawing.Point(950, 50);
+            this.EntityCount.Name = "EntityCount";
+            this.EntityCount.Size = new System.Drawing.Size(35, 13);
+            this.EntityCount.TabIndex = 25;
+            this.EntityCount.Text = "label1";
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1084, 696);
+            this.Controls.Add(this.EntityCount);
             this.Controls.Add(this.Spider);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
@@ -351,6 +362,7 @@
         private System.Windows.Forms.ToolStripMenuItem Opslaan;
         private System.Windows.Forms.ToolStripMenuItem Inladen;
         private System.Windows.Forms.ToolStripMenuItem Afsluiten;
+        private System.Windows.Forms.Label EntityCount;
 
     }
 }
