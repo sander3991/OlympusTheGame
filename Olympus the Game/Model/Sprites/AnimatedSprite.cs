@@ -9,7 +9,7 @@ namespace Olympus_the_Game
     {
         protected int duration;
         protected int start;
-        public abstract int FrameID {get;set;}
+        
         public AnimatedSprite(int width, int height, int x, int y)
             : base(width, height, x, y)
         {
