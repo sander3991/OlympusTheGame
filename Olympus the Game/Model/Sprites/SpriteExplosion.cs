@@ -7,12 +7,11 @@ namespace Olympus_the_Game
 {
     class SpriteExplosion : AnimatedSprite
     {
-        private static int frameCount = 25;
-        public override int FrameID
+        public override float Frame
         {
             get
             {
-                return frameCount * (Environment.TickCount - start) / duration;
+                return (float)(Environment.TickCount - start) / (float)duration;
             }
             set { }
         }

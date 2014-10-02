@@ -117,7 +117,7 @@ namespace Olympus_the_Game.View
             
 
             //  Draw picture
-            g.DrawImageUnscaled(bm[go.FrameID],
+            g.DrawImageUnscaled(bm[go.Frame],
                 target);
 
             AnimatedSprite sprite = go as AnimatedSprite;

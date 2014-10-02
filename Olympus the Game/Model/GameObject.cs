@@ -18,6 +18,7 @@ namespace Olympus_the_Game
         UNKNOWN,
         SPRITEEXPLOSION
     }
+
     public abstract class GameObject
     {
         private int x;
@@ -26,11 +27,14 @@ namespace Olympus_the_Game
         private int width;
         public ObjectType Type { get; protected set; }
 
-        public virtual int FrameID
+        /// <summary>
+        /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
+        /// </summary>
+        public virtual float Frame
         {
             get
             {
-                return -1;
+                return -1.0f;
             }
             set { }
         }
@@ -86,10 +90,7 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Width <= OlympusTheGame.INSTANCE.Playfield.WIDTH)
-                        x = value;
-                    else
-                        x = OlympusTheGame.INSTANCE.Playfield.WIDTH - Width;
+                    x = value;
                 else
                     x = 0;
             }
@@ -106,10 +107,7 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Height <= OlympusTheGame.INSTANCE.Playfield.HEIGHT)
-                        y = value;
-                    else
-                        y = OlympusTheGame.INSTANCE.Playfield.HEIGHT - Height;
+                    y = value;
                 else
                     y = 0;
             }

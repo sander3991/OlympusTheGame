@@ -31,7 +31,7 @@ namespace Olympus_the_Game.View.Imaging
         public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
         {
             this.Image = bm;
-            
+
             this.Cyclic = cyclic;
 
             if (countX > 0 && countY > 0 && countX * countY > 1)
@@ -48,25 +48,26 @@ namespace Olympus_the_Game.View.Imaging
 
         }
 
-        public Bitmap this[int index]
+        public Bitmap this[float index]
         {
             get
             {
-                if (index < -1)
+                if (index < -1.0f)
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                else if (index == -1)
+                else if (index == -1.0f)
                 {
                     return this.Image;
                 }
                 else if (this.Cyclic)
                 {
-                    return Images[index % Images.Count];
+                    int a = (int)(index * (float)Images.Count);
+                    return Images[a% Images.Count];
                 }
-                else if (index < Images.Count)
+                else if (index < 1.0f)
                 {
-                    return Images[index];
+                    return Images[(int)(index * (float)(Images.Count-1))];
                 }
                 else
                 {
