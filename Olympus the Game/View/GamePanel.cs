@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Olympus_the_Game.View
 {
@@ -44,7 +46,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// List of images used by this view
         /// </summary>
-        private Dictionary<Type, Bitmap> ImageList = new Dictionary<Type, Bitmap>();
+        private Dictionary<ObjectType, Bitmap> ImageList = new Dictionary<ObjectType, Bitmap>();
 
         /// <summary>
         /// De maximale Size die dit GamePanel mag hebben.
@@ -77,14 +79,15 @@ namespace Olympus_the_Game.View
         private void Init(object sender, EventArgs e)
         {
             // Build imagelist
-            this.ImageList.Add(typeof(EntityCreeper), Properties.Resources.creeper);
-            this.ImageList.Add(typeof(EntityExplode), Properties.Resources.tnt);
-            this.ImageList.Add(typeof(EntitySlower), Properties.Resources.spider);
-            this.ImageList.Add(typeof(EntityPlayer), Properties.Resources.player);
-            this.ImageList.Add(typeof(EntityTimeBomb), Properties.Resources.timebomb);
-            this.ImageList.Add(typeof(ObjectStart), Properties.Resources.huis);
-            this.ImageList.Add(typeof(ObjectFinish), Properties.Resources.cake);
-            this.ImageList.Add(typeof(ObjectObstacle), Properties.Resources.cobble);
+            this.ImageList.Add(ObjectType.CREEPER, ConvertBitmap(Properties.Resources.creeper));
+            this.ImageList.Add(ObjectType.EXPLODE, ConvertBitmap(Properties.Resources.tnt));
+            this.ImageList.Add(ObjectType.SLOWER, ConvertBitmap(Properties.Resources.spider));
+            this.ImageList.Add(ObjectType.PLAYER, ConvertBitmap(Properties.Resources.player));
+            this.ImageList.Add(ObjectType.TIMEBOMB, ConvertBitmap(Properties.Resources.timebomb));
+            this.ImageList.Add(ObjectType.HOME, ConvertBitmap(Properties.Resources.huis));
+            this.ImageList.Add(ObjectType.CAKE, ConvertBitmap(Properties.Resources.cake));
+            this.ImageList.Add(ObjectType.OBSTACLE, ConvertBitmap(Properties.Resources.cobble));
+            this.ImageList.Add(ObjectType.UNKNOWN, ConvertBitmap(Properties.Resources.missing));
 
             // Change border style
             this.BorderStyle = BorderStyle.FixedSingle;
@@ -100,25 +103,35 @@ namespace Olympus_the_Game.View
 
         #region Draw Functions
 
+        /// <summary>
+        /// Converts Bitmap to BitmapData
+        /// </summary>
+        /// <param name="bm"></param>
+        /// <returns></returns>
+        private Bitmap ConvertBitmap(Bitmap bm)
+        {
+            return new Bitmap(bm, new Size(50, 50));
+        }
+
         private void draw(GameObject go, Graphics g)
         {
+
             // Select bitmap
             Bitmap bm = null;
-            ImageList.TryGetValue(go.GetType(), out bm);
-            if (bm == null)
-                bm = Properties.Resources.missing; // TODO Change not implemented picture
+            ImageList.TryGetValue(go.Type, out bm);
+            if (bm == null) return;
+
+            Size s = new Size((int)((float)go.Width * SCALE),(int)((float)go.Height * SCALE));
 
             // Generate target rectangle
-            Rectangle target = new Rectangle(
-                TranslatePlayFieldToPanel(new Point(go.X, go.Y)),
-                new Size((int)((float)go.Width * SCALE),
-                (int)((float)go.Height * SCALE)));
+            //Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
+            Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), new Size(go.Width, go.Height));
+            // Set scale
+            //g.Transform = new Matrix((float)SCALE, 0.0f , 0.0f, (float)SCALE, 0.0f, 0.0f);
 
             //  Draw picture
-            g.DrawImage(bm,
-                target,
-                new Rectangle(0, 0, bm.Width, bm.Height),
-                System.Drawing.GraphicsUnit.Pixel);
+            g.DrawImageUnscaledAndClipped(bm,
+                target);
 
             // Add border
             Pen p = new Pen(Brushes.Black);
