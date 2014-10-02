@@ -49,7 +49,8 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void InfoBox_Load(object sender, EventArgs e)
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             HealthHearts(OlympusTheGame.INSTANCE.Playfield.Player.Health);
         }
