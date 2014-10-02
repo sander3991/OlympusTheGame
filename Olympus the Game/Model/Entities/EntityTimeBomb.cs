@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Olympus_the_Game;
+using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
@@ -23,7 +24,8 @@ namespace Olympus_the_Game
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         /// <param name="effectStrength">De sterkte van het object</param>
-        public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy, effectStrength)
+        public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength)
+            : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
@@ -39,28 +41,34 @@ namespace Olympus_the_Game
         /// <param name="dx">De standaard verandering in de X</param>
         /// <param name="dy">De standaard verandering in de Y</param>
         /// <param name="effectStrength">De sterkte van het object</param>
-        public EntityTimeBomb(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { 
-        
-        
+        public EntityTimeBomb(int width, int height, int x, int y, double effectStrength)
+            : this(width, height, x, y, 0, 0, effectStrength)
+        {
+
+
         }
 
-        public void OnUpdate() {
+        public void OnUpdate()
+        {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
 
-            if(player != null) {
-                if(DistanceToObject(player) < 100) {
-                    player.Health--;
-
-                    if(player.Health > 0) {
-                        player.X = 0;
-                        player.Y = 0;
-                    } else {
-                        /**
-                         * Here be dragons
-                         * Just kidding, hier is code voor game over scherm wanneer klaar
-                        **/
+            if (player != null)
+            {
+                var stopwatch = Stopwatch.StartNew();
+                
+                if (DistanceToObject(player) < 200)
+                {
+                    if (DistanceToObject(player) < 200 && stopwatch.IsRunning == true)
+                    {
+                        stopwatch.Stop();
+                        if (stopwatch.ElapsedMilliseconds >= 1)
+                        {
+                            OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
+                        }
                     }
+                     
                 }
+
             }
         }
 
