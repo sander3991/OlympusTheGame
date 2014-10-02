@@ -65,38 +65,38 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 101);
+            this.button1.Location = new System.Drawing.Point(251, 108);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 21);
+            this.button1.Size = new System.Drawing.Size(76, 40);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Aanpassen";
+            this.button1.Text = "Aanpassen Toetsen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(24, 101);
+            this.textBox4.Location = new System.Drawing.Point(278, 82);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(21, 20);
             this.textBox4.TabIndex = 10;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(24, 75);
+            this.textBox3.Location = new System.Drawing.Point(278, 56);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(21, 20);
             this.textBox3.TabIndex = 9;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(24, 49);
+            this.textBox2.Location = new System.Drawing.Point(251, 82);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(21, 20);
             this.textBox2.TabIndex = 8;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 23);
+            this.textBox1.Location = new System.Drawing.Point(305, 82);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(21, 20);
             this.textBox1.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.ArrowKeyRight.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyRight.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowright;
-            this.ArrowKeyRight.Location = new System.Drawing.Point(216, 132);
+            this.ArrowKeyRight.Location = new System.Drawing.Point(216, 154);
             this.ArrowKeyRight.Name = "ArrowKeyRight";
             this.ArrowKeyRight.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyRight.TabIndex = 4;
@@ -130,7 +130,7 @@
             // 
             this.ArrowKeyLeft.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyLeft.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowleft;
-            this.ArrowKeyLeft.Location = new System.Drawing.Point(24, 132);
+            this.ArrowKeyLeft.Location = new System.Drawing.Point(24, 154);
             this.ArrowKeyLeft.Name = "ArrowKeyLeft";
             this.ArrowKeyLeft.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyLeft.TabIndex = 3;
@@ -142,7 +142,7 @@
             // 
             this.ArrowKeyDown.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyDown.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowdown;
-            this.ArrowKeyDown.Location = new System.Drawing.Point(120, 132);
+            this.ArrowKeyDown.Location = new System.Drawing.Point(120, 154);
             this.ArrowKeyDown.Name = "ArrowKeyDown";
             this.ArrowKeyDown.Size = new System.Drawing.Size(90, 84);
             this.ArrowKeyDown.TabIndex = 2;
@@ -154,7 +154,7 @@
             // 
             this.ArrowKeyUp.ForeColor = System.Drawing.Color.Transparent;
             this.ArrowKeyUp.Image = global::Olympus_the_Game.Properties.Resources.rsz_arrowup;
-            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 42);
+            this.ArrowKeyUp.Location = new System.Drawing.Point(120, 64);
             this.ArrowKeyUp.Name = "ArrowKeyUp";
             this.ArrowKeyUp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
