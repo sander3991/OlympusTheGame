@@ -88,6 +88,7 @@
     <Compile Include="View\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ImagePool.cs" />
     <Compile Include="View\InfoBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +237,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\058a34b66523f7646810c354f4734bd9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\beach.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\hell.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="beach.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hell.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beach.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hell.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

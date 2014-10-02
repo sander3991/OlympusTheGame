@@ -20,8 +20,8 @@ namespace Olympus_the_Game
         /// Deze wordt gebruikt voor alle events die niet zo vaak hoeven te gebeuren, zoals updaten statistiek etc.
         /// </summary>
         public event Action UpdateSlowEvents;
-        
-       
+
+        // Toetsen die worden toegewezen door gebruiker
         public int CustomRight { get; set; }
         public int CustomLeft { get; set; }
         public int CustomUp { get; set; }
@@ -56,23 +56,8 @@ namespace Olympus_the_Game
             {
                 CustomMovePlayer(e, 2);
             }
-            
         }
 
-        private void CustomMovePlayer(KeyEventArgs e, int speed)
-        {
-            if (e.KeyValue == CustomRight)
-                MovePlayer(speed, true);
-
-            else if (e.KeyValue == CustomLeft)
-                MovePlayer(-speed, true);
-
-            else if (e.KeyValue == CustomDown)
-                MovePlayer(speed, false);
-
-            else if (e.KeyValue == CustomUp)
-                MovePlayer(-speed, false);
-        }
         /// <summary>
         /// Stuurt informatie door als de gebruiker een toets loslaat.
         /// </summary>
@@ -126,6 +111,25 @@ namespace Olympus_the_Game
                 OlympusTheGame.INSTANCE.Playfield.Player.DX = speed;
             else
                 OlympusTheGame.INSTANCE.Playfield.Player.DY = speed;
+        }
+        /// <summary>
+        /// Stuur de player aan met de door de gebruiker ingestelde controls
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="speed"></param>
+        private void CustomMovePlayer(KeyEventArgs e, int speed)
+        {
+            if (e.KeyValue == CustomRight)
+                MovePlayer(speed, true);
+
+            else if (e.KeyValue == CustomLeft)
+                MovePlayer(-speed, true);
+
+            else if (e.KeyValue == CustomDown)
+                MovePlayer(speed, false);
+
+            else if (e.KeyValue == CustomUp)
+                MovePlayer(-speed, false);
         }
 
         public void Update()
