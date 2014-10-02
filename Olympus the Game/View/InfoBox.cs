@@ -14,21 +14,7 @@ namespace Olympus_the_Game.View
         public InfoBox()
         {
             InitializeComponent();
-            HealthHearts();
         }
-
-        public void HealthHearts()
-        {
-            int Health = OlympusTheGame.INSTANCE.Playfield.Player.Health;
-            
-            
-            
-            
-            
-            
-           
-        }
-
 
     }
 }
