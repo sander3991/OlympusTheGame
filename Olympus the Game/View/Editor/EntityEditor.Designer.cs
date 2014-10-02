@@ -31,11 +31,7 @@
             this.ToepassenEntity = new System.Windows.Forms.Button();
             this.EntityNaamLabel = new System.Windows.Forms.Label();
             this.EntityUitleg = new System.Windows.Forms.RichTextBox();
-            this.TextureInput = new System.Windows.Forms.ComboBox();
-            this.SpeedInput = new System.Windows.Forms.TextBox();
             this.YLocationInput = new System.Windows.Forms.TextBox();
-            this.ObjectTexture = new System.Windows.Forms.Label();
-            this.EntitySpeed = new System.Windows.Forms.Label();
             this.EntityYLocation = new System.Windows.Forms.Label();
             this.EntityXLocation = new System.Windows.Forms.Label();
             this.XLocationInput = new System.Windows.Forms.TextBox();
@@ -56,9 +52,8 @@
             this.EntityNaamLabel.AutoSize = true;
             this.EntityNaamLabel.Location = new System.Drawing.Point(48, 13);
             this.EntityNaamLabel.Name = "EntityNaamLabel";
-            this.EntityNaamLabel.Size = new System.Drawing.Size(50, 13);
+            this.EntityNaamLabel.Size = new System.Drawing.Size(0, 13);
             this.EntityNaamLabel.TabIndex = 37;
-            this.EntityNaamLabel.Text = "Creeper1";
             // 
             // EntityUitleg
             // 
@@ -71,50 +66,12 @@
             this.EntityUitleg.Text = "Pas meerdere waardes aan van de geselecteerde entity door middel van deze DetailE" +
     "ditor.";
             // 
-            // TextureInput
-            // 
-            this.TextureInput.FormattingEnabled = true;
-            this.TextureInput.Items.AddRange(new object[] {
-            "Wood",
-            "Cobblestone",
-            "Bricks",
-            "Gold"});
-            this.TextureInput.Location = new System.Drawing.Point(203, 143);
-            this.TextureInput.Name = "TextureInput";
-            this.TextureInput.Size = new System.Drawing.Size(100, 21);
-            this.TextureInput.TabIndex = 35;
-            // 
-            // SpeedInput
-            // 
-            this.SpeedInput.Location = new System.Drawing.Point(203, 112);
-            this.SpeedInput.Name = "SpeedInput";
-            this.SpeedInput.Size = new System.Drawing.Size(100, 20);
-            this.SpeedInput.TabIndex = 34;
-            // 
             // YLocationInput
             // 
             this.YLocationInput.Location = new System.Drawing.Point(203, 80);
             this.YLocationInput.Name = "YLocationInput";
             this.YLocationInput.Size = new System.Drawing.Size(100, 20);
             this.YLocationInput.TabIndex = 33;
-            // 
-            // ObjectTexture
-            // 
-            this.ObjectTexture.AutoSize = true;
-            this.ObjectTexture.Location = new System.Drawing.Point(148, 146);
-            this.ObjectTexture.Name = "ObjectTexture";
-            this.ObjectTexture.Size = new System.Drawing.Size(49, 13);
-            this.ObjectTexture.TabIndex = 32;
-            this.ObjectTexture.Text = "Texture: ";
-            // 
-            // EntitySpeed
-            // 
-            this.EntitySpeed.AutoSize = true;
-            this.EntitySpeed.Location = new System.Drawing.Point(148, 115);
-            this.EntitySpeed.Name = "EntitySpeed";
-            this.EntitySpeed.Size = new System.Drawing.Size(44, 13);
-            this.EntitySpeed.TabIndex = 31;
-            this.EntitySpeed.Text = "Speed: ";
             // 
             // EntityYLocation
             // 
@@ -143,7 +100,7 @@
             // 
             // EntityImageLarge
             // 
-            this.EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
+            this.EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.missing;
             this.EntityImageLarge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EntityImageLarge.Location = new System.Drawing.Point(9, 44);
             this.EntityImageLarge.Name = "EntityImageLarge";
@@ -157,11 +114,7 @@
             this.Controls.Add(this.ToepassenEntity);
             this.Controls.Add(this.EntityNaamLabel);
             this.Controls.Add(this.EntityUitleg);
-            this.Controls.Add(this.TextureInput);
-            this.Controls.Add(this.SpeedInput);
             this.Controls.Add(this.YLocationInput);
-            this.Controls.Add(this.ObjectTexture);
-            this.Controls.Add(this.EntitySpeed);
             this.Controls.Add(this.EntityYLocation);
             this.Controls.Add(this.EntityXLocation);
             this.Controls.Add(this.XLocationInput);
@@ -178,11 +131,7 @@
         private System.Windows.Forms.Button ToepassenEntity;
         private System.Windows.Forms.Label EntityNaamLabel;
         private System.Windows.Forms.RichTextBox EntityUitleg;
-        private System.Windows.Forms.ComboBox TextureInput;
-        private System.Windows.Forms.TextBox SpeedInput;
         private System.Windows.Forms.TextBox YLocationInput;
-        private System.Windows.Forms.Label ObjectTexture;
-        private System.Windows.Forms.Label EntitySpeed;
         private System.Windows.Forms.Label EntityYLocation;
         private System.Windows.Forms.Label EntityXLocation;
         private System.Windows.Forms.TextBox XLocationInput;

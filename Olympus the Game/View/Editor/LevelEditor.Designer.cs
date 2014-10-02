@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -116,9 +117,10 @@
             this.richTextBox7.Location = new System.Drawing.Point(935, 498);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(131, 58);
+            this.richTextBox7.Size = new System.Drawing.Size(131, 99);
             this.richTextBox7.TabIndex = 13;
-            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.";
+            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben.\n\nDubbelklik op een en" +
+    "titeit om deze in de EntityEditor aan te passen.";
             // 
             // Creeper
             // 
@@ -254,6 +256,7 @@
             // 
             // speelveldEditor1
             // 
+            this.speelveldEditor1.EnteredSize = new System.Drawing.Size(0, 0);
             this.speelveldEditor1.Location = new System.Drawing.Point(12, 498);
             this.speelveldEditor1.Name = "speelveldEditor1";
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
@@ -274,6 +277,8 @@
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
             this.gamePanelEditor.Name = "gamePanelEditor";
+            playField1.Name = "Map_1";
+            this.gamePanelEditor.Playfield = playField1;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);

@@ -109,12 +109,12 @@ namespace Olympus_the_Game
             {
                 if (player.CollidesWithObject(o))
                 {
-                    o.OnCollide(player);
                     if (o.IsSolid)
                     {
                         player.X = player.PreviousX;
                         player.Y = player.PreviousY;
                     }
+                    o.OnCollide(player);
                 }
             }
             List<GameObject> listWithPlayer = new List<GameObject>(gameObjects);
