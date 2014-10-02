@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -117,11 +117,9 @@
             this.richTextBox7.Location = new System.Drawing.Point(935, 498);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(131, 113);
+            this.richTextBox7.Size = new System.Drawing.Size(131, 163);
             this.richTextBox7.TabIndex = 13;
-            this.richTextBox7.Text = "Versleep de entiteiten in het veld waar jij ze wilt hebben, of gebruik de toetese" +
-    "n 1 tot en met 8.\n\nDubbelklik op een entiteit om deze in de EntityEditor aan te " +
-    "passen.";
+            this.richTextBox7.Text = resources.GetString("richTextBox7.Text");
             // 
             // Creeper
             // 
@@ -278,8 +276,8 @@
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
             this.gamePanelEditor.Name = "gamePanelEditor";
-            playField1.Name = "Map_1";
-            this.gamePanelEditor.Playfield = playField1;
+            playField2.Name = "Map_1";
+            this.gamePanelEditor.Playfield = playField2;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.Load += new System.EventHandler(this.Load);
