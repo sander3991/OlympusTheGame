@@ -33,8 +33,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>
-        public int Height
-        {
+        public int Height { 
             get
             {
                 return height;
@@ -50,15 +49,14 @@ namespace Olympus_the_Game
         /// <summary>
         /// De breedte van het GameObject
         /// </summary>
-        public int Width
-        {
+        public int Width {
             get
             {
                 return width;
             }
             private set
             {
-                if (value >= 0)
+                if(value >= 0)
                     width = value;
                 else
                     width = 0;
@@ -67,12 +65,43 @@ namespace Olympus_the_Game
         /// <summary>
         /// De X positie van het GameObject
         /// </summary>
-        public int X { get; set; }
-
+        public int X
+        {
+            get
+            {
+                return x;
+            }
+            set
+            {
+                if (value >= 0)
+                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Width <= OlympusTheGame.INSTANCE.Playfield.WIDTH)
+                        x = value;
+                    else
+                        x = OlympusTheGame.INSTANCE.Playfield.WIDTH - Width;
+                else
+                    x = 0;
+            }
+        }
         /// <summary>
         /// De Y positie van het game-object.
         /// </summary>
-        public int Y { get; set; }
+        public int Y
+        {   
+            get
+            {
+                return y;
+            }
+            set
+            {
+                if (value >= 0)
+                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Height <= OlympusTheGame.INSTANCE.Playfield.HEIGHT)
+                        y = value;
+                    else
+                        y = OlympusTheGame.INSTANCE.Playfield.HEIGHT - Height;
+                else
+                    y = 0;
+            }
+        }
 
         /// <summary>
         /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
@@ -101,10 +130,10 @@ namespace Olympus_the_Game
         /// <returns>De afstand tussen de twee game-objecten</returns>
         public double DistanceToObject(GameObject entity)
         {
-            int xDistance = entity.X + (entity.Width / 2) - X - (Width / 2); //bekijkt de afstand van het midden van beide objecten
-            int yDistance = entity.Y + (entity.Height / 2) - Y - (Height / 2); //bekijkt de afstand van het midden van beide objecten
+            int xDistance = entity.X + (entity.Width/2) - X - (Width/2); //bekijkt de afstand van het midden van beide objecten
+            int yDistance = entity.Y + (entity.Height / 2) - Y - (Height/2); //bekijkt de afstand van het midden van beide objecten
             double result = Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
-            return result;
+            return result; 
         }
         /// <summary>
         /// Helper method om te bepalen of de Y assen van de objecten elkaar kruisen
@@ -113,8 +142,8 @@ namespace Olympus_the_Game
         /// <returns>True als ze elkaar kruisen, anders false</returns>
         public bool CollidesWithY(GameObject entity)
         {
-            if (Y >= entity.Y)
-                return (entity.Y + entity.Height) > Y;
+            if(Y >= entity.Y)
+                return  (entity.Y + entity.Height) > Y;
             return (Y + Height) > entity.Y;
         }
         /// <summary>
@@ -124,7 +153,7 @@ namespace Olympus_the_Game
         /// <returns>True als ze elkaar kruisen, anders false</returns>
         public bool CollidesWithX(GameObject entity)
         {
-            if (X >= entity.X)
+            if( X >= entity.X )
                 return (entity.X + entity.Width) > X;
             return (X + Width) > entity.X;
         }
@@ -145,7 +174,7 @@ namespace Olympus_the_Game
         /// <param name="gameObject">Het object waarmee gekruist wordt</param>
         public virtual void OnCollide(GameObject gameObject)
         {
-
+            
         }
     }
 }
