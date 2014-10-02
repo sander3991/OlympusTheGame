@@ -108,7 +108,30 @@ namespace Olympus_the_Game.View
             //int wat = Convert.ToInt32(textBox1.Text[0]);
             //MessageBox.Show(wat.ToString());
         }
-        
+        /// <summary>
+        /// Selecteer alle tekst als user er in staat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (!string.IsNullOrEmpty(tb.Text))
+            {
+                tb.SelectionStart = 0;
+                tb.SelectionLength = tb.Text.Length;
+            }
+        }
+
+        private void textBox_EnterWithMouse(object sender, MouseEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (!string.IsNullOrEmpty(tb.Text))
+            {
+                tb.SelectionStart = 0;
+                tb.SelectionLength = tb.Text.Length;
+            }
+        }
     }
 }
                 

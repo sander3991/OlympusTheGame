@@ -65,41 +65,55 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(251, 108);
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 86);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Aanpassen Toetsen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Toetsen aanpassen";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(278, 82);
+            this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox4.Location = new System.Drawing.Point(30, 60);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(21, 20);
-            this.textBox4.TabIndex = 10;
+            this.textBox4.TabIndex = 3;
+            this.textBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBox4.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(278, 56);
+            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox3.Location = new System.Drawing.Point(30, 34);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(21, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBox3.TabIndex = 1;
+            this.textBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBox3.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(251, 82);
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox2.Location = new System.Drawing.Point(3, 60);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(21, 20);
-            this.textBox2.TabIndex = 8;
+            this.textBox2.TabIndex = 2;
+            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBox2.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(305, 82);
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Location = new System.Drawing.Point(57, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(21, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBox1.TabIndex = 4;
+            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBox1.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // SleepKnop
             // 
@@ -121,7 +135,7 @@
             this.ArrowKeyRight.Location = new System.Drawing.Point(216, 154);
             this.ArrowKeyRight.Name = "ArrowKeyRight";
             this.ArrowKeyRight.Size = new System.Drawing.Size(90, 84);
-            this.ArrowKeyRight.TabIndex = 4;
+            this.ArrowKeyRight.TabIndex = 9;
             this.ArrowKeyRight.UseVisualStyleBackColor = true;
             this.ArrowKeyRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
@@ -133,7 +147,7 @@
             this.ArrowKeyLeft.Location = new System.Drawing.Point(24, 154);
             this.ArrowKeyLeft.Name = "ArrowKeyLeft";
             this.ArrowKeyLeft.Size = new System.Drawing.Size(90, 84);
-            this.ArrowKeyLeft.TabIndex = 3;
+            this.ArrowKeyLeft.TabIndex = 7;
             this.ArrowKeyLeft.UseVisualStyleBackColor = true;
             this.ArrowKeyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
@@ -145,7 +159,7 @@
             this.ArrowKeyDown.Location = new System.Drawing.Point(120, 154);
             this.ArrowKeyDown.Name = "ArrowKeyDown";
             this.ArrowKeyDown.Size = new System.Drawing.Size(90, 84);
-            this.ArrowKeyDown.TabIndex = 2;
+            this.ArrowKeyDown.TabIndex = 8;
             this.ArrowKeyDown.UseVisualStyleBackColor = true;
             this.ArrowKeyDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
@@ -158,7 +172,7 @@
             this.ArrowKeyUp.Name = "ArrowKeyUp";
             this.ArrowKeyUp.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ArrowKeyUp.Size = new System.Drawing.Size(90, 84);
-            this.ArrowKeyUp.TabIndex = 1;
+            this.ArrowKeyUp.TabIndex = 6;
             this.ArrowKeyUp.UseVisualStyleBackColor = true;
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
