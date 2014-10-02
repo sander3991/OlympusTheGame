@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Olympus_the_Game
-{
-    public abstract class Entity : GameObject
+   public abstract class Entity : GameObject
     {
         /// <summary>
         /// De verandering in X per gametick.

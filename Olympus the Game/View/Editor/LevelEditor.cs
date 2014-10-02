@@ -302,7 +302,6 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
-                EntityCount.Text = pf.GetObjects().Count.ToString();
             }
 
             // Spider
