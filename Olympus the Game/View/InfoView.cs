@@ -16,10 +16,12 @@ namespace Olympus_the_Game.View
     {
         public Point MouseDownLocation { get; set; }
         public List<GameObject> Entitys { get; set; }
+        public bool IsResized { get; set; }
         public InfoView()
         {
             InitializeComponent();
         }
+       
 
         private void OnLoad(object sender, EventArgs e)
         {
@@ -27,7 +29,7 @@ namespace Olympus_the_Game.View
             
             if(OlympusTheGame.INSTANCE.Controller != null)
                 OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { update(); };
-            
+            IsResized = false;
         }
 
         /// <summary>
@@ -78,7 +80,14 @@ namespace Olympus_the_Game.View
                     listView1.Items.Add(LVItem);
                 }
             }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            if (!IsResized)
+            {
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                IsResized = true;
+            }
+                
+            
+
             
             this.Invalidate(true);
         }
