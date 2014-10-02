@@ -23,6 +23,8 @@ namespace Olympus_the_Game.View
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
+
+            int EntityCount = pf.GetObjects().Count;
         }
 
         #region Drag and Drop
