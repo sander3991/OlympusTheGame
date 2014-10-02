@@ -30,10 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButtonAanpassen = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDown = new System.Windows.Forms.TextBox();
+            this.textBoxUp = new System.Windows.Forms.TextBox();
+            this.textBoxLeft = new System.Windows.Forms.TextBox();
+            this.textBoxRight = new System.Windows.Forms.TextBox();
             this.SleepKnop = new System.Windows.Forms.Button();
             this.ArrowKeyRight = new System.Windows.Forms.Button();
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
@@ -48,10 +48,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.ButtonAanpassen);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxDown);
+            this.panel1.Controls.Add(this.textBoxUp);
+            this.panel1.Controls.Add(this.textBoxLeft);
+            this.panel1.Controls.Add(this.textBoxRight);
             this.panel1.Controls.Add(this.SleepKnop);
             this.panel1.Controls.Add(this.ArrowKeyRight);
             this.panel1.Controls.Add(this.ArrowKeyLeft);
@@ -75,45 +75,49 @@
             this.ButtonAanpassen.UseVisualStyleBackColor = false;
             this.ButtonAanpassen.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox4
+            // textBoxDown
             // 
-            this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox4.Location = new System.Drawing.Point(30, 60);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(21, 20);
-            this.textBox4.TabIndex = 3;
-            this.textBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBox4.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBoxDown.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxDown.Location = new System.Drawing.Point(30, 60);
+            this.textBoxDown.Name = "textBoxDown";
+            this.textBoxDown.Size = new System.Drawing.Size(21, 20);
+            this.textBoxDown.TabIndex = 3;
+            this.textBoxDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBoxDown.Enter += new System.EventHandler(this.textBox_Enter);
             // 
-            // textBox3
+            // textBoxUp
             // 
-            this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(30, 34);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(21, 20);
-            this.textBox3.TabIndex = 1;
-            this.textBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBox3.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBoxUp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxUp.Location = new System.Drawing.Point(30, 34);
+            this.textBoxUp.Name = "textBoxUp";
+            this.textBoxUp.Size = new System.Drawing.Size(21, 20);
+            this.textBoxUp.TabIndex = 1;
+            this.textBoxUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxUp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBoxUp.Enter += new System.EventHandler(this.textBox_Enter);
             // 
-            // textBox2
+            // textBoxLeft
             // 
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Location = new System.Drawing.Point(3, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(21, 20);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBox2.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBoxLeft.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxLeft.Location = new System.Drawing.Point(3, 60);
+            this.textBoxLeft.Name = "textBoxLeft";
+            this.textBoxLeft.Size = new System.Drawing.Size(21, 20);
+            this.textBoxLeft.TabIndex = 2;
+            this.textBoxLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxLeft.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBoxLeft.Enter += new System.EventHandler(this.textBox_Enter);
             // 
-            // textBox1
+            // textBoxRight
             // 
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Location = new System.Drawing.Point(57, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(21, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBox1.Enter += new System.EventHandler(this.textBox_Enter);
+            this.textBoxRight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxRight.Location = new System.Drawing.Point(57, 60);
+            this.textBoxRight.Name = "textBoxRight";
+            this.textBoxRight.Size = new System.Drawing.Size(21, 20);
+            this.textBoxRight.TabIndex = 4;
+            this.textBoxRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxRight.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
+            this.textBoxRight.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // SleepKnop
             // 
@@ -212,9 +216,9 @@
         private System.Windows.Forms.Label LabelControl;
         private System.Windows.Forms.Button SleepKnop;
         private System.Windows.Forms.Button ButtonAanpassen;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDown;
+        private System.Windows.Forms.TextBox textBoxUp;
+        private System.Windows.Forms.TextBox textBoxLeft;
+        private System.Windows.Forms.TextBox textBoxRight;
     }
 }

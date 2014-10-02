@@ -44,6 +44,7 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+            this.BringToFront();
         }
         /// <summary>
         /// Functie die het scherm plaatst als je die muis loslaat
@@ -56,6 +57,7 @@ namespace Olympus_the_Game.View
             {
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
+                this.BringToFront();
             }
         }
 
@@ -63,7 +65,9 @@ namespace Olympus_the_Game.View
         {
             update();
         }
-
+        /// <summary>
+        /// Update alle items in de list view
+        /// </summary>
         private void update()
         {
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
@@ -85,11 +89,9 @@ namespace Olympus_the_Game.View
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 IsResized = true;
             }
-                
-            
-
-            
             this.Invalidate(true);
         }
+
+        
     }
 }
