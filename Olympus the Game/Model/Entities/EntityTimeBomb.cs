@@ -26,7 +26,7 @@ namespace Olympus_the_Game
         public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength) : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.TIMEBOMB;
         }
         /// <summary>

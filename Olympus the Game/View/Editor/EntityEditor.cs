@@ -21,6 +21,9 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void LoadData(GameObject go)
         {
+            XLocationInput.Text = go.X.ToString();
+            YLocationInput.Text = go.Y.ToString();
+            EntityNaamLabel.Text = go.Type.ToString();
 
         }
     }

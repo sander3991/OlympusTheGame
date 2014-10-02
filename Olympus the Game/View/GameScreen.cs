@@ -14,7 +14,6 @@ namespace Olympus_the_Game.View
         public GameScreen()
         {
             InitializeComponent();
-            infoView1.Init();
         }
 
         /// <summary>

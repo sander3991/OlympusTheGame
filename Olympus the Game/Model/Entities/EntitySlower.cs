@@ -25,7 +25,7 @@
         public EntitySlower(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += OnUpdate;
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SLOWER;
         }
         /// <summary>

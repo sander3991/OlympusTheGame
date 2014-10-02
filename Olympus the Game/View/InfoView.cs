@@ -16,55 +16,20 @@ namespace Olympus_the_Game.View
     {
         public Point MouseDownLocation { get; set; }
         public List<GameObject> Entitys { get; set; }
-        private int cout = 0;
+        public bool IsResized { get; set; }
         public InfoView()
         {
             InitializeComponent();
+        }
+       
+
+        private void OnLoad(object sender, EventArgs e)
+        {
             this.DoubleBuffered = true;
-
-        }
-        /// <summary>
-        /// Vult de lijst met de start posities
-        /// </summary>
-        public void Init()
-        {
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
-            OlympusTheGame.INSTANCE.Controller.UpdateEvents += () => { Invalidate(); };
-            foreach (GameObject g in Entitys)
-            {
-                Entity e = g as Entity;
-                if (e != null)
-                {
-                    string itemNaam = e.ToString();
-                    ListViewItem LVItem = new ListViewItem(itemNaam);
-
-                    LVItem.SubItems.Add(e.X.ToString());
-                    LVItem.SubItems.Add(e.Y.ToString());
-                    listView1.Items.Add(LVItem);
-                }
-            }
-
-        }
-        /// <summary>
-        /// Update de items
-        /// </summary>
-        public void update(object sender, PaintEventArgs pea)
-        {
-            listView1.Items.Clear();
-            foreach (GameObject g in Entitys)
-            {
-                Entity e = g as Entity;
-                if (e != null)
-                {
-                    string itemNaam = e.ToString();
-                    ListViewItem LVItem = new ListViewItem(itemNaam);
-                    LVItem.SubItems.Add(e.X.ToString());
-                    LVItem.SubItems.Add(e.Y.ToString());
-                    listView1.Items.Add(LVItem);
-                }
-            }
-
-
+            
+            if(OlympusTheGame.INSTANCE.Controller != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { update(); };
+            IsResized = false;
         }
 
         /// <summary>
@@ -101,9 +66,30 @@ namespace Olympus_the_Game.View
 
         private void update()
         {
+            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+            listView1.Items.Clear();
+            foreach (GameObject g in Entitys)
+            {
+                Entity e = g as Entity;
+                if (e != null)
+                {
+                    ListViewItem LVItem = new ListViewItem(e.ToString());
+                    LVItem.SubItems.Add(e.X.ToString());
+                    LVItem.SubItems.Add(e.Y.ToString());
+                    LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
+                    listView1.Items.Add(LVItem);
+                }
+            }
+            if (!IsResized)
+            {
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                IsResized = true;
+            }
+                
+            
 
+            
+            this.Invalidate(true);
         }
-
-
     }
 }

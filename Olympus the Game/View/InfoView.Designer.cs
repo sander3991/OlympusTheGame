@@ -39,15 +39,17 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.EntityName,
             this.PosX,
             this.PosY,
             this.EntitySpeed});
-            this.listView1.GridLines = true;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.Location = new System.Drawing.Point(-8, -1);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(248, 436);
+            this.listView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listView1.Size = new System.Drawing.Size(270, 520);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -71,12 +73,11 @@
             // DragButton
             // 
             this.DragButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
-            this.DragButton.Location = new System.Drawing.Point(200, 441);
+            this.DragButton.Location = new System.Drawing.Point(197, 447);
             this.DragButton.Name = "DragButton";
             this.DragButton.Size = new System.Drawing.Size(40, 40);
             this.DragButton.TabIndex = 3;
             this.DragButton.UseVisualStyleBackColor = true;
-            this.DragButton.Click += new System.EventHandler(this.DragButton_Click);
             this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
             this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 
@@ -88,7 +89,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "InfoView";
             this.Size = new System.Drawing.Size(240, 487);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.update);
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 
         }
