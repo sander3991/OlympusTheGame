@@ -24,6 +24,8 @@ namespace Olympus_the_Game.View
             XLocationInput.Text = go.X.ToString();
             YLocationInput.Text = go.Y.ToString();
             EntityNaamLabel.Text = go.Type.ToString();
+            
+
             if (go.Type.ToString() == "CREEPER")
             {
                 EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
@@ -58,5 +60,6 @@ namespace Olympus_the_Game.View
             }
 
         }
+
     }
 }

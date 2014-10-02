@@ -31,9 +31,7 @@
             this.ToepassenEntity = new System.Windows.Forms.Button();
             this.EntityNaamLabel = new System.Windows.Forms.Label();
             this.EntityUitleg = new System.Windows.Forms.RichTextBox();
-            this.TextureInput = new System.Windows.Forms.ComboBox();
             this.YLocationInput = new System.Windows.Forms.TextBox();
-            this.ObjectTexture = new System.Windows.Forms.Label();
             this.EntityYLocation = new System.Windows.Forms.Label();
             this.EntityXLocation = new System.Windows.Forms.Label();
             this.XLocationInput = new System.Windows.Forms.TextBox();
@@ -68,34 +66,12 @@
             this.EntityUitleg.Text = "Pas meerdere waardes aan van de geselecteerde entity door middel van deze DetailE" +
     "ditor.";
             // 
-            // TextureInput
-            // 
-            this.TextureInput.FormattingEnabled = true;
-            this.TextureInput.Items.AddRange(new object[] {
-            "Wood",
-            "Cobblestone",
-            "Bricks",
-            "Gold"});
-            this.TextureInput.Location = new System.Drawing.Point(203, 143);
-            this.TextureInput.Name = "TextureInput";
-            this.TextureInput.Size = new System.Drawing.Size(100, 21);
-            this.TextureInput.TabIndex = 35;
-            // 
             // YLocationInput
             // 
             this.YLocationInput.Location = new System.Drawing.Point(203, 80);
             this.YLocationInput.Name = "YLocationInput";
             this.YLocationInput.Size = new System.Drawing.Size(100, 20);
             this.YLocationInput.TabIndex = 33;
-            // 
-            // ObjectTexture
-            // 
-            this.ObjectTexture.AutoSize = true;
-            this.ObjectTexture.Location = new System.Drawing.Point(148, 146);
-            this.ObjectTexture.Name = "ObjectTexture";
-            this.ObjectTexture.Size = new System.Drawing.Size(49, 13);
-            this.ObjectTexture.TabIndex = 32;
-            this.ObjectTexture.Text = "Texture: ";
             // 
             // EntityYLocation
             // 
@@ -138,9 +114,7 @@
             this.Controls.Add(this.ToepassenEntity);
             this.Controls.Add(this.EntityNaamLabel);
             this.Controls.Add(this.EntityUitleg);
-            this.Controls.Add(this.TextureInput);
             this.Controls.Add(this.YLocationInput);
-            this.Controls.Add(this.ObjectTexture);
             this.Controls.Add(this.EntityYLocation);
             this.Controls.Add(this.EntityXLocation);
             this.Controls.Add(this.XLocationInput);
@@ -157,9 +131,7 @@
         private System.Windows.Forms.Button ToepassenEntity;
         private System.Windows.Forms.Label EntityNaamLabel;
         private System.Windows.Forms.RichTextBox EntityUitleg;
-        private System.Windows.Forms.ComboBox TextureInput;
         private System.Windows.Forms.TextBox YLocationInput;
-        private System.Windows.Forms.Label ObjectTexture;
         private System.Windows.Forms.Label EntityYLocation;
         private System.Windows.Forms.Label EntityXLocation;
         private System.Windows.Forms.TextBox XLocationInput;
