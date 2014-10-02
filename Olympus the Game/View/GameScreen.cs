@@ -37,6 +37,10 @@ namespace Olympus_the_Game.View
 
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
+            OlympusTheGame.INSTANCE.Controller.CustomRight = 76;
+            OlympusTheGame.INSTANCE.Controller.CustomLeft = 74;
+            OlympusTheGame.INSTANCE.Controller.CustomUp = 73;
+            OlympusTheGame.INSTANCE.Controller.CustomDown = 75;
             OlympusTheGame.INSTANCE.Controller.OnKeyDown(e);
         }
 

@@ -266,8 +266,8 @@ namespace Olympus_the_Game.View
         }
 
         /// <summary>
-        /// Bij een dubbelklik word gekeken waarop is geklikt, vervolgens kan
-        /// dit worden gebruikt voor de EntityEditor
+        /// Bij een dubbelklik word gekeken waarop is geklikt, vervolgens word
+        /// dit doorgestuurd naar de EntityEdit in de LevelEditor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -275,7 +275,6 @@ namespace Olympus_the_Game.View
         {
             GameObject go = this.gamePanelEditor.getObjectAtCursor();
             this.entityEditor1.LoadData(go);
-            
         }
 
         private void ApplyPlayfieldChanges()
