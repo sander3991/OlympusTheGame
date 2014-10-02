@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game{
    public abstract class Entity : GameObject
     {
         /// <summary>
