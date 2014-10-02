@@ -96,7 +96,7 @@ namespace Olympus_the_Game.View
                     OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
 
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 MessageBox.Show("Onjuiste toetsen geselecteerd");
             }

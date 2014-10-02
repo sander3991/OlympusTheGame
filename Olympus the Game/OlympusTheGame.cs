@@ -60,12 +60,14 @@ namespace Olympus_the_Game
         /// </summary>
         private void Start()
         {
+            // Read PlayField
             this.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
             if (this.Playfield == null)
             {
                 this.Playfield = new PlayField();
                 this.Playfield.InitializeGameObjects();
             }
+
             // Add gameloop to timer
             GameTimer.Tick += this.Controller.ExecuteUpdateGameEvent;
             GameTimer.Interval = 10;
@@ -79,6 +81,9 @@ namespace Olympus_the_Game
 
             // Maak gamescreen aan
             gs = new GameScreen();
+
+            // Add PlayField to GameScreen
+            gs.gamePanel1.Playfield = this.Playfield;
 
             // Start timers
             GameTimer.Start();

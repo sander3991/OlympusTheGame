@@ -8,8 +8,6 @@ namespace Olympus_the_Game
 {
     public abstract class Entity : GameObject
     {
-        private int dx;
-        private int dy;
         /// <summary>
         /// De verandering in X per gametick.
         /// </summary>
