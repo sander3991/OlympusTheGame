@@ -23,7 +23,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void LoadData(GameObject go)
         {
-            
+
             // Deze if statement is nodig om een NullReference error te voorkomen
             if (go != null)
             {
@@ -38,7 +38,7 @@ namespace Olympus_the_Game.View
                 YLocationInput.Text = go.Y.ToString();
                 EntityNaamLabel.Text = go.Type.ToString();
 
-               // Bewaar GameObject
+                // Bewaar GameObject
                 SelectedObject = go;
 
 
