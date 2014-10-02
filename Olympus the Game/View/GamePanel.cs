@@ -120,9 +120,14 @@ namespace Olympus_the_Game.View
             g.DrawImageUnscaled(bm[go.FrameID],
                 target);
 
+            AnimatedSprite sprite = go as AnimatedSprite;
             // Add border
-            Pen p = new Pen(Brushes.Black);
-            g.DrawRectangle(p, target);
+            if (sprite == null)
+            {
+                Pen p = new Pen(Brushes.Black);
+                g.DrawRectangle(p, target);
+
+            }
         }
 
         private void Repaint(Graphics g)
