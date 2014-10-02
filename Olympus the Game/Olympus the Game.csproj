@@ -260,6 +260,9 @@
     <None Include="Resources\hell.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hart1.gif" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\SpriteExplosion.bmp" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>

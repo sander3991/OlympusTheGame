@@ -62,7 +62,8 @@
             this.EntityUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EntityUitleg.Location = new System.Drawing.Point(322, 50);
             this.EntityUitleg.Name = "EntityUitleg";
-            this.EntityUitleg.Size = new System.Drawing.Size(174, 119);
+            this.EntityUitleg.ReadOnly = true;
+            this.EntityUitleg.Size = new System.Drawing.Size(174, 59);
             this.EntityUitleg.TabIndex = 36;
             this.EntityUitleg.Text = "Pas meerdere waardes aan van de geselecteerde entity door middel van deze DetailE" +
     "ditor.";

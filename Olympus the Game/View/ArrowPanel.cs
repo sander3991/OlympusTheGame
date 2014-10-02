@@ -17,6 +17,10 @@ namespace Olympus_the_Game.View
         public ArrowPanel()
         {
             InitializeComponent();
+            textBoxRight.MaxLength = 1;
+            textBoxLeft.MaxLength = 1;
+            textBoxUp.MaxLength = 1;
+            textBoxDown.MaxLength = 1;
         }
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
@@ -67,6 +71,7 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+            this.BringToFront();
         }
         /// <summary>
         /// Functie die het scherm plaatst als je die muis loslaat
@@ -84,23 +89,19 @@ namespace Olympus_the_Game.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //OlympusTheGame.INSTANCE.Controller.CustomRight = 76;
-            //OlympusTheGame.INSTANCE.Controller.CustomLeft = 74;
-            //OlympusTheGame.INSTANCE.Controller.CustomUp = 73;
-            //OlympusTheGame.INSTANCE.Controller.CustomDown = 75;
             try
             {
-                if (!String.IsNullOrEmpty(textBox1.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBox1.Text[0]));
-                if (!String.IsNullOrEmpty(textBox2.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBox2.Text[0]));
-                if (!String.IsNullOrEmpty(textBox3.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBox3.Text[0]));
-                if (!String.IsNullOrEmpty(textBox4.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBox4.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxRight.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxLeft.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBoxLeft.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxUp.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBoxUp.Text[0]));
+                if (!String.IsNullOrEmpty(textBoxDown.Text))
+                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBoxDown.Text[0]));
 
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 MessageBox.Show("Onjuiste toetsen geselecteerd");
             }
@@ -108,7 +109,34 @@ namespace Olympus_the_Game.View
             //int wat = Convert.ToInt32(textBox1.Text[0]);
             //MessageBox.Show(wat.ToString());
         }
-        
+        /// <summary>
+        /// Selecteer alle tekst als user er in staat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (!string.IsNullOrEmpty(tb.Text))
+            {
+                tb.SelectionStart = 0;
+                tb.SelectionLength = tb.Text.Length;
+            }
+        }
+        /// <summary>
+        /// Selecteer alle tekst als user er in klikt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox_EnterWithMouse(object sender, MouseEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (!string.IsNullOrEmpty(tb.Text))
+            {
+                tb.SelectionStart = 0;
+                tb.SelectionLength = tb.Text.Length;
+            }
+        }
     }
 }
                 

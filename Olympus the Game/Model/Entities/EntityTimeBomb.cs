@@ -13,6 +13,7 @@ namespace Olympus_the_Game
         /// De tijd hoe lang het duurt voordat deze entity explodeert
         /// </summary>
         public const int EXPLODETIME = 5;
+        Stopwatch stopwatch = Stopwatch.StartNew();
 
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
@@ -54,20 +55,19 @@ namespace Olympus_the_Game
 
             if (player != null)
             {
-                var stopwatch = Stopwatch.StartNew();
-                
-                if (DistanceToObject(player) < 200)
+
+                stopwatch.Stop();
+                if (DistanceToObject(player) < 100 && stopwatch.IsRunning == false)
                 {
-                    if (DistanceToObject(player) < 200 && stopwatch.IsRunning == true)
-                    {
-                        stopwatch.Stop();
-                        if (stopwatch.ElapsedMilliseconds >= 1)
-                        {
-                            OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
-                        }
-                    }
-                     
+                    stopwatch.Start();
                 }
+                            
+                if (stopwatch.ElapsedMilliseconds >= 3000 && DistanceToObject(player) < 100)
+                {
+                    OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
+                    stopwatch.Restart();
+                }
+
 
             }
         }

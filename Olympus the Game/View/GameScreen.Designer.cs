@@ -30,31 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
+            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
-            this.infoPanel1 = new Olympus_the_Game.View.InfoPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.infoBox1 = new Olympus_the_Game.View.InfoBox();
             this.SuspendLayout();
             // 
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(915, 602);
+            this.arrowPanel1.Location = new System.Drawing.Point(889, 536);
             this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 247);
             this.arrowPanel1.TabIndex = 3;
-            // 
-            // infoPanel1
-            // 
-            this.infoPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.infoPanel1.Location = new System.Drawing.Point(589, 560);
-            this.infoPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(258, 541);
-            this.infoPanel1.TabIndex = 0;
             // 
             // gamePanel1
             // 
@@ -62,6 +54,8 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
+            playField2.Name = "Map_0";
+            this.gamePanel1.Playfield = playField2;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
@@ -76,11 +70,19 @@
             // infoView1
             // 
             this.infoView1.Entitys = null;
+            this.infoView1.IsResized = false;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
             this.infoView1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoView1.Name = "infoView1";
             this.infoView1.Size = new System.Drawing.Size(240, 489);
             this.infoView1.TabIndex = 5;
+            // 
+            // infoBox1
+            // 
+            this.infoBox1.Location = new System.Drawing.Point(12, 536);
+            this.infoBox1.Name = "infoBox1";
+            this.infoBox1.Size = new System.Drawing.Size(692, 162);
+            this.infoBox1.TabIndex = 6;
             // 
             // GameScreen
             // 
@@ -88,9 +90,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1264, 741);
+            this.Controls.Add(this.infoBox1);
             this.Controls.Add(this.arrowPanel1);
             this.Controls.Add(this.gamePanel1);
-            this.Controls.Add(this.infoPanel1);
             this.Controls.Add(this.infoView1);
             this.Controls.Add(this.customMenuBar1);
             this.DoubleBuffered = true;
@@ -109,11 +111,11 @@
 
         #endregion
 
-        private InfoPanel infoPanel1;
         public GamePanel gamePanel1;
         private ArrowPanel arrowPanel1;
         private MenuBar.CustomMenuBar customMenuBar1;
         public InfoView infoView1;
         private System.Windows.Forms.Timer timer1;
+        private InfoBox infoBox1;
     }
 }
