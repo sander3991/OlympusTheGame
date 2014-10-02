@@ -16,5 +16,37 @@ namespace Olympus_the_Game.View
             InitializeComponent();
         }
 
+        public void HealthHearts(int Health)
+        {
+            for (int i = 0; i <= Health; i++)
+            {
+                switch (i)
+                {
+                    case (1):
+                        heart1.Visible = true;
+                        break;
+                    case (2):
+                        heart2.Visible = true;
+                        break;
+                    case (3):
+                        heart3.Visible = true;
+                        break;
+                    case (4):
+                        heart4.Visible = true;
+                        break;
+                    case (5):
+                        heart5.Visible = true;
+                        break;
+                    default:
+                        heart1.Visible = false;
+                        heart2.Visible = false;
+                        heart3.Visible = false;
+                        heart4.Visible = false;
+                        heart5.Visible = false;
+                        break;
+                }
+
+            }
+        }
     }
 }

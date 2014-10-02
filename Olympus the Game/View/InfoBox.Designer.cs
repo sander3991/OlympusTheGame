@@ -50,10 +50,10 @@
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.heart1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.heart2 = new System.Windows.Forms.PictureBox();
+            this.heart3 = new System.Windows.Forms.PictureBox();
+            this.heart4 = new System.Windows.Forms.PictureBox();
+            this.heart5 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -65,18 +65,18 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.pictureBox9);
-            this.groupBox3.Controls.Add(this.pictureBox8);
-            this.groupBox3.Controls.Add(this.pictureBox7);
-            this.groupBox3.Controls.Add(this.pictureBox6);
+            this.groupBox3.Controls.Add(this.heart5);
+            this.groupBox3.Controls.Add(this.heart4);
+            this.groupBox3.Controls.Add(this.heart3);
+            this.groupBox3.Controls.Add(this.heart2);
             this.groupBox3.Controls.Add(this.heart1);
             this.groupBox3.Controls.Add(this.richTextBox5);
             this.groupBox3.Controls.Add(this.SpelerSpeedX);
@@ -334,45 +334,45 @@
             this.heart1.TabIndex = 11;
             this.heart1.TabStop = false;
             // 
-            // pictureBox6
+            // heart2
             // 
-            this.pictureBox6.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.pictureBox6.Location = new System.Drawing.Point(40, 105);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 12;
-            this.pictureBox6.TabStop = false;
+            this.heart2.Image = global::Olympus_the_Game.Properties.Resources.hart1;
+            this.heart2.Location = new System.Drawing.Point(40, 105);
+            this.heart2.Name = "heart2";
+            this.heart2.Size = new System.Drawing.Size(29, 25);
+            this.heart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.heart2.TabIndex = 12;
+            this.heart2.TabStop = false;
             // 
-            // pictureBox7
+            // heart3
             // 
-            this.pictureBox7.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.pictureBox7.Location = new System.Drawing.Point(78, 106);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 13;
-            this.pictureBox7.TabStop = false;
+            this.heart3.Image = global::Olympus_the_Game.Properties.Resources.hart1;
+            this.heart3.Location = new System.Drawing.Point(78, 106);
+            this.heart3.Name = "heart3";
+            this.heart3.Size = new System.Drawing.Size(29, 25);
+            this.heart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.heart3.TabIndex = 13;
+            this.heart3.TabStop = false;
             // 
-            // pictureBox8
+            // heart4
             // 
-            this.pictureBox8.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.pictureBox8.Location = new System.Drawing.Point(113, 106);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 14;
-            this.pictureBox8.TabStop = false;
+            this.heart4.Image = global::Olympus_the_Game.Properties.Resources.hart1;
+            this.heart4.Location = new System.Drawing.Point(113, 106);
+            this.heart4.Name = "heart4";
+            this.heart4.Size = new System.Drawing.Size(29, 25);
+            this.heart4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.heart4.TabIndex = 14;
+            this.heart4.TabStop = false;
             // 
-            // pictureBox9
+            // heart5
             // 
-            this.pictureBox9.Image = global::Olympus_the_Game.Properties.Resources.hart1;
-            this.pictureBox9.Location = new System.Drawing.Point(152, 106);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 15;
-            this.pictureBox9.TabStop = false;
+            this.heart5.Image = global::Olympus_the_Game.Properties.Resources.hart1;
+            this.heart5.Location = new System.Drawing.Point(152, 106);
+            this.heart5.Name = "heart5";
+            this.heart5.Size = new System.Drawing.Size(29, 25);
+            this.heart5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.heart5.TabIndex = 15;
+            this.heart5.TabStop = false;
             // 
             // InfoBox
             // 
@@ -397,10 +397,10 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,10 +428,10 @@
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox heart5;
+        private System.Windows.Forms.PictureBox heart4;
+        private System.Windows.Forms.PictureBox heart3;
+        private System.Windows.Forms.PictureBox heart2;
         private System.Windows.Forms.PictureBox heart1;
     }
 }
