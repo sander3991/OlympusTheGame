@@ -111,6 +111,7 @@
             this.SpeelveldUitleg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SpeelveldUitleg.Location = new System.Drawing.Point(200, 41);
             this.SpeelveldUitleg.Name = "SpeelveldUitleg";
+            this.SpeelveldUitleg.ReadOnly = true;
             this.SpeelveldUitleg.Size = new System.Drawing.Size(164, 41);
             this.SpeelveldUitleg.TabIndex = 26;
             this.SpeelveldUitleg.Text = "Pas waardes en eigenschappen van het speelveld aan.";
