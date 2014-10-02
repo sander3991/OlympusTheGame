@@ -114,7 +114,7 @@ namespace Olympus_the_Game.View
             Bitmap bm = ImagePool.GetPicture(go.Type, s);
 
             //  Draw picture
-            g.DrawImageUnscaledAndClipped(bm,
+            g.DrawImageUnscaled(bm,
                 target);
 
             // Add border
@@ -142,7 +142,7 @@ namespace Olympus_the_Game.View
         #region Events
 
         /// <summary>
-        /// 
+        /// Wordt aangeroepen als dit Panel opnieuw moet worden getekenend.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -151,6 +151,11 @@ namespace Olympus_the_Game.View
             Repaint(e.Graphics);
         }
 
+        /// <summary>
+        /// Wordt aangeroepen als dit Panel van grootte wordt veranderd.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Panel_resized(object sender, EventArgs e)
         {
             if (Size.Empty.Equals(MAX_SIZE))
@@ -162,26 +167,47 @@ namespace Olympus_the_Game.View
 
         #region ScaleFunctions
 
+        /// <summary>
+        /// Vertaal punt van Panel coordinaten naar PlayField coordinaten
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public Point TranslatePanelToPlayField(Point p)
         {
             return new Point((int)((double)p.X / SCALE), (int)((double)p.Y / SCALE));
         }
 
+        /// <summary>
+        /// Vertaal punt van PlayField coordinaten naar Panel coordinaten
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public Point TranslatePlayFieldToPanel(Point p)
         {
             return new Point((int)((double)p.X * SCALE), (int)((double)p.Y * SCALE));
         }
 
+        /// <summary>
+        /// Geeft de locatie van de cursor ten opzichte van dit panel.
+        /// </summary>
+        /// <returns></returns>
         public Point getCursorPosition()
         {
             return this.PointToClient(Cursor.Position);
         }
 
+        /// <summary>
+        /// Geeft de locatie van de cursor in coordinaten van het PlayField
+        /// </summary>
+        /// <returns></returns>
         public Point getCursorPlayFieldPosition()
         {
             return TranslatePanelToPlayField(getCursorPosition());
         }
 
+        /// <summary>
+        /// Berekent opnieuw de schaal van dit GamePanel, en past deze daar op aan.
+        /// </summary>
         public void Recalculate()
         {
             // Fix playfield scaling
@@ -195,6 +221,10 @@ namespace Olympus_the_Game.View
 
         #region Locations
 
+        /// <summary>
+        /// Geeft het object terug waar de cursor op dit moment op staat.
+        /// </summary>
+        /// <returns></returns>
         public GameObject getObjectAtCursor()
         {
             Point p = this.getCursorPlayFieldPosition();
