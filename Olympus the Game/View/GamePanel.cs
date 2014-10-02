@@ -111,7 +111,14 @@ namespace Olympus_the_Game.View
             // Generate target rectangle
             Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
 
-            Bitmap bm = ImagePool.GetPicture(go.Type, s);
+            Bitmap bm = null;
+            if (ImagePool.IsDynamic(go.Type))
+            {
+                AnimatedSprite aspr = go as AnimatedSprite;
+                bm = ImagePool.GetDynamicPicture(go.Type, s, aspr.FrameID);
+            }
+            else
+                bm = ImagePool.GetPicture(go.Type, s);
 
             //  Draw picture
             g.DrawImageUnscaledAndClipped(bm,

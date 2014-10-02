@@ -77,6 +77,11 @@ namespace Olympus_the_Game
             return "TimeBomb";
         }
 
+        public override void OnRemoved()
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
+
 
     }
 }
