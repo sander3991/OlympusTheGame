@@ -16,6 +16,7 @@ namespace Olympus_the_Game.View
     /// </summary>
     public partial class GamePanel : UserControl
     {
+        public Point MouseDownLocation { get; set; }
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
@@ -243,5 +244,9 @@ namespace Olympus_the_Game.View
         }
 
         #endregion
+
+        
+
+        
     }
 }
