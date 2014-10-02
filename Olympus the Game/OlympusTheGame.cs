@@ -60,7 +60,7 @@ namespace Olympus_the_Game
         /// </summary>
         private void Start()
         {
-            this.Playfield = PlayField.GetFromResource(Properties.Resources.hell);
+            this.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
             if (this.Playfield == null)
             {
                 this.Playfield = new PlayField();
