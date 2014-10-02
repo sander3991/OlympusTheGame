@@ -21,7 +21,7 @@ namespace Olympus_the_Game
         /// </summary>
         public event Action UpdateSlowEvents;
         
-        public Controller(PlayField pf)
+        public Controller()
         {
             // Add Update to UpdateEvents
             UpdateGameEvents += Update;
