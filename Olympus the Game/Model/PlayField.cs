@@ -14,7 +14,7 @@ namespace Olympus_the_Game
         public int WIDTH { get; private set; }
         public int HEIGHT { get; private set; }
         private List<GameObject> gameObjects = new List<GameObject>();
-        public EntityPlayer Player {get; private set;}
+        public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
         public bool IsInitialized { get; private set; }
         public PlayField() : this(1000, 500) { }
@@ -28,11 +28,11 @@ namespace Olympus_the_Game
 
         public void InitializeGameObjects()
         {
-            if(!IsInitialized)
-                this.InitializeGameobjects(GetDefaultMap(WIDTH, HEIGHT));
+            if (!IsInitialized)
+                this.InitializeGameObjects(GetDefaultMap(WIDTH, HEIGHT));
         }
 
-        public void InitializeGameobjects(List<GameObject> objects)
+        public void InitializeGameObjects(List<GameObject> objects)
         {
             if (!IsInitialized)
             {
@@ -75,17 +75,21 @@ namespace Olympus_the_Game
         /// </summary>
         public void SetPlayerHome()
         {
+            if (Player == null)
+            {
+                Player = new EntityPlayer(50, 50, 0, 0); ;
+            }
             ObjectStart start = null;
-            foreach(GameObject o in gameObjects)
+            foreach (GameObject o in gameObjects)
             {
                 start = o as ObjectStart;
-                if(o != null)
+                if (o != null)
                     break;
             }
             if (start != null)
             {
-                Player.X = (start.X + start.Width) / 2 - (Player.Width / 2);
-                Player.Y = (start.Y + start.Height) / 2 - (Player.Height / 2);
+                Player.X = (start.X + start.Width / 2) - (Player.Width / 2);
+                Player.Y = (start.Y + start.Height / 2) - (Player.Height / 2);
             }
         }
 
@@ -116,7 +120,7 @@ namespace Olympus_the_Game
         public List<GameObject> GetObjectsAtLocation(int x, int y)
         {
             List<GameObject> objectList = new List<GameObject>();
-            for (int i = 0; i < gameObjects.Count; i++ )
+            for (int i = 0; i < gameObjects.Count; i++)
             {
                 GameObject o = gameObjects[i];
                 if (o.X <= x && (o.X + o.Width) >= x && o.Y <= y && (o.Y + o.Height) >= y)
@@ -138,11 +142,20 @@ namespace Olympus_the_Game
 
         public static PlayField GetFromXml(string fileName)
         {
-            StreamReader file = new StreamReader(fileName);
-            Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(file));
-            PlayField pf = o as PlayField;
-            file.Close();
-            return pf;
+            try
+            {
+                StreamReader file = new StreamReader(fileName);
+                Object o = (new XmlSerializer(typeof(PlayField)).Deserialize(file));
+                PlayField pf = o as PlayField;
+                file.Close();
+                return pf;
+            }
+            catch(FileNotFoundException)
+            {
+                Console.WriteLine("Bestand \"{0}\" niet gevonden", fileName);
+            }
+            return null;
+
         }
 
         public System.Xml.Schema.XmlSchema GetSchema()
@@ -153,10 +166,119 @@ namespace Olympus_the_Game
         public void ReadXml(System.Xml.XmlReader reader)
         {
             reader.Read();
-            while (reader.NodeType != XmlNodeType.EndElement)
+            ///Variabelen om te onthouden wat de gameobject voor variabelen hebben
+            ObjectType objectType = ObjectType.UNKNOWN;
+            int objectWidth = -1; ;
+            int objectHeight = -1;
+            int objectY = -1;
+            int objectX = -1;
+            ///boolean om te kijken of hij bezig is met het lezen van een object.
+            bool isReadingObject = false;
+            while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
             {
+                switch (reader.NodeType) //Switch op element type
+                {
+                    case XmlNodeType.Element:
+                        string elementName = reader.LocalName; //Haal het element naam eruit
+                        if (elementName != "GameObject") //Bij alle elementen behalve 'GameObject' naar het volgende element gaan, bij GameObject niet doen omdat we daarvan het attribuut moeten lezen
+                            reader.Read(); //Het volgende object is de tekst tussen de elementen, op te vragen via reader.Value
+                        switch (elementName)
+                        {
+                            case "Name":
+                                Name = reader.Value;
+                                break;
+                            case "Width":
+                                if (isReadingObject)
+                                    objectWidth = Convert.ToInt32(reader.Value);
+                                else
+                                    WIDTH = Convert.ToInt32(reader.Value);
+                                break;
+                            case "Height":
+                                if (isReadingObject)
+                                    objectHeight = Convert.ToInt32(reader.Value);
+                                else
+                                    HEIGHT = Convert.ToInt32(reader.Value);
+                                break;
+                            case "GameObjects":
+                                isReadingObject = true;
+                                continue;
+                            case "X":
+                                objectX = Convert.ToInt32(reader.Value);
+                                break;
+                            case "Y":
+                                objectY = Convert.ToInt32(reader.Value);
+                                break;
+                            case "GameObject":
+                                if (!reader.HasAttributes) //Heeft het huidige object attributen, in het attribuut staat namelijk het object type
+                                    Console.WriteLine("Bij het lezen van het XML bestand is er wat fout gegaan, er mist een class in de GameObject attribuut!");
+                                string str = reader.GetAttribute("Type"); //Haal het Type attribuut op
+                                if (str == null)
+                                    Console.WriteLine("Het attribuut kon niet ingelezen worden!");
+                                try
+                                {
+                                    objectType = (ObjectType)System.Enum.Parse(typeof(ObjectType), str); //Zet het om naar het enum type die erbij hoort
+                                }
+                                catch (InvalidCastException)
+                                {
+                                    Console.WriteLine("Er ging iets fout bij het casten van het attribuut naar de enum");
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case XmlNodeType.EndElement:
+                        if(reader.LocalName == "GameObject")
+                        {
+                            //controleer of alle gegevens erin staan
+                            if((objectType == ObjectType.UNKNOWN) || (objectX == -1) || (objectY == -1) || (objectHeight == -1) || (objectWidth == -1))
+                            {
+                                Console.WriteLine("Niet alle parameters van de entity zijn ingelezen!");
+                                continue;
+                            }
+                            switch (objectType)
+                            {
+                                case ObjectType.SLOWER:
+                                    AddObject(new EntitySlower(objectWidth, objectHeight, objectX, objectY));
+                                    break;
+                                case ObjectType.TIMEBOMB:
+                                    AddObject(new EntityTimeBomb(objectWidth, objectHeight, objectX, objectY, 5));
+                                    break;
+                                case ObjectType.OBSTACLE:
+                                    AddObject(new ObjectObstacle(objectWidth, objectHeight, objectX, objectY));
+                                    break;
+                                case ObjectType.CREEPER:
+                                    AddObject(new EntityCreeper(objectWidth, objectHeight, objectX, objectY, 5));
+                                    break;
+                                case ObjectType.EXPLODE:
+                                    AddObject(new EntityExplode(objectWidth, objectHeight, objectX, objectY, 5));
+                                    break;
+                                case ObjectType.HOME:
+                                    AddObject(new ObjectStart(objectWidth, objectHeight, objectX, objectY));
+                                    break;
+                                case ObjectType.CAKE:
+                                    AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
+                                    break;
+                                default:
+                                    break;
+                            }
+                            //Naar default om de controle voor de volgende te resetten
+                            objectType = ObjectType.UNKNOWN;
+                            objectX = -1;
+                            objectY = -1;
+                            objectWidth = 1;
+                            objectHeight = -1;
+                        }
+                        break;
+                }
                 reader.Read();
             }
+            if (gameObjects.Count > 0)
+            {
+                SetPlayerHome();
+                IsInitialized = true;
+            }
+
             return;
         }
 
