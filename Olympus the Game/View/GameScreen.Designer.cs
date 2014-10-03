@@ -98,7 +98,7 @@
             this.statestiekenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.statestiekenToolStripMenuItem.Text = "Statistieken";
-            this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statestiekenToolStripMenuItem_Click);
+            this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
             // 
             // informatieSchermToolStripMenuItem
             // 

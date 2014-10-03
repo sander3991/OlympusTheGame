@@ -275,6 +275,8 @@
     <None Include="Resources\arrow.png" />
     <None Include="Resources\fireball.png" />
     <None Include="Resources\ghast.png" />
+    <None Include="Resources\heartAlive.gif" />
+    <None Include="Resources\heartDead.gif" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

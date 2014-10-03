@@ -58,7 +58,7 @@ namespace Olympus_the_Game.View
         // ====== menu bar ======
         // ======================
 
-        private void statestiekenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statistiekenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // InfoView verbergen of weergeven
             switch (statestiekenToolStripMenuItem.Checked)

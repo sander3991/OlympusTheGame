@@ -66,6 +66,7 @@ namespace Olympus_the_Game
                     pf.RemoveObject(this);
                 else if (stopwatch.ElapsedMilliseconds >= EXPLODETIME && DistanceToObject(player) < 100)
                 {
+                    pf.Player.Health--;
                     pf.SetPlayerHome();
                     pf.RemoveObject(this);
                     stopwatch.Stop();

@@ -194,9 +194,19 @@ namespace Olympus_the_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hart1 {
+        internal static System.Drawing.Bitmap heartAlive {
             get {
-                object obj = ResourceManager.GetObject("hart1", resourceCulture);
+                object obj = ResourceManager.GetObject("heartAlive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap heartDead {
+            get {
+                object obj = ResourceManager.GetObject("heartDead", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

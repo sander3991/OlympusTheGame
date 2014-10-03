@@ -6,11 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Olympus_the_Game.View
 {
     public partial class InfoBox : UserControl
     {
+        Stopwatch stopWatch = Stopwatch.StartNew();
         public Point MouseDownLocation { get; set; }
         public InfoBox()
         {
@@ -23,31 +25,33 @@ namespace Olympus_the_Game.View
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
+            timePlayed.Text = stopWatch.Elapsed.Minutes.ToString() + ":" + stopWatch.Elapsed.Seconds.ToString();
+            // Geeft het aantal levens weer
             for (int i = 0; i <= Health; i++)
             {
                 switch (i)
                 {
                     case (1):
-                        heart1.Visible = true;
+                        heartAlive1.Visible = true;
                         break;
                     case (2):
-                        heart2.Visible = true;
+                        heartAlive2.Visible = true;
                         break;
                     case (3):
-                        heart3.Visible = true;
+                        heartAlive3.Visible = true;
                         break;
                     case (4):
-                        heart4.Visible = true;
+                        heartAlive4.Visible = true;
                         break;
                     case (5):
-                        heart5.Visible = true;
+                        heartAlive5.Visible = true;
                         break;
                     default:
-                        heart1.Visible = false;
-                        heart2.Visible = false;
-                        heart3.Visible = false;
-                        heart4.Visible = false;
-                        heart5.Visible = false;
+                        heartAlive1.Visible = false;
+                        heartAlive2.Visible = false;
+                        heartAlive3.Visible = false;
+                        heartAlive4.Visible = false;
+                        heartAlive5.Visible = false;
                         break;
                 }
 
