@@ -42,6 +42,10 @@ namespace Olympus_the_Game
             }
         }
 
+        public override void OnRemoved(bool fieldRemoved)
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
         public override string ToString()
         {
             return "Ghast";

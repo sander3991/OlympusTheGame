@@ -54,6 +54,11 @@ namespace Olympus_the_Game
                 player.SpeedModifier = player.SpeedModifier * 2;
             }
         }
+
+        public override void OnRemoved(bool fieldRemoved)
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
         public override string ToString()
         {
             return "Cobweb";

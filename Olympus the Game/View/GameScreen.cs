@@ -42,6 +42,7 @@ namespace Olympus_the_Game.View
             arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
+            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
         }
 
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
@@ -117,6 +118,14 @@ namespace Olympus_the_Game.View
                     gamePanel1.Top = (this.ClientSize.Height - gamePanel1.Height) / 2;
                     break;
             }    
+        }
+        /// <summary>
+        /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
+        /// </summary>
+        /// <param name="pf">Het nieuwe playfield</param>
+        private void OnPlayFieldUpdate(PlayField pf)
+        {
+            gamePanel1.Playfield = pf;
         }
     }
 }
