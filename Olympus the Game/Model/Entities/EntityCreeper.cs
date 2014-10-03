@@ -8,6 +8,7 @@ namespace Olympus_the_Game
 {
     public class EntityCreeper : EntityExplode
     {
+        public int creeperRange = 150; // Aanpasbaar in editor
         /// <summary>
         /// Een Creeper object met een beginsnelheid
         /// </summary>
@@ -38,7 +39,7 @@ namespace Olympus_the_Game
         public void OnUpdate() {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             if(player != null){
-                if(DistanceToObject(player) < 150){
+                if(DistanceToObject(player) < creeperRange){
                     this.EntityControlledByAI = false;
 
                     if(this.X - player.X > 0){

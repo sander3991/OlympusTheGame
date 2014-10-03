@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoBox));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.heart5 = new System.Windows.Forms.PictureBox();
             this.heart4 = new System.Windows.Forms.PictureBox();
@@ -366,7 +367,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Olympus_the_Game.Properties.Resources.timebomb;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(4, 18);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
@@ -398,6 +399,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
             this.Size = new System.Drawing.Size(692, 162);
+            this.Load += new System.EventHandler(this.InfoBox_Load_1);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();

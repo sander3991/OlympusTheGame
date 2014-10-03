@@ -9,7 +9,7 @@ namespace Olympus_the_Game
     public class EntityGhast : Entity
     {
         Stopwatch stopwatch = Stopwatch.StartNew();
-        public int firespeed = 500, detectRange = 500;
+        public int firespeed = 1000, detectRange = 250; //Aanpasbaar in editor
 
         public EntityGhast(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
@@ -29,7 +29,7 @@ namespace Olympus_the_Game
             {
                 if (DistanceToObject(player) < detectRange)
                 {
-                    //Maak een nieuwe pijl aan wanneer er 3 seconden verstreken zijn
+                    //Maak een nieuwe fireball aan wanneer er 3 seconden verstreken zijn
                     if (stopwatch.ElapsedMilliseconds >= firespeed)
                     {
                         EntityFireBall arrow = new EntityFireBall(25, 25, this.X, this.Y, 0, 0);

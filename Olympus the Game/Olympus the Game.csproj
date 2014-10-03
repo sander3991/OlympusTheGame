@@ -267,6 +267,8 @@
     <None Include="Resources\hart1.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\timebomb.png" />
+    <None Include="Resources\timebom.png" />
     <None Include="Resources\SpriteExplosion.bmp" />
     <None Include="Resources\skeleton.png" />
     <None Include="Resources\cobweb.png" />

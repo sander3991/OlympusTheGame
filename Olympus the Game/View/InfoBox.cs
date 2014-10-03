@@ -82,6 +82,11 @@ namespace Olympus_the_Game.View
             }
         }
 
+        private void InfoBox_Load_1(object sender, EventArgs e)
+        {
+            if (OlympusTheGame.INSTANCE != null)
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { Update(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
+        }
 
     }
 }
