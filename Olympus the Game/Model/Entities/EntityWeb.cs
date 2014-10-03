@@ -7,6 +7,8 @@ namespace Olympus_the_Game
 {
     public class EntityWeb : Entity
     {
+        Controller contr = OlympusTheGame.INSTANCE.Controller;
+        PlayField pf = OlympusTheGame.INSTANCE.Playfield;
         /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
@@ -40,11 +42,6 @@ namespace Olympus_the_Game
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             double distance = DistanceToObject(player);
-
-            //todo: Gebruik maken van oncollide ipv distance
-            //todo: Max 3 cobwebs in het spel
-            //todo: Cobweb verwijderen na x aantal seconden
-            //todo: Cobweb's niet laten overlappen
 
             // Maak de speler langzamer wanneer hij nog niet door een cobweb loopt
             if (distance <= 55 && player.SpeedModifier != 0.50)

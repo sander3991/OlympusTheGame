@@ -5,6 +5,8 @@ namespace Olympus_the_Game
     public class EntitySlower : Entity
     {
         Stopwatch stopwatch = Stopwatch.StartNew();
+        EntityWeb web;
+
         /// <summary>
         /// De afstand waarin deze entity zijn effect werkt
         /// </summary>
@@ -47,10 +49,10 @@ namespace Olympus_the_Game
 
             if (distance < 100)
             {   
-                // Maak een cobweb aan wanneer er 2 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
-                if (stopwatch.ElapsedMilliseconds >= 3000)
+                // Maak een cobweb aan wanneer er 4 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
+                if (stopwatch.ElapsedMilliseconds >= 4000)
                 {
-                    EntityWeb web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
+                    web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
                     OlympusTheGame.INSTANCE.Playfield.AddObject(web);
                     stopwatch.Restart();
                 }
