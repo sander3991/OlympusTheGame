@@ -36,14 +36,6 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
         }
 
-        private static Bitmap ConvertBitmap(Bitmap b)
-        {
-            Bitmap result = new Bitmap(b.Width, b.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
-            using (Graphics g = Graphics.FromImage(result))
-                g.DrawImage(b, 0, 0, b.Width, b.Height);
-            return result;
-        }
-
         /// <summary>
         /// Maakt een gescalede image aan
         /// </summary>

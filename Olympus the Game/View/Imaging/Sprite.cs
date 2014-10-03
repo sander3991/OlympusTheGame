@@ -30,7 +30,7 @@ namespace Olympus_the_Game.View.Imaging
 
         public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
         {
-            this.Image = bm;
+            this.Image = ConvertBitmap(bm);
 
             this.Cyclic = cyclic;
 
@@ -97,6 +97,14 @@ namespace Olympus_the_Game.View.Imaging
                     result.Add(subImage);
                 }
             }
+            return result;
+        }
+
+        private static Bitmap ConvertBitmap(Bitmap b)
+        {
+            Bitmap result = new Bitmap(b.Width, b.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+            using (Graphics g = Graphics.FromImage(result))
+                g.DrawImage(b, 0, 0, b.Width, b.Height);
             return result;
         }
     }
