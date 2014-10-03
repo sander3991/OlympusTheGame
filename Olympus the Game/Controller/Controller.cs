@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
     public class Controller
     {
+        // Timer voor het bepalen van de speelduur.
+        Stopwatch stopWatch = Stopwatch.StartNew();
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>
@@ -214,5 +217,10 @@ namespace Olympus_the_Game
             if (UpdateSlowEvents != null)
                 UpdateSlowEvents();
         }
+        public string GetTimeSinceStart()
+        {
+            return stopWatch.Elapsed.Minutes.ToString("D2") + ":" + stopWatch.Elapsed.Seconds.ToString("D2");
+        }
+
     }
 }

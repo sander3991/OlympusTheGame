@@ -12,7 +12,6 @@ namespace Olympus_the_Game.View
 {
     public partial class InfoBox : UserControl
     {
-        Stopwatch stopWatch = Stopwatch.StartNew();
         public Point MouseDownLocation { get; set; }
         public InfoBox()
         {
@@ -25,37 +24,33 @@ namespace Olympus_the_Game.View
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
-            timePlayed.Text = stopWatch.Elapsed.Minutes.ToString() + ":" + stopWatch.Elapsed.Seconds.ToString();
-            // Geeft het aantal levens weer
-            for (int i = 0; i <= Health; i++)
-            {
-                switch (i)
-                {
-                    case (1):
-                        heartAlive1.Visible = true;
-                        break;
-                    case (2):
-                        heartAlive2.Visible = true;
-                        break;
-                    case (3):
-                        heartAlive3.Visible = true;
-                        break;
-                    case (4):
-                        heartAlive4.Visible = true;
-                        break;
-                    case (5):
-                        heartAlive5.Visible = true;
-                        break;
-                    default:
-                        heartAlive1.Visible = false;
-                        heartAlive2.Visible = false;
-                        heartAlive3.Visible = false;
-                        heartAlive4.Visible = false;
-                        heartAlive5.Visible = false;
-                        break;
-                }
+            timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
 
+            // Geeft het aantal levens weer
+            heartAlive1.Visible = false;
+            heartAlive2.Visible = false;
+            heartAlive3.Visible = false;
+            heartAlive4.Visible = false;
+            heartAlive5.Visible = false;
+            switch (Health)
+            {
+                case 5:
+                    heartAlive5.Visible = true;
+                    goto case 4;
+                case 4:
+                    heartAlive4.Visible = true;
+                    goto case 3;
+                case 3:
+                    heartAlive3.Visible = true;
+                    goto case 2;
+                case 2:
+                    heartAlive2.Visible = true;
+                    goto case 1;
+                case 1:
+                    heartAlive1.Visible = true;
+                    break;
             }
+
         }
 
         /// <summary>

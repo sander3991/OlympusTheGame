@@ -47,11 +47,10 @@ namespace Olympus_the_Game
             }
         }
 
-
         public override void OnCollide(GameObject gameObject)
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            // Maak de speler langzamer wanneer hij nog niet door een cobweb loopt
+            // Maak de speler langzamer wanneer hij wanneer hij door een cobweb loopt
             if (player.SpeedModifier != 0.50)
             {
                 player.SpeedModifier = player.SpeedModifier / 2;
