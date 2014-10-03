@@ -7,8 +7,6 @@ namespace Olympus_the_Game
 {
     public class EntityWeb : Entity
     {
-        public bool isSlowingPlayer = false;
-
         /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
@@ -41,26 +39,27 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            double sm = OlympusTheGame.INSTANCE.Playfield.Player.SpeedModifier;
             double distance = DistanceToObject(player);
 
             //todo: Gebruik maken van oncollide ipv distance
             //todo: Max 3 cobwebs in het spel
-            //todo: Cobweb verwijderen na x seconden
+            //todo: Cobweb verwijderen na x aantal seconden
             //todo: Cobweb's niet laten overlappen
 
             // Maak de speler langzamer wanneer hij nog niet door een cobweb loopt
-            if (distance <= 55 && !isSlowingPlayer && sm != 0.50)
+            if (distance <= 55 && player.SpeedModifier != 0.50)
             {
                 player.SpeedModifier = player.SpeedModifier / 2;
-                isSlowingPlayer = true;
             }
             // Maakt de speler sneller wanneer het niet meer in aanraking met een cobweb is
-            else if (distance >= 55 && isSlowingPlayer && sm == 0.50)
+            else if (distance >= 55 && player.SpeedModifier == 0.50)
             {
                 player.SpeedModifier = player.SpeedModifier * 2;
-                isSlowingPlayer = false;
             }
+        }
+        public override string ToString()
+        {
+            return "Cobweb";
         }
     }
 }

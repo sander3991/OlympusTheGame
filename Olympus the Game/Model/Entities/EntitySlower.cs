@@ -47,13 +47,8 @@ namespace Olympus_the_Game
 
             if (distance < 100)
             {   
-                // Start stopwatch alleen als hij nog niet gestart is
-                if (stopwatch.IsRunning == false)
-                {
-                    stopwatch.Start();
-                }
                 // Maak een cobweb aan wanneer er 2 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
-                if (stopwatch.ElapsedMilliseconds >= 2000)
+                if (stopwatch.ElapsedMilliseconds >= 3000)
                 {
                     EntityWeb web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
                     OlympusTheGame.INSTANCE.Playfield.AddObject(web);
@@ -61,16 +56,11 @@ namespace Olympus_the_Game
                 }
             }
         }
-
         public override string ToString()
         {
-            return "Slower";
+            return "Spider";
         }
 
-        public override void OnRemoved()
-        {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
-        }
 
     }
 }

@@ -9,32 +9,33 @@ namespace Olympus_the_Game
     public class EntitySkeleton : Entity
     {
         Stopwatch stopwatch = Stopwatch.StartNew();
-        EntityArrow arrow;
+
         public EntitySkeleton(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SKELETON;
+            EntityControlledByAI = true;
             IsSolid = true;
-            EntityControlledByAI = false;
         }
+
         public EntitySkeleton(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
+            //todo: arrow mee laten bewegen
+            //todo: vierkant om arrow weghalen
+            //todo: arrow's automatisch laten verwijderen
+
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             if (player != null)
             {
-                if (DistanceToObject(player) < 500)
+                if (DistanceToObject(player) < 300)
                 {
-                    if (stopwatch.IsRunning == false)
+                    //Maak een nieuwe pijl aan wanneer er 3 seconden verstreken zijn
+                    if (stopwatch.ElapsedMilliseconds >= 3000)
                     {
-                        stopwatch.Start();
-                    }
-                    if (stopwatch.ElapsedMilliseconds >= 5000)
-                    {
-                        if(arrow != null)arrow.OnRemoved();
-                        arrow = new EntityArrow(50, 50, this.X, this.Y, 0, 0);
+                        EntityArrow arrow = new EntityArrow(50, 50, this.X, this.Y, 0, 0);
                         OlympusTheGame.INSTANCE.Playfield.AddObject(arrow);
                         stopwatch.Restart();
                     }
