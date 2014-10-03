@@ -54,7 +54,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SleepButton = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heart4)).BeginInit();
@@ -375,22 +375,22 @@
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
-            // button1
+            // SleepButton
             // 
-            this.button1.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
-            this.button1.Location = new System.Drawing.Point(672, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 14;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseDown);
-            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseMove);
+            this.SleepButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
+            this.SleepButton.Location = new System.Drawing.Point(672, 0);
+            this.SleepButton.Name = "SleepButton";
+            this.SleepButton.Size = new System.Drawing.Size(20, 20);
+            this.SleepButton.TabIndex = 14;
+            this.SleepButton.UseVisualStyleBackColor = true;
+            this.SleepButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseDown);
+            this.SleepButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseMove);
             // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SleepButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -446,6 +446,6 @@
         private System.Windows.Forms.PictureBox heart3;
         private System.Windows.Forms.PictureBox heart2;
         private System.Windows.Forms.PictureBox heart1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SleepButton;
     }
 }

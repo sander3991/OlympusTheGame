@@ -13,6 +13,7 @@ namespace Olympus_the_Game
         /// De tijd hoe lang het duurt voordat deze entity explodeert
         /// </summary>
         public const int EXPLODETIME = 5;
+        public bool touched;
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         /// <summary>
@@ -70,6 +71,7 @@ namespace Olympus_the_Game
                 }
             }
         }
+
         public override void OnRemoved()
         {
             Controller contr = OlympusTheGame.INSTANCE.Controller;
@@ -77,6 +79,11 @@ namespace Olympus_the_Game
             contr.UpdateGameEvents -= OnUpdate;
             pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
+
+        public override void OnCollide(GameObject gameObject)
+        {
+
         }
 
         public override string ToString()
