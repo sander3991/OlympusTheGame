@@ -82,12 +82,13 @@ namespace Olympus_the_Game
             return "Creeper";
         }
 
-        public override void OnRemoved()
+        public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.INSTANCE.Controller;
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             contr.UpdateGameEvents -= OnUpdate;
-            pf.AddObject(new SpriteExplosion(this));
+            if(!fieldRemoved)
+                pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
     }

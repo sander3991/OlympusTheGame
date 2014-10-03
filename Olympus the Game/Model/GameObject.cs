@@ -193,7 +193,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wordt aangeroepen als een object verwijderd wordt van het speelveld
         /// </summary>
-        public virtual void OnRemoved()
+        public virtual void OnRemoved(bool fieldRemoved)
         {
 
         }

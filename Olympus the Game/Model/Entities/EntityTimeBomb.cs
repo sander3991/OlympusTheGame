@@ -75,7 +75,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public override void OnRemoved()
+        public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.INSTANCE.Controller;
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;

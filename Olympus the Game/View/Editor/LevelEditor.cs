@@ -193,7 +193,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void Opslaan_Click(object sender, EventArgs e)
         {
-            System.IO.Stream fileStream;
+          System.IO.Stream fileStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             // Weergeef .xml bestanden in eerste instantie
@@ -207,8 +207,7 @@ namespace Olympus_the_Game.View
                 // en er is een naam ingevoerd
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    // sluit dan de stream
-                    fileStream.Close();
+                   PlayFieldToXml.WriteToXml(fileStream, pf);
 
                     // Hier moet natuurlijk sander's xml opgeslagen worden
                 }
@@ -235,10 +234,9 @@ namespace Olympus_the_Game.View
                 // en er is een bestand geselecteerd
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
-                    // sluit dan de stream
-                    fileStream.Close();
-
-                    // hier moet code komen die het bestand gaat parsen
+                    this.pf = PlayFieldToXml.ReadFromXml(fileStream);
+                    this.gamePanelEditor.Playfield = this.pf;
+                    this.gamePanelEditor.Invalidate();
                 }
             }
         }

@@ -34,7 +34,16 @@ namespace Olympus_the_Game
         /// De controller, deze regelt alle events en updates
         /// </summary>
         public Controller Controller { get; private set; }
-        
+
+        /// <summary>
+        /// Delegate voor het <code>OnNewPlayField</code> event.
+        /// </summary>
+        /// <param name="Playfield">Het nieuwe Playfield object</param>
+        public delegate void NewPlayField(PlayField Playfield);
+        /// <summary>
+        /// Event dat gefired wordt zodra er een nieuw Playfield is
+        /// </summary>
+        public event NewPlayField OnNewPlayField;
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
@@ -62,6 +71,7 @@ namespace Olympus_the_Game
         {
             // Read PlayField
             this.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            this.Playfield.SetPlayerHome();
             if (this.Playfield == null)
             {
                 this.Playfield = new PlayField();
@@ -88,6 +98,18 @@ namespace Olympus_the_Game
 
             // Start applicatie
             Application.Run(gs);
+        }
+
+        public void SetNewPlayfield(PlayField pf)
+        {
+            if (pf != null)
+            {
+                Playfield.UnloadPlayField();
+                pf.SetPlayerHome();
+                this.Playfield = pf;
+                if (OnNewPlayField != null)
+                    OnNewPlayField(pf);
+            }
         }
 
         /// <summary>

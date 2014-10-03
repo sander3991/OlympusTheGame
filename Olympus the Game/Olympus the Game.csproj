@@ -252,12 +252,6 @@
     <None Include="bin\Debug\hell.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="beach.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="hell.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\beach.xml" />
   </ItemGroup>
   <ItemGroup>

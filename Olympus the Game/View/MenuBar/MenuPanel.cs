@@ -38,6 +38,10 @@ namespace Olympus_the_Game.View
         {
             LevelDialog ld = new LevelDialog();
             ld.ShowDialog();
+            PlayField Playfield = ld.Playfield;
+            if (Playfield != null)
+                OlympusTheGame.INSTANCE.SetNewPlayfield(Playfield);
+
         }
 
         private void LevelEditor_Click(object sender, EventArgs e)
