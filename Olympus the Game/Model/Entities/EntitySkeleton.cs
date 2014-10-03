@@ -12,8 +12,8 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SKELETON;
-            IsSolid = false;
-            EntityControlledByAI = false;
+            IsSolid = true;
+            EntityControlledByAI = true;
         }
         public EntitySkeleton(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
