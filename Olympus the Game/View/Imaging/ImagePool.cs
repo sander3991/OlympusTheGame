@@ -24,14 +24,15 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
             source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
             source.Add(ObjectType.SLOWER, Properties.Resources.spider);
+            source.Add(ObjectType.WEB, Properties.Resources.cobweb);
             source.Add(ObjectType.PLAYER, Properties.Resources.player);
             source.Add(ObjectType.TIMEBOMB, Properties.Resources.timebomb);
             source.Add(ObjectType.HOME, Properties.Resources.huis);
             source.Add(ObjectType.CAKE, Properties.Resources.cake);
             source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
             source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
-            source.Add(ObjectType.WEB, Properties.Resources.cobweb);
             source.Add(ObjectType.SKELETON, Properties.Resources.skeleton);
+            source.Add(ObjectType.ARROW, Properties.Resources.arrow);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
         }
 
