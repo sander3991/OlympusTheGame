@@ -18,7 +18,8 @@ namespace Olympus_the_Game
         UNKNOWN,
         SPRITEEXPLOSION,
         SKELETON,
-        WEB
+        WEB,
+        ARROW
     }
 
     public abstract class GameObject
