@@ -11,7 +11,6 @@ namespace Olympus_the_Game.View.MenuBar
 {
     public partial class CustomMenuBar : MenuStrip
     {
-        ToolStripMenuItem tsmiInfoView, tsmiInfoBox, tsmiArrowKeys, tsmiFullScreen;
         public CustomMenuBar()
         {
             InitializeComponent();
