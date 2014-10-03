@@ -1,7 +1,10 @@
-﻿namespace Olympus_the_Game
+﻿using System.Diagnostics;
+
+namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {
+        Stopwatch stopwatch = Stopwatch.StartNew();
         /// <summary>
         /// De afstand waarin deze entity zijn effect werkt
         /// </summary>
@@ -10,8 +13,6 @@
         /// De sterkte van het effect van deze entity
         /// </summary>
         public const double EFFECTSTRENGTH = 0.5;
-
-        private bool isSlowingPlayer = false;
 
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
@@ -42,17 +43,22 @@
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-
             double distance = DistanceToObject(player);
-            if (distance < 100 && !isSlowingPlayer)
-            {
-                player.SpeedModifier = player.SpeedModifier / 2;
-                isSlowingPlayer = true;
-            }
-            else if (distance >= 100 && isSlowingPlayer)
-            {
-                player.SpeedModifier = player.SpeedModifier * 2;
-                isSlowingPlayer = false;
+
+            if (distance < 100)
+            {   
+                // Start stopwatch alleen als hij nog niet gestart is
+                if (stopwatch.IsRunning == false)
+                {
+                    stopwatch.Start();
+                }
+                // Maak een cobweb aan wanneer er 2 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
+                if (stopwatch.ElapsedMilliseconds >= 2000)
+                {
+                    EntityWeb web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
+                    OlympusTheGame.INSTANCE.Playfield.AddObject(web);
+                    stopwatch.Restart();
+                }
             }
         }
 
