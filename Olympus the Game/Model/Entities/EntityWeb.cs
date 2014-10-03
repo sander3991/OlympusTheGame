@@ -41,17 +41,20 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            double distance = DistanceToObject(player);
+            if (this.CollidesWithObject(player) == false)
+            {
+                player.SpeedModifier = 1;
+            }
+        }
 
+
+        public override void OnCollide(GameObject gameObject)
+        {
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             // Maak de speler langzamer wanneer hij nog niet door een cobweb loopt
-            if (distance <= 55 && player.SpeedModifier != 0.50)
+            if (player.SpeedModifier != 0.50)
             {
                 player.SpeedModifier = player.SpeedModifier / 2;
-            }
-            // Maakt de speler sneller wanneer het niet meer in aanraking met een cobweb is
-            else if (distance >= 55 && player.SpeedModifier == 0.50)
-            {
-                player.SpeedModifier = player.SpeedModifier * 2;
             }
         }
 
