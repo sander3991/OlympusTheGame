@@ -39,13 +39,12 @@
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
-            this.LabelControl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxDown);
@@ -57,8 +56,8 @@
             this.panel1.Controls.Add(this.ArrowKeyLeft);
             this.panel1.Controls.Add(this.ArrowKeyDown);
             this.panel1.Controls.Add(this.ArrowKeyUp);
-            this.panel1.Controls.Add(this.LabelControl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.Silver;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 205);
@@ -67,9 +66,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Pas besturing aan";
             // 
@@ -133,6 +133,7 @@
             // 
             // SleepKnop
             // 
+            this.SleepKnop.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
             this.SleepKnop.FlatAppearance.BorderSize = 0;
             this.SleepKnop.ForeColor = System.Drawing.Color.Transparent;
             this.SleepKnop.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
@@ -193,17 +194,6 @@
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
-            // LabelControl
-            // 
-            this.LabelControl.AutoSize = true;
-            this.LabelControl.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.LabelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelControl.Location = new System.Drawing.Point(0, 0);
-            this.LabelControl.Name = "LabelControl";
-            this.LabelControl.Size = new System.Drawing.Size(60, 13);
-            this.LabelControl.TabIndex = 0;
-            this.LabelControl.Text = "Besturing";
-            // 
             // ArrowPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +201,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
             this.Name = "ArrowPanel";
-            this.Size = new System.Drawing.Size(337, 247);
+            this.Size = new System.Drawing.Size(337, 204);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -225,7 +215,6 @@
         private System.Windows.Forms.Button ArrowKeyLeft;
         private System.Windows.Forms.Button ArrowKeyDown;
         private System.Windows.Forms.Button ArrowKeyUp;
-        private System.Windows.Forms.Label LabelControl;
         private System.Windows.Forms.Button SleepKnop;
         private System.Windows.Forms.TextBox textBoxDown;
         private System.Windows.Forms.TextBox textBoxUp;

@@ -49,7 +49,7 @@
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(911, 536);
+            this.arrowPanel1.Location = new System.Drawing.Point(835, 536);
             this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 207);
@@ -139,6 +139,8 @@
             // 
             // infoView1
             // 
+            this.infoView1.BackColor = System.Drawing.Color.Transparent;
+            this.infoView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.infoView1.Entitys = null;
             this.infoView1.IsResized = false;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
@@ -149,7 +151,9 @@
             // 
             // infoBox1
             // 
-            this.infoBox1.Location = new System.Drawing.Point(12, 536);
+            this.infoBox1.BackColor = System.Drawing.Color.Transparent;
+            this.infoBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("infoBox1.BackgroundImage")));
+            this.infoBox1.Location = new System.Drawing.Point(70, 567);
             this.infoBox1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoBox1.Name = "infoBox1";
             this.infoBox1.Size = new System.Drawing.Size(692, 162);
