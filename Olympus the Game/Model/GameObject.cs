@@ -93,7 +93,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    x = value;
+                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Width <= OlympusTheGame.INSTANCE.Playfield.WIDTH)
+                        x = value;
+                    else
+                        x = OlympusTheGame.INSTANCE.Playfield.WIDTH - Width;
                 else
                     x = 0;
             }
@@ -110,7 +113,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    y = value;
+                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Height <= OlympusTheGame.INSTANCE.Playfield.HEIGHT)
+                        y = value;
+                    else
+                        y = OlympusTheGame.INSTANCE.Playfield.HEIGHT - Height;
                 else
                     y = 0;
             }
