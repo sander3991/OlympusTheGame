@@ -97,7 +97,7 @@
             this.statestiekenToolStripMenuItem.Name = "statestiekenToolStripMenuItem";
             this.statestiekenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.statestiekenToolStripMenuItem.Text = "Statestieken";
+            this.statestiekenToolStripMenuItem.Text = "Statistieken";
             this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statestiekenToolStripMenuItem_Click);
             // 
             // informatieSchermToolStripMenuItem
@@ -108,7 +108,7 @@
             this.informatieSchermToolStripMenuItem.Name = "informatieSchermToolStripMenuItem";
             this.informatieSchermToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.informatieSchermToolStripMenuItem.Text = "Informatie scherm";
+            this.informatieSchermToolStripMenuItem.Text = "Informatiescherm";
             this.informatieSchermToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
             // 
             // pijltjestoetsenToolStripMenuItem

@@ -39,7 +39,8 @@
             // 
             // listView1
             // 
-            this.listView1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.listView1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.EntityName,
             this.PosX,
