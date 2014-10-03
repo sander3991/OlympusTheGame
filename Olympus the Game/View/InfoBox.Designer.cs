@@ -383,6 +383,8 @@
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 14;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseDown);
+            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseMove);
             // 
             // InfoBox
             // 
@@ -396,7 +398,6 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
             this.Size = new System.Drawing.Size(692, 162);
-            this.Load += new System.EventHandler(this.InfoBox_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heart5)).EndInit();

@@ -11,6 +11,7 @@ namespace Olympus_the_Game.View
 {
     public partial class InfoBox : UserControl
     {
+        public Point MouseDownLocation { get; set; }
         public InfoBox()
         {
             InitializeComponent();
@@ -53,10 +54,32 @@ namespace Olympus_the_Game.View
             }
         }
 
-        private void InfoBox_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Functie om het panel op runtime te verslepen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SleepKnop_MouseDown(object sender, MouseEventArgs e)
         {
-            if (OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { Update(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
+            this.BringToFront();
+        }
+        /// <summary>
+        /// Functie die het scherm plaatst als je die muis loslaat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SleepKnop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                this.Left = e.X + this.Left - MouseDownLocation.X;
+                this.Top = e.Y + this.Top - MouseDownLocation.Y;
+            }
         }
 
 
