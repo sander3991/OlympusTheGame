@@ -17,9 +17,9 @@ namespace Olympus_the_Game
         CAKE,
         UNKNOWN,
         SPRITEEXPLOSION,
-        SKELETON,
         WEB,
-        ARROW
+        FIREBALL,
+        GHAST
     }
 
     public abstract class GameObject

@@ -38,11 +38,11 @@
             this.statestiekenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informatieSchermToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pijltjestoetsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.volledigeWeergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.customMenuBar1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,6 +122,11 @@
             this.pijltjestoetsenToolStripMenuItem.Text = "Pijltjestoetsen";
             this.pijltjestoetsenToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            // 
             // volledigeWeergaveToolStripMenuItem
             // 
             this.volledigeWeergaveToolStripMenuItem.CheckOnClick = true;
@@ -145,14 +150,10 @@
             // infoBox1
             // 
             this.infoBox1.Location = new System.Drawing.Point(12, 536);
+            this.infoBox1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoBox1.Name = "infoBox1";
             this.infoBox1.Size = new System.Drawing.Size(692, 162);
             this.infoBox1.TabIndex = 6;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // GameScreen
             // 

@@ -5,24 +5,25 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
-    public class EntityArrow : Entity
+    public class EntityFireBall : Entity
     {
         int destinyX, destinyY, i, j;
         bool targetFound = false;
 
-        public EntityArrow(int width, int height, int x, int y, int dx, int dy)
+        public EntityFireBall(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = false;
-            Type = ObjectType.ARROW;
+            Type = ObjectType.FIREBALL;
             IsSolid = false;
         }
-        public EntityArrow(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+        public EntityFireBall(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             if (player != null)
             {
                 if (!targetFound)
@@ -37,10 +38,24 @@ namespace Olympus_the_Game
                 this.X = this.X + i;
                 this.Y = this.Y + j;
             }
+            if (this.CollidesWithObject(player) == true || this.X == 0 || this.Y == 0 || this.X == 968|| this.Y == 479)
+            {
+                player.Health--;
+                pf.RemoveObject(this);
+            }
+        }
+
+        public override void OnCollide(GameObject gameObject)
+        {
+            // wanneer het alles behalve de ghast aanraakt exploderen
         }
 
         public override void OnRemoved()
         {
+            Controller contr = OlympusTheGame.INSTANCE.Controller;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            contr.UpdateGameEvents -= OnUpdate;
+            pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
     }

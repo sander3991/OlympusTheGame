@@ -49,8 +49,8 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
-    <Compile Include="Model\Entities\EntityArrow.cs" />
-    <Compile Include="Model\Entities\EntitySkeleton.cs" />
+    <Compile Include="Model\Entities\EntityFireBall.cs" />
+    <Compile Include="Model\Entities\EntityGhast.cs" />
     <Compile Include="Model\Entities\EntityWeb.cs" />
     <Compile Include="Model\Entities\Entity.cs" />
     <Compile Include="Model\Entities\EntityCreeper.cs" />
@@ -271,6 +271,8 @@
     <None Include="Resources\skeleton.png" />
     <None Include="Resources\cobweb.png" />
     <None Include="Resources\arrow.png" />
+    <None Include="Resources\fireball.png" />
+    <None Include="Resources\ghast.png" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
