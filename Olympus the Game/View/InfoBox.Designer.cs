@@ -88,7 +88,9 @@
             this.groupBox3.Controls.Add(this.SpelerYLabel);
             this.groupBox3.Controls.Add(this.SpelerX);
             this.groupBox3.Controls.Add(this.SpelerXLabel);
-            this.groupBox3.Location = new System.Drawing.Point(9, 13);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(12, 17);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -151,6 +153,7 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox5.Location = new System.Drawing.Point(5, 63);
             this.richTextBox5.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox5.Name = "richTextBox5";
@@ -162,20 +165,20 @@
             // SpelerSpeedX
             // 
             this.SpelerSpeedX.AutoSize = true;
-            this.SpelerSpeedX.Location = new System.Drawing.Point(175, 18);
+            this.SpelerSpeedX.Location = new System.Drawing.Point(181, 19);
             this.SpelerSpeedX.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerSpeedX.Name = "SpelerSpeedX";
-            this.SpelerSpeedX.Size = new System.Drawing.Size(13, 13);
+            this.SpelerSpeedX.Size = new System.Drawing.Size(16, 16);
             this.SpelerSpeedX.TabIndex = 6;
             this.SpelerSpeedX.Text = "5";
             // 
             // SpelerSpeedXLabel
             // 
             this.SpelerSpeedXLabel.AutoSize = true;
-            this.SpelerSpeedXLabel.Location = new System.Drawing.Point(121, 17);
+            this.SpelerSpeedXLabel.Location = new System.Drawing.Point(103, 18);
             this.SpelerSpeedXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerSpeedXLabel.Name = "SpelerSpeedXLabel";
-            this.SpelerSpeedXLabel.Size = new System.Drawing.Size(60, 13);
+            this.SpelerSpeedXLabel.Size = new System.Drawing.Size(85, 16);
             this.SpelerSpeedXLabel.TabIndex = 5;
             this.SpelerSpeedXLabel.Text = "Snelheid = ";
             // 
@@ -193,40 +196,40 @@
             // SpelerY
             // 
             this.SpelerY.AutoSize = true;
-            this.SpelerY.Location = new System.Drawing.Point(82, 43);
+            this.SpelerY.Location = new System.Drawing.Point(71, 43);
             this.SpelerY.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerY.Name = "SpelerY";
-            this.SpelerY.Size = new System.Drawing.Size(19, 13);
+            this.SpelerY.Size = new System.Drawing.Size(24, 16);
             this.SpelerY.TabIndex = 3;
             this.SpelerY.Text = "21";
             // 
             // SpelerYLabel
             // 
             this.SpelerYLabel.AutoSize = true;
-            this.SpelerYLabel.Location = new System.Drawing.Point(62, 43);
+            this.SpelerYLabel.Location = new System.Drawing.Point(50, 43);
             this.SpelerYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerYLabel.Name = "SpelerYLabel";
-            this.SpelerYLabel.Size = new System.Drawing.Size(26, 13);
+            this.SpelerYLabel.Size = new System.Drawing.Size(34, 16);
             this.SpelerYLabel.TabIndex = 2;
             this.SpelerYLabel.Text = "Y = ";
             // 
             // SpelerX
             // 
             this.SpelerX.AutoSize = true;
-            this.SpelerX.Location = new System.Drawing.Point(82, 18);
+            this.SpelerX.Location = new System.Drawing.Point(71, 18);
             this.SpelerX.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerX.Name = "SpelerX";
-            this.SpelerX.Size = new System.Drawing.Size(25, 13);
+            this.SpelerX.Size = new System.Drawing.Size(32, 16);
             this.SpelerX.TabIndex = 1;
             this.SpelerX.Text = "483";
             // 
             // SpelerXLabel
             // 
             this.SpelerXLabel.AutoSize = true;
-            this.SpelerXLabel.Location = new System.Drawing.Point(62, 18);
+            this.SpelerXLabel.Location = new System.Drawing.Point(51, 18);
             this.SpelerXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SpelerXLabel.Name = "SpelerXLabel";
-            this.SpelerXLabel.Size = new System.Drawing.Size(26, 13);
+            this.SpelerXLabel.Size = new System.Drawing.Size(33, 16);
             this.SpelerXLabel.TabIndex = 0;
             this.SpelerXLabel.Text = "X = ";
             // 
@@ -234,7 +237,9 @@
             // 
             this.groupBox4.Controls.Add(this.richTextBox3);
             this.groupBox4.Controls.Add(this.pictureBox4);
-            this.groupBox4.Location = new System.Drawing.Point(446, 85);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(449, 89);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -247,6 +252,7 @@
             // 
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox3.Location = new System.Drawing.Point(51, 17);
             this.richTextBox3.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox3.Name = "richTextBox3";
@@ -272,7 +278,9 @@
             // 
             this.groupBox2.Controls.Add(this.richTextBox2);
             this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Location = new System.Drawing.Point(446, 13);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(449, 17);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -285,11 +293,12 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.Location = new System.Drawing.Point(51, 17);
             this.richTextBox2.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(179, 42);
+            this.richTextBox2.Size = new System.Drawing.Size(170, 42);
             this.richTextBox2.TabIndex = 9;
             this.richTextBox2.Text = "Wanneer je dichtbij een spider komt loop je langzamer!";
             // 
@@ -308,7 +317,9 @@
             // 
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(212, 85);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(215, 89);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -321,6 +332,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(51, 20);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
@@ -344,7 +356,9 @@
             // 
             this.groupBox5.Controls.Add(this.richTextBox4);
             this.groupBox5.Controls.Add(this.pictureBox5);
-            this.groupBox5.Location = new System.Drawing.Point(212, 13);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Location = new System.Drawing.Point(215, 17);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -357,11 +371,12 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox4.Location = new System.Drawing.Point(51, 18);
             this.richTextBox4.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
-            this.richTextBox4.Size = new System.Drawing.Size(171, 41);
+            this.richTextBox4.Size = new System.Drawing.Size(160, 41);
             this.richTextBox4.TabIndex = 9;
             this.richTextBox4.Text = "De tijdbom gaat af na 3 seconden wanneer je in de buurt komt!";
             // 
@@ -378,6 +393,9 @@
             // 
             // SleepButton
             // 
+            this.SleepButton.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
+            this.SleepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SleepButton.ForeColor = System.Drawing.Color.White;
             this.SleepButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
             this.SleepButton.Location = new System.Drawing.Point(672, 0);
             this.SleepButton.Name = "SleepButton";
@@ -391,6 +409,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.Controls.Add(this.SleepButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
@@ -398,7 +418,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
-            this.Size = new System.Drawing.Size(692, 162);
+            this.Size = new System.Drawing.Size(692, 172);
             this.Load += new System.EventHandler(this.InfoBox_Load_1);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
