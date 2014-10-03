@@ -12,7 +12,8 @@ namespace Olympus_the_Game
         /// <summary>
         /// De tijd hoe lang het duurt voordat deze entity explodeert
         /// </summary>
-        public const int EXPLODETIME = 5;
+        public int EXPLODETIME = 3000; //Aanpasbaar in editor
+        public bool touched;
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         /// <summary>
@@ -51,32 +52,41 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
 
             if (player != null)
             {
-
                 stopwatch.Stop();
                 if (DistanceToObject(player) < 100 && stopwatch.IsRunning == false)
                 {
                     stopwatch.Start();
                 }
-                            
-                if (stopwatch.ElapsedMilliseconds >= 3000 && DistanceToObject(player) < 100)
+
+                if (stopwatch.ElapsedMilliseconds >= EXPLODETIME && DistanceToObject(player) > 100)
+                    pf.RemoveObject(this);
+                else if (stopwatch.ElapsedMilliseconds >= EXPLODETIME && DistanceToObject(player) < 100)
                 {
-                    PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+                    pf.Player.Health--;
                     pf.SetPlayerHome();
                     pf.RemoveObject(this);
                     stopwatch.Stop();
                 }
+ 
             }
         }
-        public override void OnRemoved()
+
+        public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.INSTANCE.Controller;
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
+
+        public override void OnCollide(GameObject gameObject)
+        {
+
         }
 
         public override string ToString()

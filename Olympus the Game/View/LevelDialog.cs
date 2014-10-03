@@ -15,50 +15,49 @@ namespace Olympus_the_Game.View
         /// Deze waarde geeft de levelnaam van het gekozen level aan
         /// </summary>
         private string Level { get; set; }
-
+        public PlayField Playfield { get; private set; }
         public LevelDialog()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Kies het standaard Dungeon level
+        /// Kiest één van de 4 levels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DungeonLevel_Click(object sender, EventArgs e)
+        private void LevelSelect_Click(object sender, EventArgs e)
         {
-            Level = "Dungeon";
-        }
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string tag = button.Tag as string;
+                if(tag != null)
+                {
+                    string xmlContents = "";
+                    switch (tag)
+                    {
+                        case "BEACH":
+                            xmlContents = Properties.Resources.beach;
+                            break;
+                        case "HELL":
+                            xmlContents = Properties.Resources.hell;
+                            break;
+                        case "HEAVEN":
+                            //TODO add Heaven level
+                            xmlContents = Properties.Resources.beach;
+                            break;
+                        case "DUNGEON":
+                            //TODO add Dungeon level
+                            xmlContents = Properties.Resources.beach;
+                            break;
+                    }
+                    if(xmlContents.Length != 0)
+                        Playfield = PlayFieldToXml.ReadFromResource(xmlContents);
+                    Close();
 
-        /// <summary>
-        /// Kies het standaard Beach level
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BeachLevel_Click(object sender, EventArgs e)
-        {
-            Level = "Beach";
-        }
-
-        /// <summary>
-        /// Kies het standaard Heaven level
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void HeavenLevel_Click(object sender, EventArgs e)
-        {
-            Level = "Heaven";
-        }
-
-        /// <summary>
-        /// Kies het standaard Hell level
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void HellLevel_Click(object sender, EventArgs e)
-        {
-            Level = "Hell";
+                }
+            }
         }
 
         /// <summary>
@@ -69,6 +68,25 @@ namespace Olympus_the_Game.View
         private void LoadXMLfile_Click(object sender, EventArgs e)
         {
 
+            System.IO.Stream fileStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            // als er op OK word gedrukt
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // en er is een bestand geselecteerd
+                if ((fileStream = openFileDialog1.OpenFile()) != null)
+                {
+                    PlayField pf = PlayFieldToXml.ReadFromXml(fileStream);
+                    if (pf != null)
+                        OlympusTheGame.INSTANCE.SetNewPlayfield(pf);
+                    Close();
+                }
+            }
         }
     }
 }

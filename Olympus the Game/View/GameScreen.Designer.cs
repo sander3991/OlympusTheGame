@@ -34,15 +34,22 @@
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
+            this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statestiekenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informatieSchermToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pijltjestoetsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.volledigeWeergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
+            this.customMenuBar1.SuspendLayout();
             this.SuspendLayout();
             // 
             // arrowPanel1
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.arrowPanel1.Location = new System.Drawing.Point(911, 536);
+            this.arrowPanel1.Location = new System.Drawing.Point(835, 536);
             this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 207);
@@ -62,14 +69,78 @@
             // 
             // customMenuBar1
             // 
+            this.customMenuBar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.weergaveToolStripMenuItem});
             this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
             this.customMenuBar1.Name = "customMenuBar1";
             this.customMenuBar1.Size = new System.Drawing.Size(1264, 24);
             this.customMenuBar1.TabIndex = 4;
             this.customMenuBar1.Text = "customMenuBar1";
             // 
+            // weergaveToolStripMenuItem
+            // 
+            this.weergaveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statestiekenToolStripMenuItem,
+            this.informatieSchermToolStripMenuItem,
+            this.pijltjestoetsenToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.volledigeWeergaveToolStripMenuItem});
+            this.weergaveToolStripMenuItem.Name = "weergaveToolStripMenuItem";
+            this.weergaveToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.weergaveToolStripMenuItem.Text = "Weergave";
+            // 
+            // statestiekenToolStripMenuItem
+            // 
+            this.statestiekenToolStripMenuItem.Checked = true;
+            this.statestiekenToolStripMenuItem.CheckOnClick = true;
+            this.statestiekenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.statestiekenToolStripMenuItem.Name = "statestiekenToolStripMenuItem";
+            this.statestiekenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.statestiekenToolStripMenuItem.Text = "Statistieken";
+            this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
+            // 
+            // informatieSchermToolStripMenuItem
+            // 
+            this.informatieSchermToolStripMenuItem.Checked = true;
+            this.informatieSchermToolStripMenuItem.CheckOnClick = true;
+            this.informatieSchermToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.informatieSchermToolStripMenuItem.Name = "informatieSchermToolStripMenuItem";
+            this.informatieSchermToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.informatieSchermToolStripMenuItem.Text = "Informatiescherm";
+            this.informatieSchermToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
+            // 
+            // pijltjestoetsenToolStripMenuItem
+            // 
+            this.pijltjestoetsenToolStripMenuItem.Checked = true;
+            this.pijltjestoetsenToolStripMenuItem.CheckOnClick = true;
+            this.pijltjestoetsenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.pijltjestoetsenToolStripMenuItem.Name = "pijltjestoetsenToolStripMenuItem";
+            this.pijltjestoetsenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.pijltjestoetsenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.pijltjestoetsenToolStripMenuItem.Text = "Pijltjestoetsen";
+            this.pijltjestoetsenToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            // 
+            // volledigeWeergaveToolStripMenuItem
+            // 
+            this.volledigeWeergaveToolStripMenuItem.CheckOnClick = true;
+            this.volledigeWeergaveToolStripMenuItem.Name = "volledigeWeergaveToolStripMenuItem";
+            this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
+            this.volledigeWeergaveToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.volledigeWeergaveToolStripMenuItem_Click);
+            // 
             // infoView1
             // 
+            this.infoView1.BackColor = System.Drawing.Color.Transparent;
+            this.infoView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.infoView1.Entitys = null;
             this.infoView1.IsResized = false;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
@@ -80,7 +151,10 @@
             // 
             // infoBox1
             // 
-            this.infoBox1.Location = new System.Drawing.Point(12, 536);
+            this.infoBox1.BackColor = System.Drawing.Color.Transparent;
+            this.infoBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("infoBox1.BackgroundImage")));
+            this.infoBox1.Location = new System.Drawing.Point(70, 567);
+            this.infoBox1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoBox1.Name = "infoBox1";
             this.infoBox1.Size = new System.Drawing.Size(692, 162);
             this.infoBox1.TabIndex = 6;
@@ -103,8 +177,11 @@
             this.Name = "GameScreen";
             this.Text = "Olympus The Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.GameScreen_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
+            this.customMenuBar1.ResumeLayout(false);
+            this.customMenuBar1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +195,11 @@
         public InfoView infoView1;
         private System.Windows.Forms.Timer timer1;
         private InfoBox infoBox1;
+        private System.Windows.Forms.ToolStripMenuItem weergaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statestiekenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informatieSchermToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pijltjestoetsenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volledigeWeergaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

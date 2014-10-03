@@ -33,10 +33,20 @@ namespace Olympus_the_Game {
 
         public override void OnCollide(GameObject gameObject) {
             EntityPlayer player = gameObject as EntityPlayer;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             if(player != null) {
                 player.Health -= Convert.ToInt32(EffectStrength);
-                OlympusTheGame.INSTANCE.Playfield.SetPlayerHome();
+                pf.SetPlayerHome();
+                pf.RemoveObject(this);
             }
+        }
+
+        public override void OnRemoved(bool fieldRemoved)
+        {
+            Controller contr = OlympusTheGame.INSTANCE.Controller;
+            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            if(!fieldRemoved)
+                pf.AddObject(new SpriteExplosion(this));
         }
 
         public override string ToString()

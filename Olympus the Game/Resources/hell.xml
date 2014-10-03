@@ -49,7 +49,7 @@
       <Width>50</Width>
       <Height>50</Height>
     </GameObject>
-    <GameObject Type="SKELETON">
+    <GameObject Type="GHAST">
       <X>400</X>
       <Y>400</Y>
       <Width>50</Width>

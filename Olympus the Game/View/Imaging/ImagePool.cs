@@ -31,8 +31,8 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.CAKE, Properties.Resources.cake);
             source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
             source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
-            source.Add(ObjectType.SKELETON, Properties.Resources.skeleton);
-            source.Add(ObjectType.ARROW, Properties.Resources.arrow);
+            source.Add(ObjectType.GHAST, Properties.Resources.ghast);
+            source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
         }
 

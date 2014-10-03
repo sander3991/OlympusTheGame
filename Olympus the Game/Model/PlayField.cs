@@ -73,7 +73,7 @@ namespace Olympus_the_Game
         public void RemoveObject(GameObject entity)
         {
             gameObjects.Remove(entity);
-            entity.OnRemoved();
+            entity.OnRemoved(false);
         }
         /// <summary>
         /// Zet de speler op de home locatie neer
@@ -108,7 +108,7 @@ namespace Olympus_the_Game
             objects.Add(new EntitySlower(50, 50, 200, 150));
             objects.Add(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
             objects.Add(new EntityExplode(50, 50, 300, 05, 1.0f));
-            objects.Add(new EntitySkeleton(50,50,100, 100));
+            objects.Add(new EntityGhast(50,50,100, 100));
             return objects;
         }
 
@@ -134,9 +134,14 @@ namespace Olympus_the_Game
             return objectList.Count == 0 ? null : objectList;
         }
 
-        public void SaveToXml(string fileName)
+        /// <summary>
+        /// Handles the removal of a playfield from the game
+        /// </summary>
+        public void UnloadPlayField()
         {
-            PlayFieldToXml.WriteToXml(fileName, this);
+            for (int i = 0; i < gameObjects.Count; i++)
+                gameObjects[i].OnRemoved(true);
+            Player.OnRemoved(true);
         }
 
         public System.Xml.Schema.XmlSchema GetSchema()
@@ -253,8 +258,8 @@ namespace Olympus_the_Game
                                     case ObjectType.CAKE:
                                         AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
                                         break;
-                                    case ObjectType.SKELETON:
-                                        AddObject(new EntitySkeleton(objectWidth, objectHeight, objectX, objectY));
+                                    case ObjectType.GHAST:
+                                        AddObject(new EntityGhast(objectWidth, objectHeight, objectX, objectY));
                                         break;
                                     default:
                                         break;
@@ -274,7 +279,6 @@ namespace Olympus_the_Game
             }
             if (gameObjects.Count > 0)
             {
-                SetPlayerHome();
                 IsInitialized = true;
             }
 

@@ -6,36 +6,33 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
-    public class EntitySkeleton : Entity
+    public class EntityGhast : Entity
     {
         Stopwatch stopwatch = Stopwatch.StartNew();
+        public int firespeed = 1000, detectRange = 250; //Aanpasbaar in editor
 
-        public EntitySkeleton(int width, int height, int x, int y, int dx, int dy)
+        public EntityGhast(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.SKELETON;
+            Type = ObjectType.GHAST;
             EntityControlledByAI = true;
-            IsSolid = true;
+            IsSolid = false;
         }
 
-        public EntitySkeleton(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+        public EntityGhast(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
-            //todo: arrow mee laten bewegen
-            //todo: vierkant om arrow weghalen
-            //todo: arrow's automatisch laten verwijderen
-
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             if (player != null)
             {
-                if (DistanceToObject(player) < 300)
+                if (DistanceToObject(player) < detectRange)
                 {
-                    //Maak een nieuwe pijl aan wanneer er 3 seconden verstreken zijn
-                    if (stopwatch.ElapsedMilliseconds >= 3000)
+                    //Maak een nieuwe fireball aan wanneer er 3 seconden verstreken zijn
+                    if (stopwatch.ElapsedMilliseconds >= firespeed)
                     {
-                        EntityArrow arrow = new EntityArrow(50, 50, this.X, this.Y, 0, 0);
+                        EntityFireBall arrow = new EntityFireBall(25, 25, this.X, this.Y, 0, 0);
                         OlympusTheGame.INSTANCE.Playfield.AddObject(arrow);
                         stopwatch.Restart();
                     }
@@ -45,9 +42,13 @@ namespace Olympus_the_Game
             }
         }
 
+        public override void OnRemoved(bool fieldRemoved)
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+        }
         public override string ToString()
         {
-            return "Skeleton";
+            return "Ghast";
         }
     }
 }
