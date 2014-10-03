@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBoxDown = new System.Windows.Forms.TextBox();
             this.textBoxUp = new System.Windows.Forms.TextBox();
             this.textBoxLeft = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
             this.LabelControl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,52 +64,71 @@
             this.panel1.Size = new System.Drawing.Size(337, 205);
             this.panel1.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Pas besturing aan";
+            // 
             // textBoxDown
             // 
+            this.textBoxDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDown.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDown.Location = new System.Drawing.Point(49, 62);
             this.textBoxDown.Name = "textBoxDown";
             this.textBoxDown.Size = new System.Drawing.Size(21, 20);
             this.textBoxDown.TabIndex = 3;
             this.textBoxDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxDown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBoxDown.TextChanged += new System.EventHandler(this.button1_Click);
+            this.textBoxDown.TextChanged += new System.EventHandler(this.Textfield_ChangeControls);
             this.textBoxDown.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBoxUp
             // 
+            this.textBoxUp.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.textBoxUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxUp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUp.Location = new System.Drawing.Point(49, 36);
             this.textBoxUp.Name = "textBoxUp";
             this.textBoxUp.Size = new System.Drawing.Size(21, 20);
             this.textBoxUp.TabIndex = 1;
             this.textBoxUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxUp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBoxUp.TextChanged += new System.EventHandler(this.button1_Click);
+            this.textBoxUp.TextChanged += new System.EventHandler(this.Textfield_ChangeControls);
             this.textBoxUp.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBoxLeft
             // 
+            this.textBoxLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLeft.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLeft.Location = new System.Drawing.Point(22, 62);
             this.textBoxLeft.Name = "textBoxLeft";
             this.textBoxLeft.Size = new System.Drawing.Size(21, 20);
             this.textBoxLeft.TabIndex = 2;
             this.textBoxLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxLeft.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBoxLeft.TextChanged += new System.EventHandler(this.button1_Click);
+            this.textBoxLeft.TextChanged += new System.EventHandler(this.Textfield_ChangeControls);
             this.textBoxLeft.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // textBoxRight
             // 
+            this.textBoxRight.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRight.Location = new System.Drawing.Point(76, 62);
             this.textBoxRight.Name = "textBoxRight";
             this.textBoxRight.Size = new System.Drawing.Size(21, 20);
             this.textBoxRight.TabIndex = 4;
             this.textBoxRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxRight.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_EnterWithMouse);
-            this.textBoxRight.TextChanged += new System.EventHandler(this.button1_Click);
+            this.textBoxRight.TextChanged += new System.EventHandler(this.Textfield_ChangeControls);
             this.textBoxRight.Enter += new System.EventHandler(this.textBox_Enter);
             // 
             // SleepKnop
@@ -184,15 +203,6 @@
             this.LabelControl.Size = new System.Drawing.Size(60, 13);
             this.LabelControl.TabIndex = 0;
             this.LabelControl.Text = "Besturing";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Pas besturing aan";
             // 
             // ArrowPanel
             // 
