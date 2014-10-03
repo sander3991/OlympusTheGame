@@ -85,8 +85,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DragButton);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.DragButton);
             this.Name = "InfoView";
             this.Size = new System.Drawing.Size(240, 487);
             this.Load += new System.EventHandler(this.OnLoad);
