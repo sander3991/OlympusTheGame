@@ -7,6 +7,10 @@ namespace Olympus_the_Game
 {
     public class EntityFireBall : Entity
     {
+        Controller contr = OlympusTheGame.INSTANCE.Controller;
+        EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+        PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+
         public int fireballSpeed = 50; // Aanpasbaar in editor
         public int destinyX, destinyY, i, j;
         private bool targetFound = false;
@@ -23,8 +27,6 @@ namespace Olympus_the_Game
 
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             if (player != null)
             {
                 if (!targetFound)
@@ -36,27 +38,26 @@ namespace Olympus_the_Game
                     j = -((this.Y - destinyY) / fireballSpeed);
                     targetFound = true;
                 }
-                this.X = this.X + i;
-                this.Y = this.Y + j;
+                this.X += i;
+                this.Y += j;
             }
+
+            // Explodeer onder bepaalde voorwaarden
             if (this.CollidesWithObject(player) == true )
             {
                 player.Health--;
                 pf.RemoveObject(this);
             }
-            else if(this.X == 0 || this.Y == 0 || this.X == 968|| this.Y == 479)
+            else if(this.X == 0 || this.Y == 0 || this.X >= 966 || this.Y >= 469)
                 pf.RemoveObject(this);
         }
 
         public override void OnCollide(GameObject gameObject)
         {
-            // wanneer het alles behalve de ghast aanraakt exploderen
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.INSTANCE.Controller;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;

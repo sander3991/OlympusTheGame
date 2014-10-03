@@ -82,6 +82,12 @@
     <Compile Include="View\Editor\EntityEditor.Designer.cs">
       <DependentUpon>EntityEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Editor\SpeelveldEditor.resx">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GamePanel.resx">
       <DependentUpon>GamePanel.cs</DependentUpon>
