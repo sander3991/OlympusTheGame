@@ -19,6 +19,7 @@ namespace Olympus_the_Game.View
 
             this.pf = new PlayField(1000, 500);
             this.gamePanelEditor.Playfield = this.pf;
+            this.speelveldEditor1.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
 
             // Focus op de gamePanel zodat de nummertoetsen werken
