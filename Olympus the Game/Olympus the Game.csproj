@@ -133,12 +133,6 @@
     <Compile Include="View\MenuBar\CustomMenuBar.Designer.cs">
       <DependentUpon>CustomMenuBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuBar\MenuPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\MenuBar\MenuPanel.Designer.cs">
-      <DependentUpon>MenuPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Editor\SpeelveldEditor.cs">
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Editor\LevelEditor.resx">
       <DependentUpon>LevelEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MenuBar\MenuPanel.resx">
-      <DependentUpon>MenuPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

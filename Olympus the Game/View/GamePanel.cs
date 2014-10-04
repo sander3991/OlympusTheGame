@@ -17,7 +17,6 @@ namespace Olympus_the_Game.View
     /// </summary>
     public partial class GamePanel : UserControl
     {
-        public Point MouseDownLocation { get; set; }
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
@@ -95,17 +94,16 @@ namespace Olympus_the_Game.View
         private void draw(GameObject go, Graphics g)
         {
             Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
-
+            Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
             // Generate target rectangle
-            Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
+            Rectangle target = new Rectangle(p, s);
 
             Sprite bm = ImagePool.GetPicture(go.Type, s);
 
-            
+
 
             //  Draw picture
-            g.DrawImageUnscaled(bm[go.Frame],
-                target);
+            g.DrawImageUnscaled(bm[go.Frame], target);
         }
 
         private void Repaint(Graphics g)
@@ -230,8 +228,8 @@ namespace Olympus_the_Game.View
 
         #endregion
 
-        
 
-        
+
+
     }
 }

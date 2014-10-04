@@ -275,7 +275,6 @@
             this.gamePanelEditor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanelEditor.BackgroundImage")));
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
-            this.gamePanelEditor.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.gamePanelEditor.Name = "gamePanelEditor";
             playField1.Name = "Map_1";
             this.gamePanelEditor.Playfield = playField1;

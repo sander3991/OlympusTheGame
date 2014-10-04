@@ -60,7 +60,6 @@
             this.gamePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel1.BackgroundImage")));
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
-            this.gamePanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.gamePanel1.Name = "gamePanel1";
             playField1.Name = "Map_0";
             this.gamePanel1.Playfield = playField1;
