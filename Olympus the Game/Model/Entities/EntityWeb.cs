@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
     public class EntityWeb : Entity
     {
+        Stopwatch stopwatch = Stopwatch.StartNew();
         Controller contr = OlympusTheGame.INSTANCE.Controller;
         PlayField pf = OlympusTheGame.INSTANCE.Playfield;
         /// <summary>
@@ -31,7 +33,13 @@ namespace Olympus_the_Game
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             if (this.CollidesWithObject(player) == false)
             {
-                player.SpeedModifier = 1;
+                if (player.SpeedModifier != 1)
+                    player.SpeedModifier *= 2;
+                if (stopwatch.ElapsedMilliseconds >= 3000)
+                {
+                    OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+                    OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
+                }
             }
         }
 

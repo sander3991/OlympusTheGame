@@ -35,7 +35,7 @@ namespace Olympus_the_Game
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             double distance = DistanceToObject(player);
 
-            if (distance < 100)
+            if (distance <= 100)
             {   
                 // Maak een cobweb aan wanneer er 4 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
                 if (stopwatch.ElapsedMilliseconds >= 4000)
