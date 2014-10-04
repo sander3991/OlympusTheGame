@@ -30,6 +30,19 @@ namespace Olympus_the_Game
         private int height;
         private int width;
         public ObjectType Type { get; protected set; }
+        private PlayField _playfield;
+        public PlayField Playfield
+        {
+            set
+            {
+                if (_playfield == null) //Voorkomt dat het 2 keer geset wordt
+                    _playfield = value;
+            }
+            get
+            {
+                return _playfield;
+            }
+        }
 
         /// <summary>
         /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
@@ -95,10 +108,10 @@ namespace Olympus_the_Game
             {
                 if (value >= 0)
                 {
-                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Width <= OlympusTheGame.INSTANCE.Playfield.WIDTH)
+                    if (Playfield == null || value + Width <= Playfield.WIDTH)
                         x = value;
                     else
-                        x = OlympusTheGame.INSTANCE.Playfield.WIDTH - Width;
+                        x = Playfield.WIDTH - Width;
                 }
             }
         }
@@ -114,10 +127,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || value + Height <= OlympusTheGame.INSTANCE.Playfield.HEIGHT)
+                    if (Playfield == null || value + Height <= Playfield.HEIGHT)
                         y = value;
                     else
-                        y = OlympusTheGame.INSTANCE.Playfield.HEIGHT - Height;
+                        y = Playfield.HEIGHT - Height;
                 else
                     y = 0;
             }

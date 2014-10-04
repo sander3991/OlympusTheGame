@@ -41,6 +41,9 @@ namespace Olympus_the_Game
                 gameObjects = objects;
                 for (int i = 0; i < objects.Count; i++)
                 {
+                    if (objects[i].Playfield != null || objects[i].Playfield == this)
+                        new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
+                    objects[i].Playfield = this;
                     EntityPlayer player = objects[i] as EntityPlayer;
                     if (player != null)
                     {
@@ -49,7 +52,10 @@ namespace Olympus_the_Game
                     }
                 }
                 if (Player == null)
-                    Player = new EntityPlayer(50, 50, 0, 0);
+                {
+                    SetPlayerHome();
+                    Player.Playfield = this;
+                }
                 IsInitialized = true;
             }
 
@@ -69,6 +75,9 @@ namespace Olympus_the_Game
         public void AddObject(GameObject entity)
         {
             gameObjects.Add(entity);
+            if (entity.Playfield != null)
+                new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
+            entity.Playfield = this;
         }
         public void RemoveObject(GameObject entity)
         {
@@ -82,7 +91,8 @@ namespace Olympus_the_Game
         {
             if (Player == null)
             {
-                Player = new EntityPlayer(50, 50, 0, 0); ;
+                Player = new EntityPlayer(50, 50, 0, 0);
+                Player.Playfield = this;
             }
             ObjectStart start = null;
             foreach (GameObject o in gameObjects)

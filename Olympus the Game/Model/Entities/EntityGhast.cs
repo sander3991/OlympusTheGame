@@ -33,7 +33,7 @@ namespace Olympus_the_Game
                     if (stopwatch.ElapsedMilliseconds >= firespeed)
                     {
                         EntityFireBall arrow = new EntityFireBall(25, 25, this.X, this.Y, 0, 0);
-                        OlympusTheGame.INSTANCE.Playfield.AddObject(arrow);
+                        Playfield.AddObject(arrow);
                         stopwatch.Restart();
                     }
                 }
