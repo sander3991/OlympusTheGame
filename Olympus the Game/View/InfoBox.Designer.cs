@@ -461,7 +461,7 @@
             this.timePlayed.AutoSize = true;
             this.timePlayed.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timePlayed.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.timePlayed.Location = new System.Drawing.Point(27, 1);
+            this.timePlayed.Location = new System.Drawing.Point(20, 0);
             this.timePlayed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timePlayed.Name = "timePlayed";
             this.timePlayed.Size = new System.Drawing.Size(180, 59);

@@ -19,7 +19,8 @@ namespace Olympus_the_Game
         SPRITEEXPLOSION,
         WEB,
         FIREBALL,
-        GHAST
+        GHAST,
+        SILVERFISH
     }
 
     public abstract class GameObject
