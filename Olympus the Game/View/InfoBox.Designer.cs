@@ -104,7 +104,7 @@
             this.groupBox3.Controls.Add(this.heartDead5);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(12, 62);
+            this.groupBox3.Location = new System.Drawing.Point(13, 62);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -290,7 +290,7 @@
             this.groupBox4.Controls.Add(this.pictureBox4);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(449, 89);
+            this.groupBox4.Location = new System.Drawing.Point(450, 89);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -331,7 +331,7 @@
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(449, 17);
+            this.groupBox2.Location = new System.Drawing.Point(450, 17);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -370,7 +370,7 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(215, 89);
+            this.groupBox1.Location = new System.Drawing.Point(216, 89);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -409,7 +409,7 @@
             this.groupBox5.Controls.Add(this.pictureBox5);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.White;
-            this.groupBox5.Location = new System.Drawing.Point(215, 17);
+            this.groupBox5.Location = new System.Drawing.Point(216, 17);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -448,7 +448,7 @@
             this.SleepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SleepButton.ForeColor = System.Drawing.Color.White;
             this.SleepButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
-            this.SleepButton.Location = new System.Drawing.Point(672, 0);
+            this.SleepButton.Location = new System.Drawing.Point(0, 0);
             this.SleepButton.Name = "SleepButton";
             this.SleepButton.Size = new System.Drawing.Size(20, 20);
             this.SleepButton.TabIndex = 14;
@@ -461,7 +461,7 @@
             this.timePlayed.AutoSize = true;
             this.timePlayed.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timePlayed.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.timePlayed.Location = new System.Drawing.Point(20, 0);
+            this.timePlayed.Location = new System.Drawing.Point(21, 0);
             this.timePlayed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timePlayed.Name = "timePlayed";
             this.timePlayed.Size = new System.Drawing.Size(180, 59);
@@ -482,7 +482,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
-            this.Size = new System.Drawing.Size(692, 172);
+            this.Size = new System.Drawing.Size(692, 162);
             this.Load += new System.EventHandler(this.InfoBox_Load_1);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
