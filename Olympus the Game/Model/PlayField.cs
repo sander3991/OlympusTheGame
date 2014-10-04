@@ -11,8 +11,8 @@ namespace Olympus_the_Game
     public class PlayField : IXmlSerializable
     {
         private static int ID = 0;
-        public int WIDTH { get; set; }
-        public int HEIGHT { get; set; }
+        public int WIDTH { get; private set; }
+        public int HEIGHT { get; private set; }
         private List<GameObject> gameObjects = new List<GameObject>();
         public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
