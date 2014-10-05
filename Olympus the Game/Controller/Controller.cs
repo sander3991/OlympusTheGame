@@ -142,12 +142,15 @@ namespace Olympus_the_Game
             List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.INSTANCE.Playfield.GetObjects()); //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
             foreach (GameObject o in gameObjects)
             {
-                if (player.CollidesWithObject(o))
+                CollisionType collision = player.CollidesWithObject(o);
+                if (collision != CollisionType.NONE)
                 {
                     if (o.IsSolid)
                     {
-                        player.X = player.PreviousX;
-                        player.Y = player.PreviousY;
+                        if(collision.HasFlag(CollisionType.X))
+                            player.X = player.PreviousX;
+                        if(collision.HasFlag(CollisionType.Y))
+                            player.Y = player.PreviousY;
                     }
                     o.OnCollide(player);
                 }
@@ -162,16 +165,24 @@ namespace Olympus_the_Game
                     e.Move();
                     foreach (GameObject o2 in listWithPlayer)
                     {
-                        if(!e.Equals(o2) && e.CollidesWithObject(o2))
+                        if(!e.Equals(o2))
                         {
-                            e.OnCollide(o2);
-                            o2.OnCollide(e);
-                            e.X = e.PreviousX;
-                            e.Y = e.PreviousY;
-                            if (e.EntityControlledByAI)
+                            CollisionType collision = e.CollidesWithObject(o2);
+                            if (collision != CollisionType.NONE)
                             {
-                                e.DX = -e.DX;
-                                e.DY = -e.DY;
+                                e.OnCollide(o2);
+                                o2.OnCollide(e);
+                                if(collision.HasFlag(CollisionType.X))
+                                    e.X = e.PreviousX;
+                                if(collision.HasFlag(CollisionType.Y))
+                                    e.Y = e.PreviousY;
+                                if (e.EntityControlledByAI)
+                                {
+                                    if (collision.HasFlag(CollisionType.X))
+                                        e.DX = -e.DX;
+                                    if (collision.HasFlag(CollisionType.Y))
+                                        e.DY = -e.DY;
+                                }
                             }
                         }
                     }

@@ -31,7 +31,7 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            if (this.CollidesWithObject(player) == false)
+            if (this.CollidesWithObject(player) == CollisionType.NONE)
             {
                 if (player.SpeedModifier != 1)
                     player.SpeedModifier *= 2;

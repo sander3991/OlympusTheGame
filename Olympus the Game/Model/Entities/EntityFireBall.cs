@@ -43,7 +43,7 @@ namespace Olympus_the_Game
             }
 
             // Explodeer onder bepaalde voorwaarden
-            if (this.CollidesWithObject(player) == true )
+            if (this.CollidesWithObject(player) != CollisionType.NONE )
             {
                 player.Health--;
                 pf.RemoveObject(this);
