@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Olympus_the_Game.View.Imaging
 {
-    class Sprite
+    public class Sprite
     {
-        private static Bitmap EMPTY = new Bitmap(1, 1);
+        public static readonly Bitmap EMPTY = new Bitmap(1, 1);
 
         public int Frames
         {
@@ -30,10 +30,11 @@ namespace Olympus_the_Game.View.Imaging
 
         public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
         {
-            this.Image = ConvertBitmap(bm);
-
+            // Save variables
+            this.Image = bm;
             this.Cyclic = cyclic;
 
+            // Check for moving image or static image
             if (countX > 0 && countY > 0 && countX * countY > 1)
             {
                 this.Columns = countX;
@@ -45,8 +46,15 @@ namespace Olympus_the_Game.View.Imaging
                 Columns = -1;
                 Rows = 1;
             }
-
         }
+
+        public Sprite(Bitmap bm)
+            : this(bm, -1, -1)
+        { }
+
+        public Sprite(Bitmap bm, int countX, int countY)
+            : this(bm, countX, countY, false)
+        { }
 
         public Bitmap this[float index]
         {
@@ -62,17 +70,38 @@ namespace Olympus_the_Game.View.Imaging
                 }
                 else if (this.Cyclic)
                 {
-                    int a = (int)(index * (float)Images.Count);
-                    return Images[a% Images.Count];
+                    float f = index - (float)((int)index);
+                    int a = (int)(f * (float)Images.Count);
+                    return Images[a];
                 }
                 else if (index < 1.0f)
                 {
-                    return Images[(int)(index * (float)(Images.Count-1))];
+                    return Images[(int)(index * (float)Images.Count)];
                 }
                 else
                 {
                     return EMPTY;
                 }
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            Sprite s = obj as Sprite;
+
+            if (s == null)
+                return false;
+
+            if (this.Frames == -1)
+            {
+                return this.Cyclic == s.Cyclic && this.Image.Equals(s.Image);
+            }
+            else
+            {
+                return this.Cyclic == s.Cyclic &&
+                    this.Image.Equals(s.Image) &&
+                    this.Columns == s.Columns &&
+                    this.Rows == s.Rows;
             }
         }
 
@@ -97,14 +126,6 @@ namespace Olympus_the_Game.View.Imaging
                     result.Add(subImage);
                 }
             }
-            return result;
-        }
-
-        private static Bitmap ConvertBitmap(Bitmap b)
-        {
-            Bitmap result = new Bitmap(b.Width, b.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
-            using (Graphics g = Graphics.FromImage(result))
-                g.DrawImage(b, 0, 0, b.Width, b.Height);
             return result;
         }
     }

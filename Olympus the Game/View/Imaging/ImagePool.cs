@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Olympus_the_Game.View
 {
-    class ImagePool
+    public class ImagePool
     {
         /// <summary>
         /// Source images
