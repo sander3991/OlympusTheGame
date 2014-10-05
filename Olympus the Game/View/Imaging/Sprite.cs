@@ -8,8 +8,14 @@ namespace Olympus_the_Game.View.Imaging
 {
     public class Sprite
     {
+        /// <summary>
+        /// Bitmap that will be returned when nothing logical can be returned.
+        /// </summary>
         public static readonly Bitmap EMPTY = new Bitmap(1, 1);
 
+        /// <summary>
+        /// Gets the amount of frames in this Sprite. -1 if this is a static image.
+        /// </summary>
         public int Frames
         {
             get
@@ -18,16 +24,38 @@ namespace Olympus_the_Game.View.Imaging
             }
         }
 
+        /// <summary>
+        /// Gets the amount of columns in this sprite.
+        /// </summary>
         public int Columns { get; private set; }
 
+        /// <summary>
+        /// Gets the amount of rows in this sprite.
+        /// </summary>
         public int Rows { get; private set; }
 
+        /// <summary>
+        /// Gets whether this sprite is cyclic.
+        /// </summary>
         public bool Cyclic { get; private set; }
 
+        /// <summary>
+        /// Gets the images of this sprite, please use sprite[index] instead of this list.
+        /// </summary>
         public List<Bitmap> Images { get; private set; }
 
+        /// <summary>
+        /// Gets the internal image of this sprite
+        /// </summary>
         public Bitmap Image { get; private set; }
 
+        /// <summary>
+        /// Create a new Sprite.
+        /// </summary>
+        /// <param name="bm">The bitmap</param>
+        /// <param name="countX">Amount of pieces to divide x-axis to.</param>
+        /// <param name="countY">Amount of pieces to divide y-axis to.</param>
+        /// <param name="cyclic">Whether to create a cyclic sprite.</param>
         public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
         {
             // Save variables
@@ -48,14 +76,29 @@ namespace Olympus_the_Game.View.Imaging
             }
         }
 
+        /// <summary>
+        /// Create Sprite from single bitmap.
+        /// </summary>
+        /// <param name="bm"></param>
         public Sprite(Bitmap bm)
             : this(bm, -1, -1)
         { }
 
+        /// <summary>
+        /// Create non-cyclic sprite, cut in pieces.
+        /// </summary>
+        /// <param name="bm"></param>
+        /// <param name="countX"></param>
+        /// <param name="countY"></param>
         public Sprite(Bitmap bm, int countX, int countY)
             : this(bm, countX, countY, false)
         { }
 
+        /// <summary>
+        /// Returns the given frame.
+        /// </summary>
+        /// <param name="index">-1.0f for static, between 0.0f (inclusive) and 1.0f (exclusive) (or higher if cyclic) for dynamic.</param>
+        /// <returns></returns>
         public Bitmap this[float index]
         {
             get
@@ -85,8 +128,16 @@ namespace Olympus_the_Game.View.Imaging
             }
         }
 
+        /// <summary>
+        /// Returns whether this Sprite is equal to another object.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
+
             Sprite s = obj as Sprite;
 
             if (s == null)
@@ -101,28 +152,48 @@ namespace Olympus_the_Game.View.Imaging
                 return this.Cyclic == s.Cyclic &&
                     this.Image.Equals(s.Image) &&
                     this.Columns == s.Columns &&
-                    this.Rows == s.Rows;
+                    this.Rows == s.Rows && 
+                    this.Image.Equals(s.Image);
             }
         }
 
+        /// <summary>
+        /// Cast operator from Bitmap.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static implicit operator Sprite(Bitmap b)
         {
-            return new Sprite(b, -1, -1, false);
+            return new Sprite(b);
         }
 
+        /// <summary>
+        /// Helper method to cut up images.
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <param name="rows"></param>
+        /// <param name="columns"></param>
+        /// <returns></returns>
         private static List<Bitmap> CutupImage(Bitmap bitmap, int rows, int columns)
         {
-            int width = bitmap.Width / columns;
-            int height = bitmap.Height / rows;
-            Rectangle targetRectangle = new Rectangle(0, 0, width, height);
-            List<Bitmap> result = new List<Bitmap>(height * width);
+            // Determine target
+            Size s = new Size(bitmap.Width / columns, bitmap.Height / rows);
+            Rectangle targetRectangle = new Rectangle(new Point(0, 0), s);
+
+            // Create result
+            List<Bitmap> result = new List<Bitmap>(s.Height * s.Width);
+
+            // Cut up image
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Bitmap subImage = new Bitmap(width, height);
+                    // Create new Bitmap
+                    Bitmap subImage = new Bitmap(s.Width, s.Height);
+                    // Draw scaled image
                     using (Graphics g = Graphics.FromImage(subImage))
-                        g.DrawImage(bitmap, targetRectangle, new Rectangle(j * width, i * height, width, height), GraphicsUnit.Pixel);
+                        g.DrawImage(bitmap, targetRectangle, new Rectangle(new Point(j * s.Width, i * s.Height), s), GraphicsUnit.Pixel);
+                    // Add to result
                     result.Add(subImage);
                 }
             }
