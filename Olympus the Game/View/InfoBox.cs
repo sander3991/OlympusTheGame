@@ -11,9 +11,11 @@ using System.Diagnostics;
 namespace Olympus_the_Game.View
 {
     // TODO Elmar: Commentaar toevoegen
+
     public partial class InfoBox : UserControl
     {
         public Point MouseDownLocation { get; set; }
+        private EntityPlayer player; //De speler waarvan op dit moment de health getracked wordt
         public InfoBox()
         {
             InitializeComponent();
@@ -21,6 +23,20 @@ namespace Olympus_the_Game.View
             if (player == null)
                 throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
             player.OnHealthChanged += UpdateHealth;
+            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
+            this.player = player;
+        }
+
+        /// <summary>
+        /// Zorgt ervoor dat de healthbar bij het laden van een nieuwe speelveld (en een nieuwe speler), de healthbar gaat luisteren naar de nieuwe speler
+        /// </summary>
+        /// <param name="Playfield">Het nieuwe playfield object</param>
+        private void OnPlayFieldUpdate(PlayField Playfield)
+        {
+            player.OnHealthChanged -= UpdateHealth;
+            player = Playfield.Player;
+            player.OnHealthChanged += UpdateHealth;
+            UpdateHealth(player, -1);
         }
 
         //TODO Elmar: Waarom is deze method Public?
