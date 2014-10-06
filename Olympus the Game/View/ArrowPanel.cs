@@ -31,21 +31,15 @@ namespace Olympus_the_Game.View
         {
             Button b = sender as Button;
             string richting = b.Name.ToString();
-            switch (richting)
-            {
-                case "ArrowKeyRight":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(2, true);
-                    break;
-                case "ArrowKeyLeft":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-2, true);
-                    break;
-                case "ArrowKeyUp":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(-2, false);
-                    break;
-                case "ArrowKeyDown":
-                    OlympusTheGame.INSTANCE.Controller.MovePlayer(2, false);
-                    break;
-            }
+            if (richting == "ArrowKeyRight")
+                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(2, true);
+            if (richting == "ArrowKeyLeft")
+                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(-2, true);
+            if (richting == "ArrowKeyUp")
+                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(-2, false);
+            if (richting == "ArrowKeyDown")
+                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(2, false);
+            
         }
         
         /// <summary>
@@ -55,8 +49,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void StopMoving(object sender, MouseEventArgs e)
         {
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(0, true);
-            OlympusTheGame.INSTANCE.Controller.MovePlayer(0, false);
+            OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(0, true);
+            OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(0, false);
         }
 
         /// <summary>
@@ -96,16 +90,16 @@ namespace Olympus_the_Game.View
             try
             {
                 if (!String.IsNullOrEmpty(textBoxRight.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomRight = 
+                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomRight = 
                         Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomLeft = 
+                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomLeft = 
                         Convert.ToInt32(Char.ToUpper(textBoxLeft.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomUp =   
+                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomUp =   
                         Convert.ToInt32(Char.ToUpper(textBoxUp.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomDown =
+                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomDown =
                         Convert.ToInt32(Char.ToUpper(textBoxDown.Text[0]));
 
             }
