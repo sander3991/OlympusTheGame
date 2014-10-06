@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
-    <Compile Include="Controller\KeyHandlerClass.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
     <Compile Include="Model\Entities\EntitySilverfish.cs" />
     <Compile Include="Model\Entities\EntityFireBall.cs" />
