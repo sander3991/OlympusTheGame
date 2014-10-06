@@ -6,11 +6,9 @@ using Olympus_the_Game;
 
 namespace Olympus_the_Game
 {
-    //TODO Joel: Door gehele document commentaar toevoegen bij de methods
     public class EntityCreeper : EntityExplode
     {
-        // TODO Joel: Property van maken. Hoofdletter bij properties + denk aan limitaties van de range (geen - bijvoorbeeld)
-        public int creeperRange = 150; // Aanpasbaar in editor
+        public int CreeperRange = 150; // Aanpasbaar in editor
         /// <summary>
         /// Een Creeper object met een beginsnelheid
         /// </summary>
@@ -26,10 +24,14 @@ namespace Olympus_the_Game
         /// </summary>
         public EntityCreeper(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0, explodeStrength) { }
 
+        /// <summary>
+        /// Update het object.
+        /// Wanneer dit object te dichtbij een speler is zal deze richting de speler lopen.
+        /// </summary>
         public void OnUpdate() {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player; //TODO Joel: Aanpassen naar ingebakken Playfield.
+            EntityPlayer player = Playfield.Player;
             if(player != null){
-                if(DistanceToObject(player) < creeperRange){
+                if(DistanceToObject(player) < CreeperRange){
                     this.EntityControlledByAI = false;
 
                     if(this.X - player.X > 0)
@@ -46,13 +48,17 @@ namespace Olympus_the_Game
                         this.DY = 1;
                     }
 
-                    if(this.X == player.X) 
-                    { //TODO Joel: Kan dit wel gebeuren? Zo niet, verwijder de code
+
+                    /**
+                     *Als de X of Y waarde van de speler of het object gelijk is zal het object in een rechte lijn achter de speler aan lopen.
+                    **/
+                    if(this.X == player.X)
+                    {
                         this.DX = 0;
                     }
 
                     if (this.Y == player.Y)
-                    { //TODO Joel: Kan dit wel gebeuren? Zo niet, verwijder de code
+                    {
                         this.DY = 0;
                     }
 
@@ -60,16 +66,6 @@ namespace Olympus_the_Game
                     this.EntityControlledByAI = true;
                 }
             }   
-        }
-
-        public override void OnCollide(GameObject gameObject) { 
-            //TODO Joel: Waarom moet deze een unieke OnCollide hebben, is de OnCollide van EntityExplode niet hetzelfde? Zo ja, verwijder deze OnCollide.
-            EntityPlayer player = gameObject as EntityPlayer;
-            if(player != null) {
-                player.Health -= Convert.ToInt32(EffectStrength);
-                OlympusTheGame.INSTANCE.Playfield.SetPlayerHome(); //TODO Joel: Aanpassen naar ingebakken Playfield.
-                OlympusTheGame.INSTANCE.Playfield.RemoveObject(this); //TODO Joel: Aanpassen naar ingebakken Playfield.
-            }
         }
 
         public override string ToString()
@@ -80,7 +76,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.INSTANCE.Controller;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield; //TODO Joel: Aanpassen naar ingebakken Playfield.
+            PlayField pf = Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             if(!fieldRemoved)
                 pf.AddObject(new SpriteExplosion(this));

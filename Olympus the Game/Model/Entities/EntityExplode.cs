@@ -21,7 +21,7 @@ namespace Olympus_the_Game {
 
         public override void OnCollide(GameObject gameObject) {
             EntityPlayer player = gameObject as EntityPlayer;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield; //TODO Joel: Aanpassen naar ingebakken Playfield.
+            PlayField pf = Playfield;
             if(player != null) {
                 player.Health -= Convert.ToInt32(EffectStrength);
                 pf.SetPlayerHome();
