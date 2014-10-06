@@ -47,7 +47,7 @@ namespace Olympus_the_Game
                 player.Health--;
                 pf.RemoveObject(this);
             }
-            else if(this.X == 0 || this.Y == 0 || this.X >= (Playfield.WIDTH - 25) || this.Y >= (Playfield.HEIGHT - 25))
+            else if(this.X <= 3 || this.Y <= 3 || this.X >= (Playfield.WIDTH - 25) || this.Y >= (Playfield.HEIGHT - 25))
                 pf.RemoveObject(this);
         }
 
