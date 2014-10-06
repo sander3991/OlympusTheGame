@@ -23,7 +23,8 @@ namespace Olympus_the_Game
         /// <summary>
         /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
         /// </summary>
-        public static OlympusTheGame INSTANCE { get; private set; }
+        //TODO Sander: Overleggen over public setter, eventueel hele class Static maken? 
+        public static OlympusTheGame INSTANCE { get; set; }
 
         /// <summary>
         /// Het huidige speelveld.
@@ -56,7 +57,7 @@ namespace Olympus_the_Game
         /// Beginpunt van de applicatie
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             // non-static object aanmaken
             INSTANCE = new OlympusTheGame();
