@@ -18,7 +18,7 @@ namespace Olympus_the_Game_Test.View.Editor
             LevelEditor le = new LevelEditor();
 
             // Assert
-            Assert.AreEqual(0, le.pf.GetObjects().Count);
+            Assert.AreEqual(0, le.pf.GameObjects.Count);
 
             // Clean up
             le.Dispose();
@@ -73,13 +73,13 @@ namespace Olympus_the_Game_Test.View.Editor
 
             // Assert
             Assert.AreEqual(newPF, le.pf);
-            Assert.AreNotEqual(null, le.pf.GetObjects());
-            Assert.AreEqual(1, le.pf.GetObjects().Count);
-            Assert.AreEqual(os, le.pf.GetObjects()[0]);
-            Assert.AreEqual(500, le.pf.GetObjects()[0].Width);
-            Assert.AreEqual(500, le.pf.GetObjects()[0].Height);
-            Assert.AreEqual(8000, le.pf.GetObjects()[0].X);
-            Assert.AreEqual(8000, le.pf.GetObjects()[0].Y);
+            Assert.AreNotEqual(null, le.pf.GameObjects);
+            Assert.AreEqual(1, le.pf.GameObjects.Count);
+            Assert.AreEqual(os, le.pf.GameObjects[0]);
+            Assert.AreEqual(500, le.pf.GameObjects[0].Width);
+            Assert.AreEqual(500, le.pf.GameObjects[0].Height);
+            Assert.AreEqual(8000, le.pf.GameObjects[0].X);
+            Assert.AreEqual(8000, le.pf.GameObjects[0].Y);
 
             // Clean up
             le.Dispose();

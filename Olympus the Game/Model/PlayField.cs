@@ -19,6 +19,7 @@ namespace Olympus_the_Game
         /// De GameObjecten van dit PlayField.
         /// </summary>
         public List<GameObject> GameObjects { get; private set; }
+
         public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
         public bool IsInitialized { get; private set; }

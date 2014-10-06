@@ -39,7 +39,7 @@ namespace Olympus_the_Game
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             player.Move();
-            List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.INSTANCE.Playfield.GetObjects()); //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
+            List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.INSTANCE.Playfield.GameObjects); //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
             foreach (GameObject o in gameObjects)
             {
                 CollisionType collision = player.CollidesWithObject(o);
@@ -94,7 +94,7 @@ namespace Olympus_the_Game
         {
             if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
             Random rand = new Random();
-            List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+            List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GameObjects;
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;

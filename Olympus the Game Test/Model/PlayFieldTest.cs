@@ -48,8 +48,8 @@ namespace Olympus_the_Game_Test.Model
             catch (ArgumentException) // TODO Make exception more specific
             {
                 // Should not be added, and length should stay same
-                Assert.AreEqual(2, pfWith1StartAnd2Finish.GetObjects().Count);
-                Assert.IsFalse(pfWith1StartAnd2Finish.GetObjects().Contains(gF2));
+                Assert.AreEqual(2, pfWith1StartAnd2Finish.GameObjects.Count);
+                Assert.IsFalse(pfWith1StartAnd2Finish.GameObjects.Contains(gF2));
             }
 
             // Add double start
@@ -61,26 +61,26 @@ namespace Olympus_the_Game_Test.Model
             catch (ArgumentException) // TODO Make exception more specific
             {
                 // Should not be added, and length should stay same
-                Assert.AreEqual(2, pfWith2StartAnd1Finish.GetObjects().Count);
-                Assert.IsFalse(pfWith2StartAnd1Finish.GetObjects().Contains(gS2));
+                Assert.AreEqual(2, pfWith2StartAnd1Finish.GameObjects.Count);
+                Assert.IsFalse(pfWith2StartAnd1Finish.GameObjects.Contains(gS2));
             }
 
             // Assert
             pfWithStart.AddObject(gS); // Add start
-            Assert.AreEqual(pfWithStart.GetObjects().Count, 1);
-            Assert.AreEqual(pfWithStart.GetObjects()[0], gS);
+            Assert.AreEqual(pfWithStart.GameObjects.Count, 1);
+            Assert.AreEqual(pfWithStart.GameObjects[0], gS);
 
             // Assert
             pfWithFinish.AddObject(gS); // Add finish
-            Assert.AreEqual(1, pfWithFinish.GetObjects().Count);
-            Assert.AreEqual(gS, pfWithFinish.GetObjects()[0]);
+            Assert.AreEqual(1, pfWithFinish.GameObjects.Count);
+            Assert.AreEqual(gS, pfWithFinish.GameObjects[0]);
 
             // Assert
-            Assert.AreEqual(0, pf.GetObjects().Count);
+            Assert.AreEqual(0, pf.GameObjects.Count);
 
             // Act / Assert
-            Assert.AreEqual(2, pfWithStartAndFinish.GetObjects().Count);
-            Assert.IsTrue(pfWithStartAndFinish.GetObjects().Contains(gS) && pfWithStartAndFinish.GetObjects().Contains(gF));
+            Assert.AreEqual(2, pfWithStartAndFinish.GameObjects.Count);
+            Assert.IsTrue(pfWithStartAndFinish.GameObjects.Contains(gS) && pfWithStartAndFinish.GameObjects.Contains(gF));
         }
 
         [TestMethod]

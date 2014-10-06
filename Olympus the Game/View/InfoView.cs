@@ -74,7 +74,7 @@ namespace Olympus_the_Game.View
         private void update()
         {
             // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+            Entitys = OlympusTheGame.INSTANCE.Playfield.GameObjects;
             listView1.Items.Clear();
             foreach (GameObject g in Entitys)
             {

@@ -56,7 +56,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Maak een nieuw GamePanel aan, deze krijgt als argument het model mee welke moet worden getekend.
         /// </summary>
-        public GamePanel(PlayField pf) // TODO Specify type
+        public GamePanel(PlayField pf)
         {
             // Save variables
             this.Playfield = pf;
@@ -108,7 +108,7 @@ namespace Olympus_the_Game.View
 
         private void Repaint(Graphics g)
         {
-            List<GameObject> objects = Playfield.GetObjects();
+            List<GameObject> objects = Playfield.GameObjects;
 
             // Loop through all gameobjects
             foreach (GameObject go in objects)
