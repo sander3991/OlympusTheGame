@@ -55,12 +55,12 @@ namespace Olympus_the_Game.View
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
         {
-            Cake.DoDragDrop(ObjectType.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
+            Cake.DoDragDrop(ObjectType.FINISH, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Home_MouseDown(object sender, MouseEventArgs e)
         {
-            Home.DoDragDrop(ObjectType.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+            Home.DoDragDrop(ObjectType.START, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Obstakel_MouseDown(object sender, MouseEventArgs e)
@@ -164,11 +164,11 @@ namespace Olympus_the_Game.View
                 case ObjectType.SLOWER:
                     this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
                     break;
-                case ObjectType.CAKE:
+                case ObjectType.FINISH:
                     this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                     this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
                     break;
-                case ObjectType.HOME:
+                case ObjectType.START:
                     this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                     this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
                     break;

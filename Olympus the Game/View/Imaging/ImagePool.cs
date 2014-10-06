@@ -30,8 +30,8 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.WEB, Properties.Resources.cobweb);
             source.Add(ObjectType.PLAYER, Properties.Resources.player);
             source.Add(ObjectType.TIMEBOMB, Properties.Resources.timebomb);
-            source.Add(ObjectType.HOME, Properties.Resources.huis);
-            source.Add(ObjectType.CAKE, Properties.Resources.cake);
+            source.Add(ObjectType.START, Properties.Resources.huis);
+            source.Add(ObjectType.FINISH, Properties.Resources.cake);
             source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
             source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
             source.Add(ObjectType.SILVERFISH, Properties.Resources.missing);

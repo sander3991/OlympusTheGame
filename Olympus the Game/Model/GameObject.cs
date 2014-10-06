@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
-    // TODO Ruben: Aanpassen naar echte naam
     public enum ObjectType
     {
         PLAYER,
@@ -14,8 +13,8 @@ namespace Olympus_the_Game
         OBSTACLE,
         CREEPER,
         EXPLODE,
-        HOME,
-        CAKE,
+        START,
+        FINISH,
         UNKNOWN,
         SPRITEEXPLOSION,
         WEB,

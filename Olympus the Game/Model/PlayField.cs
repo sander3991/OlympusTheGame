@@ -271,10 +271,10 @@ namespace Olympus_the_Game
                                     case ObjectType.EXPLODE:
                                         AddObject(new EntityExplode(objectWidth, objectHeight, objectX, objectY, explodeStrength));
                                         break;
-                                    case ObjectType.HOME:
+                                    case ObjectType.START:
                                         AddObject(new ObjectStart(objectWidth, objectHeight, objectX, objectY));
                                         break;
-                                    case ObjectType.CAKE:
+                                    case ObjectType.FINISH:
                                         AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
                                         break;
                                     case ObjectType.GHAST:
