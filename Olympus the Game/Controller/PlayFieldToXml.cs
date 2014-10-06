@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace Olympus_the_Game
 {
+    // TODO Sander: Comments
     class PlayFieldToXml
     {
         private static XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
@@ -38,9 +39,10 @@ namespace Olympus_the_Game
         internal static PlayField ReadFromResource(string xml)
         {
             StringReader strReader = new StringReader(xml);
+            StringReader str = null;
             try
             {
-                StringReader str = new StringReader(xml);
+                str = new StringReader(xml);
                 Object o = serialiser.Deserialize(str);
                 PlayField pf = o as PlayField;
                 str.Close();
@@ -50,6 +52,11 @@ namespace Olympus_the_Game
             {
                 Console.WriteLine("Something went wrong when reading the resource");
                 return null;
+            }
+            finally
+            {
+                if (str != null)
+                    str.Close();
             }
         }
 
