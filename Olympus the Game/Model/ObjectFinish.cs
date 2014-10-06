@@ -24,5 +24,7 @@ namespace Olympus_the_Game
         {
             return "Finish";
         }
+
+        //TODO ??: OnCollide om te detecteren dat we gewonnen hebben!
     }
 }
