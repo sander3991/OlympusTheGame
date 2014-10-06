@@ -27,9 +27,9 @@ namespace Olympus_the_Game.View
                 if(Playfield != null)
                 {
                     if (prop_size.Width >= 1)
-                        Playfield.HEIGHT = prop_size.Height;
+                        Playfield.Height = prop_size.Height;
                     if (prop_size.Height >= 1)
-                        Playfield.WIDTH = prop_size.Height;
+                        Playfield.Width = prop_size.Height;
                 }
             }
         }

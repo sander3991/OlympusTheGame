@@ -10,9 +10,10 @@ namespace Olympus_the_Game
 {
     public class PlayField : IXmlSerializable
     {
+        // TODO Sander: Commentaar toevoegen
         private static int ID = 0;
-        public int WIDTH { get; set; }
-        public int HEIGHT { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         private List<GameObject> gameObjects = new List<GameObject>();
         public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
@@ -20,8 +21,8 @@ namespace Olympus_the_Game
         public PlayField() : this(1000, 500) { }
         public PlayField(int width, int height)
         {
-            WIDTH = width;
-            HEIGHT = height;
+            Width = width;
+            Height = height;
             Name = "Map_" + ID++;
             IsInitialized = false;
         }
@@ -29,7 +30,7 @@ namespace Olympus_the_Game
         public void InitializeGameObjects()
         {
             if (!IsInitialized)
-                this.InitializeGameObjects(GetDefaultMap(WIDTH, HEIGHT));
+                this.InitializeGameObjects(GetDefaultMap(Width, Height));
         }
 
         public void InitializeGameObjects(List<GameObject> objects)
@@ -60,13 +61,13 @@ namespace Olympus_the_Game
             }
 
         }
-
+        // TODO Ruben: Omvormen naar een property
         /// <summary>
         /// Verkrijgt alle gameObjects die op het veld zijn
         /// </summary>
         public List<GameObject> GetObjects()
         {
-            return gameObjects;
+            return new List<GameObject>(gameObjects);
         }
 
         /// <summary>
@@ -74,11 +75,13 @@ namespace Olympus_the_Game
         /// </summary>
         public void AddObject(GameObject entity)
         {
-            gameObjects.Add(entity);
+
             if (entity.Playfield != null)
-                new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
+                throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
+            gameObjects.Add(entity);
             entity.Playfield = this;
         }
+        // TODO Sander: Commentaar
         public void RemoveObject(GameObject entity)
         {
             gameObjects.Remove(entity);
@@ -101,13 +104,15 @@ namespace Olympus_the_Game
                 if (o != null)
                     break;
             }
-            if (start != null)
+            if (start != null) 
             {
+                //Zet de speler op het midden van het startobject
                 Player.X = (start.X + start.Width / 2) - (Player.Width / 2);
                 Player.Y = (start.Y + start.Height / 2) - (Player.Height / 2);
             }
         }
 
+        // TODO Sander : Wegslopen
         public static List<GameObject> GetDefaultMap(int width, int height)
         {
             List<GameObject> objects = new List<GameObject>();
@@ -121,7 +126,7 @@ namespace Olympus_the_Game
             objects.Add(new EntityGhast(50,50,100, 100));
             return objects;
         }
-
+        // TODO Sander: In-code commentaar
         /// <summary>
         /// Haalt alle objecten op op de locatie
         /// </summary>
@@ -145,7 +150,7 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Handles the removal of a playfield from the game
+        /// Verwijderd alle gameobjecten van het speelveld, en roept de GameObject.OnRemoved aan voor elke method.
         /// </summary>
         public void UnloadPlayField()
         {
@@ -154,11 +159,18 @@ namespace Olympus_the_Game
             Player.OnRemoved(true);
         }
 
+        /// <summary>
+        /// Interface implementatie IXmlSerializable
+        /// </summary>
+        /// <returns>null, comform documentatie interface</returns>
         public System.Xml.Schema.XmlSchema GetSchema()
         {
             return null;
         }
-
+        /// <summary>
+        /// Word aargeroepen door de XmlReader om een PlayField bestand in te lezen
+        /// </summary>
+        /// <param name="reader">De reader aangemaakt door de XmlReader</param>
         public void ReadXml(System.Xml.XmlReader reader)
         {
             reader.Read();
@@ -188,13 +200,13 @@ namespace Olympus_the_Game
                                 if (isReadingObject)
                                     objectWidth = Convert.ToInt32(reader.Value);
                                 else
-                                    WIDTH = Convert.ToInt32(reader.Value);
+                                    Width = Convert.ToInt32(reader.Value);
                                 break;
                             case "Height":
                                 if (isReadingObject)
                                     objectHeight = Convert.ToInt32(reader.Value);
                                 else
-                                    HEIGHT = Convert.ToInt32(reader.Value);
+                                    Height = Convert.ToInt32(reader.Value);
                                 break;
                             case "GameObjects":
                                 isReadingObject = true;
@@ -294,12 +306,15 @@ namespace Olympus_the_Game
 
             return;
         }
-
+        /// <summary>
+        /// IXmlSerializable interface voor het schrijven naar een XmlBestand
+        /// </summary>
+        /// <param name="writer">De schrijver</param>
         public void WriteXml(System.Xml.XmlWriter writer)
         {
             writer.WriteElementString("Name", Name);
-            writer.WriteElementString("Width", WIDTH.ToString());
-            writer.WriteElementString("Height", HEIGHT.ToString());
+            writer.WriteElementString("Width", Width.ToString());
+            writer.WriteElementString("Height", Height.ToString());
             writer.WriteStartElement("GameObjects");
             foreach (GameObject o in gameObjects)
             {
