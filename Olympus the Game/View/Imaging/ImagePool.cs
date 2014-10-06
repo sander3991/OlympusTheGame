@@ -19,6 +19,9 @@ namespace Olympus_the_Game.View
         /// </summary>
         private static Dictionary<Tuple<ObjectType, Size>, Sprite> images = new Dictionary<Tuple<ObjectType, Size>, Sprite>();
 
+        /// <summary>
+        /// Voegt alle plaatjes toe aan de bron-dictionary.
+        /// </summary>
         static ImagePool()
         {
             source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
@@ -70,6 +73,12 @@ namespace Olympus_the_Game.View
 
         }
 
+        /// <summary>
+        /// Geeft de Sprite terug voor het gegeven ObjectType.
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static Sprite GetPicture(ObjectType o, Size s)
         {
             // Define get result

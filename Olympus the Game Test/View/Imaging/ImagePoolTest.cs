@@ -48,5 +48,19 @@ namespace Olympus_the_Game_Test.View.Imaging
                 Assert.AreEqual(s, sprite.Frames == -1 ? sprite[-1.0f].Size : sprite[0.0f].Size);
             }
         }
+
+        [TestMethod]
+        public void Test_Get_PreBuffered_Image()
+        {
+            // Arrange
+            Size s = new Size(10, 10);
+            Sprite expected = ImagePool.GetPicture(ObjectType.CREEPER, s);
+
+            // Act
+            Sprite actual = ImagePool.GetPicture(ObjectType.CREEPER, s);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

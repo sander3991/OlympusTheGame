@@ -10,6 +10,8 @@ using System.Windows;
 
 namespace Olympus_the_Game.View
 {
+    //TODO HenkJan: Commentaar toevoegen iom Elmar
+    //TODO Elmar:  Commentaar toevoegen iom HenkJan
     public partial class GameScreen : Form
     {
         public GameScreen()

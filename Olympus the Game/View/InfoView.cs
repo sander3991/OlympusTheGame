@@ -14,6 +14,7 @@ namespace Olympus_the_Game.View
 {
     public partial class InfoView : UserControl
     {
+        //TODO HenkJan: Commentaar toevoegen
         public Point MouseDownLocation { get; set; }
         public List<GameObject> Entitys { get; set; }
         public bool IsResized { get; set; }
@@ -70,6 +71,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         private void update()
         {
+            // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
             Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
             listView1.Items.Clear();
             foreach (GameObject g in Entitys)
