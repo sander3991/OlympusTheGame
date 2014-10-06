@@ -8,8 +8,11 @@ namespace Olympus_the_Game
 {
     public class EntityWeb : Entity
     {
+        // TODO Elmar: Access modifiers
         Stopwatch stopwatch = Stopwatch.StartNew();
+        // TODO Elmar: Verwijderen, dit kan zo niet
         Controller contr = OlympusTheGame.INSTANCE.Controller;
+        // TODO Elmar: Deze bestaat al in GameObject, verwijderen en de GameObject.Playfield gebruiken
         PlayField pf = OlympusTheGame.INSTANCE.Playfield;
         /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
@@ -28,6 +31,7 @@ namespace Olympus_the_Game
         /// </summary>
         public EntityWeb(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
+        //TODO Elmar: Graag overleggen met Sander/Ruben
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;

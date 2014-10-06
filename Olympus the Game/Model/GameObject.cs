@@ -225,7 +225,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wordt aangeroepen als een object verwijderd wordt van het speelveld
         /// </summary>
-        /// <param name="fieldRemoved">Boolean die aangeeft of hij van het veld is verwijderd, of dat het veld nog bestaat (bij het doodgaan van een entity)</param>
+        /// <param name="fieldRemoved">bool die aangeeft of hij door het PlayField is verwijderd. True is door het speelveld verwijderd, false door een OnCollide</param>
         public virtual void OnRemoved(bool fieldRemoved)
         {
 

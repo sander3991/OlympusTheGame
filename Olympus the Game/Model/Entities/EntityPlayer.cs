@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    //TODO Sander: Commentaar
     public class EntityPlayer : Entity
     {
         public const int MAXHEALTH = 5;
@@ -57,8 +58,12 @@ namespace Olympus_the_Game
             }
             set
             {
+                int prevHealth = health;
                 health = Math.Max(0, value);
                 health = Math.Min(MAXHEALTH, value);
+                if (prevHealth != health)
+                    //DoHealthEventHier
+                    return;
             }
         }
         /// <summary>
