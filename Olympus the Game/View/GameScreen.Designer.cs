@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
@@ -43,6 +43,8 @@
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
+            this.pauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customMenuBar1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,15 +63,19 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
-            playField1.Name = "Map_0";
-            this.gamePanel1.Playfield = playField1;
+            playField2.Height = 500;
+            playField2.Name = "Map_0";
+            playField2.Width = 1000;
+            this.gamePanel1.Playfield = playField2;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
             // customMenuBar1
             // 
             this.customMenuBar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.weergaveToolStripMenuItem});
+            this.weergaveToolStripMenuItem,
+            this.pauzeToolStripMenuItem,
+            this.verderToolStripMenuItem});
             this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
             this.customMenuBar1.Name = "customMenuBar1";
             this.customMenuBar1.Size = new System.Drawing.Size(1264, 24);
@@ -158,6 +164,20 @@
             this.infoBox1.Size = new System.Drawing.Size(692, 162);
             this.infoBox1.TabIndex = 6;
             // 
+            // pauzeToolStripMenuItem
+            // 
+            this.pauzeToolStripMenuItem.Name = "pauzeToolStripMenuItem";
+            this.pauzeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.pauzeToolStripMenuItem.Text = "Pauze";
+            this.pauzeToolStripMenuItem.Click += new System.EventHandler(this.pauzeToolStripMenuItem_Click);
+            // 
+            // verderToolStripMenuItem
+            // 
+            this.verderToolStripMenuItem.Name = "verderToolStripMenuItem";
+            this.verderToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.verderToolStripMenuItem.Text = "Verder";
+            this.verderToolStripMenuItem.Click += new System.EventHandler(this.verderToolStripMenuItem_Click);
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem pijltjestoetsenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem volledigeWeergaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem pauzeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verderToolStripMenuItem;
     }
 }

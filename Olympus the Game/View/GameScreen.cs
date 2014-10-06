@@ -139,5 +139,15 @@ namespace Olympus_the_Game.View
         {
             gamePanel1.Playfield = pf;
         }
+
+        private void pauzeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OlympusTheGame.INSTANCE.Pause();
+        }
+
+        private void verderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OlympusTheGame.INSTANCE.Resume();
+        }
     }
 }
