@@ -95,6 +95,7 @@ namespace Olympus_the_Game.View
         {
             try
             {
+                //TODO HenkJan: Eventueel ook implementeren in een aparte class
                 if (!String.IsNullOrEmpty(textBoxRight.Text))
                     OlympusTheGame.INSTANCE.Controller.CustomRight = 
                         Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
