@@ -40,10 +40,12 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="Playfield">Het nieuwe Playfield object</param>
         public delegate void NewPlayField(PlayField Playfield);
+
         /// <summary>
         /// Event dat gefired wordt zodra er een nieuw Playfield is
         /// </summary>
         public event NewPlayField OnNewPlayField;
+
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
@@ -93,13 +95,16 @@ namespace Olympus_the_Game
             gs.gamePanel1.Playfield = this.Playfield;
 
             // Start timers
-            GameTimer.Start();
-            SlowTimer.Start();
+            this.Resume();
 
             // Start applicatie
             Application.Run(gs);
         }
 
+        /// <summary>
+        /// Change the playfield
+        /// </summary>
+        /// <param name="pf"></param>
         public void SetNewPlayfield(PlayField pf)
         {
             if (pf != null)
@@ -113,14 +118,31 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Stops all logic
+        /// </summary>
+        public void Pause()
+        {
+            this.GameTimer.Stop();
+            this.SlowTimer.Stop();
+        }
+
+        /// <summary>
+        /// Resumes all logic
+        /// </summary>
+        public void Resume()
+        {
+            this.GameTimer.Start();
+            this.SlowTimer.Start();
+        }
+
+        /// <summary>
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.
         /// </summary>
         public void RequestClose()
         {
-            // Stop timers
-            GameTimer.Stop();
-            SlowTimer.Stop();
+            // Pause game
+            this.Pause();
 
             // Sluit scherm
             gs.Dispose();
