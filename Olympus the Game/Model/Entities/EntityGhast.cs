@@ -34,8 +34,8 @@ namespace Olympus_the_Game
                     //Maak een nieuwe fireball aan wanneer er 3 seconden verstreken zijn
                     if (stopwatch.ElapsedMilliseconds >= firespeed)
                     {
-                        EntityFireBall arrow = new EntityFireBall(25, 25, this.X, this.Y, 0, 0); //TODO Elmar: Naam veranderen, is duidelijker.
-                        Playfield.AddObject(arrow);
+                        EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, player);
+                        Playfield.AddObject(fireball);
                         stopwatch.Restart();
                     }
                 }

@@ -10,10 +10,6 @@ namespace Olympus_the_Game
     {
         // TODO Elmar: Access modifiers
         Stopwatch stopwatch = Stopwatch.StartNew();
-        // TODO Elmar: Verwijderen, dit kan zo niet
-        Controller contr = OlympusTheGame.INSTANCE.Controller;
-        // TODO Elmar: Deze bestaat al in GameObject, verwijderen en de GameObject.Playfield gebruiken
-        PlayField pf = OlympusTheGame.INSTANCE.Playfield;
         /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
@@ -42,7 +38,7 @@ namespace Olympus_the_Game
                 if (stopwatch.ElapsedMilliseconds >= 3000)
                 {
                     OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
-                    OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
+                    Playfield.RemoveObject(this);
                 }
             }
         }

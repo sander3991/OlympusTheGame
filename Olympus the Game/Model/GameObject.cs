@@ -194,7 +194,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="entity">Het GameObject waarmee vergeleken wordt</param>
         /// <returns>CollisionType type van het type waar hij gecollide is</returns>
-        public CollisionType CollidesWithObject(GameObject entity)
+        public virtual CollisionType CollidesWithObject(GameObject entity)
         {
             if(CollidesWithX(entity) && CollidesWithY(entity))
             {

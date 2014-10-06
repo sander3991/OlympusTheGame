@@ -67,7 +67,7 @@ namespace Olympus_the_Game
             Controller contr = OlympusTheGame.INSTANCE.Controller;
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             contr.UpdateGameEvents -= OnUpdate;
-            pf.AddObject(new SpriteExplosion(this)); // TODO Elmar: Tip: Misschien een grotere explosie omdat de range groter is dan 1 object?
+            pf.AddObject(new SpriteExplosion(75,75,this.X,this.Y)); // TODO Elmar: Tip: Misschien een grotere explosie omdat de range groter is dan 1 object?
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
