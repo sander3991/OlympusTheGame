@@ -158,6 +158,33 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
+        /// Geeft de hashcode van deze Sprite.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            int result = 41;
+            int factor = 37;
+
+            result *= factor;
+            result += this.Columns;
+
+            result *= factor;
+            result += this.Rows;
+
+            result *= factor;
+            result += this.Cyclic.GetHashCode();
+
+            result *= factor;
+            result += this.Image.GetHashCode();
+
+            result *= factor;
+            result += this.Images.GetHashCode();
+
+            return result;
+        }
+
+        /// <summary>
         /// Cast operator from Bitmap.
         /// </summary>
         /// <param name="b"></param>
