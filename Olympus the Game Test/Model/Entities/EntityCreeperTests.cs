@@ -9,7 +9,7 @@ namespace Olympus_the_Game_Test.Model.Entities {
         [TestMethod]
         public void CreeperMovesToPlayer() 
         {
-            Assert.IsTrue();
+            
         }
     }
 }
