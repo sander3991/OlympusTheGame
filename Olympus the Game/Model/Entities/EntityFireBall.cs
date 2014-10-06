@@ -41,19 +41,19 @@ namespace Olympus_the_Game
                 this.X += i;
                 this.Y += j;
             }
-
             // Explodeer onder bepaalde voorwaarden
-            if (this.CollidesWithObject(player) != CollisionType.NONE )
+            if (this.CollidesWithObject(player) != CollisionType.NONE)
             {
                 player.Health--;
                 pf.RemoveObject(this);
             }
-            else if(this.X == 0 || this.Y == 0 || this.X >= 966 || this.Y >= 469)
+            else if(this.X == 0 || this.Y == 0 || this.X >= (Playfield.WIDTH - 25) || this.Y >= (Playfield.HEIGHT - 25))
                 pf.RemoveObject(this);
         }
 
         public override void OnCollide(GameObject gameObject)
         {
+
         }
 
         public override void OnRemoved(bool fieldRemoved)
