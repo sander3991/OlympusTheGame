@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    // TODO Ruben: Aanpassen naar echte naam
     public enum ObjectType
     {
         PLAYER,
@@ -37,17 +38,17 @@ namespace Olympus_the_Game
         private int height;
         private int width;
         public ObjectType Type { get; protected set; }
-        private PlayField _playfield;
+        private PlayField prop_playfield;
         public PlayField Playfield
         {
             set
             {
-                if (_playfield == null) //Voorkomt dat het 2 keer geset wordt
-                    _playfield = value;
+                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
+                    prop_playfield = value;
             }
             get
             {
-                return _playfield;
+                return prop_playfield;
             }
         }
 
@@ -60,12 +61,7 @@ namespace Olympus_the_Game
             {
                 return -1.0f;
             }
-            set { }
-        }
-
-        public GameObject()
-        {
-            Type = ObjectType.UNKNOWN;
+            protected set { }
         }
 
         /// <summary>
@@ -115,10 +111,10 @@ namespace Olympus_the_Game
             {
                 if (value >= 0)
                 {
-                    if (Playfield == null || value + Width <= Playfield.WIDTH)
+                    if (Playfield == null || value + Width <= Playfield.Width)
                         x = value;
                     else
-                        x = Playfield.WIDTH - Width;
+                        x = Playfield.Width - Width;
                 }
             }
         }
@@ -134,10 +130,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    if (Playfield == null || value + Height <= Playfield.HEIGHT)
+                    if (Playfield == null || value + Height <= Playfield.Height)
                         y = value;
                     else
-                        y = Playfield.HEIGHT - Height;
+                        y = Playfield.Height - Height;
                 else
                     y = 0;
             }
@@ -161,6 +157,7 @@ namespace Olympus_the_Game
             Width = width;
             Height = height;
             IsSolid = true;
+            Type = ObjectType.UNKNOWN;
         }
 
         /// <summary>
@@ -228,12 +225,12 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wordt aangeroepen als een object verwijderd wordt van het speelveld
         /// </summary>
-        /// <param name="fieldRemoved">Boolean die aangeeft of hij van het veld is verwijderd, of dat het veld nog bestaat (bij het doodgaan van een entity)</param>
+        /// <param name="fieldRemoved">bool die aangeeft of hij door het PlayField is verwijderd. True is door het speelveld verwijderd, false door een OnCollide</param>
         public virtual void OnRemoved(bool fieldRemoved)
         {
 
         }
-
+        // TODO Sander: Comments
         public static bool DoLinesOverlap(int x1, int width1, int x2, int width2)
         {
             if (x1 >= x2)

@@ -5,14 +5,16 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    //TODO Elmar: Commentaar toevoegen aan public props en methods
     public class EntityFireBall : Entity
     {
+        // TODO Elmar: Onderstaande 3 regels kunnen niet. Geen referenties naar externe statics als variabelen in de class. Playfield zit al intern in GameObject.cs
         Controller contr = OlympusTheGame.INSTANCE.Controller;
         EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
         PlayField pf = OlympusTheGame.INSTANCE.Playfield;
 
         public int fireballSpeed = 50; // Aanpasbaar in editor
-        public int destinyX, destinyY, i, j;
+        public int destinyX, destinyY, i, j; // TODO Elmar: Betere omschrijving van de variabelen, en Props van maken, of private als ze alleen lokaal gebruikt worden
         private bool targetFound = false;
 
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy)
@@ -25,6 +27,7 @@ namespace Olympus_the_Game
         }
         public EntityFireBall(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
+        //TODO Elmar: Graag overleggen met Sander
         public void OnUpdate()
         {
             if (player != null)
@@ -52,13 +55,15 @@ namespace Olympus_the_Game
                 pf.RemoveObject(this);
         }
 
-        public override void OnCollide(GameObject gameObject)
-        {
+        public override void OnCollide(GameObject gameObject) {
+            EntityGhast eg = gameObject as EntityGhast;
+            if(gameObject == null){
+            }
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            contr.UpdateGameEvents -= OnUpdate;
+            contr.UpdateGameEvents -= OnUpdate; // TODO Elmar: Je haalt hier 2 keer OnUpdate weg!
             pf.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }

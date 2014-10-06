@@ -195,10 +195,10 @@ namespace Olympus_the_Game.View
         public void Recalculate()
         {
             // Fix playfield scaling
-            double ratioWidth = (double)this.Playfield.WIDTH / (double)MaxSize.Width;
-            double ratioHeight = (double)this.Playfield.HEIGHT / (double)MaxSize.Height;
+            double ratioWidth = (double)this.Playfield.Width / (double)MaxSize.Width;
+            double ratioHeight = (double)this.Playfield.Height / (double)MaxSize.Height;
             this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
-            this.Size = new Size((int)((double)this.Playfield.WIDTH * SCALE), (int)((double)this.Playfield.HEIGHT * SCALE));
+            this.Size = new Size((int)((double)this.Playfield.Width * SCALE), (int)((double)this.Playfield.Height * SCALE));
         }
 
         #endregion

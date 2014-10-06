@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    // TODO Ruben: Commentaar door gehele document
     public abstract class AnimatedSprite : GameObject
     {
         protected int duration;
@@ -16,7 +17,7 @@ namespace Olympus_the_Game
             {
                 return (float)(Environment.TickCount - start) / (float)duration;
             }
-            set { }
+            protected set { }
         }
 
         public AnimatedSprite(int width, int height, int x, int y)
