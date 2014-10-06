@@ -100,7 +100,7 @@ namespace Olympus_the_Game.View.Imaging
         /// <param name="index">-1.0f for static, between 0.0f (inclusive) and 1.0f (exclusive) (or higher if cyclic) for dynamic.</param>
         /// <returns></returns>
         public Bitmap this[float index]
-        {
+        { //TODO Ruben: Incode commentaar
             get
             {
                 if (index < -1.0f)
