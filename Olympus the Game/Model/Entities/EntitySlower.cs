@@ -42,7 +42,7 @@ namespace Olympus_the_Game
                 if (stopwatch.ElapsedMilliseconds >= 4000)
                 {
                     web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
-                    OlympusTheGame.INSTANCE.Playfield.AddObject(web); //TODO Elmar: Aanpassen naar ingebakken Playfield.
+                    this.Playfield.AddObject(web);
                     stopwatch.Restart();
                 }
             }

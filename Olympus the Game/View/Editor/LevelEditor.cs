@@ -307,6 +307,7 @@ namespace Olympus_the_Game.View
             PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
             newPF.InitializeGameObjects(gamePanelEditor.Playfield.GameObjects);
             gamePanelEditor.Playfield = newPF;
+            speelveldEditor1.Playfield = newPF;
         }
 
         /// <summary>
