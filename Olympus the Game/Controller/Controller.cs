@@ -24,14 +24,6 @@ namespace Olympus_the_Game
         /// </summary>
         public event Action UpdateSlowEvents;
 
-        
-        
-        // Toetsen die worden toegewezen door gebruiker
-        // TODO HenkJan: Commentaar
-        public int CustomRight { get; set; }
-        public int CustomLeft { get; set; }
-        public int CustomUp { get; set; }
-        public int CustomDown { get; set; }
         // TODO Sander: Commentaar
         public Controller()
         {
