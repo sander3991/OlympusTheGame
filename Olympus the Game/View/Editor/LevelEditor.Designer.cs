@@ -59,10 +59,10 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Location = new System.Drawing.Point(1003, 92);
+            this.richTextBox2.Location = new System.Drawing.Point(991, 92);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox2.Size = new System.Drawing.Size(75, 50);
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "Creeper\n\nToets 1";
             // 
@@ -70,10 +70,10 @@
             // 
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox3.Location = new System.Drawing.Point(1003, 148);
+            this.richTextBox3.Location = new System.Drawing.Point(991, 148);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox3.Size = new System.Drawing.Size(75, 50);
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "Spider\n\nToets 2";
             // 
@@ -81,10 +81,10 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox4.Location = new System.Drawing.Point(1003, 204);
+            this.richTextBox4.Location = new System.Drawing.Point(991, 204);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
-            this.richTextBox4.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox4.Size = new System.Drawing.Size(75, 50);
             this.richTextBox4.TabIndex = 10;
             this.richTextBox4.Text = "TnT\n\nToets 3";
             // 
@@ -92,10 +92,10 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox5.Location = new System.Drawing.Point(1003, 260);
+            this.richTextBox5.Location = new System.Drawing.Point(991, 260);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.ReadOnly = true;
-            this.richTextBox5.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox5.Size = new System.Drawing.Size(75, 50);
             this.richTextBox5.TabIndex = 11;
             this.richTextBox5.Text = "TimeBomb\n\nToets 4";
             // 
@@ -103,10 +103,10 @@
             // 
             this.richTextBox6.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox6.Location = new System.Drawing.Point(1003, 316);
+            this.richTextBox6.Location = new System.Drawing.Point(991, 316);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.ReadOnly = true;
-            this.richTextBox6.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox6.Size = new System.Drawing.Size(75, 50);
             this.richTextBox6.TabIndex = 12;
             this.richTextBox6.Text = "Cake\n\nToets 5";
             // 
@@ -117,7 +117,7 @@
             this.richTextBox7.Location = new System.Drawing.Point(935, 498);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(131, 163);
+            this.richTextBox7.Size = new System.Drawing.Size(137, 182);
             this.richTextBox7.TabIndex = 13;
             this.richTextBox7.Text = resources.GetString("richTextBox7.Text");
             // 
@@ -180,10 +180,10 @@
             // 
             this.richTextBox8.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox8.Location = new System.Drawing.Point(1003, 372);
+            this.richTextBox8.Location = new System.Drawing.Point(991, 372);
             this.richTextBox8.Name = "richTextBox8";
             this.richTextBox8.ReadOnly = true;
-            this.richTextBox8.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox8.Size = new System.Drawing.Size(75, 50);
             this.richTextBox8.TabIndex = 21;
             this.richTextBox8.Text = "Home\n\nToets 6";
             // 
@@ -202,10 +202,10 @@
             // 
             this.richTextBox9.BackColor = System.Drawing.SystemColors.Menu;
             this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox9.Location = new System.Drawing.Point(1003, 428);
+            this.richTextBox9.Location = new System.Drawing.Point(991, 428);
             this.richTextBox9.Name = "richTextBox9";
             this.richTextBox9.ReadOnly = true;
-            this.richTextBox9.Size = new System.Drawing.Size(63, 50);
+            this.richTextBox9.Size = new System.Drawing.Size(75, 50);
             this.richTextBox9.TabIndex = 23;
             this.richTextBox9.Text = "Obstakel\n\nToets 7";
             // 
@@ -258,6 +258,7 @@
             this.speelveldEditor1.EnteredSize = new System.Drawing.Size(0, 0);
             this.speelveldEditor1.Location = new System.Drawing.Point(12, 498);
             this.speelveldEditor1.Name = "speelveldEditor1";
+            this.speelveldEditor1.Playfield = null;
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
             this.speelveldEditor1.TabIndex = 19;
             this.speelveldEditor1.ApplyClick += new System.Action(this.ApplyPlayfieldChanges);
@@ -276,7 +277,9 @@
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
             this.gamePanelEditor.Name = "gamePanelEditor";
+            playField1.Height = 500;
             playField1.Name = "Map_1";
+            playField1.Width = 1000;
             this.gamePanelEditor.Playfield = playField1;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
