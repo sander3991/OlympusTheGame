@@ -52,8 +52,10 @@ namespace Olympus_the_Game
                 pf.RemoveObject(this);
         }
 
-        public override void OnCollide(GameObject gameObject)
-        {
+        public override void OnCollide(GameObject gameObject) {
+            EntityGhast eg = gameObject as EntityGhast;
+            if(gameObject == null){
+            }
         }
 
         public override void OnRemoved(bool fieldRemoved)
