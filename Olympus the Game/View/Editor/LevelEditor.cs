@@ -11,20 +11,22 @@ namespace Olympus_the_Game.View
 {
     public partial class LevelEditor : Form
     {
-        private PlayField pf;
+        public PlayField pf { get; private set; }
 
-        public LevelEditor()
+        public LevelEditor() : this(new PlayField(1000, 500))
+        { }
+
+        public LevelEditor(PlayField pf)
         {
             InitializeComponent();
 
-            this.pf = new PlayField(1000, 500);
+            this.pf = pf;
             this.gamePanelEditor.Playfield = this.pf;
+            this.speelveldEditor1.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
-
-            int EntityCount = pf.GetObjects().Count;
         }
 
         #region Drag and Drop
@@ -207,8 +209,7 @@ namespace Olympus_the_Game.View
                 // en er is een naam ingevoerd
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    // sluit dan de stream
-                    fileStream.Close();
+                    PlayFieldToXml.WriteToXml(fileStream, pf);
 
                     // Hier moet natuurlijk sander's xml opgeslagen worden
                 }
@@ -235,10 +236,9 @@ namespace Olympus_the_Game.View
                 // en er is een bestand geselecteerd
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
-                    // sluit dan de stream
-                    fileStream.Close();
-
-                    // hier moet code komen die het bestand gaat parsen
+                    this.pf = PlayFieldToXml.ReadFromXml(fileStream);
+                    this.gamePanelEditor.Playfield = this.pf;
+                    this.gamePanelEditor.Invalidate();
                 }
             }
         }

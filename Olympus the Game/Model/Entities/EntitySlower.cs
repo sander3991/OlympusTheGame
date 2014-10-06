@@ -1,7 +1,12 @@
-﻿namespace Olympus_the_Game
+﻿using System.Diagnostics;
+
+namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        EntityWeb web;
+
         /// <summary>
         /// De afstand waarin deze entity zijn effect werkt
         /// </summary>
@@ -11,17 +16,9 @@
         /// </summary>
         public const double EFFECTSTRENGTH = 0.5;
 
-        private bool isSlowingPlayer = false;
-
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
-        /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="dx">De standaard verandering in de X</param>
-        /// <param name="dy">De standaard verandering in de Y</param>
         public EntitySlower(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
@@ -31,40 +28,35 @@
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
         /// </summary>
-        /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="dx">De standaard verandering in de X</param>
-        /// <param name="dy">De standaard verandering in de Y</param>
         public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-
             double distance = DistanceToObject(player);
-            if (distance < 100 && !isSlowingPlayer)
-            {
-                player.SpeedModifier = player.SpeedModifier / 2;
-                isSlowingPlayer = true;
+
+            if (distance <= 100)
+            {   
+                // Maak een cobweb aan wanneer er 4 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
+                if (stopwatch.ElapsedMilliseconds >= 4000)
+                {
+                    web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
+                    OlympusTheGame.INSTANCE.Playfield.AddObject(web);
+                    stopwatch.Restart();
+                }
             }
-            else if (distance >= 100 && isSlowingPlayer)
-            {
-                player.SpeedModifier = player.SpeedModifier * 2;
-                isSlowingPlayer = false;
-            }
+        }
+
+        public override void OnRemoved(bool fieldRemoved)
+        {
+            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()
         {
-            return "Slower";
+            return "Spider";
         }
 
-        public override void OnRemoved()
-        {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
-        }
 
     }
 }

@@ -86,19 +86,27 @@ namespace Olympus_the_Game.View
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Verander de controls als de gebruiker een toets wijzigd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Textfield_ChangeControls(object sender, EventArgs e)
         {
             try
             {
                 if (!String.IsNullOrEmpty(textBoxRight.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomRight = Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
+                    OlympusTheGame.INSTANCE.Controller.CustomRight = 
+                        Convert.ToInt32(Char.ToUpper(textBoxRight.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomLeft = Convert.ToInt32(Char.ToUpper(textBoxLeft.Text[0]));
+                    OlympusTheGame.INSTANCE.Controller.CustomLeft = 
+                        Convert.ToInt32(Char.ToUpper(textBoxLeft.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomUp =   Convert.ToInt32(Char.ToUpper(textBoxUp.Text[0]));
+                    OlympusTheGame.INSTANCE.Controller.CustomUp =   
+                        Convert.ToInt32(Char.ToUpper(textBoxUp.Text[0]));
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
-                    OlympusTheGame.INSTANCE.Controller.CustomDown = Convert.ToInt32(Char.ToUpper(textBoxDown.Text[0]));
+                    OlympusTheGame.INSTANCE.Controller.CustomDown =
+                        Convert.ToInt32(Char.ToUpper(textBoxDown.Text[0]));
 
             }
             catch (FormatException)
@@ -124,7 +132,7 @@ namespace Olympus_the_Game.View
             }
         }
         /// <summary>
-        /// Selecteer alle tekst als user er in klikt
+        /// Selecteer alle tekst als user er in klikt met de muis
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

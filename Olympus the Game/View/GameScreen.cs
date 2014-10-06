@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace Olympus_the_Game.View
 {
@@ -35,6 +36,15 @@ namespace Olympus_the_Game.View
                 e.Cancel = true;
         }
 
+        private void GameScreen_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+            infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
+            infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
+            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
+        }
+
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
             OlympusTheGame.INSTANCE.Controller.OnKeyDown(e);
@@ -45,6 +55,77 @@ namespace Olympus_the_Game.View
             OlympusTheGame.INSTANCE.Controller.OnKeyUp(e);
         }
 
+        // ======================
+        // ====== menu bar ======
+        // ======================
 
+        private void statistiekenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // InfoView verbergen of weergeven
+            switch (statestiekenToolStripMenuItem.Checked)
+            {
+                case (false):
+                    infoView1.Hide();
+                    break;
+                case (true):
+                    infoView1.Show();
+                    break;
+            }    
+        }
+
+        private void informatieSchermToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // InfoBox verbergen of weergeven
+            switch (informatieSchermToolStripMenuItem.Checked)
+            {
+                case (false):
+                    infoBox1.Hide();
+                    break;
+                case (true):
+                    infoBox1.Show();
+                    break;
+            }    
+        }
+
+        private void pijltjestoetsenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Pijltjestoetsen verbergen of weergeven
+            switch (pijltjestoetsenToolStripMenuItem.Checked) { 
+                case(false):
+                    arrowPanel1.Hide();
+                    break;
+                case(true):
+                    arrowPanel1.Show();
+                    break;
+            }    
+        }
+
+        private void volledigeWeergaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Volledige weergave aan/uit
+            switch (volledigeWeergaveToolStripMenuItem.Checked)
+            {
+                case (false):
+                    WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    gamePanel1.Left = 10;
+                    gamePanel1.Top = 35;
+                    break;
+                case (true):
+                    WindowState = FormWindowState.Maximized;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    gamePanel1.Left = (this.ClientSize.Width - gamePanel1.Width) / 2;
+                    gamePanel1.Top = (this.ClientSize.Height - gamePanel1.Height) / 2;
+                    break;
+            }    
+        }
+        /// <summary>
+        /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
+        /// </summary>
+        /// <param name="pf">Het nieuwe playfield</param>
+        private void OnPlayFieldUpdate(PlayField pf)
+        {
+            gamePanel1.Playfield = pf;
+        }
     }
 }

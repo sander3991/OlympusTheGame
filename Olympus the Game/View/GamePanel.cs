@@ -17,7 +17,6 @@ namespace Olympus_the_Game.View
     /// </summary>
     public partial class GamePanel : UserControl
     {
-        public Point MouseDownLocation { get; set; }
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
@@ -46,15 +45,10 @@ namespace Olympus_the_Game.View
         }
 
         /// <summary>
-        /// List of images used by this view
-        /// </summary>
-        //private Dictionary<ObjectType, Bitmap> ImageList = new Dictionary<ObjectType, Bitmap>();
-
-        /// <summary>
         /// De maximale Size die dit GamePanel mag hebben.
         /// Deze wordt gevuld met de eerste gegeven Size.
         /// </summary>
-        private Size MAX_SIZE = Size.Empty;
+        public Size MaxSize { get; private set; }
 
 
         #region Setup
@@ -66,7 +60,9 @@ namespace Olympus_the_Game.View
         {
             // Save variables
             this.Playfield = pf;
+            this.MaxSize = Size.Empty;
 
+            // Initialize GUI
             InitializeComponent();
         }
 
@@ -95,39 +91,19 @@ namespace Olympus_the_Game.View
 
         #region Draw Functions
 
-        /// <summary>
-        /// Converts Bitmap to BitmapData
-        /// </summary>
-        /// <param name="bm"></param>
-        /// <returns></returns>
-        private Bitmap ConvertBitmap(Bitmap bm)
-        {
-            return new Bitmap(bm, 50, 50);
-        }
-
         private void draw(GameObject go, Graphics g)
         {
             Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
-
+            Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
             // Generate target rectangle
-            Rectangle target = new Rectangle(TranslatePlayFieldToPanel(new Point(go.X, go.Y)), s);
+            Rectangle target = new Rectangle(p, s);
 
             Sprite bm = ImagePool.GetPicture(go.Type, s);
 
-            
+
 
             //  Draw picture
-            g.DrawImageUnscaled(bm[go.Frame],
-                target);
-
-            AnimatedSprite sprite = go as AnimatedSprite;
-            // Add border
-            if (sprite == null)
-            {
-                Pen p = new Pen(Brushes.Black);
-                g.DrawRectangle(p, target);
-
-            }
+            g.DrawImageUnscaled(bm[go.Frame], target);
         }
 
         private void Repaint(Graphics g)
@@ -166,8 +142,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void Panel_resized(object sender, EventArgs e)
         {
-            if (Size.Empty.Equals(MAX_SIZE))
-                MAX_SIZE = this.Size;
+            if (Size.Empty.Equals(MaxSize))
+                MaxSize = this.Size;
             Recalculate();
         }
 
@@ -219,8 +195,8 @@ namespace Olympus_the_Game.View
         public void Recalculate()
         {
             // Fix playfield scaling
-            double ratioWidth = (double)this.Playfield.WIDTH / (double)MAX_SIZE.Width;
-            double ratioHeight = (double)this.Playfield.HEIGHT / (double)MAX_SIZE.Height;
+            double ratioWidth = (double)this.Playfield.WIDTH / (double)MaxSize.Width;
+            double ratioHeight = (double)this.Playfield.HEIGHT / (double)MaxSize.Height;
             this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
             this.Size = new Size((int)((double)this.Playfield.WIDTH * SCALE), (int)((double)this.Playfield.HEIGHT * SCALE));
         }
@@ -252,8 +228,8 @@ namespace Olympus_the_Game.View
 
         #endregion
 
-        
 
-        
+
+
     }
 }

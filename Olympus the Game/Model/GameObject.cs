@@ -16,7 +16,18 @@ namespace Olympus_the_Game
         HOME,
         CAKE,
         UNKNOWN,
-        SPRITEEXPLOSION
+        SPRITEEXPLOSION,
+        WEB,
+        FIREBALL,
+        GHAST,
+        SILVERFISH
+    }
+    [Flags]
+    public enum CollisionType : byte
+    {
+        NONE = 0,
+        X = 1,
+        Y = 2,
     }
 
     public abstract class GameObject
@@ -26,6 +37,19 @@ namespace Olympus_the_Game
         private int height;
         private int width;
         public ObjectType Type { get; protected set; }
+        private PlayField _playfield;
+        public PlayField Playfield
+        {
+            set
+            {
+                if (_playfield == null) //Voorkomt dat het 2 keer geset wordt
+                    _playfield = value;
+            }
+            get
+            {
+                return _playfield;
+            }
+        }
 
         /// <summary>
         /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
@@ -90,9 +114,12 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    x = value;
-                else
-                    x = 0;
+                {
+                    if (Playfield == null || value + Width <= Playfield.WIDTH)
+                        x = value;
+                    else
+                        x = Playfield.WIDTH - Width;
+                }
             }
         }
         /// <summary>
@@ -107,7 +134,10 @@ namespace Olympus_the_Game
             set
             {
                 if (value >= 0)
-                    y = value;
+                    if (Playfield == null || value + Height <= Playfield.HEIGHT)
+                        y = value;
+                    else
+                        y = Playfield.HEIGHT - Height;
                 else
                     y = 0;
             }
@@ -152,9 +182,7 @@ namespace Olympus_the_Game
         /// <returns>True als ze elkaar kruisen, anders false</returns>
         public bool CollidesWithY(GameObject entity)
         {
-            if (Y >= entity.Y)
-                return (entity.Y + entity.Height) > Y;
-            return (Y + Height) > entity.Y;
+            return DoLinesOverlap(Y, Height, entity.Y, entity.Height);
         }
         /// <summary>
         /// Helper method om te bepalen of de X assen van de objecten elkaar kruisen
@@ -163,18 +191,28 @@ namespace Olympus_the_Game
         /// <returns>True als ze elkaar kruisen, anders false</returns>
         public bool CollidesWithX(GameObject entity)
         {
-            if (X >= entity.X)
-                return (entity.X + entity.Width) > X;
-            return (X + Width) > entity.X;
+            return DoLinesOverlap(X, Width, entity.X, entity.Width);
         }
         /// <summary>
         /// Kijkt of de gegeven GameObject kruist over het huidige object.
         /// </summary>
         /// <param name="entity">Het GameObject waarmee vergeleken wordt</param>
-        /// <returns>True als ze elkaar kruisen, anders false</returns>
-        public bool CollidesWithObject(GameObject entity)
+        /// <returns>CollisionType type van het type waar hij gecollide is</returns>
+        public CollisionType CollidesWithObject(GameObject entity)
         {
-            return CollidesWithX(entity) && CollidesWithY(entity);
+            if(CollidesWithX(entity) && CollidesWithY(entity))
+            {
+                CollisionType collision = CollisionType.X | CollisionType.Y;
+                Entity thisEntity = this as Entity;
+                if (thisEntity == null)
+                    return collision;
+                if (DoLinesOverlap(thisEntity.PreviousX, Width, entity.X, entity.Width))
+                    collision = collision & ~CollisionType.X;
+                if (DoLinesOverlap(thisEntity.PreviousY, Height, entity.Y, entity.Height))
+                    collision = collision & ~CollisionType.Y;
+                return collision == CollisionType.NONE ? CollisionType.X | CollisionType.Y : collision;
+            }
+            return CollisionType.NONE;
         }
 
         /// <summary>
@@ -190,9 +228,17 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wordt aangeroepen als een object verwijderd wordt van het speelveld
         /// </summary>
-        public virtual void OnRemoved()
+        /// <param name="fieldRemoved">Boolean die aangeeft of hij van het veld is verwijderd, of dat het veld nog bestaat (bij het doodgaan van een entity)</param>
+        public virtual void OnRemoved(bool fieldRemoved)
         {
 
+        }
+
+        public static bool DoLinesOverlap(int x1, int width1, int x2, int width2)
+        {
+            if (x1 >= x2)
+                return (x2 + width2) > x1;
+            return (x1 + width1) > x2;
         }
     }
 }

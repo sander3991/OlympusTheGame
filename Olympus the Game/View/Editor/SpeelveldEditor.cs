@@ -14,7 +14,7 @@ namespace Olympus_the_Game.View
         public event Action ApplyClick;
 
         private Size prop_size;
-
+        public PlayField Playfield { get; set; }
         public Size EnteredSize { 
             get {
                 return prop_size;
@@ -23,6 +23,14 @@ namespace Olympus_the_Game.View
                 prop_size = value;
                 this.GrootteXInput.Text = prop_size.Width.ToString();
                 this.GrootteYInput.Text = prop_size.Height.ToString();
+                //BUG: Als deze waardes worden aangepast in de editor veranderd de grootte van het nog in de achtergrond lopende speelveld ook
+                if(Playfield != null)
+                {
+                    if (prop_size.Width >= 1)
+                        Playfield.HEIGHT = prop_size.Height;
+                    if (prop_size.Height >= 1)
+                        Playfield.WIDTH = prop_size.Height;
+                }
             }
         }
 

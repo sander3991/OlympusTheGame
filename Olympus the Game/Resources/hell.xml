@@ -49,6 +49,12 @@
       <Width>50</Width>
       <Height>50</Height>
     </GameObject>
+    <GameObject Type="GHAST">
+      <X>400</X>
+      <Y>400</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
     <GameObject Type="TIMEBOMB">
       <X>600</X>
       <Y>75</Y>

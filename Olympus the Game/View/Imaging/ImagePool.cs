@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Olympus_the_Game.View
 {
-    class ImagePool
+    public class ImagePool
     {
         /// <summary>
         /// Source images
@@ -24,21 +24,17 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
             source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
             source.Add(ObjectType.SLOWER, Properties.Resources.spider);
+            source.Add(ObjectType.WEB, Properties.Resources.cobweb);
             source.Add(ObjectType.PLAYER, Properties.Resources.player);
             source.Add(ObjectType.TIMEBOMB, Properties.Resources.timebomb);
             source.Add(ObjectType.HOME, Properties.Resources.huis);
             source.Add(ObjectType.CAKE, Properties.Resources.cake);
             source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
             source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
+            source.Add(ObjectType.SILVERFISH, Properties.Resources.missing);
+            source.Add(ObjectType.GHAST, Properties.Resources.ghast);
+            source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
-        }
-
-        private static Bitmap ConvertBitmap(Bitmap b)
-        {
-            Bitmap result = new Bitmap(b.Width, b.Height, System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
-            using (Graphics g = Graphics.FromImage(result))
-                g.DrawImage(b, 0, 0, b.Width, b.Height);
-            return result;
         }
 
         /// <summary>

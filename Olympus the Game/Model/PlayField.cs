@@ -11,8 +11,8 @@ namespace Olympus_the_Game
     public class PlayField : IXmlSerializable
     {
         private static int ID = 0;
-        public int WIDTH { get; private set; }
-        public int HEIGHT { get; private set; }
+        public int WIDTH { get; set; }
+        public int HEIGHT { get; set; }
         private List<GameObject> gameObjects = new List<GameObject>();
         public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
@@ -41,6 +41,9 @@ namespace Olympus_the_Game
                 gameObjects = objects;
                 for (int i = 0; i < objects.Count; i++)
                 {
+                    if (objects[i].Playfield != null || objects[i].Playfield == this)
+                        new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
+                    objects[i].Playfield = this;
                     EntityPlayer player = objects[i] as EntityPlayer;
                     if (player != null)
                     {
@@ -49,7 +52,10 @@ namespace Olympus_the_Game
                     }
                 }
                 if (Player == null)
-                    Player = new EntityPlayer(50, 50, 0, 0);
+                {
+                    SetPlayerHome();
+                    Player.Playfield = this;
+                }
                 IsInitialized = true;
             }
 
@@ -69,11 +75,14 @@ namespace Olympus_the_Game
         public void AddObject(GameObject entity)
         {
             gameObjects.Add(entity);
+            if (entity.Playfield != null)
+                new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
+            entity.Playfield = this;
         }
         public void RemoveObject(GameObject entity)
         {
             gameObjects.Remove(entity);
-            entity.OnRemoved();
+            entity.OnRemoved(false);
         }
         /// <summary>
         /// Zet de speler op de home locatie neer
@@ -82,7 +91,8 @@ namespace Olympus_the_Game
         {
             if (Player == null)
             {
-                Player = new EntityPlayer(50, 50, 0, 0); ;
+                Player = new EntityPlayer(50, 50, 0, 0);
+                Player.Playfield = this;
             }
             ObjectStart start = null;
             foreach (GameObject o in gameObjects)
@@ -108,6 +118,7 @@ namespace Olympus_the_Game
             objects.Add(new EntitySlower(50, 50, 200, 150));
             objects.Add(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
             objects.Add(new EntityExplode(50, 50, 300, 05, 1.0f));
+            objects.Add(new EntityGhast(50,50,100, 100));
             return objects;
         }
 
@@ -133,9 +144,14 @@ namespace Olympus_the_Game
             return objectList.Count == 0 ? null : objectList;
         }
 
-        public void SaveToXml(string fileName)
+        /// <summary>
+        /// Handles the removal of a playfield from the game
+        /// </summary>
+        public void UnloadPlayField()
         {
-            PlayFieldToXml.WriteToXml(fileName, this);
+            for (int i = 0; i < gameObjects.Count; i++)
+                gameObjects[i].OnRemoved(true);
+            Player.OnRemoved(true);
         }
 
         public System.Xml.Schema.XmlSchema GetSchema()
@@ -252,6 +268,9 @@ namespace Olympus_the_Game
                                     case ObjectType.CAKE:
                                         AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
                                         break;
+                                    case ObjectType.GHAST:
+                                        AddObject(new EntityGhast(objectWidth, objectHeight, objectX, objectY));
+                                        break;
                                     default:
                                         break;
                                 }
@@ -270,7 +289,6 @@ namespace Olympus_the_Game
             }
             if (gameObjects.Count > 0)
             {
-                SetPlayerHome();
                 IsInitialized = true;
             }
 
