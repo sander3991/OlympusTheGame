@@ -4,8 +4,9 @@ namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {
+        //TODO Elmar: Access modifiers
         Stopwatch stopwatch = Stopwatch.StartNew();
-        EntityWeb web;
+        EntityWeb web; //TODO Elmar: Is deze wel nodig hier?
 
         /// <summary>
         /// De afstand waarin deze entity zijn effect werkt
@@ -41,7 +42,7 @@ namespace Olympus_the_Game
                 if (stopwatch.ElapsedMilliseconds >= 4000)
                 {
                     web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
-                    OlympusTheGame.INSTANCE.Playfield.AddObject(web);
+                    OlympusTheGame.INSTANCE.Playfield.AddObject(web); //TODO Elmar: Aanpassen naar ingebakken Playfield.
                     stopwatch.Restart();
                 }
             }

@@ -12,6 +12,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De tijd hoe lang het duurt voordat deze entity explodeert
         /// </summary>
+        // TODO Elmar: Properties van onderste 2 variabelen
         public int EXPLODETIME = 3000; //Aanpasbaar in editor
         public bool touched;
         Stopwatch stopwatch = Stopwatch.StartNew();
@@ -34,10 +35,10 @@ namespace Olympus_the_Game
         {
             
         }
-
+        // TODO Elmar: Iets in-code commentaar toevoegen om aan te geven wat je wilt doen
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player; //TODO Elmar: Aanpassen naar ingebakken Playfield.
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
 
             if (player != null)
@@ -66,7 +67,7 @@ namespace Olympus_the_Game
             Controller contr = OlympusTheGame.INSTANCE.Controller;
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             contr.UpdateGameEvents -= OnUpdate;
-            pf.AddObject(new SpriteExplosion(this));
+            pf.AddObject(new SpriteExplosion(this)); // TODO Elmar: Tip: Misschien een grotere explosie omdat de range groter is dan 1 object?
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
