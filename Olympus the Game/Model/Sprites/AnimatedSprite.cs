@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    // TODO Ruben: Commentaar door gehele document
     public abstract class AnimatedSprite : GameObject
     {
         protected int duration;
