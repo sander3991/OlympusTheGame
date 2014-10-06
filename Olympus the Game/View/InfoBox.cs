@@ -19,9 +19,11 @@ namespace Olympus_the_Game.View
         public InfoBox()
         {
             InitializeComponent();
+
+            if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || OlympusTheGame.INSTANCE.Playfield.Player == null)
+                return;
+
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            if (player == null)
-                throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
             player.OnHealthChanged += UpdateHealth;
             OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
             this.player = player;

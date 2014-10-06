@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.customMenuBar1 = new Olympus_the_Game.View.MenuBar.CustomMenuBar();
@@ -40,11 +40,11 @@
             this.pijltjestoetsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.volledigeWeergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
-            this.pauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customMenuBar1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,10 +63,10 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
-            playField2.Height = 500;
-            playField2.Name = "Map_0";
-            playField2.Width = 1000;
-            this.gamePanel1.Playfield = playField2;
+            playField1.Height = 500;
+            playField1.Name = "Map_0";
+            playField1.Width = 1000;
+            this.gamePanel1.Playfield = playField1;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
@@ -101,7 +101,7 @@
             this.statestiekenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statestiekenToolStripMenuItem.Name = "statestiekenToolStripMenuItem";
             this.statestiekenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.statestiekenToolStripMenuItem.Text = "Statistieken";
             this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
             // 
@@ -112,7 +112,7 @@
             this.informatieSchermToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.informatieSchermToolStripMenuItem.Name = "informatieSchermToolStripMenuItem";
             this.informatieSchermToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.informatieSchermToolStripMenuItem.Text = "Informatiescherm";
             this.informatieSchermToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
             // 
@@ -123,24 +123,38 @@
             this.pijltjestoetsenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pijltjestoetsenToolStripMenuItem.Name = "pijltjestoetsenToolStripMenuItem";
             this.pijltjestoetsenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pijltjestoetsenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.pijltjestoetsenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.pijltjestoetsenToolStripMenuItem.Text = "Pijltjestoetsen";
             this.pijltjestoetsenToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
             // 
             // volledigeWeergaveToolStripMenuItem
             // 
             this.volledigeWeergaveToolStripMenuItem.CheckOnClick = true;
             this.volledigeWeergaveToolStripMenuItem.Name = "volledigeWeergaveToolStripMenuItem";
-            this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
             this.volledigeWeergaveToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.volledigeWeergaveToolStripMenuItem_Click);
+            // 
+            // pauzeToolStripMenuItem
+            // 
+            this.pauzeToolStripMenuItem.Name = "pauzeToolStripMenuItem";
+            this.pauzeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.pauzeToolStripMenuItem.Text = "Pauze";
+            this.pauzeToolStripMenuItem.Click += new System.EventHandler(this.pauzeToolStripMenuItem_Click);
+            // 
+            // verderToolStripMenuItem
+            // 
+            this.verderToolStripMenuItem.Name = "verderToolStripMenuItem";
+            this.verderToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.verderToolStripMenuItem.Text = "Verder";
+            this.verderToolStripMenuItem.Click += new System.EventHandler(this.verderToolStripMenuItem_Click);
             // 
             // infoView1
             // 
@@ -163,20 +177,6 @@
             this.infoBox1.Name = "infoBox1";
             this.infoBox1.Size = new System.Drawing.Size(692, 162);
             this.infoBox1.TabIndex = 6;
-            // 
-            // pauzeToolStripMenuItem
-            // 
-            this.pauzeToolStripMenuItem.Name = "pauzeToolStripMenuItem";
-            this.pauzeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.pauzeToolStripMenuItem.Text = "Pauze";
-            this.pauzeToolStripMenuItem.Click += new System.EventHandler(this.pauzeToolStripMenuItem_Click);
-            // 
-            // verderToolStripMenuItem
-            // 
-            this.verderToolStripMenuItem.Name = "verderToolStripMenuItem";
-            this.verderToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.verderToolStripMenuItem.Text = "Verder";
-            this.verderToolStripMenuItem.Click += new System.EventHandler(this.verderToolStripMenuItem_Click);
             // 
             // GameScreen
             // 
