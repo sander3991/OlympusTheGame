@@ -10,19 +10,19 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
-    public class KeyHandlerClass
+    public static class KeyHandler
     {
         // Deze variabelen zijn voor als de gebruiker zelf keys toevoegd er word 
-        public Keys CustomRight { get; set; }
-        public Keys CustomLeft { get; set; }
-        public Keys CustomUp { get; set; }
-        public Keys CustomDown { get; set; }
+        public static Keys CustomRight { get; set; }
+        public static Keys CustomLeft { get; set; }
+        public static Keys CustomUp { get; set; }
+        public static Keys CustomDown { get; set; }
 
         /// <summary>
         /// Wordt aangeroepen als je op een toetsklikt
         /// </summary>
         /// <param name="e"></param>
-        internal void KeyDown(KeyEventArgs e)
+        internal static void KeyDown(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
@@ -38,7 +38,7 @@ namespace Olympus_the_Game
         /// Wordt aangeroepen als je een toets los laat
         /// </summary>
         /// <param name="e"></param>
-        internal void KeyUp(KeyEventArgs e)
+        internal static void KeyUp(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
@@ -55,7 +55,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="e">Toetsen</param>
         /// <param name="speed">Snelheid</param>
-        private void MovePlayer(KeyEventArgs e, int speed)
+        private static void MovePlayer(KeyEventArgs e, int speed)
         {
             // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D || e.KeyCode == CustomRight)
@@ -75,7 +75,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="speed">Snelheid van de speler</param>
         /// <param name="horizontaal">Geef aan links of rechts</param>
-        public void MovePlayer(int speed, bool horizontaal)
+        public static void MovePlayer(int speed, bool horizontaal)
         {
             if (horizontaal)
                 OlympusTheGame.INSTANCE.Playfield.Player.DX = speed;

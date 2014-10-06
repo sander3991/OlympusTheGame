@@ -32,13 +32,13 @@ namespace Olympus_the_Game.View
             Button b = sender as Button;
             string richting = b.Name.ToString();
             if (richting == "ArrowKeyRight")
-                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(2, true);
+                KeyHandler.MovePlayer(2, true);
             if (richting == "ArrowKeyLeft")
-                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(-2, true);
+                KeyHandler.MovePlayer(-2, true);
             if (richting == "ArrowKeyUp")
-                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(-2, false);
+                KeyHandler.MovePlayer(-2, false);
             if (richting == "ArrowKeyDown")
-                OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(2, false);
+                KeyHandler.MovePlayer(2, false);
         }
         
         /// <summary>
@@ -48,8 +48,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void StopMoving(object sender, MouseEventArgs e)
         {
-            OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(0, true);
-            OlympusTheGame.INSTANCE.Controller.KeyHandler.MovePlayer(0, false);
+            KeyHandler.MovePlayer(0, true);
+            KeyHandler.MovePlayer(0, false);
         }
 
         /// <summary>
@@ -89,16 +89,16 @@ namespace Olympus_the_Game.View
             try
             {
                 if (!String.IsNullOrEmpty(textBoxRight.Text))
-                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomRight =
+                    KeyHandler.CustomRight =
                         (Keys)char.ToUpper(textBoxRight.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
-                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomLeft =
+                    KeyHandler.CustomLeft =
                         (Keys)char.ToUpper(textBoxLeft.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
-                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomUp =
+                    KeyHandler.CustomUp =
                         (Keys)char.ToUpper(textBoxUp.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
-                    OlympusTheGame.INSTANCE.Controller.KeyHandler.CustomDown =
+                    KeyHandler.CustomDown =
                         (Keys)char.ToUpper(textBoxDown.Text[0]);
             }
             catch (FormatException)

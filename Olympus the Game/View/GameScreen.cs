@@ -49,12 +49,12 @@ namespace Olympus_the_Game.View
 
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            OlympusTheGame.INSTANCE.Controller.OnKeyDown(e);
+            KeyHandler.KeyDown(e);
         }
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            OlympusTheGame.INSTANCE.Controller.OnKeyUp(e);
+            KeyHandler.KeyUp(e);
         }
 
         // ======================
