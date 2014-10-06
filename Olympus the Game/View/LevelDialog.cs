@@ -14,7 +14,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Deze waarde geeft de levelnaam van het gekozen level aan
         /// </summary>
-        private string Level { get; set; }
+        private string Level { get; set; } //TODO Martijn: Waarom een property als het private is? Is hij nodig? 0 references?
         public PlayField Playfield { get; private set; }
         public LevelDialog()
         {

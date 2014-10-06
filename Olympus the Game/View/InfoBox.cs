@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game.View
 {
+    // TODO Elmar: Commentaar toevoegen
     public partial class InfoBox : UserControl
     {
         public Point MouseDownLocation { get; set; }

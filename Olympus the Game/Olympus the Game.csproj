@@ -103,12 +103,6 @@
     <Compile Include="View\InfoBox.Designer.cs">
       <DependentUpon>InfoBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\InfoPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\InfoPanel.Designer.cs">
-      <DependentUpon>InfoPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\InfoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\InfoBox.resx">
       <DependentUpon>InfoBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\InfoPanel.resx">
-      <DependentUpon>InfoPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\InfoView.resx">
       <DependentUpon>InfoView.cs</DependentUpon>
