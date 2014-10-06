@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
+    // TODO Ruben: Aanpassen naar echte naam
     public enum ObjectType
     {
         PLAYER,
@@ -37,17 +38,17 @@ namespace Olympus_the_Game
         private int height;
         private int width;
         public ObjectType Type { get; protected set; }
-        private PlayField _playfield;
+        private PlayField prop_playfield;
         public PlayField Playfield
         {
             set
             {
-                if (_playfield == null) //Voorkomt dat het 2 keer geset wordt
-                    _playfield = value;
+                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
+                    prop_playfield = value;
             }
             get
             {
-                return _playfield;
+                return prop_playfield;
             }
         }
 
@@ -60,12 +61,7 @@ namespace Olympus_the_Game
             {
                 return -1.0f;
             }
-            set { }
-        }
-
-        public GameObject()
-        {
-            Type = ObjectType.UNKNOWN;
+            protected set { }
         }
 
         /// <summary>
@@ -161,6 +157,7 @@ namespace Olympus_the_Game
             Width = width;
             Height = height;
             IsSolid = true;
+            Type = ObjectType.UNKNOWN;
         }
 
         /// <summary>
@@ -233,7 +230,7 @@ namespace Olympus_the_Game
         {
 
         }
-
+        // TODO Sander: Comments
         public static bool DoLinesOverlap(int x1, int width1, int x2, int width2)
         {
             if (x1 >= x2)
