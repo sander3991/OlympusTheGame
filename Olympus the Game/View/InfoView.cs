@@ -14,16 +14,22 @@ namespace Olympus_the_Game.View
 {
     public partial class InfoView : UserControl
     {
-        //TODO HenkJan: Commentaar toevoegen
+        // Muis positie bijhouden deze wordt gebruikt bij het verslepen van het scherm
         public Point MouseDownLocation { get; set; }
+        // List voor alle Entitys bijhouden
         public List<GameObject> Entitys { get; set; }
+        // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
         public InfoView()
         {
             InitializeComponent();
         }
        
-
+        /// <summary>
+        /// Functie die wordt aangeroepen en alle object laad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLoad(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
@@ -61,18 +67,14 @@ namespace Olympus_the_Game.View
                 this.BringToFront();
             }
         }
-
-        private void DragButton_Click(object sender, EventArgs e)
-        {
-            update();
-        }
+        
         /// <summary>
         /// Update alle items in de list view
         /// </summary>
         private void update()
         {
             // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GetObjects();
+            Entitys = OlympusTheGame.INSTANCE.Playfield.GameObjects;
             listView1.Items.Clear();
             foreach (GameObject g in Entitys)
             {

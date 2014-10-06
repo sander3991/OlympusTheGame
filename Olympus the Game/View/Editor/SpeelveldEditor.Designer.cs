@@ -37,6 +37,7 @@
             this.GrootteXInput = new System.Windows.Forms.TextBox();
             this.SpeelveldLabel = new System.Windows.Forms.Label();
             this.SpeelveldUitleg = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ToepassenSpeelveld
@@ -116,10 +117,22 @@
             this.SpeelveldUitleg.TabIndex = 26;
             this.SpeelveldUitleg.Text = "Pas waardes en eigenschappen van het speelveld aan.";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(6, 140);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 16);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Ongeldige waarden ingevuld!";
+            // 
             // SpeelveldEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ToepassenSpeelveld);
             this.Controls.Add(this.TitelInput);
             this.Controls.Add(this.GrootteYInput);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.TextBox GrootteXInput;
         private System.Windows.Forms.Label SpeelveldLabel;
         private System.Windows.Forms.RichTextBox SpeelveldUitleg;
+        private System.Windows.Forms.Label label1;
     }
 }

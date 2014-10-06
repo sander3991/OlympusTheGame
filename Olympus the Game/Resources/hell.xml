@@ -4,13 +4,13 @@
   <Width>1000</Width>
   <Height>500</Height>
   <GameObjects>
-    <GameObject Type="HOME">
+    <GameObject Type="START">
       <X>0</X>
       <Y>0</Y>
       <Width>150</Width>
       <Height>150</Height>
     </GameObject>
-    <GameObject Type="CAKE">
+    <GameObject Type="FINISH">
       <X>800</X>
       <Y>300</Y>
       <Width>150</Width>

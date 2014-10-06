@@ -100,28 +100,29 @@ namespace Olympus_the_Game.View.Imaging
         /// <param name="index">-1.0f for static, between 0.0f (inclusive) and 1.0f (exclusive) (or higher if cyclic) for dynamic.</param>
         /// <returns></returns>
         public Bitmap this[float index]
-        { //TODO Ruben: Incode commentaar
+        {
             get
             {
+                // Als index lager is dan -1 => Ongeldig
                 if (index < -1.0f)
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                else if (index == -1.0f)
+                else if (index == -1.0f) // Index == -1, geef interne plaatje
                 {
                     return this.Image;
                 }
-                else if (this.Cyclic)
+                else if (this.Cyclic) // Plaatje cyclic? gebruik modulo
                 {
                     float f = index - (float)((int)index);
                     int a = (int)(f * (float)Images.Count);
                     return Images[a];
                 }
-                else if (index < 1.0f)
+                else if (index < 1.0f) // Geeft plaatje terug
                 {
                     return Images[(int)(index * (float)Images.Count)];
                 }
-                else
+                else // Niet van dit alles? Geef lege bitmap terug
                 {
                     return EMPTY;
                 }
@@ -155,6 +156,33 @@ namespace Olympus_the_Game.View.Imaging
                     this.Rows == s.Rows && 
                     this.Image.Equals(s.Image);
             }
+        }
+
+        /// <summary>
+        /// Geeft de hashcode van deze Sprite.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            int result = 41;
+            int factor = 37;
+
+            result *= factor;
+            result += this.Columns;
+
+            result *= factor;
+            result += this.Rows;
+
+            result *= factor;
+            result += this.Cyclic.GetHashCode();
+
+            result *= factor;
+            result += this.Image.GetHashCode();
+
+            result *= factor;
+            result += this.Images.GetHashCode();
+
+            return result;
         }
 
         /// <summary>

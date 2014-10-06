@@ -13,7 +13,8 @@ namespace Olympus_the_Game.View
     {
         public PlayField pf { get; private set; }
 
-        public LevelEditor() : this(new PlayField(1000, 500))
+        public LevelEditor()
+            : this(new PlayField(1000, 500))
         { }
 
         public LevelEditor(PlayField pf)
@@ -54,12 +55,12 @@ namespace Olympus_the_Game.View
 
         private void Cake_MouseDown(object sender, MouseEventArgs e)
         {
-            Cake.DoDragDrop(ObjectType.CAKE, DragDropEffects.Copy | DragDropEffects.Move);
+            Cake.DoDragDrop(ObjectType.FINISH, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Home_MouseDown(object sender, MouseEventArgs e)
         {
-            Home.DoDragDrop(ObjectType.HOME, DragDropEffects.Copy | DragDropEffects.Move);
+            Home.DoDragDrop(ObjectType.START, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void Obstakel_MouseDown(object sender, MouseEventArgs e)
@@ -70,10 +71,22 @@ namespace Olympus_the_Game.View
         #endregion
 
         #region Inpanel Drag and Drop
-        // TODO Ruben : Commentaar
+
+        /// <summary>
+        /// Item dat momenteel wordt versleept.
+        /// </summary>
         private GameObject currentDraggingObject = null;
+
+        /// <summary>
+        /// De offset van de muis ten opzicht van het momenteel gesleepte object.
+        /// </summary>
         private Point offset = Point.Empty;
 
+        /// <summary>
+        /// Als muis naar beneden gaat, start slepen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
         {
             // Set current dragging object
@@ -82,6 +95,11 @@ namespace Olympus_the_Game.View
                 this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
         }
 
+        /// <summary>
+        /// Als er wordt gesleept, verplaats item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
         {
             if (this.currentDraggingObject != null)
@@ -91,10 +109,13 @@ namespace Olympus_the_Game.View
                 this.currentDraggingObject.Y = p.Y - this.offset.Y;
                 this.gamePanelEditor.Invalidate();
             }
-
-            this.FindForm().Text = gamePanelEditor.getCursorPosition().ToString() + " " + gamePanelEditor.getCursorPlayFieldPosition().ToString() + " " + gamePanelEditor.SCALE;
         }
 
+        /// <summary>
+        /// Stop met slepen als muis omhoog gaat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
         {
             if (this.currentDraggingObject != null)
@@ -143,12 +164,12 @@ namespace Olympus_the_Game.View
                 case ObjectType.SLOWER:
                     this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
                     break;
-                case ObjectType.CAKE:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                case ObjectType.FINISH:
+                    this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                     this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
                     break;
-                case ObjectType.HOME:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                case ObjectType.START:
+                    this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                     this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
                     break;
                 case ObjectType.CREEPER:
@@ -180,7 +201,7 @@ namespace Olympus_the_Game.View
             switch (e.Button)
             {
                 case MouseButtons.Right:
-                    gamePanelEditor.Playfield.GetObjects().Remove(gamePanelEditor.getObjectAtCursor());
+                    gamePanelEditor.Playfield.GameObjects.Remove(gamePanelEditor.getObjectAtCursor());
                     this.gamePanelEditor.Invalidate();
                     break;
             }
@@ -284,7 +305,7 @@ namespace Olympus_the_Game.View
         private void ApplyPlayfieldChanges()
         {
             PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
-            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GetObjects());
+            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GameObjects);
             gamePanelEditor.Playfield = newPF;
         }
 
@@ -327,7 +348,7 @@ namespace Olympus_the_Game.View
             // Cake
             else if (e.KeyChar == (char)Keys.D5)
             {
-                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
             }
@@ -335,7 +356,7 @@ namespace Olympus_the_Game.View
             // Home
             else if (e.KeyChar == (char)Keys.D6)
             {
-                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
             }

@@ -46,15 +46,25 @@ namespace Olympus_the_Game.View
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
             OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
         }
-
+        /// <summary>
+        /// Handel toetsen af als deze worden ingedrukt
+        /// Doe dit via de static KeyHandler class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyDown(e);
+            KeyHandler.KeyDown(sender,e);
         }
-
+        /// <summary>
+        /// Handel toetsen af als deze worden los gelaten
+        /// Doet dit via de static KeyHandler class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyUp(e);
+            KeyHandler.KeyUp(this, e);
         }
 
         // ======================

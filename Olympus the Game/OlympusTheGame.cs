@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Olympus_the_Game
 {
-    class OlympusTheGame
+    public class OlympusTheGame
     {
         // Het scherm van het spel
         private GameScreen gs;

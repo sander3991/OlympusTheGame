@@ -21,6 +21,8 @@ namespace Olympus_the_Game.View
             textBoxLeft.MaxLength = 1;
             textBoxUp.MaxLength = 1;
             textBoxDown.MaxLength = 1;
+            this.DoubleBuffered = true;
+            
         }
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
@@ -65,6 +67,7 @@ namespace Olympus_the_Game.View
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
             this.BringToFront();
+
         }
         /// <summary>
         /// Functie die het scherm plaatst als je die muis loslaat
@@ -78,6 +81,7 @@ namespace Olympus_the_Game.View
                 this.Left = e.X + this.Left - MouseDownLocation.X;
                 this.Top = e.Y + this.Top - MouseDownLocation.Y;
             }
+            this.BackColor = Color.Transparent;
         }
         /// <summary>
         /// Verander de controls als de gebruiker een toets wijzigd
@@ -88,7 +92,7 @@ namespace Olympus_the_Game.View
         {
             try
             {
-                if (!String.IsNullOrEmpty(textBoxRight.Text))
+                if (!string.IsNullOrEmpty(textBoxRight.Text))
                     KeyHandler.CustomRight =
                         (Keys)char.ToUpper(textBoxRight.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
@@ -136,6 +140,7 @@ namespace Olympus_the_Game.View
                 tb.SelectionStart = 0;
                 tb.SelectionLength = tb.Text.Length;
             }
+            
         }
     }
 }
