@@ -10,7 +10,6 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
-    //TODO HenkJan: Kijken naar mogelijkheden om de keys in een aparte class te zetten. KeyHandler?
     public class Controller
     {
         // Timer voor het bepalen van de speelduur.
@@ -41,7 +40,6 @@ namespace Olympus_the_Game
 
             // Add AIUpdate to UpdateEvents
             UpdateGameEvents += UpdateEntityAI;
-
 
         }
 
