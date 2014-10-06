@@ -13,7 +13,8 @@ namespace Olympus_the_Game.View
     {
         public PlayField pf { get; private set; }
 
-        public LevelEditor() : this(new PlayField(1000, 500))
+        public LevelEditor()
+            : this(new PlayField(1000, 500))
         { }
 
         public LevelEditor(PlayField pf)
@@ -70,10 +71,22 @@ namespace Olympus_the_Game.View
         #endregion
 
         #region Inpanel Drag and Drop
-        // TODO Ruben : Commentaar
+
+        /// <summary>
+        /// Item dat momenteel wordt versleept.
+        /// </summary>
         private GameObject currentDraggingObject = null;
+
+        /// <summary>
+        /// De offset van de muis ten opzicht van het momenteel gesleepte object.
+        /// </summary>
         private Point offset = Point.Empty;
 
+        /// <summary>
+        /// Als muis naar beneden gaat, start slepen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
         {
             // Set current dragging object
@@ -82,6 +95,11 @@ namespace Olympus_the_Game.View
                 this.offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - this.currentDraggingObject.X, gamePanelEditor.getCursorPlayFieldPosition().Y - this.currentDraggingObject.Y);
         }
 
+        /// <summary>
+        /// Als er wordt gesleept, verplaats item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
         {
             if (this.currentDraggingObject != null)
@@ -91,10 +109,13 @@ namespace Olympus_the_Game.View
                 this.currentDraggingObject.Y = p.Y - this.offset.Y;
                 this.gamePanelEditor.Invalidate();
             }
-
-            this.FindForm().Text = gamePanelEditor.getCursorPosition().ToString() + " " + gamePanelEditor.getCursorPlayFieldPosition().ToString() + " " + gamePanelEditor.SCALE;
         }
 
+        /// <summary>
+        /// Stop met slepen als muis omhoog gaat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
         {
             if (this.currentDraggingObject != null)
