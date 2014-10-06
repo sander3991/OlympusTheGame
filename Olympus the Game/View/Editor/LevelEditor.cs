@@ -165,11 +165,11 @@ namespace Olympus_the_Game.View
                     this.pf.AddObject(new EntitySlower(50, 50, l.X, l.Y));
                     break;
                 case ObjectType.CAKE:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                    this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                     this.pf.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
                     break;
                 case ObjectType.HOME:
-                    this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                    this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                     this.pf.AddObject(new ObjectStart(50, 50, l.X, l.Y));
                     break;
                 case ObjectType.CREEPER:
@@ -201,7 +201,7 @@ namespace Olympus_the_Game.View
             switch (e.Button)
             {
                 case MouseButtons.Right:
-                    gamePanelEditor.Playfield.GetObjects().Remove(gamePanelEditor.getObjectAtCursor());
+                    gamePanelEditor.Playfield.GameObjects.Remove(gamePanelEditor.getObjectAtCursor());
                     this.gamePanelEditor.Invalidate();
                     break;
             }
@@ -305,7 +305,7 @@ namespace Olympus_the_Game.View
         private void ApplyPlayfieldChanges()
         {
             PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
-            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GetObjects());
+            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GameObjects);
             gamePanelEditor.Playfield = newPF;
         }
 
@@ -348,7 +348,7 @@ namespace Olympus_the_Game.View
             // Cake
             else if (e.KeyChar == (char)Keys.D5)
             {
-                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
+                this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
             }
@@ -356,7 +356,7 @@ namespace Olympus_the_Game.View
             // Home
             else if (e.KeyChar == (char)Keys.D6)
             {
-                this.pf.GetObjects().RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
+                this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
             }

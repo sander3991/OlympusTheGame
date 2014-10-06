@@ -14,7 +14,11 @@ namespace Olympus_the_Game
         private static int ID = 0;
         public int Width { get; set; }
         public int Height { get; set; }
-        private List<GameObject> gameObjects = new List<GameObject>();
+
+        /// <summary>
+        /// De GameObjecten van dit PlayField.
+        /// </summary>
+        public List<GameObject> GameObjects { get; private set; }
         public EntityPlayer Player { get; private set; }
         public string Name { get; set; }
         public bool IsInitialized { get; private set; }
@@ -25,6 +29,7 @@ namespace Olympus_the_Game
             Height = height;
             Name = "Map_" + ID++;
             IsInitialized = false;
+            GameObjects = new List<GameObject>();
         }
 
         public void InitializeGameObjects()
@@ -39,7 +44,7 @@ namespace Olympus_the_Game
             {
                 if (objects == null)
                     new ArgumentException("Geen lijst met gameobjects meegegeven");
-                gameObjects = objects;
+                GameObjects = objects;
                 for (int i = 0; i < objects.Count; i++)
                 {
                     if (objects[i].Playfield != null || objects[i].Playfield == this)
@@ -49,7 +54,7 @@ namespace Olympus_the_Game
                     if (player != null)
                     {
                         Player = player;
-                        gameObjects.Remove(player);
+                        GameObjects.Remove(player);
                     }
                 }
                 if (Player == null)
@@ -61,14 +66,6 @@ namespace Olympus_the_Game
             }
 
         }
-        // TODO Ruben: Omvormen naar een property
-        /// <summary>
-        /// Verkrijgt alle gameObjects die op het veld zijn
-        /// </summary>
-        public List<GameObject> GetObjects()
-        {
-            return new List<GameObject>(gameObjects);
-        }
 
         /// <summary>
         /// Voegt een entity toe aan het speelveld
@@ -78,13 +75,13 @@ namespace Olympus_the_Game
 
             if (entity.Playfield != null)
                 throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
-            gameObjects.Add(entity);
+            GameObjects.Add(entity);
             entity.Playfield = this;
         }
         // TODO Sander: Commentaar
         public void RemoveObject(GameObject entity)
         {
-            gameObjects.Remove(entity);
+            GameObjects.Remove(entity);
             entity.OnRemoved(false);
         }
         /// <summary>
@@ -98,7 +95,7 @@ namespace Olympus_the_Game
                 Player.Playfield = this;
             }
             ObjectStart start = null;
-            foreach (GameObject o in gameObjects)
+            foreach (GameObject o in GameObjects)
             {
                 start = o as ObjectStart;
                 if (o != null)
@@ -136,9 +133,9 @@ namespace Olympus_the_Game
         public List<GameObject> GetObjectsAtLocation(int x, int y)
         {
             List<GameObject> objectList = new List<GameObject>();
-            for (int i = 0; i < gameObjects.Count; i++)
+            for (int i = 0; i < GameObjects.Count; i++)
             {
-                GameObject o = gameObjects[i];
+                GameObject o = GameObjects[i];
                 if (o.X <= x && (o.X + o.Width) >= x && o.Y <= y && (o.Y + o.Height) >= y)
                     objectList.Add(o);
 
@@ -154,8 +151,8 @@ namespace Olympus_the_Game
         /// </summary>
         public void UnloadPlayField()
         {
-            for (int i = 0; i < gameObjects.Count; i++)
-                gameObjects[i].OnRemoved(true);
+            for (int i = 0; i < GameObjects.Count; i++)
+                GameObjects[i].OnRemoved(true);
             Player.OnRemoved(true);
         }
 
@@ -299,7 +296,7 @@ namespace Olympus_the_Game
                 }
                 reader.Read();
             }
-            if (gameObjects.Count > 0)
+            if (GameObjects.Count > 0)
             {
                 IsInitialized = true;
             }
@@ -316,7 +313,7 @@ namespace Olympus_the_Game
             writer.WriteElementString("Width", Width.ToString());
             writer.WriteElementString("Height", Height.ToString());
             writer.WriteStartElement("GameObjects");
-            foreach (GameObject o in gameObjects)
+            foreach (GameObject o in GameObjects)
             {
                 writer.WriteStartElement("GameObject");
                 writer.WriteAttributeString("Type", o.Type.ToString());
