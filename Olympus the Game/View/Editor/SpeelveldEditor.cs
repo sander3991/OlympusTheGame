@@ -45,6 +45,7 @@ namespace Olympus_the_Game.View
         public SpeelveldEditor()
         {
             InitializeComponent();
+            this.label1.Visible = false;
             this.ToepassenSpeelveld.Click += ClickCallback;
         }
 
@@ -60,12 +61,16 @@ namespace Olympus_the_Game.View
                 // If no exceptions raised
                 EnteredSize = new Size(width, height);
 
+                // Set warning label to invisible
+                this.label1.Visible = false;
+
                 // Only call this when valid change happened
                 ApplyClick();
             }
             catch (FormatException) 
-            { 
-                // TODO Ruben: Opvangen!
+            {
+                // Set warning label to visible
+                this.label1.Visible = true;
             }
         }
     }

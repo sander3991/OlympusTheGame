@@ -277,9 +277,9 @@
             this.gamePanelEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanelEditor.Location = new System.Drawing.Point(12, 36);
             this.gamePanelEditor.Name = "gamePanelEditor";
-            playField1.HEIGHT = 500;
+            playField1.Height = 500;
             playField1.Name = "Map_1";
-            playField1.WIDTH = 1000;
+            playField1.Width = 1000;
             this.gamePanelEditor.Playfield = playField1;
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
