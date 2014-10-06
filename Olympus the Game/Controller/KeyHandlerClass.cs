@@ -13,34 +13,68 @@ namespace Olympus_the_Game
     public class KeyHandlerClass
     {
         // Deze variabelen zijn voor als de gebruiker zelf keys toevoegd er word 
-        //een int bijgehouden omdat de char die de gebruiker invoert makkelijke om te zetten is.
-        public int CustomRight { get; set; }
-        public int CustomLeft { get; set; }
-        public int CustomUp { get; set; }
-        public int CustomDown { get; set; }
+        public Keys CustomRight { get; set; }
+        public Keys CustomLeft { get; set; }
+        public Keys CustomUp { get; set; }
+        public Keys CustomDown { get; set; }
 
+        /// <summary>
+        /// Wordt aangeroepen als je op een toetsklikt
+        /// </summary>
+        /// <param name="e"></param>
         internal void KeyDown(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
                 e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
                 e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.W || e.KeyCode == Keys.S ) 
+                e.KeyCode == Keys.W || e.KeyCode == Keys.S ||
+                e.KeyCode == CustomRight || e.KeyCode == CustomLeft ||
+                e.KeyCode == CustomUp || e.KeyCode == CustomDown) 
             {
                 MovePlayer(e, 2);
             }
-            else
-            {
-                CustomMovePlayer(e, 2);
-            }
-                
         }
-
+        /// <summary>
+        /// Wordt aangeroepen als je een toets los laat
+        /// </summary>
+        /// <param name="e"></param>
         internal void KeyUp(KeyEventArgs e)
         {
-            MovePlayer(e, 0);
-            CustomMovePlayer(e, 0);
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
+                e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
+                e.KeyCode == Keys.W || e.KeyCode == Keys.S ||
+                e.KeyCode == CustomRight || e.KeyCode == CustomLeft ||
+                e.KeyCode == CustomUp || e.KeyCode == CustomDown)
+            {
+                MovePlayer(e, 0);
+            }
+        }
+        /// <summary>
+        ///  Beweeg de speler met toetsen die zijn toegewezen
+        /// </summary>
+        /// <param name="e">Toetsen</param>
+        /// <param name="speed">Snelheid</param>
+        private void MovePlayer(KeyEventArgs e, int speed)
+        {
+            // Toetsen voor naar links en naar rechts.
+            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D || e.KeyCode == CustomRight)
+                OlympusTheGame.INSTANCE.Playfield.Player.DX = speed;
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A || e.KeyCode == CustomLeft)
+                OlympusTheGame.INSTANCE.Playfield.Player.DX = -speed;
+            // Toetsen voor naar boven en naar beneden.
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode == CustomUp)
+                OlympusTheGame.INSTANCE.Playfield.Player.DY = -speed;
+            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S || e.KeyCode == CustomDown)
+                OlympusTheGame.INSTANCE.Playfield.Player.DY = speed;
         }
 
+
+        /// <summary>
+        /// Move player als er op de knop wordt gedrukt vanuit ArrowPanel
+        /// </summary>
+        /// <param name="speed">Snelheid van de speler</param>
+        /// <param name="horizontaal">Geef aan links of rechts</param>
         public void MovePlayer(int speed, bool horizontaal)
         {
             if (horizontaal)
@@ -48,40 +82,7 @@ namespace Olympus_the_Game
             else
                 OlympusTheGame.INSTANCE.Playfield.Player.DY = speed;
         }
-
-        private void MovePlayer(KeyEventArgs e, int speed)
-        {
-            // Toetsen voor naar links en naar rechts.
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
-                OlympusTheGame.INSTANCE.Playfield.Player.DX = -speed;
-            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
-                OlympusTheGame.INSTANCE.Playfield.Player.DX = speed;
-            // Toetsen voor naar boven en naar beneden.
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
-                OlympusTheGame.INSTANCE.Playfield.Player.DY = -speed;
-            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
-                OlympusTheGame.INSTANCE.Playfield.Player.DY = speed;
-        }
-        /// <summary>
-        ///  Beweeg de speler met toetsen die zijn toegewezen
-        /// </summary>
-        /// <param name="e">Toetsen</param>
-        /// <param name="speed">Snelheid</param>
-        public void CustomMovePlayer(KeyEventArgs e, int speed)
-        {
-            if (e.KeyValue == CustomRight)
-                MovePlayer(speed, true);
-
-            if (e.KeyValue == CustomLeft)
-                MovePlayer(-speed, true);
-
-            if (e.KeyValue == CustomDown)
-                MovePlayer(speed, false);
-
-            if (e.KeyValue == CustomUp)
-                MovePlayer(-speed, false);
-        }
-
+        
         
 
         

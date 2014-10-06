@@ -55,7 +55,7 @@ namespace Olympus_the_Game
         /// Stuurt informatie door als de gebruiker een toets loslaat.
         /// </summary>
         /// <param name="e"></param>
-        public void OnKeyUp(KeyEventArgs e) // TODO HenkJan: Kijken of het iets eleganter kan. Geen prio.
+        public void OnKeyUp(KeyEventArgs e) 
         {
             KeyHandler.KeyUp(e);
         }
