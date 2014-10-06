@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
+    //TODO HenkJan: Kijken naar mogelijkheden om de keys in een aparte class te zetten. KeyHandler?
     public class Controller
     {
         // Timer voor het bepalen van de speelduur.
@@ -25,11 +26,12 @@ namespace Olympus_the_Game
         public event Action UpdateSlowEvents;
 
         // Toetsen die worden toegewezen door gebruiker
+        // TODO HenkJan: Commentaar
         public int CustomRight { get; set; }
         public int CustomLeft { get; set; }
         public int CustomUp { get; set; }
         public int CustomDown { get; set; }
-         
+        // TODO Sander: Commentaar
         public Controller()
         {
             // Add Update to UpdateEvents
@@ -65,7 +67,7 @@ namespace Olympus_the_Game
         /// Stuurt informatie door als de gebruiker een toets loslaat.
         /// </summary>
         /// <param name="e"></param>
-        public void OnKeyUp(KeyEventArgs e)
+        public void OnKeyUp(KeyEventArgs e) // TODO HenkJan: Kijken of het iets eleganter kan. Geen prio.
         {
             // Kijk of de speler de standaard besturings toetsen loslaat
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
@@ -87,8 +89,8 @@ namespace Olympus_the_Game
         ///  Beweeg de speler met toetsen die zijn toegewezen
         /// </summary>
         /// <param name="e"></param>
-        /// <param name="speed"></param>
-        private void MovePlayer(KeyEventArgs e, int speed)
+        /// <param name="speed"></param>//TODO HenkJan: Er mist een omschrijving van wat de parameters voor zijn.
+        private void MovePlayer(KeyEventArgs e, int speed) // TODO HenkJan: CustomKeys worden hier volgensmij niet meegenomen!
         {
             // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
@@ -107,7 +109,7 @@ namespace Olympus_the_Game
         /// Geef aan of deze beweging horizontaal moet zijn
         /// </summary>
         /// <param name="speed"></param>
-        /// <param name="horizontaal"></param>
+        /// <param name="horizontaal"></param> //TODO HenkJan: Er mist een omschrijving van wat de parameters voor zijn.
         public void MovePlayer(int speed, bool horizontaal)
         {
             if (horizontaal)
@@ -135,7 +137,7 @@ namespace Olympus_the_Game
                 MovePlayer(-speed, false);
         }
 
-        public void Update()
+        public void Update() //TODO Sander: Comments bij toevoegen
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             player.Move();
@@ -190,7 +192,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public void UpdateEntityAI()
+        public void UpdateEntityAI() // TODO Sander: Commentaar toevoegen
         {
             if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
             Random rand = new Random();
@@ -228,6 +230,7 @@ namespace Olympus_the_Game
             if (UpdateSlowEvents != null)
                 UpdateSlowEvents();
         }
+        //TODO Elmar: Commentaar
         public string GetTimeSinceStart()
         {
             return stopWatch.Elapsed.Minutes.ToString("D2") + ":" + stopWatch.Elapsed.Seconds.ToString("D2");
