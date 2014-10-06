@@ -10,8 +10,6 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game.View
 {
-    // TODO Elmar: Commentaar toevoegen
-
     public partial class InfoBox : UserControl
     {
         public Point MouseDownLocation { get; set; }
@@ -19,6 +17,10 @@ namespace Olympus_the_Game.View
         public InfoBox()
         {
             InitializeComponent();
+
+            if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || OlympusTheGame.INSTANCE.Playfield.Player == null)
+                return;
+
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             if (player == null)
                 throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
@@ -39,8 +41,10 @@ namespace Olympus_the_Game.View
             UpdateHealth(player, -1);
         }
 
-        //TODO Elmar: Waarom is deze method Public?
-        public void Update(int Health)
+        /// <summary>
+        /// Wijst verschillende gegevens toe aan labels in de InfoBox
+        /// </summary>
+        private void UpdateLabels()
         {
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
@@ -48,6 +52,7 @@ namespace Olympus_the_Game.View
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
             timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
         }
+
         /// <summary>
         /// Wordt gebruikt om de health van de speler te updaten
         /// </summary>
@@ -112,7 +117,7 @@ namespace Olympus_the_Game.View
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
             if (OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { Update(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
         }
 
     }

@@ -135,7 +135,10 @@ namespace Olympus_the_Game
             if (UpdateSlowEvents != null)
                 UpdateSlowEvents();
         }
-        //TODO Elmar: Commentaar
+
+        /// <summary>
+        /// Returned de speelduur van de huidige map.
+        /// </summary>
         public string GetTimeSinceStart()
         {
             return stopWatch.Elapsed.Minutes.ToString("D2") + ":" + stopWatch.Elapsed.Seconds.ToString("D2");

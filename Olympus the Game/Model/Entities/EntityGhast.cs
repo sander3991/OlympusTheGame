@@ -6,48 +6,74 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
-    //TODO Elmar: Commentaar
     public class EntityGhast : Entity
     {
-        Stopwatch stopwatch = Stopwatch.StartNew(); //TODO Elmar: Access modifier toevoegen (private/public)
-        //TODO Elmar: Kan dit niet een prop zijn? Zorgt gelijk voor limitaties!
-        public int firespeed = 1000, detectRange = 250; //Aanpasbaar in editor
+        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private int prop_firespeed = 1000;
+        private int prop_detectrange = 150;
+        /// <summary>
+        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
+        /// </summary>
+        public int FireSpeed
+        {
+            get { return prop_firespeed; }
+            set
+            {
+                prop_firespeed = Math.Max(0, value);
+            }
+        }
+        /// <summary>
+        /// Afstand van wanneer de Ghast begint met aanvallen. MIN = 50, DEFAULT = 150
+        /// </summary>
+        public int DetectRange
+        {
+            get { return prop_detectrange; }
+            set
+            {
+                prop_detectrange = Math.Max(50, value);
+            }
+        }
 
+        /// <summary>
+        /// FILL THIS IN
+        /// </summary>
         public EntityGhast(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.GHAST;
             EntityControlledByAI = true;
-            IsSolid = false;
         }
 
+        /// <summary>
+        /// FILL THIS IN
+        /// </summary>
         public EntityGhast(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player; //TODO Elmar: Gebruik interne PlayField
-            if (player != null)
+            if (Playfield.Player != null)
             {
-                if (DistanceToObject(player) < detectRange)
+                // Wanneer de speler in de buurt van dit object komt:
+                if (DistanceToObject(Playfield.Player) <= prop_detectrange)
                 {
-                    //Maak een nieuwe fireball aan wanneer er 3 seconden verstreken zijn
-                    if (stopwatch.ElapsedMilliseconds >= firespeed)
+                    // Vuur dan een vuurbal af om de x aantal seconden
+                    if (stopwatch.ElapsedMilliseconds >= prop_firespeed)
                     {
-                        EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, player);
+                        EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, Playfield.Player);
                         Playfield.AddObject(fireball);
                         stopwatch.Restart();
                     }
                 }
-                else
-                    this.EntityControlledByAI = true;
             }
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
+            // Verwijder dit object uit de gameloop
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
+
         public override string ToString()
         {
             return "Ghast";

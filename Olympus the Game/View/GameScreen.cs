@@ -122,12 +122,14 @@ namespace Olympus_the_Game.View
                     this.FormBorderStyle = FormBorderStyle.Fixed3D;
                     gamePanel1.Left = 10;
                     gamePanel1.Top = 35;
+                    this.customMenuBar1.Visible = true;
+                    gamePanel1.TryExpand(35);
                     break;
                 case (true):
                     WindowState = FormWindowState.Maximized;
                     this.FormBorderStyle = FormBorderStyle.None;
-                    gamePanel1.Left = (this.ClientSize.Width - gamePanel1.Width) / 2;
-                    gamePanel1.Top = (this.ClientSize.Height - gamePanel1.Height) / 2;
+                    this.customMenuBar1.Visible = false;
+                    gamePanel1.TryExpand(35);
                     break;
             }    
         }
