@@ -23,7 +23,7 @@ namespace Olympus_the_Game.View
                 prop_size = value;
                 this.GrootteXInput.Text = prop_size.Width.ToString();
                 this.GrootteYInput.Text = prop_size.Height.ToString();
-                //BUG: Als deze waardes worden aangepast in de editor veranderd de grootte van het nog in de achtergrond lopende speelveld ook
+                
                 if(Playfield != null)
                 {
                     if (prop_size.Width >= 1)
@@ -63,7 +63,10 @@ namespace Olympus_the_Game.View
                 // Only call this when valid change happened
                 ApplyClick();
             }
-            catch (FormatException) { }
+            catch (FormatException) 
+            { 
+                // TODO Ruben: Opvangen!
+            }
         }
     }
 }

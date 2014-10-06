@@ -70,7 +70,7 @@ namespace Olympus_the_Game.View
         #endregion
 
         #region Inpanel Drag and Drop
-
+        // TODO Ruben : Commentaar
         private GameObject currentDraggingObject = null;
         private Point offset = Point.Empty;
 
@@ -209,9 +209,8 @@ namespace Olympus_the_Game.View
                 // en er is een naam ingevoerd
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
+                    // Slaat het playfield op
                     PlayFieldToXml.WriteToXml(fileStream, pf);
-
-                    // Hier moet natuurlijk sander's xml opgeslagen worden
                 }
             }
         }
