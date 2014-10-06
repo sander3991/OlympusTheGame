@@ -23,6 +23,7 @@ namespace Olympus_the_Game.View
             player.OnHealthChanged += UpdateHealth;
         }
 
+        //TODO Elmar: Waarom is deze method Public?
         public void Update(int Health)
         {
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
@@ -31,7 +32,11 @@ namespace Olympus_the_Game.View
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
             timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
         }
-
+        /// <summary>
+        /// Wordt gebruikt om de health van de speler te updaten
+        /// </summary>
+        /// <param name="player">De speler die het event gefired heeft</param>
+        /// <param name="prevHealth">De health voordat de speler damage kreeg</param>
         private void UpdateHealth(EntityPlayer player, int prevHealth)
         {
             // Geeft het aantal levens weer
