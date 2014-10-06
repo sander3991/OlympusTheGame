@@ -13,7 +13,7 @@ namespace Olympus_the_Game
     public class Controller
     {
         // Timer voor het bepalen van de speelduur.
-        Stopwatch stopWatch = Stopwatch.StartNew();
+        private Stopwatch stopWatch = Stopwatch.StartNew();
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>

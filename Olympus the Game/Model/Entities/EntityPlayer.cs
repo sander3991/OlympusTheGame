@@ -8,6 +8,16 @@ namespace Olympus_the_Game
     //TODO Sander: Commentaar
     public class EntityPlayer : Entity
     {
+        /// <summary>
+        /// Delegate voor het <code>OnHealthChanged</code> event
+        /// </summary>
+        /// <param name="player">De entity waarvan de health veranderd is</param>
+        /// <param name="previousHealth">De health voor de verandering</param>
+        public delegate void DelOnHealthChanged(EntityPlayer player, int prevHealth);
+        /// <summary>
+        /// Event dat gedraait woordt zodra een <code>EntityPlayer</code> object zijn health is veranderd.
+        /// </summary>
+        public event DelOnHealthChanged OnHealthChanged;
         public const int MAXHEALTH = 5;
         private int health;
         private double speedModifier = 1;
@@ -61,9 +71,8 @@ namespace Olympus_the_Game
                 int prevHealth = health;
                 health = Math.Max(0, value);
                 health = Math.Min(MAXHEALTH, value);
-                if (prevHealth != health)
-                    //DoHealthEventHier
-                    return;
+                if (prevHealth != health && OnHealthChanged != null)
+                    OnHealthChanged(this, prevHealth);
             }
         }
         /// <summary>

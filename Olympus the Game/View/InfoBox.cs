@@ -17,6 +17,10 @@ namespace Olympus_the_Game.View
         public InfoBox()
         {
             InitializeComponent();
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            if (player == null)
+                throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
+            player.OnHealthChanged += UpdateHealth;
         }
 
         public void Update(int Health)
@@ -26,14 +30,17 @@ namespace Olympus_the_Game.View
             SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
             timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
+        }
 
+        private void UpdateHealth(EntityPlayer player, int prevHealth)
+        {
             // Geeft het aantal levens weer
             heartAlive1.Visible = false;
             heartAlive2.Visible = false;
             heartAlive3.Visible = false;
             heartAlive4.Visible = false;
             heartAlive5.Visible = false;
-            switch (Health)
+            switch (player.Health)
             {
                 case 5:
                     heartAlive5.Visible = true;
@@ -51,7 +58,6 @@ namespace Olympus_the_Game.View
                     heartAlive1.Visible = true;
                     break;
             }
-
         }
 
         /// <summary>
