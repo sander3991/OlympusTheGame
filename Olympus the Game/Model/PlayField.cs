@@ -232,6 +232,10 @@ namespace Olympus_the_Game
                                 {
                                     Console.WriteLine("Er ging iets fout bij het casten van het attribuut naar de enum");
                                 }
+                                catch (ArgumentException) // TODO Sander naar kijken, deze is toegevoegd ivm foutmelding.
+                                {
+
+                                }
                                 break;
                             default:
                                 break;
