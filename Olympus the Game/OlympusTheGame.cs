@@ -106,7 +106,7 @@ namespace Olympus_the_Game
         {
             // Read PlayField
             Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
-            Playfield.SetPlayerHome();
+            Playfield.InitializeGameObjects();
             if (Playfield == null)
             {
                 Playfield = new PlayField();

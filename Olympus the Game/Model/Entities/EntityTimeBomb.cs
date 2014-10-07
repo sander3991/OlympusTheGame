@@ -101,7 +101,6 @@ namespace Olympus_the_Game
                 else if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime && DistanceToObject(Playfield.Player) <= DetectRadius)
                 {
                     Playfield.Player.Health--;
-                    Playfield.SetPlayerHome();
                     Playfield.RemoveObject(this);
                 }
 

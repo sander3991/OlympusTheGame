@@ -24,7 +24,6 @@ namespace Olympus_the_Game {
             PlayField pf = Playfield;
             if(player != null) {
                 player.Health -= Convert.ToInt32(EffectStrength);
-                pf.SetPlayerHome();
                 pf.RemoveObject(this);
             }
         }

@@ -35,7 +35,7 @@
             this.ButtonLevelEditor.AccessibleDescription = "x";
             this.ButtonLevelEditor.BackColor = System.Drawing.Color.LightGray;
             this.ButtonLevelEditor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonLevelEditor.BackgroundImage")));
-            this.ButtonLevelEditor.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonLevelEditor.Font = new System.Drawing.Font("Mistral", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLevelEditor.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonLevelEditor.Location = new System.Drawing.Point(3, 58);
             this.ButtonLevelEditor.Name = "ButtonLevelEditor";
@@ -50,7 +50,7 @@
             this.ButtonHelp.AccessibleDescription = "x";
             this.ButtonHelp.BackColor = System.Drawing.Color.LightGray;
             this.ButtonHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonHelp.BackgroundImage")));
-            this.ButtonHelp.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonHelp.Font = new System.Drawing.Font("Mistral", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonHelp.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonHelp.Location = new System.Drawing.Point(3, 113);
             this.ButtonHelp.Name = "ButtonHelp";
@@ -65,7 +65,7 @@
             this.ButtonExit.AccessibleDescription = "x";
             this.ButtonExit.BackColor = System.Drawing.Color.LightGray;
             this.ButtonExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonExit.BackgroundImage")));
-            this.ButtonExit.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonExit.Font = new System.Drawing.Font("Mistral", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonExit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonExit.Location = new System.Drawing.Point(218, 113);
             this.ButtonExit.Name = "ButtonExit";
@@ -80,7 +80,7 @@
             this.ButtonStart.AccessibleDescription = "x";
             this.ButtonStart.BackColor = System.Drawing.Color.LightGray;
             this.ButtonStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonStart.BackgroundImage")));
-            this.ButtonStart.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonStart.Font = new System.Drawing.Font("Mistral", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonStart.Location = new System.Drawing.Point(3, 3);
             this.ButtonStart.Name = "ButtonStart";
