@@ -9,19 +9,33 @@ using System.Windows.Forms;
 
 namespace Olympus_the_Game
 {
+    /// <summary>
+    /// Mainmenu form
+    /// Bevat onderandere een control met buttons
+    /// Splashscreen magic happens here
+    /// </summary>
     public partial class MainMenu : Form
     {
+        // Timer die gebruikt word voor het afspelen van splashscreen.gif
         Timer gifTimer = new Timer();
         private bool firstInit = true;
         public MainMenu()
         {
+            // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
+            // de splashscreen word weergeven of niet
             bool gifState = true;
 
             InitializeComponent();
+
+            // Zorg ervoor dat tijdens de splashscreen geen buttons in scherm zijn
             mainMenuControl1.Visible = false;
+
+            // Maak nieuw eventhandler aan voor timer tick
             this.gifTimer.Tick += new EventHandler(Timer_Tick);
             if (gifState == true)
             {
+                // Interval is ~ongeveer 4 seconden.
+                // Hangt een beetje af van snelheid van computer
                 gifTimer.Interval = 4000;
                 gifTimer.Start();
                 gifState = false;
@@ -51,6 +65,14 @@ namespace Olympus_the_Game
             this.CenterToScreen();
         }
 
+        /// <summary>
+        /// Als de 4 seconden voorbij zijn van de gifTimer dan word
+        /// deze functie aangeroepen die ervoor zorgt dat de achtergrond
+        /// veranderd in een seemless looping starburst gif, en het menu
+        /// weergeven word.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             gifTimer.Stop();
