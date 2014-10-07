@@ -53,7 +53,9 @@ namespace Olympus_the_Game.View
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Text = this.gamePanel1.Size.ToString(); };
         }
+
         /// <summary>
         /// Handel toetsen af als deze worden ingedrukt
         /// Doe dit via de static KeyHandler class
@@ -82,7 +84,7 @@ namespace Olympus_the_Game.View
         private void statistiekenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // InfoView verbergen of weergeven
-            switch (statestiekenToolStripMenuItem.Checked)
+            switch (this.statistiekenToolStripMenuItem.Checked)
             {
                 case (false):
                     infoView1.Hide();
@@ -96,7 +98,7 @@ namespace Olympus_the_Game.View
         private void informatieSchermToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // InfoBox verbergen of weergeven
-            switch (informatieSchermToolStripMenuItem.Checked)
+            switch (this.informatieToolStripMenuItem.Checked)
             {
                 case (false):
                     infoBox1.Hide();
@@ -110,7 +112,7 @@ namespace Olympus_the_Game.View
         private void pijltjestoetsenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Pijltjestoetsen verbergen of weergeven
-            switch (pijltjestoetsenToolStripMenuItem.Checked) { 
+            switch (this.bedieningToolStripMenuItem.Checked) { 
                 case(false):
                     arrowPanel1.Hide();
                     break;
@@ -128,12 +130,12 @@ namespace Olympus_the_Game.View
                 case (false):
                     WindowState = FormWindowState.Normal;
                     this.FormBorderStyle = FormBorderStyle.Fixed3D;
-                    this.customMenuBar1.Visible = true;
+                    this.menuStrip1.Visible = true;
                     break;
                 case (true):
                     WindowState = FormWindowState.Maximized;
                     this.FormBorderStyle = FormBorderStyle.None;
-                    this.customMenuBar1.Visible = false;
+                    this.menuStrip1.Visible = false;
                     break;
             }    
         }
@@ -144,6 +146,7 @@ namespace Olympus_the_Game.View
         private void OnPlayFieldUpdate(PlayField pf)
         {
             gamePanel1.Playfield = pf;
+            gamePanel1.TryExpand();
         }
 
         private void pauzeToolStripMenuItem_Click(object sender, EventArgs e)
