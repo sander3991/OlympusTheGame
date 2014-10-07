@@ -47,14 +47,17 @@ namespace Olympus_the_Game
 
         public void OnUpdate()
         {
-            if (DistanceToObject(Playfield.Player) <= EffectRange)
-            {   
-                // Maak een entity cobweb aan wanneer er x seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
-                if (stopwatch.ElapsedMilliseconds >= FireSpeed)
+            if (Playfield.Player != null)
+            {
+                if (DistanceToObject(Playfield.Player) <= EffectRange)
                 {
-                    EntityWeb web = new EntityWeb(55, 55, Playfield.Player.X, Playfield.Player.Y, 0, 0);
-                    this.Playfield.AddObject(web);
-                    stopwatch.Restart();
+                    // Maak een entity cobweb aan wanneer er x seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
+                    if (stopwatch.ElapsedMilliseconds >= FireSpeed)
+                    {
+                        EntityWeb web = new EntityWeb(55, 55, Playfield.Player.X, Playfield.Player.Y, 0, 0);
+                        this.Playfield.AddObject(web);
+                        stopwatch.Restart();
+                    }
                 }
             }
         }
