@@ -30,7 +30,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.splashscreen2;
+            this.pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.splashscreen3;
             this.pictureBox1.InitialImage = global::Olympus_the_Game.Properties.Resources.still1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";

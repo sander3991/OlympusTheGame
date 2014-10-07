@@ -101,7 +101,7 @@
             this.Controls.Add(this.ButtonStart);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(497, 167);
+            this.Size = new System.Drawing.Size(427, 167);
             this.ResumeLayout(false);
 
         }

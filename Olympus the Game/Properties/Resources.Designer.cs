@@ -255,6 +255,16 @@ namespace Olympus_the_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loop {
+            get {
+                object obj = ResourceManager.GetObject("loop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minecraft_stone_bhcmfrug {
             get {
                 object obj = ResourceManager.GetObject("minecraft_stone_bhcmfrug", resourceCulture);
@@ -378,6 +388,16 @@ namespace Olympus_the_Game.Properties {
         internal static System.Drawing.Bitmap splashscreen2 {
             get {
                 object obj = ResourceManager.GetObject("splashscreen2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splashscreen3 {
+            get {
+                object obj = ResourceManager.GetObject("splashscreen3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
