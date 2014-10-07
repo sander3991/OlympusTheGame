@@ -55,7 +55,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Olympus_the_Game
         {
             // Verwijder dit object uit de gameloop na een mooie explosie
             Playfield.AddObject(new SpriteExplosion(75, 75, this.X, this.Y));
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override void OnCollide(GameObject gameObject)

@@ -15,7 +15,7 @@ namespace Olympus_the_Game
         /// </summary>
         public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength) : base(width, height, x, y, dx, dy, explodeStrength)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = true;
             Type = ObjectType.CREEPER;
         }
@@ -76,12 +76,12 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.INSTANCE.Controller;
+            Controller contr = OlympusTheGame.Controller;
             PlayField pf = Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             if(!fieldRemoved)
                 pf.AddObject(new SpriteExplosion(this));
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
     }
 }

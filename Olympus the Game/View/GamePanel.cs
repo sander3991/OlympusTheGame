@@ -83,8 +83,8 @@ namespace Olympus_the_Game.View
             this.BackgroundImage = Properties.Resources.background;
 
             // Register to updateloop
-            if (OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+            if (OlympusTheGame.Controller != null)
+                OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
         }
 
         #endregion

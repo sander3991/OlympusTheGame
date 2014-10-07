@@ -26,7 +26,7 @@ namespace Olympus_the_Game
         {
             Type = ObjectType.SPRITEEXPLOSION;
             duration = 1000;
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
         }
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace Olympus_the_Game
             // If explosion is over, remove from PlayField.
             if ((Environment.TickCount - start) > duration)
             {
-                OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
-                OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
+                OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+                OlympusTheGame.Playfield.RemoveObject(this);
             }
         }
     }
