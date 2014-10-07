@@ -115,7 +115,7 @@ namespace Olympus_the_Game.View.Imaging
                 else if (this.Cyclic) // Plaatje cyclic? gebruik modulo
                 {
                     float f = index - (float)((int)index);
-                    int a = (int)(f * (float)Images.Count);
+                    int a = (int)(f * (float)Images.Count)  ;
                     return Images[a];
                 }
                 else if (index < 1.0f) // Geeft plaatje terug
