@@ -29,7 +29,7 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.SLOWER, Properties.Resources.spider);
             source.Add(ObjectType.WEB, Properties.Resources.cobweb);
             source.Add(ObjectType.PLAYER, Properties.Resources.player);
-            source.Add(ObjectType.TIMEBOMB, Properties.Resources.timebomb);
+            source.Add(ObjectType.TIMEBOMB, new Sprite(Properties.Resources.timebomb, 2, 1, true));
             source.Add(ObjectType.START, Properties.Resources.huis);
             source.Add(ObjectType.FINISH, Properties.Resources.cake);
             source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);

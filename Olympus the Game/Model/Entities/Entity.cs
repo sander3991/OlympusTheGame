@@ -27,11 +27,15 @@ namespace Olympus_the_Game{
         /// Geeft aan of deze entity bestuurd moet worden door de AI
         /// </summary>
         public bool EntityControlledByAI { get; protected set; }
-
+        /// <summary>
+        /// Delegate om in de gaten te houden wanneer de entity beweegt
+        /// </summary>
+        /// <param name="e"></param>
         public delegate void DelOnMoved(Entity e);
-
+        /// <summary>
+        /// Event om in de gaten wanneer de entity beweegt
+        /// </summary>
         public event DelOnMoved OnMoved;
-        
         /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>

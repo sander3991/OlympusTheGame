@@ -14,6 +14,22 @@ namespace Olympus_the_Game
         private int prop_explodetime = 3000;
         private int prop_detectradius = 100;
         private int prop_exploderadius = 100;
+
+        public override float Frame
+        {
+            get
+            {
+                if (stopwatch == null)
+                    return 0.0f;
+                else
+                    return (float)(stopwatch.ElapsedMilliseconds % ExplodeTime) / 500.0f;
+            }
+            protected set
+            {
+                base.Frame = value;
+            }
+        }
+
         /// <summary>
         /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
         /// </summary>
