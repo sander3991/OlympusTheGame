@@ -25,6 +25,30 @@ namespace Olympus_the_Game
         private double speedModifier = 1;
         private int dx;
         private int dy;
+        private float prop_frame = 0;
+        private int frameCount = 1;
+
+        public override float Frame
+        {
+            get
+            {
+                //return 0.5f;
+                if (prop_frame == 0.5f)
+                {
+                    frameCount++;
+                    if (frameCount % 20 == 0)
+                        prop_frame = 0f;
+                    return 0.5f;
+                }
+                return prop_frame;
+            }
+            protected set
+            {
+                prop_frame = Math.Min(value, 1f);
+                prop_frame = Math.Max(value, 0f);
+            }
+        }
+
         /// <summary>
         /// De snelheid van de speler
         /// </summary>
@@ -89,7 +113,10 @@ namespace Olympus_the_Game
                 health = Math.Max(0, value);
                 health = Math.Min(MAXHEALTH, value);
                 if (prevHealth != health && OnHealthChanged != null)
+                {
                     OnHealthChanged(this, prevHealth);
+                    Frame = 0.5f;
+                }
             }
         }
         /// <summary>

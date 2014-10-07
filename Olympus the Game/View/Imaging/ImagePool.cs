@@ -28,7 +28,7 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
             source.Add(ObjectType.SLOWER, Properties.Resources.spider);
             source.Add(ObjectType.WEB, Properties.Resources.cobweb);
-            source.Add(ObjectType.PLAYER, Properties.Resources.player);
+            source.Add(ObjectType.PLAYER, new Sprite(Properties.Resources.player2, 2, 1, false));
             source.Add(ObjectType.TIMEBOMB, new Sprite(Properties.Resources.timebomb, 2, 1, true));
             source.Add(ObjectType.START, Properties.Resources.huis);
             source.Add(ObjectType.FINISH, Properties.Resources.cake);

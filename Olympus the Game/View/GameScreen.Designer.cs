@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,7 @@
             this.statistiekenToolStripMenuItem.Name = "statistiekenToolStripMenuItem";
             this.statistiekenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.statistiekenToolStripMenuItem.Text = "Statistieken";
-            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
+            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // informatieToolStripMenuItem
             // 
@@ -94,7 +94,7 @@
             this.informatieToolStripMenuItem.Name = "informatieToolStripMenuItem";
             this.informatieToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.informatieToolStripMenuItem.Text = "Informatie";
-            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
+            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // bedieningToolStripMenuItem
             // 
@@ -104,7 +104,7 @@
             this.bedieningToolStripMenuItem.Name = "bedieningToolStripMenuItem";
             this.bedieningToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.bedieningToolStripMenuItem.Text = "Bediening";
-            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
+            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // aToolStripMenuItem
             // 
@@ -131,7 +131,7 @@
             this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
             this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
-            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.volledigeWeergaveToolStripMenuItem_Click);
+            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // pauzeToolStripMenuItem
             // 
@@ -172,10 +172,10 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
-            playField2.Height = 500;
-            playField2.Name = "Map_0";
-            playField2.Width = 1000;
-            this.gamePanel1.Playfield = playField2;
+            playField1.Height = 500;
+            playField1.Name = "Map_0";
+            playField1.Width = 1000;
+            this.gamePanel1.Playfield = playField1;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
