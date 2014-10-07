@@ -53,25 +53,28 @@ namespace Olympus_the_Game
 
         public void OnUpdate()
         {
-            if (this.CollidesWithObject(Playfield.Player) == CollisionType.NONE)
+            if (Playfield.Player != null)
             {
-                if (isSlowingPlayer)
+                if (this.CollidesWithObject(Playfield.Player) == CollisionType.NONE)
                 {
-                    Playfield.Player.SpeedModifier *= SlowStrength;
-                    isSlowingPlayer = false;
-                }
+                    if (isSlowingPlayer)
+                    {
+                        Playfield.Player.SpeedModifier *= SlowStrength;
+                        isSlowingPlayer = false;
+                    }
 
-                // Object uit de gameloop halen na een bepaalde tijdsduur
-                if (stopwatch.ElapsedMilliseconds >= RemoveTime)
-                {
-                    OlympusTheGame.Playfield.RemoveObject(this);
+                    // Object uit de gameloop halen na een bepaalde tijdsduur
+                    if (stopwatch.ElapsedMilliseconds >= RemoveTime)
+                    {
+                        OlympusTheGame.Playfield.RemoveObject(this);
+                    }
                 }
             }
         }
 
         public override void OnCollide(GameObject gameObject)
         {
-            // Maak de speler langzamer wanneer hij wanneer hij door een cobweb loopt
+            // Maak de speler langzamer wanneer hij door een cobweb loopt
             if (!isSlowingPlayer)
             {
                 Playfield.Player.SpeedModifier = Playfield.Player.SpeedModifier / SlowStrength;
