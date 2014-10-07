@@ -66,7 +66,6 @@ namespace Olympus_the_Game.View
             // Save variables
             this.Playfield = pf;
             this.MaxSize = Size.Empty;
-            this.Dock = DockStyle.None;
 
             // Initialize GUI
             InitializeComponent();

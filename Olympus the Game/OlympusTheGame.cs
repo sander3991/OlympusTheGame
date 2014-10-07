@@ -34,6 +34,16 @@ namespace Olympus_the_Game
         /// </summary>
         public static Controller Controller { get; private set; }
 
+        /// <summary>
+        /// Geeft aan of het spel gepauzeerd is.
+        /// </summary>
+        public static bool IsPaused
+        {
+            get
+            {
+                return GameTimer.Enabled;
+            }
+        }
 
         /// <summary>
         /// Event dat gefired wordt zodra er een nieuw Playfield is
@@ -43,7 +53,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
-        private OlympusTheGame(){}
+        private OlympusTheGame() { }
 
         /// <summary>
         /// Beginpunt van de applicatie
@@ -105,7 +115,7 @@ namespace Olympus_the_Game
         {
             if (pf != null)
             {
-                if(Playfield != null)
+                if (Playfield != null)
                     Playfield.UnloadPlayField();
                 pf.SetPlayerHome();
                 Playfield = pf;
