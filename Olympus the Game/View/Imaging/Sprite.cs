@@ -108,7 +108,7 @@ namespace Olympus_the_Game.View.Imaging
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                else if (index == -1.0f) // Index == -1, geef interne plaatje
+                else if (Frames == -1.0f) // Index == -1, geef interne plaatje
                 {
                     return this.Image;
                 }
