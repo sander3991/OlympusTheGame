@@ -41,9 +41,11 @@
             // 
             // mainMenuControl1
             // 
+            this.mainMenuControl1.BackColor = System.Drawing.Color.Transparent;
+            this.mainMenuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.mainMenuControl1.Location = new System.Drawing.Point(12, 23);
             this.mainMenuControl1.Name = "mainMenuControl1";
-            this.mainMenuControl1.Size = new System.Drawing.Size(432, 168);
+            this.mainMenuControl1.Size = new System.Drawing.Size(426, 168);
             this.mainMenuControl1.TabIndex = 0;
             // 
             // MainMenu
@@ -54,6 +56,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.mainMenuControl1);
             this.Controls.Add(this.pictureBox1);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.Text = "Olympus The Game";
