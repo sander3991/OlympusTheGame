@@ -183,7 +183,6 @@
             // 
             this.infoView1.BackColor = System.Drawing.Color.Transparent;
             this.infoView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.infoView1.Entitys = null;
             this.infoView1.IsResized = false;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
             this.infoView1.MouseDownLocation = new System.Drawing.Point(0, 0);

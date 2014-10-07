@@ -56,6 +56,11 @@ namespace Olympus_the_Game
             {
                 return prop_gametime.ElapsedMilliseconds;
             }
+            set
+            {
+                if (value == 0)
+                    prop_gametime.Restart();
+            }
         }
 
         /// <summary>
