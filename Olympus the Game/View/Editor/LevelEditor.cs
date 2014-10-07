@@ -22,6 +22,7 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = pf;
+            OlympusTheGame.INSTANCE.Pause();
             this.gamePanelEditor.Playfield = this.pf;
             this.speelveldEditor1.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
@@ -281,7 +282,7 @@ namespace Olympus_the_Game.View
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
             // Opent dialoog voor sluiten
-            DialogResult dr = MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
+            DialogResult dr = MessageBox.Show("Are you sure you want to exit the leveleditor? Any unsaved data will be lost.",
                 "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Sluit spel af bij JA/YES
