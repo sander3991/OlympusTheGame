@@ -32,6 +32,8 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void OnLoad(object sender, EventArgs e)
         {
+            if (OlympusTheGame.Playfield == null) 
+                return;
             this.DoubleBuffered = false;
             //if(OlympusTheGame.Controller != null)
             //    OlympusTheGame.Controller.UpdateSlowEvents += update;
