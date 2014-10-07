@@ -23,7 +23,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
             this.SuspendLayout();
+            // 
+            // mainMenuControl1
+            // 
+            this.mainMenuControl1.Location = new System.Drawing.Point(12, 12);
+            this.mainMenuControl1.Name = "mainMenuControl1";
+            this.mainMenuControl1.Size = new System.Drawing.Size(150, 80);
+            this.mainMenuControl1.TabIndex = 0;
             // 
             // MainMenu
             // 
@@ -31,13 +39,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(994, 605);
+            this.Controls.Add(this.mainMenuControl1);
+            this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private View.MainMenuControl mainMenuControl1;
+
 
     }
 }

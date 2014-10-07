@@ -64,7 +64,6 @@ namespace Olympus_the_Game
                 // Object uit de gameloop halen na een bepaalde tijdsduur
                 if (stopwatch.ElapsedMilliseconds >= RemoveTime)
                 {
-                    OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
                     OlympusTheGame.Playfield.RemoveObject(this);
                 }
             }

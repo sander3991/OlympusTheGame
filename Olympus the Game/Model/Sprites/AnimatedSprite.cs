@@ -15,7 +15,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wanneer deze animatie is gestart, op een schaal van milliseconden.
         /// </summary>
-        protected int start;
+        protected long start;
 
         /// <summary>
         /// Het hoeveelste frame deze animatie zit. Tussen 0.0f en 1.0f als deze nog draait. Hoger als de animatie voorbij is (of cyclisch is).
@@ -24,7 +24,7 @@ namespace Olympus_the_Game
         {
             get
             {
-                return (float)(Environment.TickCount - start) / (float)duration;
+                return (float)(OlympusTheGame.GameTime - start) / (float)duration;
             }
             protected set { }
         }
@@ -40,7 +40,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y)
         {
             IsSolid = false;
-            start = Environment.TickCount;
+            start = OlympusTheGame.GameTime;
         }
 
         public override CollisionType CollidesWithObject(GameObject entity)

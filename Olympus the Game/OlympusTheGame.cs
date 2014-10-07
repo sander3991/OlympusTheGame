@@ -8,7 +8,7 @@ namespace Olympus_the_Game
     public class OlympusTheGame
     {
         // Het scherm van het spel
-        private static GameScreen gs;
+        private static MainMenu mm;
 
         /// <summary>
         /// Deze timer voert alle game events uit.
@@ -76,13 +76,22 @@ namespace Olympus_the_Game
         {
             // non-static object aanmaken
             SetController();
-            Start();
+            mm = new MainMenu();
+            Application.Run(mm);
         }
 
         public static void SetController()
         {
             if (Controller == null)
                 Controller = new Controller();
+
+            // Add gameloop to timer
+            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
+            GameTimer.Interval = 10;
+
+            // Create slow timer
+            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
+            SlowTimer.Interval = 200;
         }
 
         /// <summary>
@@ -100,15 +109,7 @@ namespace Olympus_the_Game
             }
 
             // Maak gamescreen aan
-            gs = new GameScreen();
-
-            // Add gameloop to timer
-            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
-            GameTimer.Interval = 10;
-
-            // Create slow timer
-            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
-            SlowTimer.Interval = 200;
+            GameScreen gs = new GameScreen();
 
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = Playfield;
@@ -117,11 +118,7 @@ namespace Olympus_the_Game
             Resume();
 
             // Start applicatie
-            Application.Run(gs);
-
-            //Main Menu openen, wordt aan gewerkt. Afblijven.
-            //MainMenu mm = new MainMenu();
-            //mm.ShowDialog();
+            gs.ShowDialog();
         }
 
         /// <summary>
@@ -171,7 +168,7 @@ namespace Olympus_the_Game
             Pause();
 
             // Sluit scherm
-            gs.Dispose();
+            mm.Dispose();
         }
     }
 }
