@@ -71,7 +71,6 @@ namespace Olympus_the_Game.View
                         ),
                         result.Columns, result.Rows, result.Cyclic);
             }
-
         }
 
         /// <summary>
