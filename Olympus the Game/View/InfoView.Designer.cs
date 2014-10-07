@@ -36,7 +36,7 @@
             this.PosY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EntitySpeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DragButton = new System.Windows.Forms.Button();
-            this.ButtonRemove = new System.Windows.Forms.Button();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.SuspendLayout();
             // 
             // listView1
@@ -88,18 +88,16 @@
             this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
             this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 
-            // ButtonRemove
+            // popupButton1
             // 
-            this.ButtonRemove.BackgroundImage = global::Olympus_the_Game.Properties.Resources.background;
-            this.ButtonRemove.FlatAppearance.BorderSize = 0;
-            this.ButtonRemove.ForeColor = System.Drawing.Color.Transparent;
-            this.ButtonRemove.Image = ((System.Drawing.Image)(resources.GetObject("ButtonRemove.Image")));
-            this.ButtonRemove.Location = new System.Drawing.Point(143, 440);
-            this.ButtonRemove.Name = "ButtonRemove";
-            this.ButtonRemove.Size = new System.Drawing.Size(40, 40);
-            this.ButtonRemove.TabIndex = 12;
-            this.ButtonRemove.UseVisualStyleBackColor = true;
-            this.ButtonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
+            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Location = new System.Drawing.Point(143, 440);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
+            this.popupButton1.TabIndex = 4;
+            this.popupButton1.Text = "popupButton1";
+            this.popupButton1.UseVisualStyleBackColor = true;
             // 
             // InfoView
             // 
@@ -107,7 +105,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.ButtonRemove);
+            this.Controls.Add(this.popupButton1);
             this.Controls.Add(this.DragButton);
             this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
@@ -126,7 +124,7 @@
         private System.Windows.Forms.ColumnHeader PosY;
         private System.Windows.Forms.ColumnHeader EntitySpeed;
         private System.Windows.Forms.Button DragButton;
-        private System.Windows.Forms.Button ButtonRemove;
+        private Buttons.PopupButton popupButton1;
 
     }
 }

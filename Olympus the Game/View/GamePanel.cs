@@ -23,11 +23,6 @@ namespace Olympus_the_Game.View
         private static readonly int PADDING = 35;
 
         /// <summary>
-        /// The absolute minimal size.
-        /// </summary>
-        private static readonly int minSize = 100;
-
-        /// <summary>
         /// Schaal van het speelveld
         /// </summary>
         public double SCALE { get; private set; }
