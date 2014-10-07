@@ -13,10 +13,12 @@ namespace Olympus_the_Game
     {
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
+        private static int fadeInCounter;
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
-        public static int Volume { 
+        public static int Volume
+        {
             get
             {
                 return player.settings.volume;
@@ -99,11 +101,13 @@ namespace Olympus_the_Game
         /// <param name="time">De tijd in milliseconde, het minimum is 100</param>
         public static void FadeIn(int time)
         {
-            Mp3Player.Volume = 0;
+            fadeInCounter = 0;
+            Volume = fadeInCounter;
             Timer timer = new Timer();
             timer.Interval = time / 100;
             timer.Tick += timer_Tick;
             timer.Start();
+            player.controls.pause();
         }
 
         /// <summary>
@@ -113,8 +117,10 @@ namespace Olympus_the_Game
         /// <param name="e"></param>
         private static void timer_Tick(object sender, EventArgs e)
         {
-            Mp3Player.Volume += 1;
-            if (Mp3Player.Volume == 100)
+            Volume = ++fadeInCounter;
+            if (Volume == 1)
+                player.controls.play();
+            if (player.settings.volume == 100)
             {
                 Timer timer = sender as Timer;
                 timer.Stop();
