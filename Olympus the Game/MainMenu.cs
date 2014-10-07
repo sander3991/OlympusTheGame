@@ -12,7 +12,7 @@ namespace Olympus_the_Game
     public partial class MainMenu : Form
     {
         Timer gifTimer = new Timer();
-
+        private bool firstInit = true;
         public MainMenu()
         {
             bool gifState = true;
@@ -26,10 +26,23 @@ namespace Olympus_the_Game
                 gifTimer.Start();
                 gifState = false;
             }
+            this.VisibleChanged += MainMenu_VisibleChanged;
             Mp3Player.PlayResource(Properties.Resources.StarWars);
         }
 
-        
+        private void MainMenu_VisibleChanged(object sender, EventArgs e)
+        {
+            if(Visible)
+            {
+                Mp3Player.PlayResource(Properties.Resources.StarWars);
+                if (!firstInit)
+                {
+                    Mp3Player.SetPosition(27D);
+                    Mp3Player.FadeIn();
+                }
+                firstInit = false;
+            }
+        }        
 
         private void MainMenu_Load(object sender, EventArgs e) {
             mainMenuControl1.Left = (this.ClientSize.Width - mainMenuControl1.Width) / 2;

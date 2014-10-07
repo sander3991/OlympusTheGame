@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.IO;
 using WMPLib;
+using System.Windows.Forms;
 
 namespace Olympus_the_Game
 {
@@ -12,6 +13,17 @@ namespace Olympus_the_Game
     {
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
+        public static int Volume { 
+            get
+            {
+                return player.settings.volume;
+            }
+            set
+            {
+                player.settings.volume = Math.Min(100, value);
+                player.settings.volume = Math.Max(0, value);
+            }
+        }
         public static bool IsPlaying { get; private set; }
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
@@ -48,9 +60,8 @@ namespace Olympus_the_Game
         public static void PlayResource(byte[] resource)
         {
             if(tempFileLoc != null) //Er wordt wat afgespeeld nu
-            {
                 StopPlaying();
-            }
+            Loop(false);
             tempFileLoc = String.Format("{0}{1}{2}", System.IO.Path.GetTempPath(), Guid.NewGuid().ToString("N"), ".mp3");
             using (var memoryStream = new MemoryStream(resource))
             using (var tempFileStream = new FileStream(tempFileLoc, FileMode.Create, FileAccess.Write))
@@ -60,6 +71,40 @@ namespace Olympus_the_Game
             }
             player.URL = tempFileLoc;
             player.controls.play();
+        }
+
+        public static void Loop(bool loop)
+        {
+            player.settings.setMode("loop", loop);
+        }
+
+        public static void SetPosition(double pos)
+        {
+            player.controls.currentPosition = pos;
+        }
+
+        public static void FadeIn()
+        {
+            Mp3Player.Volume = 0;
+            Timer timer = new Timer();
+            timer.Interval = 20;
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Timer method die gebruikt wordt in de FadeIn()
+        /// </summary>
+        /// <param name="sender">De timer</param>
+        /// <param name="e"></param>
+        private static void timer_Tick(object sender, EventArgs e)
+        {
+            Mp3Player.Volume += 1;
+            if (Mp3Player.Volume == 100)
+            {
+                Timer timer = sender as Timer;
+                timer.Stop();
+            }
         }
 
         internal static void StopPlaying()
