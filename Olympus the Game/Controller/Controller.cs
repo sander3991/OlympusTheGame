@@ -12,8 +12,6 @@ namespace Olympus_the_Game
 {
     public class Controller
     {
-        // Timer voor het bepalen van de speelduur.
-        private Stopwatch stopWatch = Stopwatch.StartNew();
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>
@@ -23,6 +21,16 @@ namespace Olympus_the_Game
         /// Deze wordt gebruikt voor alle events die niet zo vaak hoeven te gebeuren, zoals updaten statistiek etc.
         /// </summary>
         public event Action UpdateSlowEvents;
+
+        /// <summary>
+        /// Laatste update van de AI
+        /// </summary>
+        private long lastAIUpdate = 0;
+
+        /// <summary>
+        /// De tijd tussen 2 AI updates
+        /// </summary>
+        private long AIUpdateInterval = 1000;
 
         /// <summary>
         /// Genereert een nieuwe Controller
@@ -94,12 +102,18 @@ namespace Olympus_the_Game
                 }
             }
         }
+
+
+
         /// <summary>
         /// Deze wordt aangeroepen om de AI te updaten. Elke iteratie wordt er opnieuw bepaald waar elke entity heen moet lopen.
         /// </summary>
         public void UpdateEntityAI()
         {
-            if (OlympusTheGame.GameTime != 0) return; // TODO Dit beter afhandelen
+            // Scale down to 1 second
+            if (OlympusTheGame.GameTime < lastAIUpdate + AIUpdateInterval) return;
+            lastAIUpdate = OlympusTheGame.GameTime;
+
             Random rand = new Random(); //Maakt een random generator
             List<GameObject> gameObjects = OlympusTheGame.Playfield.GameObjects;
             foreach (GameObject o in gameObjects)
@@ -141,7 +155,12 @@ namespace Olympus_the_Game
         /// </summary>
         public string GetTimeSinceStart()
         {
-            return stopWatch.Elapsed.Minutes.ToString("D2") + ":" + stopWatch.Elapsed.Seconds.ToString("D2");
+            long gt = OlympusTheGame.GameTime;
+            int sec = (int)(gt / 1000);
+            int minutes = sec / 60;
+            int seconds = sec - minutes * 60;
+
+            return string.Format("{0}{1}:{2}{3}", minutes < 10 ? "0" : "", minutes, seconds < 10 ? "0" : "", seconds);
         }
 
     }
