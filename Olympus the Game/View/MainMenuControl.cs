@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game.View {
+
     public partial class MainMenuControl : UserControl {
         public MainMenuControl() {
             InitializeComponent();
@@ -23,6 +24,11 @@ namespace Olympus_the_Game.View {
             this.FindForm().Visible = false;
             LevelEditor le = new LevelEditor();
             le.ShowDialog();
+
+            //Martijn - Comment de twee 'le' regels en haal de onderste twee van de comment af
+
+            //LevelDialog ld = new LevelDialog();
+            //ld.ShowDialog();
             this.FindForm().Visible = true;            
         }
 

@@ -82,64 +82,6 @@ namespace Olympus_the_Game.View
         // ====== menu bar ======
         // ======================
 
-        private void statistiekenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // InfoView verbergen of weergeven
-            switch (this.statistiekenToolStripMenuItem.Checked)
-            {
-                case (false):
-                    infoView1.Hide();
-                    break;
-                case (true):
-                    infoView1.Show();
-                    break;
-            }    
-        }
-
-        private void informatieSchermToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // InfoBox verbergen of weergeven
-            switch (this.informatieToolStripMenuItem.Checked)
-            {
-                case (false):
-                    infoBox1.Hide();
-                    break;
-                case (true):
-                    infoBox1.Show();
-                    break;
-            }    
-        }
-
-        private void pijltjestoetsenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Pijltjestoetsen verbergen of weergeven
-            switch (this.bedieningToolStripMenuItem.Checked) { 
-                case(false):
-                    arrowPanel1.Hide();
-                    break;
-                case(true):
-                    arrowPanel1.Show();
-                    break;
-            }    
-        }
-
-        private void volledigeWeergaveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Volledige weergave aan/uit
-            switch (volledigeWeergaveToolStripMenuItem.Checked)
-            {
-                case (false):
-                    WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
-                    this.menuStrip1.Visible = true;
-                    break;
-                case (true):
-                    WindowState = FormWindowState.Maximized;
-                    this.FormBorderStyle = FormBorderStyle.None;
-                    this.menuStrip1.Visible = false;
-                    break;
-            }    
-        }
         /// <summary>
         /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
         /// </summary>
@@ -160,15 +102,72 @@ namespace Olympus_the_Game.View
             OlympusTheGame.Resume();
         }
 
+        private void changeLayoutButtonClicked(object sender, EventArgs e)
+        {
+            updateView();
+        }
+
         private void verbergAllesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.statistiekenToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
             this.informatieToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
             this.bedieningToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
 
-            this.statistiekenToolStripMenuItem_Click(null, null);
-            this.informatieSchermToolStripMenuItem_Click(null, null);
-            this.pijltjestoetsenToolStripMenuItem_Click(null, null); // TODO Ruben: Dit moet beter
+            updateView();
+        }
+
+        private void updateView()
+        {
+            // InfoBox verbergen of weergeven
+            switch (this.informatieToolStripMenuItem.Checked)
+            {
+                case (false):
+                    infoBox1.Hide();
+                    break;
+                case (true):
+                    infoBox1.Show();
+                    break;
+            }
+
+            // Pijltjestoetsen verbergen of weergeven
+            switch (this.bedieningToolStripMenuItem.Checked)
+            {
+                case (false):
+                    arrowPanel1.Hide();
+                    break;
+                case (true):
+                    arrowPanel1.Show();
+                    break;
+            }
+
+            // InfoView verbergen of weergeven
+            switch (this.statistiekenToolStripMenuItem.Checked)
+            {
+                case (false):
+                    infoView1.Hide();
+                    break;
+                case (true):
+                    infoView1.Show();
+                    break;
+            }
+
+            // Volledige weergave aan/uit
+            switch (volledigeWeergaveToolStripMenuItem.Checked)
+            {
+                case (false):
+                    WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    this.menuStrip1.Visible = true;
+                    break;
+                case (true):
+                    WindowState = FormWindowState.Maximized;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.menuStrip1.Visible = false;
+                    break;
+            }
+
+            // Try to expand
+            this.gamePanel1.TryExpand();
         }
     }
 }
