@@ -32,7 +32,7 @@ namespace Olympus_the_Game
             {
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
-
+            //TODO Elmar max snelheid meegeven vuurbal schiet te snel met grote range
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
             DX = -((this.X - target.X) / FireballSpeed);
             DY = -((this.Y - target.Y) / FireballSpeed);
