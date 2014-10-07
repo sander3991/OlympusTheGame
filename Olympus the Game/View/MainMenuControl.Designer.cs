@@ -34,8 +34,9 @@
             this.ButtonStart.BackColor = System.Drawing.Color.Silver;
             this.ButtonStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonStart.Location = new System.Drawing.Point(0, 0);
+            this.ButtonStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonStart.Name = "ButtonStart";
-            this.ButtonStart.Size = new System.Drawing.Size(150, 23);
+            this.ButtonStart.Size = new System.Drawing.Size(200, 30);
             this.ButtonStart.TabIndex = 0;
             this.ButtonStart.Text = "Start Game";
             this.ButtonStart.UseVisualStyleBackColor = false;
@@ -45,9 +46,10 @@
             // 
             this.ButtonLevelEditor.BackColor = System.Drawing.Color.Silver;
             this.ButtonLevelEditor.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonLevelEditor.Location = new System.Drawing.Point(0, 29);
+            this.ButtonLevelEditor.Location = new System.Drawing.Point(0, 38);
+            this.ButtonLevelEditor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonLevelEditor.Name = "ButtonLevelEditor";
-            this.ButtonLevelEditor.Size = new System.Drawing.Size(150, 23);
+            this.ButtonLevelEditor.Size = new System.Drawing.Size(200, 30);
             this.ButtonLevelEditor.TabIndex = 1;
             this.ButtonLevelEditor.Text = "Level Editor";
             this.ButtonLevelEditor.UseVisualStyleBackColor = false;
@@ -57,9 +59,10 @@
             // 
             this.ButtonHelp.BackColor = System.Drawing.Color.Silver;
             this.ButtonHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonHelp.Location = new System.Drawing.Point(0, 58);
+            this.ButtonHelp.Location = new System.Drawing.Point(0, 76);
+            this.ButtonHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonHelp.Name = "ButtonHelp";
-            this.ButtonHelp.Size = new System.Drawing.Size(72, 23);
+            this.ButtonHelp.Size = new System.Drawing.Size(96, 30);
             this.ButtonHelp.TabIndex = 2;
             this.ButtonHelp.Text = "Help";
             this.ButtonHelp.UseVisualStyleBackColor = false;
@@ -69,9 +72,10 @@
             // 
             this.ButtonExit.BackColor = System.Drawing.Color.Silver;
             this.ButtonExit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonExit.Location = new System.Drawing.Point(78, 58);
+            this.ButtonExit.Location = new System.Drawing.Point(104, 76);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(72, 23);
+            this.ButtonExit.Size = new System.Drawing.Size(96, 30);
             this.ButtonExit.TabIndex = 3;
             this.ButtonExit.Text = "Exit";
             this.ButtonExit.UseVisualStyleBackColor = false;
@@ -79,14 +83,16 @@
             // 
             // MainMenuControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ButtonExit);
             this.Controls.Add(this.ButtonHelp);
             this.Controls.Add(this.ButtonLevelEditor);
             this.Controls.Add(this.ButtonStart);
+            this.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(150, 80);
+            this.Size = new System.Drawing.Size(200, 105);
             this.ResumeLayout(false);
 
         }
