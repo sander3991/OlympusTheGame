@@ -55,10 +55,10 @@ namespace Olympus_the_Game
             if (Playfield.Player != null)
             {
                 // Wanneer de speler in de buurt van dit object komt:
-                if (DistanceToObject(Playfield.Player) <= prop_detectrange)
+                if (DistanceToObject(Playfield.Player) <= DetectRange)
                 {
                     // Vuur dan een vuurbal af om de x aantal seconden
-                    if (stopwatch.ElapsedMilliseconds >= prop_firespeed)
+                    if (stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
                         EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, Playfield.Player);
                         Playfield.AddObject(fireball);
