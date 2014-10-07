@@ -59,9 +59,7 @@ namespace Olympus_the_Game
             set
             {
                 if (value == 0)
-                {
-                    prop_gametime.Stop();
-                }
+                    prop_gametime.Restart();
             }
         }
 
