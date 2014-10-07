@@ -82,26 +82,6 @@ namespace Olympus_the_Game.View
         // ====== menu bar ======
         // ======================
 
-        private void statistiekenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            updateView();
-        }
-
-        private void informatieSchermToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            updateView();
-        }
-
-        private void pijltjestoetsenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            updateView();
-        }
-
-        private void volledigeWeergaveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            updateView();
-        }
-
         /// <summary>
         /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
         /// </summary>
@@ -120,6 +100,11 @@ namespace Olympus_the_Game.View
         private void verderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OlympusTheGame.Resume();
+        }
+
+        private void changeLayoutButtonClicked(object sender, EventArgs e)
+        {
+            updateView();
         }
 
         private void verbergAllesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -84,7 +84,7 @@
             this.statistiekenToolStripMenuItem.Name = "statistiekenToolStripMenuItem";
             this.statistiekenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.statistiekenToolStripMenuItem.Text = "Statistieken";
-            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
+            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // informatieToolStripMenuItem
             // 
@@ -94,7 +94,7 @@
             this.informatieToolStripMenuItem.Name = "informatieToolStripMenuItem";
             this.informatieToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.informatieToolStripMenuItem.Text = "Informatie";
-            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
+            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // bedieningToolStripMenuItem
             // 
@@ -104,7 +104,7 @@
             this.bedieningToolStripMenuItem.Name = "bedieningToolStripMenuItem";
             this.bedieningToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.bedieningToolStripMenuItem.Text = "Bediening";
-            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
+            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // aToolStripMenuItem
             // 
@@ -131,7 +131,7 @@
             this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
             this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
-            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.volledigeWeergaveToolStripMenuItem_Click);
+            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
             // pauzeToolStripMenuItem
             // 
