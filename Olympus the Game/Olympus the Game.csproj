@@ -272,6 +272,7 @@
     <None Include="Resources\loop.gif" />
     <None Include="Resources\splashscreen4.gif" />
     <None Include="Resources\Blocks.mp3" />
+    <None Include="Resources\JoelsSpecial.mp3" />
     <Content Include="Resources\spacecreep.png" />
     <Content Include="Resources\splashscreen.gif" />
     <None Include="Resources\StarWars.mp3" />
