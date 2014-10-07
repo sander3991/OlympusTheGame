@@ -77,6 +77,7 @@ namespace Olympus_the_Game.View
             foreach (GameObject g in Entitys)
             {
                 Entity e = g as Entity;
+                
                 if (e != null)
                 {
                     ListViewItem LVItem = new ListViewItem(e.ToString());
