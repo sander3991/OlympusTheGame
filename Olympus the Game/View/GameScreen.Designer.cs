@@ -115,6 +115,7 @@
             // 
             this.verbergAllesToolStripMenuItem.CheckOnClick = true;
             this.verbergAllesToolStripMenuItem.Name = "verbergAllesToolStripMenuItem";
+            this.verbergAllesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.verbergAllesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.verbergAllesToolStripMenuItem.Text = "Verberg alles";
             this.verbergAllesToolStripMenuItem.Click += new System.EventHandler(this.verbergAllesToolStripMenuItem_Click);
