@@ -35,7 +35,7 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             // If explosion is over, remove from PlayField.
-            if ((Environment.TickCount - start) > duration)
+            if ((OlympusTheGame.GameTime - start) > duration)
             {
                 OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
                 OlympusTheGame.Playfield.RemoveObject(this);

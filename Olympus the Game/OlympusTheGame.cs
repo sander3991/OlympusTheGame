@@ -1,5 +1,6 @@
 ﻿using Olympus_the_Game.View;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
@@ -7,7 +8,7 @@ namespace Olympus_the_Game
     public class OlympusTheGame
     {
         // Het scherm van het spel
-        private static GameScreen gs;
+        private static MainMenu mm;
 
         /// <summary>
         /// Deze timer voert alle game events uit.
@@ -21,8 +22,9 @@ namespace Olympus_the_Game
         private static Timer SlowTimer = new Timer();
 
         /// <summary>
-        /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
+        /// Deze houdt de interne tijd bij.
         /// </summary>
+        private static Stopwatch prop_gametime = new Stopwatch();
 
         /// <summary>
         /// Het huidige speelveld.
@@ -46,6 +48,17 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geeft de gametijd terug.
+        /// </summary>
+        public static long GameTime
+        {
+            get
+            {
+                return prop_gametime.ElapsedMilliseconds;
+            }
+        }
+
+        /// <summary>
         /// Event dat gefired wordt zodra er een nieuw Playfield is
         /// </summary>
         public static event Action<PlayField> OnNewPlayField;
@@ -63,7 +76,8 @@ namespace Olympus_the_Game
         {
             // non-static object aanmaken
             SetController();
-            Start();
+            mm = new MainMenu();
+            Application.Run(mm);
         }
 
         public static void SetController()
@@ -87,7 +101,7 @@ namespace Olympus_the_Game
             }
 
             // Maak gamescreen aan
-            gs = new GameScreen();
+            GameScreen gs = new GameScreen();
 
             // Add gameloop to timer
             GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
@@ -104,11 +118,7 @@ namespace Olympus_the_Game
             Resume();
 
             // Start applicatie
-            Application.Run(gs);
-
-            //Main Menu openen, wordt aan gewerkt. Afblijven.
-            //MainMenu mm = new MainMenu();
-            //mm.ShowDialog();
+            gs.ShowDialog();
         }
 
         /// <summary>
@@ -133,6 +143,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Pause()
         {
+            prop_gametime.Stop();
             GameTimer.Stop();
             SlowTimer.Stop();
         }
@@ -142,6 +153,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Resume()
         {
+            prop_gametime.Start();
             GameTimer.Start();
             SlowTimer.Start();
         }
@@ -156,7 +168,7 @@ namespace Olympus_the_Game
             Pause();
 
             // Sluit scherm
-            gs.Dispose();
+            mm.Dispose();
         }
     }
 }
