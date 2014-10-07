@@ -90,21 +90,6 @@ namespace Olympus_the_Game_Test.View.Imaging
         }
 
         [TestMethod]
-        public void Sprite_Get_Minus_One_Frame()
-        {
-            // Arrange
-            Bitmap bm = new Bitmap(100, 200);
-            int col = 10;
-            int row = 20;
-
-            // Act
-            Sprite actual = new Sprite(bm, col, row);
-
-            // Assert
-            Assert.AreEqual(actual[-1.0f], bm);
-        }
-
-        [TestMethod]
         public void Sprite_Get_Larger_Frame()
         {
             // Arrange
