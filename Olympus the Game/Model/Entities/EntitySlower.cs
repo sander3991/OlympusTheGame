@@ -6,7 +6,7 @@ namespace Olympus_the_Game
     public class EntitySlower : Entity
     {
         private Stopwatch stopwatch = Stopwatch.StartNew();
-        private double prop_effectrange = 100;
+        private double prop_effectrange = 200;
         private int prop_firespeed = 2000;
         /// <summary>
         /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
@@ -54,7 +54,7 @@ namespace Olympus_the_Game
                     // Maak een entity cobweb aan wanneer er x seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
                     if (stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
-                        EntityWeb web = new EntityWeb(55, 55, Playfield.Player.X, Playfield.Player.Y, 0, 0);
+                        EntityWebMissile web = new EntityWebMissile(this, Playfield.Player);
                         this.Playfield.AddObject(web);
                         stopwatch.Restart();
                     }

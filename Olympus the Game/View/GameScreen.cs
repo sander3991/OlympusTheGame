@@ -66,6 +66,10 @@ namespace Olympus_the_Game.View
             this.menuStrip1.VisibleChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
 
             this.SizeChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+
+            this.bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
+            this.informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
+            this.statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
         }
 
         /// <summary>

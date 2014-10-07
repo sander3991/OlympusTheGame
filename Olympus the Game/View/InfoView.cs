@@ -89,7 +89,7 @@ namespace Olympus_the_Game.View
                     if (item != null)
                     {
                         list[e].Remove();
-                        list[e] = null;
+                        list.Remove(e);
                         e.OnMoved -= ent_OnMoved;
                     }
                 }
