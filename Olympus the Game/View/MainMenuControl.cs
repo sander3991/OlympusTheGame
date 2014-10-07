@@ -21,9 +21,17 @@ namespace Olympus_the_Game.View {
 
         private void ButtonLevelEditor_Click(object sender, EventArgs e) {
             this.FindForm().Visible = false;
-            LevelDialog ld = new LevelDialog();
-            ld.ShowDialog();
+            LevelEditor le = new LevelEditor();
+            le.ShowDialog();
             this.FindForm().Visible = true;            
+        }
+
+        private void ButtonHelp_Click(object sender, EventArgs e) {
+
+        }
+
+        private void ButtonExit_Click(object sender, EventArgs e) {
+            this.FindForm().Dispose();
         }
     }
 }
