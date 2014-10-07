@@ -27,9 +27,6 @@ namespace Olympus_the_Game.View.MenuBar
             tsmiClose.ShowShortcutKeys = true;
             tsmiClose.Click += QuitGame_Click;
 
-            ToolStripMenuItem tsmiLevelEditor = new ToolStripMenuItem("Level editor");
-            tsmiLevelEditor.Click += LevelEditor_Click;
-
             // Gecomment door elmar
             // Menu: Weergave
             //ToolStripMenuItem tsmiWeergave = new ToolStripMenuItem("Weergave");
@@ -63,8 +60,6 @@ namespace Olympus_the_Game.View.MenuBar
             tsmiFile.DropDownItems.Add(tsmiOpen);
             tsmiFile.DropDownItems.Add(new ToolStripSeparator());
             tsmiFile.DropDownItems.Add(tsmiClose);
-
-            this.Items.Add(tsmiLevelEditor);
 
             //this.Items.Add(tsmiWeergave);
             //tsmiWeergave.DropDownItems.Add(tsmiInfoView);
