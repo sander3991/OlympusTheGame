@@ -36,6 +36,9 @@ namespace Olympus_the_Game
             {
                 MovePlayer(e, 2);
             }
+            
+                
+            
         }
         /// <summary>
         /// Wordt aangeroepen als je een toets los laat
@@ -52,7 +55,15 @@ namespace Olympus_the_Game
             {
                 MovePlayer(e, 0);
             }
+            if (e.KeyCode == Keys.P)
+            {
+                if (OlympusTheGame.IsPaused)
+                    OlympusTheGame.Resume();
+                else
+                    OlympusTheGame.Pause();
+            }
         }
+
         /// <summary>
         ///  Beweeg de speler met toetsen die zijn toegewezen
         /// </summary>

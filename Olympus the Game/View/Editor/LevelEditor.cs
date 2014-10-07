@@ -22,7 +22,7 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = pf;
-            OlympusTheGame.INSTANCE.Pause();
+            OlympusTheGame.Pause();
             this.gamePanelEditor.Playfield = this.pf;
             this.speelveldEditor1.Playfield = this.pf;
             this.gamePanelEditor.Invalidate();
