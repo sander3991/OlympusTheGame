@@ -17,6 +17,8 @@ namespace Olympus_the_Game.View
             : this(new PlayField(1000, 500))
         { }
 
+        private List<GameObject> Entities;
+
         public LevelEditor(PlayField pf)
         {
             InitializeComponent();
@@ -285,6 +287,16 @@ namespace Olympus_the_Game.View
             DialogResult dr = MessageBox.Show("Are you sure you want to exit the leveleditor? Any unsaved data will be lost.",
                 "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            // Verwijder alle objecten uit het playfield.
+            Entities = this.pf.GameObjects;
+
+            foreach (GameObject g in Entities.ToList())
+            {
+                Entity et = g as Entity;
+                pf.RemoveObject(et);
+
+            }
+
             // Sluit spel af bij JA/YES
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
             if (dr != DialogResult.Yes)
@@ -324,6 +336,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                this.gamePanelEditor.Invalidate();
             }
 
             // Spider
@@ -331,6 +344,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
+                this.gamePanelEditor.Invalidate();
             }
 
             // TnT
@@ -338,6 +352,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
+                this.gamePanelEditor.Invalidate();
             }
 
             // TimeBomb
@@ -345,6 +360,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
+                this.gamePanelEditor.Invalidate();
             }
 
             // Cake
@@ -353,6 +369,7 @@ namespace Olympus_the_Game.View
                 this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                this.gamePanelEditor.Invalidate();
             }
 
             // Home
@@ -361,6 +378,7 @@ namespace Olympus_the_Game.View
                 this.pf.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+                this.gamePanelEditor.Invalidate();
             }
 
             // Obstakel
@@ -368,6 +386,7 @@ namespace Olympus_the_Game.View
             {
                 Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
                 this.pf.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+                this.gamePanelEditor.Invalidate();
             }
         }
     }
