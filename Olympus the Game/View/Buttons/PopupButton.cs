@@ -22,7 +22,7 @@ namespace Olympus_the_Game.View.Buttons
 
         private void ButtonRemove_Click(object sender, EventArgs e)
         {
-            Control parent = getParent();
+            Control parent = Utils.getParentControl(this);
             loc = parent.Location;
             SourceForm = parent.FindForm();
             SourceForm.Controls.Remove(parent);
@@ -42,7 +42,7 @@ namespace Olympus_the_Game.View.Buttons
 
         private void BringBack(object source, EventArgs e)
         {
-            Control parent = getParent();
+            Control parent = Utils.getParentControl(this);
 
             Form f = parent.FindForm();
             f.Controls.Remove(parent);
@@ -52,16 +52,6 @@ namespace Olympus_the_Game.View.Buttons
             this.Visible = true;
 
             parent.Location = loc;
-        }
-
-        private Control getParent() // Dit moet misschien netter
-        {
-            Control c = this;
-            while (!typeof(UserControl).IsAssignableFrom(c.GetType()))
-            {
-                c = c.Parent;
-            }
-            return c;
         }
     }
 }

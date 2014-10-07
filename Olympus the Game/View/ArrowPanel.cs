@@ -11,8 +11,6 @@ namespace Olympus_the_Game.View
 {
     public partial class ArrowPanel : UserControl
     {
-        // Punt zodat het panel versleept kan worden
-        public Point MouseDownLocation { get; set; }
 
         public ArrowPanel()
         {
@@ -43,46 +41,6 @@ namespace Olympus_the_Game.View
                 KeyHandler.MovePlayer(2, false);
         }
         
-        /// <summary>
-        /// Functie om de speler stil te zetten
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StopMoving(object sender, MouseEventArgs e)
-        {
-            KeyHandler.MovePlayer(0, true);
-            KeyHandler.MovePlayer(0, false);
-        }
-
-        /// <summary>
-        /// Functie om het panel op runtime te verslepen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SleepKnop_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
-            this.BringToFront();
-
-        }
-        /// <summary>
-        /// Functie die het scherm plaatst als je die muis loslaat
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SleepKnop_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
-            this.BackColor = Color.Transparent;
-        }
         /// <summary>
         /// Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
@@ -141,6 +99,17 @@ namespace Olympus_the_Game.View
                 tb.SelectionLength = tb.Text.Length;
             }
             
+        }
+
+        /// <summary>
+        /// Functie om de speler stil te zetten
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StopMoving(object sender, MouseEventArgs e)
+        {
+            KeyHandler.MovePlayer(0, true);
+            KeyHandler.MovePlayer(0, false);
         }
     }
 }

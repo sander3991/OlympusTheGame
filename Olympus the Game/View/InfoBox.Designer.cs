@@ -59,9 +59,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.SleepButton = new System.Windows.Forms.Button();
             this.timePlayed = new System.Windows.Forms.Label();
             this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
+            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive4)).BeginInit();
@@ -443,20 +443,6 @@
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
-            // SleepButton
-            // 
-            this.SleepButton.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
-            this.SleepButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SleepButton.ForeColor = System.Drawing.Color.White;
-            this.SleepButton.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
-            this.SleepButton.Location = new System.Drawing.Point(0, 0);
-            this.SleepButton.Name = "SleepButton";
-            this.SleepButton.Size = new System.Drawing.Size(20, 20);
-            this.SleepButton.TabIndex = 14;
-            this.SleepButton.UseVisualStyleBackColor = true;
-            this.SleepButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseDown);
-            this.SleepButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseMove);
-            // 
             // timePlayed
             // 
             this.timePlayed.AutoSize = true;
@@ -480,15 +466,25 @@
             this.popupButton1.Text = "popupButton1";
             this.popupButton1.UseVisualStyleBackColor = true;
             // 
+            // moveButton1
+            // 
+            this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
+            this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
+            this.moveButton1.Location = new System.Drawing.Point(0, 0);
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(20, 20);
+            this.moveButton1.TabIndex = 18;
+            this.moveButton1.UseVisualStyleBackColor = true;
+            // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
+            this.Controls.Add(this.moveButton1);
             this.Controls.Add(this.popupButton1);
             this.Controls.Add(this.timePlayed);
-            this.Controls.Add(this.SleepButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -550,7 +546,6 @@
         private System.Windows.Forms.PictureBox heartAlive3;
         private System.Windows.Forms.PictureBox heartAlive2;
         private System.Windows.Forms.PictureBox heartAlive1;
-        private System.Windows.Forms.Button SleepButton;
         private System.Windows.Forms.Label timePlayed;
         private System.Windows.Forms.PictureBox heartDead5;
         private System.Windows.Forms.PictureBox heartDead4;
@@ -558,5 +553,6 @@
         private System.Windows.Forms.PictureBox heartDead2;
         private System.Windows.Forms.PictureBox heartDead1;
         private Buttons.PopupButton popupButton1;
+        private Buttons.MoveButton moveButton1;
     }
 }

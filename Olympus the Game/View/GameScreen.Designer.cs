@@ -165,14 +165,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // speelpauzeToolStripMenuItem
             // 
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
-            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
             this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelToolStripMenuItem_Click);
             // 
@@ -195,7 +195,6 @@
             // 
             this.arrowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.arrowPanel1.Location = new System.Drawing.Point(835, 536);
-            this.arrowPanel1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.arrowPanel1.Name = "arrowPanel1";
             this.arrowPanel1.Size = new System.Drawing.Size(337, 207);
             this.arrowPanel1.TabIndex = 3;
@@ -237,7 +236,6 @@
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
-            this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Text = "Olympus The Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);

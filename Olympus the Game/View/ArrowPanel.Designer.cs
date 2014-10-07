@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrowPanel));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDown = new System.Windows.Forms.TextBox();
             this.textBoxUp = new System.Windows.Forms.TextBox();
             this.textBoxLeft = new System.Windows.Forms.TextBox();
             this.textBoxRight = new System.Windows.Forms.TextBox();
-            this.SleepKnop = new System.Windows.Forms.Button();
             this.ArrowKeyRight = new System.Windows.Forms.Button();
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
-            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
+            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,13 +48,13 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.moveButton1);
             this.panel1.Controls.Add(this.popupButton1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxDown);
             this.panel1.Controls.Add(this.textBoxUp);
             this.panel1.Controls.Add(this.textBoxLeft);
             this.panel1.Controls.Add(this.textBoxRight);
-            this.panel1.Controls.Add(this.SleepKnop);
             this.panel1.Controls.Add(this.ArrowKeyRight);
             this.panel1.Controls.Add(this.ArrowKeyLeft);
             this.panel1.Controls.Add(this.ArrowKeyDown);
@@ -64,6 +65,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 205);
             this.panel1.TabIndex = 2;
+            // 
+            // popupButton1
+            // 
+            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Location = new System.Drawing.Point(241, 3);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
+            this.popupButton1.TabIndex = 11;
+            this.popupButton1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -133,20 +144,6 @@
             this.textBoxRight.TextChanged += new System.EventHandler(this.Textfield_ChangeControls);
             this.textBoxRight.Enter += new System.EventHandler(this.textBox_Enter);
             // 
-            // SleepKnop
-            // 
-            this.SleepKnop.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
-            this.SleepKnop.FlatAppearance.BorderSize = 0;
-            this.SleepKnop.ForeColor = System.Drawing.Color.Transparent;
-            this.SleepKnop.Image = global::Olympus_the_Game.Properties.Resources.rsz_1dragbutton;
-            this.SleepKnop.Location = new System.Drawing.Point(287, 3);
-            this.SleepKnop.Name = "SleepKnop";
-            this.SleepKnop.Size = new System.Drawing.Size(40, 40);
-            this.SleepKnop.TabIndex = 6;
-            this.SleepKnop.UseVisualStyleBackColor = true;
-            this.SleepKnop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseDown);
-            this.SleepKnop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SleepKnop_MouseMove);
-            // 
             // ArrowKeyRight
             // 
             this.ArrowKeyRight.ForeColor = System.Drawing.Color.Transparent;
@@ -196,14 +193,15 @@
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
-            // popupButton1
+            // moveButton1
             // 
-            this.popupButton1.Location = new System.Drawing.Point(241, 3);
-            this.popupButton1.Name = "popupButton1";
-            this.popupButton1.Size = new System.Drawing.Size(40, 40);
-            this.popupButton1.TabIndex = 11;
-            this.popupButton1.Text = "popupButton1";
-            this.popupButton1.UseVisualStyleBackColor = true;
+            this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
+            this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
+            this.moveButton1.Location = new System.Drawing.Point(287, 3);
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(40, 40);
+            this.moveButton1.TabIndex = 12;
+            this.moveButton1.UseVisualStyleBackColor = true;
             // 
             // ArrowPanel
             // 
@@ -226,12 +224,12 @@
         private System.Windows.Forms.Button ArrowKeyLeft;
         private System.Windows.Forms.Button ArrowKeyDown;
         private System.Windows.Forms.Button ArrowKeyUp;
-        private System.Windows.Forms.Button SleepKnop;
         private System.Windows.Forms.TextBox textBoxDown;
         private System.Windows.Forms.TextBox textBoxUp;
         private System.Windows.Forms.TextBox textBoxLeft;
         private System.Windows.Forms.TextBox textBoxRight;
         private System.Windows.Forms.Label label1;
         private Buttons.PopupButton popupButton1;
+        private Buttons.MoveButton moveButton1;
     }
 }
