@@ -31,41 +31,51 @@
             // 
             // ButtonStart
             // 
+            this.ButtonStart.BackColor = System.Drawing.Color.Silver;
+            this.ButtonStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonStart.Location = new System.Drawing.Point(0, 0);
             this.ButtonStart.Name = "ButtonStart";
             this.ButtonStart.Size = new System.Drawing.Size(150, 23);
             this.ButtonStart.TabIndex = 0;
             this.ButtonStart.Text = "Start Game";
-            this.ButtonStart.UseVisualStyleBackColor = true;
+            this.ButtonStart.UseVisualStyleBackColor = false;
             this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // ButtonLevelEditor
             // 
+            this.ButtonLevelEditor.BackColor = System.Drawing.Color.Silver;
+            this.ButtonLevelEditor.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonLevelEditor.Location = new System.Drawing.Point(0, 29);
             this.ButtonLevelEditor.Name = "ButtonLevelEditor";
             this.ButtonLevelEditor.Size = new System.Drawing.Size(150, 23);
             this.ButtonLevelEditor.TabIndex = 1;
             this.ButtonLevelEditor.Text = "Level Editor";
-            this.ButtonLevelEditor.UseVisualStyleBackColor = true;
+            this.ButtonLevelEditor.UseVisualStyleBackColor = false;
             this.ButtonLevelEditor.Click += new System.EventHandler(this.ButtonLevelEditor_Click);
             // 
             // ButtonHelp
             // 
+            this.ButtonHelp.BackColor = System.Drawing.Color.Silver;
+            this.ButtonHelp.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonHelp.Location = new System.Drawing.Point(0, 58);
             this.ButtonHelp.Name = "ButtonHelp";
             this.ButtonHelp.Size = new System.Drawing.Size(72, 23);
             this.ButtonHelp.TabIndex = 2;
             this.ButtonHelp.Text = "Help";
-            this.ButtonHelp.UseVisualStyleBackColor = true;
+            this.ButtonHelp.UseVisualStyleBackColor = false;
+            this.ButtonHelp.Click += new System.EventHandler(this.ButtonHelp_Click);
             // 
             // ButtonExit
             // 
+            this.ButtonExit.BackColor = System.Drawing.Color.Silver;
+            this.ButtonExit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ButtonExit.Location = new System.Drawing.Point(78, 58);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(72, 23);
             this.ButtonExit.TabIndex = 3;
             this.ButtonExit.Text = "Exit";
-            this.ButtonExit.UseVisualStyleBackColor = true;
+            this.ButtonExit.UseVisualStyleBackColor = false;
+            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // MainMenuControl
             // 
