@@ -37,7 +37,7 @@ namespace Olympus_the_Game.View {
         }
 
         private void ButtonExit_Click(object sender, EventArgs e) {
-            this.FindForm().Dispose();
+            OlympusTheGame.RequestClose();
         }
     }
 }
