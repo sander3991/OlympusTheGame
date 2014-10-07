@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\KeyHandler.cs" />
+    <Compile Include="Controller\Mp3Player.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
