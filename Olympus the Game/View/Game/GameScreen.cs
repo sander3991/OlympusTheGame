@@ -53,6 +53,9 @@ namespace Olympus_the_Game.View
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
 
+            // Update menu
+            volledigeWeergaveToolStripMenuItem.Checked = true;
+
             // Do event handlers
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
 
@@ -70,6 +73,9 @@ namespace Olympus_the_Game.View
             this.bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
+        
+            // Update view
+            this.updateView();
         }
 
         /// <summary>
