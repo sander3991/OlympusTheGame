@@ -26,6 +26,7 @@ namespace Olympus_the_Game
                 gifTimer.Start();
                 gifState = false;
             }
+            Mp3Player.PlayResource(Properties.Resources.StarWars);
         }
 
         

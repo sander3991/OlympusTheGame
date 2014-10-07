@@ -271,8 +271,10 @@
   <ItemGroup>
     <None Include="Resources\loop.gif" />
     <None Include="Resources\splashscreen4.gif" />
+    <None Include="Resources\Blocks.mp3" />
     <Content Include="Resources\spacecreep.png" />
     <Content Include="Resources\splashscreen.gif" />
+    <None Include="Resources\StarWars.mp3" />
     <Content Include="Resources\still.gif" />
     <None Include="Resources\still2.gif" />
     <None Include="Resources\still1.gif" />
@@ -293,6 +295,28 @@
     <None Include="Resources\splashscreen2.gif" />
     <None Include="Resources\splashscreen3.gif" />
     <Content Include="Resources\sprite_explosion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

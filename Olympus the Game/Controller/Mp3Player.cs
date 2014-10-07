@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.IO;
+using WMPLib;
 
 namespace Olympus_the_Game
 {
     public static class Mp3Player
     {
+        private static WindowsMediaPlayer player = new WindowsMediaPlayer();
+        private static string tempFileLoc;
         public static bool IsPlaying { get; private set; }
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
@@ -41,5 +45,29 @@ namespace Olympus_the_Game
             return stringBuilder.ToString();
         }
 
+        public static void PlayResource(byte[] resource)
+        {
+            if(tempFileLoc != null) //Er wordt wat afgespeeld nu
+            {
+                StopPlaying();
+            }
+            tempFileLoc = String.Format("{0}{1}{2}", System.IO.Path.GetTempPath(), Guid.NewGuid().ToString("N"), ".mp3");
+            using (var memoryStream = new MemoryStream(resource))
+            using (var tempFileStream = new FileStream(tempFileLoc, FileMode.Create, FileAccess.Write))
+            {
+                memoryStream.Position = 0;
+                memoryStream.WriteTo(tempFileStream);
+            }
+            player.URL = tempFileLoc;
+            player.controls.play();
+        }
+
+        internal static void StopPlaying()
+        {
+            player.controls.stop();
+            if (File.Exists(tempFileLoc))
+                File.Delete(tempFileLoc);
+            tempFileLoc = null;
+        }
     }
 }
