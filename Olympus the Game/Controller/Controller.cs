@@ -99,7 +99,7 @@ namespace Olympus_the_Game
         /// </summary>
         public void UpdateEntityAI()
         {
-            if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
+            if (OlympusTheGame.GameTime != 0) return; // TODO Dit beter afhandelen
             Random rand = new Random(); //Maakt een random generator
             List<GameObject> gameObjects = OlympusTheGame.Playfield.GameObjects;
             foreach (GameObject o in gameObjects)
