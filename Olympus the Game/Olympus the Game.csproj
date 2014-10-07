@@ -206,7 +206,7 @@
     <None Include="Resources\creeper.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Minecraftia-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Minecraftia-Regular.ttf" />
     <None Include="Resources\player.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -82,7 +82,7 @@ namespace Olympus_the_Game.View
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
                     PlayField pf = PlayFieldToXml.ReadFromXml(fileStream);
-                    if (pf != null)
+                    if(pf != null)
                         OlympusTheGame.SetNewPlayfield(pf);
                     Close();
                 }
