@@ -25,7 +25,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Laatste update van de AI
         /// </summary>
-        private long lastAIUpdate = 0;
+        private long lastAIUpdate = -1;
 
         /// <summary>
         /// De tijd tussen 2 AI updates
@@ -111,7 +111,8 @@ namespace Olympus_the_Game
         public void UpdateEntityAI()
         {
             // Scale down to 1 second
-            if (OlympusTheGame.GameTime < lastAIUpdate + AIUpdateInterval) return;
+            if (OlympusTheGame.GameTime < lastAIUpdate) lastAIUpdate = -1;
+            if (lastAIUpdate != -1 && OlympusTheGame.GameTime < lastAIUpdate + AIUpdateInterval) return;
             lastAIUpdate = OlympusTheGame.GameTime;
 
             Random rand = new Random(); //Maakt een random generator
