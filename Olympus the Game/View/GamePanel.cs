@@ -90,9 +90,6 @@ namespace Olympus_the_Game.View
             if (OlympusTheGame.Controller != null)
                 OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
 
-            // Register to size changed
-            this.FindForm().SizeChanged += delegate(object o, EventArgs ea) { this.TryExpand(); };
-
             // Set max size
             this.MaxSize = this.Size;
 

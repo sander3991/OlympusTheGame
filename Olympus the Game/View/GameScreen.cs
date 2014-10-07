@@ -55,6 +55,17 @@ namespace Olympus_the_Game.View
 
             // Do event handlers
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
+
+            this.infoView1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+            this.arrowPanel1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+            this.infoBox1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+
+            this.infoView1.VisibleChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+            this.arrowPanel1.VisibleChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+            this.infoBox1.VisibleChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+            this.menuStrip1.VisibleChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
+
+            this.SizeChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
         }
 
         /// <summary>
