@@ -70,7 +70,7 @@ namespace Olympus_the_Game.View
 
             System.IO.Stream fileStream;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
+            
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
