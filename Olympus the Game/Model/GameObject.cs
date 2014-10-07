@@ -20,7 +20,8 @@ namespace Olympus_the_Game
         WEB,
         FIREBALL,
         GHAST,
-        SILVERFISH
+        SILVERFISH,
+        WEBMISSILE
     }
     [Flags]
     public enum CollisionType : byte

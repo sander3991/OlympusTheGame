@@ -38,6 +38,7 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.GHAST, Properties.Resources.ghast);
             source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
+            source.Add(ObjectType.WEBMISSILE, Properties.Resources.cobweb);
         }
 
         /// <summary>

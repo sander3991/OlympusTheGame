@@ -63,6 +63,7 @@
     <Compile Include="Model\Entities\Entity.cs" />
     <Compile Include="Model\Entities\EntityCreeper.cs" />
     <Compile Include="Model\Entities\EntityExplode.cs" />
+    <Compile Include="Model\Entities\EntityWebMissile.cs" />
     <Compile Include="Model\ObjectObstacle.cs" />
     <Compile Include="Model\Entities\EntityPlayer.cs" />
     <Compile Include="Model\Entities\EntitySlower.cs" />
