@@ -180,5 +180,27 @@ namespace Olympus_the_Game.View
             // Try to expand
             this.gamePanel1.TryExpand();
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMusicFileDialog.ShowDialog();
+        }
+
+        private void speelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Controller.MusicPlayer.Play();
+        }
+
+        private void pauzeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Controller.MusicPlayer.Stop();
+        }
+
+        private void OpenMusicFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            Controller.MusicPlayer.Open(OpenMusicFileDialog.FileName);
+        }
+
+
     }
 }
