@@ -38,6 +38,12 @@ namespace Olympus_the_Game
         /// Is dit PlayField geinitialiseerd met de GameObjects
         /// </summary>
         public bool IsInitialized { get; private set; }
+
+        public delegate void DelOnPlayFieldChanged(GameObject go);
+
+        public event DelOnPlayFieldChanged OnObjectAdded;
+
+        public event DelOnPlayFieldChanged OnObjectRemoved;
         /// <summary>
         /// Initialiseert een standaard PlayField object aan zonder GameObjects en met een breedte van 1000 en een hoogte van 500.
         /// </summary>
@@ -113,6 +119,8 @@ namespace Olympus_the_Game
                 throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
             GameObjects.Add(entity);
             entity.Playfield = this;
+            if (OnObjectAdded != null)
+                OnObjectAdded(entity);
         }
         /// <summary>
         /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
@@ -122,6 +130,8 @@ namespace Olympus_the_Game
         {
             GameObjects.Remove(entity);
             entity.OnRemoved(false);
+            if (OnObjectRemoved != null)
+                OnObjectRemoved(entity);
         }
         /// <summary>
         /// Zet de speler op de home locatie neer, en maakt een Player aan als deze nog niet bestaat.
