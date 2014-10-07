@@ -271,6 +271,7 @@
   <ItemGroup>
     <None Include="Resources\loop.gif" />
     <None Include="Resources\splashscreen4.gif" />
+    <Content Include="Resources\spacecreep.png" />
     <Content Include="Resources\splashscreen.gif" />
     <Content Include="Resources\still.gif" />
     <None Include="Resources\still2.gif" />
