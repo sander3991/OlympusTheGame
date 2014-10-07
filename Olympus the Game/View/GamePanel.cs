@@ -23,6 +23,11 @@ namespace Olympus_the_Game.View
         private static readonly int PADDING = 35;
 
         /// <summary>
+        /// The absolute minimal size.
+        /// </summary>
+        private static readonly int minSize = 100;
+
+        /// <summary>
         /// Schaal van het speelveld
         /// </summary>
         public double SCALE { get; private set; }
@@ -223,6 +228,7 @@ namespace Olympus_the_Game.View
             float ratio = (float)this.Playfield.Width / (float)this.Playfield.Height;
             Point pt = parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
             Size currentSize = new Size(pt.X, pt.Y);
+            Size minimalSize = new Size((int)(ratio * 100.0f), 100);
             currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
             int barHeight = 0;
 
@@ -248,7 +254,7 @@ namespace Olympus_the_Game.View
             // Change size
             this.Location = new Point(PADDING, PADDING + barHeight);
             this.MaxSize = new Size(currentSize.Width - 2 * PADDING, currentSize.Height - 2 * PADDING - barHeight);
-
+            this.MaxSize = new Size(Math.Max(MaxSize.Width, minimalSize.Width), Math.Max(MaxSize.Height, minimalSize.Height));
             // Recalculate
             Recalculate();
         }
