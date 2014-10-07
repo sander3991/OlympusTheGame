@@ -51,10 +51,10 @@
     <Compile Include="Controller\KeyHandler.cs" />
     <Compile Include="Controller\Mp3Player.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
-    <Compile Include="MainMenu.cs">
+    <Compile Include="View\Menu\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="View\Menu\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Entities\EntitySilverfish.cs" />
@@ -81,10 +81,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="View\ArrowPanel.cs">
+    <Compile Include="View\Game\ArrowPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\ArrowPanel.Designer.cs">
+    <Compile Include="View\Game\ArrowPanel.Designer.cs">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Buttons\MoveButton.cs">
@@ -99,36 +99,36 @@
     <Compile Include="View\Buttons\PopupButton.Designer.cs">
       <DependentUpon>PopupButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Editor\EntityEditor.cs">
+    <Compile Include="View\Game\Editor\EntityEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Editor\EntityEditor.Designer.cs">
+    <Compile Include="View\Game\Editor\EntityEditor.Designer.cs">
       <DependentUpon>EntityEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GamePanel.cs">
+    <Compile Include="View\Game\GamePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\GamePanel.Designer.cs">
+    <Compile Include="View\Game\GamePanel.Designer.cs">
       <DependentUpon>GamePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GameScreen.cs">
+    <Compile Include="View\Game\GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GameScreen.Designer.cs">
+    <Compile Include="View\Game\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Imaging\ImagePool.cs" />
     <Compile Include="View\Imaging\Sprite.cs" />
-    <Compile Include="View\InfoBox.cs">
+    <Compile Include="View\Game\InfoBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\InfoBox.Designer.cs">
+    <Compile Include="View\Game\InfoBox.Designer.cs">
       <DependentUpon>InfoBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\InfoView.cs">
+    <Compile Include="View\Game\InfoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\InfoView.Designer.cs">
+    <Compile Include="View\Game\InfoView.Designer.cs">
       <DependentUpon>InfoView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LevelDialog.cs">
@@ -137,29 +137,29 @@
     <Compile Include="View\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Editor\LevelEditor.cs">
+    <Compile Include="View\Game\Editor\LevelEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Editor\LevelEditor.Designer.cs">
+    <Compile Include="View\Game\Editor\LevelEditor.Designer.cs">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainMenuControl.cs">
+    <Compile Include="View\Menu\MainMenuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\MainMenuControl.Designer.cs">
+    <Compile Include="View\Menu\MainMenuControl.Designer.cs">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
     </Compile>
     <Compile Include="OlympusTheGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Editor\SpeelveldEditor.cs">
+    <Compile Include="View\Game\Editor\SpeelveldEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Editor\SpeelveldEditor.Designer.cs">
+    <Compile Include="View\Game\Editor\SpeelveldEditor.Designer.cs">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="View\Menu\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -167,37 +167,37 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ArrowPanel.resx">
+    <EmbeddedResource Include="View\Game\ArrowPanel.resx">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Buttons\PopupButton.resx">
       <DependentUpon>PopupButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Editor\EntityEditor.resx">
+    <EmbeddedResource Include="View\Game\Editor\EntityEditor.resx">
       <DependentUpon>EntityEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Editor\SpeelveldEditor.resx">
+    <EmbeddedResource Include="View\Game\Editor\SpeelveldEditor.resx">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GamePanel.resx">
+    <EmbeddedResource Include="View\Game\GamePanel.resx">
       <DependentUpon>GamePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GameScreen.resx">
+    <EmbeddedResource Include="View\Game\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\InfoBox.resx">
+    <EmbeddedResource Include="View\Game\InfoBox.resx">
       <DependentUpon>InfoBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\InfoView.resx">
+    <EmbeddedResource Include="View\Game\InfoView.resx">
       <DependentUpon>InfoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Editor\LevelEditor.resx">
+    <EmbeddedResource Include="View\Game\Editor\LevelEditor.resx">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainMenuControl.resx">
+    <EmbeddedResource Include="View\Menu\MainMenuControl.resx">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
