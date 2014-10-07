@@ -278,6 +278,7 @@ namespace Olympus_the_Game.View
 
         /// <summary>
         /// Vraagscherm bij afsluiten
+        /// Zorgt ook ervoor dat alle objecten netjes verwijderd worden
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -287,13 +288,15 @@ namespace Olympus_the_Game.View
             DialogResult dr = MessageBox.Show("Are you sure you want to exit the leveleditor? Any unsaved data will be lost.",
                 "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Verwijder alle objecten uit het playfield.
+            // Verwijder alle objecten uit het playfield zodat er
+            // geen errors zijn als de normale game weer
+            // geopend word
             Entities = this.pf.GameObjects;
 
             foreach (GameObject g in Entities.ToList())
             {
                 Entity et = g as Entity;
-                pf.RemoveObject(et);
+                g.OnRemoved(true);
 
             }
 
