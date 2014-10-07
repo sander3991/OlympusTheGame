@@ -95,6 +95,10 @@ namespace Olympus_the_Game
 
             // Start applicatie
             Application.Run(gs);
+
+            //Main Menu openen, wordt aan gewerkt. Afblijven.
+            //MainMenu mm = new MainMenu();
+            //mm.ShowDialog();
         }
 
         /// <summary>
