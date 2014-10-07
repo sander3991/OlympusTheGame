@@ -52,8 +52,9 @@ namespace Olympus_the_Game.View
             arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
+
+            // Do event handlers
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
-            OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Text = this.gamePanel1.Size.ToString(); };
         }
 
         /// <summary>

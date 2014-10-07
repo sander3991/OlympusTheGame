@@ -26,16 +26,19 @@ namespace Olympus_the_Game
         private int dx;
         private int dy;
         private float prop_frame = 0;
+        private int frameCount = 1;
 
         public override float Frame
         {
             get
             {
-
-                if (prop_frame == 1)
+                //return 0.5f;
+                if (prop_frame == 0.5f)
                 {
-                    prop_frame = 0;
-                    return 1f;
+                    frameCount++;
+                    if (frameCount % 20 == 0)
+                        prop_frame = 0f;
+                    return 0.5f;
                 }
                 return prop_frame;
             }
@@ -112,7 +115,7 @@ namespace Olympus_the_Game
                 if (prevHealth != health && OnHealthChanged != null)
                 {
                     OnHealthChanged(this, prevHealth);
-                    Frame = 1f;
+                    Frame = 0.5f;
                 }
             }
         }

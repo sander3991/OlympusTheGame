@@ -193,6 +193,12 @@
   <data name="heartDead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\heartDead.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Minecraftia_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minecraftia-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="minecraft_stone_bhcmfrug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minecraft-stone-bhcmfrug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="player2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
