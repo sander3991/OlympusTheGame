@@ -128,6 +128,12 @@
     <Compile Include="View\Editor\LevelEditor.Designer.cs">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MainMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MainMenuControl.Designer.cs">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MenuBar\CustomMenuBar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -141,12 +147,6 @@
     </Compile>
     <Compile Include="View\Editor\SpeelveldEditor.Designer.cs">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -185,8 +185,8 @@
     <EmbeddedResource Include="View\Editor\LevelEditor.resx">
       <DependentUpon>LevelEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainMenuControl.resx">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

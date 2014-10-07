@@ -34,8 +34,8 @@ namespace Olympus_the_Game.View
 
             // Sluit spel af bij JA/YES
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
-            if (dr == DialogResult.Yes)
-                OlympusTheGame.RequestClose();
+            if(dr == DialogResult.Yes)
+                return;//OlympusTheGame.RequestClose();
             else
                 e.Cancel = true;
         }

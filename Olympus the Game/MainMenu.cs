@@ -12,5 +12,10 @@ namespace Olympus_the_Game {
         public MainMenu() {
             InitializeComponent();
         }
+
+        private void MainMenu_Load(object sender, EventArgs e) {
+            mainMenuControl1.Left = (this.ClientSize.Width - mainMenuControl1.Width) / 2;
+            mainMenuControl1.Top = (this.ClientSize.Height - mainMenuControl1.Height) / 2;
+        }
     }
 }
