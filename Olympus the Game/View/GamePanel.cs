@@ -65,7 +65,6 @@ namespace Olympus_the_Game.View
         {
             // Save variables
             this.Playfield = pf;
-            this.MaxSize = Size.Empty;
 
             // Initialize GUI
             InitializeComponent();
@@ -93,6 +92,12 @@ namespace Olympus_the_Game.View
 
             // Register to size changed
             this.FindForm().SizeChanged += delegate(object o, EventArgs ea) { this.TryExpand(); };
+
+            // Set max size
+            this.MaxSize = this.Size;
+
+            // Recalculate size
+            Recalculate();
         }
 
         #endregion
@@ -142,18 +147,6 @@ namespace Olympus_the_Game.View
         private void PaintPanel(object sender, PaintEventArgs e)
         {
             Repaint(e.Graphics);
-        }
-
-        /// <summary>
-        /// Wordt aangeroepen als dit Panel van grootte wordt veranderd.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Panel_resized(object sender, EventArgs e)
-        {
-            if (Size.Empty.Equals(MaxSize))
-                MaxSize = this.Size;
-            Recalculate();
         }
 
         #endregion
@@ -220,6 +213,13 @@ namespace Olympus_the_Game.View
         {
             // Get parent form
             Form parent = this.FindForm();
+
+            if (parent == null)
+            {
+                Recalculate();
+                return;
+            }
+
             this.Size = new Size(0, 0);
 
             // Initial values
@@ -232,9 +232,9 @@ namespace Olympus_the_Game.View
             // Loop objects
             foreach (Control c in parent.Controls)
             {
-                if (c != this && c.Visible) // TODO Dit netter afhandelen
+                if (c != this && c.Visible)
                 {
-                    if (c.GetType() == typeof(Olympus_the_Game.View.MenuBar.CustomMenuBar))
+                    if (c.GetType() == typeof(MenuStrip))
                     {
                         barHeight = c.Height;
                     }

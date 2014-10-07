@@ -46,12 +46,14 @@
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.Spider = new System.Windows.Forms.Panel();
             this.Menubar = new System.Windows.Forms.MenuStrip();
-            this.Opslaan = new System.Windows.Forms.ToolStripMenuItem();
-            this.Inladen = new System.Windows.Forms.ToolStripMenuItem();
-            this.Afsluiten = new System.Windows.Forms.ToolStripMenuItem();
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -223,35 +225,12 @@
             // Menubar
             // 
             this.Menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Opslaan,
-            this.Inladen,
-            this.Afsluiten});
+            this.bestandToolStripMenuItem});
             this.Menubar.Location = new System.Drawing.Point(0, 0);
             this.Menubar.Name = "Menubar";
             this.Menubar.Size = new System.Drawing.Size(1084, 24);
             this.Menubar.TabIndex = 24;
             this.Menubar.Text = "menuStrip1";
-            // 
-            // Opslaan
-            // 
-            this.Opslaan.Name = "Opslaan";
-            this.Opslaan.Size = new System.Drawing.Size(104, 20);
-            this.Opslaan.Text = "Opslaan als .xml";
-            this.Opslaan.Click += new System.EventHandler(this.Opslaan_Click);
-            // 
-            // Inladen
-            // 
-            this.Inladen.Name = "Inladen";
-            this.Inladen.Size = new System.Drawing.Size(128, 20);
-            this.Inladen.Text = ".xml bestand inladen";
-            this.Inladen.Click += new System.EventHandler(this.Inladen_Click);
-            // 
-            // Afsluiten
-            // 
-            this.Afsluiten.Name = "Afsluiten";
-            this.Afsluiten.Size = new System.Drawing.Size(55, 20);
-            this.Afsluiten.Text = "Sluit af";
-            this.Afsluiten.Click += new System.EventHandler(this.Afsluiten_Click);
             // 
             // speelveldEditor1
             // 
@@ -291,6 +270,43 @@
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
             this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
+            // 
+            // bestandToolStripMenuItem
+            // 
+            this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.opslaanToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.afsluitenToolStripMenuItem});
+            this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
+            this.bestandToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.bestandToolStripMenuItem.Text = "Bestand";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.Inladen_Click);
+            // 
+            // opslaanToolStripMenuItem
+            // 
+            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
+            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.opslaanToolStripMenuItem.Text = "Opslaan";
+            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.Opslaan_Click);
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.Afsluiten_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // LevelEditor
             // 
@@ -351,9 +367,11 @@
         private EntityEditor entityEditor1;
         private SpeelveldEditor speelveldEditor1;
         private System.Windows.Forms.MenuStrip Menubar;
-        private System.Windows.Forms.ToolStripMenuItem Opslaan;
-        private System.Windows.Forms.ToolStripMenuItem Inladen;
-        private System.Windows.Forms.ToolStripMenuItem Afsluiten;
+        private System.Windows.Forms.ToolStripMenuItem bestandToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
 
     }
 }

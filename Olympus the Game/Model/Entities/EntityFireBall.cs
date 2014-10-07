@@ -8,7 +8,7 @@ namespace Olympus_the_Game
     public class EntityFireBall : Entity
     {
         private EntityGhast owner;
-        private int prop_fireballspeed = 50;
+        private int prop_fireballspeed = 50; // Factor van maken
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
         /// </summary>
@@ -59,14 +59,14 @@ namespace Olympus_the_Game
         public void OnUpdate()
         {
             // Verwijderd de fireball als het de randen van het spel raakt
-            if (this.X <= 3 || this.Y <= 3 || this.X >= (Playfield.Width - 25) || this.Y >= (Playfield.Height - 25))
+            if (this.X <= 10 || this.Y <= 10 || this.X >= (Playfield.Width - 25) || this.Y >= (Playfield.Height - 25))
                 Playfield.RemoveObject(this);
         }
 
         public override void OnCollide(GameObject gameObject)
         {
             // Ontplof niet wanneer het object collide met de eigenaar van de vuurbal of met een andere vuurbal
-            if (gameObject == owner || gameObject.Type == ObjectType.FIREBALL)
+            if (gameObject == owner) // removed:  || gameObject.Type == ObjectType.FIREBALL
             {
                 return;
             }
