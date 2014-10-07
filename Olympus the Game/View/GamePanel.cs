@@ -90,6 +90,9 @@ namespace Olympus_the_Game.View
             // Register to updateloop
             if (OlympusTheGame.Controller != null)
                 OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+
+            // Register to size changed
+            this.FindForm().SizeChanged += delegate(object o, EventArgs ea) { this.TryExpand(); };
         }
 
         #endregion
@@ -98,14 +101,15 @@ namespace Olympus_the_Game.View
 
         private void draw(GameObject go, Graphics g)
         {
+            // Get preferred size and location
             Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
             Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
+
             // Generate target rectangle
             Rectangle target = new Rectangle(p, s);
 
+            // Retrieve appropriate image
             Sprite bm = ImagePool.GetPicture(go.Type, s);
-
-
 
             //  Draw picture
             g.DrawImageUnscaled(bm[go.Frame], target);
