@@ -28,9 +28,9 @@
             // 
             // mainMenuControl1
             // 
-            this.mainMenuControl1.Location = new System.Drawing.Point(12, 12);
+            this.mainMenuControl1.Location = new System.Drawing.Point(12, 23);
             this.mainMenuControl1.Name = "mainMenuControl1";
-            this.mainMenuControl1.Size = new System.Drawing.Size(150, 80);
+            this.mainMenuControl1.Size = new System.Drawing.Size(432, 168);
             this.mainMenuControl1.TabIndex = 0;
             // 
             // MainMenu

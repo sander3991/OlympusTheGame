@@ -23,31 +23,23 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.ButtonStart = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuControl));
             this.ButtonLevelEditor = new System.Windows.Forms.Button();
             this.ButtonHelp = new System.Windows.Forms.Button();
             this.ButtonExit = new System.Windows.Forms.Button();
+            this.ButtonStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // ButtonStart
-            // 
-            this.ButtonStart.BackColor = System.Drawing.Color.Silver;
-            this.ButtonStart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonStart.Location = new System.Drawing.Point(0, 0);
-            this.ButtonStart.Name = "ButtonStart";
-            this.ButtonStart.Size = new System.Drawing.Size(150, 23);
-            this.ButtonStart.TabIndex = 0;
-            this.ButtonStart.Text = "Start Game";
-            this.ButtonStart.UseVisualStyleBackColor = false;
-            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // ButtonLevelEditor
             // 
-            this.ButtonLevelEditor.BackColor = System.Drawing.Color.Silver;
+            this.ButtonLevelEditor.AccessibleDescription = "x";
+            this.ButtonLevelEditor.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonLevelEditor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonLevelEditor.BackgroundImage")));
+            this.ButtonLevelEditor.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLevelEditor.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonLevelEditor.Location = new System.Drawing.Point(0, 29);
+            this.ButtonLevelEditor.Location = new System.Drawing.Point(3, 58);
             this.ButtonLevelEditor.Name = "ButtonLevelEditor";
-            this.ButtonLevelEditor.Size = new System.Drawing.Size(150, 23);
+            this.ButtonLevelEditor.Size = new System.Drawing.Size(420, 49);
             this.ButtonLevelEditor.TabIndex = 1;
             this.ButtonLevelEditor.Text = "Level Editor";
             this.ButtonLevelEditor.UseVisualStyleBackColor = false;
@@ -55,11 +47,14 @@
             // 
             // ButtonHelp
             // 
-            this.ButtonHelp.BackColor = System.Drawing.Color.Silver;
+            this.ButtonHelp.AccessibleDescription = "x";
+            this.ButtonHelp.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonHelp.BackgroundImage")));
+            this.ButtonHelp.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonHelp.Location = new System.Drawing.Point(0, 58);
+            this.ButtonHelp.Location = new System.Drawing.Point(3, 113);
             this.ButtonHelp.Name = "ButtonHelp";
-            this.ButtonHelp.Size = new System.Drawing.Size(72, 23);
+            this.ButtonHelp.Size = new System.Drawing.Size(205, 49);
             this.ButtonHelp.TabIndex = 2;
             this.ButtonHelp.Text = "Help";
             this.ButtonHelp.UseVisualStyleBackColor = false;
@@ -67,15 +62,33 @@
             // 
             // ButtonExit
             // 
-            this.ButtonExit.BackColor = System.Drawing.Color.Silver;
+            this.ButtonExit.AccessibleDescription = "x";
+            this.ButtonExit.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonExit.BackgroundImage")));
+            this.ButtonExit.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonExit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonExit.Location = new System.Drawing.Point(78, 58);
+            this.ButtonExit.Location = new System.Drawing.Point(218, 113);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(72, 23);
+            this.ButtonExit.Size = new System.Drawing.Size(205, 49);
             this.ButtonExit.TabIndex = 3;
             this.ButtonExit.Text = "Exit";
             this.ButtonExit.UseVisualStyleBackColor = false;
             this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
+            // 
+            // ButtonStart
+            // 
+            this.ButtonStart.AccessibleDescription = "x";
+            this.ButtonStart.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonStart.BackgroundImage")));
+            this.ButtonStart.Font = new System.Drawing.Font("Minecraftia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonStart.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonStart.Location = new System.Drawing.Point(3, 3);
+            this.ButtonStart.Name = "ButtonStart";
+            this.ButtonStart.Size = new System.Drawing.Size(420, 49);
+            this.ButtonStart.TabIndex = 0;
+            this.ButtonStart.Text = "Start Game";
+            this.ButtonStart.UseVisualStyleBackColor = false;
+            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // MainMenuControl
             // 
@@ -86,16 +99,17 @@
             this.Controls.Add(this.ButtonLevelEditor);
             this.Controls.Add(this.ButtonStart);
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(150, 80);
+            this.Size = new System.Drawing.Size(430, 167);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button ButtonStart;
         private System.Windows.Forms.Button ButtonLevelEditor;
         private System.Windows.Forms.Button ButtonHelp;
         private System.Windows.Forms.Button ButtonExit;
+        private System.Windows.Forms.Button ButtonStart;
+
     }
 }
