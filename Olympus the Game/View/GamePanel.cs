@@ -119,11 +119,6 @@ namespace Olympus_the_Game.View
             // Draw player
             if (Playfield.Player != null)
                 draw(Playfield.Player, g);
-
-            // Draw border
-            Pen p = new Pen(Brushes.Black);
-            g.DrawRectangle(p, new Rectangle(Point.Empty, new Size(this.Width, this.Height)));
-            p.Dispose();
         }
 
         #endregion
@@ -216,40 +211,57 @@ namespace Olympus_the_Game.View
         {
             // Get parent form
             Form parent = this.FindForm();
+            this.Size = new Size(0, 0);
 
             // Initial values
             float ratio = (float)this.Playfield.Width / (float)this.Playfield.Height;
             int s = parent.Height;
-            Size currentSize = new Size((int)((float)s * ratio), s);
+            Point pt = parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
+            Size currentSize = new Size(pt.X, pt.Y);
+            currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
+            int barHeight = 0;
 
             // Loop objects
             foreach (Control c in parent.Controls)
             {
-                if (c != this && c.Visible && c.GetType() != typeof(Olympus_the_Game.View.MenuBar.CustomMenuBar)) // TODO Dit netter afhandelen
+                if (c != this && c.Visible) // TODO Dit netter afhandelen
                 {
-                    // Get control location
-                    Point p = c.Location;
-
-                    // Shrink so it fits
-                    if ((float)p.X / (float)p.Y > ratio)
+                    if (c.GetType() != typeof(Olympus_the_Game.View.MenuBar.CustomMenuBar))
                     {
-                        if (p.X < currentSize.Width)
-                            currentSize = new Size(p.X, (int)((float)p.X / ratio));
+                        barHeight = c.Height;
                     }
                     else
                     {
-                        if (p.Y < currentSize.Height)
-                            currentSize = new Size((int)((float)p.Y * ratio), p.Y);
+                        // Get control location
+                        Point p = c.Location;
+
+                        currentSize = ScaleDown(currentSize, p, ratio);
                     }
                 }
             }
 
             // Change size
-            this.Location = new Point(padding, padding);
-            this.MaxSize = new Size(currentSize.Width - 2 * padding, currentSize.Height - 2 * padding);
+            this.Location = new Point(padding, padding + barHeight);
+            this.MaxSize = new Size(currentSize.Width - 2 * padding, currentSize.Height - 2 * padding - barHeight);
 
             // Recalculate
             Recalculate();
+        }
+
+        private Size ScaleDown(Size s, Point p, float ratio)
+        {
+            // Shrink so it fits
+            if ((float)p.X / (float)p.Y > ratio)
+            {
+                if (p.X < s.Width)
+                    return new Size(p.X, (int)((float)p.X / ratio));
+            }
+            else
+            {
+                if (p.Y < s.Height)
+                    return new Size((int)((float)p.Y * ratio), p.Y);
+            }
+            return s;
         }
 
         #endregion
@@ -278,9 +290,5 @@ namespace Olympus_the_Game.View
         }
 
         #endregion
-
-
-
-
     }
 }
