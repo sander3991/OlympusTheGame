@@ -6,33 +6,39 @@ using System.Runtime.InteropServices;
 
 namespace Olympus_the_Game
 {
-    public class Mp3Player
+    public static class Mp3Player
     {
-        public bool IsPlaying {get; private set;}
+        public static bool IsPlaying { get; private set; }
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
 
-        public void Open(string file)
+        public static void Open(string file)
         {
             string command = "close MyMp3";
             mciSendString(command, null, 0, 0);
             command = "open \"" + file + "\" type MPEGVideo alias MyMp3";
             mciSendString(command, null, 0, 0);
         }
-        public void Play()
+        public static void Play()
         {
             string command = "play MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = true;
         }
-        public void Pauze()
+        public static void Pauze()
         {
             string command = "stop MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = false;
 
-            //command = "close MyMp3";
-            //mciSendString(command, null, 0, 0);
+        }
+
+        public static string Status()
+        {
+            int i = 128;
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder(i);
+            mciSendString("status MediaFile mode", stringBuilder, i, 0);
+            return stringBuilder.ToString();
         }
 
     }

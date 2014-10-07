@@ -192,21 +192,21 @@ namespace Olympus_the_Game.View
 
         private void speelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Controller.MusicPlayer.IsPlaying)
-                Controller.MusicPlayer.Pauze();
+            if (Mp3Player.IsPlaying)
+                Mp3Player.Pauze();
             else
-                Controller.MusicPlayer.Play();
+                Mp3Player.Play();
         }
 
         private void pauzeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Controller.MusicPlayer.Pauze();
+            Mp3Player.Pauze();
         }
 
         private void OpenMusicFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            Controller.MusicPlayer.Open(OpenMusicFileDialog.FileName);
-            Controller.MusicPlayer.Play();
+            Mp3Player.Open(OpenMusicFileDialog.FileName);
+            Mp3Player.Play();
         }
 
 
