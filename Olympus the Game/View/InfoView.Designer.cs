@@ -29,12 +29,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoView));
             this.listView1 = new System.Windows.Forms.ListView();
             this.EntityName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PosX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PosY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EntitySpeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DragButton = new System.Windows.Forms.Button();
+            this.ButtonRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -86,12 +88,26 @@
             this.DragButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseDown);
             this.DragButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragButton_MouseMove);
             // 
+            // ButtonRemove
+            // 
+            this.ButtonRemove.BackgroundImage = global::Olympus_the_Game.Properties.Resources.background;
+            this.ButtonRemove.FlatAppearance.BorderSize = 0;
+            this.ButtonRemove.ForeColor = System.Drawing.Color.Transparent;
+            this.ButtonRemove.Image = ((System.Drawing.Image)(resources.GetObject("ButtonRemove.Image")));
+            this.ButtonRemove.Location = new System.Drawing.Point(143, 440);
+            this.ButtonRemove.Name = "ButtonRemove";
+            this.ButtonRemove.Size = new System.Drawing.Size(40, 40);
+            this.ButtonRemove.TabIndex = 12;
+            this.ButtonRemove.UseVisualStyleBackColor = true;
+            this.ButtonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
+            // 
             // InfoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.ButtonRemove);
             this.Controls.Add(this.DragButton);
             this.Controls.Add(this.listView1);
             this.DoubleBuffered = true;
@@ -110,6 +126,7 @@
         private System.Windows.Forms.ColumnHeader PosY;
         private System.Windows.Forms.ColumnHeader EntitySpeed;
         private System.Windows.Forms.Button DragButton;
+        private System.Windows.Forms.Button ButtonRemove;
 
     }
 }

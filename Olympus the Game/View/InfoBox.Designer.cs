@@ -61,6 +61,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.SleepButton = new System.Windows.Forms.Button();
             this.timePlayed = new System.Windows.Forms.Label();
+            this.ButtonRemove = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive4)).BeginInit();
@@ -468,12 +469,26 @@
             this.timePlayed.TabIndex = 16;
             this.timePlayed.Text = "99:99";
             // 
+            // ButtonRemove
+            // 
+            this.ButtonRemove.BackgroundImage = global::Olympus_the_Game.Properties.Resources.background;
+            this.ButtonRemove.FlatAppearance.BorderSize = 0;
+            this.ButtonRemove.ForeColor = System.Drawing.Color.Transparent;
+            this.ButtonRemove.Image = ((System.Drawing.Image)(resources.GetObject("ButtonRemove.Image")));
+            this.ButtonRemove.Location = new System.Drawing.Point(0, 26);
+            this.ButtonRemove.Name = "ButtonRemove";
+            this.ButtonRemove.Size = new System.Drawing.Size(20, 20);
+            this.ButtonRemove.TabIndex = 17;
+            this.ButtonRemove.UseVisualStyleBackColor = true;
+            this.ButtonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
+            // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
+            this.Controls.Add(this.ButtonRemove);
             this.Controls.Add(this.timePlayed);
             this.Controls.Add(this.SleepButton);
             this.Controls.Add(this.groupBox5);
@@ -544,5 +559,6 @@
         private System.Windows.Forms.PictureBox heartDead3;
         private System.Windows.Forms.PictureBox heartDead2;
         private System.Windows.Forms.PictureBox heartDead1;
+        private System.Windows.Forms.Button ButtonRemove;
     }
 }

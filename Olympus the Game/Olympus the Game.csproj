@@ -258,6 +258,7 @@
     <None Include="Resources\hart1.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\trash_recyclebin_empty_closed.png" />
     <None Include="Resources\timebomb.png" />
     <None Include="Resources\timebom.png" />
     <None Include="Resources\SpriteExplosion.bmp" />
@@ -271,6 +272,9 @@
     <Content Include="Resources\arrowUp.png" />
     <None Include="Resources\minecraft-stone-bhcmfrug.png" />
     <None Include="Resources\player2.jpg" />
+    <None Include="Resources\bin.bmp" />
+    <None Include="Resources\bin.png" />
+    <None Include="Resources\icon_bin.gif" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

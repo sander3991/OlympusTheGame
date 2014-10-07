@@ -371,5 +371,15 @@ namespace Olympus_the_Game.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_recyclebin_empty_closed {
+            get {
+                object obj = ResourceManager.GetObject("trash_recyclebin_empty_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

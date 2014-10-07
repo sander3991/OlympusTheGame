@@ -14,6 +14,9 @@ namespace Olympus_the_Game.View
         // Punt zodat het panel versleept kan worden
         public Point MouseDownLocation { get; set; }
 
+        private Form SourceForm;
+        private Point loc;
+
         public ArrowPanel()
         {
             InitializeComponent();
@@ -141,6 +144,37 @@ namespace Olympus_the_Game.View
                 tb.SelectionLength = tb.Text.Length;
             }
             
+        }
+
+        private void ButtonRemove_Click(object sender, EventArgs e) {
+            loc = this.Location;
+            SourceForm = this.FindForm();
+            SourceForm.Controls.Remove(this);
+
+            Form f = new Form();
+            f.Width = this.Width + 10;
+            f.Height = this.Height + 35;
+            f.BackgroundImage = Properties.Resources.dirt;
+            f.Controls.Add(this);
+            this.Location = new Point(0, 0);
+            f.MaximizeBox = false;
+            f.FormBorderStyle = FormBorderStyle.FixedSingle;
+            f.FormClosed += BringBack;
+            this.SleepKnop.Visible = false;
+            this.ButtonRemove.Visible = false;
+            f.Show();
+        }
+
+        private void BringBack(object source, EventArgs e) {
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+            f.Dispose();
+
+            SourceForm.Controls.Add(this);
+            this.SleepKnop.Visible = true;
+            this.ButtonRemove.Visible = true;
+
+            this.Location = loc;
         }
     }
 }
