@@ -7,11 +7,15 @@ using System.Xml.Serialization;
 
 namespace Olympus_the_Game
 {
-    // TODO Sander: Comments
     class PlayFieldToXml
     {
         private static XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
         private PlayFieldToXml() { }
+        /// <summary>
+        /// Leest een XML bestand in.
+        /// </summary>
+        /// <param name="fileStream">De <code>Stream</code> waarin een Xml bestand zit</param>
+        /// <returns>Een PlayField object als deze aangemaakt is. Als deze niet is aangemaakt null.</returns>
         public static PlayField ReadFromXml(Stream fileStream)
         {
             try
@@ -36,6 +40,11 @@ namespace Olympus_the_Game
             return null;
         }
 
+        /// <summary>
+        /// Leest een resource, dit zijn strings met daarin de Xml gegevens.
+        /// </summary>
+        /// <param name="xml">De Properties.Resources.*, waar * de bestandsnaam is</param>
+        /// <returns>Het PlayField object dat bij het Xml bestand hoort</returns>
         internal static PlayField ReadFromResource(string xml)
         {
             StringReader strReader = new StringReader(xml);
@@ -60,6 +69,11 @@ namespace Olympus_the_Game
             }
         }
 
+        /// <summary>
+        /// Schrijf een PlayField naar een Xml bestand
+        /// </summary>
+        /// <param name="fileStream">De Stream waarnaartoe het Playfield moet worden weggeschreven</param>
+        /// <param name="pf">De PlayField die weggeschreven moet worden</param>
         public static void WriteToXml(Stream fileStream, PlayField pf)
         {
             serialiser.Serialize(fileStream, pf);

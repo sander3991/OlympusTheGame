@@ -8,14 +8,35 @@ namespace Olympus_the_Game
 {
     public class EntityWeb : Entity
     {
-        // TODO Elmar: Access modifiers
-        Stopwatch stopwatch = Stopwatch.StartNew();
-        // TODO Elmar: Verwijderen, dit kan zo niet
-        Controller contr = OlympusTheGame.INSTANCE.Controller;
-        // TODO Elmar: Deze bestaat al in GameObject, verwijderen en de GameObject.Playfield gebruiken
-        PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+        private static bool isSlowingPlayer = false;
+        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private double prop_SlowStrength = 2;
+        private int prop_removetime = 3000;
         /// <summary>
-        /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
+        /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 1, DEFAULT = 3000
+        /// </summary>
+        public double SlowStrength
+        {
+            get { return prop_SlowStrength; }
+            set
+            {
+                prop_SlowStrength = Math.Max(1, value);
+            }
+        }
+        /// <summary>
+        /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 0, DEFAULT = 2
+        /// </summary>
+        public int RemoveTime
+        {
+            get { return prop_removetime; }
+            set
+            {
+                prop_removetime = Math.Max(0, value);
+            }
+        }
+
+        /// <summary>
+        /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid.
         /// </summary>
         public EntityWeb(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
@@ -25,21 +46,23 @@ namespace Olympus_the_Game
             Type = ObjectType.WEB;
             IsSolid = false;
         }
-
         /// <summary>
-        /// Een EntityWeb object die spelers langzamer laten lopen, staat vanaf het begin stil
+        /// Een EntityWeb object die spelers langzamer laten lopen, staat vanaf het begin stil.
         /// </summary>
         public EntityWeb(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
-        //TODO Elmar: Graag overleggen met Sander/Ruben
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            if (this.CollidesWithObject(player) == CollisionType.NONE)
+            if (this.CollidesWithObject(Playfield.Player) == CollisionType.NONE)
             {
-                if (player.SpeedModifier != 1)
-                    player.SpeedModifier *= 2;
-                if (stopwatch.ElapsedMilliseconds >= 3000)
+                if (isSlowingPlayer)
+                {
+                    Playfield.Player.SpeedModifier *= SlowStrength;
+                    isSlowingPlayer = false;
+                }
+
+                // Object uit de gameloop halen na een bepaalde tijdsduur
+                if (stopwatch.ElapsedMilliseconds >= RemoveTime)
                 {
                     OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
                     OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
@@ -49,17 +72,17 @@ namespace Olympus_the_Game
 
         public override void OnCollide(GameObject gameObject)
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-
             // Maak de speler langzamer wanneer hij wanneer hij door een cobweb loopt
-            if (player.SpeedModifier != 0.50)
+            if (!isSlowingPlayer)
             {
-                player.SpeedModifier = player.SpeedModifier / 2;
+                Playfield.Player.SpeedModifier = Playfield.Player.SpeedModifier / SlowStrength;
+                isSlowingPlayer = true;
             }
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
+            // Verwijder dit object uit de gameloop
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
         public override string ToString()

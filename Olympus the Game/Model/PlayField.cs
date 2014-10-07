@@ -10,9 +10,15 @@ namespace Olympus_the_Game
 {
     public class PlayField : IXmlSerializable
     {
-        // TODO Sander: Commentaar toevoegen
         private static int ID = 0;
+        private static List<GameObject> DEFAULTMAP;
+        /// <summary>
+        /// De breedte van de PlayField
+        /// </summary>
         public int Width { get; set; }
+        /// <summary>
+        /// De hoogte van het PlayField
+        /// </summary>
         public int Height { get; set; }
 
         /// <summary>
@@ -20,10 +26,27 @@ namespace Olympus_the_Game
         /// </summary>
         public List<GameObject> GameObjects { get; private set; }
 
+        /// <summary>
+        /// De Speler op dit PlayField
+        /// </summary>
         public EntityPlayer Player { get; private set; }
+        /// <summary>
+        /// De naam van dit PlayField
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Is dit PlayField geinitialiseerd met de GameObjects
+        /// </summary>
         public bool IsInitialized { get; private set; }
+        /// <summary>
+        /// Initialiseert een standaard PlayField object aan zonder GameObjects en met een breedte van 1000 en een hoogte van 500.
+        /// </summary>
         public PlayField() : this(1000, 500) { }
+        /// <summary>
+        /// Initialiseert een PlayField met een custom breedte en hoogte
+        /// </summary>
+        /// <param name="width">De breedte van het PlayField</param>
+        /// <param name="height">De hoogte van het PlayField</param>
         public PlayField(int width, int height)
         {
             Width = width;
@@ -33,12 +56,24 @@ namespace Olympus_the_Game
             GameObjects = new List<GameObject>();
         }
 
+        /// <summary>
+        /// Initialiseert alle GameObject met de DefaultMap
+        /// </summary>
         public void InitializeGameObjects()
         {
-            if (!IsInitialized)
-                this.InitializeGameObjects(GetDefaultMap(Width, Height));
+            if (DEFAULTMAP == null) //Initialiseert de default map de eerste keer dat deze wordt opgevraagd
+            {
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(PlayField));
+                PlayField pf = serializer.Deserialize(new StringReader(Properties.Resources.beach)) as PlayField;
+                DEFAULTMAP = pf.GameObjects;
+            }
+            InitializeGameObjects(DEFAULTMAP);
         }
 
+        /// <summary>
+        /// Initialiseert de PlayMap met de meegegeven lijst met GameObjects
+        /// </summary>
+        /// <param name="objects">De Lijst waarmee het PlayField geinitialiseerd dient te worden</param>
         public void InitializeGameObjects(List<GameObject> objects)
         {
             if (!IsInitialized)
@@ -46,21 +81,21 @@ namespace Olympus_the_Game
                 if (objects == null)
                     new ArgumentException("Geen lijst met gameobjects meegegeven");
                 GameObjects = objects;
-                for (int i = 0; i < objects.Count; i++)
+                for (int i = 0; i < objects.Count; i++) //Controle van de GameObjects
                 {
-                    if (objects[i].Playfield != null || objects[i].Playfield == this)
+                    if (objects[i].Playfield != null || objects[i].Playfield == this) //Is er al een PlayField object aangekoppeld, dat mag niet!
                         new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
                     objects[i].Playfield = this;
                     EntityPlayer player = objects[i] as EntityPlayer;
-                    if (player != null)
+                    if (player != null) //Is dit het speler object? Deze willen we niet in de gameObject lijst hebben
                     {
-                        Player = player;
+                        Player = player; //Zet de speler in de Player property
                         GameObjects.Remove(player);
                     }
                 }
                 if (Player == null)
                 {
-                    SetPlayerHome();
+                    SetPlayerHome(); //Als de speler niet is gevonden, dan maken wij deze zelf aan. Dit gebeurt in SetPlayerHome();
                     Player.Playfield = this;
                 }
                 IsInitialized = true;
@@ -79,18 +114,21 @@ namespace Olympus_the_Game
             GameObjects.Add(entity);
             entity.Playfield = this;
         }
-        // TODO Sander: Commentaar
+        /// <summary>
+        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
+        /// </summary>
+        /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
         public void RemoveObject(GameObject entity)
         {
             GameObjects.Remove(entity);
             entity.OnRemoved(false);
         }
         /// <summary>
-        /// Zet de speler op de home locatie neer
+        /// Zet de speler op de home locatie neer, en maakt een Player aan als deze nog niet bestaat.
         /// </summary>
         public void SetPlayerHome()
         {
-            if (Player == null)
+            if (Player == null) //Bestaat de speler al? Zo niet, dan maken wij hem aan.
             {
                 Player = new EntityPlayer(50, 50, 0, 0);
                 Player.Playfield = this;
@@ -109,22 +147,6 @@ namespace Olympus_the_Game
                 Player.Y = (start.Y + start.Height / 2) - (Player.Height / 2);
             }
         }
-
-        // TODO Sander : Wegslopen
-        public static List<GameObject> GetDefaultMap(int width, int height)
-        {
-            List<GameObject> objects = new List<GameObject>();
-            objects.Add(new ObjectStart(150, 150, 0, 0));
-            objects.Add(new ObjectFinish(150, 150, 800, 300));
-            objects.Add(new ObjectObstacle(50, 50, 250, 250));
-            objects.Add(new EntityCreeper(50, 50, 400, 60, 1.0f));
-            objects.Add(new EntitySlower(50, 50, 200, 150));
-            objects.Add(new EntityTimeBomb(50, 50, 600, 75, 1.0f));
-            objects.Add(new EntityExplode(50, 50, 300, 05, 1.0f));
-            objects.Add(new EntityGhast(50,50,100, 100));
-            return objects;
-        }
-        // TODO Sander: In-code commentaar
         /// <summary>
         /// Haalt alle objecten op op de locatie
         /// </summary>
@@ -134,17 +156,17 @@ namespace Olympus_the_Game
         public List<GameObject> GetObjectsAtLocation(int x, int y)
         {
             List<GameObject> objectList = new List<GameObject>();
-            for (int i = 0; i < GameObjects.Count; i++)
+            for (int i = 0; i < GameObjects.Count; i++) //loopt door alle objects
             {
                 GameObject o = GameObjects[i];
-                if (o.X <= x && (o.X + o.Width) >= x && o.Y <= y && (o.Y + o.Height) >= y)
-                    objectList.Add(o);
+                if (o.X <= x && (o.X + o.Width) >= x && o.Y <= y && (o.Y + o.Height) >= y) //zit de object op de locatie x/y
+                    objectList.Add(o); //Zo ja, voeg het toe aan de List
 
             }
             if (Player != null && Player.X >= x && (Player.X + Player.Width) <= x && Player.Y >= y && (Player.Y + Player.Height) <= y)
-                objectList.Add(Player);
+                objectList.Add(Player); //Controleer ook of de player op die plek zit
 
-            return objectList.Count == 0 ? null : objectList;
+            return objectList.Count == 0 ? null : objectList; // Return alleen de lijst als er daadwerkelijk wat in zit, anders null.
         }
 
         /// <summary>
@@ -232,9 +254,9 @@ namespace Olympus_the_Game
                                 {
                                     Console.WriteLine("Er ging iets fout bij het casten van het attribuut naar de enum");
                                 }
-                                catch (ArgumentException) // TODO Sander naar kijken, deze is toegevoegd ivm foutmelding.
+                                catch(ArgumentException)
                                 {
-
+                                    Console.WriteLine("Het object van type '{0}' kon niet ingeladen worden!", str);
                                 }
                                 break;
                             default:

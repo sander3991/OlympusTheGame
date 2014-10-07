@@ -194,7 +194,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="entity">Het GameObject waarmee vergeleken wordt</param>
         /// <returns>CollisionType type van het type waar hij gecollide is</returns>
-        public CollisionType CollidesWithObject(GameObject entity)
+        public virtual CollisionType CollidesWithObject(GameObject entity)
         {
             if(CollidesWithX(entity) && CollidesWithY(entity))
             {
@@ -229,7 +229,14 @@ namespace Olympus_the_Game
         {
 
         }
-        // TODO Sander: Comments
+       /// <summary>
+       /// Controleerd of 2 lijnen elkaar overlappen. Gebaseerd op hun startpositie en breedte (of Hoogte).
+       /// </summary>
+       /// <param name="x1">Beginpunt van lijn 1</param>
+       /// <param name="width1">Breedte van lijn 1</param>
+       /// <param name="x2">Beginpunt van lijn 2</param>
+       /// <param name="width2">Breedte van lijn 2</param>
+       /// <returns>True als ze elkaar overlappen, anders false</returns>
         public static bool DoLinesOverlap(int x1, int width1, int x2, int width2)
         {
             if (x1 >= x2)

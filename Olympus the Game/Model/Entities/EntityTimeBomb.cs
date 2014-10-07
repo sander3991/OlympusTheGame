@@ -9,13 +9,44 @@ namespace Olympus_the_Game
 {
     public class EntityTimeBomb : EntityExplode
     {
+        private Stopwatch stopwatch;
+        private bool isTimerStarted = false;
+        private int prop_explodetime = 3000;
+        private int prop_detectradius = 100;
+        private int prop_exploderadius = 100;
         /// <summary>
-        /// De tijd hoe lang het duurt voordat deze entity explodeert
+        /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
         /// </summary>
-        // TODO Elmar: Properties van onderste 2 variabelen
-        public int EXPLODETIME = 3000; //Aanpasbaar in editor
-        public bool touched;
-        Stopwatch stopwatch = Stopwatch.StartNew();
+        public int ExplodeTime
+        {
+            get { return prop_explodetime; }
+            set
+            {
+                prop_explodetime = Math.Max(0, value);
+            }
+        }
+        /// <summary>
+        /// De afstand waarin de timebom de speler herkend. MIN = 50, DEFAULT = 100
+        /// </summary>
+        public int DetectRadius
+        {
+            get { return prop_detectradius; }
+            set
+            {
+                prop_detectradius = Math.Max(50, value);
+            }
+        }
+        /// <summary>
+        /// De afstand waarin de explosie plaatsvindt. MIN = 0, DEFAULT = 100
+        /// </summary>
+        public int ExplodeRadius
+        {
+            get { return prop_exploderadius; }
+            set
+            {
+                prop_exploderadius = Math.Max(0, value);
+            }
+        }
 
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
@@ -28,52 +59,48 @@ namespace Olympus_the_Game
             Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
-        /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
+        /// Een bom die na een bepaalde tijd explodeert. Staat vanaf het begin stil.
         /// </summary>
         public EntityTimeBomb(int width, int height, int x, int y, double effectStrength)
             : this(width, height, x, y, 0, 0, effectStrength)
         {
-            
+
         }
-        // TODO Elmar: Iets in-code commentaar toevoegen om aan te geven wat je wilt doen
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player; //TODO Elmar: Aanpassen naar ingebakken Playfield.
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
-
-            if (player != null)
+            if (Playfield.Player != null)
             {
-                stopwatch.Stop();
-                if (DistanceToObject(player) < 100 && stopwatch.IsRunning == false)
+                // Start de timer wanneer een speler zich in de buurt bevindt
+                if (DistanceToObject(Playfield.Player) <= DetectRadius)
                 {
-                    stopwatch.Start();
+                    stopwatch = Stopwatch.StartNew();
+                    isTimerStarted = true;
                 }
 
-                if (stopwatch.ElapsedMilliseconds >= EXPLODETIME && DistanceToObject(player) > 100)
-                    pf.RemoveObject(this);
-                else if (stopwatch.ElapsedMilliseconds >= EXPLODETIME && DistanceToObject(player) < 100)
+                // Ontplof als de timer langer dan x seconden aanstaat en de speler zich NIET in de buurt bevindt
+                if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime && DistanceToObject(Playfield.Player) >= DetectRadius)
+                    Playfield.RemoveObject(this);
+                // Ontplof als de timer langer dan x seconden aanstaat en de speler zich WEL in de buurt bevindt
+                else if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime && DistanceToObject(Playfield.Player) <= DetectRadius)
                 {
-                    pf.Player.Health--;
-                    pf.SetPlayerHome();
-                    pf.RemoveObject(this);
-                    stopwatch.Stop();
+                    Playfield.Player.Health--;
+                    Playfield.SetPlayerHome();
+                    Playfield.RemoveObject(this);
                 }
- 
+
             }
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.INSTANCE.Controller;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
-            contr.UpdateGameEvents -= OnUpdate;
-            pf.AddObject(new SpriteExplosion(this)); // TODO Elmar: Tip: Misschien een grotere explosie omdat de range groter is dan 1 object?
+            // Verwijder dit object uit de gameloop na een mooie explosie
+            Playfield.AddObject(new SpriteExplosion(75, 75, this.X, this.Y));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override void OnCollide(GameObject gameObject)
         {
-
+            // Voorkomt dat de bom ontploft als het in aanraking komt door te overriden
         }
 
         public override string ToString()

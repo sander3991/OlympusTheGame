@@ -74,7 +74,19 @@ namespace Olympus_the_Game_Test.View.Imaging
                 Bitmap b = actual[-2.0f];
                 Assert.Fail("No error thrown");
             }
-            catch (ArgumentOutOfRangeException) { }
+            catch (ArgumentOutOfRangeException) {
+                // This should happen
+            }
+            catch (AssertFailedException e)
+            {
+                // Let assert failed exception bubble up
+                throw e;
+            }
+            catch (Exception e)
+            {
+                // Unexpected exception thrown
+                Assert.Fail("Another exception has been thrown: {0}", e.GetType());
+            }
         }
 
         [TestMethod]

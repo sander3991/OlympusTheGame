@@ -13,7 +13,7 @@ namespace Olympus_the_Game
     public class Controller
     {
         // Timer voor het bepalen van de speelduur.
-        Stopwatch stopWatch = Stopwatch.StartNew();
+        private Stopwatch stopWatch = Stopwatch.StartNew();
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>
@@ -24,7 +24,9 @@ namespace Olympus_the_Game
         /// </summary>
         public event Action UpdateSlowEvents;
 
-        // TODO Sander: Commentaar
+        /// <summary>
+        /// Genereert een nieuwe Controller
+        /// </summary>
         public Controller()
         {
             // Add Update to UpdateEvents
@@ -35,48 +37,51 @@ namespace Olympus_the_Game
 
         }
 
-        public void Update() //TODO Sander: Comments bij toevoegen
+        /// <summary>
+        /// Update alle game entities naar hun volgende state. Doet een Move() voor elke entity (including Player), en doet de Collision Detection en de OnCollide.
+        /// </summary>
+        public void Update()
         {
             EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
             player.Move();
             List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.INSTANCE.Playfield.GameObjects); //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
-            foreach (GameObject o in gameObjects)
+            foreach (GameObject o in gameObjects) //Controleer of de player collide met een GameObject
             {
                 CollisionType collision = player.CollidesWithObject(o);
-                if (collision != CollisionType.NONE)
+                if (collision != CollisionType.NONE) //Als er een collision is (dus niet 'geen' collision)
                 {
-                    if (o.IsSolid)
+                    if (o.IsSolid) //Alleen bij solide blokken moet de speler terug worden gezet naar de vorige plek
                     {
                         if(collision.HasFlag(CollisionType.X))
                             player.X = player.PreviousX;
                         if(collision.HasFlag(CollisionType.Y))
                             player.Y = player.PreviousY;
                     }
-                    o.OnCollide(player);
+                    o.OnCollide(player); //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
                 }
             }
-            List<GameObject> listWithPlayer = new List<GameObject>(gameObjects);
+            List<GameObject> listWithPlayer = new List<GameObject>(gameObjects); //Maak een lijst waar de player ook bij in zit
             listWithPlayer.Add(player);
-            foreach (GameObject o in gameObjects)
+            foreach (GameObject o in gameObjects) //Loop door de lijst met GameObjects heen, niet die met de speler want de speler is al gecontroleerd
             {
                 Entity e = o as Entity;
-                if (e != null)
+                if (e != null) //Controleer of het een Entity is, alleen entities dienen geupdate te worden
                 {
                     e.Move();
                     foreach (GameObject o2 in listWithPlayer)
                     {
-                        if(!e.Equals(o2))
+                        if(!e.Equals(o2)) //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
                         {
-                            CollisionType collision = e.CollidesWithObject(o2);
+                            CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
                             if (collision != CollisionType.NONE)
                             {
-                                e.OnCollide(o2);
+                                e.OnCollide(o2); //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
                                 o2.OnCollide(e);
-                                if(collision.HasFlag(CollisionType.X))
+                                if(collision.HasFlag(CollisionType.X)) //Is de collision op de X as? Verander dan de X.
                                     e.X = e.PreviousX;
-                                if(collision.HasFlag(CollisionType.Y))
+                                if(collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y
                                     e.Y = e.PreviousY;
-                                if (e.EntityControlledByAI)
+                                if (e.EntityControlledByAI) //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
                                 {
                                     if (collision.HasFlag(CollisionType.X))
                                         e.DX = -e.DX;
@@ -89,20 +94,22 @@ namespace Olympus_the_Game
                 }
             }
         }
-
-        public void UpdateEntityAI() // TODO Sander: Commentaar toevoegen
+        /// <summary>
+        /// Deze wordt aangeroepen om de AI te updaten. Elke iteratie wordt er opnieuw bepaald waar elke entity heen moet lopen.
+        /// </summary>
+        public void UpdateEntityAI()
         {
             if (Environment.TickCount % 1000 != 0) return; // TODO Dit beter afhandelen
-            Random rand = new Random();
+            Random rand = new Random(); //Maakt een random generator
             List<GameObject> gameObjects = OlympusTheGame.INSTANCE.Playfield.GameObjects;
             foreach (GameObject o in gameObjects)
             {
                 Entity e = o as Entity;
-                if (e != null)
+                if (e != null) //Is het een entity? Alleen entities moeten geupdate worden
                 {
-                    if (e.EntityControlledByAI)
+                    if (e.EntityControlledByAI) // Word hij door de AI bestuurd?
                     {
-                        e.DX = rand.Next(3) - 1;
+                        e.DX = rand.Next(3) - 1; //Pak een random int tussen 0 en 2, en verlaag het dan met 1 zodat we tussen -1 en 1 zitten.
                         e.DY = rand.Next(3) - 1;
                     }
                 }
@@ -128,7 +135,10 @@ namespace Olympus_the_Game
             if (UpdateSlowEvents != null)
                 UpdateSlowEvents();
         }
-        //TODO Elmar: Commentaar
+
+        /// <summary>
+        /// Returned de speelduur van de huidige map.
+        /// </summary>
         public string GetTimeSinceStart()
         {
             return stopWatch.Elapsed.Minutes.ToString("D2") + ":" + stopWatch.Elapsed.Seconds.ToString("D2");

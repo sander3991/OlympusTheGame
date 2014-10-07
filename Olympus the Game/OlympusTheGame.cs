@@ -23,7 +23,8 @@ namespace Olympus_the_Game
         /// <summary>
         /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
         /// </summary>
-        public static OlympusTheGame INSTANCE { get; private set; }
+        //TODO Sander: Overleggen over public setter, eventueel hele class Static maken? 
+        public static OlympusTheGame INSTANCE { get; set; }
 
         /// <summary>
         /// Het huidige speelveld.
@@ -35,28 +36,26 @@ namespace Olympus_the_Game
         /// </summary>
         public Controller Controller { get; private set; }
 
-        /// <summary>
-        /// Delegate voor het <code>OnNewPlayField</code> event.
-        /// </summary>
-        /// <param name="Playfield">Het nieuwe Playfield object</param>
-        public delegate void NewPlayField(PlayField Playfield);
+
         /// <summary>
         /// Event dat gefired wordt zodra er een nieuw Playfield is
         /// </summary>
-        public event NewPlayField OnNewPlayField;
+        public event Action<PlayField> OnNewPlayField;
+
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
         public OlympusTheGame()
         {
             this.Controller = new Controller();
+            INSTANCE = this;
         }
 
         /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             // non-static object aanmaken
             INSTANCE = new OlympusTheGame();
@@ -67,7 +66,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Deze methode wordt aangeroepen om de game te starten.
         /// </summary>
-        private void Start()
+        public void Start()
         {
             // Read PlayField
             this.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
@@ -93,18 +92,22 @@ namespace Olympus_the_Game
             gs.gamePanel1.Playfield = this.Playfield;
 
             // Start timers
-            GameTimer.Start();
-            SlowTimer.Start();
+            this.Resume();
 
             // Start applicatie
             Application.Run(gs);
         }
 
+        /// <summary>
+        /// Change the playfield
+        /// </summary>
+        /// <param name="pf"></param>
         public void SetNewPlayfield(PlayField pf)
         {
             if (pf != null)
             {
-                Playfield.UnloadPlayField();
+                if(Playfield != null)
+                    Playfield.UnloadPlayField();
                 pf.SetPlayerHome();
                 this.Playfield = pf;
                 if (OnNewPlayField != null)
@@ -113,14 +116,31 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Stops all logic
+        /// </summary>
+        public void Pause()
+        {
+            this.GameTimer.Stop();
+            this.SlowTimer.Stop();
+        }
+
+        /// <summary>
+        /// Resumes all logic
+        /// </summary>
+        public void Resume()
+        {
+            this.GameTimer.Start();
+            this.SlowTimer.Start();
+        }
+
+        /// <summary>
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.
         /// </summary>
         public void RequestClose()
         {
-            // Stop timers
-            GameTimer.Stop();
-            SlowTimer.Stop();
+            // Pause game
+            this.Pause();
 
             // Sluit scherm
             gs.Dispose();

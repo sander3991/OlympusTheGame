@@ -5,15 +5,33 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
-    //TODO Sander: Commentaar
     public class EntityPlayer : Entity
     {
+        /// <summary>
+        /// Delegate voor het <code>OnHealthChanged</code> event
+        /// </summary>
+        /// <param name="player">De entity waarvan de health veranderd is</param>
+        /// <param name="previousHealth">De health voor de verandering</param>
+        public delegate void DelOnHealthChanged(EntityPlayer player, int prevHealth);
+        /// <summary>
+        /// Event dat gedraait woordt zodra een <code>EntityPlayer</code> object zijn health is veranderd.
+        /// </summary>
+        public event DelOnHealthChanged OnHealthChanged;
+        /// <summary>
+        /// De maximum health van een speler
+        /// </summary>
         public const int MAXHEALTH = 5;
         private int health;
         private double speedModifier = 1;
         private int dx;
         private int dy;
+        /// <summary>
+        /// De snelheid van de speler
+        /// </summary>
         public static int PlayerSpeed { get; set; }
+        /// <summary>
+        /// In hoeverre wordt de snelheid van de speler aangepast. Zodra deze wordt aangepast wordt de DX en DY van de speler direct aangepast.
+        /// </summary>
         public double SpeedModifier
         {
             get
@@ -28,6 +46,9 @@ namespace Olympus_the_Game
                 DY = Convert.ToInt32(DY / prevSpeed * speedModifier);
             }
         }
+        /// <summary>
+        /// Custom DX omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
+        /// </summary>
         public override int DX
         {
             get
@@ -39,6 +60,9 @@ namespace Olympus_the_Game
                 dx = Convert.ToInt32(value * speedModifier);
             }
         }
+        /// <summary>
+        /// Custom DY omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
+        /// </summary>
         public override int DY
         {
             get
@@ -50,6 +74,9 @@ namespace Olympus_the_Game
                 dy = Convert.ToInt32(value * speedModifier);
             }
         }
+        /// <summary>
+        /// De Health van de speler
+        /// </summary>
         public int Health
         {
             get
@@ -61,9 +88,8 @@ namespace Olympus_the_Game
                 int prevHealth = health;
                 health = Math.Max(0, value);
                 health = Math.Min(MAXHEALTH, value);
-                if (prevHealth != health)
-                    //DoHealthEventHier
-                    return;
+                if (prevHealth != health && OnHealthChanged != null)
+                    OnHealthChanged(this, prevHealth);
             }
         }
         /// <summary>

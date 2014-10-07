@@ -10,30 +10,63 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game.View
 {
-    // TODO Elmar: Commentaar toevoegen
     public partial class InfoBox : UserControl
     {
         public Point MouseDownLocation { get; set; }
+        private EntityPlayer player; //De speler waarvan op dit moment de health getracked wordt
         public InfoBox()
         {
             InitializeComponent();
+
+            if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || OlympusTheGame.INSTANCE.Playfield.Player == null)
+                return;
+
+            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            if (player == null)
+                throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
+            player.OnHealthChanged += UpdateHealth;
+            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
+            this.player = player;
         }
 
-        public void Update(int Health)
+        /// <summary>
+        /// Zorgt ervoor dat de healthbar bij het laden van een nieuwe speelveld (en een nieuwe speler), de healthbar gaat luisteren naar de nieuwe speler
+        /// </summary>
+        /// <param name="Playfield">Het nieuwe playfield object</param>
+        private void OnPlayFieldUpdate(PlayField Playfield)
+        {
+            player.OnHealthChanged -= UpdateHealth;
+            player = Playfield.Player;
+            player.OnHealthChanged += UpdateHealth;
+            UpdateHealth(player, -1);
+        }
+
+        /// <summary>
+        /// Wijst verschillende gegevens toe aan labels in de InfoBox
+        /// </summary>
+        private void UpdateLabels()
         {
             PlayField pf = OlympusTheGame.INSTANCE.Playfield;
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
             timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
+        }
 
+        /// <summary>
+        /// Wordt gebruikt om de health van de speler te updaten
+        /// </summary>
+        /// <param name="player">De speler die het event gefired heeft</param>
+        /// <param name="prevHealth">De health voordat de speler damage kreeg</param>
+        private void UpdateHealth(EntityPlayer player, int prevHealth)
+        {
             // Geeft het aantal levens weer
             heartAlive1.Visible = false;
             heartAlive2.Visible = false;
             heartAlive3.Visible = false;
             heartAlive4.Visible = false;
             heartAlive5.Visible = false;
-            switch (Health)
+            switch (player.Health)
             {
                 case 5:
                     heartAlive5.Visible = true;
@@ -51,7 +84,6 @@ namespace Olympus_the_Game.View
                     heartAlive1.Visible = true;
                     break;
             }
-
         }
 
         /// <summary>
@@ -85,7 +117,7 @@ namespace Olympus_the_Game.View
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
             if (OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { Update(OlympusTheGame.INSTANCE.Playfield.Player.Health); };
+                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
         }
 
     }

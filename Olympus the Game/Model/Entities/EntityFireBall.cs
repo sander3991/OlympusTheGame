@@ -5,64 +5,88 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
-    //TODO Elmar: Commentaar toevoegen aan public props en methods
     public class EntityFireBall : Entity
     {
-        // TODO Elmar: Onderstaande 3 regels kunnen niet. Geen referenties naar externe statics als variabelen in de class. Playfield zit al intern in GameObject.cs
-        Controller contr = OlympusTheGame.INSTANCE.Controller;
-        EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-        PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+        private EntityGhast owner;
+        private int prop_fireballspeed = 40;
+        /// <summary>
+        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
+        /// </summary>
+        public int FireballSpeed
+        {
+            get { return prop_fireballspeed; }
+            set
+            {
+                prop_fireballspeed = Math.Max(0, value);
+            }
+        }
 
-        public int fireballSpeed = 50; // Aanpasbaar in editor
-        public int destinyX, destinyY, i, j; // TODO Elmar: Betere omschrijving van de variabelen, en Props van maken, of private als ze alleen lokaal gebruikt worden
-        private bool targetFound = false;
-
-        public EntityFireBall(int width, int height, int x, int y, int dx, int dy)
+        /// <summary>
+        /// FILL THIS IN
+        /// </summary>
+        public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            if (target == null || owner == null)
+            {
+                throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
+            }
+
+            // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
+            DX = -((this.X - target.X) / FireballSpeed);
+            DY = -((this.Y - target.Y) / FireballSpeed);
+
             EntityControlledByAI = false;
             Type = ObjectType.FIREBALL;
             IsSolid = false;
+            this.owner = owner;
         }
-        public EntityFireBall(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+        /// <summary>
+        /// FILL THIS IN
+        /// </summary>
+        public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target) : this(width, height, x, y, 0, 0, owner, target) { }
 
-        //TODO Elmar: Graag overleggen met Sander
+        public override CollisionType CollidesWithObject(GameObject entity)
+        {
+            if (entity == owner)
+                return CollisionType.NONE;
+            return base.CollidesWithObject(entity);
+        }
+
         public void OnUpdate()
         {
-            if (player != null)
-            {
-                if (!targetFound)
-                {
-                    destinyX = player.X;
-                    destinyY = player.Y;
-                    //stapjes per verandering bepalen in de x- en y-as
-                    i = -((this.X - destinyX) / fireballSpeed);
-                    j = -((this.Y - destinyY) / fireballSpeed);
-                    targetFound = true;
-                }
-                this.X += i;
-                this.Y += j;
-            }
-
-            // Explodeer onder bepaalde voorwaarden
-            if (this.CollidesWithObject(player) != CollisionType.NONE )
-            {
-                player.Health--;
-                pf.RemoveObject(this);
-            }
-            else if(this.X == 0 || this.Y == 0 || this.X >= 966 || this.Y >= 469)
-                pf.RemoveObject(this);
+            // Verwijderd de fireball als het de randen van het spel raakt
+            if (this.X <= 3 || this.Y <= 3 || this.X >= (Playfield.Width - 25) || this.Y >= (Playfield.Height - 25))
+                Playfield.RemoveObject(this);
         }
 
         public override void OnCollide(GameObject gameObject)
         {
+            // Ontplof niet wanneer het object collide met de eigenaar van de vuurbal of met een andere vuurbal
+            if (gameObject == owner || gameObject.Type == ObjectType.FIREBALL)
+            {
+            }
+            // Ontplof wanneer het de speler raakt (en verwijder het object meteen van het speelveld)
+            else if (gameObject.Type == ObjectType.PLAYER)
+            {
+                Playfield.Player.Health--;
+                Playfield.RemoveObject(this);
+            }
+            else
+            {
+                Playfield.RemoveObject(this);
+                Entity e = gameObject as Entity;
+                // Verwijder het object waar het mee in aanraking is gekomen. Onder voorwaarde dat het een entity is
+                if (e != null)
+                    Playfield.RemoveObject(gameObject);
+            }
         }
 
         public override void OnRemoved(bool fieldRemoved)
-        {
-            contr.UpdateGameEvents -= OnUpdate; // TODO Elmar: Je haalt hier 2 keer OnUpdate weg!
-            pf.AddObject(new SpriteExplosion(this));
+        {            
+            // Verwijder dit object uit de gameloop met een mooie explosie
+            Playfield.AddObject(new SpriteExplosion(this));
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 

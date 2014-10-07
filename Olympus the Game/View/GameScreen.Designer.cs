@@ -40,6 +40,8 @@
             this.pijltjestoetsenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.volledigeWeergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
@@ -61,7 +63,9 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
+            playField1.Height = 500;
             playField1.Name = "Map_0";
+            playField1.Width = 1000;
             this.gamePanel1.Playfield = playField1;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
@@ -69,7 +73,9 @@
             // customMenuBar1
             // 
             this.customMenuBar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.weergaveToolStripMenuItem});
+            this.weergaveToolStripMenuItem,
+            this.pauzeToolStripMenuItem,
+            this.verderToolStripMenuItem});
             this.customMenuBar1.Location = new System.Drawing.Point(0, 0);
             this.customMenuBar1.Name = "customMenuBar1";
             this.customMenuBar1.Size = new System.Drawing.Size(1264, 24);
@@ -95,7 +101,7 @@
             this.statestiekenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statestiekenToolStripMenuItem.Name = "statestiekenToolStripMenuItem";
             this.statestiekenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.statestiekenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.statestiekenToolStripMenuItem.Text = "Statistieken";
             this.statestiekenToolStripMenuItem.Click += new System.EventHandler(this.statistiekenToolStripMenuItem_Click);
             // 
@@ -106,7 +112,7 @@
             this.informatieSchermToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.informatieSchermToolStripMenuItem.Name = "informatieSchermToolStripMenuItem";
             this.informatieSchermToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.informatieSchermToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.informatieSchermToolStripMenuItem.Text = "Informatiescherm";
             this.informatieSchermToolStripMenuItem.Click += new System.EventHandler(this.informatieSchermToolStripMenuItem_Click);
             // 
@@ -117,24 +123,38 @@
             this.pijltjestoetsenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pijltjestoetsenToolStripMenuItem.Name = "pijltjestoetsenToolStripMenuItem";
             this.pijltjestoetsenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pijltjestoetsenToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.pijltjestoetsenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.pijltjestoetsenToolStripMenuItem.Text = "Pijltjestoetsen";
             this.pijltjestoetsenToolStripMenuItem.Click += new System.EventHandler(this.pijltjestoetsenToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
             // 
             // volledigeWeergaveToolStripMenuItem
             // 
             this.volledigeWeergaveToolStripMenuItem.CheckOnClick = true;
             this.volledigeWeergaveToolStripMenuItem.Name = "volledigeWeergaveToolStripMenuItem";
-            this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
             this.volledigeWeergaveToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.volledigeWeergaveToolStripMenuItem_Click);
+            // 
+            // pauzeToolStripMenuItem
+            // 
+            this.pauzeToolStripMenuItem.Name = "pauzeToolStripMenuItem";
+            this.pauzeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.pauzeToolStripMenuItem.Text = "Pauze";
+            this.pauzeToolStripMenuItem.Click += new System.EventHandler(this.pauzeToolStripMenuItem_Click);
+            // 
+            // verderToolStripMenuItem
+            // 
+            this.verderToolStripMenuItem.Name = "verderToolStripMenuItem";
+            this.verderToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.verderToolStripMenuItem.Text = "Verder";
+            this.verderToolStripMenuItem.Click += new System.EventHandler(this.verderToolStripMenuItem_Click);
             // 
             // infoView1
             // 
@@ -200,5 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem pijltjestoetsenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem volledigeWeergaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem pauzeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verderToolStripMenuItem;
     }
 }

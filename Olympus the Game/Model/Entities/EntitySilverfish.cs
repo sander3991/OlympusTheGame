@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Olympus_the_Game
 {
-    //TODO Elmar: Commentaar
+    //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
         public EntitySilverfish(int width, int height, int x, int y, int dx, int dy) : base(width, height, x, y, dx, dy)

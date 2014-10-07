@@ -1,21 +1,35 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {
-        //TODO Elmar: Access modifiers
-        Stopwatch stopwatch = Stopwatch.StartNew();
-        EntityWeb web; //TODO Elmar: Is deze wel nodig hier?
-
+        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private double prop_effectrange = 100;
+        private int prop_firespeed = 2000;
         /// <summary>
-        /// De afstand waarin deze entity zijn effect werkt
+        /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
-        public const int EFFECTRANGE = 10;
+        public double EffectRange
+        {
+            get { return prop_effectrange; }
+            set
+            {
+                prop_effectrange = Math.Max(50, value);
+            }
+        }
         /// <summary>
-        /// De sterkte van het effect van deze entity
+        /// Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
         /// </summary>
-        public const double EFFECTSTRENGTH = 0.5;
+        public int FireSpeed
+        {
+            get { return prop_firespeed; }
+            set
+            {
+                prop_firespeed = Math.Max(1, value);
+            }
+        }
 
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
@@ -33,16 +47,13 @@ namespace Olympus_the_Game
 
         public void OnUpdate()
         {
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
-            double distance = DistanceToObject(player);
-
-            if (distance <= 100)
+            if (DistanceToObject(Playfield.Player) <= EffectRange)
             {   
-                // Maak een cobweb aan wanneer er 4 seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
-                if (stopwatch.ElapsedMilliseconds >= 4000)
+                // Maak een entity cobweb aan wanneer er x seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
+                if (stopwatch.ElapsedMilliseconds >= FireSpeed)
                 {
-                    web = new EntityWeb(55, 55, player.X, player.Y, 0, 0);
-                    OlympusTheGame.INSTANCE.Playfield.AddObject(web); //TODO Elmar: Aanpassen naar ingebakken Playfield.
+                    EntityWeb web = new EntityWeb(55, 55, Playfield.Player.X, Playfield.Player.Y, 0, 0);
+                    this.Playfield.AddObject(web);
                     stopwatch.Restart();
                 }
             }
@@ -50,6 +61,7 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
+            // Verwijder dit object uit de gameloop
             OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
