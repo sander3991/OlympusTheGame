@@ -114,6 +114,9 @@ namespace Olympus_the_Game
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = Playfield;
 
+            // Reset gametime
+            prop_gametime.Reset();
+
             // Start timers
             Resume();
 
