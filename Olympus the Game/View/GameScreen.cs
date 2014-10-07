@@ -10,15 +10,15 @@ using System.Windows;
 
 namespace Olympus_the_Game.View
 {
-    //TODO HenkJan: Commentaar toevoegen iom Elmar
-    //TODO Elmar:  Commentaar toevoegen iom HenkJan
     public partial class GameScreen : Form
     {
+        /// <summary>
+        /// Maak een nieuw GameScreen aan.
+        /// </summary>
         public GameScreen()
         {
+            // Initialiseer componenten
             InitializeComponent();
-
-            this.SizeChanged += delegate(object o, EventArgs e) { this.gamePanel1.TryExpand(); };
         }
 
         /// <summary>
@@ -40,8 +40,14 @@ namespace Olympus_the_Game.View
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// Deze methode wordt aangeroepen als het scherm wordt geladen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GameScreen_Load(object sender, EventArgs e)
         {
+            // Maak niet resizable
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);

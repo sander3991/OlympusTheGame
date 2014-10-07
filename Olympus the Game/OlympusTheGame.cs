@@ -1,5 +1,6 @@
 ﻿using Olympus_the_Game.View;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
@@ -21,8 +22,9 @@ namespace Olympus_the_Game
         private static Timer SlowTimer = new Timer();
 
         /// <summary>
-        /// De instantie van de huidige applicatie, deze variabele kan worden gebruikt om onderdelen op te halen zoals
+        /// Deze houdt de interne tijd bij.
         /// </summary>
+        private static Stopwatch prop_gametime = new Stopwatch();
 
         /// <summary>
         /// Het huidige speelveld.
@@ -34,6 +36,27 @@ namespace Olympus_the_Game
         /// </summary>
         public static Controller Controller { get; private set; }
 
+        /// <summary>
+        /// Geeft aan of het spel gepauzeerd is.
+        /// </summary>
+        public static bool IsPaused
+        {
+            get
+            {
+                return !GameTimer.Enabled;
+            }
+        }
+
+        /// <summary>
+        /// Geeft de gametijd terug.
+        /// </summary>
+        public static long GameTime
+        {
+            get
+            {
+                return prop_gametime.ElapsedMilliseconds;
+            }
+        }
 
         /// <summary>
         /// Event dat gefired wordt zodra er een nieuw Playfield is
@@ -43,7 +66,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Maak nieuw OlympusTheGame object
         /// </summary>
-        private OlympusTheGame(){}
+        private OlympusTheGame() { }
 
         /// <summary>
         /// Beginpunt van de applicatie
@@ -106,7 +129,7 @@ namespace Olympus_the_Game
         {
             if (pf != null)
             {
-                if(Playfield != null)
+                if (Playfield != null)
                     Playfield.UnloadPlayField();
                 pf.SetPlayerHome();
                 Playfield = pf;
@@ -120,6 +143,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Pause()
         {
+            prop_gametime.Stop();
             GameTimer.Stop();
             SlowTimer.Stop();
         }
@@ -129,6 +153,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Resume()
         {
+            prop_gametime.Start();
             GameTimer.Start();
             SlowTimer.Start();
         }
