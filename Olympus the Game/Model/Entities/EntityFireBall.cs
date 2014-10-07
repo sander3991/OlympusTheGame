@@ -8,7 +8,7 @@ namespace Olympus_the_Game
     public class EntityFireBall : Entity
     {
         private EntityGhast owner;
-        private int prop_fireballspeed = 40;
+        private int prop_fireballspeed = 50;
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
         /// </summary>
@@ -27,12 +27,12 @@ namespace Olympus_the_Game
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             if (target == null || owner == null)
             {
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
-
+            //TODO Elmar max snelheid meegeven vuurbal schiet te snel met grote range
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
             DX = -((this.X - target.X) / FireballSpeed);
             DY = -((this.Y - target.Y) / FireballSpeed);
@@ -69,6 +69,7 @@ namespace Olympus_the_Game
             // Ontplof niet wanneer het object collide met de eigenaar van de vuurbal of met een andere vuurbal
             if (gameObject == owner || gameObject.Type == ObjectType.FIREBALL)
             {
+                return;
             }
             // Ontplof wanneer het de speler raakt (en verwijder het object meteen van het speelveld)
             else if (gameObject.Type == ObjectType.PLAYER)
@@ -89,8 +90,8 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {            
             // Verwijder dit object uit de gameloop met een mooie explosie
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
             Playfield.AddObject(new SpriteExplosion(this));
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()

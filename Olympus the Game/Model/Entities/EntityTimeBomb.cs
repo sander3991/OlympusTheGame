@@ -55,7 +55,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
@@ -66,12 +66,15 @@ namespace Olympus_the_Game
         {
 
         }
+
+        //TODO Elmar: Deel van deze functie dient OnCollide te zijn, in de OnCollide start zet je de OnUpdate in de UpdateGameEvents event, omdat tot dat punt je het niet nodig hebt. Let op dat de timer maar één keer wordt geactiveerd!
+
         public void OnUpdate()
         {
             if (Playfield.Player != null)
             {
                 // Start de timer wanneer een speler zich in de buurt bevindt
-                if (DistanceToObject(Playfield.Player) <= DetectRadius)
+                if (!isTimerStarted && DistanceToObject(Playfield.Player) <= DetectRadius)
                 {
                     stopwatch = Stopwatch.StartNew();
                     isTimerStarted = true;
@@ -95,7 +98,7 @@ namespace Olympus_the_Game
         {
             // Verwijder dit object uit de gameloop na een mooie explosie
             Playfield.AddObject(new SpriteExplosion(75, 75, this.X, this.Y));
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override void OnCollide(GameObject gameObject)

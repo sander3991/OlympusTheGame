@@ -91,7 +91,7 @@ namespace Olympus_the_Game.View.MenuBar
             ld.ShowDialog();
             PlayField Playfield = ld.Playfield;
             if (Playfield != null)
-                OlympusTheGame.INSTANCE.SetNewPlayfield(Playfield);
+                OlympusTheGame.SetNewPlayfield(Playfield);
         }
 
         private void LevelEditor_Click(object sender, EventArgs e)

@@ -10,30 +10,27 @@ namespace Olympus_the_Game_Test
         [TestMethod]
         public void Test_Set_New_Playfield()
         {
-            // Arrange
-            OlympusTheGame otg = new OlympusTheGame();
             PlayField expected = new PlayField();
 
             // Act
-            otg.SetNewPlayfield(expected);
+            OlympusTheGame.SetNewPlayfield(expected);
 
             // Assert
-            Assert.AreEqual(expected, otg.Playfield);
+            Assert.AreEqual(expected, OlympusTheGame.Playfield);
         }
 
         [TestMethod]
         public void Test_Set_New_Playfield_Event_Fired()
         {
             // Arrange
-            OlympusTheGame otg = new OlympusTheGame();
             PlayField pf = new PlayField();
             bool actual = false;
             bool expected = true;
 
-            otg.OnNewPlayField += delegate(PlayField p) { actual = true; };
+            OlympusTheGame.OnNewPlayField += delegate(PlayField p) { actual = true; };
 
             // Act
-            otg.SetNewPlayfield(pf);
+            OlympusTheGame.SetNewPlayfield(pf);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -43,17 +40,16 @@ namespace Olympus_the_Game_Test
         public void Test_Pause_Resume_Exception()
         {
             // Arrange
-            OlympusTheGame otg = new OlympusTheGame();
             PlayField pf = new PlayField();
-            otg.SetNewPlayfield(pf);
+            OlympusTheGame.SetNewPlayfield(pf);
 
             // Act / Assert
             try
             {
-                otg.Pause();
-                otg.Resume();
-                otg.Pause();
-                otg.Resume();
+                OlympusTheGame.Pause();
+                OlympusTheGame.Resume();
+                OlympusTheGame.Pause();
+                OlympusTheGame.Resume();
             }
             catch (Exception e)
             {
