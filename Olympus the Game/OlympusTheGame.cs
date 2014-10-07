@@ -84,6 +84,14 @@ namespace Olympus_the_Game
         {
             if (Controller == null)
                 Controller = new Controller();
+
+            // Add gameloop to timer
+            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
+            GameTimer.Interval = 10;
+
+            // Create slow timer
+            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
+            SlowTimer.Interval = 200;
         }
 
         /// <summary>
@@ -102,14 +110,6 @@ namespace Olympus_the_Game
 
             // Maak gamescreen aan
             GameScreen gs = new GameScreen();
-
-            // Add gameloop to timer
-            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
-            GameTimer.Interval = 10;
-
-            // Create slow timer
-            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
-            SlowTimer.Interval = 200;
 
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = Playfield;
