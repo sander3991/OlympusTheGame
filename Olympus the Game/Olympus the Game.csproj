@@ -50,6 +50,12 @@
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\KeyHandler.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Entities\EntitySilverfish.cs" />
     <Compile Include="Model\Entities\EntityFireBall.cs" />
     <Compile Include="Model\Entities\EntityGhast.cs" />
@@ -138,6 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

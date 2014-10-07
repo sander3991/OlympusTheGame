@@ -11,7 +11,7 @@ namespace Olympus_the_Game_Test.Model
         [TestMethod]
         public void CollisionTest()
         {
-            OlympusTheGame.INSTANCE = new OlympusTheGame();
+            OlympusTheGame.SetController();
             List<GameObject> objects = new List<GameObject>();
             //alle objecten zijn in eerste instantie 10 breed en hoog, en staan op X en Y.
             objects.Add(new ObjectStart(10, 10, 0, 0));
@@ -71,7 +71,7 @@ namespace Olympus_the_Game_Test.Model
         [TestMethod]
         public void EntityOutOfBoundsTest()
         {
-            OlympusTheGame.INSTANCE = new OlympusTheGame();
+            OlympusTheGame.SetController();
             List<Entity> entities = new List<Entity>();
             entities.Add(new EntityPlayer(-1, -1, -1, -1));
             entities.Add(new EntitySlower(-1, -1, -1, -1));
@@ -94,7 +94,7 @@ namespace Olympus_the_Game_Test.Model
         [TestMethod]
         public void EntityDistanceTest()
         {
-            OlympusTheGame.INSTANCE = new OlympusTheGame();
+            OlympusTheGame.SetController();
             List<Entity> entities = new List<Entity>();
             Entity player = new EntityPlayer(0, 0, 0, 0);
             player.DX = 5;
@@ -147,7 +147,7 @@ namespace Olympus_the_Game_Test.Model
         [TestMethod]
         public void EntityMoveTest()
         {
-            OlympusTheGame.INSTANCE = new OlympusTheGame();
+            OlympusTheGame.SetController();
             List<Entity> entities = new List<Entity>();
             Entity player = new EntityPlayer(0, 0, 0, 0);
             player.DX = 5;

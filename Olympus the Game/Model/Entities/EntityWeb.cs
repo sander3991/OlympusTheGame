@@ -41,7 +41,7 @@ namespace Olympus_the_Game
         public EntityWeb(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = false;
             Type = ObjectType.WEB;
             IsSolid = false;
@@ -64,8 +64,8 @@ namespace Olympus_the_Game
                 // Object uit de gameloop halen na een bepaalde tijdsduur
                 if (stopwatch.ElapsedMilliseconds >= RemoveTime)
                 {
-                    OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
-                    OlympusTheGame.INSTANCE.Playfield.RemoveObject(this);
+                    OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+                    OlympusTheGame.Playfield.RemoveObject(this);
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
         public override string ToString()
         {

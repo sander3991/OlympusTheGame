@@ -31,8 +31,8 @@ namespace Olympus_the_Game {
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.INSTANCE.Controller;
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            Controller contr = OlympusTheGame.Controller;
+            PlayField pf = OlympusTheGame.Playfield;
             if(!fieldRemoved)
                 pf.AddObject(new SpriteExplosion(this));
         }

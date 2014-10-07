@@ -18,14 +18,14 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
-            if (OlympusTheGame.INSTANCE == null || OlympusTheGame.INSTANCE.Playfield == null || OlympusTheGame.INSTANCE.Playfield.Player == null)
+            if (OlympusTheGame.Playfield == null || OlympusTheGame.Playfield.Player == null)
                 return;
 
-            EntityPlayer player = OlympusTheGame.INSTANCE.Playfield.Player;
+            EntityPlayer player = OlympusTheGame.Playfield.Player;
             if (player == null)
                 throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
             player.OnHealthChanged += UpdateHealth;
-            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
+            OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
             this.player = player;
         }
 
@@ -46,11 +46,11 @@ namespace Olympus_the_Game.View
         /// </summary>
         private void UpdateLabels()
         {
-            PlayField pf = OlympusTheGame.INSTANCE.Playfield;
+            PlayField pf = OlympusTheGame.Playfield;
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
-            SpelerX.Text = OlympusTheGame.INSTANCE.Playfield.Player.X.ToString();
-            SpelerY.Text = OlympusTheGame.INSTANCE.Playfield.Player.Y.ToString();
-            timePlayed.Text = OlympusTheGame.INSTANCE.Controller.GetTimeSinceStart();
+            SpelerX.Text = OlympusTheGame.Playfield.Player.X.ToString();
+            SpelerY.Text = OlympusTheGame.Playfield.Player.Y.ToString();
+            timePlayed.Text = OlympusTheGame.Controller.GetTimeSinceStart();
         }
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Olympus_the_Game.View
 
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
-            if (OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
+            if (OlympusTheGame.Controller != null)
+                OlympusTheGame.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
         }
 
     }

@@ -27,12 +27,12 @@ namespace Olympus_the_Game
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             if (target == null || owner == null)
             {
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
-
+            //TODO Elmar max snelheid meegeven vuurbal schiet te snel met grote range
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
             DX = -((this.X - target.X) / FireballSpeed);
             DY = -((this.Y - target.Y) / FireballSpeed);
@@ -50,6 +50,9 @@ namespace Olympus_the_Game
         public override CollisionType CollidesWithObject(GameObject entity)
         {
             if (entity == owner)
+                return CollisionType.NONE;
+            AnimatedSprite sprite = entity as AnimatedSprite;
+            if(sprite != null)
                 return CollisionType.NONE;
             return base.CollidesWithObject(entity);
         }
@@ -87,7 +90,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {            
             // Verwijder dit object uit de gameloop met een mooie explosie
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
             Playfield.AddObject(new SpriteExplosion(this));
         }
 
