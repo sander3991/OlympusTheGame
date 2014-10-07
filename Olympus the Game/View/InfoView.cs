@@ -18,8 +18,7 @@ namespace Olympus_the_Game.View
         public Point MouseDownLocation { get; set; }
         // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
-        private Form SourceForm;
-        private Point loc;
+
         // Een Dictionary om alle game entitys in op te slaan
         private Dictionary<Entity, ListViewItem> list;
         public InfoView()
@@ -155,37 +154,6 @@ namespace Olympus_the_Game.View
             LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
             listView1.Items.Add(LVItem);
             return LVItem;
-        }
-
-        private void ButtonRemove_Click(object sender, EventArgs e) {
-            loc = this.Location;
-            SourceForm = this.FindForm();
-            SourceForm.Controls.Remove(this);
-
-            Form f = new Form();
-            f.Width = this.Width + 10;
-            f.Height = this.Height + 35;
-            f.BackgroundImage = Properties.Resources.dirt;
-            f.Controls.Add(this);
-            this.Location = new Point(0, 0);
-            f.MaximizeBox = false;
-            f.FormBorderStyle = FormBorderStyle.FixedSingle;
-            f.FormClosed += BringBack;
-            this.DragButton.Visible = false;
-            this.ButtonRemove.Visible = false;
-            f.Show();
-        }
-
-        private void BringBack(object source, EventArgs e) {
-            Form f = this.FindForm();
-            f.Controls.Remove(this);
-            f.Dispose();
-
-            SourceForm.Controls.Add(this);
-            this.DragButton.Visible = true;
-            this.ButtonRemove.Visible = true;
-
-            this.Location = loc;
         }
 
         /// <summary>

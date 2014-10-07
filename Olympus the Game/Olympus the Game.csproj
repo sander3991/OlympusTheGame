@@ -86,6 +86,12 @@
     <Compile Include="View\ArrowPanel.Designer.cs">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Buttons\PopupButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Buttons\PopupButton.Designer.cs">
+      <DependentUpon>PopupButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Editor\EntityEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArrowPanel.resx">
       <DependentUpon>ArrowPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Buttons\PopupButton.resx">
+      <DependentUpon>PopupButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Editor\EntityEditor.resx">
       <DependentUpon>EntityEditor.cs</DependentUpon>

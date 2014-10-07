@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrowPanel));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ButtonRemove = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDown = new System.Windows.Forms.TextBox();
             this.textBoxUp = new System.Windows.Forms.TextBox();
@@ -41,6 +39,7 @@
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +47,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.ButtonRemove);
+            this.panel1.Controls.Add(this.popupButton1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxDown);
             this.panel1.Controls.Add(this.textBoxUp);
@@ -65,19 +64,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 205);
             this.panel1.TabIndex = 2;
-            // 
-            // ButtonRemove
-            // 
-            this.ButtonRemove.BackgroundImage = global::Olympus_the_Game.Properties.Resources.background;
-            this.ButtonRemove.FlatAppearance.BorderSize = 0;
-            this.ButtonRemove.ForeColor = System.Drawing.Color.Transparent;
-            this.ButtonRemove.Image = ((System.Drawing.Image)(resources.GetObject("ButtonRemove.Image")));
-            this.ButtonRemove.Location = new System.Drawing.Point(241, 3);
-            this.ButtonRemove.Name = "ButtonRemove";
-            this.ButtonRemove.Size = new System.Drawing.Size(40, 40);
-            this.ButtonRemove.TabIndex = 11;
-            this.ButtonRemove.UseVisualStyleBackColor = true;
-            this.ButtonRemove.Click += new System.EventHandler(this.ButtonRemove_Click);
             // 
             // label1
             // 
@@ -210,6 +196,15 @@
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
             // 
+            // popupButton1
+            // 
+            this.popupButton1.Location = new System.Drawing.Point(241, 3);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
+            this.popupButton1.TabIndex = 11;
+            this.popupButton1.Text = "popupButton1";
+            this.popupButton1.UseVisualStyleBackColor = true;
+            // 
             // ArrowPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +232,6 @@
         private System.Windows.Forms.TextBox textBoxLeft;
         private System.Windows.Forms.TextBox textBoxRight;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ButtonRemove;
+        private Buttons.PopupButton popupButton1;
     }
 }
