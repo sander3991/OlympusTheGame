@@ -100,7 +100,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De X positie van het GameObject
         /// </summary>
-        public int X
+        public virtual int X
         {
             get
             {
@@ -120,7 +120,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De Y positie van het game-object.
         /// </summary>
-        public int Y
+        public virtual int Y
         {
             get
             {
