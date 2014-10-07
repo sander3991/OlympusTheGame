@@ -61,6 +61,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.SleepButton = new System.Windows.Forms.Button();
             this.timePlayed = new System.Windows.Forms.Label();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heartAlive4)).BeginInit();
@@ -468,12 +469,24 @@
             this.timePlayed.TabIndex = 16;
             this.timePlayed.Text = "99:99";
             // 
+            // popupButton1
+            // 
+            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Location = new System.Drawing.Point(0, 26);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(20, 20);
+            this.popupButton1.TabIndex = 17;
+            this.popupButton1.Text = "popupButton1";
+            this.popupButton1.UseVisualStyleBackColor = true;
+            // 
             // InfoBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
+            this.Controls.Add(this.popupButton1);
             this.Controls.Add(this.timePlayed);
             this.Controls.Add(this.SleepButton);
             this.Controls.Add(this.groupBox5);
@@ -544,5 +557,6 @@
         private System.Windows.Forms.PictureBox heartDead3;
         private System.Windows.Forms.PictureBox heartDead2;
         private System.Windows.Forms.PictureBox heartDead1;
+        private Buttons.PopupButton popupButton1;
     }
 }

@@ -14,6 +14,7 @@ namespace Olympus_the_Game.View
     {
         public Point MouseDownLocation { get; set; }
         private EntityPlayer player; //De speler waarvan op dit moment de health getracked wordt
+
         public InfoBox()
         {
             InitializeComponent();
@@ -119,6 +120,5 @@ namespace Olympus_the_Game.View
             if (OlympusTheGame.Controller != null)
                 OlympusTheGame.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
         }
-
     }
 }

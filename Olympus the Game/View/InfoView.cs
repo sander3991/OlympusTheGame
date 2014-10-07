@@ -18,6 +18,7 @@ namespace Olympus_the_Game.View
         public Point MouseDownLocation { get; set; }
         // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
+
         // Een Dictionary om alle game entitys in op te slaan
         private Dictionary<Entity, ListViewItem> list;
         public InfoView()
