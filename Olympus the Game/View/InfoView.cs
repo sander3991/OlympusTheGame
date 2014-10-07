@@ -32,7 +32,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void OnLoad(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = false;
             //if(OlympusTheGame.Controller != null)
             //    OlympusTheGame.Controller.UpdateSlowEvents += update;
 
@@ -90,6 +90,7 @@ namespace Olympus_the_Game.View
                 ListViewItem LVItem = list[e];
                 LVItem.SubItems[1].Text = e.X.ToString();
                 LVItem.SubItems[2].Text = e.Y.ToString();
+                LVItem.SubItems[3].Text = Math.Abs(e.DX + e.DY).ToString();
             }
         }
 
