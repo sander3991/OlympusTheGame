@@ -158,5 +158,16 @@ namespace Olympus_the_Game.View
         {
             OlympusTheGame.Resume();
         }
+
+        private void verbergAllesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.statistiekenToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
+            this.informatieToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
+            this.bedieningToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
+
+            this.statistiekenToolStripMenuItem_Click(null, null);
+            this.informatieSchermToolStripMenuItem_Click(null, null);
+            this.pijltjestoetsenToolStripMenuItem_Click(null, null); // TODO Ruben: Dit moet beter
+        }
     }
 }
