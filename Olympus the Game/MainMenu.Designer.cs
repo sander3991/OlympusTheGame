@@ -59,7 +59,7 @@
             this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
             this.Name = "MainMenu";
-            this.Text = "MainMenu";
+            this.Text = "Olympus The Game";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
