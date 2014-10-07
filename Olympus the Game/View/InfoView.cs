@@ -16,8 +16,6 @@ namespace Olympus_the_Game.View
     {
         // Muis positie bijhouden deze wordt gebruikt bij het verslepen van het scherm
         public Point MouseDownLocation { get; set; }
-        // List voor alle Entitys bijhouden
-        public List<GameObject> Entitys { get; set; }
         // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
 
@@ -35,10 +33,64 @@ namespace Olympus_the_Game.View
         private void OnLoad(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            if(OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.UpdateSlowEvents += update;
+            //if(OlympusTheGame.Controller != null)
+            //    OlympusTheGame.Controller.UpdateSlowEvents += update;
+
+            
             IsResized = false;
             list = new Dictionary<Entity, ListViewItem>();
+            // Initialiseer de eerste lijst
+            List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
+            foreach (GameObject g in Entitys)
+            {
+                Entity ent = g as Entity;
+
+                if (ent != null)
+                {
+                    list[ent] = CreateListViewItem(ent);
+                    ent.OnMoved += ent_OnMoved;
+                }
+            }
+            OlympusTheGame.Playfield.OnObjectAdded += Playfield_OnObjectAdded;
+            OlympusTheGame.Playfield.OnObjectRemoved += Playfield_OnObjectRemoved;
+        }
+
+        private void Playfield_OnObjectRemoved(GameObject go)
+        {
+            Entity e = go as Entity;
+            if (e != null)
+            {
+                if (list.ContainsKey(e))
+                {
+                    ListViewItem item = list[e];
+                    if(item != null)
+                    {
+                        list[e].Remove();
+                        list[e] = null;
+                        e.OnMoved -= ent_OnMoved;
+                    }
+                }
+            }
+        }
+
+        private void Playfield_OnObjectAdded(GameObject go)
+        {
+            Entity e = go as Entity;
+            if (e != null)
+            {
+                list[e] = CreateListViewItem(e);
+                e.OnMoved += ent_OnMoved;
+            }
+        }
+
+        private void ent_OnMoved(Entity e)
+        {
+            if (list.ContainsKey(e))
+            {
+                ListViewItem LVItem = list[e];
+                LVItem.SubItems[1].Text = e.X.ToString();
+                LVItem.SubItems[2].Text = e.Y.ToString();
+            }
         }
 
         /// <summary>
@@ -76,7 +128,7 @@ namespace Olympus_the_Game.View
         private void update()
         {
             // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
-            Entitys = OlympusTheGame.Playfield.GameObjects;
+            List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
             foreach (GameObject g in Entitys)
             {
                 Entity e = g as Entity;
@@ -92,12 +144,7 @@ namespace Olympus_the_Game.View
                     }
                     else
                     {
-                        LVItem = new ListViewItem(e.ToString());
-                        LVItem.SubItems.Add(e.X.ToString());
-                        LVItem.SubItems.Add(e.Y.ToString());
-                        LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
-                        listView1.Items.Add(LVItem);
-                        list[e] = LVItem;
+                        list[e] = CreateListViewItem(e);
                     }
                     
                 }
@@ -108,6 +155,17 @@ namespace Olympus_the_Game.View
                 IsResized = true;
             }
             this.Invalidate(true);
+        }
+
+        private ListViewItem CreateListViewItem(Entity e)
+        {
+            ListViewItem LVItem;
+            LVItem = new ListViewItem(e.ToString());
+            LVItem.SubItems.Add(e.X.ToString());
+            LVItem.SubItems.Add(e.Y.ToString());
+            LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
+            listView1.Items.Add(LVItem);
+            return LVItem;
         }
 
         

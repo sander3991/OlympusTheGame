@@ -27,6 +27,11 @@ namespace Olympus_the_Game{
         /// Geeft aan of deze entity bestuurd moet worden door de AI
         /// </summary>
         public bool EntityControlledByAI { get; protected set; }
+
+        public delegate void DelOnMoved(Entity e);
+
+        public event DelOnMoved OnMoved;
+        
         /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>
@@ -52,6 +57,8 @@ namespace Olympus_the_Game{
             PreviousY = Y;
             X += DX;
             Y += DY;
+            if (OnMoved != null)
+                OnMoved(this);
         }
     }
 }
