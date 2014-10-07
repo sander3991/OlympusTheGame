@@ -94,12 +94,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.ButtonExit);
             this.Controls.Add(this.ButtonHelp);
             this.Controls.Add(this.ButtonLevelEditor);
             this.Controls.Add(this.ButtonStart);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(430, 167);
+            this.Size = new System.Drawing.Size(427, 167);
             this.ResumeLayout(false);
 
         }

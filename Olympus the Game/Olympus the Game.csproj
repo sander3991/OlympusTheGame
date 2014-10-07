@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\KeyHandler.cs" />
+    <Compile Include="Controller\Mp3Player.cs" />
     <Compile Include="Controller\PlayFieldToXml.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -63,6 +64,7 @@
     <Compile Include="Model\Entities\Entity.cs" />
     <Compile Include="Model\Entities\EntityCreeper.cs" />
     <Compile Include="Model\Entities\EntityExplode.cs" />
+    <Compile Include="Model\Entities\EntityWebMissile.cs" />
     <Compile Include="Model\ObjectObstacle.cs" />
     <Compile Include="Model\Entities\EntityPlayer.cs" />
     <Compile Include="Model\Entities\EntitySlower.cs" />
@@ -258,7 +260,11 @@
     <None Include="Resources\hart1.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\trash_recyclebin_empty_closed.png" />
+    <None Include="Resources\loop.gif" />
+    <None Include="Resources\splashscreen4.gif" />
+    <Content Include="Resources\still.gif" />
+    <None Include="Resources\still2.gif" />
+    <None Include="Resources\still1.gif" />
     <None Include="Resources\timebomb.png" />
     <None Include="Resources\timebom.png" />
     <None Include="Resources\SpriteExplosion.bmp" />
@@ -272,9 +278,9 @@
     <Content Include="Resources\arrowUp.png" />
     <None Include="Resources\minecraft-stone-bhcmfrug.png" />
     <None Include="Resources\player2.jpg" />
-    <None Include="Resources\bin.bmp" />
-    <None Include="Resources\bin.png" />
-    <None Include="Resources\icon_bin.gif" />
+    <None Include="Resources\splashscreen1.gif" />
+    <None Include="Resources\splashscreen2.gif" />
+    <None Include="Resources\splashscreen3.gif" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
