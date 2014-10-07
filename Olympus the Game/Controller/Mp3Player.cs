@@ -66,7 +66,7 @@ namespace Olympus_the_Game
         /// Speelt een resource file af.
         /// </summary>
         /// <param name="resource">De resource gespeeld dient te worden</param>
-        public static void PlayResource(byte[] resource)
+        public static void SetResource(byte[] resource)
         {
             if(tempFileLoc != null) //Er wordt wat afgespeeld nu
                 StopPlaying();
@@ -79,7 +79,6 @@ namespace Olympus_the_Game
                 memoryStream.WriteTo(tempFileStream);
             }
             player.URL = tempFileLoc;
-            player.controls.play();
         }
 
         public static void Loop(bool loop)
@@ -95,6 +94,14 @@ namespace Olympus_the_Game
             player.controls.currentPosition = pos;
         }
 
+        /// <summary>
+        /// Starts playing the resource
+        /// </summary>
+        public static void PlaySelected()
+        {
+            if (tempFileLoc != null)
+                player.controls.play();
+        }
         /// <summary>
         /// Do a fade in 
         /// </summary>

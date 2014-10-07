@@ -31,7 +31,8 @@ namespace Olympus_the_Game.View
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
-            Mp3Player.PlayResource(Properties.Resources.JoelsSpecial);
+            Mp3Player.SetResource(Properties.Resources.JoelsSpecial);
+            Mp3Player.PlaySelected();
         }
 
         #region Drag and Drop

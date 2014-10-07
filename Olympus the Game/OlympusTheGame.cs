@@ -126,8 +126,9 @@ namespace Olympus_the_Game
             Resume();
 
 
-            Mp3Player.PlayResource(Properties.Resources.Blocks);
+            Mp3Player.SetResource(Properties.Resources.Blocks);
             Mp3Player.Loop(true);
+            Mp3Player.PlaySelected();
             // Start applicatie
             gs.ShowDialog();
             Mp3Player.StopPlaying();

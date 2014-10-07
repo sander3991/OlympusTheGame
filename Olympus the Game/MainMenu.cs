@@ -42,17 +42,24 @@ namespace Olympus_the_Game
             }
             this.VisibleChanged += MainMenu_VisibleChanged;
         }
-
+        /// <summary>
+        /// Wordt aangeroepen zodra de visibility van het MainMenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainMenu_VisibleChanged(object sender, EventArgs e)
         {
             if(Visible)
             {
-                Mp3Player.PlayResource(Properties.Resources.StarWars);
+                Mp3Player.StopPlaying();
+                Mp3Player.SetResource(Properties.Resources.StarWars);
                 if (!firstInit)
                 {
+                    System.Threading.Thread.Sleep(1); //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
                     Mp3Player.FadeIn(2000);
                     Mp3Player.SetPosition(27D);
                 }
+                Mp3Player.PlaySelected();
                 firstInit = false;
             }
         }        
