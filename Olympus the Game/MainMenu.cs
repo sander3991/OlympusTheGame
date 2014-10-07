@@ -41,7 +41,6 @@ namespace Olympus_the_Game
                 gifState = false;
             }
             this.VisibleChanged += MainMenu_VisibleChanged;
-            Mp3Player.PlayResource(Properties.Resources.StarWars);
         }
 
         private void MainMenu_VisibleChanged(object sender, EventArgs e)
@@ -51,8 +50,8 @@ namespace Olympus_the_Game
                 Mp3Player.PlayResource(Properties.Resources.StarWars);
                 if (!firstInit)
                 {
-                    Mp3Player.SetPosition(27D);
                     Mp3Player.FadeIn(2000);
+                    Mp3Player.SetPosition(27D);
                 }
                 firstInit = false;
             }
