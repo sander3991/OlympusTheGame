@@ -74,7 +74,7 @@ namespace Olympus_the_Game
             if (Playfield.Player != null)
             {
                 // Start de timer wanneer een speler zich in de buurt bevindt
-                if (DistanceToObject(Playfield.Player) <= DetectRadius)
+                if (!isTimerStarted && DistanceToObject(Playfield.Player) <= DetectRadius)
                 {
                     stopwatch = Stopwatch.StartNew();
                     isTimerStarted = true;
