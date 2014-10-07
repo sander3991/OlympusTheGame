@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View
         public Point MouseDownLocation { get; set; }
         // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
-
+        // Een Dictionary om alle game entitys in op te slaan
         private Dictionary<Entity, ListViewItem> list;
         public InfoView()
         {
@@ -36,7 +36,6 @@ namespace Olympus_the_Game.View
             //if(OlympusTheGame.Controller != null)
             //    OlympusTheGame.Controller.UpdateSlowEvents += update;
 
-            
             IsResized = false;
             list = new Dictionary<Entity, ListViewItem>();
             // Initialiseer de eerste lijst
@@ -53,26 +52,17 @@ namespace Olympus_the_Game.View
             }
             OlympusTheGame.Playfield.OnObjectAdded += Playfield_OnObjectAdded;
             OlympusTheGame.Playfield.OnObjectRemoved += Playfield_OnObjectRemoved;
-        }
-
-        private void Playfield_OnObjectRemoved(GameObject go)
-        {
-            Entity e = go as Entity;
-            if (e != null)
+            if (!IsResized)
             {
-                if (list.ContainsKey(e))
-                {
-                    ListViewItem item = list[e];
-                    if(item != null)
-                    {
-                        list[e].Remove();
-                        list[e] = null;
-                        e.OnMoved -= ent_OnMoved;
-                    }
-                }
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                IsResized = true;
             }
         }
-
+        
+        /// <summary>
+        /// Als een object toegevoegd wordt, update dan de listview en koppel het OnMoved event
+        /// </summary>
+        /// <param name="go"></param>
         private void Playfield_OnObjectAdded(GameObject go)
         {
             Entity e = go as Entity;
@@ -82,7 +72,31 @@ namespace Olympus_the_Game.View
                 e.OnMoved += ent_OnMoved;
             }
         }
-
+        /// <summary>
+        /// Als een object van het speelveld afgaat dan wordt het object weggehaald
+        /// </summary>
+        /// <param name="go"></param>
+        private void Playfield_OnObjectRemoved(GameObject go)
+        {
+            Entity e = go as Entity;
+            if (e != null)
+            {
+                if (list.ContainsKey(e))
+                {
+                    ListViewItem item = list[e];
+                    if (item != null)
+                    {
+                        list[e].Remove();
+                        list[e] = null;
+                        e.OnMoved -= ent_OnMoved;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Update de text in listview als de entity wordt bewogen
+        /// </summary>
+        /// <param name="e">Entity die moet worden geupdate</param>
         private void ent_OnMoved(Entity e)
         {
             if (list.ContainsKey(e))
@@ -92,6 +106,7 @@ namespace Olympus_the_Game.View
                 LVItem.SubItems[2].Text = e.Y.ToString();
                 LVItem.SubItems[3].Text = Math.Abs(e.DX + e.DY).ToString();
             }
+            
         }
 
         /// <summary>
@@ -122,42 +137,11 @@ namespace Olympus_the_Game.View
                 this.BringToFront();
             }
         }
-        
         /// <summary>
-        /// Update alle items in de list view
+        /// Methode om een item aan de listview toe te voegen
         /// </summary>
-        private void update()
-        {
-            // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
-            List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
-            foreach (GameObject g in Entitys)
-            {
-                Entity e = g as Entity;
-                
-                if (e != null)
-                {
-                    ListViewItem LVItem;
-                    if (list.ContainsKey(e))
-                    {
-                        LVItem = list[e];
-                        LVItem.SubItems[1].Text = e.X.ToString();
-                        LVItem.SubItems[2].Text = e.Y.ToString();
-                    }
-                    else
-                    {
-                        list[e] = CreateListViewItem(e);
-                    }
-                    
-                }
-            }
-            if (!IsResized)
-            {
-                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                IsResized = true;
-            }
-            this.Invalidate(true);
-        }
-
+        /// <param name="e">Entity die je wilt toevoegen</param>
+        /// <returns></returns>
         private ListViewItem CreateListViewItem(Entity e)
         {
             ListViewItem LVItem;
@@ -168,6 +152,34 @@ namespace Olympus_the_Game.View
             listView1.Items.Add(LVItem);
             return LVItem;
         }
+
+        /// <summary>
+        /// Oude code om de list view up te daten
+        /// Update alle items in de list view
+        /// </summary>
+        //private void update()
+        //{
+        //    List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
+        //    foreach (GameObject g in Entitys)
+        //    {
+        //        Entity e = g as Entity;
+        //        if (e != null)
+        //        {
+        //            ListViewItem LVItem;
+        //            if (list.ContainsKey(e))
+        //            {
+        //                LVItem = list[e];
+        //                LVItem.SubItems[1].Text = e.X.ToString();
+        //                LVItem.SubItems[2].Text = e.Y.ToString();
+        //            }
+        //            else
+        //            {
+        //                list[e] = CreateListViewItem(e);
+        //            }
+        //        }
+        //    }
+        //    this.Invalidate(true);
+        //}
 
         
     }
