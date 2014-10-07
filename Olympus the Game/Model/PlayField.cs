@@ -67,11 +67,14 @@ namespace Olympus_the_Game
         /// </summary>
         public void InitializeGameObjects()
         {
-            if (DEFAULTMAP == null) //Initialiseert de default map de eerste keer dat deze wordt opgevraagd
+            if(!IsInitialized)
             {
-                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(PlayField));
-                PlayField pf = serializer.Deserialize(new StringReader(Properties.Resources.beach)) as PlayField;
-                DEFAULTMAP = pf.GameObjects;
+                if (DEFAULTMAP == null) //Initialiseert de default map de eerste keer dat deze wordt opgevraagd
+                {
+                    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(PlayField));
+                    PlayField pf = serializer.Deserialize(new StringReader(Properties.Resources.beach)) as PlayField;
+                    DEFAULTMAP = pf.GameObjects;
+                }
             }
             InitializeGameObjects(DEFAULTMAP);
         }
@@ -101,12 +104,23 @@ namespace Olympus_the_Game
                 }
                 if (Player == null)
                 {
-                    SetPlayerHome(); //Als de speler niet is gevonden, dan maken wij deze zelf aan. Dit gebeurt in SetPlayerHome();
                     Player.Playfield = this;
                 }
                 IsInitialized = true;
             }
+            SetPlayerHome();
+            Player.OnHealthChanged += Player_OnHealthChanged;
+        }
 
+        private void Player_OnHealthChanged(EntityPlayer player, int prevHealth)
+        {
+            if (player == Player)
+                if (player.Health == 0)
+                {
+                    SetPlayerHome();
+                    // TODO Hier moet de code komen voor het einde van het spel, nu wordt je health gereset
+                    player.Health = EntityPlayer.MAXHEALTH;
+                }
         }
 
         /// <summary>
