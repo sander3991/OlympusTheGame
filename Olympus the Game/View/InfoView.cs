@@ -33,9 +33,7 @@ namespace Olympus_the_Game.View
         private void OnLoad(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            
-            if(OlympusTheGame.INSTANCE != null)
-                OlympusTheGame.INSTANCE.Controller.UpdateSlowEvents += delegate() { update(); };
+            OlympusTheGame.Controller.UpdateSlowEvents += delegate() { update(); };
             IsResized = false;
         }
 
@@ -74,7 +72,7 @@ namespace Olympus_the_Game.View
         private void update()
         {
             // TODO HenkJan: Efficientere manier van updaten. Eventueel in overleg met Sander
-            Entitys = OlympusTheGame.INSTANCE.Playfield.GameObjects;
+            Entitys = OlympusTheGame.Playfield.GameObjects;
             listView1.Items.Clear();
             foreach (GameObject g in Entitys)
             {

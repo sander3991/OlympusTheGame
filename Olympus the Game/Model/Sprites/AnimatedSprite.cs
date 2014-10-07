@@ -42,5 +42,10 @@ namespace Olympus_the_Game
             IsSolid = false;
             start = Environment.TickCount;
         }
+
+        public override CollisionType CollidesWithObject(GameObject entity)
+        {
+            return CollisionType.NONE;
+        }
     }
 }
