@@ -18,6 +18,11 @@ namespace Olympus_the_Game.View
     public partial class GamePanel : UserControl
     {
         /// <summary>
+        /// Padding van het speelveld, deze rand wordt er altijd omheen gehouden.
+        /// </summary>
+        private static readonly int PADDING = 35;
+
+        /// <summary>
         /// Schaal van het speelveld
         /// </summary>
         public double SCALE { get; private set; }
@@ -61,6 +66,7 @@ namespace Olympus_the_Game.View
             // Save variables
             this.Playfield = pf;
             this.MaxSize = Size.Empty;
+            this.Dock = DockStyle.None;
 
             // Initialize GUI
             InitializeComponent();
@@ -207,7 +213,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Tries to expand this GamePanel as far as possible.
         /// </summary>
-        public void TryExpand(int padding)
+        public void TryExpand()
         {
             // Get parent form
             Form parent = this.FindForm();
@@ -215,7 +221,6 @@ namespace Olympus_the_Game.View
 
             // Initial values
             float ratio = (float)this.Playfield.Width / (float)this.Playfield.Height;
-            int s = parent.Height;
             Point pt = parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
             Size currentSize = new Size(pt.X, pt.Y);
             currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
@@ -226,7 +231,7 @@ namespace Olympus_the_Game.View
             {
                 if (c != this && c.Visible) // TODO Dit netter afhandelen
                 {
-                    if (c.GetType() != typeof(Olympus_the_Game.View.MenuBar.CustomMenuBar))
+                    if (c.GetType() == typeof(Olympus_the_Game.View.MenuBar.CustomMenuBar))
                     {
                         barHeight = c.Height;
                     }
@@ -241,8 +246,8 @@ namespace Olympus_the_Game.View
             }
 
             // Change size
-            this.Location = new Point(padding, padding + barHeight);
-            this.MaxSize = new Size(currentSize.Width - 2 * padding, currentSize.Height - 2 * padding - barHeight);
+            this.Location = new Point(PADDING, PADDING + barHeight);
+            this.MaxSize = new Size(currentSize.Width - 2 * PADDING, currentSize.Height - 2 * PADDING - barHeight);
 
             // Recalculate
             Recalculate();

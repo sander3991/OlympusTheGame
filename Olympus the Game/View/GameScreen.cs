@@ -17,6 +17,8 @@ namespace Olympus_the_Game.View
         public GameScreen()
         {
             InitializeComponent();
+
+            this.SizeChanged += delegate(object o, EventArgs e) { this.gamePanel1.TryExpand(); };
         }
 
         /// <summary>
@@ -120,16 +122,12 @@ namespace Olympus_the_Game.View
                 case (false):
                     WindowState = FormWindowState.Normal;
                     this.FormBorderStyle = FormBorderStyle.Fixed3D;
-                    gamePanel1.Left = 10;
-                    gamePanel1.Top = 35;
                     this.customMenuBar1.Visible = true;
-                    gamePanel1.TryExpand(35);
                     break;
                 case (true):
                     WindowState = FormWindowState.Maximized;
                     this.FormBorderStyle = FormBorderStyle.None;
                     this.customMenuBar1.Visible = false;
-                    gamePanel1.TryExpand(35);
                     break;
             }    
         }
