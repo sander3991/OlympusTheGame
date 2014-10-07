@@ -38,7 +38,7 @@ namespace Olympus_the_Game
                 if (!firstInit)
                 {
                     Mp3Player.SetPosition(27D);
-                    Mp3Player.FadeIn();
+                    Mp3Player.FadeIn(2000);
                 }
                 firstInit = false;
             }

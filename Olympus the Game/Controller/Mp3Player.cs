@@ -13,6 +13,9 @@ namespace Olympus_the_Game
     {
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
+        /// <summary>
+        /// Het volume van de MediaPlayer
+        /// </summary>
         public static int Volume { 
             get
             {
@@ -57,6 +60,10 @@ namespace Olympus_the_Game
             return stringBuilder.ToString();
         }
 
+        /// <summary>
+        /// Speelt een resource file af.
+        /// </summary>
+        /// <param name="resource">De resource gespeeld dient te worden</param>
         public static void PlayResource(byte[] resource)
         {
             if(tempFileLoc != null) //Er wordt wat afgespeeld nu
@@ -77,17 +84,24 @@ namespace Olympus_the_Game
         {
             player.settings.setMode("loop", loop);
         }
-
+        /// <summary>
+        /// Zet de positie van het nummer op het meegegeven punt
+        /// </summary>
+        /// <param name="pos">De positie in aantal seconden</param>
         public static void SetPosition(double pos)
         {
             player.controls.currentPosition = pos;
         }
 
-        public static void FadeIn()
+        /// <summary>
+        /// Do a fade in 
+        /// </summary>
+        /// <param name="time">De tijd in milliseconde, het minimum is 100</param>
+        public static void FadeIn(int time)
         {
             Mp3Player.Volume = 0;
             Timer timer = new Timer();
-            timer.Interval = 20;
+            timer.Interval = time / 100;
             timer.Tick += timer_Tick;
             timer.Start();
         }
@@ -107,6 +121,9 @@ namespace Olympus_the_Game
             }
         }
 
+        /// <summary>
+        /// Stopt de media player
+        /// </summary>
         internal static void StopPlaying()
         {
             player.controls.stop();
