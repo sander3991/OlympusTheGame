@@ -270,6 +270,7 @@
     <None Include="Resources\heartDead.gif" />
     <Content Include="Resources\arrowUp.png" />
     <None Include="Resources\minecraft-stone-bhcmfrug.png" />
+    <None Include="Resources\player2.jpg" />
     <Content Include="Resources\sprite_explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
