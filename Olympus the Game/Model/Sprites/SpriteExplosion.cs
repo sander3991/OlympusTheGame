@@ -31,7 +31,7 @@ namespace Olympus_the_Game
 
         /// <summary>
         /// Update this explosion.
-        /// </summary>
+        /// </summary>s
         public void OnUpdate()
         {
             // If explosion is over, remove from PlayField.
