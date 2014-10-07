@@ -203,6 +203,7 @@ namespace Olympus_the_Game.View
         private void OpenMusicFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             Controller.MusicPlayer.Open(OpenMusicFileDialog.FileName);
+            Controller.MusicPlayer.Play();
         }
 
 
