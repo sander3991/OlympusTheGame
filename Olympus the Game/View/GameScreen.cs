@@ -35,7 +35,7 @@ namespace Olympus_the_Game.View
             // Sluit spel af bij JA/YES
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
             if (dr == DialogResult.Yes)
-                OlympusTheGame.INSTANCE.RequestClose();
+                OlympusTheGame.RequestClose();
             else
                 e.Cancel = true;
         }
@@ -46,7 +46,7 @@ namespace Olympus_the_Game.View
             arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
-            OlympusTheGame.INSTANCE.OnNewPlayField += OnPlayFieldUpdate;
+            OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
         }
         /// <summary>
         /// Handel toetsen af als deze worden ingedrukt
@@ -142,12 +142,12 @@ namespace Olympus_the_Game.View
 
         private void pauzeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OlympusTheGame.INSTANCE.Pause();
+            OlympusTheGame.Pause();
         }
 
         private void verderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OlympusTheGame.INSTANCE.Resume();
+            OlympusTheGame.Resume();
         }
     }
 }

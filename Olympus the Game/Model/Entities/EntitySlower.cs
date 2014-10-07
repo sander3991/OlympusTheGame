@@ -37,7 +37,7 @@ namespace Olympus_the_Game
         public EntitySlower(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SLOWER;
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop
-            OlympusTheGame.INSTANCE.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()
