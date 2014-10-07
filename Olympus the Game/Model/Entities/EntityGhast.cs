@@ -9,7 +9,7 @@ namespace Olympus_the_Game
     public class EntityGhast : Entity
     {
         private Stopwatch stopwatch = Stopwatch.StartNew();
-        private int prop_firespeed = 1000;
+        private int prop_firespeed = 1050;
         private int prop_detectrange = 150;
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
