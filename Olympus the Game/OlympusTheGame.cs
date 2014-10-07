@@ -41,7 +41,7 @@ namespace Olympus_the_Game
         {
             get
             {
-                return GameTimer.Enabled;
+                return !GameTimer.Enabled;
             }
         }
 
