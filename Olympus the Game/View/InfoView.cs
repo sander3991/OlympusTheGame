@@ -32,6 +32,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void OnLoad(object sender, EventArgs e)
         {
+            if (OlympusTheGame.Playfield == null) return;
             this.DoubleBuffered = false;
             //if(OlympusTheGame.Controller != null)
             //    OlympusTheGame.Controller.UpdateSlowEvents += update;
@@ -40,6 +41,7 @@ namespace Olympus_the_Game.View
             list = new Dictionary<Entity, ListViewItem>();
             // Initialiseer de eerste lijst
             List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
+
             foreach (GameObject g in Entitys)
             {
                 Entity ent = g as Entity;

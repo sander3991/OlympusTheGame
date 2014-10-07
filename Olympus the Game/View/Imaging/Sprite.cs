@@ -112,20 +112,18 @@ namespace Olympus_the_Game.View.Imaging
                 {
                     return this.Image;
                 }
-
-                index = index % 1.0f;
-
-                if (this.Cyclic) // Plaatje cyclic? gebruik modulo
+                else if (!this.Cyclic)
                 {
-                    float f = index - (float)((int)index);
-                    int a = (int)(f * (float)Images.Count);
-                    return Images[a];
+                    if (index >= 1.0f)
+                        return EMPTY;
+                    else
+                        return Images[(int)(index * (float)Images.Count)];
                 }
-                else if (index <= 1.0f) // Geeft plaatje terug
+                else if (this.Cyclic)
                 {
+                    index = index - (float)((int)index);
                     return Images[(int)(index * (float)Images.Count)];
                 }
-                
                 else// Niet van dit alles? Geef lege bitmap terug
                 {
                     return EMPTY;
@@ -157,7 +155,7 @@ namespace Olympus_the_Game.View.Imaging
                 return this.Cyclic == s.Cyclic &&
                     this.Image.Equals(s.Image) &&
                     this.Columns == s.Columns &&
-                    this.Rows == s.Rows && 
+                    this.Rows == s.Rows &&
                     this.Image.Equals(s.Image);
             }
         }
