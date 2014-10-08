@@ -155,6 +155,7 @@ namespace Olympus_the_Game
             openGame = true;
             this.mainMenuControl1.Visible = false;
             this.levelDialog1.Visible = true;
+            this.ButtonBack.Visible = true;
         }
 
         private void ButtonLevelEditor_Click(object sender, EventArgs e)
@@ -162,6 +163,7 @@ namespace Olympus_the_Game
             openGame = false;
             this.mainMenuControl1.Visible = false;
             this.levelDialog1.Visible = true;
+            this.ButtonBack.Visible = true;
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -247,6 +249,13 @@ namespace Olympus_the_Game
             Mp3Player.PlaySelected();
             OlympusTheGame.Resume();
             gs.ShowDialog();
+        }
+
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            this.levelDialog1.Visible = false;
+            this.mainMenuControl1.Visible = true;
+            this.ButtonBack.Visible = false;
         }
     }
 }
