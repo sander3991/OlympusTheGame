@@ -16,8 +16,9 @@ namespace Olympus_the_Game.View.Game
             InitializeComponent();
         }
 
-        public GameFinished(FinishType type, int score) : this()
+        public GameFinished(FinishType type) : this()
         {
+            int score = Scoreboard.Score;
             switch (type)
             {
                 case FinishType.DEAD:
@@ -28,7 +29,12 @@ namespace Olympus_the_Game.View.Game
                     break;
             }
             this.score.Text = string.Format("Score: {0}", score.ToString("D5"));
-            CenterToParent();
+            foreach(ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
+            {
+                int typeScore = Scoreboard.GetScore(scoreType);
+                if(score != 0)
+                    this.score.Text += (Environment.NewLine + scoreType.ToString() + ":" + typeScore);
+            }
         }
 
         private void menuButton_Click(object sender, EventArgs e)
