@@ -21,7 +21,7 @@ namespace Olympus_the_Game
             {
                 return 0; 
             }
-            set
+            private set
             {
                 mciSendString(string.Concat("setaudio MediaFile volume to ", value), null, 0, 0);
             }
@@ -73,6 +73,11 @@ namespace Olympus_the_Game
             command = "stop MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = false;
+        }
+
+        public static void ChangeVolume(int volume)
+        {
+            mciSendString(string.Concat("setaudio MediaFile volume to ", volume), null, 0, 0);
         }
 
         

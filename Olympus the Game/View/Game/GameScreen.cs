@@ -294,25 +294,26 @@ namespace Olympus_the_Game.View
                 volumeDempenToolStripMenuItem.Checked = false;
         }
 
+        /// <summary>
+        /// Als user mute heeft geklikt demp dan het volume
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void volumeDempenToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             if (volumeDempenToolStripMenuItem.Checked)
             {
-                if (Mp3Player.IsPlaying)
-                    Mp3Player.Volume = 0;
-                else if (CustomMusicPlayer.IsPlaying)
-                    CustomMusicPlayer.MasterVolume = 0;
+                Mp3Player.Volume = 0;
+                CustomMusicPlayer.ChangeVolume(0);
             }
             else
             {
-                if (Mp3Player.IsPlaying)
-                    Mp3Player.Volume = 100;
-                else if (CustomMusicPlayer.IsPlaying)
-                    CustomMusicPlayer.MasterVolume = 100;
+                Mp3Player.Volume = 100;
+                CustomMusicPlayer.ChangeVolume(100);
             }
-                
 
-                
+
+
         }
 
         

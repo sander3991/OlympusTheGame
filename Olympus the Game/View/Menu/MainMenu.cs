@@ -33,6 +33,8 @@ namespace Olympus_the_Game
 
         private bool gifState;
 
+        private Form MaskForm;
+
         public MainMenu()
         {
             InitializeComponent();
@@ -93,6 +95,14 @@ namespace Olympus_the_Game
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.CenterToScreen();
+
+            // Create mask
+            MaskForm = new Form();
+            MaskForm.BackColor = Color.Black;
+            MaskForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            MaskForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            MaskForm.Show();
+            MaskForm.Visible = false;
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
@@ -164,7 +174,12 @@ namespace Olympus_the_Game
             int lvl = this.levelDialog1.Level;
             if (openGame)
             {
+
+                ShowMask(true);
+
                 this.Visible = false;
+                ShowGame();
+                MaskForm.Visible = false;
                 StartGame();
                 this.Visible = true;
             }
@@ -194,7 +209,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Deze methode wordt aangeroepen om de game te starten.
         /// </summary>
-        public void StartGame()
+        public void ShowGame()
         {
             // Read PlayField
             OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
@@ -209,15 +224,29 @@ namespace Olympus_the_Game
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
 
-            // Start timers
-            OlympusTheGame.Resume();
-
+            // Start muziek
             Mp3Player.SetResource(this.gameSound);
             Mp3Player.Loop(true);
+        }
+
+        private void ShowMask(bool showMask) {
+            MaskForm.Opacity = showMask ? 0.0f : 1.0f;
+            MaskForm.Visible = true;
+            for (float i = 0.0f; i <= 1.0f; i += 0.01f)
+            {
+                MaskForm.Opacity = showMask ? i : 1.0f - i;
+                System.Threading.Thread.Sleep(10);
+                gs.Invalidate();
+                Application.DoEvents();
+            }
+            MaskForm.Visible = showMask;
+        }
+
+        public void StartGame()
+        {
             Mp3Player.PlaySelected();
-            // Start applicatie
+            OlympusTheGame.Resume();
             gs.ShowDialog();
-            Mp3Player.StopPlaying();
         }
     }
 }
