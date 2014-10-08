@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,12 +47,13 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speelpauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.herhalenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
+            this.volumeDempenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,7 +162,8 @@
             this.openToolStripMenuItem,
             this.speelpauzeToolStripMenuItem,
             this.stopToolStripMenuItem,
-            this.herhalenToolStripMenuItem});
+            this.herhalenToolStripMenuItem,
+            this.volumeDempenToolStripMenuItem});
             this.MenuMuziekSpeler.Name = "MenuMuziekSpeler";
             this.MenuMuziekSpeler.Size = new System.Drawing.Size(92, 20);
             this.MenuMuziekSpeler.Text = "Muziek Speler";
@@ -169,38 +171,38 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // speelpauzeToolStripMenuItem
             // 
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
-            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
             this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
-            // 
-            // OpenMusicFileDialog
-            // 
-            this.OpenMusicFileDialog.FileName = "OpenMusicFileDialog";
-            this.OpenMusicFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenMusicFileDialog_FileOk);
             // 
             // herhalenToolStripMenuItem
             // 
             this.herhalenToolStripMenuItem.Checked = true;
             this.herhalenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.herhalenToolStripMenuItem.Name = "herhalenToolStripMenuItem";
-            this.herhalenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.herhalenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.herhalenToolStripMenuItem.Text = "Herhalen";
             this.herhalenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.herhalenToolStripMenuItem_CheckedChanged);
             this.herhalenToolStripMenuItem.Click += new System.EventHandler(this.herhalenToolStripMenuItem_Click);
+            // 
+            // OpenMusicFileDialog
+            // 
+            this.OpenMusicFileDialog.FileName = "OpenMusicFileDialog";
+            this.OpenMusicFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenMusicFileDialog_FileOk);
             // 
             // infoBox1
             // 
@@ -226,10 +228,10 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
-            playField1.Height = 500;
-            playField1.Name = "Map_0";
-            playField1.Width = 1000;
-            this.gamePanel1.Playfield = playField1;
+            playField2.Height = 500;
+            playField2.Name = "Map_0";
+            playField2.Width = 1000;
+            this.gamePanel1.Playfield = playField2;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
@@ -243,6 +245,14 @@
             this.infoView1.Name = "infoView1";
             this.infoView1.Size = new System.Drawing.Size(240, 489);
             this.infoView1.TabIndex = 5;
+            // 
+            // volumeDempenToolStripMenuItem
+            // 
+            this.volumeDempenToolStripMenuItem.Name = "volumeDempenToolStripMenuItem";
+            this.volumeDempenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.volumeDempenToolStripMenuItem.Text = "Volume dempen";
+            this.volumeDempenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.volumeDempenToolStripMenuItem_CheckedChanged);
+            this.volumeDempenToolStripMenuItem.Click += new System.EventHandler(this.volumeDempenToolStripMenuItem_Click);
             // 
             // GameScreen
             // 
@@ -294,5 +304,6 @@
         private System.Windows.Forms.OpenFileDialog OpenMusicFileDialog;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herhalenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volumeDempenToolStripMenuItem;
     }
 }
