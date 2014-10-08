@@ -8,10 +8,6 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Text;
-using System.IO;
-using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Olympus_the_Game
 {
