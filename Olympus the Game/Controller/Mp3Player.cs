@@ -45,6 +45,8 @@ namespace Olympus_the_Game
             string command = "play MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = true;
+            if (tempFileLoc != null)
+                StopPlaying();
         }
         public static void Pauze()
         {
@@ -81,6 +83,10 @@ namespace Olympus_the_Game
             player.URL = tempFileLoc;
         }
 
+        /// <summary>
+        /// Zet het loopen aan of uit
+        /// </summary>
+        /// <param name="loop">True voor loop aan, false voor uit</param>
         public static void Loop(bool loop)
         {
             player.settings.setMode("loop", loop);
@@ -101,6 +107,8 @@ namespace Olympus_the_Game
         {
             if (tempFileLoc != null)
                 player.controls.play();
+            if (IsPlaying)
+                Stop();
         }
         /// <summary>
         /// Do a fade in 
