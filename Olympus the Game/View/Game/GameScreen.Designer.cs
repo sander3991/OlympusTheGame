@@ -41,8 +41,8 @@
             this.verbergAllesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aToolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.volledigeWeergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.herstartenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMuziekSpeler = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speelpauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +61,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.weergaveToolStripMenuItem,
+            this.herstartenToolStripMenuItem,
             this.pauzeToolStripMenuItem,
-            this.verderToolStripMenuItem,
             this.MenuMuziekSpeler});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -86,9 +86,7 @@
             // 
             // statistiekenToolStripMenuItem
             // 
-            this.statistiekenToolStripMenuItem.Checked = true;
             this.statistiekenToolStripMenuItem.CheckOnClick = true;
-            this.statistiekenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statistiekenToolStripMenuItem.Name = "statistiekenToolStripMenuItem";
             this.statistiekenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.statistiekenToolStripMenuItem.Text = "Statistieken";
@@ -142,19 +140,20 @@
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
             this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
             // 
+            // herstartenToolStripMenuItem
+            // 
+            this.herstartenToolStripMenuItem.Name = "herstartenToolStripMenuItem";
+            this.herstartenToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.herstartenToolStripMenuItem.Text = "Herstarten";
+            this.herstartenToolStripMenuItem.Click += new System.EventHandler(this.herstartenToolStripMenuItem_Click);
+            // 
             // pauzeToolStripMenuItem
             // 
+            this.pauzeToolStripMenuItem.CheckOnClick = true;
             this.pauzeToolStripMenuItem.Name = "pauzeToolStripMenuItem";
             this.pauzeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.pauzeToolStripMenuItem.Text = "Pauze";
             this.pauzeToolStripMenuItem.Click += new System.EventHandler(this.pauzeToolStripMenuItem_Click);
-            // 
-            // verderToolStripMenuItem
-            // 
-            this.verderToolStripMenuItem.Name = "verderToolStripMenuItem";
-            this.verderToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.verderToolStripMenuItem.Text = "Verder";
-            this.verderToolStripMenuItem.Click += new System.EventHandler(this.verderToolStripMenuItem_Click);
             // 
             // MenuMuziekSpeler
             // 
@@ -301,7 +300,6 @@
         private System.Windows.Forms.ToolStripSeparator aToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem volledigeWeergaveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pauzeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuMuziekSpeler;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem speelpauzeToolStripMenuItem;
@@ -309,5 +307,6 @@
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herhalenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem volumeDempenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem herstartenToolStripMenuItem;
     }
 }

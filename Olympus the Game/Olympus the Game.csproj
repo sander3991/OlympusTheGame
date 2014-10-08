@@ -267,6 +267,9 @@
     <EmbeddedResource Include="View\Menu\MainMenuControl.resx">
       <DependentUpon>MainMenuControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\SettingsDialog.resx">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

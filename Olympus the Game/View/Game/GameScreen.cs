@@ -86,7 +86,7 @@ namespace Olympus_the_Game.View
             this.bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
-        
+
             // Update view
             this.updateView();
         }
@@ -99,7 +99,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyDown(sender,e);
+            KeyHandler.KeyDown(sender, e);
         }
         /// <summary>
         /// Handel toetsen af als deze worden los gelaten
@@ -128,12 +128,15 @@ namespace Olympus_the_Game.View
 
         private void pauzeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OlympusTheGame.Pause();
+            if (pauzeToolStripMenuItem.Checked)
+                OlympusTheGame.Pause();
+            else
+                OlympusTheGame.Resume();
         }
 
-        private void verderToolStripMenuItem_Click(object sender, EventArgs e)
+        private void herstartenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OlympusTheGame.Resume();
+            OlympusTheGame.Restart();
         }
 
         private void changeLayoutButtonClicked(object sender, EventArgs e)
@@ -212,7 +215,7 @@ namespace Olympus_the_Game.View
         {
             OpenMusicFileDialog.ShowDialog();
         }
-        
+
         /// <summary>
         /// Als er op ok is geklikt met de file opener speel dan de muziek af
         /// </summary>
@@ -229,14 +232,14 @@ namespace Olympus_the_Game.View
         {
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Pause();
-            else if(!CustomMusicPlayer.IsPlaying)
+            else if (!CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-            
+
             else if (Mp3Player.IsPlaying)
                 Mp3Player.Pause();
-            else if(!Mp3Player.IsPlaying)
+            else if (!Mp3Player.IsPlaying)
                 Mp3Player.Play();
-            
+
 
         }
         private void speelpauzeToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
@@ -287,7 +290,7 @@ namespace Olympus_the_Game.View
                 Mp3Player.Loop(herhalenToolStripMenuItem.Checked);
             else if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-            
+
         }
 
         private void volumeDempenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -319,15 +322,5 @@ namespace Olympus_the_Game.View
 
 
         }
-
-        
-
-        
-
-        
-
-        
-
-
     }
 }
