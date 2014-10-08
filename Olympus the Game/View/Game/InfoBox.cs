@@ -13,33 +13,13 @@ namespace Olympus_the_Game.View
     public partial class InfoBox : UserControl
     {
         public Point MouseDownLocation { get; set; }
-        private EntityPlayer player; //De speler waarvan op dit moment de health getracked wordt
 
         public InfoBox()
         {
             InitializeComponent();
 
-            if (OlympusTheGame.Playfield == null || OlympusTheGame.Playfield.Player == null)
-                return;
-
-            EntityPlayer player = OlympusTheGame.Playfield.Player;
-            if (player == null)
-                throw new ArgumentException("De PLayer Entity is nog niet geinitialiseerd");
-            player.OnHealthChanged += UpdateHealth;
-            OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
-            this.player = player;
-        }
-
-        /// <summary>
-        /// Zorgt ervoor dat de healthbar bij het laden van een nieuwe speelveld (en een nieuwe speler), de healthbar gaat luisteren naar de nieuwe speler
-        /// </summary>
-        /// <param name="Playfield">Het nieuwe playfield object</param>
-        private void OnPlayFieldUpdate(PlayField Playfield)
-        {
-            player.OnHealthChanged -= UpdateHealth;
-            player = Playfield.Player;
-            player.OnHealthChanged += UpdateHealth;
-            UpdateHealth(player, player.Health,-1);
+            if (OlympusTheGame.Controller != null)
+                OlympusTheGame.Controller.OnHealthChanged += UpdateHealth;
         }
 
         /// <summary>
