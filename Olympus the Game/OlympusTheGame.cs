@@ -26,10 +26,33 @@ namespace Olympus_the_Game
         /// </summary>
         private static Stopwatch prop_gametime = new Stopwatch();
 
+        private static PlayField prop_playfield;
+
         /// <summary>
         /// Het huidige speelveld.
         /// </summary>
-        public static PlayField Playfield { get; set; }
+        public static PlayField Playfield 
+        {
+            get
+            {
+                return prop_playfield;
+            }
+            set
+            {
+                if (value != prop_playfield && value != null)
+                {
+                    if (prop_playfield != null)
+                    {
+                        Playfield.UnloadPlayField();
+                    }
+                    prop_playfield = value;
+                    prop_playfield.SetPlayerHome();
+                    prop_playfield.InitializeGameObjects();
+                    if (OnNewPlayField != null)
+                        OnNewPlayField(prop_playfield);
+                }
+            }
+        }
 
         /// <summary>
         /// De controller, deze regelt alle events en updates
@@ -97,24 +120,6 @@ namespace Olympus_the_Game
             // Create slow timer
             SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
             SlowTimer.Interval = 200;
-        }
-
-        /// <summary>
-        /// Change the playfield
-        /// </summary>
-        /// <param name="pf"></param>
-        public static void SetNewPlayfield(PlayField pf)
-        {
-            if (pf != null)
-            {
-                if (Playfield != null)
-                    Playfield.UnloadPlayField();
-                pf.SetPlayerHome();
-                Playfield = pf;
-                Playfield.InitializeGameObjects();
-                if (OnNewPlayField != null)
-                    OnNewPlayField(pf);
-            }
         }
 
         /// <summary>

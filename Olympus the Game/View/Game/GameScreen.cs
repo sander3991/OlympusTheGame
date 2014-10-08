@@ -24,9 +24,9 @@ namespace Olympus_the_Game.View
             OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
         }
 
-        private void OnPlayerFinished(FinishType type, int score)
+        private void OnPlayerFinished(FinishType type)
         {
-            new GameFinished(type, score).ShowDialog();
+            new GameFinished(type).ShowDialog();
             forceClose = true;
             Close();
         }

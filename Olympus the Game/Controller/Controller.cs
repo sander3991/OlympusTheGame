@@ -32,7 +32,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="type">Het type finish</param>
         /// <param name="score">de score</param>
-        public delegate void DelOnFinish(FinishType type, int score);
+        public delegate void DelOnFinish(FinishType type);
         /// <summary>
         /// Wordt aangeroepen zodra een speler finished
         /// </summary>
@@ -70,7 +70,6 @@ namespace Olympus_the_Game
 
             // Registreert de health update event aan de controller
             OnHealthChanged += Player_OnHealthChanged;
-
         }
 
         /// <summary>
@@ -85,8 +84,19 @@ namespace Olympus_the_Game
             {
                 OlympusTheGame.Pause();
                 if (OnPlayerFinished != null)
-                    OnPlayerFinished(FinishType.DEAD, 1); //TODO add score hier
+                    OnPlayerFinished(FinishType.DEAD); //TODO add score hier
             }
+        }
+
+        public void OnPlayerReachedCake()
+        {
+            OlympusTheGame.Pause();
+            Scoreboard.AddScore(ScoreType.GameFinished, 10000);
+            int gameTime = Convert.ToInt32(OlympusTheGame.GameTime / 1000 - 30); //Haalt de gametime in seconde op minus de 30 seconde waarvoor je geen minpunten krijgt
+            Scoreboard.AddScore(ScoreType.Time, Math.Min(0, gameTime * -10));
+            Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health * 200);
+            if (OnPlayerFinished != null)
+                OnPlayerFinished(FinishType.CAKE);
         }
 
         /// <summary>
