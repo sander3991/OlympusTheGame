@@ -373,6 +373,9 @@
   <ItemGroup>
     <None Include="Resources\Sprites\explosion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sounds\bomb.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

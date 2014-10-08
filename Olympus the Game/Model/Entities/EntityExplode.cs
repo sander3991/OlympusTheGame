@@ -33,7 +33,10 @@ namespace Olympus_the_Game {
             Controller contr = OlympusTheGame.Controller;
             PlayField pf = OlympusTheGame.Playfield;
             if(!fieldRemoved)
+            {
                 pf.AddObject(new SpriteExplosion(this));
+                SoundEffects.PlaySound(Properties.Resources.bomb);
+            }
         }
 
         public override string ToString()
