@@ -113,6 +113,16 @@ namespace Olympus_the_Game
             player.controls.pause();
         }
 
+        public static void FadeOut(int time)
+        {
+            fadeInCounter = 100;
+            Volume = fadeInCounter;
+            Timer timer = new Timer();
+            timer.Interval = time / 100;
+            timer.Tick += timer_tick_fadeout;
+            timer.Start();
+        }
+
         /// <summary>
         /// Timer method die gebruikt wordt in de FadeIn()
         /// </summary>
@@ -123,10 +133,22 @@ namespace Olympus_the_Game
             Volume = ++fadeInCounter;
             if (Volume == 1)
                 player.controls.play();
-            if (player.settings.volume == 100)
+            if (player.settings.volume == 100 || !IsPlaying)
             {
                 Timer timer = sender as Timer;
                 timer.Stop();
+            }
+        }
+
+        private static void  timer_tick_fadeout(object sender, EventArgs e)
+        {
+            Volume = --fadeInCounter;
+            if(Volume == 0)
+            {
+                Timer timer = sender as Timer;
+                timer.Stop();
+                StopPlaying();
+                Volume = 100;
             }
         }
 
