@@ -458,21 +458,21 @@
             // popupButton1
             // 
             this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
-            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
-            this.popupButton1.Location = new System.Drawing.Point(0, 26);
+            this.popupButton1.Image = global::Olympus_the_Game.Properties.Resources.new_window_icon;
+            this.popupButton1.Location = new System.Drawing.Point(602, 162);
             this.popupButton1.Name = "popupButton1";
-            this.popupButton1.Size = new System.Drawing.Size(20, 20);
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
             this.popupButton1.TabIndex = 17;
-            this.popupButton1.Text = "popupButton1";
             this.popupButton1.UseVisualStyleBackColor = true;
             // 
             // moveButton1
             // 
             this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
             this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
-            this.moveButton1.Location = new System.Drawing.Point(0, 0);
+            this.moveButton1.Location = new System.Drawing.Point(648, 162);
+            this.moveButton1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.moveButton1.Name = "moveButton1";
-            this.moveButton1.Size = new System.Drawing.Size(20, 20);
+            this.moveButton1.Size = new System.Drawing.Size(40, 40);
             this.moveButton1.TabIndex = 18;
             this.moveButton1.UseVisualStyleBackColor = true;
             // 
@@ -491,7 +491,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Name = "InfoBox";
-            this.Size = new System.Drawing.Size(692, 162);
+            this.Size = new System.Drawing.Size(692, 207);
             this.Load += new System.EventHandler(this.InfoBox_Load_1);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

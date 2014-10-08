@@ -79,7 +79,7 @@
             // popupButton1
             // 
             this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
-            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Image = global::Olympus_the_Game.Properties.Resources.new_window_icon;
             this.popupButton1.Location = new System.Drawing.Point(143, 440);
             this.popupButton1.Name = "popupButton1";
             this.popupButton1.Size = new System.Drawing.Size(40, 40);
@@ -91,6 +91,7 @@
             this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
             this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
             this.moveButton1.Location = new System.Drawing.Point(190, 440);
+            this.moveButton1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.moveButton1.Name = "moveButton1";
             this.moveButton1.Size = new System.Drawing.Size(40, 40);
             this.moveButton1.TabIndex = 5;

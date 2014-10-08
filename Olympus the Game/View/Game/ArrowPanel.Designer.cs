@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrowPanel));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
             this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDown = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.ArrowKeyLeft = new System.Windows.Forms.Button();
             this.ArrowKeyDown = new System.Windows.Forms.Button();
             this.ArrowKeyUp = new System.Windows.Forms.Button();
-            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,10 +66,21 @@
             this.panel1.Size = new System.Drawing.Size(337, 205);
             this.panel1.TabIndex = 2;
             // 
+            // moveButton1
+            // 
+            this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
+            this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
+            this.moveButton1.Location = new System.Drawing.Point(287, 3);
+            this.moveButton1.MouseDownLocation = new System.Drawing.Point(0, 0);
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(40, 40);
+            this.moveButton1.TabIndex = 12;
+            this.moveButton1.UseVisualStyleBackColor = true;
+            // 
             // popupButton1
             // 
             this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
-            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Image = global::Olympus_the_Game.Properties.Resources.new_window_icon;
             this.popupButton1.Location = new System.Drawing.Point(241, 3);
             this.popupButton1.Name = "popupButton1";
             this.popupButton1.Size = new System.Drawing.Size(40, 40);
@@ -192,16 +203,6 @@
             this.ArrowKeyUp.UseVisualStyleBackColor = true;
             this.ArrowKeyUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ArrowKey_MouseDown);
             this.ArrowKeyUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StopMoving);
-            // 
-            // moveButton1
-            // 
-            this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
-            this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
-            this.moveButton1.Location = new System.Drawing.Point(287, 3);
-            this.moveButton1.Name = "moveButton1";
-            this.moveButton1.Size = new System.Drawing.Size(40, 40);
-            this.moveButton1.TabIndex = 12;
-            this.moveButton1.UseVisualStyleBackColor = true;
             // 
             // ArrowPanel
             // 
