@@ -28,6 +28,7 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
+            this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,12 +76,20 @@
             this.mainMenuControl1.Size = new System.Drawing.Size(427, 222);
             this.mainMenuControl1.TabIndex = 0;
             // 
+            // levelEditorMenu1
+            // 
+            this.levelEditorMenu1.Location = new System.Drawing.Point(772, 37);
+            this.levelEditorMenu1.Name = "levelEditorMenu1";
+            this.levelEditorMenu1.Size = new System.Drawing.Size(426, 110);
+            this.levelEditorMenu1.TabIndex = 5;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.levelEditorMenu1);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.levelDialog1);
             this.Controls.Add(this.mainMenuControl1);
@@ -101,6 +110,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private View.Menu.LevelDialog levelDialog1;
         public System.Windows.Forms.Button ButtonBack;
+        private View.Menu.LevelEditorMenu levelEditorMenu1;
 
 
     }

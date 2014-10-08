@@ -92,6 +92,12 @@
     <Compile Include="View\Menu\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu\LevelEditorMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\LevelEditorMenu.Designer.cs">
+      <DependentUpon>LevelEditorMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
   <ItemGroup>
     <EmbeddedResource Include="View\Menu\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\LevelEditorMenu.resx">
+      <DependentUpon>LevelEditorMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
