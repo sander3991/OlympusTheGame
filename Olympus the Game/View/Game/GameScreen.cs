@@ -217,24 +217,18 @@ namespace Olympus_the_Game.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void speelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void speelPauzeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CustomMusicPlayer.IsPlaying)
+            if (CustomMusicPlayer.IsPlaying || Mp3Player.IsPlaying)
+            {
                 CustomMusicPlayer.Pause();
-            else
-                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-        }
-        /// <summary>
-        /// Pauzeer de speler die aan het spelen is
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pauzeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (Mp3Player.IsPlaying)
                 Mp3Player.Pause();
-            else if (CustomMusicPlayer.IsPlaying)
-                CustomMusicPlayer.Pause();
+            }
+            else
+            {
+                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+                Mp3Player.Pause();
+            }
         }
         /// <summary>
         /// Als er op ok is geklikt met de file opener speel dan de muziek af
@@ -246,6 +240,7 @@ namespace Olympus_the_Game.View
             Mp3Player.StopPlaying();
             CustomMusicPlayer.Open(OpenMusicFileDialog.FileName);
             CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            speelpauzeToolStripMenuItem.Checked = true;
         }
 
         /// <summary>
@@ -315,6 +310,8 @@ namespace Olympus_the_Game.View
 
 
         }
+
+        
 
         
 

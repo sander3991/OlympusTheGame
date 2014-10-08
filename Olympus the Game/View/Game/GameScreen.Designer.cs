@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField2 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +48,12 @@
             this.speelpauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herhalenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.volumeDempenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
             this.infoView1 = new Olympus_the_Game.View.InfoView();
-            this.volumeDempenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,10 +177,13 @@
             // 
             // speelpauzeToolStripMenuItem
             // 
+            this.speelpauzeToolStripMenuItem.Checked = true;
+            this.speelpauzeToolStripMenuItem.CheckOnClick = true;
+            this.speelpauzeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
             this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
-            this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelToolStripMenuItem_Click);
+            this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelPauzeToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
@@ -198,6 +201,14 @@
             this.herhalenToolStripMenuItem.Text = "Herhalen";
             this.herhalenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.herhalenToolStripMenuItem_CheckedChanged);
             this.herhalenToolStripMenuItem.Click += new System.EventHandler(this.herhalenToolStripMenuItem_Click);
+            // 
+            // volumeDempenToolStripMenuItem
+            // 
+            this.volumeDempenToolStripMenuItem.Name = "volumeDempenToolStripMenuItem";
+            this.volumeDempenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.volumeDempenToolStripMenuItem.Text = "Volume dempen";
+            this.volumeDempenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.volumeDempenToolStripMenuItem_CheckedChanged);
+            this.volumeDempenToolStripMenuItem.Click += new System.EventHandler(this.volumeDempenToolStripMenuItem_Click);
             // 
             // OpenMusicFileDialog
             // 
@@ -228,10 +239,10 @@
             this.gamePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gamePanel1.Location = new System.Drawing.Point(12, 41);
             this.gamePanel1.Name = "gamePanel1";
-            playField2.Height = 500;
-            playField2.Name = "Map_0";
-            playField2.Width = 1000;
-            this.gamePanel1.Playfield = playField2;
+            playField1.Height = 500;
+            playField1.Name = "Map_0";
+            playField1.Width = 1000;
+            this.gamePanel1.Playfield = playField1;
             this.gamePanel1.Size = new System.Drawing.Size(978, 489);
             this.gamePanel1.TabIndex = 2;
             // 
@@ -245,14 +256,6 @@
             this.infoView1.Name = "infoView1";
             this.infoView1.Size = new System.Drawing.Size(240, 489);
             this.infoView1.TabIndex = 5;
-            // 
-            // volumeDempenToolStripMenuItem
-            // 
-            this.volumeDempenToolStripMenuItem.Name = "volumeDempenToolStripMenuItem";
-            this.volumeDempenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.volumeDempenToolStripMenuItem.Text = "Volume dempen";
-            this.volumeDempenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.volumeDempenToolStripMenuItem_CheckedChanged);
-            this.volumeDempenToolStripMenuItem.Click += new System.EventHandler(this.volumeDempenToolStripMenuItem_Click);
             // 
             // GameScreen
             // 
