@@ -14,6 +14,7 @@ namespace Olympus_the_Game.View.Game
         public GameFinished()
         {
             InitializeComponent();
+            ShowInTaskbar = false;
         }
 
         public GameFinished(FinishType type) : this()
@@ -29,17 +30,25 @@ namespace Olympus_the_Game.View.Game
                     break;
             }
             this.score.Text = string.Format("Score: {0}", score.ToString("D5"));
+            bool first = true;
+            StringBuilder builder = new StringBuilder();
             foreach(ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
             {
                 int typeScore = Scoreboard.GetScore(scoreType);
-                if(score != 0)
-                    this.score.Text += (Environment.NewLine + scoreType.ToString() + ":" + typeScore);
+                if (score != 0)
+                {
+                    if (!first)
+                        builder.Append(Environment.NewLine);
+                    builder.Append(scoreType.ToString() + ":" + typeScore);
+                    first = false;
+                }
             }
+            this.ScoreDescr.Text = builder.ToString();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
             Close();
-        } 
+        }
     }
 }
