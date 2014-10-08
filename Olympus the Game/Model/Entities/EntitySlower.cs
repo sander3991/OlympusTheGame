@@ -42,7 +42,6 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SLOWER;
-            EntityControlledByAI = false;
         }
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
@@ -58,7 +57,7 @@ namespace Olympus_the_Game
                     // Maak een entity cobweb aan wanneer er x seconden voorbij zijn gegaan nadat de speler in de buurt van de spider komt
                     if (stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
-                        if (!AlreadyAWebOnXY(Playfield.Player.X + 25, Playfield.Player.Y + 25))
+                        if (!PreventDoubleWeb(Playfield.Player.X + 25, Playfield.Player.Y + 25))
                         {
                             EntityWebMissile web = new EntityWebMissile(this, Playfield.Player);
                             this.Playfield.AddObject(web);
@@ -69,7 +68,8 @@ namespace Olympus_the_Game
             }
         }
 
-        public bool AlreadyAWebOnXY(int x, int y)
+        //comment
+        public bool PreventDoubleWeb(int x, int y)
         {
             List<GameObject> webOnXY = Playfield.GetObjectsAtLocation(x, y);
             
