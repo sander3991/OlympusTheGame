@@ -14,6 +14,17 @@ namespace Olympus_the_Game
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
         private static int fadeInCounter;
+        public static bool IsPlaying 
+        { 
+            get 
+            {
+                return tempFileLoc != null;
+            }
+            private set 
+            {
+
+            } 
+        }
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
@@ -29,38 +40,7 @@ namespace Olympus_the_Game
                 player.settings.volume = Math.Max(0, value);
             }
         }
-        public static bool IsPlaying { get; private set; }
-        [DllImport("winmm.dll")]
-        private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
-
-        public static void Open(string file)
-        {
-            string command = "close MyMp3";
-            mciSendString(command, null, 0, 0);
-            command = "open \"" + file + "\" type MPEGVideo alias MyMp3";
-            mciSendString(command, null, 0, 0);
-        }
-        public static void Play()
-        {
-            string command = "play MyMp3";
-            mciSendString(command, null, 0, 0);
-            IsPlaying = true;
-            if (tempFileLoc != null)
-                StopPlaying();
-        }
-        public static void Pauze()
-        {
-            string command = "pause MyMp3";
-            mciSendString(command, null, 0, 0);
-            IsPlaying = false;
-
-        }
-
-        public static void Stop()
-        {
-            string command = "stop MyMp3";
-            mciSendString(command, null, 0, 0);
-        }
+        
         
         /// <summary>
         /// Speelt een resource file af.
@@ -105,8 +85,8 @@ namespace Olympus_the_Game
         {
             if (tempFileLoc != null)
                 player.controls.play();
-            if (IsPlaying)
-                Stop();
+            if (CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Stop();
         }
         /// <summary>
         /// Do a fade in 
