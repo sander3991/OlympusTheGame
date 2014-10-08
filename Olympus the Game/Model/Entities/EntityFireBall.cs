@@ -33,8 +33,8 @@ namespace Olympus_the_Game
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
-            DX = -((this.X - target.X) / FireballSpeed);
-            DY = -((this.Y - target.Y) / FireballSpeed);
+            DX = -(((this.X - target.X) - 25) / FireballSpeed);
+            DY = -(((this.Y - target.Y) - 25) / FireballSpeed);
 
             EntityControlledByAI = false;
             Type = ObjectType.FIREBALL;

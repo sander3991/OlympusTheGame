@@ -19,7 +19,8 @@ namespace Olympus_the_Game
         /// <summary>
         /// De snelheid van de missile
         /// </summary>
-        public int MissileSpeed { 
+        public int MissileSpeed
+        {
             get
             {
                 return prop_missilespeed;
@@ -41,12 +42,13 @@ namespace Olympus_the_Game
         public EntityWebMissile(EntitySlower spider, GameObject target)
             : base(spider.Width / 4, spider.Height / 4, spider.X, spider.Y)
         {
-             Type = ObjectType.WEBMISSILE;
-            targetX = target.X + target.Width / 2;
-            targetY = target.Y + target.Height / 2;
+            Type = ObjectType.WEBMISSILE;
+            //TODO: -25 berekenen via variabelen.
+            targetX = (target.X + target.Width / 2) - 25;
+            targetY = (target.Y + target.Height / 2) - 25;
             int distanceX = Math.Abs(targetX - spider.X);
             int distanceY = Math.Abs(targetY - spider.Y);
-            if(distanceX > distanceY)
+            if (distanceX > distanceY)
             {
                 DX = MissileSpeed;
                 DY = Convert.ToInt32(MissileSpeed * distanceY / distanceX);
@@ -80,7 +82,7 @@ namespace Olympus_the_Game
         /// <param name="e">De entity die beweegd, zou alleen zichzelf moeten zijn</param>
         private void EntityWebMissile_OnMoved(Entity e)
         {
-            if(Math.Abs(targetX - X) < 5 || Math.Abs(targetY - Y) < 5)
+            if (Math.Abs(targetX - X) < 5 || Math.Abs(targetY - Y) < 5)
             {
                 Playfield.RemoveObject(this);
             }
@@ -93,8 +95,8 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             OnMoved -= EntityWebMissile_OnMoved;
-            if(!fieldRemoved)
-                Playfield.AddObject(new EntityWeb(source.Width, source.Height, targetX, targetY));
+            if (!fieldRemoved)
+                Playfield.AddObject(new EntityWeb(source.Width + 5, source.Height + 5, targetX, targetY)); //REMOVETHIS IF READ.. + 5 zodat je de spinnenweb niet wordt verstopt onder de speler
         }
 
         public override string ToString()

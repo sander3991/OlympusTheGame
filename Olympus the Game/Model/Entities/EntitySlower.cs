@@ -42,7 +42,6 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             Type = ObjectType.SLOWER;
-            EntityControlledByAI = false;
         }
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
