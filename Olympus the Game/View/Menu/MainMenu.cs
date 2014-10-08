@@ -25,6 +25,12 @@ namespace Olympus_the_Game
 
         private bool openGame = true;
 
+        private GameScreen gs;
+
+        private string introSound;
+
+        private string gameSound;
+
         public MainMenu()
         {
             // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
@@ -68,7 +74,7 @@ namespace Olympus_the_Game
                 firstInit = false;
 
                 // Preload stuff
-                OlympusTheGame.PrepareGameScreen();
+                this.PrepareNewGameScreen();
             }
         }        
 
@@ -95,6 +101,9 @@ namespace Olympus_the_Game
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
             this.levelDialog1.LevelChosen += OpenLevel;
+
+            // Load resources
+            this.loadResources();
         }
 
         /// <summary>
@@ -152,13 +161,58 @@ namespace Olympus_the_Game
             if (openGame)
             {
                 this.Visible = false;
-                OlympusTheGame.Start();
+                StartGame();
                 this.Visible = true;
             }
             else
             {
                 MessageBox.Show("Level editor will be added later!");
             }
+        }
+
+        private void loadResources()
+        {
+            this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
+            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
+            Mp3Player.Loop(true);
+        }
+
+        public void PrepareNewGameScreen()
+        {
+            // Maak gamescreen aan
+            this.gs = new GameScreen();
+
+            // Reset gametime
+            OlympusTheGame.GameTime = 0;
+            
+        }
+
+        /// <summary>
+        /// Deze methode wordt aangeroepen om de game te starten.
+        /// </summary>
+        public void StartGame()
+        {
+            // Read PlayField
+            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            if (OlympusTheGame.Playfield == null)
+            {
+                OlympusTheGame.Playfield = new PlayField();
+            }
+
+            OlympusTheGame.Playfield.InitializeGameObjects();
+            
+
+            // Add PlayField to GameScreen
+            gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
+
+            // Start timers
+            OlympusTheGame.Resume();
+
+            Mp3Player.SetResource(this.gameSound);
+            Mp3Player.PlaySelected();
+            // Start applicatie
+            gs.ShowDialog();
+            Mp3Player.StopPlaying();
         }
     }
 }

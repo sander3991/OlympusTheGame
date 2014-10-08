@@ -10,8 +10,6 @@ namespace Olympus_the_Game
         // Het scherm van het spel
         private static MainMenu mm;
 
-        private static GameScreen gs;
-
         /// <summary>
         /// Deze timer voert alle game events uit.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Het huidige speelveld.
         /// </summary>
-        public static PlayField Playfield { get; private set; }
+        public static PlayField Playfield { get; set; }
 
         /// <summary>
         /// De controller, deze regelt alle events en updates
@@ -61,7 +59,7 @@ namespace Olympus_the_Game
             set
             {
                 if (value == 0)
-                    prop_gametime.Restart();
+                    prop_gametime.Reset();
             }
         }
 
@@ -99,44 +97,6 @@ namespace Olympus_the_Game
             // Create slow timer
             SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
             SlowTimer.Interval = 200;
-        }
-
-        public static void PrepareGameScreen()
-        {
-            // Maak gamescreen aan
-            gs = new GameScreen();
-
-            // Reset gametime
-            prop_gametime.Reset();
-
-            Mp3Player.SetResource(Properties.Resources.Blocks);
-            Mp3Player.Loop(true);
-        }
-
-        /// <summary>
-        /// Deze methode wordt aangeroepen om de game te starten.
-        /// </summary>
-        public static void Start()
-        {
-            // Read PlayField
-            Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
-            Playfield.InitializeGameObjects();
-            if (Playfield == null)
-            {
-                Playfield = new PlayField();
-                Playfield.InitializeGameObjects();
-            }
-
-            // Add PlayField to GameScreen
-            gs.gamePanel1.Playfield = Playfield;
-
-            // Start timers
-            Resume();
-            
-            Mp3Player.PlaySelected();
-            // Start applicatie
-            gs.ShowDialog();
-            Mp3Player.StopPlaying();
         }
 
         /// <summary>
