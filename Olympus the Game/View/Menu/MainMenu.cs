@@ -183,7 +183,7 @@ namespace Olympus_the_Game
         public void PrepareNewGameScreen()
         {
             // Maak gamescreen aan
-            if(this.gs == null)
+            if(this.gs == null || this.gs.IsDisposed)
                 this.gs = new GameScreen();
 
             // Reset gametime
