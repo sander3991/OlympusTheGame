@@ -39,7 +39,7 @@ namespace Olympus_the_Game
             {
                 // Interval is ~ongeveer 4 seconden.
                 // Hangt een beetje af van snelheid van computer
-                gifTimer.Interval = 4000;
+                gifTimer.Interval = 4500;
                 gifTimer.Start();
                 gifState = false;
             }
