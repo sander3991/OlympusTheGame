@@ -50,20 +50,18 @@ namespace Olympus_the_Game
         }
         public static void Pauze()
         {
-            string command = "stop MyMp3";
+            string command = "pause MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = false;
 
         }
 
-        public static string Status()
+        public static void Stop()
         {
-            int i = 128;
-            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder(i);
-            mciSendString("status MediaFile mode", stringBuilder, i, 0);
-            return stringBuilder.ToString();
+            string command = "stop MyMp3";
+            mciSendString(command, null, 0, 0);
         }
-
+        
         /// <summary>
         /// Speelt een resource file af.
         /// </summary>
