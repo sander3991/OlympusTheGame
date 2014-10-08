@@ -125,8 +125,13 @@ namespace Olympus_the_Game
             // Start timers
             Resume();
 
+
+            Mp3Player.SetResource(Properties.Resources.Blocks);
+            Mp3Player.Loop(true);
+            Mp3Player.PlaySelected();
             // Start applicatie
             gs.ShowDialog();
+            Mp3Player.StopPlaying();
         }
 
         /// <summary>
@@ -177,6 +182,9 @@ namespace Olympus_the_Game
 
             // Sluit scherm
             mm.Dispose();
+
+            // Sluit de MP3 speler af en verwijder bestanden
+            Mp3Player.StopPlaying();
         }
     }
 }

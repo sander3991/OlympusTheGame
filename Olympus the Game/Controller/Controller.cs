@@ -12,8 +12,6 @@ namespace Olympus_the_Game
 {
     public class Controller
     {
-        
-        public static Mp3Player MusicPlayer = new Mp3Player();
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>
