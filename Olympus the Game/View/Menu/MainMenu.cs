@@ -181,6 +181,7 @@ namespace Olympus_the_Game
                 ShowGame();
                 MaskForm.Visible = false;
                 StartGame();
+                this.Visible = true;
             }
             else
             {
