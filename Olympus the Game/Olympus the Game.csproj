@@ -20,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -225,7 +226,7 @@
     <None Include="Resources\creeper.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Minecraftia-Regular.ttf" />
+    <None Include="Resources\Minecraftia-Regular.ttf" />
     <None Include="Resources\player.jpg" />
   </ItemGroup>
   <ItemGroup>
