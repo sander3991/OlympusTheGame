@@ -33,6 +33,11 @@ namespace Olympus_the_Game
         private long AIUpdateInterval = 1000;
 
         /// <summary>
+        /// De speler die op dit moment getrackt wordt door de controller
+        /// </summary>
+        private EntityPlayer player;
+
+        /// <summary>
         /// Genereert een nieuwe Controller
         /// </summary>
         public Controller()
@@ -43,6 +48,28 @@ namespace Olympus_the_Game
             // Add AIUpdate to UpdateEvents
             UpdateGameEvents += UpdateEntityAI;
 
+            // Registreert de health update event aan de controller
+            OlympusTheGame.OnNewPlayField += OnNewPlayField;
+            if(OlympusTheGame.Playfield != null)
+            {
+                player = OlympusTheGame.Playfield.Player;
+                player.OnHealthChanged += Player_OnHealthChanged;
+            }
+
+        }
+
+        private void Player_OnHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
+        {
+            if (newHealth == 0)
+                Console.WriteLine("Speler is dood!");
+        }
+
+        private void OnNewPlayField(PlayField obj)
+        {
+            if (player != null)
+                player.OnHealthChanged -= Player_OnHealthChanged;
+            player = obj.Player;
+            player.OnHealthChanged += Player_OnHealthChanged;
         }
 
         /// <summary>

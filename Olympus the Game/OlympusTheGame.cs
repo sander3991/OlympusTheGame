@@ -119,13 +119,7 @@ namespace Olympus_the_Game
         public static void Start()
         {
             // Read PlayField
-            Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
-            Playfield.InitializeGameObjects();
-            if (Playfield == null)
-            {
-                Playfield = new PlayField();
-                Playfield.InitializeGameObjects();
-            }
+            SetNewPlayfield(PlayFieldToXml.ReadFromResource(Properties.Resources.hell));
 
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = Playfield;
@@ -151,6 +145,7 @@ namespace Olympus_the_Game
                     Playfield.UnloadPlayField();
                 pf.SetPlayerHome();
                 Playfield = pf;
+                Playfield.InitializeGameObjects();
                 if (OnNewPlayField != null)
                     OnNewPlayField(pf);
             }

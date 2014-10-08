@@ -39,7 +39,7 @@ namespace Olympus_the_Game.View
             player.OnHealthChanged -= UpdateHealth;
             player = Playfield.Player;
             player.OnHealthChanged += UpdateHealth;
-            UpdateHealth(player, -1);
+            UpdateHealth(player, player.Health,-1);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Olympus_the_Game.View
         /// </summary>
         /// <param name="player">De speler die het event gefired heeft</param>
         /// <param name="prevHealth">De health voordat de speler damage kreeg</param>
-        private void UpdateHealth(EntityPlayer player, int prevHealth)
+        private void UpdateHealth(EntityPlayer player, int newHealth, int prevHealth)
         {
             // Geeft het aantal levens weer
             heartAlive1.Visible = false;
@@ -67,7 +67,7 @@ namespace Olympus_the_Game.View
             heartAlive3.Visible = false;
             heartAlive4.Visible = false;
             heartAlive5.Visible = false;
-            switch (player.Health)
+            switch (newHealth)
             {
                 case 5:
                     heartAlive5.Visible = true;
