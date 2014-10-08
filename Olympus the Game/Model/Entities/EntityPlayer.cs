@@ -8,16 +8,6 @@ namespace Olympus_the_Game
     public class EntityPlayer : Entity
     {
         /// <summary>
-        /// Delegate voor het <code>OnHealthChanged</code> event
-        /// </summary>
-        /// <param name="player">De entity waarvan de health veranderd is</param>
-        /// <param name="previousHealth">De health voor de verandering</param>
-        public delegate void DelOnHealthChanged(EntityPlayer player, int newHealth, int prevHealth);
-        /// <summary>
-        /// Event dat gedraait woordt zodra een <code>EntityPlayer</code> object zijn health is veranderd.
-        /// </summary>
-        public event DelOnHealthChanged OnHealthChanged;
-        /// <summary>
         /// De maximum health van een speler
         /// </summary>
         public const int MAXHEALTH = 5;
@@ -112,9 +102,9 @@ namespace Olympus_the_Game
                 int prevHealth = health;
                 health = Math.Max(0, value);
                 health = Math.Min(MAXHEALTH, value);
-                if (prevHealth != health && OnHealthChanged != null)
+                if (prevHealth != health)
                 {
-                    OnHealthChanged(this, this.Health, prevHealth);
+                    OlympusTheGame.Controller.PlayerHealthChanged(this, this.Health, prevHealth);
                     Frame = 0.5f;
                 }
             }

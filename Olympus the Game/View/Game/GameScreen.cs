@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows;
+using Olympus_the_Game.View.Game;
 
 namespace Olympus_the_Game.View
 {
     public partial class GameScreen : Form
     {
+        private bool forceClose = false;
         /// <summary>
         /// Maak een nieuw GameScreen aan.
         /// </summary>
@@ -19,6 +21,14 @@ namespace Olympus_the_Game.View
         {
             // Initialiseer componenten
             InitializeComponent();
+            OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
+        }
+
+        private void OnPlayerFinished(FinishType type, int score)
+        {
+            new GameFinished(type, score).ShowDialog();
+            forceClose = true;
+            Close();
         }
 
         /// <summary>
@@ -29,15 +39,18 @@ namespace Olympus_the_Game.View
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
             // Opent dialoog voor sluiten
-            DialogResult dr = MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
-                "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (!forceClose)
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
+                    "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Sluit spel af bij JA/YES
-            // Sluit dialoog af bij NEE/NO en laat spel verder draaien
-            if(dr == DialogResult.Yes)
-                return;//OlympusTheGame.RequestClose();
-            else
-                e.Cancel = true;
+                // Sluit spel af bij JA/YES
+                // Sluit dialoog af bij NEE/NO en laat spel verder draaien
+                if (dr == DialogResult.Yes)
+                    return;//OlympusTheGame.RequestClose();
+                else
+                    e.Cancel = true;
+            }
         }
 
         /// <summary>

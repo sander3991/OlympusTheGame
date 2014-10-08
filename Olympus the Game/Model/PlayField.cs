@@ -109,18 +109,6 @@ namespace Olympus_the_Game
                 IsInitialized = true;
             }
             SetPlayerHome();
-            Player.OnHealthChanged += Player_OnHealthChanged;
-        }
-
-        private void Player_OnHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
-        {
-            if (player == Player)
-                if (player.Health == 0)
-                {
-                    SetPlayerHome();
-                    // TODO Hier moet de code komen voor het einde van het spel, nu wordt je health gereset
-                    player.Health = EntityPlayer.MAXHEALTH;
-                }
         }
 
         /// <summary>

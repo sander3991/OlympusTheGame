@@ -17,8 +17,25 @@ namespace Olympus_the_Game
     }
     public class Controller
     {
-
+        /// <summary>
+        /// Delegate voor het <code>OnHealthChanged</code> event
+        /// </summary>
+        /// <param name="player">De entity waarvan de health veranderd is</param>
+        /// <param name="previousHealth">De health voor de verandering</param>
+        public delegate void DelOnHealthChanged(EntityPlayer player, int newHealth, int prevHealth);
+        /// <summary>
+        /// Event dat gedraait woordt zodra een <code>EntityPlayer</code> object zijn health is veranderd.
+        /// </summary>
+        public event DelOnHealthChanged OnHealthChanged;
+        /// <summary>
+        /// Delegate voor het <code>OnPlayerFinished</code> event
+        /// </summary>
+        /// <param name="type">Het type finish</param>
+        /// <param name="score">de score</param>
         public delegate void DelOnFinish(FinishType type, int score);
+        /// <summary>
+        /// Wordt aangeroepen zodra een speler finished
+        /// </summary>
         public event DelOnFinish OnPlayerFinished;
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
@@ -41,11 +58,6 @@ namespace Olympus_the_Game
         private long AIUpdateInterval = 1000;
 
         /// <summary>
-        /// De speler die op dit moment getrackt wordt door de controller
-        /// </summary>
-        private EntityPlayer player;
-
-        /// <summary>
         /// Genereert een nieuwe Controller
         /// </summary>
         public Controller()
@@ -57,12 +69,7 @@ namespace Olympus_the_Game
             UpdateGameEvents += UpdateEntityAI;
 
             // Registreert de health update event aan de controller
-            OlympusTheGame.OnNewPlayField += OnNewPlayField;
-            if(OlympusTheGame.Playfield != null)
-            {
-                player = OlympusTheGame.Playfield.Player;
-                player.OnHealthChanged += Player_OnHealthChanged;
-            }
+            OnHealthChanged += Player_OnHealthChanged;
 
         }
 
@@ -75,19 +82,11 @@ namespace Olympus_the_Game
         private void Player_OnHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
         {
             if (newHealth == 0)
+            {
+                OlympusTheGame.Pause();
                 if (OnPlayerFinished != null)
                     OnPlayerFinished(FinishType.DEAD, 1); //TODO add score hier
-        }
-        /// <summary>
-        /// Als er een nieuw speelveld wordt ingeladen moet de nieuwe player eraan gekoppeld worden
-        /// </summary>
-        /// <param name="obj"></param>
-        private void OnNewPlayField(PlayField obj)
-        {
-            if (player != null)
-                player.OnHealthChanged -= Player_OnHealthChanged;
-            player = obj.Player;
-            player.OnHealthChanged += Player_OnHealthChanged;
+            }
         }
 
         /// <summary>
@@ -206,6 +205,12 @@ namespace Olympus_the_Game
             int minutes = sec / 60;
             int seconds = sec - minutes * 60;
             return string.Format("{0}:{1}",minutes.ToString("D2"),seconds.ToString("D2"));
+        }
+
+        internal void PlayerHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
+        {
+            if (OnHealthChanged != null)
+                OnHealthChanged(player, newHealth, prevHealth);
         }
 
     }

@@ -80,6 +80,12 @@
     <Compile Include="View\Menu\HelpDialog.Designer.cs">
       <DependentUpon>HelpDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Game\GameFinished.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Game\GameFinished.Designer.cs">
+      <DependentUpon>GameFinished.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu\LevelDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,9 +201,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\Menu\HelpDialog.resx">
-      <DependentUpon>HelpDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </EmbeddedResource>
