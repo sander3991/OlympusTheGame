@@ -80,7 +80,10 @@ namespace Olympus_the_Game
             PlayField pf = Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             if(!fieldRemoved)
+            {
                 pf.AddObject(new SpriteExplosion(this));
+                SoundEffects.PlaySound(Properties.Resources.bomb);
+            }
             OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
         }
     }

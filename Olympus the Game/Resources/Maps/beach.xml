@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PlayField>
+  <Name>Map_0</Name>
+  <Width>1000</Width>
+  <Height>500</Height>
+  <GameObjects>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>0</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>50</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>100</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>150</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>200</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>250</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>300</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>350</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>400</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+    <GameObject Type="GHAST">
+      <X>888</X>
+      <Y>450</Y>
+      <Width>50</Width>
+      <Height>50</Height>
+    </GameObject>
+  </GameObjects>
+</PlayField>

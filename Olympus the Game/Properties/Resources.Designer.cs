@@ -112,6 +112,15 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bomb {
+            get {
+                return ResourceManager.GetStream("bomb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap cake {
@@ -157,16 +166,6 @@ namespace Olympus_the_Game.Properties {
         internal static System.Drawing.Bitmap dirt {
             get {
                 object obj = ResourceManager.GetObject("dirt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dirt1 {
-            get {
-                object obj = ResourceManager.GetObject("dirt1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,12 +282,12 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap minecraft_stone_bhcmfrug {
+        internal static byte[] Minecraftia_Regular {
             get {
-                object obj = ResourceManager.GetObject("minecraft_stone_bhcmfrug", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("Minecraftia_Regular", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
