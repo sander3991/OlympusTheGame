@@ -48,17 +48,31 @@ namespace Olympus_the_Game
         /// <param name="resource">De resource gespeeld dient te worden</param>
         public static void SetResource(byte[] resource)
         {
-            if(tempFileLoc != null) //Er wordt wat afgespeeld nu
-                StopPlaying();
             Loop(false);
-            tempFileLoc = String.Format("{0}{1}{2}", System.IO.Path.GetTempPath(), Guid.NewGuid().ToString("N"), ".mp3");
+            player.URL = PrepareResource(resource);
+        }
+
+        /// <summary>
+        /// Speelt een resource file af.
+        /// </summary>
+        /// <param name="resource">De resource gespeeld dient te worden</param>
+        public static void SetResource(string resource)
+        {
+            Loop(false);
+            player.URL = resource;
+        }
+
+        public static string PrepareResource(byte[] resource)
+        {
+            string tfl;
+            tfl = String.Format("{0}{1}{2}", System.IO.Path.GetTempPath(), Guid.NewGuid().ToString("N"), ".mp3");
             using (var memoryStream = new MemoryStream(resource))
-            using (var tempFileStream = new FileStream(tempFileLoc, FileMode.Create, FileAccess.Write))
+            using (var tempFileStream = new FileStream(tfl, FileMode.Create, FileAccess.Write))
             {
                 memoryStream.Position = 0;
                 memoryStream.WriteTo(tempFileStream);
             }
-            player.URL = tempFileLoc;
+            return tfl;
         }
 
         /// <summary>

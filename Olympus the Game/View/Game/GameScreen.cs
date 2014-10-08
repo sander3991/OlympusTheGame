@@ -273,6 +273,35 @@ namespace Olympus_the_Game.View
             
         }
 
+        private void volumeDempenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!volumeDempenToolStripMenuItem.Checked)
+                volumeDempenToolStripMenuItem.Checked = true;
+            else
+                volumeDempenToolStripMenuItem.Checked = false;
+        }
+
+        private void volumeDempenToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (volumeDempenToolStripMenuItem.Checked)
+            {
+                if (Mp3Player.IsPlaying)
+                    Mp3Player.Volume = 0;
+                else if (CustomMusicPlayer.IsPlaying)
+                    CustomMusicPlayer.MasterVolume = 0;
+            }
+            else
+            {
+                if (Mp3Player.IsPlaying)
+                    Mp3Player.Volume = 100;
+                else if (CustomMusicPlayer.IsPlaying)
+                    CustomMusicPlayer.MasterVolume = 100;
+            }
+                
+
+                
+        }
+
         
 
 
