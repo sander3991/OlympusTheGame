@@ -54,6 +54,7 @@
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.entitySourcePanel1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanel();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -311,12 +312,21 @@
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
             this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
+            // entitySourcePanel1
+            // 
+            this.entitySourcePanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("entitySourcePanel1.BackgroundImage")));
+            this.entitySourcePanel1.Location = new System.Drawing.Point(935, 36);
+            this.entitySourcePanel1.Name = "entitySourcePanel1";
+            this.entitySourcePanel1.Size = new System.Drawing.Size(150, 50);
+            this.entitySourcePanel1.TabIndex = 25;
+            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1084, 696);
+            this.Controls.Add(this.entitySourcePanel1);
             this.Controls.Add(this.Spider);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
@@ -375,6 +385,7 @@
         private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
+        private Game.Editor.EntitySourcePanel entitySourcePanel1;
 
     }
 }

@@ -13,7 +13,7 @@ namespace Olympus_the_Game_Test
             PlayField expected = new PlayField();
 
             // Act
-            OlympusTheGame.SetNewPlayfield(expected);
+            OlympusTheGame.Playfield = expected;
 
             // Assert
             Assert.AreEqual(expected, OlympusTheGame.Playfield);
@@ -30,7 +30,7 @@ namespace Olympus_the_Game_Test
             OlympusTheGame.OnNewPlayField += delegate(PlayField p) { actual = true; };
 
             // Act
-            OlympusTheGame.SetNewPlayfield(pf);
+            OlympusTheGame.Playfield = pf;
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -41,7 +41,7 @@ namespace Olympus_the_Game_Test
         {
             // Arrange
             PlayField pf = new PlayField();
-            OlympusTheGame.SetNewPlayfield(pf);
+            OlympusTheGame.Playfield = pf;
 
             // Act / Assert
             try
