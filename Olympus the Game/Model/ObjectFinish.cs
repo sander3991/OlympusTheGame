@@ -24,7 +24,12 @@ namespace Olympus_the_Game
         {
             EntityPlayer player = gameObject as EntityPlayer;
             if (player != null && player.X > X && player.Y > Y)
-                OlympusTheGame.Controller.OnPlayerReachedCake();
+            {
+                int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
+                int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
+                if (xDistance < 5 && yDistance < 5)
+                    OlympusTheGame.Controller.OnPlayerReachedCake();
+            }
         }
 
         public override string ToString()
