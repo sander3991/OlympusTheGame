@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Olympus_the_Game.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -22,6 +24,7 @@ namespace Olympus_the_Game
     {
         // Timer die gebruikt word voor het afspelen van splashscreen.gif
         Timer gifTimer = new Timer();
+
         private bool firstInit = true;
         public MainMenu()
         {
@@ -44,7 +47,6 @@ namespace Olympus_the_Game
                 gifTimer.Start();
                 gifState = false;
             }
-            this.VisibleChanged += MainMenu_VisibleChanged;
         }
         /// <summary>
         /// Wordt aangeroepen zodra de visibility van het MainMenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
@@ -59,7 +61,7 @@ namespace Olympus_the_Game
                 Mp3Player.SetResource(Properties.Resources.StarWars);
                 if (!firstInit)
                 {
-                    System.Threading.Thread.Sleep(1); //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
+                    System.Threading.Thread.Sleep(5); //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
                     Mp3Player.FadeIn(2000);
                     Mp3Player.SetPosition(27D);
                 }
@@ -68,11 +70,23 @@ namespace Olympus_the_Game
             }
         }        
 
+        /// <summary>
+        /// Laad main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainMenu_Load(object sender, EventArgs e) {
-            mainMenuControl1.Left = (this.ClientSize.Width - mainMenuControl1.Width) / 2;
-            mainMenuControl1.Top = (this.ClientSize.Height - mainMenuControl1.Height) / 2;
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.DoubleBuffered = true;
             this.CenterToScreen();
+
+            // Add events
+            this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
+            this.mainMenuControl1.ButtonLevelEditor.Click +=ButtonLevelEditor_Click;
+            this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
+            this.VisibleChanged += MainMenu_VisibleChanged;
+            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
         }
 
         /// <summary>
@@ -86,9 +100,42 @@ namespace Olympus_the_Game
         private void Timer_Tick(object sender, EventArgs e)
         {
             gifTimer.Stop();
+
+            CenterControl(mainMenuControl1);
             mainMenuControl1.Visible = true;
+
             pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.loop;
         }
 
+        private void CenterControl(Control c)
+        {
+            c.Left = (this.Width - c.Width) / 2;
+            c.Top = (this.Height - c.Height) / 2;
+        }
+
+        private void ButtonStart_Click(object sender, EventArgs e)
+        {
+            this.FindForm().Visible = false;
+            OlympusTheGame.Start();
+            this.FindForm().Visible = true;
+        }
+
+        private void ButtonLevelEditor_Click(object sender, EventArgs e)
+        {
+            this.FindForm().Visible = false;
+            LevelEditor le = new LevelEditor();
+            le.ShowDialog();
+
+            //Martijn - Comment de twee 'le' regels en haal de onderste twee van de comment af
+
+            //LevelDialog ld = new LevelDialog();
+            //ld.ShowDialog();
+            this.FindForm().Visible = true;
+        }
+
+        private void ButtonExit_Click(object sender, EventArgs e)
+        {
+            OlympusTheGame.RequestClose();
+        }
     }
 }

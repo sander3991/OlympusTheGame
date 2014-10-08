@@ -43,7 +43,6 @@
             this.ButtonLevelEditor.TabIndex = 1;
             this.ButtonLevelEditor.Text = "Level Editor";
             this.ButtonLevelEditor.UseVisualStyleBackColor = false;
-            this.ButtonLevelEditor.Click += new System.EventHandler(this.ButtonLevelEditor_Click);
             // 
             // ButtonHelp
             // 
@@ -58,7 +57,6 @@
             this.ButtonHelp.TabIndex = 2;
             this.ButtonHelp.Text = "Help";
             this.ButtonHelp.UseVisualStyleBackColor = false;
-            this.ButtonHelp.Click += new System.EventHandler(this.ButtonHelp_Click);
             // 
             // ButtonExit
             // 
@@ -73,7 +71,6 @@
             this.ButtonExit.TabIndex = 3;
             this.ButtonExit.Text = "Exit";
             this.ButtonExit.UseVisualStyleBackColor = false;
-            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // ButtonStart
             // 
@@ -88,7 +85,6 @@
             this.ButtonStart.TabIndex = 0;
             this.ButtonStart.Text = "Start Game";
             this.ButtonStart.UseVisualStyleBackColor = false;
-            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // MainMenuControl
             // 
@@ -108,10 +104,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button ButtonLevelEditor;
-        private System.Windows.Forms.Button ButtonHelp;
-        private System.Windows.Forms.Button ButtonExit;
-        private System.Windows.Forms.Button ButtonStart;
+        public System.Windows.Forms.Button ButtonLevelEditor;
+        public System.Windows.Forms.Button ButtonHelp;
+        public System.Windows.Forms.Button ButtonExit;
+        public System.Windows.Forms.Button ButtonStart;
 
     }
 }
