@@ -61,8 +61,6 @@ namespace Olympus_the_Game
             if (Playfield.Player != null)
             {
                 // Verwijderd de fireball als het de randen van het spel raakt
-                //if (this.X <= 10 || this.Y <= 10 || this.X >= (Playfield.Width - 25) || this.Y >= (Playfield.Height - 25))
-                  //  Playfield.RemoveObject(this);
                 if (this.X + DX < 0 || this.X + DX + Width > Playfield.Width || this.Y + DY < 0 || this.Y + DY + Height > Playfield.Height)
                     Playfield.RemoveObject(this);
             }

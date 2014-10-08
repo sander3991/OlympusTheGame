@@ -220,6 +220,9 @@
     <EmbeddedResource Include="View\Game\Editor\EntitySourcePanelList.resx">
       <DependentUpon>EntitySourcePanelList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\HelpDialog.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlayField>
   <Name>Map_0</Name>
-  <Width>1000</Width>
-  <Height>500</Height>
+  <Width>1200</Width>
+  <Height>650</Height>
   <GameObjects>
     <GameObject Type="START">
       <X>0</X>
