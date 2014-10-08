@@ -111,6 +111,7 @@ namespace Olympus_the_Game
                     Playfield.UnloadPlayField();
                 pf.SetPlayerHome();
                 Playfield = pf;
+                Playfield.InitializeGameObjects();
                 if (OnNewPlayField != null)
                     OnNewPlayField(pf);
             }

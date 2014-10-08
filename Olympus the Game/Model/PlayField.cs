@@ -112,7 +112,7 @@ namespace Olympus_the_Game
             Player.OnHealthChanged += Player_OnHealthChanged;
         }
 
-        private void Player_OnHealthChanged(EntityPlayer player, int prevHealth)
+        private void Player_OnHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
         {
             if (player == Player)
                 if (player.Health == 0)
