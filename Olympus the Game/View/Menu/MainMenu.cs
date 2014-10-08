@@ -74,18 +74,11 @@ namespace Olympus_the_Game
             this.Visible = false;
             HideAllControls();
 
-            // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
-            // de splashscreen word weergeven of niet
-            this.gifState = true;
             this.gifTimer.Tick += new EventHandler(Timer_Tick);
-            if (this.gifState == true)
-            {
-                // Interval is ~ongeveer 5 seconden.
-                // Hangt een beetje af van snelheid van computer
-                this.gifTimer.Interval = 5000;
-                this.gifTimer.Start();
-                this.gifState = false;
-            }
+            // Interval is ~ongeveer 5 seconden.
+            // Hangt een beetje af van snelheid van computer
+            this.gifTimer.Interval = 5000;
+            this.gifTimer.Start();
 
             // Init form
             this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
