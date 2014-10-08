@@ -190,42 +190,87 @@ namespace Olympus_the_Game.View
             // Try to expand
             this.gamePanel1.TryExpand();
         }
-
+        /// <summary>
+        /// Open een file explorer om een bestand te selecteren
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenMusicFileDialog.ShowDialog();
         }
-
+        /// <summary>
+        /// Speel 1 van de spelers af die actief is op dat moment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void speelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Pause();
             else
-                CustomMusicPlayer.Play();
+                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
         }
-
+        /// <summary>
+        /// Pauzeer de speler die aan het spelen is
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pauzeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (Mp3Player.IsPlaying)
                 Mp3Player.Pause();
-            if (CustomMusicPlayer.IsPlaying)
+            else if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Pause();
         }
-
+        /// <summary>
+        /// Als er op ok is geklikt met de file opener speel dan de muziek af
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenMusicFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             Mp3Player.StopPlaying();
             CustomMusicPlayer.Open(OpenMusicFileDialog.FileName);
-            CustomMusicPlayer.Play();
+            CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
         }
 
-
+        /// <summary>
+        /// Als er op stop is geklikt stop dan de muziek spelers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void stopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CustomMusicPlayer.IsPlaying)
-                CustomMusicPlayer.Stop();
             if (Mp3Player.IsPlaying)
                 Mp3Player.StopPlaying();
+            else if (CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Stop();
+        }
+        /// <summary>
+        /// Kijkt of hij de muziek moet herhalen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void herhalenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (herhalenToolStripMenuItem.Checked)
+                herhalenToolStripMenuItem.Checked = false;
+            else
+                herhalenToolStripMenuItem.Checked = true;
+        }
+        /// <summary>
+        /// Laat de gebruiker de muziek herhalen als hij dat wil
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void herhalenToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Mp3Player.IsPlaying)
+                Mp3Player.Loop(herhalenToolStripMenuItem.Checked);
+            else if (CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            
         }
 
         

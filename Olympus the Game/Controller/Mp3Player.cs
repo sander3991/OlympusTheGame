@@ -131,6 +131,9 @@ namespace Olympus_the_Game
             tempFileLoc = null;
         }
 
+        /// <summary>
+        /// Pauzeer de media speler
+        /// </summary>
         internal static void Pause()
         {
             player.controls.pause();

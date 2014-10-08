@@ -8,10 +8,6 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Text;
-using System.IO;
-using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Olympus_the_Game
 {
@@ -26,6 +22,9 @@ namespace Olympus_the_Game
         Timer gifTimer = new Timer();
 
         private bool firstInit = true;
+
+        private bool openGame = true;
+
         public MainMenu()
         {
             // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
@@ -43,7 +42,7 @@ namespace Olympus_the_Game
             {
                 // Interval is ~ongeveer 4 seconden.
                 // Hangt een beetje af van snelheid van computer
-                gifTimer.Interval = 4000;
+                gifTimer.Interval = 4500;
                 gifTimer.Start();
                 gifState = false;
             }
@@ -67,6 +66,9 @@ namespace Olympus_the_Game
                 }
                 Mp3Player.PlaySelected();
                 firstInit = false;
+
+                // Preload stuff
+                OlympusTheGame.PrepareGameScreen();
             }
         }        
 
@@ -76,10 +78,14 @@ namespace Olympus_the_Game
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainMenu_Load(object sender, EventArgs e) {
+            // Init form
             this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.CenterToScreen();
+
+            // Init components
+            this.levelDialog1.Visible = false;
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
@@ -87,6 +93,8 @@ namespace Olympus_the_Game
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
+            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
+            this.levelDialog1.LevelChosen += OpenLevel;
         }
 
         /// <summary>
@@ -99,11 +107,17 @@ namespace Olympus_the_Game
         /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
+            // Gif finished
             gifTimer.Stop();
 
+            // Center controls
             CenterControl(mainMenuControl1);
+            CenterControl(levelDialog1);
+
+            // Make main menu visible
             mainMenuControl1.Visible = true;
 
+            // Change picture to loop
             pictureBox1.Image = global::Olympus_the_Game.Properties.Resources.loop;
         }
 
@@ -115,27 +129,36 @@ namespace Olympus_the_Game
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            this.FindForm().Visible = false;
-            OlympusTheGame.Start();
-            this.FindForm().Visible = true;
+            openGame = true;
+            this.mainMenuControl1.Visible = false;
+            this.levelDialog1.Visible = true;
         }
 
         private void ButtonLevelEditor_Click(object sender, EventArgs e)
         {
-            this.FindForm().Visible = false;
-            LevelEditor le = new LevelEditor();
-            le.ShowDialog();
-
-            //Martijn - Comment de twee 'le' regels en haal de onderste twee van de comment af
-
-            //LevelDialog ld = new LevelDialog();
-            //ld.ShowDialog();
-            this.FindForm().Visible = true;
+            openGame = false;
+            this.mainMenuControl1.Visible = false;
+            this.levelDialog1.Visible = true;
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
         {
             OlympusTheGame.RequestClose();
+        }
+
+        private void OpenLevel()
+        {
+            int lvl = this.levelDialog1.Level;
+            if (openGame)
+            {
+                this.Visible = false;
+                OlympusTheGame.Start();
+                this.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Level editor will be added later!");
+            }
         }
     }
 }

@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -38,6 +39,14 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
+            // 
+            // levelDialog1
+            // 
+            this.levelDialog1.BackColor = System.Drawing.Color.Transparent;
+            this.levelDialog1.Location = new System.Drawing.Point(198, 349);
+            this.levelDialog1.Name = "levelDialog1";
+            this.levelDialog1.Size = new System.Drawing.Size(426, 330);
+            this.levelDialog1.TabIndex = 2;
             // 
             // mainMenuControl1
             // 
@@ -54,6 +63,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.levelDialog1);
             this.Controls.Add(this.mainMenuControl1);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.Transparent;
@@ -70,6 +80,7 @@
 
         private View.MainMenuControl mainMenuControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private View.Menu.LevelDialog levelDialog1;
 
 
     }

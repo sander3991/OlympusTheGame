@@ -48,6 +48,7 @@
             this.speelpauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.herhalenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
             this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
@@ -159,7 +160,8 @@
             this.MenuMuziekSpeler.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.speelpauzeToolStripMenuItem,
-            this.stopToolStripMenuItem});
+            this.stopToolStripMenuItem,
+            this.herhalenToolStripMenuItem});
             this.MenuMuziekSpeler.Name = "MenuMuziekSpeler";
             this.MenuMuziekSpeler.Size = new System.Drawing.Size(92, 20);
             this.MenuMuziekSpeler.Text = "Muziek Speler";
@@ -189,6 +191,16 @@
             // 
             this.OpenMusicFileDialog.FileName = "OpenMusicFileDialog";
             this.OpenMusicFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenMusicFileDialog_FileOk);
+            // 
+            // herhalenToolStripMenuItem
+            // 
+            this.herhalenToolStripMenuItem.Checked = true;
+            this.herhalenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.herhalenToolStripMenuItem.Name = "herhalenToolStripMenuItem";
+            this.herhalenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.herhalenToolStripMenuItem.Text = "Herhalen";
+            this.herhalenToolStripMenuItem.CheckedChanged += new System.EventHandler(this.herhalenToolStripMenuItem_CheckedChanged);
+            this.herhalenToolStripMenuItem.Click += new System.EventHandler(this.herhalenToolStripMenuItem_Click);
             // 
             // infoBox1
             // 
@@ -281,5 +293,6 @@
         private System.Windows.Forms.ToolStripMenuItem speelpauzeToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog OpenMusicFileDialog;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem herhalenToolStripMenuItem;
     }
 }
