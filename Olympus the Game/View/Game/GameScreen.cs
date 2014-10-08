@@ -212,24 +212,7 @@ namespace Olympus_the_Game.View
         {
             OpenMusicFileDialog.ShowDialog();
         }
-        /// <summary>
-        /// Speel 1 van de spelers af die actief is op dat moment
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void speelPauzeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CustomMusicPlayer.IsPlaying || Mp3Player.IsPlaying)
-            {
-                CustomMusicPlayer.Pause();
-                Mp3Player.Pause();
-            }
-            else
-            {
-                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-                Mp3Player.Pause();
-            }
-        }
+        
         /// <summary>
         /// Als er op ok is geklikt met de file opener speel dan de muziek af
         /// </summary>
@@ -241,6 +224,32 @@ namespace Olympus_the_Game.View
             CustomMusicPlayer.Open(OpenMusicFileDialog.FileName);
             CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
             speelpauzeToolStripMenuItem.Checked = true;
+        }
+        private void speelpauzeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Pause();
+            else if(!CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            
+            else if (Mp3Player.IsPlaying)
+                Mp3Player.Pause();
+            else if(!Mp3Player.IsPlaying)
+                Mp3Player.Play();
+            
+
+        }
+        private void speelpauzeToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (CustomMusicPlayer.IsPlaying && speelpauzeToolStripMenuItem.Checked)
+            //    CustomMusicPlayer.Pause();
+            //else if (!CustomMusicPlayer.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
+            //    CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            //
+            //else if (Mp3Player.IsPlaying && speelpauzeToolStripMenuItem.Checked)
+            //    Mp3Player.Pause();
+            //else if (!Mp3Player.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
+            //    Mp3Player.Play();
         }
 
         /// <summary>
@@ -310,6 +319,10 @@ namespace Olympus_the_Game.View
 
 
         }
+
+        
+
+        
 
         
 

@@ -183,7 +183,8 @@
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
             this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
-            this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelPauzeToolStripMenuItem_Click);
+            this.speelpauzeToolStripMenuItem.CheckedChanged += new System.EventHandler(this.speelpauzeToolStripMenuItem_CheckedChanged);
+            this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelpauzeToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
