@@ -63,6 +63,7 @@ namespace Olympus_the_Game.View.Buttons
                     c.Visible = true;
 
             parent.Location = loc;
+            parent.Visible = true;
         }
     }
 }

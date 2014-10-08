@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
@@ -19,7 +20,7 @@ namespace Olympus_the_Game
     public partial class MainMenu : Form
     {
         // Timer die gebruikt word voor het afspelen van splashscreen.gif
-        Timer gifTimer = new Timer();
+        System.Windows.Forms.Timer gifTimer = new System.Windows.Forms.Timer();
 
         private bool firstInit = true;
 
@@ -31,7 +32,7 @@ namespace Olympus_the_Game
 
         private bool gifState;
 
-        private Form MaskForm;
+        
 
         public MainMenu()
         {
@@ -93,14 +94,6 @@ namespace Olympus_the_Game
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.CenterToScreen();
-
-            // Create mask
-            MaskForm = new Form();
-            MaskForm.BackColor = Color.Black;
-            MaskForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            MaskForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            MaskForm.Show();
-            MaskForm.Visible = false;
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
@@ -173,14 +166,12 @@ namespace Olympus_the_Game
         {
             int lvl = this.levelDialog1.Level;
 
-            ShowMask(true);
+            Utils.ShowMask(true);
 
             this.Visible = false;
+            new Thread(delegate() { Utils.ShowMask(false); StartGame(); }).Start();
             ShowGame();
-            MaskForm.Visible = false;
-            StartGame();
             this.Visible = true;
-
         }
 
         private void HideAllControls()
@@ -229,28 +220,13 @@ namespace Olympus_the_Game
             // Start muziek
             Mp3Player.SetResource(this.gameSound);
             Mp3Player.Loop(true);
-        }
-
-        private void ShowMask(bool showMask)
-        {
-            MaskForm.Opacity = showMask ? 0.0f : 1.0f;
-            MaskForm.Visible = true;
-            Mp3Player.FadeOut(1000);
-            for (float i = 0.0f; i <= 1.0f; i += 0.01f)
-            {
-                MaskForm.Opacity = showMask ? i : 1.0f - i;
-                System.Threading.Thread.Sleep(10);
-                gs.Invalidate();
-                Application.DoEvents();
-            }
-            MaskForm.Visible = showMask;
+            gs.ShowDialog();
         }
 
         public void StartGame()
         {
             Mp3Player.PlaySelected();
             OlympusTheGame.Resume();
-            gs.ShowDialog();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
