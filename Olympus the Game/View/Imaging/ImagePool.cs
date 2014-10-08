@@ -22,7 +22,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Voegt alle plaatjes toe aan de bron-dictionary.
         /// </summary>
-        static ImagePool()
+        public static void LoadImagePool()
         {
             source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
             source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
