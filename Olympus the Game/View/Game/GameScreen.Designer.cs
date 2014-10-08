@@ -46,6 +46,7 @@
             this.MenuMuziekSpeler = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speelpauzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.infoBox1 = new Olympus_the_Game.View.InfoBox();
             this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
@@ -157,7 +158,8 @@
             // 
             this.MenuMuziekSpeler.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.speelpauzeToolStripMenuItem});
+            this.speelpauzeToolStripMenuItem,
+            this.stopToolStripMenuItem});
             this.MenuMuziekSpeler.Name = "MenuMuziekSpeler";
             this.MenuMuziekSpeler.Size = new System.Drawing.Size(92, 20);
             this.MenuMuziekSpeler.Text = "Muziek Speler";
@@ -165,16 +167,23 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // speelpauzeToolStripMenuItem
             // 
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
-            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
             this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // OpenMusicFileDialog
             // 
@@ -271,5 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem speelpauzeToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog OpenMusicFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
     }
 }

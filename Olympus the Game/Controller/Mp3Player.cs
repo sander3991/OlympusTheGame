@@ -130,5 +130,10 @@ namespace Olympus_the_Game
                 File.Delete(tempFileLoc);
             tempFileLoc = null;
         }
+
+        internal static void Pause()
+        {
+            player.controls.pause();
+        }
     }
 }
