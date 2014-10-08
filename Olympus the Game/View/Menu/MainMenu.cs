@@ -107,9 +107,10 @@ namespace Olympus_the_Game
             this.mainMenuControl1.ButtonLevelEditor.Click += ButtonLevelEditor_Click;
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
-            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
-            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
+            this.SizeChanged += delegate(object source, EventArgs ea) { CenterAllControls(); };
             this.levelDialog1.LevelChosen += OpenLevel;
+            this.levelEditorMenu1.ButtonNewEditor.Click += NewEditor;
+            this.levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
 
             // Load introtune here
             this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
@@ -255,6 +256,26 @@ namespace Olympus_the_Game
         {
             HideAllControls();
             this.mainMenuControl1.Visible = true;
+        }
+
+        private void NewEditor(object sender, EventArgs e)
+        {
+            LevelEditor le = new LevelEditor(new PlayField(2000, 1000));
+            this.Visible = false;
+            le.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void LoadEditor(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!");
+        }
+
+        private void CenterAllControls()
+        {
+            CenterControl(this.levelEditorMenu1);
+            CenterControl(this.levelDialog1);
+            CenterControl(mainMenuControl1);
         }
     }
 }
