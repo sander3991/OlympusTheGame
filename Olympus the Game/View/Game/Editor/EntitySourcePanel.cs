@@ -27,6 +27,7 @@ namespace Olympus_the_Game.View.Game.Editor
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Properties.Resources.dirt;
+            this.picturePreview.Image = ImagePool.GetPicture(EntityType, this.picturePreview.Size)[-1.0f];
             this.label1.Text = EntityType.ToString();
             this.label2.Text = "Toets";
             this.label3.Text = "Omschrijving";

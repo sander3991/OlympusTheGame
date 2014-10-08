@@ -81,6 +81,12 @@
     <Compile Include="View\Game\Editor\EntitySourcePanel.Designer.cs">
       <DependentUpon>EntitySourcePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Game\Editor\EntitySourcePanelList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Game\Editor\EntitySourcePanelList.Designer.cs">
+      <DependentUpon>EntitySourcePanelList.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu\HelpDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,6 +216,9 @@
   <ItemGroup>
     <EmbeddedResource Include="View\Game\Editor\EntitySourcePanel.resx">
       <DependentUpon>EntitySourcePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Game\Editor\EntitySourcePanelList.resx">
+      <DependentUpon>EntitySourcePanelList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
