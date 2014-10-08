@@ -37,44 +37,6 @@ namespace Olympus_the_Game.View
 
         #region Drag and Drop
 
-        #region MouseDown
-        private void Creeper_MouseDown(object sender, MouseEventArgs e)
-        {
-            Creeper.DoDragDrop(ObjectType.CREEPER, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void Spider_MouseDown(object sender, MouseEventArgs e)
-        {
-            Spider.DoDragDrop(ObjectType.SLOWER, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void Tnt_MouseDown(object sender, MouseEventArgs e)
-        {
-            Tnt.DoDragDrop(ObjectType.EXPLODE, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void TimeBomb_MouseDown(object sender, MouseEventArgs e)
-        {
-            TimeBomb.DoDragDrop(ObjectType.TIMEBOMB, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void Cake_MouseDown(object sender, MouseEventArgs e)
-        {
-            Cake.DoDragDrop(ObjectType.FINISH, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void Home_MouseDown(object sender, MouseEventArgs e)
-        {
-            Home.DoDragDrop(ObjectType.START, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        private void Obstakel_MouseDown(object sender, MouseEventArgs e)
-        {
-            Obstakel.DoDragDrop(ObjectType.OBSTACLE, DragDropEffects.Copy | DragDropEffects.Move);
-        }
-
-        #endregion
-
         #region Inpanel Drag and Drop
 
         /// <summary>
