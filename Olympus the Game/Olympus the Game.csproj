@@ -227,18 +227,6 @@
     <None Include="Properties\arrowUp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\rsz_arrowup.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\rsz_arrowleft.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\rsz_arrowdown.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\rsz_arrowright.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\beach.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +255,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Fonts\Minecraftia-Regular.ttf" />
     <None Include="Resources\Textures\trash_recyclebin_empty_closed.png" />
   </ItemGroup>
   <ItemGroup>
