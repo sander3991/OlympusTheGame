@@ -32,8 +32,6 @@ namespace Olympus_the_Game
 
         private bool gifState;
 
-        
-
         public MainMenu()
         {
             InitializeComponent();
@@ -164,13 +162,28 @@ namespace Olympus_the_Game
 
         private void OpenLevel()
         {
+            // Retrieve level
             int lvl = this.levelDialog1.Level;
+            // TODO Load given level
 
+            // Show mask
+            Mp3Player.FadeOut(4000);
             Utils.ShowMask(true);
-
+            // Hid this screen
             this.Visible = false;
-            new Thread(delegate() { Utils.ShowMask(false); StartGame(); }).Start();
+            // Create Gamescreen
             ShowGame();
+
+            // Add eventhandler
+            this.gs.Shown += ShowMaskAndStartGame;
+
+            // Show gamescreen
+            this.gs.ShowDialog();
+
+            // Remove eventhandler
+            this.gs.Shown -= ShowMaskAndStartGame;
+
+            // Gamescreen closed, make this visible
             this.Visible = true;
         }
 
@@ -220,7 +233,6 @@ namespace Olympus_the_Game
             // Start muziek
             Mp3Player.SetResource(this.gameSound);
             Mp3Player.Loop(true);
-            gs.ShowDialog();
         }
 
         public void StartGame()
@@ -253,6 +265,12 @@ namespace Olympus_the_Game
             CenterControl(this.levelEditorMenu1);
             CenterControl(this.levelDialog1);
             CenterControl(mainMenuControl1);
+        }
+
+        private void ShowMaskAndStartGame(object source, EventArgs ea)
+        {
+            Utils.ShowMask(false);
+            this.StartGame();
         }
     }
 }

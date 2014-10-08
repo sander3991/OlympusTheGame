@@ -10,13 +10,9 @@ namespace Olympus_the_Game
 {
     class Utils
     {
+        private static readonly int MASK_FADE_DURATION = 3000;
 
         public static Form MaskForm { get; private set; }
-
-        static Utils()
-        {
-            MaskForm = new Form() { BackColor = Color.Black, FormBorderStyle = FormBorderStyle.None, ShowInTaskbar = false, TopMost = true };
-        }
 
         /// <summary>
         /// Geeft de parent terug van een gegeven control.
@@ -35,6 +31,8 @@ namespace Olympus_the_Game
 
         public static void ShowMask(bool showMask)
         {
+            if(MaskForm == null || MaskForm.IsDisposed)
+                MaskForm = new Form() { BackColor = Color.Black, FormBorderStyle = FormBorderStyle.None, ShowInTaskbar = false, TopMost = true };
             if (!MaskForm.IsHandleCreated)
                 MaskForm.Show();
             MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] {showMask});
@@ -42,24 +40,30 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-            
-            MaskForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+            MaskForm.Size = getScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
             
-            Mp3Player.FadeOut(1000);
             Stopwatch sw = new Stopwatch();
 
             sw.Start();
             MaskForm.Visible = true;
-            while (sw.ElapsedMilliseconds < 4000)
+            while (sw.ElapsedMilliseconds < MASK_FADE_DURATION)
             {
-                float i = (float)sw.ElapsedMilliseconds / (float)4000;
+                float i = (float)sw.ElapsedMilliseconds / (float)MASK_FADE_DURATION;
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
                 MaskForm.Invalidate();
                 Application.DoEvents();
             }
+            MaskForm.Opacity = showMask ? 1.0f : 0.0f;
+            sw.Stop();
             MaskForm.Visible = showMask;
+        }
+
+        public static Size getScreenSize()
+        {
+            return new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
     }
 }
