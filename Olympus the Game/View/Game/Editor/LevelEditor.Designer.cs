@@ -46,14 +46,14 @@
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.Spider = new System.Windows.Forms.Panel();
             this.Menubar = new System.Windows.Forms.MenuStrip();
-            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
-            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
+            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
+            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -232,6 +232,46 @@
             this.Menubar.TabIndex = 24;
             this.Menubar.Text = "menuStrip1";
             // 
+            // bestandToolStripMenuItem
+            // 
+            this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.opslaanToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.afsluitenToolStripMenuItem});
+            this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
+            this.bestandToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.bestandToolStripMenuItem.Text = "Bestand";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.Inladen_Click);
+            // 
+            // opslaanToolStripMenuItem
+            // 
+            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
+            this.opslaanToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.opslaanToolStripMenuItem.Text = "Opslaan";
+            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.Opslaan_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(160, 6);
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.Afsluiten_Click);
+            // 
             // speelveldEditor1
             // 
             this.speelveldEditor1.EnteredSize = new System.Drawing.Size(0, 0);
@@ -270,43 +310,6 @@
             this.gamePanelEditor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Start_InPanel_Drag);
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
             this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
-            // 
-            // bestandToolStripMenuItem
-            // 
-            this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.opslaanToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.afsluitenToolStripMenuItem});
-            this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
-            this.bestandToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.bestandToolStripMenuItem.Text = "Bestand";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.Inladen_Click);
-            // 
-            // opslaanToolStripMenuItem
-            // 
-            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
-            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.opslaanToolStripMenuItem.Text = "Opslaan";
-            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.Opslaan_Click);
-            // 
-            // afsluitenToolStripMenuItem
-            // 
-            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
-            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.Afsluiten_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // LevelEditor
             // 

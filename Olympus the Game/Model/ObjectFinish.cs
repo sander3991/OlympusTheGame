@@ -20,6 +20,13 @@ namespace Olympus_the_Game
             Type = ObjectType.FINISH;
         }
 
+        public override void OnCollide(GameObject gameObject)
+        {
+            EntityPlayer player = gameObject as EntityPlayer;
+            if (player != null && player.X > X && player.Y > Y)
+                OlympusTheGame.Controller.OnPlayerReachedCake();
+        }
+
         public override string ToString()
         {
             return "Finish";

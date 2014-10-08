@@ -24,9 +24,9 @@ namespace Olympus_the_Game.View
             OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
         }
 
-        private void OnPlayerFinished(FinishType type, int score)
+        private void OnPlayerFinished(FinishType type)
         {
-            new GameFinished(type, score).ShowDialog();
+            new GameFinished(type).ShowDialog();
             forceClose = true;
             Close();
         }
@@ -212,30 +212,7 @@ namespace Olympus_the_Game.View
         {
             OpenMusicFileDialog.ShowDialog();
         }
-        /// <summary>
-        /// Speel 1 van de spelers af die actief is op dat moment
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void speelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CustomMusicPlayer.IsPlaying)
-                CustomMusicPlayer.Pause();
-            else
-                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-        }
-        /// <summary>
-        /// Pauzeer de speler die aan het spelen is
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pauzeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (Mp3Player.IsPlaying)
-                Mp3Player.Pause();
-            else if (CustomMusicPlayer.IsPlaying)
-                CustomMusicPlayer.Pause();
-        }
+        
         /// <summary>
         /// Als er op ok is geklikt met de file opener speel dan de muziek af
         /// </summary>
@@ -246,6 +223,33 @@ namespace Olympus_the_Game.View
             Mp3Player.StopPlaying();
             CustomMusicPlayer.Open(OpenMusicFileDialog.FileName);
             CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            speelpauzeToolStripMenuItem.Checked = true;
+        }
+        private void speelpauzeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Pause();
+            else if(!CustomMusicPlayer.IsPlaying)
+                CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            
+            else if (Mp3Player.IsPlaying)
+                Mp3Player.Pause();
+            else if(!Mp3Player.IsPlaying)
+                Mp3Player.Play();
+            
+
+        }
+        private void speelpauzeToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (CustomMusicPlayer.IsPlaying && speelpauzeToolStripMenuItem.Checked)
+            //    CustomMusicPlayer.Pause();
+            //else if (!CustomMusicPlayer.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
+            //    CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
+            //
+            //else if (Mp3Player.IsPlaying && speelpauzeToolStripMenuItem.Checked)
+            //    Mp3Player.Pause();
+            //else if (!Mp3Player.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
+            //    Mp3Player.Play();
         }
 
         /// <summary>
@@ -315,6 +319,12 @@ namespace Olympus_the_Game.View
 
 
         }
+
+        
+
+        
+
+        
 
         
 

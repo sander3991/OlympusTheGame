@@ -23,8 +23,6 @@ namespace Olympus_the_Game
 
         private bool firstInit = true;
 
-        private bool openGame = true;
-
         private GameScreen gs;
 
         private string introSound;
@@ -47,7 +45,7 @@ namespace Olympus_the_Game
         /// <param name="e"></param>
         private void MainMenu_VisibleChanged(object sender, EventArgs e)
         {
-            if(Visible)
+            if (Visible)
             {
                 Mp3Player.StopPlaying();
                 Mp3Player.SetResource(this.introSound);
@@ -64,18 +62,18 @@ namespace Olympus_the_Game
                 // Preload stuff
                 this.PrepareNewGameScreen();
             }
-        }        
+        }
 
         /// <summary>
         /// Laad main menu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainMenu_Load(object sender, EventArgs e) {
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
             // Make invisible
             this.Visible = false;
-            this.levelDialog1.Visible = false;
-            this.mainMenuControl1.Visible = false;
+            HideAllControls();
 
             // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
             // de splashscreen word weergeven of niet
@@ -106,12 +104,13 @@ namespace Olympus_the_Game
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
-            this.mainMenuControl1.ButtonLevelEditor.Click +=ButtonLevelEditor_Click;
+            this.mainMenuControl1.ButtonLevelEditor.Click += ButtonLevelEditor_Click;
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
-            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
-            this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
+            this.SizeChanged += delegate(object source, EventArgs ea) { CenterAllControls(); };
             this.levelDialog1.LevelChosen += OpenLevel;
+            this.levelEditorMenu1.ButtonNewEditor.Click += NewEditor;
+            this.levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
 
             // Load introtune here
             this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
@@ -136,6 +135,7 @@ namespace Olympus_the_Game
             // Center controls
             CenterControl(mainMenuControl1);
             CenterControl(levelDialog1);
+            CenterControl(levelEditorMenu1);
 
             // Make main menu visible
             mainMenuControl1.Visible = true;
@@ -152,16 +152,16 @@ namespace Olympus_the_Game
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            openGame = true;
-            this.mainMenuControl1.Visible = false;
+            HideAllControls();
             this.levelDialog1.Visible = true;
+            this.ButtonBack.Visible = true;
         }
 
         private void ButtonLevelEditor_Click(object sender, EventArgs e)
         {
-            openGame = false;
-            this.mainMenuControl1.Visible = false;
-            this.levelDialog1.Visible = true;
+            HideAllControls();
+            this.levelEditorMenu1.Visible = true;
+            this.ButtonBack.Visible = true;
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -172,21 +172,23 @@ namespace Olympus_the_Game
         private void OpenLevel()
         {
             int lvl = this.levelDialog1.Level;
-            if (openGame)
-            {
 
-                ShowMask(true);
+            ShowMask(true);
 
-                this.Visible = false;
-                ShowGame();
-                MaskForm.Visible = false;
-                StartGame();
-                this.Visible = true;
-            }
-            else
-            {
-                MessageBox.Show("Level editor will be added later!");
-            }
+            this.Visible = false;
+            ShowGame();
+            MaskForm.Visible = false;
+            StartGame();
+            this.Visible = true;
+
+        }
+
+        private void HideAllControls()
+        {
+            this.levelDialog1.Visible = false;
+            this.levelEditorMenu1.Visible = false;
+            this.ButtonBack.Visible = false;
+            this.mainMenuControl1.Visible = false;
         }
 
         private void loadResources()
@@ -198,12 +200,12 @@ namespace Olympus_the_Game
         public void PrepareNewGameScreen()
         {
             // Maak gamescreen aan
-            if(this.gs == null || this.gs.IsDisposed)
+            if (this.gs == null || this.gs.IsDisposed)
                 this.gs = new GameScreen();
 
             // Reset gametime
             OlympusTheGame.GameTime = 0;
-            
+
         }
 
         /// <summary>
@@ -219,7 +221,7 @@ namespace Olympus_the_Game
             }
 
             OlympusTheGame.Playfield.InitializeGameObjects();
-            
+
 
             // Add PlayField to GameScreen
             gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
@@ -229,9 +231,11 @@ namespace Olympus_the_Game
             Mp3Player.Loop(true);
         }
 
-        private void ShowMask(bool showMask) {
+        private void ShowMask(bool showMask)
+        {
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
             MaskForm.Visible = true;
+            Mp3Player.FadeOut(1000);
             for (float i = 0.0f; i <= 1.0f; i += 0.01f)
             {
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
@@ -247,6 +251,32 @@ namespace Olympus_the_Game
             Mp3Player.PlaySelected();
             OlympusTheGame.Resume();
             gs.ShowDialog();
+        }
+
+        private void ButtonBack_Click(object sender, EventArgs e)
+        {
+            HideAllControls();
+            this.mainMenuControl1.Visible = true;
+        }
+
+        private void NewEditor(object sender, EventArgs e)
+        {
+            LevelEditor le = new LevelEditor(new PlayField(2000, 1000));
+            this.Visible = false;
+            le.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void LoadEditor(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon!");
+        }
+
+        private void CenterAllControls()
+        {
+            CenterControl(this.levelEditorMenu1);
+            CenterControl(this.levelDialog1);
+            CenterControl(mainMenuControl1);
         }
     }
 }

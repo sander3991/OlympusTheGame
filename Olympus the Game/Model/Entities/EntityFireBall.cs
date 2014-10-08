@@ -87,7 +87,27 @@ namespace Olympus_the_Game
                 Entity e = gameObject as Entity;
                 // Verwijder het object waar het mee in aanraking is gekomen. Onder voorwaarde dat het een entity is
                 if (e != null)
+                {
                     Playfield.RemoveObject(gameObject);
+                    switch (e.Type)
+                    {
+                        case ObjectType.SLOWER:
+                            Scoreboard.AddScore(ScoreType.Slower);
+                            break;
+                        case ObjectType.TIMEBOMB:
+                        case ObjectType.EXPLODE:
+                            Scoreboard.AddScore(ScoreType.Explode);
+                            break;
+                        case ObjectType.CREEPER:
+                            Scoreboard.AddScore(ScoreType.Creeper);
+                            break;
+                        case ObjectType.GHAST:
+                            Scoreboard.AddScore(ScoreType.Ghast);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
         }
 

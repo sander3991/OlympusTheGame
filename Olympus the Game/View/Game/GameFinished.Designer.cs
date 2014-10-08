@@ -47,7 +47,7 @@
             // 
             this.score.AutoSize = true;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score.Location = new System.Drawing.Point(129, 108);
+            this.score.Location = new System.Drawing.Point(106, 109);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(70, 24);
             this.score.TabIndex = 1;
@@ -56,7 +56,7 @@
             // menuButton
             // 
             this.menuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuButton.Location = new System.Drawing.Point(150, 152);
+            this.menuButton.Location = new System.Drawing.Point(133, 328);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(131, 33);
             this.menuButton.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 205);
+            this.ClientSize = new System.Drawing.Size(439, 373);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.score);
             this.Controls.Add(this.berichtLabel);

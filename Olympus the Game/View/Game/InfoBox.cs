@@ -20,6 +20,12 @@ namespace Olympus_the_Game.View
 
             if (OlympusTheGame.Controller != null)
                 OlympusTheGame.Controller.OnHealthChanged += UpdateHealth;
+            OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
+        }
+
+        void OlympusTheGame_OnNewPlayField(PlayField obj)
+        {
+            UpdateHealth(obj.Player, obj.Player.Health, -1);
         }
 
         /// <summary>

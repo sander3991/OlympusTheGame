@@ -27,7 +27,7 @@ namespace Olympus_the_Game.View.Menu
                 this.Controls.Add(b);
                 b.Size = new Size(420, 49);
                 b.Location = new Point(3, 3 + (i - 1) * 55);
-                b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
+                b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.minecraft_stone_bhcmfrug;
                 b.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 b.ForeColor = Color.Black;
                 b.Text = "Level " + i;

@@ -12,6 +12,7 @@ namespace Olympus_the_Game.View.Buttons
     public partial class PopupButton : Button
     {
         private Point loc;
+
         private Form SourceForm;
 
         public PopupButton()
@@ -26,6 +27,11 @@ namespace Olympus_the_Game.View.Buttons
             loc = parent.Location;
             SourceForm = parent.FindForm();
             SourceForm.Controls.Remove(parent);
+
+            // Make move button invisible
+            foreach (Control c in this.Parent.Controls)
+                if (c.GetType() == typeof(MoveButton))
+                    c.Visible = false;
 
             Form f = new Form();
             f.Width = parent.Width + 10;
@@ -50,6 +56,11 @@ namespace Olympus_the_Game.View.Buttons
 
             SourceForm.Controls.Add(parent);
             this.Visible = true;
+
+            // Make move button visible
+            foreach (Control c in this.Parent.Controls)
+                if (c.GetType() == typeof(MoveButton))
+                    c.Visible = true;
 
             parent.Location = loc;
         }
