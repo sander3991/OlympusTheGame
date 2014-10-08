@@ -74,11 +74,14 @@ namespace Olympus_the_Game
 
         public override void OnCollide(GameObject gameObject)
         {
-            // Maak de speler langzamer wanneer hij door een cobweb loopt
-            if (!isSlowingPlayer)
+            if (gameObject.Type == ObjectType.PLAYER)
             {
-                Playfield.Player.SpeedModifier = Playfield.Player.SpeedModifier / SlowStrength;
-                isSlowingPlayer = true;
+                // Maak de speler langzamer wanneer hij door een cobweb loopt
+                if (!isSlowingPlayer)
+                {
+                    Playfield.Player.SpeedModifier = Playfield.Player.SpeedModifier / SlowStrength;
+                    isSlowingPlayer = true;
+                }
             }
         }
 

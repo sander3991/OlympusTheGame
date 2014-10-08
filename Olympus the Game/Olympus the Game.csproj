@@ -75,6 +75,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu\HelpDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Game\GameFinished.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     </Compile>
     <Compile Include="View\Menu\LevelDialog.Designer.cs">
       <DependentUpon>LevelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\LevelEditorMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\LevelEditorMenu.Designer.cs">
+      <DependentUpon>LevelEditorMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Menu\MainMenu.cs">
       <SubType>Form</SubType>
@@ -162,12 +174,6 @@
     <Compile Include="View\Game\InfoView.Designer.cs">
       <DependentUpon>InfoView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LevelDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\LevelDialog.Designer.cs">
-      <DependentUpon>LevelDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Game\Editor\LevelEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,13 +194,19 @@
     <Compile Include="View\Game\Editor\SpeelveldEditor.Designer.cs">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu\SettingsDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\Game\GameFinished.resx">
-      <DependentUpon>GameFinished.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\LevelDialog.resx">
       <DependentUpon>LevelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Menu\LevelEditorMenu.resx">
+      <DependentUpon>LevelEditorMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Menu\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -227,9 +239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Game\InfoView.resx">
       <DependentUpon>InfoView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LevelDialog.resx">
-      <DependentUpon>LevelDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Game\Editor\LevelEditor.resx">
       <DependentUpon>LevelEditor.cs</DependentUpon>
