@@ -394,6 +394,9 @@
   <ItemGroup>
     <None Include="Resources\Sounds\bomb.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraft-stone-bhcmfrug.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

@@ -25,9 +25,10 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuControl));
             this.ButtonLevelEditor = new System.Windows.Forms.Button();
-            this.ButtonHelp = new System.Windows.Forms.Button();
+            this.ButtonSettings = new System.Windows.Forms.Button();
             this.ButtonExit = new System.Windows.Forms.Button();
             this.ButtonStart = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonLevelEditor
@@ -44,19 +45,19 @@
             this.ButtonLevelEditor.Text = "Level Editor";
             this.ButtonLevelEditor.UseVisualStyleBackColor = false;
             // 
-            // ButtonHelp
+            // ButtonSettings
             // 
-            this.ButtonHelp.AccessibleDescription = "x";
-            this.ButtonHelp.BackColor = System.Drawing.Color.LightGray;
-            this.ButtonHelp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonHelp.BackgroundImage")));
-            this.ButtonHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonHelp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonHelp.Location = new System.Drawing.Point(3, 113);
-            this.ButtonHelp.Name = "ButtonHelp";
-            this.ButtonHelp.Size = new System.Drawing.Size(205, 49);
-            this.ButtonHelp.TabIndex = 2;
-            this.ButtonHelp.Text = "Help";
-            this.ButtonHelp.UseVisualStyleBackColor = false;
+            this.ButtonSettings.AccessibleDescription = "x";
+            this.ButtonSettings.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonSettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSettings.BackgroundImage")));
+            this.ButtonSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSettings.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonSettings.Location = new System.Drawing.Point(3, 113);
+            this.ButtonSettings.Name = "ButtonSettings";
+            this.ButtonSettings.Size = new System.Drawing.Size(420, 49);
+            this.ButtonSettings.TabIndex = 2;
+            this.ButtonSettings.Text = "Instellingen";
+            this.ButtonSettings.UseVisualStyleBackColor = false;
             // 
             // ButtonExit
             // 
@@ -65,11 +66,11 @@
             this.ButtonExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonExit.BackgroundImage")));
             this.ButtonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonExit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonExit.Location = new System.Drawing.Point(218, 113);
+            this.ButtonExit.Location = new System.Drawing.Point(218, 168);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(205, 49);
             this.ButtonExit.TabIndex = 3;
-            this.ButtonExit.Text = "Exit";
+            this.ButtonExit.Text = "Stoppen";
             this.ButtonExit.UseVisualStyleBackColor = false;
             // 
             // ButtonStart
@@ -83,21 +84,36 @@
             this.ButtonStart.Name = "ButtonStart";
             this.ButtonStart.Size = new System.Drawing.Size(420, 49);
             this.ButtonStart.TabIndex = 0;
-            this.ButtonStart.Text = "Start Game";
+            this.ButtonStart.Text = "Spel Starten";
             this.ButtonStart.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.AccessibleDescription = "x";
+            this.button1.BackColor = System.Drawing.Color.LightGray;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(3, 168);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(205, 49);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Help";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // MainMenuControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ButtonExit);
-            this.Controls.Add(this.ButtonHelp);
+            this.Controls.Add(this.ButtonSettings);
             this.Controls.Add(this.ButtonLevelEditor);
             this.Controls.Add(this.ButtonStart);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MainMenuControl";
-            this.Size = new System.Drawing.Size(427, 167);
+            this.Size = new System.Drawing.Size(426, 221);
             this.ResumeLayout(false);
 
         }
@@ -105,9 +121,10 @@
         #endregion
 
         public System.Windows.Forms.Button ButtonLevelEditor;
-        public System.Windows.Forms.Button ButtonHelp;
+        public System.Windows.Forms.Button ButtonSettings;
         public System.Windows.Forms.Button ButtonExit;
         public System.Windows.Forms.Button ButtonStart;
+        public System.Windows.Forms.Button button1;
 
     }
 }

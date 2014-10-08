@@ -31,28 +31,13 @@ namespace Olympus_the_Game
 
         private string gameSound;
 
+        private bool gifState;
+
         public MainMenu()
         {
-            // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
-            // de splashscreen word weergeven of niet
-            bool gifState = true;
-
             InitializeComponent();
-
-            // Zorg ervoor dat tijdens de splashscreen geen buttons in scherm zijn
-            mainMenuControl1.Visible = false;
-
-            // Maak nieuw eventhandler aan voor timer tick
-            this.gifTimer.Tick += new EventHandler(Timer_Tick);
-            if (gifState == true)
-            {
-                // Interval is ~ongeveer 4 seconden.
-                // Hangt een beetje af van snelheid van computer
-                gifTimer.Interval = 4500;
-                gifTimer.Start();
-                gifState = false;
-            }
         }
+
         /// <summary>
         /// Wordt aangeroepen zodra de visibility van het MainMenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
         /// </summary>
@@ -63,7 +48,8 @@ namespace Olympus_the_Game
             if(Visible)
             {
                 Mp3Player.StopPlaying();
-                Mp3Player.SetResource(Properties.Resources.StarWars);
+                Mp3Player.SetResource(this.introSound);
+                Mp3Player.Loop(true);
                 if (!firstInit)
                 {
                     System.Threading.Thread.Sleep(5); //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
@@ -84,14 +70,29 @@ namespace Olympus_the_Game
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainMenu_Load(object sender, EventArgs e) {
+            // Make invisible
+            this.Visible = false;
+            this.levelDialog1.Visible = false;
+            this.mainMenuControl1.Visible = false;
+
+            // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
+            // de splashscreen word weergeven of niet
+            this.gifState = true;
+            this.gifTimer.Tick += new EventHandler(Timer_Tick);
+            if (this.gifState == true)
+            {
+                // Interval is ~ongeveer 4 seconden.
+                // Hangt een beetje af van snelheid van computer
+                this.gifTimer.Interval = 4500;
+                this.gifTimer.Start();
+                this.gifState = false;
+            }
+
             // Init form
             this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.CenterToScreen();
-
-            // Init components
-            this.levelDialog1.Visible = false;
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
@@ -101,6 +102,9 @@ namespace Olympus_the_Game
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.mainMenuControl1); };
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
             this.levelDialog1.LevelChosen += OpenLevel;
+
+            // Load introtune here
+            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
 
             // Load resources
             this.loadResources();
@@ -173,14 +177,14 @@ namespace Olympus_the_Game
         private void loadResources()
         {
             this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
-            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
-            Mp3Player.Loop(true);
+            ImagePool.LoadImagePool();
         }
 
         public void PrepareNewGameScreen()
         {
             // Maak gamescreen aan
-            this.gs = new GameScreen();
+            if(this.gs == null || this.gs.IsDisposed)
+                this.gs = new GameScreen();
 
             // Reset gametime
             OlympusTheGame.GameTime = 0;
@@ -209,6 +213,7 @@ namespace Olympus_the_Game
             OlympusTheGame.Resume();
 
             Mp3Player.SetResource(this.gameSound);
+            Mp3Player.Loop(true);
             Mp3Player.PlaySelected();
             // Start applicatie
             gs.ShowDialog();
