@@ -54,7 +54,7 @@
             this.mainMenuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.mainMenuControl1.Location = new System.Drawing.Point(12, 23);
             this.mainMenuControl1.Name = "mainMenuControl1";
-            this.mainMenuControl1.Size = new System.Drawing.Size(426, 168);
+            this.mainMenuControl1.Size = new System.Drawing.Size(427, 222);
             this.mainMenuControl1.TabIndex = 0;
             // 
             // MainMenu
