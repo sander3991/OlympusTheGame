@@ -74,6 +74,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\Menu\HelpDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Game\GameFinished.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Game\GameFinished.Designer.cs">
+      <DependentUpon>GameFinished.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Menu\LevelDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +192,12 @@
     </Compile>
     <Compile Include="View\Game\Editor\SpeelveldEditor.Designer.cs">
       <DependentUpon>SpeelveldEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\SettingsDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Menu\SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -384,6 +402,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sounds\bomb.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraft-stone-bhcmfrug.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
