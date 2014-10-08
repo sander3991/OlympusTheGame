@@ -95,7 +95,11 @@ namespace Olympus_the_Game
         {            
             // Verwijder dit object uit de gameloop met een mooie explosie
             OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
-            Playfield.AddObject(new SpriteExplosion(this));
+            if(!fieldRemoved)
+            {
+                Playfield.AddObject(new SpriteExplosion(this));
+                SoundEffects.PlaySound(Properties.Resources.bomb);
+            }
         }
 
         public override string ToString()
