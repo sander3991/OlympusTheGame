@@ -219,7 +219,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void speelPauzeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CustomMusicPlayer.IsPlaying)
+            if (CustomMusicPlayer.IsPlaying || Mp3Player.IsPlaying)
             {
                 CustomMusicPlayer.Pause();
                 Mp3Player.Pause();
