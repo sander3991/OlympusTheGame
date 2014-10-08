@@ -103,6 +103,9 @@ namespace Olympus_the_Game
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterControl(this.levelDialog1); };
             this.levelDialog1.LevelChosen += OpenLevel;
 
+            // Load introtune here
+            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
+
             // Load resources
             this.loadResources();
         }
@@ -174,14 +177,14 @@ namespace Olympus_the_Game
         private void loadResources()
         {
             this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
-            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
             ImagePool.LoadImagePool();
         }
 
         public void PrepareNewGameScreen()
         {
             // Maak gamescreen aan
-            this.gs = new GameScreen();
+            if(this.gs == null)
+                this.gs = new GameScreen();
 
             // Reset gametime
             OlympusTheGame.GameTime = 0;
