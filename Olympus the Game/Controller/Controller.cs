@@ -10,8 +10,16 @@ using System.Diagnostics;
 
 namespace Olympus_the_Game
 {
+    public enum FinishType
+    {
+        DEAD,
+        CAKE,
+    }
     public class Controller
     {
+
+        public delegate void DelOnFinish(FinishType type, int score);
+        public event DelOnFinish OnPlayerFinished;
         /// <summary>
         /// Deze wordt gebruikt voor alle game events
         /// </summary>
@@ -58,12 +66,22 @@ namespace Olympus_the_Game
 
         }
 
+        /// <summary>
+        /// Als de health van de speler is veranderd
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="newHealth"></param>
+        /// <param name="prevHealth"></param>
         private void Player_OnHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
         {
             if (newHealth == 0)
-                Console.WriteLine("Speler is dood!");
+                if (OnPlayerFinished != null)
+                    OnPlayerFinished(FinishType.DEAD, 1); //TODO add score hier
         }
-
+        /// <summary>
+        /// Als er een nieuw speelveld wordt ingeladen moet de nieuwe player eraan gekoppeld worden
+        /// </summary>
+        /// <param name="obj"></param>
         private void OnNewPlayField(PlayField obj)
         {
             if (player != null)
@@ -187,8 +205,7 @@ namespace Olympus_the_Game
             int sec = (int)(gt / 1000);
             int minutes = sec / 60;
             int seconds = sec - minutes * 60;
-
-            return string.Format("{0}{1}:{2}{3}", minutes < 10 ? "0" : "", minutes, seconds < 10 ? "0" : "", seconds);
+            return string.Format("{0}:{1}",minutes.ToString("D2"),seconds.ToString("D2"));
         }
 
     }
