@@ -12,6 +12,8 @@ namespace Olympus_the_Game.View.Menu
     public partial class HelpDialog : UserControl
     {
         private int prop_scroll;
+        private const int TIMERINTERVAL = 33;
+        private Timer scrollTimer;
         public int ScrollLoc
         {
             get
@@ -36,11 +38,35 @@ namespace Olympus_the_Game.View.Menu
             this.MouseWheel += HelpDialog_MouseWheel;
             label1.Text = label1.Text.ToUpper();
             label1.ForeColor = Color.FromArgb(247, 112, 22);
+            scrollTimer = new Timer();
+            scrollTimer.Interval = TIMERINTERVAL;
+            scrollTimer.Tick += scrollTimer_Tick;
+            VisibleChanged += OnVisibleChanged;
+        }
 
+        void OnVisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+                Start();
+            else
+                Stop();
+        }
+
+        void scrollTimer_Tick(object sender, EventArgs e)
+        {
+            ScrollLoc -= 3;
+            Point loc = label1.Location;
+            loc.Y = ScrollLoc;
+            label1.Location = loc;
+            if (scrollTimer.Interval == 5000)
+                scrollTimer.Interval = TIMERINTERVAL;
         }
 
         void HelpDialog_MouseWheel(object sender, MouseEventArgs e)
         {
+            scrollTimer.Stop();
+            scrollTimer.Interval = 5000;
+            scrollTimer.Start();
             int scroll = e.Delta / 8;
             ScrollLoc += scroll;
             Point loc = label1.Location;
@@ -49,13 +75,19 @@ namespace Olympus_the_Game.View.Menu
         }
 
 
-        public void Start()
+        private void Start()
         {
             ScrollLoc = Height;
             Point loc = label1.Location;
             loc.Y = ScrollLoc;
             label1.Location = loc;
             Focus();
+            scrollTimer.Start();
+        }
+
+        private void Stop()
+        {
+            scrollTimer.Stop();
         }
     }
 }
