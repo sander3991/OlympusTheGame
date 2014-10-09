@@ -19,8 +19,6 @@ namespace Olympus_the_Game
         /// <summary>
         /// De snelheid van de missile
         /// </summary>
-        /// 
-        public new readonly ObjectType Type = ObjectType.WEBMISSILE;
         public int MissileSpeed
         {
             get
@@ -44,6 +42,7 @@ namespace Olympus_the_Game
         public EntityWebMissile(EntitySlower spider, GameObject target)
             : base(spider.Width / 4, spider.Height / 4, spider.X, spider.Y)
         {
+            Type = ObjectType.WEBMISSILE;
             //TODO: -25 berekenen via variabelen.
             targetX = (target.X + target.Width / 2) - 25;
             targetY = (target.Y + target.Height / 2) - 25;

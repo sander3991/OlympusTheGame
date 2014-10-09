@@ -9,7 +9,6 @@ namespace Olympus_the_Game
     {
         private EntityGhast owner;
         private int prop_fireballspeed = 50; // Factor van maken
-        public new readonly ObjectType Type = ObjectType.FIREBALL;
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
         /// </summary>
@@ -38,6 +37,7 @@ namespace Olympus_the_Game
             DY = -(((this.Y - target.Y) - 25) / FireballSpeed);
 
             EntityControlledByAI = false;
+            Type = ObjectType.FIREBALL;
             IsSolid = false;
             this.owner = owner;
         }

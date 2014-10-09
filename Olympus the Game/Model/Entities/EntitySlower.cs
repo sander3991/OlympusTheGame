@@ -11,8 +11,6 @@ namespace Olympus_the_Game
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_effectrange = 200;
         private int prop_firespeed = 2000;
-
-        public new readonly ObjectType Type = ObjectType.SLOWER;
         /// <summary>
         /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
@@ -43,6 +41,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.SLOWER;
         }
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil

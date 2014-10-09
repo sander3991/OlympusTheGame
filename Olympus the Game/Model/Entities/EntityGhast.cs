@@ -11,8 +11,6 @@ namespace Olympus_the_Game
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private int prop_firespeed = 1050;
         private int prop_detectrange = 150;
-
-        public new readonly ObjectType Type = ObjectType.GHAST;
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
         /// </summary>
@@ -43,6 +41,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.GHAST;
             EntityControlledByAI = true;
         }
 

@@ -15,8 +15,6 @@ namespace Olympus_the_Game
         private int prop_detectradius = 100;
         private int prop_exploderadius = 100;
 
-        public new readonly ObjectType Type = ObjectType.TIMEBOMB;
-
         public override float Frame
         {
             get
@@ -74,6 +72,7 @@ namespace Olympus_the_Game
         {
             EntityControlledByAI = false;
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Staat vanaf het begin stil.

@@ -2,7 +2,6 @@
 {
     public class ObjectObstacle : GameObject
     {
-        public new readonly ObjectType Type = ObjectType.OBSTACLE;
         /// <summary>
         /// Initialiseert een obstakel object waar de speler niet doorheen kan.
         /// </summary>
@@ -12,7 +11,7 @@
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
         public ObjectObstacle(int width, int height, int x, int y) : base(width, height, x, y) 
         {
-
+            Type = ObjectType.OBSTACLE;
         }
 
         public override string ToString()

@@ -5,8 +5,6 @@ namespace Olympus_the_Game {
         /// De sterkte van het exploderende object
         /// </summary>
         public readonly double EffectStrength;
-
-        public new readonly ObjectType Type = ObjectType.EXPLODE;
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
         /// </summary>
@@ -14,6 +12,7 @@ namespace Olympus_the_Game {
             : base(width, height, x, y, dx, dy) {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAI = false;
+            Type = ObjectType.EXPLODE;
         }
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie

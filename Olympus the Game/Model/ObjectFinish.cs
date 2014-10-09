@@ -7,8 +7,6 @@ namespace Olympus_the_Game
 {
     public class ObjectFinish : GameObject
     {
-
-        public new readonly ObjectType Type = ObjectType.FINISH;
         /// <summary>
         /// 
         /// </summary>
@@ -19,6 +17,7 @@ namespace Olympus_the_Game
         public ObjectFinish(int width, int height, int x, int y) : base(width, height, x , y)
         {
             IsSolid = false;
+            Type = ObjectType.FINISH;
         }
 
         public override void OnCollide(GameObject gameObject)

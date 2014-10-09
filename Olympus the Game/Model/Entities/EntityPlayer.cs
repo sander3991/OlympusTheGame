@@ -18,8 +18,6 @@ namespace Olympus_the_Game
         private float prop_frame = 0;
         private int frameCount = 1;
 
-        public new readonly ObjectType Type = ObjectType.PLAYER;
-
         public override float Frame
         {
             get
@@ -122,6 +120,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, 0, 0)
         {
             health = MAXHEALTH;
+            Type = ObjectType.PLAYER;
         }
 
     }
