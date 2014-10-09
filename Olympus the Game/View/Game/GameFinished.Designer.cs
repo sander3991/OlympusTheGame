@@ -56,6 +56,7 @@
             // 
             // menuButton
             // 
+            this.menuButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.menuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuButton.Location = new System.Drawing.Point(133, 328);
             this.menuButton.Name = "menuButton";
@@ -63,7 +64,6 @@
             this.menuButton.TabIndex = 2;
             this.menuButton.Text = "Terug naar menu";
             this.menuButton.UseVisualStyleBackColor = true;
-            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // ScoreDescr
             // 

@@ -28,9 +28,9 @@ namespace Olympus_the_Game.View
 
         private void OnPlayerFinished(FinishType type)
         {
-            new GameFinished(type).ShowDialog();
-            forceClose = true;
-            Close();
+            DialogResult dr = new GameFinished(type).ShowDialog();
+            this.forceClose = true;
+            Form_Closing(null, new FormClosingEventArgs(CloseReason.None, false));
         }
 
         /// <summary>
@@ -40,18 +40,41 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
+            if (this.Visible == false)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            // Cancel event
+            e.Cancel = true;
+
             // Opent dialoog voor sluiten
             if (!forceClose)
             {
                 DialogResult dr = MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
                     "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
                 // Sluit spel af bij JA/YES
                 // Sluit dialoog af bij NEE/NO en laat spel verder draaien
-                if (dr != DialogResult.Yes)
-                    e.Cancel = true;
+                if (dr == DialogResult.Yes)
+                {
+                    this.Visible = false;
+                }
+                else
+                {
+                    return;
+                }
             }
+            else
+            {
+                // Turn back to normal
+                forceClose = false;
+            }
+
+            OlympusTheGame.Pause();
+            OlympusTheGame.GameTime = 0;
             Utils.ShowMask(true);
+            this.Visible = false;
             new Thread(delegate() { Utils.ShowMask(false); }).Start();
         }
 
@@ -106,6 +129,7 @@ namespace Olympus_the_Game.View
         {
             KeyHandler.KeyDown(sender, e);
         }
+
         /// <summary>
         /// Handel toetsen af als deze worden los gelaten
         /// Doet dit via de static KeyHandler class
@@ -117,9 +141,7 @@ namespace Olympus_the_Game.View
             KeyHandler.KeyUp(this, e);
         }
 
-        // ======================
-        // ====== menu bar ======
-        // ======================
+        #region MenuBar
 
         /// <summary>
         /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
@@ -316,14 +338,6 @@ namespace Olympus_the_Game.View
 
         }
 
-
-
-
-
-
-
-
-
-
+        #endregion
     }
 }

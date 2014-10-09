@@ -46,10 +46,5 @@ namespace Olympus_the_Game.View.Game
             }
             this.ScoreDescr.Text = builder.ToString();
         }
-
-        private void menuButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }
