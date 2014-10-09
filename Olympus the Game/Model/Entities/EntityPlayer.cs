@@ -40,6 +40,16 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "De speler";
+        }
+
+
+        /// <summary>
         /// De snelheid van de speler
         /// </summary>
         public static int PlayerSpeed { get; set; }

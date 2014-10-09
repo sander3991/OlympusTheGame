@@ -30,6 +30,17 @@ namespace Olympus_the_Game
                 prop_missilespeed = Math.Max(0, value);
             }
         }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Webben die de spider schiet";
+        }
+
+
         /// <summary>
         /// Wie heeft deze missile geschoten
         /// </summary>

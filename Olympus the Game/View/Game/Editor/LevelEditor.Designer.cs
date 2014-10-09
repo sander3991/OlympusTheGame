@@ -30,30 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
             Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.Menubar = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.entitySourcePanelList1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanelList();
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
             this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
-            this.entitySourcePanelList1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanelList();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // richTextBox7
-            // 
-            this.richTextBox7.BackColor = System.Drawing.SystemColors.Menu;
-            this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox7.Location = new System.Drawing.Point(935, 498);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.ReadOnly = true;
-            this.richTextBox7.Size = new System.Drawing.Size(137, 182);
-            this.richTextBox7.TabIndex = 13;
-            this.richTextBox7.Text = resources.GetString("richTextBox7.Text");
             // 
             // Menubar
             // 
@@ -61,7 +50,7 @@
             this.bestandToolStripMenuItem});
             this.Menubar.Location = new System.Drawing.Point(0, 0);
             this.Menubar.Name = "Menubar";
-            this.Menubar.Size = new System.Drawing.Size(1084, 24);
+            this.Menubar.Size = new System.Drawing.Size(1232, 24);
             this.Menubar.TabIndex = 24;
             this.Menubar.Text = "menuStrip1";
             // 
@@ -105,10 +94,31 @@
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.Afsluiten_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(1023, 593);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = "";
+            // 
+            // entitySourcePanelList1
+            // 
+            this.entitySourcePanelList1.AllowDrop = true;
+            this.entitySourcePanelList1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.entitySourcePanelList1.AutoScroll = true;
+            this.entitySourcePanelList1.BackColor = System.Drawing.Color.Transparent;
+            this.entitySourcePanelList1.Location = new System.Drawing.Point(923, 36);
+            this.entitySourcePanelList1.Name = "entitySourcePanelList1";
+            this.entitySourcePanelList1.Size = new System.Drawing.Size(250, 500);
+            this.entitySourcePanelList1.TabIndex = 25;
+            // 
             // speelveldEditor1
             // 
+            this.speelveldEditor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.speelveldEditor1.EnteredSize = new System.Drawing.Size(0, 0);
-            this.speelveldEditor1.Location = new System.Drawing.Point(12, 498);
+            this.speelveldEditor1.Location = new System.Drawing.Point(12, 502);
             this.speelveldEditor1.Name = "speelveldEditor1";
             this.speelveldEditor1.Playfield = null;
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
@@ -117,7 +127,8 @@
             // 
             // entityEditor1
             // 
-            this.entityEditor1.Location = new System.Drawing.Point(399, 498);
+            this.entityEditor1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.entityEditor1.Location = new System.Drawing.Point(399, 502);
             this.entityEditor1.Name = "entityEditor1";
             this.entityEditor1.Size = new System.Drawing.Size(517, 182);
             this.entityEditor1.TabIndex = 18;
@@ -144,30 +155,23 @@
             this.gamePanelEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.InPanel_Mouse_Move);
             this.gamePanelEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Stop_InPanel_Drag);
             // 
-            // entitySourcePanelList1
-            // 
-            this.entitySourcePanelList1.BackColor = System.Drawing.Color.Transparent;
-            this.entitySourcePanelList1.Location = new System.Drawing.Point(922, 36);
-            this.entitySourcePanelList1.Name = "entitySourcePanelList1";
-            this.entitySourcePanelList1.Size = new System.Drawing.Size(150, 452);
-            this.entitySourcePanelList1.TabIndex = 25;
-            // 
             // LevelEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
-            this.ClientSize = new System.Drawing.Size(1084, 696);
+            this.ClientSize = new System.Drawing.Size(1232, 696);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.entitySourcePanelList1);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
             this.Controls.Add(this.gamePanelEditor);
-            this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.Menubar);
             this.MainMenuStrip = this.Menubar;
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.LevelEditor_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.Menubar.ResumeLayout(false);
@@ -179,7 +183,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox7;
         private GamePanel gamePanelEditor;
         private EntityEditor entityEditor1;
         private SpeelveldEditor speelveldEditor1;
@@ -190,6 +193,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private Game.Editor.EntitySourcePanelList entitySourcePanelList1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
     }
 }

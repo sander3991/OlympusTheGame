@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game.View.Game.Editor
 {
@@ -27,18 +28,17 @@ namespace Olympus_the_Game.View.Game.Editor
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Properties.Resources.dirt;
-            if (this.picturePreview != null)
-                this.picturePreview.Image = ImagePool.GetPicture(EntityType, this.picturePreview.Size)[-1.0f];
+            Sprite s = ImagePool.GetPicture(EntityType, this.picturePreview.Size);
+            if (s != null)
+                this.picturePreview.Image = s[-1.0f];
             this.label1.Text = EntityType.ToString();
             this.label2.Text = "Toets";
-            this.label3.Text = "Omschrijving";
+            this.label3.Text = "";
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.DoDragDrop(EntityType, DragDropEffects.Copy | DragDropEffects.Move);
+            this.picturePreview.DoDragDrop(EntityType, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
-
     }
 }

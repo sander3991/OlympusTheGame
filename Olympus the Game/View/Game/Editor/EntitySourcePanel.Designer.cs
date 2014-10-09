@@ -42,6 +42,7 @@
             this.picturePreview.Size = new System.Drawing.Size(50, 50);
             this.picturePreview.TabIndex = 0;
             this.picturePreview.TabStop = false;
+            this.picturePreview.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EntitySourcePanel_MouseDown);
             // 
             // label1
             // 
@@ -82,7 +83,6 @@
             this.Name = "EntitySourcePanel";
             this.Size = new System.Drawing.Size(150, 50);
             this.Load += new System.EventHandler(this.EntitySourcePanel_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EntitySourcePanel_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

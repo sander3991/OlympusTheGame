@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows;
 using Olympus_the_Game.View.Game;
+using System.Threading;
 
 namespace Olympus_the_Game.View
 {
@@ -22,6 +23,7 @@ namespace Olympus_the_Game.View
             // Initialiseer componenten
             InitializeComponent();
             OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
+            forceClose = false;
         }
 
         private void OnPlayerFinished(FinishType type)
@@ -46,11 +48,11 @@ namespace Olympus_the_Game.View
 
                 // Sluit spel af bij JA/YES
                 // Sluit dialoog af bij NEE/NO en laat spel verder draaien
-                if (dr == DialogResult.Yes)
-                    return;//OlympusTheGame.RequestClose();
-                else
+                if (dr != DialogResult.Yes)
                     e.Cancel = true;
             }
+            Utils.ShowMask(true);
+            new Thread(delegate() { Utils.ShowMask(false); }).Start();
         }
 
         /// <summary>
@@ -86,7 +88,7 @@ namespace Olympus_the_Game.View
             this.bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
             this.statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea) { if ((source as ToolStripMenuItem).Checked) this.verbergAllesToolStripMenuItem.Checked = false; };
-        
+
             // Update view
             this.updateView();
         }
@@ -99,7 +101,7 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyDown(sender,e);
+            KeyHandler.KeyDown(sender, e);
         }
         /// <summary>
         /// Handel toetsen af als deze worden los gelaten
@@ -210,7 +212,7 @@ namespace Olympus_the_Game.View
         {
             OpenMusicFileDialog.ShowDialog();
         }
-        
+
         /// <summary>
         /// Als er op ok is geklikt met de file opener speel dan de muziek af
         /// </summary>
@@ -232,14 +234,14 @@ namespace Olympus_the_Game.View
         {
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Pause();
-            else if(!CustomMusicPlayer.IsPlaying)
+            else if (!CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-            
+
             else if (Mp3Player.IsPlaying)
                 Mp3Player.Pause();
-            else if(!Mp3Player.IsPlaying)
+            else if (!Mp3Player.IsPlaying)
                 Mp3Player.Play();
-            
+
         }
         /// <summary>
         /// Als er op stop is geklikt stop dan de muziek spelers
@@ -276,7 +278,7 @@ namespace Olympus_the_Game.View
                 Mp3Player.Loop(herhalenToolStripMenuItem.Checked);
             else if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-            
+
         }
         /// <summary>
         /// verander het checked icoontje bij een onclick
@@ -311,13 +313,13 @@ namespace Olympus_the_Game.View
 
         }
 
-        
 
-        
 
-        
 
-        
+
+
+
+
 
 
     }

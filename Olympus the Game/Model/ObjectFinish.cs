@@ -20,6 +20,16 @@ namespace Olympus_the_Game
             Type = ObjectType.FINISH;
         }
 
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "De finish van het level";
+        }
+
+
         public override void OnCollide(GameObject gameObject)
         {
             EntityPlayer player = gameObject as EntityPlayer;

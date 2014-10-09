@@ -41,6 +41,16 @@ namespace Olympus_the_Game
                 prop_explodetime = Math.Max(0, value);
             }
         }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Tijdbom ontploft na een paar seconden";
+        }
+
         /// <summary>
         /// De afstand waarin de timebom de speler herkend. MIN = 50, DEFAULT = 100
         /// </summary>

@@ -36,6 +36,16 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Een web van spider";
+        }
+
+
+        /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid.
         /// </summary>
         public EntityWeb(int width, int height, int x, int y, int dx, int dy)

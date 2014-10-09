@@ -27,6 +27,16 @@ namespace Olympus_the_Game
 
         }
 
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Silverfish - coming soon";
+        }
+
+
         public override string ToString()
         {
             return "Silverfish";

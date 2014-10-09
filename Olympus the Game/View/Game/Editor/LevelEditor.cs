@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game.View
@@ -23,6 +24,7 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
+            // Save vars
             this.pf = pf;
             this.gamePanelEditor.Playfield = this.pf;
             this.speelveldEditor1.Playfield = this.pf;
@@ -30,12 +32,14 @@ namespace Olympus_the_Game.View
             Utils.FullScreen(this, true);
 
             OlympusTheGame.Pause();
-            // Focus op de gamePanel zodat de nummertoetsen werken
-            gamePanelEditor.Select();
-            Mp3Player.SetResource(Properties.Resources.JoelsSpecial);
+        }
+
+        private void LevelEditor_Load(object sender, System.EventArgs e)
+        {
             Mp3Player.PlaySelected();
             this.gamePanelEditor.TryExpand();
-            this.gamePanelEditor.Invalidate();
+            // Focus op de gamePanel zodat de nummertoetsen werken
+            gamePanelEditor.Select();
         }
 
         #region Drag and Drop
@@ -155,8 +159,6 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
-
-
         #endregion
 
         #region Remove
@@ -272,6 +274,11 @@ namespace Olympus_the_Game.View
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
             if (dr != DialogResult.Yes)
                 e.Cancel = true;
+            else
+            {
+                Utils.ShowMask(true);
+                new Thread(delegate() { Utils.ShowMask(false); }).Start();
+            }
         }
 
         /// <summary>
