@@ -18,5 +18,15 @@
         {
             return "Obstacle";
         }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Een niet doorgaanbaar obstakel";
+        }
+
     }
 }

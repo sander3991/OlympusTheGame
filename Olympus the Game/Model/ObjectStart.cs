@@ -24,5 +24,15 @@ namespace Olympus_the_Game
         {
             return "Start";
         }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Start van het level";
+        }
+
     }
 }

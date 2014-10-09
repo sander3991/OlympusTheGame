@@ -5,6 +5,7 @@ namespace Olympus_the_Game {
         /// De sterkte van het exploderende object
         /// </summary>
         public readonly double EffectStrength;
+
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
         /// </summary>

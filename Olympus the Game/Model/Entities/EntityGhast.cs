@@ -35,6 +35,16 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Ghast schiet vuurballen";
+        }
+
+
+        /// <summary>
         /// FILL THIS IN
         /// </summary>
         public EntityGhast(int width, int height, int x, int y, int dx, int dy)
