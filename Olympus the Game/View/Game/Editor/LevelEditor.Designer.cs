@@ -36,6 +36,7 @@
             this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.entitySourcePanelList1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanelList();
             this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
@@ -92,6 +93,15 @@
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.Afsluiten_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(1023, 593);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = "";
             // 
             // entitySourcePanelList1
             // 
@@ -150,6 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
             this.ClientSize = new System.Drawing.Size(1232, 696);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.entitySourcePanelList1);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);
@@ -159,6 +170,7 @@
             this.Name = "LevelEditor";
             this.Text = "LevelEditor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.LevelEditor_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
             this.Menubar.ResumeLayout(false);
@@ -180,6 +192,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private Game.Editor.EntitySourcePanelList entitySourcePanelList1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
     }
 }

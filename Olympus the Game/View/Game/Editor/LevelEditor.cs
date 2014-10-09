@@ -31,15 +31,14 @@ namespace Olympus_the_Game.View
             Utils.FullScreen(this, true);
 
             OlympusTheGame.Pause();
-            // Focus op de gamePanel zodat de nummertoetsen werken
-            gamePanelEditor.Select();
         }
 
         private void LevelEditor_Load(object sender, System.EventArgs e)
         {
             Mp3Player.PlaySelected();
             this.gamePanelEditor.TryExpand();
-            this.gamePanelEditor.Invalidate();
+            // Focus op de gamePanel zodat de nummertoetsen werken
+            gamePanelEditor.Select();
         }
 
         #region Drag and Drop
