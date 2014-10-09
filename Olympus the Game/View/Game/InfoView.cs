@@ -55,6 +55,8 @@ namespace Olympus_the_Game.View
             }
             OlympusTheGame.Playfield.OnObjectAdded += Playfield_OnObjectAdded;
             OlympusTheGame.Playfield.OnObjectRemoved += Playfield_OnObjectRemoved;
+            OlympusTheGame.OnNewPlayField += delegate(PlayField p) { list.Clear(); }; // TODO Uitbreiden deze doet het niet
+
             if (!IsResized)
             {
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);

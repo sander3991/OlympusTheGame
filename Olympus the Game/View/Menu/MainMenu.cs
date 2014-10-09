@@ -164,6 +164,8 @@ namespace Olympus_the_Game
         private void ButtonExit_Click(object sender, EventArgs e)
         {
             OlympusTheGame.RequestClose();
+            gs.Dispose();
+            this.Dispose();
         }
 
         private void OpenLevel()
