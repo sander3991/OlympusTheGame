@@ -37,8 +37,23 @@ namespace Olympus_the_Game
         private int y;
         private int height;
         private int width;
-        public ObjectType Type { get; protected set; }
+        public ObjectType Type
+        {
+            get
+            {
+                return prop_type;
+            }
+            protected set
+            {
+                prop_type = value;
+                if (!TypeLijst.ContainsKey(value))
+                    TypeLijst.Add(value, this.GetType());
+            }
+        }
+        private ObjectType prop_type = ObjectType.UNKNOWN;
         private PlayField prop_playfield;
+        private static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
+
         public PlayField Playfield
         {
             set
@@ -197,7 +212,7 @@ namespace Olympus_the_Game
         /// <returns>CollisionType type van het type waar hij gecollide is</returns>
         public virtual CollisionType CollidesWithObject(GameObject entity)
         {
-            if(CollidesWithX(entity) && CollidesWithY(entity))
+            if (CollidesWithX(entity) && CollidesWithY(entity))
             {
                 CollisionType collision = CollisionType.X | CollisionType.Y;
                 Entity thisEntity = this as Entity;
@@ -230,14 +245,14 @@ namespace Olympus_the_Game
         {
 
         }
-       /// <summary>
-       /// Controleerd of 2 lijnen elkaar overlappen. Gebaseerd op hun startpositie en breedte (of Hoogte).
-       /// </summary>
-       /// <param name="x1">Beginpunt van lijn 1</param>
-       /// <param name="width1">Breedte van lijn 1</param>
-       /// <param name="x2">Beginpunt van lijn 2</param>
-       /// <param name="width2">Breedte van lijn 2</param>
-       /// <returns>True als ze elkaar overlappen, anders false</returns>
+        /// <summary>
+        /// Controleerd of 2 lijnen elkaar overlappen. Gebaseerd op hun startpositie en breedte (of Hoogte).
+        /// </summary>
+        /// <param name="x1">Beginpunt van lijn 1</param>
+        /// <param name="width1">Breedte van lijn 1</param>
+        /// <param name="x2">Beginpunt van lijn 2</param>
+        /// <param name="width2">Breedte van lijn 2</param>
+        /// <returns>True als ze elkaar overlappen, anders false</returns>
         public static bool DoLinesOverlap(int x1, int width1, int x2, int width2)
         {
             if (x1 >= x2)

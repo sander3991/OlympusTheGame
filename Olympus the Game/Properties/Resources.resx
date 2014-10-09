@@ -181,17 +181,11 @@
   <data name="rsz_1dragbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\rsz_1dragbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rsz_arrowdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textures\rsz_arrowdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rsz_arrowleft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\rsz_arrowleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rsz_arrowright" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\rsz_arrowright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rsz_arrowup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\textures\rsz_arrowup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\spider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,7 +217,13 @@
   <data name="bomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sounds\bomb.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="minecraft_stone_bhcmfrug" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minecraft-stone-bhcmfrug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\textures\stone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rsz_arrowdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\rsz_arrowright1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rsz_arrowup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textures\rsz_arrowleft1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

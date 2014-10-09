@@ -224,8 +224,8 @@ namespace Olympus_the_Game.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;PlayField&gt;
         ///  &lt;Name&gt;Map_0&lt;/Name&gt;
-        ///  &lt;Width&gt;1000&lt;/Width&gt;
-        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;Width&gt;1200&lt;/Width&gt;
+        ///  &lt;Height&gt;650&lt;/Height&gt;
         ///  &lt;GameObjects&gt;
         ///    &lt;GameObject Type=&quot;START&quot;&gt;
         ///      &lt;X&gt;0&lt;/X&gt;
@@ -277,16 +277,6 @@ namespace Olympus_the_Game.Properties {
         internal static System.Drawing.Bitmap loop {
             get {
                 object obj = ResourceManager.GetObject("loop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minecraft_stone_bhcmfrug {
-            get {
-                object obj = ResourceManager.GetObject("minecraft_stone_bhcmfrug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -427,6 +417,16 @@ namespace Olympus_the_Game.Properties {
         internal static System.Drawing.Bitmap still1 {
             get {
                 object obj = ResourceManager.GetObject("still1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stone {
+            get {
+                object obj = ResourceManager.GetObject("stone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

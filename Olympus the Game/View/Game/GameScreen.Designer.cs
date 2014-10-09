@@ -165,8 +165,8 @@
             this.herhalenToolStripMenuItem,
             this.volumeDempenToolStripMenuItem});
             this.MenuMuziekSpeler.Name = "MenuMuziekSpeler";
-            this.MenuMuziekSpeler.Size = new System.Drawing.Size(92, 20);
-            this.MenuMuziekSpeler.Text = "Muziek Speler";
+            this.MenuMuziekSpeler.Size = new System.Drawing.Size(57, 20);
+            this.MenuMuziekSpeler.Text = "Muziek";
             // 
             // openToolStripMenuItem
             // 
@@ -183,7 +183,6 @@
             this.speelpauzeToolStripMenuItem.Name = "speelpauzeToolStripMenuItem";
             this.speelpauzeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.speelpauzeToolStripMenuItem.Text = "Speel/Pauze";
-            this.speelpauzeToolStripMenuItem.CheckedChanged += new System.EventHandler(this.speelpauzeToolStripMenuItem_CheckedChanged);
             this.speelpauzeToolStripMenuItem.Click += new System.EventHandler(this.speelpauzeToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem

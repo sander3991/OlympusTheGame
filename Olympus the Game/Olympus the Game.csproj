@@ -276,9 +276,6 @@
     <None Include="Klassen Diagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\arrowUp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\beach.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -429,7 +426,19 @@
     <None Include="Resources\Sounds\bomb.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\minecraft-stone-bhcmfrug.png" />
+    <None Include="Resources\Textures\stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowdown1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowleft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowleft2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowright1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
