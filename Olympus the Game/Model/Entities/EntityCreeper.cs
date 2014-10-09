@@ -40,7 +40,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Lege constructor
         /// </summary>
-        public EntityCreeper() { }
+        public EntityCreeper() : this(0, 0, 0, 0, 0) { }
 
         /// <summary>
         /// Update het object.
