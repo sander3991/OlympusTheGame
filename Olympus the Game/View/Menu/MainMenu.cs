@@ -106,7 +106,6 @@ namespace Olympus_the_Game
             HideAllControls();
             this.helpDialog1.Visible = true;
             this.ButtonBack.Visible = true;
-            this.helpDialog1.Start();
         }
 
         /// <summary>

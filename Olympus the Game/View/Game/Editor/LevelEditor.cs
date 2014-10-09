@@ -131,9 +131,12 @@ namespace Olympus_the_Game.View
             /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
             l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
             Point l = gamePanelEditor.getCursorPlayFieldPosition();
-
+            object o = e.Data.GetData(typeof(ObjectType));
+            if(o == null) return;
+            ObjectType ot = (ObjectType)o;
+            
             // Add object
-            switch ((ObjectType)e.Data.GetData(typeof(ObjectType)))
+            switch (ot)
             {
                 case ObjectType.TIMEBOMB:
                     this.pf.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
