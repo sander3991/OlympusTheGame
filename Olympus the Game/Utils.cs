@@ -10,6 +10,8 @@ namespace Olympus_the_Game
 {
     class Utils
     {
+        private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
+
         private static readonly int MASK_FADE_DURATION = 3000;
 
         public static Form MaskForm { get; private set; }
@@ -40,7 +42,7 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-
+            if (DISABLE_MASK) { MaskForm.Visible = false; return; } // TODO Release: Deze regel verwijderen
             MaskForm.Size = getScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
