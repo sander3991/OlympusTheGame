@@ -79,7 +79,7 @@
             // 
             // popupButton1
             // 
-            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.BackgroundImage = global::Olympus_the_Game.Properties.Resources.background;
             this.popupButton1.Image = global::Olympus_the_Game.Properties.Resources.new_window_icon;
             this.popupButton1.Location = new System.Drawing.Point(241, 3);
             this.popupButton1.Name = "popupButton1";

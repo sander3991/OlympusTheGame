@@ -13,9 +13,9 @@ namespace Olympus_the_Game.View
 {
     public partial class EntityEditor : UserControl
     {
-        private static readonly int PADDING = 5;
+        private static readonly int PADDING = 3;
 
-        private static readonly int ROW_HEIGHT = 30;
+        private static readonly int ROW_HEIGHT = 20;
 
         private static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
 
@@ -48,13 +48,15 @@ namespace Olympus_the_Game.View
                     this.EntityImageLarge.BackgroundImage = s[-1.0f];
                 }
 
-                int pad = PADDING;
+                // Set name
+                this.labelName.Text = go.ToString();
 
                 // Clear everything
                 this.panel1.Controls.Clear();
                 this.inputs = new Dictionary<PropertyInfo, TextBox>();
 
                 // Start reflection
+                int pad = PADDING;
                 foreach (PropertyInfo fi in go.GetType().GetProperties().Where<PropertyInfo>(
                     delegate(PropertyInfo pi)
                     {
@@ -103,16 +105,29 @@ namespace Olympus_the_Game.View
                 // Get vars
                 object val = null;
                 PropertyInfo pi = prop.Key;
-                string text = prop.Value.Text;
+                TextBox tb = prop.Value;
+                string text = tb.Text;
 
                 // Parse value
-                if (pi.PropertyType == typeof(System.Int32))
+                try
                 {
-                    val = Convert.ToInt32(text);
-                }
+                    if (pi.PropertyType == typeof(System.Int32))
+                    {
+                        val = Convert.ToInt32(text);
+                    }
+                    else if (pi.PropertyType == typeof(System.Boolean))
+                    {
+                        val = Convert.ToBoolean(text);
+                    }
 
-                // Set property
-                pi.SetValue(SelectedObject, val, new object[] { });
+                    // Set property
+                    pi.SetValue(SelectedObject, val, new object[] { });
+                    tb.BackColor = Color.White;
+                }
+                catch (FormatException)
+                {
+                    tb.BackColor = Color.Red;
+                }
             }
 
             // Call event
