@@ -219,10 +219,10 @@
             // 
             this.infoBox1.BackColor = System.Drawing.Color.Transparent;
             this.infoBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("infoBox1.BackgroundImage")));
-            this.infoBox1.Location = new System.Drawing.Point(67, 522);
+            this.infoBox1.Location = new System.Drawing.Point(137, 536);
             this.infoBox1.MouseDownLocation = new System.Drawing.Point(0, 0);
             this.infoBox1.Name = "infoBox1";
-            this.infoBox1.Size = new System.Drawing.Size(692, 207);
+            this.infoBox1.Size = new System.Drawing.Size(692, 68);
             this.infoBox1.TabIndex = 6;
             // 
             // arrowPanel1
