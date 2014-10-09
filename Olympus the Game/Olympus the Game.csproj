@@ -172,7 +172,7 @@
     <Compile Include="View\Game\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Imaging\ImagePool.cs" />
+    <Compile Include="View\Imaging\DataPool.cs" />
     <Compile Include="View\Imaging\Sprite.cs" />
     <Compile Include="View\Game\InfoBox.cs">
       <SubType>UserControl</SubType>
