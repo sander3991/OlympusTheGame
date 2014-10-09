@@ -15,7 +15,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             try
             {
-                DataPool.ClearPool();
+                DataPool.ClearImagePool();
             }
             catch (Exception)
             {

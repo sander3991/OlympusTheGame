@@ -28,9 +28,11 @@ namespace Olympus_the_Game.View
 
         private void OnPlayerFinished(FinishType type)
         {
-            DialogResult dr = new GameFinished(type).ShowDialog();
+            GameFinished gf = new GameFinished(type);
+            gf.ShowDialog();
+            gf.Dispose();
             this.forceClose = true;
-            Form_Closing(null, new FormClosingEventArgs(CloseReason.None, false));
+            Close();
         }
 
         /// <summary>
