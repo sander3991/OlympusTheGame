@@ -35,6 +35,7 @@ namespace Olympus_the_Game.View.Menu
             this.Visible = false;
             this.MouseWheel += HelpDialog_MouseWheel;
             label1.Text = label1.Text.ToUpper();
+            label1.ForeColor = Color.FromArgb(247, 112, 22);
 
         }
 
@@ -50,15 +51,11 @@ namespace Olympus_the_Game.View.Menu
 
         public void Start()
         {
+            ScrollLoc = Height;
             Point loc = label1.Location;
-            loc.Y = Height;
+            loc.Y = ScrollLoc;
             label1.Location = loc;
             Focus();
-        }
-
-        private void HelpDialog_Load(object sender, EventArgs e)
-        {
-            ScrollLoc = Height;
         }
     }
 }

@@ -201,7 +201,7 @@ namespace Olympus_the_Game
 
         private void loadResources()
         {
-            this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
+            this.gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata);
             ImagePool.LoadImagePool();
         }
 
