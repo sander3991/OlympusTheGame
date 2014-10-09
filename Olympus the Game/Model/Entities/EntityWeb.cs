@@ -23,6 +23,9 @@ namespace Olympus_the_Game
                 prop_SlowStrength = Math.Max(1, value);
             }
         }
+
+        public EntityWeb() { }
+
         /// <summary>
         /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 0, DEFAULT = 2
         /// </summary>

@@ -30,6 +30,8 @@ namespace Olympus_the_Game
             }
         }
 
+        public EntityTimeBomb() { }
+
         /// <summary>
         /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
         /// </summary>
@@ -122,7 +124,7 @@ namespace Olympus_the_Game
             // Verwijder dit object uit de gameloop na een mooie explosie
             Playfield.AddObject(new SpriteExplosion(75, 75, this.X, this.Y));
             OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
-            if(!fieldRemoved)
+            if (!fieldRemoved)
                 SoundEffects.PlaySound(Properties.Resources.bomb);
         }
 
