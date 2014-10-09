@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityEditor));
             this.ToepassenEntity = new System.Windows.Forms.Button();
             this.EntityNaamLabel = new System.Windows.Forms.Label();
             this.EntityUitleg = new System.Windows.Forms.RichTextBox();
@@ -36,6 +37,8 @@
             this.EntityXLocation = new System.Windows.Forms.Label();
             this.XLocationInput = new System.Windows.Forms.TextBox();
             this.EntityImageLarge = new System.Windows.Forms.Panel();
+            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.SuspendLayout();
             // 
             // ToepassenEntity
@@ -113,10 +116,35 @@
             this.EntityImageLarge.Size = new System.Drawing.Size(125, 125);
             this.EntityImageLarge.TabIndex = 27;
             // 
+            // moveButton1
+            // 
+            this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
+            this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
+            this.moveButton1.Location = new System.Drawing.Point(4, 4);
+            this.moveButton1.MouseDownLocation = new System.Drawing.Point(0, 0);
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(40, 40);
+            this.moveButton1.TabIndex = 39;
+            this.moveButton1.Text = "moveButton1";
+            this.moveButton1.UseVisualStyleBackColor = true;
+            // 
+            // popupButton1
+            // 
+            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Location = new System.Drawing.Point(51, 4);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
+            this.popupButton1.TabIndex = 40;
+            this.popupButton1.Text = "popupButton1";
+            this.popupButton1.UseVisualStyleBackColor = true;
+            // 
             // EntityEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.popupButton1);
+            this.Controls.Add(this.moveButton1);
             this.Controls.Add(this.ToepassenEntity);
             this.Controls.Add(this.EntityNaamLabel);
             this.Controls.Add(this.EntityUitleg);
@@ -142,5 +170,7 @@
         private System.Windows.Forms.Label EntityXLocation;
         private System.Windows.Forms.TextBox XLocationInput;
         private System.Windows.Forms.Panel EntityImageLarge;
+        private Buttons.MoveButton moveButton1;
+        private Buttons.PopupButton popupButton1;
     }
 }

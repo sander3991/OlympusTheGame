@@ -42,6 +42,13 @@ namespace Olympus_the_Game
             ConstructorList.Add(ot, a);
         }
 
+        static GameObject()
+        {
+            foreach (Type t in typeof(GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof(GameObject))))
+            {
+                System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(t.TypeHandle);
+            }
+        }
         #endregion
 
         private int x;
