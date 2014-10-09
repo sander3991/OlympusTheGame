@@ -252,18 +252,6 @@ namespace Olympus_the_Game.View
             DialogResult dr = MessageBox.Show("Are you sure you want to exit the leveleditor? Any unsaved data will be lost.",
                 "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Verwijder alle objecten uit het playfield zodat er
-            // geen errors zijn als de normale game weer
-            // geopend word
-            Entities = this.CurrentPlayField.GameObjects;
-
-            foreach (GameObject g in Entities.ToList())
-            {
-                Entity et = g as Entity;
-                g.OnRemoved(true);
-
-            }
-
             // Sluit spel af bij JA/YES
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
             if (dr != DialogResult.Yes)
