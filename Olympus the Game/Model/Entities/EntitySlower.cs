@@ -35,6 +35,16 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Spider maakt je langzaam";
+        }
+
+
+        /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
         public EntitySlower(int width, int height, int x, int y, int dx, int dy)

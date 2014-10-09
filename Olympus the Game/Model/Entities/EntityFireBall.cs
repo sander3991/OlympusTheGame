@@ -22,6 +22,16 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Vuurbal van Ghast";
+        }
+
+
+        /// <summary>
         /// FILL THIS IN
         /// </summary>
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
