@@ -48,18 +48,6 @@ namespace Olympus_the_Game
                 }
             }
         }
-
-
-        /// <summary>
-        /// Speelt een resource file af.
-        /// </summary>
-        /// <param name="resource">De resource gespeeld dient te worden</param>
-        public static void SetResource(byte[] resource)
-        {
-            Loop(false);
-            player.URL = PrepareResource(resource);
-        }
-
         /// <summary>
         /// Speelt een resource file af.
         /// </summary>
@@ -70,10 +58,12 @@ namespace Olympus_the_Game
             player.URL = resource;
         }
 
-        public static string PrepareResource(byte[] resource)
+        public static string PrepareResource(byte[] resource, string name)
         {
             string tfl;
-            tfl = String.Format("{0}{1}{2}", System.IO.Path.GetTempPath(), Guid.NewGuid().ToString("N"), ".mp3");
+            tfl = String.Format("{0}{1}{2}{3}", System.IO.Path.GetTempPath(), "OlympusTheGame_",name, ".mp3");
+            if (File.Exists(tfl))
+                File.Delete(tfl);
             using (var memoryStream = new MemoryStream(resource))
             using (var tempFileStream = new FileStream(tfl, FileMode.Create, FileAccess.Write))
             {

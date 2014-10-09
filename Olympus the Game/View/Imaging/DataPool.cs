@@ -43,8 +43,8 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
             source.Add(ObjectType.WEBMISSILE, Properties.Resources.cobweb);
-            gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata);
-            IntroSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
+            gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata, "HakunaMatata");
+            IntroSound = Mp3Player.PrepareResource(Properties.Resources.StarWars, "StarWars");
         }
 
         /// <summary>
