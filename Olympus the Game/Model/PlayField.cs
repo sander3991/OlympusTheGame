@@ -215,7 +215,7 @@ namespace Olympus_the_Game
             int explodeStrength = -1;
             ///boolean om te kijken of hij bezig is met het lezen van een object.
             bool isReadingObject = false;
-            while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
+                while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
             {
                 switch (reader.NodeType) //Switch op element type
                 {

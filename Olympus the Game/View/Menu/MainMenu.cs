@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game
@@ -19,7 +20,7 @@ namespace Olympus_the_Game
     public partial class MainMenu : Form
     {
         // Timer die gebruikt word voor het afspelen van splashscreen.gif
-        Timer gifTimer = new Timer();
+        System.Windows.Forms.Timer gifTimer = new System.Windows.Forms.Timer();
 
         private bool firstInit = true;
 
@@ -28,10 +29,6 @@ namespace Olympus_the_Game
         private string introSound;
 
         private string gameSound;
-
-        private bool gifState;
-
-        private Form MaskForm;
 
         public MainMenu()
         {
@@ -75,32 +72,17 @@ namespace Olympus_the_Game
             this.Visible = false;
             HideAllControls();
 
-            // Boolean waarmee gekeken kan worden of did de eerste keer is dat 
-            // de splashscreen word weergeven of niet
-            this.gifState = true;
             this.gifTimer.Tick += new EventHandler(Timer_Tick);
-            if (this.gifState == true)
-            {
-                // Interval is ~ongeveer 4 seconden.
-                // Hangt een beetje af van snelheid van computer
-                this.gifTimer.Interval = 5600;
-                this.gifTimer.Start();
-                this.gifState = false;
-            }
+            // Interval is ~ongeveer 5 seconden.
+            // Hangt een beetje af van snelheid van computer
+            this.gifTimer.Interval = 5000;
+            this.gifTimer.Start();
 
             // Init form
             this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.CenterToScreen();
-
-            // Create mask
-            MaskForm = new Form();
-            MaskForm.BackColor = Color.Black;
-            MaskForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            MaskForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            MaskForm.Show();
-            MaskForm.Visible = false;
 
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
@@ -171,16 +153,29 @@ namespace Olympus_the_Game
 
         private void OpenLevel()
         {
+            // Retrieve level
             int lvl = this.levelDialog1.Level;
+            // TODO Load given level
 
-            ShowMask(true);
-
+            // Show mask
+            Mp3Player.FadeOut(4000);
+            Utils.ShowMask(true);
+            // Hid this screen
             this.Visible = false;
+            // Create Gamescreen
             ShowGame();
-            MaskForm.Visible = false;
-            StartGame();
-            this.Visible = true;
 
+            // Add eventhandler
+            this.gs.Shown += ShowMaskAndStartGame;
+
+            // Show gamescreen
+            this.gs.ShowDialog();
+
+            // Remove eventhandler
+            this.gs.Shown -= ShowMaskAndStartGame;
+
+            // Gamescreen closed, make this visible
+            this.Visible = true;
         }
 
         private void HideAllControls()
@@ -231,26 +226,10 @@ namespace Olympus_the_Game
             Mp3Player.Loop(true);
         }
 
-        private void ShowMask(bool showMask)
-        {
-            MaskForm.Opacity = showMask ? 0.0f : 1.0f;
-            MaskForm.Visible = true;
-            Mp3Player.FadeOut(1000);
-            for (float i = 0.0f; i <= 1.0f; i += 0.01f)
-            {
-                MaskForm.Opacity = showMask ? i : 1.0f - i;
-                System.Threading.Thread.Sleep(10);
-                gs.Invalidate();
-                Application.DoEvents();
-            }
-            MaskForm.Visible = showMask;
-        }
-
         public void StartGame()
         {
             Mp3Player.PlaySelected();
             OlympusTheGame.Resume();
-            gs.ShowDialog();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -277,6 +256,12 @@ namespace Olympus_the_Game
             CenterControl(this.levelEditorMenu1);
             CenterControl(this.levelDialog1);
             CenterControl(mainMenuControl1);
+        }
+
+        private void ShowMaskAndStartGame(object source, EventArgs ea)
+        {
+            Utils.ShowMask(false);
+            this.StartGame();
         }
     }
 }

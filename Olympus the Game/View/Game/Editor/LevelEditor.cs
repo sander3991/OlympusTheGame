@@ -24,15 +24,18 @@ namespace Olympus_the_Game.View
             InitializeComponent();
 
             this.pf = pf;
-            OlympusTheGame.Pause();
             this.gamePanelEditor.Playfield = this.pf;
             this.speelveldEditor1.Playfield = this.pf;
-            this.gamePanelEditor.Invalidate();
 
+            Utils.FullScreen(this, true);
+
+            OlympusTheGame.Pause();
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
             Mp3Player.SetResource(Properties.Resources.JoelsSpecial);
             Mp3Player.PlaySelected();
+            this.gamePanelEditor.TryExpand();
+            this.gamePanelEditor.Invalidate();
         }
 
         #region Drag and Drop
