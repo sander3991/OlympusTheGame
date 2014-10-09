@@ -142,6 +142,17 @@ namespace Olympus_the_Game
             SlowTimer.Start();
         }
 
+        public static void Restart()
+        {
+            //TODO ELMAR: Infoview werkend krijgen na restart
+            prop_gametime.Restart();
+            Playfield.UnloadPlayField();
+            //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
+            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            prop_playfield.SetPlayerHome();
+            prop_playfield.InitializeGameObjects();
+            OnNewPlayField(prop_playfield);
+        }
         /// <summary>
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.
