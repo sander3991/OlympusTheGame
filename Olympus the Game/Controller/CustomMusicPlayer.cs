@@ -74,7 +74,10 @@ namespace Olympus_the_Game
             mciSendString(command, null, 0, 0);
             IsPlaying = false;
         }
-
+        /// <summary>
+        /// Verander het volume
+        /// </summary>
+        /// <param name="volume"> 1 - 100 hoe hard het volume moet</param>
         public static void ChangeVolume(int volume)
         {
             mciSendString(string.Concat("setaudio MediaFile volume to ", volume), null, 0, 0);

@@ -225,6 +225,11 @@ namespace Olympus_the_Game.View
             CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
             speelpauzeToolStripMenuItem.Checked = true;
         }
+        /// <summary>
+        /// Pauzeer of ga verder met afspelen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void speelpauzeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CustomMusicPlayer.IsPlaying)
@@ -237,21 +242,7 @@ namespace Olympus_the_Game.View
             else if(!Mp3Player.IsPlaying)
                 Mp3Player.Play();
             
-
         }
-        private void speelpauzeToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
-        {
-            //if (CustomMusicPlayer.IsPlaying && speelpauzeToolStripMenuItem.Checked)
-            //    CustomMusicPlayer.Pause();
-            //else if (!CustomMusicPlayer.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
-            //    CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-            //
-            //else if (Mp3Player.IsPlaying && speelpauzeToolStripMenuItem.Checked)
-            //    Mp3Player.Pause();
-            //else if (!Mp3Player.IsPlaying && !speelpauzeToolStripMenuItem.Checked)
-            //    Mp3Player.Play();
-        }
-
         /// <summary>
         /// Als er op stop is geklikt stop dan de muziek spelers
         /// </summary>
@@ -289,7 +280,11 @@ namespace Olympus_the_Game.View
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
             
         }
-
+        /// <summary>
+        /// verander het checked icoontje bij een onclick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void volumeDempenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!volumeDempenToolStripMenuItem.Checked)
@@ -315,8 +310,6 @@ namespace Olympus_the_Game.View
                 Mp3Player.Volume = 100;
                 CustomMusicPlayer.ChangeVolume(100);
             }
-
-
 
         }
 
