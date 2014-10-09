@@ -375,9 +375,6 @@
     <None Include="Resources\still2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Music\Blocks.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Music\StarWars.mp3" />
   </ItemGroup>
   <ItemGroup>

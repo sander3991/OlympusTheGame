@@ -14,6 +14,7 @@ namespace Olympus_the_Game
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
         private static int fadeInCounter;
+        private static bool stopFading = false;
         public static bool IsPlaying { get; private set; }
 
         /// <summary>
@@ -97,6 +98,7 @@ namespace Olympus_the_Game
 
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Stop();
+            stopFading = true;
         }
         /// <summary>
         /// Do a fade in 
@@ -121,6 +123,7 @@ namespace Olympus_the_Game
             timer.Interval = time / 100;
             timer.Tick += timer_tick_fadeout;
             timer.Start();
+            stopFading = false;
         }
 
         /// <summary>
@@ -143,11 +146,12 @@ namespace Olympus_the_Game
         private static void timer_tick_fadeout(object sender, EventArgs e)
         {
             Volume = --fadeInCounter;
-            if (Volume == 0)
+            if (Volume == 0 || stopFading)
             {
                 Timer timer = sender as Timer;
                 timer.Stop();
-                StopPlaying();
+                if(!stopFading)
+                   StopPlaying();
                 Volume = 100;
             }
         }

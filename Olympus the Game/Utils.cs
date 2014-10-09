@@ -12,7 +12,7 @@ namespace Olympus_the_Game
     {
         private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
 
-        private static readonly int MASK_FADE_DURATION = 500;
+        public static readonly int MASK_FADE_DURATION = 500;
 
         public static Form MaskForm { get; private set; }
 
