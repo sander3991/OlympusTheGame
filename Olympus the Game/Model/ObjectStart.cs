@@ -7,6 +7,12 @@ namespace Olympus_the_Game
 {
     public class ObjectStart : GameObject
     {
+
+        static ObjectStart()
+        {
+            RegisterWithEditor(ObjectType.START, () => { return new ObjectStart(50, 50, 0, 0); });
+        }
+
         /// <summary>
         /// Een GameObject die weergeeft waar de Startpositie op het veld is
         /// </summary>

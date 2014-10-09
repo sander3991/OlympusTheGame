@@ -22,9 +22,9 @@ namespace Olympus_the_Game.View.Game.Editor
         {
             int pad = PADDING_TOP;
 
-            foreach (KeyValuePair<ObjectType, GameObject> a in GameObject.EntityTypes)
+            foreach (KeyValuePair<ObjectType, Func<GameObject>> a in GameObject.ConstructorList)
             {
-                EntitySourcePanel esp = new EntitySourcePanel(a.Value);
+                EntitySourcePanel esp = new EntitySourcePanel(a.Key);
                 esp.Left = (this.Width - esp.Width) / 2;
                 esp.Top = pad;
 

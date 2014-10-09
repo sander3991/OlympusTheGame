@@ -2,6 +2,12 @@
 {
     public class ObjectObstacle : GameObject
     {
+
+        static ObjectObstacle()
+        {
+            RegisterWithEditor(ObjectType.OBSTACLE, () => { return new ObjectObstacle(50, 50, 0, 0); });
+        }
+
         /// <summary>
         /// Initialiseert een obstakel object waar de speler niet doorheen kan.
         /// </summary>

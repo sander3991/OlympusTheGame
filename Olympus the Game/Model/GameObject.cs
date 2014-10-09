@@ -34,19 +34,15 @@ namespace Olympus_the_Game
     public abstract class GameObject
     {
 
-        public static Dictionary<ObjectType, GameObject> EntityTypes;
+        #region Static Part
 
-        static GameObject() {
-            /*EntityTypes = new Dictionary<ObjectType, GameObject>();
-            EntityTypes.Add(ObjectType.SLOWER, new EntitySlower());
-            EntityTypes.Add(ObjectType.TIMEBOMB, new EntityTimeBomb());
-            EntityTypes.Add(ObjectType.OBSTACLE, new ObjectObstacle());
-            EntityTypes.Add(ObjectType.CREEPER, new EntityCreeper());
-            EntityTypes.Add(ObjectType.EXPLODE, new EntityExplode());
-            EntityTypes.Add(ObjectType.START, new ObjectStart());
-            EntityTypes.Add(ObjectType.FINISH, new ObjectFinish());
-            EntityTypes.Add(ObjectType.GHAST, new EntityGhast());*/
+        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList = new Dictionary<ObjectType, Func<GameObject>>();
+
+        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a) {
+            ConstructorList.Add(ot, a);
         }
+
+        #endregion
 
         private int x;
         private int y;

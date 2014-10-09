@@ -7,6 +7,12 @@ namespace Olympus_the_Game
 {
     public class ObjectFinish : GameObject
     {
+
+        static ObjectFinish()
+        {
+            RegisterWithEditor(ObjectType.FINISH, () => { return new ObjectFinish(50, 50, 0, 0); });
+        }
+
         /// <summary>
         /// 
         /// </summary>
