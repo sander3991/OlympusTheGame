@@ -44,12 +44,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(316, 0);
             this.label1.MaximumSize = new System.Drawing.Size(624, 0);
             this.label1.MinimumSize = new System.Drawing.Size(624, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(624, 10074);
+            this.label1.Size = new System.Drawing.Size(624, 594);
             this.label1.TabIndex = 1;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -61,7 +61,6 @@
             this.Controls.Add(this.REMOVEME);
             this.Name = "HelpDialog";
             this.Size = new System.Drawing.Size(1264, 680);
-            this.Load += new System.EventHandler(this.HelpDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -102,16 +102,6 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Blocks {
-            get {
-                object obj = ResourceManager.GetObject("Blocks", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream bomb {
@@ -201,6 +191,16 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] HakunaMatata {
+            get {
+                object obj = ResourceManager.GetObject("HakunaMatata", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap heartAlive {
@@ -258,16 +258,6 @@ namespace Olympus_the_Game.Properties {
             get {
                 object obj = ResourceManager.GetObject("huis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] JoelsSpecial {
-            get {
-                object obj = ResourceManager.GetObject("JoelsSpecial", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

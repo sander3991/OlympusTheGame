@@ -126,6 +126,7 @@ namespace Olympus_the_Game
             CenterControl(mainMenuControl1);
             CenterControl(levelDialog1);
             CenterControl(levelEditorMenu1);
+            CenterControl(settingsDialog1);
 
             // Make main menu visible
             mainMenuControl1.Visible = true;
@@ -157,6 +158,8 @@ namespace Olympus_the_Game
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
             HideAllControls();
+            this.settingsDialog1.Visible = true;
+            this.ButtonBack.Visible = true;
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -171,7 +174,7 @@ namespace Olympus_the_Game
             // TODO Load given level
 
             // Show mask
-            Mp3Player.FadeOut(4000);
+            Mp3Player.FadeOut(Utils.MASK_FADE_DURATION);
             Utils.ShowMask(true);
             // Hid this screen
             this.Visible = false;
@@ -198,6 +201,7 @@ namespace Olympus_the_Game
             this.ButtonBack.Visible = false;
             this.mainMenuControl1.Visible = false;
             this.helpDialog1.Visible = false;
+            this.settingsDialog1.Visible = false;
         }
 
         private void loadResources()
@@ -271,6 +275,7 @@ namespace Olympus_the_Game
             CenterControl(this.levelEditorMenu1);
             CenterControl(this.levelDialog1);
             CenterControl(mainMenuControl1);
+            CenterControl(settingsDialog1);
         }
 
         private void ShowMaskAndStartGame(object source, EventArgs ea)
