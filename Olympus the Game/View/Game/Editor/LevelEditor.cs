@@ -40,6 +40,9 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.TryExpand();
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
+
+            // Start music
+            Mp3Player.SetResource(DataPool.gameSound);
         }
 
         #region Drag and Drop
