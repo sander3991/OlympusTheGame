@@ -29,9 +29,6 @@ namespace Olympus_the_Game
         public MainMenu()
         {
             InitializeComponent();
-            var pos = this.PointToScreen(helpDialog1.Location);
-            helpDialog1.Parent = pictureBox1;
-            helpDialog1.Location = pictureBox1.PointToClient(pos);
         }
 
         /// <summary>

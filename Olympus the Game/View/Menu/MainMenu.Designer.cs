@@ -96,9 +96,9 @@
             // helpDialog1
             // 
             this.helpDialog1.BackColor = System.Drawing.Color.Transparent;
-            this.helpDialog1.Location = new System.Drawing.Point(0, 0);
+            this.helpDialog1.Location = new System.Drawing.Point(316, 0);
             this.helpDialog1.Name = "helpDialog1";
-            this.helpDialog1.Size = new System.Drawing.Size(1264, 680);
+            this.helpDialog1.Size = new System.Drawing.Size(632, 680);
             this.helpDialog1.TabIndex = 6;
             this.helpDialog1.Visible = false;
             // 
