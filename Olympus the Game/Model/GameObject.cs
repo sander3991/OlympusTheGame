@@ -155,6 +155,10 @@ namespace Olympus_the_Game
             }
         }
 
+        /// <summary>
+        /// Verkrijg beschrijving van entity
+        /// </summary>
+        /// <returns>Beschrijving</returns>
         public virtual string getDescription(){
             description = "No description yet";
             return description;
