@@ -21,11 +21,12 @@ namespace Olympus_the_Game.View.Game.Editor
         private void EntitySourcePanelList_Load(object sender, EventArgs e)
         {
             int pad = PADDING_TOP;
-            foreach (ObjectType ot in Enum.GetValues(typeof(ObjectType)).Cast<ObjectType>())
+
+            foreach (KeyValuePair<ObjectType, GameObject> a in GameObject.EntityTypes)
             {
-                EntitySourcePanel esp = new EntitySourcePanel(ot);
+                EntitySourcePanel esp = new EntitySourcePanel(a.Value);
                 esp.Left = (this.Width - esp.Width) / 2;
-                esp.Top= pad;
+                esp.Top = pad;
 
                 pad += esp.Height;
                 pad += PADDING_TOP * 2;

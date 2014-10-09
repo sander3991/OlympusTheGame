@@ -30,7 +30,7 @@ namespace Olympus_the_Game
 
         }
 
-        public EntitySilverfish() { }
+        public EntitySilverfish() : this(0, 0, 0, 0, 0) { }
 
         /// <summary>
         /// Geef de entity een beschrijving

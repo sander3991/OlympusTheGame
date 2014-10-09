@@ -20,8 +20,8 @@ namespace Olympus_the_Game
         WEB,
         FIREBALL,
         GHAST,
-        SILVERFISH,
-        WEBMISSILE
+        WEBMISSILE,
+        SILVERFISH
     }
     [Flags]
     public enum CollisionType : byte
@@ -33,24 +33,27 @@ namespace Olympus_the_Game
 
     public abstract class GameObject
     {
+
+        public static Dictionary<ObjectType, GameObject> EntityTypes;
+
+        static GameObject() {
+            EntityTypes = new Dictionary<ObjectType, GameObject>();
+            EntityTypes.Add(ObjectType.SLOWER, new EntitySlower());
+            EntityTypes.Add(ObjectType.TIMEBOMB, new EntityTimeBomb());
+            EntityTypes.Add(ObjectType.OBSTACLE, new ObjectObstacle());
+            EntityTypes.Add(ObjectType.CREEPER, new EntityCreeper());
+            EntityTypes.Add(ObjectType.EXPLODE, new EntityExplode());
+            EntityTypes.Add(ObjectType.START, new ObjectStart());
+            EntityTypes.Add(ObjectType.FINISH, new ObjectFinish());
+            EntityTypes.Add(ObjectType.GHAST, new EntityGhast());
+        }
+
         private int x;
         private int y;
         private int height;
         private int width;
-        public ObjectType Type
-        {
-            get
-            {
-                return prop_type;
-            }
-            protected set
-            {
-                prop_type = value;
-                if (!Utils.TypeLijst.ContainsKey(value))
-                    Utils.TypeLijst.Add(value, this.GetType());
-            }
-        }
-        private ObjectType prop_type = ObjectType.UNKNOWN;
+        public ObjectType Type { get; protected set; }
+
         private PlayField prop_playfield;
         
 

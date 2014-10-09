@@ -33,11 +33,11 @@ namespace Olympus_the_Game
 
         public static void ShowMask(bool showMask)
         {
-            if(MaskForm == null || MaskForm.IsDisposed)
+            if (MaskForm == null || MaskForm.IsDisposed)
                 MaskForm = new Form() { BackColor = Color.Black, FormBorderStyle = FormBorderStyle.None, ShowInTaskbar = false, TopMost = true };
             if (!MaskForm.IsHandleCreated)
                 MaskForm.Show();
-            MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] {showMask});
+            MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] { showMask });
         }
 
         private static void ShowMaskUnsafe(bool showMask)
@@ -46,7 +46,7 @@ namespace Olympus_the_Game
             MaskForm.Size = getScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
-            
+
             Stopwatch sw = new Stopwatch();
 
             sw.Start();
@@ -83,16 +83,6 @@ namespace Olympus_the_Game
                 Size full = Utils.getScreenSize();
                 f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
-        }
-
-        public static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
-
-        public static GameObject getObjectOfType(ObjectType ot)
-        {
-            Type t = TypeLijst[ot];
-            if (t == null) return null;
-
-            return (GameObject) t.GetConstructor(new Type[] {}).Invoke(new object[] {});
         }
     }
 }
