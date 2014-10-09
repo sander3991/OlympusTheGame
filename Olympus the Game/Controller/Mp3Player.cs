@@ -15,7 +15,20 @@ namespace Olympus_the_Game
         private static string tempFileLoc;
         private static int fadeInCounter;
         public static bool IsPlaying { get; private set; }
-
+        private static bool prop_enabled = true;
+        public static bool Enabled { 
+            get{
+                return prop_enabled;
+            }
+            set{
+                if (value)
+                    player.settings.volume = 100;
+                else
+                    player.settings.volume = 0;
+                prop_enabled = value;
+                    
+            }
+        }
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
@@ -27,8 +40,12 @@ namespace Olympus_the_Game
             }
             set
             {
+                if (Enabled)
+                {
                 player.settings.volume = Math.Min(100, value);
                 player.settings.volume = Math.Max(0, value);
+
+                }
             }
         }
 

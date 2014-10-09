@@ -20,5 +20,10 @@ namespace Olympus_the_Game
         {
             GetSoundPlayer(stream).Play();
         }
+
+        public static void MuteSound()
+        {
+            player.Dispose();
+        }
     }
 }
