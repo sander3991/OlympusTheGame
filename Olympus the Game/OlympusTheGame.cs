@@ -31,7 +31,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Het huidige speelveld.
         /// </summary>
-        public static PlayField Playfield 
+        public static PlayField Playfield
         {
             get
             {

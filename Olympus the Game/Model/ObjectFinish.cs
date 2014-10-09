@@ -14,7 +14,8 @@ namespace Olympus_the_Game
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
         /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        public ObjectFinish(int width, int height, int x, int y) : base(width, height, x , y)
+        public ObjectFinish(int width, int height, int x, int y)
+            : base(width, height, x, y)
         {
             IsSolid = false;
             Type = ObjectType.FINISH;
@@ -28,6 +29,12 @@ namespace Olympus_the_Game
         {
             return "De finish van het level";
         }
+
+        /// <summary>
+        /// Lege constructor
+        /// </summary>
+        public ObjectFinish() { }
+
 
 
         public override void OnCollide(GameObject gameObject)

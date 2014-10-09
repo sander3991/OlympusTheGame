@@ -118,7 +118,7 @@ namespace Olympus_the_Game.View.Imaging
                         return EMPTY;
                     else
                         if (index < 0.0f) index = 0.0f;
-                        return Images[(int)(index * (float)Images.Count)];
+                    return Images[(int)(index * (float)Images.Count)];
                 }
                 else if (this.Cyclic)
                 {

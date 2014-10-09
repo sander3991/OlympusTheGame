@@ -30,6 +30,8 @@ namespace Olympus_the_Game
             return "Vuurbal van Ghast";
         }
 
+        public EntityFireBall() { }
+
 
         /// <summary>
         /// FILL THIS IN
@@ -61,7 +63,7 @@ namespace Olympus_the_Game
             if (entity == owner)
                 return CollisionType.NONE;
             AnimatedSprite sprite = entity as AnimatedSprite;
-            if(sprite != null)
+            if (sprite != null)
                 return CollisionType.NONE;
             return base.CollidesWithObject(entity);
         }
@@ -120,10 +122,10 @@ namespace Olympus_the_Game
         }
 
         public override void OnRemoved(bool fieldRemoved)
-        {            
+        {
             // Verwijder dit object uit de gameloop met een mooie explosie
             OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
-            if(!fieldRemoved)
+            if (!fieldRemoved)
             {
                 Playfield.AddObject(new SpriteExplosion(this));
                 SoundEffects.PlaySound(Properties.Resources.bomb);

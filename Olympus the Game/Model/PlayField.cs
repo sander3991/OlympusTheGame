@@ -67,7 +67,7 @@ namespace Olympus_the_Game
         /// </summary>
         public void InitializeGameObjects()
         {
-            if(!IsInitialized)
+            if (!IsInitialized)
             {
                 if (DEFAULTMAP == null) //Initialiseert de default map de eerste keer dat deze wordt opgevraagd
                 {
@@ -152,7 +152,7 @@ namespace Olympus_the_Game
                 if (o != null)
                     break;
             }
-            if (start != null) 
+            if (start != null)
             {
                 //Zet de speler op het midden van het startobject
                 Player.X = (start.X + start.Width / 2) - (Player.Width / 2);
@@ -215,7 +215,7 @@ namespace Olympus_the_Game
             int explodeStrength = -1;
             ///boolean om te kijken of hij bezig is met het lezen van een object.
             bool isReadingObject = false;
-                while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
+            while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
             {
                 switch (reader.NodeType) //Switch op element type
                 {
@@ -266,7 +266,7 @@ namespace Olympus_the_Game
                                 {
                                     Console.WriteLine("Er ging iets fout bij het casten van het attribuut naar de enum");
                                 }
-                                catch(ArgumentException)
+                                catch (ArgumentException)
                                 {
                                     Console.WriteLine("Het object van type '{0}' kon niet ingeladen worden!", str);
                                 }
@@ -276,16 +276,16 @@ namespace Olympus_the_Game
                         }
                         break;
                     case XmlNodeType.EndElement:
-                        if(reader.LocalName == "GameObject")
+                        if (reader.LocalName == "GameObject")
                         {
                             bool hasAllParameters = true;
                             //controleer of alle gegevens erin staan
-                            if((objectType == ObjectType.UNKNOWN) || (objectX == -1) || (objectY == -1) || (objectHeight == -1) || (objectWidth == -1))
+                            if ((objectType == ObjectType.UNKNOWN) || (objectX == -1) || (objectY == -1) || (objectHeight == -1) || (objectWidth == -1))
                             {
                                 Console.WriteLine("Niet alle parameters van de entity zijn ingelezen!");
                                 hasAllParameters = false;
                             }
-                            if(objectType == ObjectType.CREEPER || objectType == ObjectType.TIMEBOMB || objectType == ObjectType.EXPLODE)
+                            if (objectType == ObjectType.CREEPER || objectType == ObjectType.TIMEBOMB || objectType == ObjectType.EXPLODE)
                                 if (explodeStrength == -1)
                                 {
                                     Console.WriteLine("Er mist een explodeer parameter!");

@@ -94,7 +94,7 @@ namespace Olympus_the_Game.View
             // No result, so create
             result = CreateImage(o, s);
             images.Add(new Tuple<ObjectType, Size>(o, s), result);
-            
+
             // Return new image
             return result;
         }
