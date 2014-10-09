@@ -18,7 +18,7 @@ namespace Olympus_the_Game_Test.View.Editor
             LevelEditor le = new LevelEditor();
 
             // Assert
-            Assert.AreEqual(0, le.pf.GameObjects.Count);
+            Assert.AreEqual(0, le.CurrentPlayField.GameObjects.Count);
 
             // Clean up
             le.Dispose();
@@ -34,7 +34,7 @@ namespace Olympus_the_Game_Test.View.Editor
             LevelEditor le = new LevelEditor(newPF);
 
             // Assert
-            Assert.AreEqual(newPF, le.pf);
+            Assert.AreEqual(newPF, le.CurrentPlayField);
 
             // Clean up
             le.Dispose();
@@ -69,17 +69,17 @@ namespace Olympus_the_Game_Test.View.Editor
             ObjectStart os = new ObjectStart(500, 500, 8000, 8000);
 
             // Act
-            le.pf.AddObject(os);
+            le.CurrentPlayField.AddObject(os);
 
             // Assert
-            Assert.AreEqual(newPF, le.pf);
-            Assert.AreNotEqual(null, le.pf.GameObjects);
-            Assert.AreEqual(1, le.pf.GameObjects.Count);
-            Assert.AreEqual(os, le.pf.GameObjects[0]);
-            Assert.AreEqual(500, le.pf.GameObjects[0].Width);
-            Assert.AreEqual(500, le.pf.GameObjects[0].Height);
-            Assert.AreEqual(8000, le.pf.GameObjects[0].X);
-            Assert.AreEqual(8000, le.pf.GameObjects[0].Y);
+            Assert.AreEqual(newPF, le.CurrentPlayField);
+            Assert.AreNotEqual(null, le.CurrentPlayField.GameObjects);
+            Assert.AreEqual(1, le.CurrentPlayField.GameObjects.Count);
+            Assert.AreEqual(os, le.CurrentPlayField.GameObjects[0]);
+            Assert.AreEqual(500, le.CurrentPlayField.GameObjects[0].Width);
+            Assert.AreEqual(500, le.CurrentPlayField.GameObjects[0].Height);
+            Assert.AreEqual(8000, le.CurrentPlayField.GameObjects[0].X);
+            Assert.AreEqual(8000, le.CurrentPlayField.GameObjects[0].Y);
 
             // Clean up
             le.Dispose();

@@ -14,17 +14,37 @@ namespace Olympus_the_Game.View
         public event Action ApplyClick;
 
         private Size prop_size;
-        public PlayField Playfield { get; set; }
-        public Size EnteredSize { 
-            get {
+        private PlayField prop_PlayField;
+        public PlayField Playfield
+        {
+            get
+            {
+                return prop_PlayField;
+            }
+            set
+            {
+                prop_PlayField = value;
+                if (value != null && this.GrootteXInput != null && this.GrootteYInput != null && this.TitelInput != null) // If everything is initialized
+                {
+                    this.GrootteXInput.Text = value.Width.ToString();
+                    this.GrootteYInput.Text = value.Height.ToString();
+                    this.TitelInput.Text = value.Name;
+                }
+            }
+        }
+        public Size EnteredSize
+        {
+            get
+            {
                 return prop_size;
-            } 
-            set { 
+            }
+            set
+            {
                 prop_size = value;
                 this.GrootteXInput.Text = prop_size.Width.ToString();
                 this.GrootteYInput.Text = prop_size.Height.ToString();
-                
-                if(Playfield != null)
+
+                if (Playfield != null)
                 {
                     if (prop_size.Width >= 1)
                         Playfield.Height = prop_size.Height;
@@ -67,7 +87,7 @@ namespace Olympus_the_Game.View
                 // Only call this when valid change happened
                 ApplyClick();
             }
-            catch (FormatException) 
+            catch (FormatException)
             {
                 // Set warning label to visible
                 this.label1.Visible = true;
