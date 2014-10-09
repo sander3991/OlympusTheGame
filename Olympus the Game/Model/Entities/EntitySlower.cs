@@ -68,7 +68,7 @@ namespace Olympus_the_Game
             }
         }
 
-        //comment
+        //TODO ELMAR: comment
         public bool PreventDoubleWeb(int x, int y)
         {
             List<GameObject> webOnXY = Playfield.GetObjectsAtLocation(x, y);
@@ -79,7 +79,7 @@ namespace Olympus_the_Game
                 for (int i = 0; i < webOnXY.Count; i++) //loopt door alle objects
                 {
                     GameObject o = webOnXY[i];
-                    if (o.Type == ObjectType.WEB)
+                    if (o.Type == ObjectType.WEB || o.Type == ObjectType.FINISH || o.Type == ObjectType.START)
                     {
                         value = true;
                     }
