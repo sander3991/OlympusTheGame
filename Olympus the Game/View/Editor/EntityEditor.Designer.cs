@@ -31,9 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntityEditor));
             this.ToepassenEntity = new System.Windows.Forms.Button();
             this.EntityImageLarge = new System.Windows.Forms.Panel();
-            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
-            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelName = new System.Windows.Forms.Label();
+            this.popupButton1 = new Olympus_the_Game.View.Buttons.PopupButton();
+            this.moveButton1 = new Olympus_the_Game.View.Buttons.MoveButton();
             this.SuspendLayout();
             // 
             // ToepassenEntity
@@ -55,6 +56,33 @@
             this.EntityImageLarge.Size = new System.Drawing.Size(125, 125);
             this.EntityImageLarge.TabIndex = 27;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(135, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(379, 166);
+            this.panel1.TabIndex = 41;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(132, 4);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(0, 37);
+            this.labelName.TabIndex = 42;
+            // 
+            // popupButton1
+            // 
+            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
+            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
+            this.popupButton1.Location = new System.Drawing.Point(51, 4);
+            this.popupButton1.Name = "popupButton1";
+            this.popupButton1.Size = new System.Drawing.Size(40, 40);
+            this.popupButton1.TabIndex = 40;
+            this.popupButton1.UseVisualStyleBackColor = true;
+            // 
             // moveButton1
             // 
             this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
@@ -67,29 +95,11 @@
             this.moveButton1.Text = "moveButton1";
             this.moveButton1.UseVisualStyleBackColor = true;
             // 
-            // popupButton1
-            // 
-            this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
-            this.popupButton1.Image = ((System.Drawing.Image)(resources.GetObject("popupButton1.Image")));
-            this.popupButton1.Location = new System.Drawing.Point(51, 4);
-            this.popupButton1.Name = "popupButton1";
-            this.popupButton1.Size = new System.Drawing.Size(40, 40);
-            this.popupButton1.TabIndex = 40;
-            this.popupButton1.Text = "popupButton1";
-            this.popupButton1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(135, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 212);
-            this.panel1.TabIndex = 41;
-            // 
             // EntityEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.popupButton1);
             this.Controls.Add(this.moveButton1);
@@ -99,6 +109,7 @@
             this.Size = new System.Drawing.Size(517, 223);
             this.Load += new System.EventHandler(this.EntityEditor_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -109,5 +120,6 @@
         private Buttons.MoveButton moveButton1;
         private Buttons.PopupButton popupButton1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelName;
     }
 }
