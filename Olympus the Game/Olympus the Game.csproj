@@ -375,12 +375,6 @@
     <None Include="Resources\still2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Music\Blocks.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Music\JoelsSpecial.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Music\StarWars.mp3" />
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +436,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Textures\rsz_arrowright1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music\HakunaMatata.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

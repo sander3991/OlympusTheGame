@@ -174,7 +174,7 @@ namespace Olympus_the_Game
             // TODO Load given level
 
             // Show mask
-            Mp3Player.FadeOut(4000);
+            Mp3Player.FadeOut(Utils.MASK_FADE_DURATION);
             Utils.ShowMask(true);
             // Hid this screen
             this.Visible = false;
