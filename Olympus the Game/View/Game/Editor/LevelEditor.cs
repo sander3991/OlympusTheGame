@@ -136,31 +136,14 @@ namespace Olympus_the_Game.View
             ObjectType ot = (ObjectType)o;
             
             // Add object
-            switch (ot)
+            Func<GameObject> f = null;
+            GameObject.ConstructorList.TryGetValue(ot, out f);
+
+            if (f != null)
             {
-                case ObjectType.TIMEBOMB:
-                    this.CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, l.X, l.Y, 1.0f));
-                    break;
-                case ObjectType.SLOWER:
-                    this.CurrentPlayField.AddObject(new EntitySlower(50, 50, l.X, l.Y));
-                    break;
-                case ObjectType.FINISH:
-                    this.CurrentPlayField.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectFinish); });
-                    this.CurrentPlayField.AddObject(new ObjectFinish(50, 50, l.X, l.Y));
-                    break;
-                case ObjectType.START:
-                    this.CurrentPlayField.GameObjects.RemoveAll((p) => { return p.GetType() == typeof(ObjectStart); });
-                    this.CurrentPlayField.AddObject(new ObjectStart(50, 50, l.X, l.Y));
-                    break;
-                case ObjectType.CREEPER:
-                    this.CurrentPlayField.AddObject(new EntityCreeper(50, 50, l.X, l.Y, 1.0f));
-                    break;
-                case ObjectType.OBSTACLE:
-                    this.CurrentPlayField.AddObject(new ObjectObstacle(50, 50, l.X, l.Y));
-                    break;
-                case ObjectType.EXPLODE:
-                    this.CurrentPlayField.AddObject(new EntityExplode(50, 50, l.X, l.Y, 1.0f));
-                    break;
+                GameObject g = f();
+                g.X = l.X;
+                g.Y = l.Y;
             }
             this.gamePanelEditor.Invalidate();
         }

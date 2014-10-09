@@ -102,7 +102,7 @@ namespace Olympus_the_Game
                         GameObjects.Remove(player);
                     }
                 }
-                if (Player == null)
+                if (Player == null) // TODO Waarom??????????
                 {
                     Player.Playfield = this;
                 }
