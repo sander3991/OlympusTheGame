@@ -42,9 +42,7 @@ namespace Olympus_the_Game
                 if (value != prop_playfield && value != null)
                 {
                     if (prop_playfield != null)
-                    {
                         Playfield.UnloadPlayField();
-                    }
                     prop_playfield = value;
                     prop_playfield.SetPlayerHome();
                     prop_playfield.InitializeGameObjects();

@@ -11,7 +11,11 @@ namespace Olympus_the_Game
     public class PlayField : IXmlSerializable
     {
         private static int ID = 0;
+        private int MapID;
         private static List<GameObject> DEFAULTMAP;
+        public const int DefaultHeight = 1000;
+        private bool isClosing = false;
+        public const int DefaultWidth = 500;
         /// <summary>
         /// De breedte van de PlayField
         /// </summary>
@@ -47,7 +51,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Initialiseert een standaard PlayField object aan zonder GameObjects en met een breedte van 1000 en een hoogte van 500.
         /// </summary>
-        public PlayField() : this(1000, 500) { }
+        public PlayField() : this(DefaultWidth, DefaultHeight) { }
         /// <summary>
         /// Initialiseert een PlayField met een custom breedte en hoogte
         /// </summary>
@@ -57,7 +61,8 @@ namespace Olympus_the_Game
         {
             Width = width;
             Height = height;
-            Name = "Map_" + ID++;
+            MapID = ID++;
+            Name = "Map_" + MapID;
             IsInitialized = false;
             GameObjects = new List<GameObject>();
         }
@@ -102,10 +107,8 @@ namespace Olympus_the_Game
                         GameObjects.Remove(player);
                     }
                 }
-                if (Player == null) // TODO Waarom??????????
-                {
+                if (Player != null) // TODO Waarom??????????
                     Player.Playfield = this;
-                }
                 IsInitialized = true;
             }
             SetPlayerHome();
@@ -116,7 +119,7 @@ namespace Olympus_the_Game
         /// </summary>
         public void AddObject(GameObject entity)
         {
-
+            if (isClosing) return; //We willen niks meer toevoegen als wij dingen toevoegen
             if (entity.Playfield != null)
                 throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
             GameObjects.Add(entity);
@@ -125,13 +128,22 @@ namespace Olympus_the_Game
                 OnObjectAdded(entity);
         }
         /// <summary>
-        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
+        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object wordt de OnRemoved van dat object aangeroepen.
         /// </summary>
         /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
         public void RemoveObject(GameObject entity)
         {
+            RemoveObject(entity, false);
+        }
+        /// <summary>
+        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
+        /// </summary>
+        /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
+        /// <param name="fieldRemoved">True als het spel wordt uitgeladen</param>
+        public void RemoveObject(GameObject entity, bool fieldRemoved)
+        {
             GameObjects.Remove(entity);
-            entity.OnRemoved(false);
+            entity.OnRemoved(fieldRemoved);
             if (OnObjectRemoved != null)
                 OnObjectRemoved(entity);
         }
@@ -186,9 +198,16 @@ namespace Olympus_the_Game
         /// </summary>
         public void UnloadPlayField()
         {
-            for (int i = 0; i < GameObjects.Count; i++)
-                GameObjects[i].OnRemoved(true);
+            isClosing = true;
+            List<GameObject> oldList = new List<GameObject>(GameObjects); //we maken een nieuwe lijst aan zodat we alle referenties behouden, RemoveObject haalt de referenties weg!
+            foreach (GameObject go in oldList)
+                RemoveObject(go, true);
+            if (GameObjects.Count != 0)
+                throw new NotImplementedException();
             Player.OnRemoved(true);
+            if (OnObjectRemoved != null)
+                OnObjectRemoved(Player);
+            Player = null;
         }
 
         /// <summary>
