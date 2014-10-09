@@ -46,13 +46,13 @@ namespace Olympus_the_Game
             protected set
             {
                 prop_type = value;
-                if (!TypeLijst.ContainsKey(value))
-                    TypeLijst.Add(value, this.GetType());
+                if (!Utils.TypeLijst.ContainsKey(value))
+                    Utils.TypeLijst.Add(value, this.GetType());
             }
         }
         private ObjectType prop_type = ObjectType.UNKNOWN;
         private PlayField prop_playfield;
-        private static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
+        
 
         public PlayField Playfield
         {

@@ -84,5 +84,15 @@ namespace Olympus_the_Game
                 f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
         }
+
+        public static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
+
+        public static GameObject getObjectOfType(ObjectType ot)
+        {
+            Type t = TypeLijst[ot];
+            if (t == null) return null;
+
+            return (GameObject) t.GetConstructor(new Type[] {}).Invoke(new object[] {});
+        }
     }
 }
