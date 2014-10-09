@@ -240,9 +240,10 @@ namespace Olympus_the_Game
 
         private void NewEditor(object sender, EventArgs e)
         {
-            PlayField pf = new PlayField(2000, 1000);
-            LevelEditor le = new LevelEditor(pf);
+            Utils.ShowMask(true);
+            LevelEditor le = new LevelEditor();
             this.Visible = false;
+            new Thread(delegate() { Utils.ShowMask(false); }).Start();
             le.ShowDialog();
             this.Visible = true;
         }

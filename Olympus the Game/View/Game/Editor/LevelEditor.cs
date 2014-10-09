@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game.View
@@ -273,6 +274,11 @@ namespace Olympus_the_Game.View
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
             if (dr != DialogResult.Yes)
                 e.Cancel = true;
+            else
+            {
+                Utils.ShowMask(true);
+                new Thread(delegate() { Utils.ShowMask(false); }).Start();
+            }
         }
 
         /// <summary>
