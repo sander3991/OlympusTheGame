@@ -144,6 +144,7 @@ namespace Olympus_the_Game.View
                 GameObject g = f();
                 g.X = l.X;
                 g.Y = l.Y;
+                CurrentPlayField.AddObject(g);
             }
             this.gamePanelEditor.Invalidate();
         }
