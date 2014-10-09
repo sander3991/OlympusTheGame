@@ -37,7 +37,6 @@ namespace Olympus_the_Game
         private int y;
         private int height;
         private int width;
-        private string description;
         public ObjectType Type
         {
             get
@@ -47,13 +46,13 @@ namespace Olympus_the_Game
             protected set
             {
                 prop_type = value;
-                if (!TypeLijst.ContainsKey(value))
-                    TypeLijst.Add(value, this.GetType());
+                if (!Utils.TypeLijst.ContainsKey(value))
+                    Utils.TypeLijst.Add(value, this.GetType());
             }
         }
         private ObjectType prop_type = ObjectType.UNKNOWN;
         private PlayField prop_playfield;
-        private static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
+        
 
         public PlayField Playfield
         {
@@ -160,8 +159,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <returns>Beschrijving</returns>
         public virtual string getDescription(){
-            description = "No description yet";
-            return description;
+            return "No description yet";
         }
 
         /// <summary>

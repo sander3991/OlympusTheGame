@@ -33,6 +33,9 @@ namespace Olympus_the_Game
         public MainMenu()
         {
             InitializeComponent();
+            var pos = this.PointToScreen(helpDialog1.Location);
+            helpDialog1.Parent = pictureBox1;
+            helpDialog1.Location = pictureBox1.PointToClient(pos);
         }
 
         /// <summary>
@@ -87,8 +90,8 @@ namespace Olympus_the_Game
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
             this.mainMenuControl1.ButtonLevelEditor.Click += ButtonLevelEditor_Click;
-            this.mainMenuControl1.ButtonSettings.Click += ButtonSettings_Click;
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
+            this.mainMenuControl1.button1.Click += ButtonHelp_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
             this.SizeChanged += delegate(object source, EventArgs ea) { CenterAllControls(); };
             this.levelDialog1.LevelChosen += OpenLevel;
@@ -102,7 +105,13 @@ namespace Olympus_the_Game
             this.loadResources();
         }
 
-        
+        private void ButtonHelp_Click(object sender, EventArgs e)
+        {
+            HideAllControls();
+            this.helpDialog1.Visible = true;
+            this.ButtonBack.Visible = true;
+            this.helpDialog1.Start();
+        }
 
         /// <summary>
         /// Als de 4 seconden voorbij zijn van de gifTimer dan word
@@ -149,11 +158,6 @@ namespace Olympus_the_Game
             this.ButtonBack.Visible = true;
         }
 
-        private void ButtonSettings_Click(object sender, EventArgs e)
-        {
-            HideAllControls();
-        }
-
         private void ButtonExit_Click(object sender, EventArgs e)
         {
             OlympusTheGame.RequestClose();
@@ -192,12 +196,13 @@ namespace Olympus_the_Game
             this.levelEditorMenu1.Visible = false;
             this.ButtonBack.Visible = false;
             this.mainMenuControl1.Visible = false;
+            this.helpDialog1.Visible = false;
         }
 
         private void loadResources()
         {
             this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
-            ImagePool.LoadImagePool();
+            DataPool.LoadImagePool();
         }
 
         public void PrepareNewGameScreen()

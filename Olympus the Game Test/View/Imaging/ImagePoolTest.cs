@@ -15,7 +15,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             try
             {
-                ImagePool.ClearPool();
+                DataPool.ClearPool();
             }
             catch (Exception)
             {
@@ -28,7 +28,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             foreach (ObjectType ot in Enum.GetValues(typeof(ObjectType)))
             {
-                Assert.AreNotEqual(null, ImagePool.GetPicture(ot, new Size(100, 100)));
+                Assert.AreNotEqual(null, DataPool.GetPicture(ot, new Size(100, 100)));
             }
         }
 
@@ -42,7 +42,7 @@ namespace Olympus_the_Game_Test.View.Imaging
             {
                 // Act
                 Size s = new Size(r.Next(100) + 10, r.Next(100) + 10);
-                Sprite sprite = ImagePool.GetPicture(ot, s);
+                Sprite sprite = DataPool.GetPicture(ot, s);
 
                 // Assert
                 Assert.AreEqual(s, sprite.Frames == -1 ? sprite[-1.0f].Size : sprite[0.0f].Size);
@@ -54,10 +54,10 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             // Arrange
             Size s = new Size(10, 10);
-            Sprite expected = ImagePool.GetPicture(ObjectType.CREEPER, s);
+            Sprite expected = DataPool.GetPicture(ObjectType.CREEPER, s);
 
             // Act
-            Sprite actual = ImagePool.GetPicture(ObjectType.CREEPER, s);
+            Sprite actual = DataPool.GetPicture(ObjectType.CREEPER, s);
 
             // Assert
             Assert.AreEqual(expected, actual);

@@ -12,7 +12,7 @@ namespace Olympus_the_Game
     {
         private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
 
-        private static readonly int MASK_FADE_DURATION = 3000;
+        private static readonly int MASK_FADE_DURATION = 500;
 
         public static Form MaskForm { get; private set; }
 
@@ -83,6 +83,16 @@ namespace Olympus_the_Game
                 Size full = Utils.getScreenSize();
                 f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
+        }
+
+        public static Dictionary<ObjectType, Type> TypeLijst = new Dictionary<ObjectType, Type>();
+
+        public static GameObject getObjectOfType(ObjectType ot)
+        {
+            Type t = TypeLijst[ot];
+            if (t == null) return null;
+
+            return (GameObject) t.GetConstructor(new Type[] {}).Invoke(new object[] {});
         }
     }
 }

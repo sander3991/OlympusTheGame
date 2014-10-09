@@ -28,12 +28,12 @@ namespace Olympus_the_Game.View.Game.Editor
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Properties.Resources.dirt;
-            Sprite s = ImagePool.GetPicture(EntityType, this.picturePreview.Size);
+            Sprite s = DataPool.GetPicture(EntityType, this.picturePreview.Size);
             if (s != null)
                 this.picturePreview.Image = s[-1.0f];
             this.label1.Text = EntityType.ToString();
             this.label2.Text = "Toets";
-            this.label3.Text = "Omschrijving";
+            this.label3.Text = "";
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
