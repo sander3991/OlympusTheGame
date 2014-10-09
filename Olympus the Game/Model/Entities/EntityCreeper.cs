@@ -8,6 +8,11 @@ namespace Olympus_the_Game
 {
     public class EntityCreeper : EntityExplode
     {
+        static EntityCreeper()
+        {
+            RegisterWithEditor(ObjectType.CREEPER, () => { return new EntityCreeper(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+        }
+
         // TODO Joel: Property van maken + denk aan limitaties van de property.
         public int CreeperRange = 150; // Aanpasbaar in editor
 

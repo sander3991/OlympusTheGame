@@ -3,6 +3,12 @@ namespace Olympus_the_Game
 {
     public class EntityExplode : Entity
     {
+
+        static EntityExplode()
+        {
+            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+        }
+
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>

@@ -8,6 +8,11 @@ namespace Olympus_the_Game
 {
     public class EntitySlower : Entity
     {
+        static EntitySlower()
+        {
+            RegisterWithEditor(ObjectType.SLOWER, () => { return new EntityCreeper(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+        }
+
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_effectrange = 200;
         private int prop_firespeed = 2000;

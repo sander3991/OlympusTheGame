@@ -10,7 +10,7 @@ namespace Olympus_the_Game
 {
     class Utils
     {
-        private static readonly bool DISABLE_MASK = true;// TODO Release: Deze regel verwijderen
+        private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
 
         public static readonly int MASK_FADE_DURATION = 500;
 

@@ -9,6 +9,11 @@ namespace Olympus_the_Game
 {
     public class EntityTimeBomb : EntityExplode
     {
+        static EntityTimeBomb()
+        {
+            RegisterWithEditor(ObjectType.TIMEBOMB, () => { return new EntityTimeBomb(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+        }
+
         private Stopwatch stopwatch;
         private bool isTimerStarted = false;
         private int prop_explodetime = 3000;
