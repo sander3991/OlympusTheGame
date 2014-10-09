@@ -119,6 +119,7 @@
             this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.Text = "Olympus The Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

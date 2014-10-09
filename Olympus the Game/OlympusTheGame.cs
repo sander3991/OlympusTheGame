@@ -165,8 +165,8 @@ namespace Olympus_the_Game
             // Sluit scherm
             mm.Dispose();
 
-            // Sluit de MP3 speler af en verwijder bestanden
-            Mp3Player.StopPlaying();
+            // Laad de DataPool uit
+            DataPool.UnloadDataPool();
         }
     }
 }
