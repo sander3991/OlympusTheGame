@@ -19,7 +19,7 @@ namespace Olympus_the_Game
         {
             get
             {
-                return 0; 
+                return 0;
             }
             private set
             {
@@ -44,10 +44,10 @@ namespace Olympus_the_Game
         /// Speel de file af
         /// </summary>
         /// <param name="repeat">Speel af met of zonder repeat</param>
-        public static void Play(bool repeat) 
+        public static void Play(bool repeat)
         {
             string command = "play MyMp3";
-            if(repeat)
+            if (repeat)
                 command += " REPEAT";
             mciSendString(command, null, 0, 0);
             IsPlaying = true;
@@ -83,6 +83,6 @@ namespace Olympus_the_Game
             mciSendString(string.Concat("setaudio MediaFile volume to ", volume), null, 0, 0);
         }
 
-        
+
     }
 }

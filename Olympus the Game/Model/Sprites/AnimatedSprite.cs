@@ -10,11 +10,11 @@ namespace Olympus_the_Game
         /// <summary>
         /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
         /// </summary>
-        public override int X{get;set;}
+        public override int X { get; set; }
         /// <summary>
         /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
         /// </summary>
-        public override int Y{get;set; }
+        public override int Y { get; set; }
         /// <summary>
         /// Hoe lang deze animatie duurt in milliseconden.
         /// </summary>

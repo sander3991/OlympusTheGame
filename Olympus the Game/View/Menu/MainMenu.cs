@@ -26,10 +26,6 @@ namespace Olympus_the_Game
 
         private GameScreen gs;
 
-        private string introSound;
-
-        private string gameSound;
-
         public MainMenu()
         {
             InitializeComponent();
@@ -48,7 +44,7 @@ namespace Olympus_the_Game
             if (Visible)
             {
                 Mp3Player.StopPlaying();
-                Mp3Player.SetResource(this.introSound);
+                Mp3Player.SetResource(DataPool.IntroSound);
                 Mp3Player.Loop(true);
                 if (!firstInit)
                 {
@@ -98,9 +94,6 @@ namespace Olympus_the_Game
             this.levelDialog1.LevelChosen += OpenLevel;
             this.levelEditorMenu1.ButtonNewEditor.Click += NewEditor;
             this.levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
-
-            // Load introtune here
-            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
 
             // Load resources
             this.loadResources();
@@ -213,8 +206,7 @@ namespace Olympus_the_Game
 
         private void loadResources()
         {
-            this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
-            DataPool.LoadImagePool();
+            DataPool.LoadDataPool();
         }
 
         public void PrepareNewGameScreen()
@@ -247,7 +239,7 @@ namespace Olympus_the_Game
             gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
 
             // Start muziek
-            Mp3Player.SetResource(this.gameSound);
+            Mp3Player.SetResource(DataPool.gameSound);
             Mp3Player.Loop(true);
         }
 

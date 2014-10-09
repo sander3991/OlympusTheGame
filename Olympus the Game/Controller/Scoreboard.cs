@@ -29,7 +29,7 @@ namespace Olympus_the_Game
         {
             ResetScore();
         }
-        public static int Score 
+        public static int Score
         {
             get
             {

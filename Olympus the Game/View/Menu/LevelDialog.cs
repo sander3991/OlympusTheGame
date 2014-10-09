@@ -21,7 +21,8 @@ namespace Olympus_the_Game.View.Menu
 
             int buttons = 6;
 
-            for(int i = 1; i <= buttons; i++) {
+            for (int i = 1; i <= buttons; i++)
+            {
                 Button b = new Button();
                 int a = i;
                 b.Click += delegate(object source, EventArgs ea) { this.buttonClicked(a); };
@@ -40,7 +41,7 @@ namespace Olympus_the_Game.View.Menu
         private void buttonClicked(int level)
         {
             Level = level;
-            if(LevelChosen != null)
+            if (LevelChosen != null)
                 LevelChosen();
         }
     }

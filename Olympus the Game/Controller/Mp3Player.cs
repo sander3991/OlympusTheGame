@@ -14,8 +14,8 @@ namespace Olympus_the_Game
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static string tempFileLoc;
         private static int fadeInCounter;
-        public static bool IsPlaying {get; private set;}
-        
+        public static bool IsPlaying { get; private set; }
+
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
@@ -31,8 +31,8 @@ namespace Olympus_the_Game
                 player.settings.volume = Math.Max(0, value);
             }
         }
-        
-        
+
+
         /// <summary>
         /// Speelt een resource file af.
         /// </summary>
@@ -93,8 +93,8 @@ namespace Olympus_the_Game
                 player.controls.play();
                 IsPlaying = true;
             }
-            IsPlaying = true;    
-                
+            IsPlaying = true;
+
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Stop();
         }
@@ -140,10 +140,10 @@ namespace Olympus_the_Game
             }
         }
 
-        private static void  timer_tick_fadeout(object sender, EventArgs e)
+        private static void timer_tick_fadeout(object sender, EventArgs e)
         {
             Volume = --fadeInCounter;
-            if(Volume == 0)
+            if (Volume == 0)
             {
                 Timer timer = sender as Timer;
                 timer.Stop();
@@ -171,7 +171,7 @@ namespace Olympus_the_Game
         {
             IsPlaying = false;
             player.controls.pause();
-            
+
         }
         /// <summary>
         /// Gaat verder met afspelen

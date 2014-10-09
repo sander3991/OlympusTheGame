@@ -200,7 +200,7 @@ namespace Olympus_the_Game.View
             this.Size = new Size((int)((double)this.Playfield.Width * SCALE), (int)((double)this.Playfield.Height * SCALE));
 
             // Empty image buffer
-            DataPool.ClearPool();
+            DataPool.ClearImagePool();
         }
 
         /// <summary>

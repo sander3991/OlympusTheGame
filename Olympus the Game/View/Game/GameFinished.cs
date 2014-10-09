@@ -17,7 +17,8 @@ namespace Olympus_the_Game.View.Game
             ShowInTaskbar = false;
         }
 
-        public GameFinished(FinishType type) : this()
+        public GameFinished(FinishType type)
+            : this()
         {
             int score = Scoreboard.Score;
             switch (type)
@@ -32,7 +33,7 @@ namespace Olympus_the_Game.View.Game
             this.score.Text = string.Format("Score: {0}", score.ToString("D5"));
             bool first = true;
             StringBuilder builder = new StringBuilder();
-            foreach(ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
+            foreach (ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
             {
                 int typeScore = Scoreboard.GetScore(scoreType);
                 if (score != 0)

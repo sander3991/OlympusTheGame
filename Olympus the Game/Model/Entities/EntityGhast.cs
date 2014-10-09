@@ -44,6 +44,9 @@ namespace Olympus_the_Game
         }
 
 
+        public EntityGhast() { }
+
+
         /// <summary>
         /// FILL THIS IN
         /// </summary>

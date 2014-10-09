@@ -1,6 +1,8 @@
 ﻿using System;
-namespace Olympus_the_Game {
-    public class EntityExplode : Entity {
+namespace Olympus_the_Game
+{
+    public class EntityExplode : Entity
+    {
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
@@ -10,7 +12,8 @@ namespace Olympus_the_Game {
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
         /// </summary>
         public EntityExplode(int width, int height, int x, int y, int dx, int dy, double effectStrength)
-            : base(width, height, x, y, dx, dy) {
+            : base(width, height, x, y, dx, dy)
+        {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAI = false;
             Type = ObjectType.EXPLODE;
@@ -20,20 +23,24 @@ namespace Olympus_the_Game {
         /// </summary>
         public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
 
-        public override void OnCollide(GameObject gameObject) {
+        public override void OnCollide(GameObject gameObject)
+        {
             EntityPlayer player = gameObject as EntityPlayer;
             PlayField pf = Playfield;
-            if(player != null) {
+            if (player != null)
+            {
                 player.Health -= Convert.ToInt32(EffectStrength);
                 pf.RemoveObject(this);
             }
         }
 
+        public EntityExplode() { }
+
         public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.Controller;
             PlayField pf = OlympusTheGame.Playfield;
-            if(!fieldRemoved)
+            if (!fieldRemoved)
             {
                 pf.AddObject(new SpriteExplosion(this));
                 SoundEffects.PlaySound(Properties.Resources.bomb);

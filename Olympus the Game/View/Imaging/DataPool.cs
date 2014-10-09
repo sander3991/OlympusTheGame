@@ -9,6 +9,10 @@ namespace Olympus_the_Game.View
 {
     public class DataPool
     {
+        public static string gameSound { get; private set; }
+
+        public static string IntroSound { get; private set; }
+
         /// <summary>
         /// Source images
         /// </summary>
@@ -22,7 +26,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Voegt alle plaatjes toe aan de bron-dictionary.
         /// </summary>
-        public static void LoadImagePool()
+        public static void LoadDataPool()
         {
             source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
             source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
@@ -39,6 +43,8 @@ namespace Olympus_the_Game.View
             source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
             source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
             source.Add(ObjectType.WEBMISSILE, Properties.Resources.cobweb);
+            gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
+            IntroSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
         }
 
         /// <summary>
@@ -94,7 +100,7 @@ namespace Olympus_the_Game.View
             // No result, so create
             result = CreateImage(o, s);
             images.Add(new Tuple<ObjectType, Size>(o, s), result);
-            
+
             // Return new image
             return result;
         }
@@ -102,7 +108,7 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Leegt de cache van deze pool.
         /// </summary>
-        public static void ClearPool()
+        public static void ClearImagePool()
         {
             images.Clear();
         }

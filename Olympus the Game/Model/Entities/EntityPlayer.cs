@@ -48,6 +48,8 @@ namespace Olympus_the_Game
             return "De speler";
         }
 
+        public EntityPlayer() { }
+
 
         /// <summary>
         /// De snelheid van de speler
@@ -118,7 +120,7 @@ namespace Olympus_the_Game
                     Frame = 0.5f;
                 }
             }
-        } 
+        }
         /// <summary>
         /// Initialiseert een spelerobject, een speler begint standaard met <paramref name="=MAXHEALTH"/> health.
         /// </summary>
