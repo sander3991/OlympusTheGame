@@ -38,6 +38,10 @@ namespace Olympus_the_Game.View
         {
             Mp3Player.PlaySelected();
             this.gamePanelEditor.TryExpand();
+
+            // Register events
+            this.entityEditor1.EntityChanged += this.gamePanelEditor.Invalidate;
+
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
 

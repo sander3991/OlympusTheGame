@@ -13,11 +13,13 @@ namespace Olympus_the_Game.View
 {
     public partial class EntityEditor : UserControl
     {
-        private static readonly int PADDING = 10;
+        private static readonly int PADDING = 5;
 
-        private static readonly int ROW_HEIGHT = 60;
+        private static readonly int ROW_HEIGHT = 30;
 
         private static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
+
+        public event Action EntityChanged;
 
         private GameObject SelectedObject;
 
@@ -57,7 +59,7 @@ namespace Olympus_the_Game.View
                     delegate(PropertyInfo pi)
                     {
                         string name = pi.Name;
-                        return !filteredProperties.Contains(name.ToLower());
+                        return !filteredProperties.Contains(name.ToLower()) && pi.CanWrite;
                     }))
                 {
                     // Create label
@@ -96,7 +98,25 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void ToepassenEntity_Click(object sender, EventArgs e)
         {
+            foreach (KeyValuePair<PropertyInfo, TextBox> prop in inputs)
+            {
+                // Get vars
+                object val = null;
+                PropertyInfo pi = prop.Key;
+                string text = prop.Value.Text;
 
+                // Parse value
+                if (pi.PropertyType == typeof(System.Int32))
+                {
+                    val = Convert.ToInt32(text);
+                }
+
+                // Set property
+                pi.SetValue(SelectedObject, val, new object[] { });
+            }
+
+            // Call event
+            EntityChanged();
         }
 
         private void EntityEditor_Load(object sender, EventArgs e)
