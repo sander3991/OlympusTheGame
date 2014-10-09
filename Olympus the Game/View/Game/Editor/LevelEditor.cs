@@ -23,6 +23,7 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
+            // Save vars
             this.pf = pf;
             this.gamePanelEditor.Playfield = this.pf;
             this.speelveldEditor1.Playfield = this.pf;
@@ -32,7 +33,10 @@ namespace Olympus_the_Game.View
             OlympusTheGame.Pause();
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
-            Mp3Player.SetResource(Properties.Resources.JoelsSpecial);
+        }
+
+        private void LevelEditor_Load(object sender, System.EventArgs e)
+        {
             Mp3Player.PlaySelected();
             this.gamePanelEditor.TryExpand();
             this.gamePanelEditor.Invalidate();
