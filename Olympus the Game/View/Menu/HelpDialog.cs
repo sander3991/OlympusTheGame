@@ -24,7 +24,7 @@ namespace Olympus_the_Game.View.Menu
                     prop_scroll = Height;
                 else if ((label1.Location.Y + label1.Height) < 0)
                     prop_scroll = -(label1.Height);
-                else 
+                else
                     prop_scroll = value;
             }
         }

@@ -111,7 +111,7 @@ namespace Olympus_the_Game.View
             Rectangle target = new Rectangle(p, s);
 
             // Retrieve appropriate image
-            Sprite bm = ImagePool.GetPicture(go.Type, s);
+            Sprite bm = DataPool.GetPicture(go.Type, s);
 
             //  Draw picture
             g.DrawImageUnscaled(bm[go.Frame], target);
@@ -200,7 +200,7 @@ namespace Olympus_the_Game.View
             this.Size = new Size((int)((double)this.Playfield.Width * SCALE), (int)((double)this.Playfield.Height * SCALE));
 
             // Empty image buffer
-            ImagePool.ClearPool();
+            DataPool.ClearImagePool();
         }
 
         /// <summary>

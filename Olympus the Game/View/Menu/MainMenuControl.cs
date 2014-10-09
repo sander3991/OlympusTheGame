@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Olympus_the_Game.View {
+namespace Olympus_the_Game.View
+{
 
-    public partial class MainMenuControl : UserControl {
-        public MainMenuControl() {
+    public partial class MainMenuControl : UserControl
+    {
+        public MainMenuControl()
+        {
             InitializeComponent();
         }
     }

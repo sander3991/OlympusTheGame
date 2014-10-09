@@ -31,6 +31,8 @@ namespace Olympus_the_Game
             }
         }
 
+        public EntityWebMissile() { }
+
         /// <summary>
         /// Geef de entity een beschrijving
         /// </summary>

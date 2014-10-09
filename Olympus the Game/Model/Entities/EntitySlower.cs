@@ -34,6 +34,9 @@ namespace Olympus_the_Game
             }
         }
 
+        public EntitySlower() { }
+
+
         /// <summary>
         /// Geef de entity een beschrijving
         /// </summary>
@@ -82,7 +85,7 @@ namespace Olympus_the_Game
         public bool PreventDoubleWeb(int x, int y)
         {
             List<GameObject> webOnXY = Playfield.GetObjectsAtLocation(x, y);
-            
+
             bool value = false;
             if (webOnXY != null)
             {

@@ -21,7 +21,7 @@ namespace Olympus_the_Game
             try
             {
                 PlayField pf = null;
-                if(fileStream.Length > 0)
+                if (fileStream.Length > 0)
                 {
                     Object o = serialiser.Deserialize(fileStream);
                     pf = o as PlayField;

@@ -20,7 +20,7 @@ namespace Olympus_the_Game.View
             textBoxUp.MaxLength = 1;
             textBoxDown.MaxLength = 1;
             this.DoubleBuffered = true;
-            
+
         }
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
@@ -40,7 +40,7 @@ namespace Olympus_the_Game.View
             if (richting == "ArrowKeyDown")
                 KeyHandler.MovePlayer(2, false);
         }
-        
+
         /// <summary>
         /// Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
@@ -67,7 +67,7 @@ namespace Olympus_the_Game.View
             {
                 MessageBox.Show("Onjuiste toetsen geselecteerd");
             }
-            
+
             //int wat = Convert.ToInt32(textBox1.Text[0]);
             //MessageBox.Show(wat.ToString());
         }
@@ -98,7 +98,7 @@ namespace Olympus_the_Game.View
                 tb.SelectionStart = 0;
                 tb.SelectionLength = tb.Text.Length;
             }
-            
+
         }
 
         /// <summary>
@@ -113,4 +113,4 @@ namespace Olympus_the_Game.View
         }
     }
 }
-                
+

@@ -163,6 +163,15 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Lege constructor
+        /// </summary>
+        public GameObject()
+        {
+            this.Height = 50;
+            this.Width = 50;
+        }
+
+        /// <summary>
         /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
         /// </summary>
         public bool IsSolid { get; protected set; }

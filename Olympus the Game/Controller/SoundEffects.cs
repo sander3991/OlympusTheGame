@@ -10,7 +10,7 @@ namespace Olympus_the_Game
     static class SoundEffects
     {
         private static SoundPlayer player = new SoundPlayer();
-        
+
         private static SoundPlayer GetSoundPlayer(UnmanagedMemoryStream stream)
         {
             return new SoundPlayer(stream);

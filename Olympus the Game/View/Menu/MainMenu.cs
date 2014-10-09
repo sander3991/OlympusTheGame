@@ -26,10 +26,6 @@ namespace Olympus_the_Game
 
         private GameScreen gs;
 
-        private string introSound;
-
-        private string gameSound;
-
         public MainMenu()
         {
             InitializeComponent();
@@ -48,7 +44,7 @@ namespace Olympus_the_Game
             if (Visible)
             {
                 Mp3Player.StopPlaying();
-                Mp3Player.SetResource(this.introSound);
+                Mp3Player.SetResource(DataPool.IntroSound);
                 Mp3Player.Loop(true);
                 if (!firstInit)
                 {
@@ -90,6 +86,7 @@ namespace Olympus_the_Game
             // Add events
             this.mainMenuControl1.ButtonStart.Click += ButtonStart_Click;
             this.mainMenuControl1.ButtonLevelEditor.Click += ButtonLevelEditor_Click;
+            this.mainMenuControl1.ButtonSettings.Click += ButtonSettings_Click;
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
             this.mainMenuControl1.button1.Click += ButtonHelp_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
@@ -98,12 +95,11 @@ namespace Olympus_the_Game
             this.levelEditorMenu1.ButtonNewEditor.Click += NewEditor;
             this.levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
 
-            // Load introtune here
-            this.introSound = Mp3Player.PrepareResource(Properties.Resources.StarWars);
-
             // Load resources
             this.loadResources();
         }
+
+        
 
         private void ButtonHelp_Click(object sender, EventArgs e)
         {
@@ -130,6 +126,7 @@ namespace Olympus_the_Game
             CenterControl(mainMenuControl1);
             CenterControl(levelDialog1);
             CenterControl(levelEditorMenu1);
+            CenterControl(settingsDialog1);
 
             // Make main menu visible
             mainMenuControl1.Visible = true;
@@ -155,6 +152,13 @@ namespace Olympus_the_Game
         {
             HideAllControls();
             this.levelEditorMenu1.Visible = true;
+            this.ButtonBack.Visible = true;
+        }
+
+        private void ButtonSettings_Click(object sender, EventArgs e)
+        {
+            HideAllControls();
+            this.settingsDialog1.Visible = true;
             this.ButtonBack.Visible = true;
         }
 
@@ -197,12 +201,12 @@ namespace Olympus_the_Game
             this.ButtonBack.Visible = false;
             this.mainMenuControl1.Visible = false;
             this.helpDialog1.Visible = false;
+            this.settingsDialog1.Visible = false;
         }
 
         private void loadResources()
         {
-            this.gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata);
-            ImagePool.LoadImagePool();
+            DataPool.LoadDataPool();
         }
 
         public void PrepareNewGameScreen()
@@ -235,7 +239,7 @@ namespace Olympus_the_Game
             gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
 
             // Start muziek
-            Mp3Player.SetResource(this.gameSound);
+            Mp3Player.SetResource(DataPool.gameSound);
             Mp3Player.Loop(true);
         }
 
@@ -271,6 +275,7 @@ namespace Olympus_the_Game
             CenterControl(this.levelEditorMenu1);
             CenterControl(this.levelDialog1);
             CenterControl(mainMenuControl1);
+            CenterControl(settingsDialog1);
         }
 
         private void ShowMaskAndStartGame(object source, EventArgs ea)

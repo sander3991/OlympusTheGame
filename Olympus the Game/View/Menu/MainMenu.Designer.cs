@@ -26,6 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonBack = new System.Windows.Forms.Button();
+            this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
             this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
@@ -59,6 +60,14 @@
             this.ButtonBack.UseVisualStyleBackColor = false;
             this.ButtonBack.Visible = false;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            // 
+            // settingsDialog1
+            // 
+            this.settingsDialog1.Location = new System.Drawing.Point(772, 213);
+            this.settingsDialog1.Name = "settingsDialog1";
+            this.settingsDialog1.Size = new System.Drawing.Size(426, 150);
+            this.settingsDialog1.TabIndex = 7;
+            this.settingsDialog1.Visible = false;
             // 
             // levelEditorMenu1
             // 
@@ -99,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.settingsDialog1);
             this.Controls.Add(this.levelEditorMenu1);
             this.Controls.Add(this.mainMenuControl1);
             this.Controls.Add(this.levelDialog1);
@@ -123,6 +133,7 @@
         public System.Windows.Forms.Button ButtonBack;
         private View.Menu.LevelEditorMenu levelEditorMenu1;
         private View.Menu.HelpDialog helpDialog1;
+        private View.Menu.SettingsDialog settingsDialog1;
 
 
     }

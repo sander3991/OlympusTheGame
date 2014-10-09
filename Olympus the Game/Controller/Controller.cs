@@ -114,9 +114,9 @@ namespace Olympus_the_Game
                 {
                     if (o.IsSolid) //Alleen bij solide blokken moet de speler terug worden gezet naar de vorige plek
                     {
-                        if(collision.HasFlag(CollisionType.X))
+                        if (collision.HasFlag(CollisionType.X))
                             player.X = player.PreviousX;
-                        if(collision.HasFlag(CollisionType.Y))
+                        if (collision.HasFlag(CollisionType.Y))
                             player.Y = player.PreviousY;
                     }
                     o.OnCollide(player); //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
@@ -132,16 +132,16 @@ namespace Olympus_the_Game
                     e.Move();
                     foreach (GameObject o2 in listWithPlayer)
                     {
-                        if(!e.Equals(o2)) //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
+                        if (!e.Equals(o2)) //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
                         {
                             CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
                             if (collision != CollisionType.NONE)
                             {
                                 e.OnCollide(o2); //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
                                 o2.OnCollide(e);
-                                if(collision.HasFlag(CollisionType.X)) //Is de collision op de X as? Verander dan de X.
+                                if (collision.HasFlag(CollisionType.X)) //Is de collision op de X as? Verander dan de X.
                                     e.X = e.PreviousX;
-                                if(collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y
+                                if (collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y
                                     e.Y = e.PreviousY;
                                 if (e.EntityControlledByAI) //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
                                 {
@@ -214,7 +214,7 @@ namespace Olympus_the_Game
             int sec = (int)(gt / 1000);
             int minutes = sec / 60;
             int seconds = sec - minutes * 60;
-            return string.Format("{0}:{1}",minutes.ToString("D2"),seconds.ToString("D2"));
+            return string.Format("{0}:{1}", minutes.ToString("D2"), seconds.ToString("D2"));
         }
 
         internal void PlayerHealthChanged(EntityPlayer player, int newHealth, int prevHealth)
