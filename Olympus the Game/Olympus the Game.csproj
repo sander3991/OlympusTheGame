@@ -428,6 +428,18 @@
   <ItemGroup>
     <None Include="Resources\Textures\stone.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowdown1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowleft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowleft2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\rsz_arrowright1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
