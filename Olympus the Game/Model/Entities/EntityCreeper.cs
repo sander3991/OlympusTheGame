@@ -38,11 +38,6 @@ namespace Olympus_the_Game
         public EntityCreeper(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0, explodeStrength) { }
 
         /// <summary>
-        /// Lege constructor
-        /// </summary>
-        public EntityCreeper() : this(0, 0, 0, 0, 0) { }
-
-        /// <summary>
         /// Update het object.
         /// Wanneer dit object te dichtbij een speler is zal deze richting de speler lopen.
         /// </summary>

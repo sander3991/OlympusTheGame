@@ -54,8 +54,6 @@ namespace Olympus_the_Game
             EntityControlledByAI = true;
         }
 
-        public Entity() : this(0, 0, 0, 0, 0, 0) { }
-
         /// <summary>
         /// Beweegt een object gebaseerd op hun <paramref name="DX"/> en <paramref name="DY"/>
         /// </summary>

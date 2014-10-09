@@ -132,13 +132,5 @@ namespace Olympus_the_Game
             health = MAXHEALTH;
             Type = ObjectType.PLAYER;
         }
-
-        public EntityPlayer()
-            : base(0, 0, 0, 0, 0, 0)
-        {
-            Type = ObjectType.PLAYER;
-        }
-
-
     }
 }

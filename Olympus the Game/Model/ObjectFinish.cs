@@ -30,13 +30,6 @@ namespace Olympus_the_Game
             return "De finish van het level";
         }
 
-        /// <summary>
-        /// Lege constructor
-        /// </summary>
-        public ObjectFinish() : this(0, 0, 0, 0) { }
-
-
-
         public override void OnCollide(GameObject gameObject)
         {
             EntityPlayer player = gameObject as EntityPlayer;

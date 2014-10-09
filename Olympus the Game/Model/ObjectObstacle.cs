@@ -28,11 +28,5 @@
         {
             return "Een niet doorgaanbaar obstakel";
         }
-
-        /// <summary>
-        /// Lege constructor
-        /// </summary>
-        public ObjectObstacle() : this(0, 0, 0, 0) { }
-
     }
 }

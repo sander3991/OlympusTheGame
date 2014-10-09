@@ -37,7 +37,7 @@ namespace Olympus_the_Game
         public static Dictionary<ObjectType, GameObject> EntityTypes;
 
         static GameObject() {
-            EntityTypes = new Dictionary<ObjectType, GameObject>();
+            /*EntityTypes = new Dictionary<ObjectType, GameObject>();
             EntityTypes.Add(ObjectType.SLOWER, new EntitySlower());
             EntityTypes.Add(ObjectType.TIMEBOMB, new EntityTimeBomb());
             EntityTypes.Add(ObjectType.OBSTACLE, new ObjectObstacle());
@@ -45,7 +45,7 @@ namespace Olympus_the_Game
             EntityTypes.Add(ObjectType.EXPLODE, new EntityExplode());
             EntityTypes.Add(ObjectType.START, new ObjectStart());
             EntityTypes.Add(ObjectType.FINISH, new ObjectFinish());
-            EntityTypes.Add(ObjectType.GHAST, new EntityGhast());
+            EntityTypes.Add(ObjectType.GHAST, new EntityGhast());*/
         }
 
         private int x;
@@ -163,15 +163,6 @@ namespace Olympus_the_Game
         /// <returns>Beschrijving</returns>
         public virtual string getDescription(){
             return "No description yet";
-        }
-
-        /// <summary>
-        /// Lege constructor
-        /// </summary>
-        public GameObject()
-        {
-            this.Height = 50;
-            this.Width = 50;
         }
 
         /// <summary>

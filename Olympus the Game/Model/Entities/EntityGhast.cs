@@ -43,10 +43,6 @@ namespace Olympus_the_Game
             return "Ghast schiet vuurballen";
         }
 
-
-        public EntityGhast() : this(0, 0, 0, 0) { }
-
-
         /// <summary>
         /// FILL THIS IN
         /// </summary>

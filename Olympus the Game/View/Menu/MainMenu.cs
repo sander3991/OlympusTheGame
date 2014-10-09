@@ -170,7 +170,15 @@ namespace Olympus_the_Game
         {
             // Retrieve level
             int lvl = this.levelDialog1.Level;
-            // TODO Load given level
+
+            // Read PlayField
+            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            if (OlympusTheGame.Playfield == null)
+            {
+                OlympusTheGame.Playfield = new PlayField();
+            }
+
+            OlympusTheGame.Playfield.InitializeGameObjects();
 
             // Show mask
             Mp3Player.FadeOut(Utils.MASK_FADE_DURATION);
@@ -216,7 +224,6 @@ namespace Olympus_the_Game
 
             // Reset gametime
             OlympusTheGame.GameTime = 0;
-
         }
 
         /// <summary>
@@ -224,19 +231,6 @@ namespace Olympus_the_Game
         /// </summary>
         public void ShowGame()
         {
-            // Read PlayField
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
-            if (OlympusTheGame.Playfield == null)
-            {
-                OlympusTheGame.Playfield = new PlayField();
-            }
-
-            OlympusTheGame.Playfield.InitializeGameObjects();
-
-
-            // Add PlayField to GameScreen
-            gs.gamePanel1.Playfield = OlympusTheGame.Playfield;
-
             // Start muziek
             Mp3Player.SetResource(DataPool.gameSound);
             Mp3Player.Loop(true);

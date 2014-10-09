@@ -34,11 +34,5 @@ namespace Olympus_the_Game
         {
             return "Start van het level";
         }
-
-        /// <summary>
-        /// Lege constructor
-        /// </summary>
-        public ObjectStart() : this(0, 0, 0, 0) { }
-
     }
 }

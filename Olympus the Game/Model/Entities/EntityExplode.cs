@@ -34,8 +34,6 @@ namespace Olympus_the_Game
             }
         }
 
-        public EntityExplode() : this(0, 0, 0, 0, 0) { }
-
         public override void OnRemoved(bool fieldRemoved)
         {
             Controller contr = OlympusTheGame.Controller;
