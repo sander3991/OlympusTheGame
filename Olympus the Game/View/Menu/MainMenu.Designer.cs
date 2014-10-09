@@ -26,9 +26,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonBack = new System.Windows.Forms.Button();
-            this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
-            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
+            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
+            this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
+            this.helpDialog1 = new Olympus_the_Game.View.Menu.HelpDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,13 +60,12 @@
             this.ButtonBack.Visible = false;
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             // 
-            // levelDialog1
+            // levelEditorMenu1
             // 
-            this.levelDialog1.BackColor = System.Drawing.Color.Transparent;
-            this.levelDialog1.Location = new System.Drawing.Point(13, 339);
-            this.levelDialog1.Name = "levelDialog1";
-            this.levelDialog1.Size = new System.Drawing.Size(426, 330);
-            this.levelDialog1.TabIndex = 2;
+            this.levelEditorMenu1.Location = new System.Drawing.Point(772, 37);
+            this.levelEditorMenu1.Name = "levelEditorMenu1";
+            this.levelEditorMenu1.Size = new System.Drawing.Size(426, 110);
+            this.levelEditorMenu1.TabIndex = 5;
             // 
             // mainMenuControl1
             // 
@@ -76,12 +76,22 @@
             this.mainMenuControl1.Size = new System.Drawing.Size(427, 222);
             this.mainMenuControl1.TabIndex = 0;
             // 
-            // levelEditorMenu1
+            // levelDialog1
             // 
-            this.levelEditorMenu1.Location = new System.Drawing.Point(772, 37);
-            this.levelEditorMenu1.Name = "levelEditorMenu1";
-            this.levelEditorMenu1.Size = new System.Drawing.Size(426, 110);
-            this.levelEditorMenu1.TabIndex = 5;
+            this.levelDialog1.BackColor = System.Drawing.Color.Transparent;
+            this.levelDialog1.Location = new System.Drawing.Point(13, 339);
+            this.levelDialog1.Name = "levelDialog1";
+            this.levelDialog1.Size = new System.Drawing.Size(426, 330);
+            this.levelDialog1.TabIndex = 2;
+            // 
+            // helpDialog1
+            // 
+            this.helpDialog1.BackColor = System.Drawing.Color.Transparent;
+            this.helpDialog1.Location = new System.Drawing.Point(0, 0);
+            this.helpDialog1.Name = "helpDialog1";
+            this.helpDialog1.Size = new System.Drawing.Size(1264, 680);
+            this.helpDialog1.TabIndex = 6;
+            this.helpDialog1.Visible = false;
             // 
             // MainMenu
             // 
@@ -90,9 +100,10 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.levelEditorMenu1);
-            this.Controls.Add(this.ButtonBack);
-            this.Controls.Add(this.levelDialog1);
             this.Controls.Add(this.mainMenuControl1);
+            this.Controls.Add(this.levelDialog1);
+            this.Controls.Add(this.helpDialog1);
+            this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
@@ -111,6 +122,7 @@
         private View.Menu.LevelDialog levelDialog1;
         public System.Windows.Forms.Button ButtonBack;
         private View.Menu.LevelEditorMenu levelEditorMenu1;
+        private View.Menu.HelpDialog helpDialog1;
 
 
     }
