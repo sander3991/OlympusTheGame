@@ -24,7 +24,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public EntityWeb() { }
+        public EntityWeb() : this(0, 0, 0, 0) { }
 
         /// <summary>
         /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 0, DEFAULT = 2

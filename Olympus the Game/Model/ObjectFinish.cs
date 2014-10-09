@@ -33,7 +33,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Lege constructor
         /// </summary>
-        public ObjectFinish() { }
+        public ObjectFinish() : this(0, 0, 0, 0) { }
 
 
 

@@ -34,7 +34,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public EntityExplode() { }
+        public EntityExplode() : this(0, 0, 0, 0, 0) { }
 
         public override void OnRemoved(bool fieldRemoved)
         {

@@ -32,7 +32,7 @@
         /// <summary>
         /// Lege constructor
         /// </summary>
-        public ObjectObstacle() { }
+        public ObjectObstacle() : this(0, 0, 0, 0) { }
 
     }
 }
