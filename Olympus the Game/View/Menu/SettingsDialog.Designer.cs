@@ -29,44 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialog));
-            this.ButtonNewEditor = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonGeluidDempen = new System.Windows.Forms.Button();
+            this.ButtonSpeed = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ButtonNewEditor
+            // ButtonGeluidDempen
             // 
-            this.ButtonNewEditor.AccessibleDescription = "x";
-            this.ButtonNewEditor.BackColor = System.Drawing.Color.LightGray;
-            this.ButtonNewEditor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonNewEditor.BackgroundImage")));
-            this.ButtonNewEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonNewEditor.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ButtonNewEditor.Location = new System.Drawing.Point(3, 3);
-            this.ButtonNewEditor.Name = "ButtonNewEditor";
-            this.ButtonNewEditor.Size = new System.Drawing.Size(420, 49);
-            this.ButtonNewEditor.TabIndex = 2;
-            this.ButtonNewEditor.Text = "Geluid";
-            this.ButtonNewEditor.UseVisualStyleBackColor = false;
+            this.ButtonGeluidDempen.AccessibleDescription = "x";
+            this.ButtonGeluidDempen.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonGeluidDempen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGeluidDempen.BackgroundImage")));
+            this.ButtonGeluidDempen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonGeluidDempen.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonGeluidDempen.Location = new System.Drawing.Point(3, 3);
+            this.ButtonGeluidDempen.Name = "ButtonGeluidDempen";
+            this.ButtonGeluidDempen.Size = new System.Drawing.Size(420, 49);
+            this.ButtonGeluidDempen.TabIndex = 2;
+            this.ButtonGeluidDempen.Text = "Geluid uitzetten";
+            this.ButtonGeluidDempen.UseVisualStyleBackColor = false;
+            this.ButtonGeluidDempen.Click += new System.EventHandler(this.ButtonGeluidDempen_Click);
             // 
-            // button1
+            // ButtonSpeed
             // 
-            this.button1.AccessibleDescription = "x";
-            this.button1.BackColor = System.Drawing.Color.LightGray;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(0, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(420, 49);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Snelheid";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ButtonSpeed.AccessibleDescription = "x";
+            this.ButtonSpeed.BackColor = System.Drawing.Color.LightGray;
+            this.ButtonSpeed.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonSpeed.BackgroundImage")));
+            this.ButtonSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSpeed.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ButtonSpeed.Location = new System.Drawing.Point(3, 58);
+            this.ButtonSpeed.Name = "ButtonSpeed";
+            this.ButtonSpeed.Size = new System.Drawing.Size(420, 49);
+            this.ButtonSpeed.TabIndex = 3;
+            this.ButtonSpeed.Text = "Snelheid";
+            this.ButtonSpeed.UseVisualStyleBackColor = false;
+            this.ButtonSpeed.Click += new System.EventHandler(this.ButtonSpeed_Click);
             // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ButtonNewEditor);
+            this.Controls.Add(this.ButtonSpeed);
+            this.Controls.Add(this.ButtonGeluidDempen);
             this.Name = "SettingsDialog";
             this.Size = new System.Drawing.Size(425, 150);
             this.ResumeLayout(false);
@@ -75,7 +77,7 @@
 
         #endregion
 
-        public System.Windows.Forms.Button ButtonNewEditor;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button ButtonGeluidDempen;
+        public System.Windows.Forms.Button ButtonSpeed;
     }
 }

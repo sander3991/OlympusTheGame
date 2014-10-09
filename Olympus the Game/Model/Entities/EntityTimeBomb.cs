@@ -30,7 +30,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public EntityTimeBomb() { }
+        public EntityTimeBomb() : this(0, 0, 0, 0, 0) { }
 
         /// <summary>
         /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000

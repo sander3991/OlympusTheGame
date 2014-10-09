@@ -34,7 +34,7 @@ namespace Olympus_the_Game
             }
         }
 
-        public EntitySlower() { }
+        public EntitySlower() : this(0, 0, 0, 0) { }
 
 
         /// <summary>

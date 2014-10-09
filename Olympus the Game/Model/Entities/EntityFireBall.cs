@@ -30,7 +30,7 @@ namespace Olympus_the_Game
             return "Vuurbal van Ghast";
         }
 
-        public EntityFireBall() { }
+        public EntityFireBall() : this(0, 0, 0, 0, null, null) { }
 
 
         /// <summary>

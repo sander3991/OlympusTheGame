@@ -13,32 +13,32 @@ namespace Olympus_the_Game.View.Game.Editor
     public partial class EntitySourcePanel : UserControl
     {
 
-        public ObjectType EntityType { get; private set; }
+        public GameObject GameObjectSource { get; private set; }
 
         public EntitySourcePanel()
-            : this(ObjectType.UNKNOWN)
+            : this(new EntitySilverfish())
         { }
 
-        public EntitySourcePanel(ObjectType ot)
+        public EntitySourcePanel(GameObject go)
         {
             InitializeComponent();
-            EntityType = ot;
+            GameObjectSource = go;
         }
 
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Properties.Resources.dirt;
-            Sprite s = DataPool.GetPicture(EntityType, this.picturePreview.Size);
+            Sprite s = DataPool.GetPicture(GameObjectSource.Type, this.picturePreview.Size);
             if (s != null)
                 this.picturePreview.Image = s[-1.0f];
-            this.label1.Text = EntityType.ToString();
+            this.label1.Text = GameObjectSource.Type.ToString();
             this.label2.Text = "Toets";
-            this.label3.Text = Utils.getObjectOfType(EntityType).getDescription();
+            this.label3.Text = GameObjectSource.getDescription();
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.picturePreview.DoDragDrop(EntityType, DragDropEffects.Copy | DragDropEffects.Move);
+            this.picturePreview.DoDragDrop(GameObjectSource.Type, DragDropEffects.Copy | DragDropEffects.Move);
         }
     }
 }
