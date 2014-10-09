@@ -28,30 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpDialog));
+            this.REMOVEME = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // vScrollBar1
+            // REMOVEME
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(690, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(18, 638);
-            this.vScrollBar1.TabIndex = 0;
+            this.REMOVEME.BackColor = System.Drawing.Color.Magenta;
+            this.REMOVEME.Location = new System.Drawing.Point(1222, 3);
+            this.REMOVEME.Name = "REMOVEME";
+            this.REMOVEME.Size = new System.Drawing.Size(42, 45);
+            this.REMOVEME.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(316, 0);
+            this.label1.MaximumSize = new System.Drawing.Size(624, 0);
+            this.label1.MinimumSize = new System.Drawing.Size(624, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(624, 10074);
+            this.label1.TabIndex = 1;
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // HelpDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.vScrollBar1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.REMOVEME);
             this.Name = "HelpDialog";
-            this.Size = new System.Drawing.Size(708, 638);
+            this.Size = new System.Drawing.Size(1264, 680);
+            this.Load += new System.EventHandler(this.HelpDialog_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Panel REMOVEME;
+        private System.Windows.Forms.Label label1;
+
 
     }
 }
