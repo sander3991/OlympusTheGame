@@ -99,7 +99,7 @@
             this.entitySourcePanelList1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.entitySourcePanelList1.AutoScroll = true;
             this.entitySourcePanelList1.BackColor = System.Drawing.Color.Transparent;
-            this.entitySourcePanelList1.Location = new System.Drawing.Point(923, 36);
+            this.entitySourcePanelList1.Location = new System.Drawing.Point(923, 99);
             this.entitySourcePanelList1.Name = "entitySourcePanelList1";
             this.entitySourcePanelList1.Size = new System.Drawing.Size(250, 500);
             this.entitySourcePanelList1.TabIndex = 25;
@@ -108,7 +108,7 @@
             // 
             this.speelveldEditor1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.speelveldEditor1.EnteredSize = new System.Drawing.Size(0, 0);
-            this.speelveldEditor1.Location = new System.Drawing.Point(12, 502);
+            this.speelveldEditor1.Location = new System.Drawing.Point(12, 629);
             this.speelveldEditor1.Name = "speelveldEditor1";
             this.speelveldEditor1.Playfield = null;
             this.speelveldEditor1.Size = new System.Drawing.Size(368, 182);
@@ -118,9 +118,9 @@
             // entityEditor1
             // 
             this.entityEditor1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.entityEditor1.Location = new System.Drawing.Point(399, 502);
+            this.entityEditor1.Location = new System.Drawing.Point(400, 566);
             this.entityEditor1.Name = "entityEditor1";
-            this.entityEditor1.Size = new System.Drawing.Size(517, 182);
+            this.entityEditor1.Size = new System.Drawing.Size(517, 223);
             this.entityEditor1.TabIndex = 18;
             // 
             // gamePanelEditor
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Olympus_the_Game.Properties.Resources.dirt;
-            this.ClientSize = new System.Drawing.Size(1232, 696);
+            this.ClientSize = new System.Drawing.Size(1232, 823);
             this.Controls.Add(this.entitySourcePanelList1);
             this.Controls.Add(this.speelveldEditor1);
             this.Controls.Add(this.entityEditor1);

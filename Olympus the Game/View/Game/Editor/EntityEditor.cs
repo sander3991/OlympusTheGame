@@ -6,12 +6,22 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.View.Imaging;
+using System.Reflection;
 
 namespace Olympus_the_Game.View
 {
     public partial class EntityEditor : UserControl
     {
+        private static readonly int PADDING = 10;
+
+        private static readonly int ROW_HEIGHT = 60;
+
+        private static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
+
         private GameObject SelectedObject;
+
+        private Dictionary<PropertyInfo, TextBox> inputs;
 
         public EntityEditor()
         {
@@ -23,57 +33,57 @@ namespace Olympus_the_Game.View
         /// </summary>
         public void LoadData(GameObject go)
         {
+            // Save GameObject
+            this.SelectedObject = go;
 
             // Deze if statement is nodig om een NullReference error te voorkomen
             if (go != null)
             {
-                // Maak alle X en Y inputs visible 
-                XLocationInput.Visible = true;
-                YLocationInput.Visible = true;
-                EntityYLocation.Visible = true;
-                EntityXLocation.Visible = true;
+                // Set image
+                Sprite s = DataPool.GetPicture(go.Type, this.EntityImageLarge.Size);
+                if (s != null)
+                {
+                    this.EntityImageLarge.BackgroundImage = s[-1.0f];
+                }
 
-                // Verkrijg de waardes van het GameObject
-                XLocationInput.Text = go.X.ToString();
-                YLocationInput.Text = go.Y.ToString();
-                EntityNaamLabel.Text = go.Type.ToString();
+                int pad = PADDING;
 
-                // Bewaar GameObject
-                SelectedObject = go;
+                // Clear everything
+                this.panel1.Controls.Clear();
+                this.inputs = new Dictionary<PropertyInfo, TextBox>();
 
+                // Start reflection
+                foreach (PropertyInfo fi in go.GetType().GetProperties().Where<PropertyInfo>(
+                    delegate(PropertyInfo pi)
+                    {
+                        string name = pi.Name;
+                        return !filteredProperties.Contains(name.ToLower());
+                    }))
+                {
+                    // Create label
+                    Label l = new Label();
+                    l.Text = fi.Name;
+                    l.Left = PADDING;
+                    l.Top = pad;
+                    l.Height = ROW_HEIGHT;
 
-                // Laat het plaatje van het GameObject zien
-                if (go.Type.ToString() == "CREEPER")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.creeper;
-                }
-                else if (go.Type.ToString() == "SLOWER")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.spider;
-                }
-                else if (go.Type.ToString() == "EXPLODE")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.tnt;
-                }
-                else if (go.Type.ToString() == "TIMEBOMB")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.timebomb;
-                }
-                else if (go.Type.ToString() == "CAKE")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cake;
-                }
-                else if (go.Type.ToString() == "HOME")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.huis;
-                }
-                else if (go.Type.ToString() == "OBSTACLE")
-                {
-                    EntityImageLarge.BackgroundImage = global::Olympus_the_Game.Properties.Resources.cobble;
-                }
-                else
-                {
-                    Console.WriteLine("Type niet bekend");
+                    // Create textbox
+                    TextBox tb = new TextBox();
+                    tb.Text = fi.GetValue(go, new object[] { }).ToString();
+                    tb.Top = pad;
+                    tb.Left = 150;
+                    tb.Height = ROW_HEIGHT;
+                    tb.Width = 150;
+
+                    // Add to dictionary
+                    inputs.Add(fi, tb);
+
+                    // Add to panel
+                    this.panel1.Controls.Add(l);
+                    this.panel1.Controls.Add(tb);
+
+                    // Update padding
+                    pad += PADDING + l.Height;
                 }
             }
         }
@@ -86,16 +96,12 @@ namespace Olympus_the_Game.View
         /// <param name="e"></param>
         private void ToepassenEntity_Click(object sender, EventArgs e)
         {
-            int X;
-            int Y;
-            X = Convert.ToInt32(XLocationInput.Text);
-            Y = Convert.ToInt32(YLocationInput.Text);
-            X = int.Parse(XLocationInput.Text);
-            Y = int.Parse(YLocationInput.Text);
 
-            SelectedObject.X = X;
-            SelectedObject.Y = Y;
         }
 
+        private void EntityEditor_Load(object sender, EventArgs e)
+        {
+            this.ToepassenEntity.BackgroundImage = Properties.Resources.stone;
+        }
     }
 }
