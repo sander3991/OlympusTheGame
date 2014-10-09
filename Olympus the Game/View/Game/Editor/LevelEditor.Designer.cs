@@ -105,6 +105,7 @@
             // 
             // entitySourcePanelList1
             // 
+            this.entitySourcePanelList1.AllowDrop = true;
             this.entitySourcePanelList1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.entitySourcePanelList1.AutoScroll = true;
             this.entitySourcePanelList1.BackColor = System.Drawing.Color.Transparent;

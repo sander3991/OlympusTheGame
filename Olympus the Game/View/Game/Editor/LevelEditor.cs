@@ -158,8 +158,6 @@ namespace Olympus_the_Game.View
             this.gamePanelEditor.Invalidate();
         }
 
-
-
         #endregion
 
         #region Remove

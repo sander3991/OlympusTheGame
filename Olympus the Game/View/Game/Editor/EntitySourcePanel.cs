@@ -38,9 +38,7 @@ namespace Olympus_the_Game.View.Game.Editor
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.DoDragDrop(EntityType, DragDropEffects.Copy | DragDropEffects.Move);
+            this.picturePreview.DoDragDrop(EntityType, DragDropEffects.Copy | DragDropEffects.Move);
         }
-
-
     }
 }
