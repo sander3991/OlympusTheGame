@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField(); //TODO Ruben/Martijn: Waarom wordt hier een Playfield aangemaakt? Hij genereerd hier naar mijn insziens onnodig een Playfield. Kan deze weg?
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

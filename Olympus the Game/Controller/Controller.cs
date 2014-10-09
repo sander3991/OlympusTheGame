@@ -104,6 +104,7 @@ namespace Olympus_the_Game
         /// </summary>
         public void Update()
         {
+            List<GameObject> playerCollisisons = new List<GameObject>();
             EntityPlayer player = OlympusTheGame.Playfield.Player;
             player.Move();
             List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.Playfield.GameObjects); //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
@@ -120,6 +121,7 @@ namespace Olympus_the_Game
                             player.Y = player.PreviousY;
                     }
                     o.OnCollide(player); //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
+                    playerCollisisons.Add(o); //We houden bij met wie de player is gecollide, zodat we niet nog een keer in de volgende loop de OnCollide aanroepen
                 }
             }
             List<GameObject> listWithPlayer = new List<GameObject>(gameObjects); //Maak een lijst waar de player ook bij in zit
@@ -137,8 +139,11 @@ namespace Olympus_the_Game
                             CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
                             if (collision != CollisionType.NONE)
                             {
-                                e.OnCollide(o2); //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
-                                o2.OnCollide(e);
+                                if (!(playerCollisisons.Contains(e) && o2 == player)) //Alleen als e in de lijst zit, en o2 de speler is, word de code NIET uitgevoerd
+                                {
+                                    e.OnCollide(o2); //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
+                                    o2.OnCollide(e);
+                                }
                                 if (collision.HasFlag(CollisionType.X)) //Is de collision op de X as? Verander dan de X.
                                     e.X = e.PreviousX;
                                 if (collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y

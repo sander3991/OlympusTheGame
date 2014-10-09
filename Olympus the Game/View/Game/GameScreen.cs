@@ -24,6 +24,7 @@ namespace Olympus_the_Game.View
             InitializeComponent();
             forceClose = false;
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
+            OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
         }
 
         private void OnPlayerFinished(FinishType type)
@@ -97,7 +98,6 @@ namespace Olympus_the_Game.View
             volledigeWeergaveToolStripMenuItem.Checked = true;
 
             // Do event handlers
-            OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
 
             this.infoView1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
             this.arrowPanel1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanel1.TryExpand(); };
