@@ -7,6 +7,9 @@ namespace Olympus_the_Game
 {
     public class ObjectStart : GameObject
     {
+
+        public new readonly ObjectType Type = ObjectType.START;
+
         /// <summary>
         /// Een GameObject die weergeeft waar de Startpositie op het veld is
         /// </summary>
@@ -17,7 +20,6 @@ namespace Olympus_the_Game
         public ObjectStart(int width, int height, int x, int y) : base(width, height, x, y)
         {
             IsSolid = false;
-            Type = ObjectType.START;
         }
 
         public override string ToString()

@@ -10,6 +10,8 @@ namespace Olympus_the_Game
     {
         // TODO Joel: Property van maken + denk aan limitaties van de property.
         public int CreeperRange = 150; // Aanpasbaar in editor
+
+        public new readonly ObjectType Type = ObjectType.CREEPER;
         /// <summary>
         /// Een Creeper object met een beginsnelheid
         /// </summary>
@@ -17,7 +19,6 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = true;
-            Type = ObjectType.CREEPER;
         }
 
         /// <summary>

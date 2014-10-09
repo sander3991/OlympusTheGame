@@ -37,7 +37,7 @@ namespace Olympus_the_Game
         private int y;
         private int height;
         private int width;
-        public ObjectType Type { get; protected set; }
+        public readonly ObjectType Type = ObjectType.UNKNOWN;
         private PlayField prop_playfield;
         public PlayField Playfield
         {
@@ -157,7 +157,6 @@ namespace Olympus_the_Game
             Width = width;
             Height = height;
             IsSolid = true;
-            Type = ObjectType.UNKNOWN;
         }
 
         /// <summary>

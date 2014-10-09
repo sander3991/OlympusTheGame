@@ -12,6 +12,8 @@ namespace Olympus_the_Game
         private Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_SlowStrength = 2;
         private int prop_removetime = 3000;
+
+        public new readonly ObjectType Type = ObjectType.WEB;
         /// <summary>
         /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 1, DEFAULT = 3000
         /// </summary>
@@ -43,7 +45,6 @@ namespace Olympus_the_Game
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = false;
-            Type = ObjectType.WEB;
             IsSolid = false;
         }
         /// <summary>

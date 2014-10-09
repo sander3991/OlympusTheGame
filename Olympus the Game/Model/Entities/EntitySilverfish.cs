@@ -8,11 +8,13 @@ namespace Olympus_the_Game
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
+
+        public new readonly ObjectType Type = ObjectType.SILVERFISH;
+
         public EntitySilverfish(int width, int height, int x, int y, int dx, int dy) : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = false;
-            Type = ObjectType.SILVERFISH;
         }
 
         public EntitySilverfish(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0) { }
