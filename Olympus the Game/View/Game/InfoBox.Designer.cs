@@ -138,6 +138,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pictureBox3.Image = global::Olympus_the_Game.Properties.Resources.player;
             this.pictureBox3.Location = new System.Drawing.Point(11, 11);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
@@ -259,6 +260,7 @@
             // 
             // moveButton1
             // 
+            this.moveButton1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.moveButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("moveButton1.BackgroundImage")));
             this.moveButton1.Image = ((System.Drawing.Image)(resources.GetObject("moveButton1.Image")));
             this.moveButton1.Location = new System.Drawing.Point(649, 3);
@@ -266,17 +268,18 @@
             this.moveButton1.Name = "moveButton1";
             this.moveButton1.Size = new System.Drawing.Size(40, 40);
             this.moveButton1.TabIndex = 18;
-            this.moveButton1.UseVisualStyleBackColor = true;
+            this.moveButton1.UseVisualStyleBackColor = false;
             // 
             // popupButton1
             // 
+            this.popupButton1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.popupButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("popupButton1.BackgroundImage")));
             this.popupButton1.Image = global::Olympus_the_Game.Properties.Resources.new_window_icon;
             this.popupButton1.Location = new System.Drawing.Point(603, 3);
             this.popupButton1.Name = "popupButton1";
             this.popupButton1.Size = new System.Drawing.Size(40, 40);
             this.popupButton1.TabIndex = 17;
-            this.popupButton1.UseVisualStyleBackColor = true;
+            this.popupButton1.UseVisualStyleBackColor = false;
             // 
             // InfoBox
             // 

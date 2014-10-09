@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField(); //TODO Ruben/Martijn: Waarom wordt hier een Playfield aangemaakt? Hij genereerd hier naar mijn insziens onnodig een Playfield. Kan deze weg?
+            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -248,7 +248,7 @@
             // 
             // infoView1
             // 
-            this.infoView1.BackColor = System.Drawing.Color.Transparent;
+            this.infoView1.BackColor = System.Drawing.Color.LightGray;
             this.infoView1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.infoView1.IsResized = false;
             this.infoView1.Location = new System.Drawing.Point(1008, 41);
