@@ -84,5 +84,22 @@ namespace Olympus_the_Game
                 f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
         }
+
+        public static void setButtonStyle(Button b)
+        {
+            b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.stone;
+            b.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            b.ForeColor = Color.Black;
+        }
+
+        public static GameObject CreateObjectOfType(ObjectType ot)
+        {
+            Func<GameObject> result = null;
+            GameObject.ConstructorList.TryGetValue(ot, out result);
+
+            if (result == null) return null;
+
+            return result();
+        }
     }
 }

@@ -92,7 +92,6 @@
             this.moveButton1.Name = "moveButton1";
             this.moveButton1.Size = new System.Drawing.Size(40, 40);
             this.moveButton1.TabIndex = 39;
-            this.moveButton1.Text = "moveButton1";
             this.moveButton1.UseVisualStyleBackColor = true;
             // 
             // EntityEditor

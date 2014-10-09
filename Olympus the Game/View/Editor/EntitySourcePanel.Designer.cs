@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 0);
+            this.label2.Location = new System.Drawing.Point(312, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 2;
@@ -65,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 13);
+            this.label3.Location = new System.Drawing.Point(56, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 3;
@@ -81,8 +81,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picturePreview);
             this.Name = "EntitySourcePanel";
-            this.Size = new System.Drawing.Size(150, 50);
+            this.Size = new System.Drawing.Size(350, 50);
             this.Load += new System.EventHandler(this.EntitySourcePanel_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EntitySourcePanel_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

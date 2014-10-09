@@ -28,6 +28,8 @@ namespace Olympus_the_Game.View
         public EntityEditor()
         {
             InitializeComponent();
+            // Set styles
+            Utils.setButtonStyle(this.ToepassenEntity);
         }
 
         /// <summary>

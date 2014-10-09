@@ -99,9 +99,9 @@
             this.entitySourcePanelList1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.entitySourcePanelList1.AutoScroll = true;
             this.entitySourcePanelList1.BackColor = System.Drawing.Color.Transparent;
-            this.entitySourcePanelList1.Location = new System.Drawing.Point(923, 99);
+            this.entitySourcePanelList1.Location = new System.Drawing.Point(800, 99);
             this.entitySourcePanelList1.Name = "entitySourcePanelList1";
-            this.entitySourcePanelList1.Size = new System.Drawing.Size(250, 500);
+            this.entitySourcePanelList1.Size = new System.Drawing.Size(400, 500);
             this.entitySourcePanelList1.TabIndex = 25;
             // 
             // speelveldEditor1

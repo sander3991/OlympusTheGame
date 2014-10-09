@@ -18,8 +18,6 @@ namespace Olympus_the_Game.View
             : this(new PlayField(1000, 500))
         { }
 
-        private List<GameObject> Entities;
-
         public LevelEditor(PlayField pf)
         {
             InitializeComponent();
@@ -41,6 +39,11 @@ namespace Olympus_the_Game.View
 
             // Register events
             this.entityEditor1.EntityChanged += this.gamePanelEditor.Invalidate;
+
+            this.entityEditor1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
+            this.entitySourcePanelList1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
+            this.speelveldEditor1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
+            this.SizeChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
@@ -136,9 +139,9 @@ namespace Olympus_the_Game.View
             l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
             Point l = gamePanelEditor.getCursorPlayFieldPosition();
             object o = e.Data.GetData(typeof(ObjectType));
-            if(o == null) return;
+            if (o == null) return;
             ObjectType ot = (ObjectType)o;
-            
+
             // Add object
             Func<GameObject> f = null;
             GameObject.ConstructorList.TryGetValue(ot, out f);

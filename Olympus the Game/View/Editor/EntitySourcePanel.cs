@@ -27,13 +27,21 @@ namespace Olympus_the_Game.View.Game.Editor
 
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.dirt;
+            // Change image
             Sprite s = DataPool.GetPicture(RepresentingType, this.picturePreview.Size);
             if (s != null)
                 this.picturePreview.Image = s[-1.0f];
+
+            // Change name
             this.label1.Text = RepresentingType.ToString();
+
+            // Change shortcut key
             this.label2.Text = "Toets";
-            //this.label3.Text = GameObjectSource.getDescription();
+
+            // Change description
+            GameObject go = Utils.CreateObjectOfType(RepresentingType);
+            if(go != null)
+                this.label3.Text = go.getDescription();
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)

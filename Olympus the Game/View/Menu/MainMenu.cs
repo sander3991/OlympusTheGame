@@ -259,7 +259,34 @@ namespace Olympus_the_Game
 
         private void LoadEditor(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming soon!");
+            System.IO.Stream fileStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            // als er op OK word gedrukt
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // en er is een bestand geselecteerd
+                if ((fileStream = openFileDialog1.OpenFile()) != null)
+                {
+                    // Lees bestand
+                    PlayField pf = PlayFieldToXml.ReadFromXml(fileStream);
+                    // Als geldig
+                    if (pf != null)
+                    {
+                        // Open LevelEditor
+                        Utils.ShowMask(true);
+                        LevelEditor le = new LevelEditor(pf);
+                        this.Visible = false;
+                        new Thread(delegate() { Utils.ShowMask(false); }).Start();
+                        le.ShowDialog();
+                        this.Visible = true;
+                    }
+                }
+            }
         }
 
         private void CenterAllControls()
