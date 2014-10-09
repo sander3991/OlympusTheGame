@@ -37,7 +37,6 @@ namespace Olympus_the_Game
         private int y;
         private int height;
         private int width;
-        private string description;
         public ObjectType Type
         {
             get
@@ -160,8 +159,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <returns>Beschrijving</returns>
         public virtual string getDescription(){
-            description = "No description yet";
-            return description;
+            return "No description yet";
         }
 
         /// <summary>
