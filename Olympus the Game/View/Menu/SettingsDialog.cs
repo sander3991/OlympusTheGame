@@ -32,9 +32,13 @@ namespace Olympus_the_Game.View.Menu
                 Mp3Player.Enabled = false;
                 SoundEnabled = false;
                 ButtonGeluidDempen.Text = "Geluid aanzetten";
-                
             }
                 
+        }
+
+        private void ButtonSpeed_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
