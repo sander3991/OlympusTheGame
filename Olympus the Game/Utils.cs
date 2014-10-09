@@ -65,5 +65,22 @@ namespace Olympus_the_Game
         {
             return new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
+
+        public static void FullScreen(Form f, bool fullScreen)
+        {
+            if (fullScreen)
+            {
+                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                f.Size = Utils.getScreenSize();
+                f.Location = Point.Empty;
+            }
+            else
+            {
+                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+                f.Size = new Size(1024, 768);
+                Size full = Utils.getScreenSize();
+                f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
+            }
+        }
     }
 }

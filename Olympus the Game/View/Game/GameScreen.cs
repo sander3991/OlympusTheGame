@@ -189,14 +189,12 @@ namespace Olympus_the_Game.View
             switch (volledigeWeergaveToolStripMenuItem.Checked)
             {
                 case (false):
-                    WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
                     this.menuStrip1.Visible = true;
+                    Utils.FullScreen(this, false);
                     break;
                 case (true):
-                    WindowState = FormWindowState.Maximized;
-                    this.FormBorderStyle = FormBorderStyle.None;
                     this.menuStrip1.Visible = false;
+                    Utils.FullScreen(this, true);
                     break;
             }
 

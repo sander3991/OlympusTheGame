@@ -30,8 +30,6 @@ namespace Olympus_the_Game
 
         private string gameSound;
 
-        private bool gifState;
-
         public MainMenu()
         {
             InitializeComponent();
