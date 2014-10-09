@@ -189,7 +189,7 @@ namespace Olympus_the_Game
         private void loadResources()
         {
             this.gameSound = Mp3Player.PrepareResource(Properties.Resources.Blocks);
-            ImagePool.LoadImagePool();
+            DataPool.LoadImagePool();
         }
 
         public void PrepareNewGameScreen()
