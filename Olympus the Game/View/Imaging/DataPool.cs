@@ -112,5 +112,11 @@ namespace Olympus_the_Game.View
         {
             images.Clear();
         }
+
+        public static void UnloadDataPool()
+        {
+            Mp3Player.UnloadResource(gameSound);
+            Mp3Player.UnloadResource(IntroSound);
+        }
     }
 }

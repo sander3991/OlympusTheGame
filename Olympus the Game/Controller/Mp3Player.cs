@@ -12,7 +12,6 @@ namespace Olympus_the_Game
     public static class Mp3Player
     {
         private static WindowsMediaPlayer player = new WindowsMediaPlayer();
-        private static string tempFileLoc;
         private static int fadeInCounter;
         private static bool stopFading = false;
         public static bool IsPlaying { get; private set; }
@@ -106,13 +105,8 @@ namespace Olympus_the_Game
         /// </summary>
         public static void PlaySelected()
         {
-            if (tempFileLoc != null)
-            {
-                player.controls.play();
-                IsPlaying = true;
-            }
+            player.controls.play();
             IsPlaying = true;
-
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Stop();
             stopFading = true;
@@ -180,9 +174,6 @@ namespace Olympus_the_Game
         {
             IsPlaying = false;
             player.controls.stop();
-            if (File.Exists(tempFileLoc))
-                File.Delete(tempFileLoc);
-            tempFileLoc = null;
         }
 
         /// <summary>
@@ -201,6 +192,16 @@ namespace Olympus_the_Game
         {
             IsPlaying = true;
             player.controls.play();
+        }
+
+        /// <summary>
+        /// Handelt het verwijderen van de temporary files af
+        /// </summary>
+        /// <param name="resourceLoc">De locatie van de resource</param>
+        internal static void UnloadResource(string resourceLoc)
+        {
+            if (File.Exists(resourceLoc))
+                File.Delete(resourceLoc);
         }
     }
 }

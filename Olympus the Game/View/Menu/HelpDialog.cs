@@ -33,9 +33,7 @@ namespace Olympus_the_Game.View.Menu
         public HelpDialog()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
             this.Visible = false;
-            this.MouseWheel += HelpDialog_MouseWheel;
             label1.Text = label1.Text.ToUpper();
             label1.ForeColor = Color.FromArgb(247, 112, 22);
             scrollTimer = new Timer();
@@ -77,6 +75,7 @@ namespace Olympus_the_Game.View.Menu
 
         private void Start()
         {
+            this.MouseWheel += HelpDialog_MouseWheel;
             ScrollLoc = Height;
             Point loc = label1.Location;
             loc.Y = ScrollLoc;
@@ -87,6 +86,7 @@ namespace Olympus_the_Game.View.Menu
 
         private void Stop()
         {
+            this.MouseWheel -= HelpDialog_MouseWheel;
             scrollTimer.Stop();
         }
     }

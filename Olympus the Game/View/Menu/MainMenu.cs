@@ -276,5 +276,10 @@ namespace Olympus_the_Game
             Utils.ShowMask(false);
             this.StartGame();
         }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OlympusTheGame.RequestClose();
+        }
     }
 }
