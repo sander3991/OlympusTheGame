@@ -48,7 +48,8 @@ namespace Olympus_the_Game
             return "De speler";
         }
 
-        public EntityPlayer()  : this(0, 0, 0, 0) {
+        public EntityPlayer()
+        {
             Type = ObjectType.PLAYER;
         }
 
