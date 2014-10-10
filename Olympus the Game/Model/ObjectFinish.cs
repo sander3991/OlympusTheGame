@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model
 {
     public class ObjectFinish : GameObject
     {
@@ -44,7 +42,7 @@ namespace Olympus_the_Game
                 int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
                 int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
                 if (xDistance < 5 && yDistance < 5)
-                    OlympusTheGame.Controller.OnPlayerReachedCake();
+                    OlympusTheGame.GameController.OnPlayerReachedCake();
             }
         }
 

@@ -1,4 +1,4 @@
-﻿namespace Olympus_the_Game.View {
+﻿namespace Olympus_the_Game.View.Menu {
     partial class MainMenuControl {
         /// <summary> 
         /// Required designer variable.

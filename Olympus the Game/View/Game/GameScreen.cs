@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Windows;
-using Olympus_the_Game.Controller;
-using Olympus_the_Game.View.Game;
 using System.Threading;
+using System.Windows.Forms;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.View.Imaging;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     public partial class GameScreen : Form
     {
@@ -25,7 +20,7 @@ namespace Olympus_the_Game.View
             InitializeComponent();
             forceClose = false;
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
-            OlympusTheGame.Controller.OnPlayerFinished += OnPlayerFinished;
+            OlympusTheGame.GameController.OnPlayerFinished += OnPlayerFinished;
         }
 
         private void OnPlayerFinished(FinishType type)

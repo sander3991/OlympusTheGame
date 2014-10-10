@@ -28,7 +28,7 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
-            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
+            this.mainMenuControl1 = new MainMenuControl();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.helpDialog1 = new Olympus_the_Game.View.Menu.HelpDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private View.MainMenuControl mainMenuControl1;
+        private MainMenuControl mainMenuControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private View.Menu.LevelDialog levelDialog1;
         public System.Windows.Forms.Button ButtonBack;

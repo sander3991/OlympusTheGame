@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Model;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public enum ScoreType
     {

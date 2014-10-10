@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     public partial class ArrowPanel : UserControl
     {

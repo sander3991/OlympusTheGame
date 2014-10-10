@@ -1,4 +1,4 @@
-﻿namespace Olympus_the_Game.View
+﻿namespace Olympus_the_Game.View.Game
 {
     partial class InfoView
     {

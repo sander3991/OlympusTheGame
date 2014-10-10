@@ -1,4 +1,6 @@
-﻿namespace Olympus_the_Game.View
+﻿using Olympus_the_Game.Model;
+
+namespace Olympus_the_Game.View.Game
 {
     partial class GameScreen
     {
@@ -30,7 +32,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            PlayField playField1 = new PlayField();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.weergaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,10 +52,10 @@
             this.herhalenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.volumeDempenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenMusicFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.infoBox1 = new Olympus_the_Game.View.InfoBox();
-            this.arrowPanel1 = new Olympus_the_Game.View.ArrowPanel();
-            this.gamePanel1 = new Olympus_the_Game.View.GamePanel();
-            this.infoView1 = new Olympus_the_Game.View.InfoView();
+            this.infoBox1 = new InfoBox();
+            this.arrowPanel1 = new ArrowPanel();
+            this.gamePanel1 = new GamePanel();
+            this.infoView1 = new InfoView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 

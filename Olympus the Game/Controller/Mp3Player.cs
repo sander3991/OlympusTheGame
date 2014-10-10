@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
 using System.IO;
-using WMPLib;
 using System.Windows.Forms;
+using WMPLib;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public static class Mp3Player
     {

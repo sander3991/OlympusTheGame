@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     public partial class InfoBox : UserControl
     {
@@ -18,8 +14,8 @@ namespace Olympus_the_Game.View
         {
             InitializeComponent();
 
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.OnHealthChanged += UpdateHealth;
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.OnHealthChanged += UpdateHealth;
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
@@ -37,7 +33,7 @@ namespace Olympus_the_Game.View
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.Playfield.Player.Y.ToString();
-            timePlayed.Text = OlympusTheGame.Controller.GetTimeSinceStart();
+            timePlayed.Text = OlympusTheGame.GameController.GetTimeSinceStart();
         }
 
         /// <summary>
@@ -103,8 +99,8 @@ namespace Olympus_the_Game.View
 
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.UpdateSlowEvents += delegate() { UpdateLabels(); };
         }
     }
 }

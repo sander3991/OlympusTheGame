@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Olympus_the_Game;
+﻿using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityCreeper : EntityExplode
     {
@@ -31,7 +28,7 @@ namespace Olympus_the_Game
         public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength)
             : base(width, height, x, y, dx, dy, explodeStrength)
         {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAI = true;
             Type = ObjectType.CREEPER;
 
@@ -102,7 +99,7 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller.Controller contr = OlympusTheGame.Controller;
+            Controller.GameController contr = OlympusTheGame.GameController;
             PlayField pf = Playfield;
             contr.UpdateGameEvents -= OnUpdate;
             if (!fieldRemoved)
@@ -110,7 +107,7 @@ namespace Olympus_the_Game
                 pf.AddObject(new SpriteExplosion(this));
                 SoundEffects.PlaySound(Properties.Resources.bomb);
             }
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
         }
     }
 }

@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Model.Entities;
+using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game.View.Editor
 {

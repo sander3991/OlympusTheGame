@@ -1,4 +1,4 @@
-﻿namespace Olympus_the_Game
+﻿namespace Olympus_the_Game.Model
 {
     public class ObjectObstacle : GameObject
     {

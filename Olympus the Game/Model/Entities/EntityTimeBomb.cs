@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Olympus_the_Game;
 using System.Diagnostics;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityTimeBomb : EntityExplode
     {
@@ -86,7 +84,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAI = false;
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             Type = ObjectType.TIMEBOMB;
         }
         /// <summary>
@@ -125,7 +123,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop na een mooie explosie
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
             if (!fieldRemoved)
             {
                 Playfield.AddObject(new SpriteExplosion(75, 75, this.X, this.Y));

@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityFireBall : Entity
     {
@@ -36,7 +35,7 @@ namespace Olympus_the_Game
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             if (target == null || owner == null)
             {
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
@@ -83,7 +82,7 @@ namespace Olympus_the_Game
                 return;
             }
             // Ontplof wanneer het de speler raakt (en verwijder het object meteen van het speelveld)
-            else if (gameObject.Type == ObjectType.PLAYER)
+            else if (gameObject.Type == ObjectType.Player)
             {
                 Playfield.Player.Health--;
                 Playfield.RemoveObject(this);
@@ -121,7 +120,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop met een mooie explosie
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
             if (!fieldRemoved)
             {
                 Playfield.AddObject(new SpriteExplosion(this));

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using Olympus_the_Game.Model;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     class PlayFieldToXml
     {

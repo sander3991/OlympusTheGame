@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Olympus_the_Game
+﻿namespace Olympus_the_Game.Model.Sprites
 {
     class SpriteExplosion : AnimatedSprite
     {
@@ -26,7 +21,7 @@ namespace Olympus_the_Game
         {
             Type = ObjectType.SPRITEEXPLOSION;
             duration = 1000;
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
         }
 
         /// <summary>
@@ -37,7 +32,7 @@ namespace Olympus_the_Game
             // If explosion is over, remove from PlayField.
             if ((OlympusTheGame.GameTime - start) > duration)
             {
-                OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+                OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
                 OlympusTheGame.Playfield.RemoveObject(this);
             }
         }

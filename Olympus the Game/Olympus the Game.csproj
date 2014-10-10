@@ -64,7 +64,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\GameController.cs" />
     <Compile Include="Controller\CustomMusicPlayer.cs" />
     <Compile Include="Controller\KeyHandler.cs" />
     <Compile Include="Controller\Mp3Player.cs" />

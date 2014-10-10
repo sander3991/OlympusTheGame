@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Media;
-using System.IO;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     static class SoundEffects
     {

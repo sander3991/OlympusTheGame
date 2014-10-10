@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityGhast : Entity
     {
@@ -54,7 +51,7 @@ namespace Olympus_the_Game
         public EntityGhast(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             Type = ObjectType.GHAST;
             EntityControlledByAI = true;
         }
@@ -85,7 +82,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()

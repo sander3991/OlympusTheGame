@@ -1,5 +1,8 @@
 ﻿using System;
-namespace Olympus_the_Game
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
+
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityExplode : Entity
     {
@@ -42,7 +45,7 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller.Controller contr = OlympusTheGame.Controller;
+            Controller.GameController contr = OlympusTheGame.GameController;
             PlayField pf = OlympusTheGame.Playfield;
             if (!fieldRemoved)
             {

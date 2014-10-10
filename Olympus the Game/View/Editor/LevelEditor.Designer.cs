@@ -1,4 +1,7 @@
-﻿namespace Olympus_the_Game.View.Editor
+﻿using Olympus_the_Game.Model;
+using Olympus_the_Game.View.Game;
+
+namespace Olympus_the_Game.View.Editor
 {
     partial class LevelEditor
     {
@@ -29,7 +32,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            PlayField playField1 = new PlayField();
             this.Menubar = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +42,7 @@
             this.entitySourcePanelList1 = new Olympus_the_Game.View.Editor.EntitySourcePanelList();
             this.speelveldEditor1 = new Olympus_the_Game.View.Editor.SpeelveldEditor();
             this.entityEditor1 = new Olympus_the_Game.View.Editor.EntityEditor();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.gamePanelEditor = new GamePanel();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 

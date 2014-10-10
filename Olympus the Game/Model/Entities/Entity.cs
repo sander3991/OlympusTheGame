@@ -1,11 +1,6 @@
 ﻿using Olympus_the_Game.View.Editor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public abstract class Entity : GameObject
     {

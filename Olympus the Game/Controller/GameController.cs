@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Model.Entities;
 
 namespace Olympus_the_Game.Controller
 {
@@ -8,7 +10,7 @@ namespace Olympus_the_Game.Controller
         Dead,
         Cake,
     }
-    public class Controller
+    public class GameController
     {
         /// <summary>
         /// Delegate voor het <code>OnHealthChanged</code> event
@@ -51,9 +53,9 @@ namespace Olympus_the_Game.Controller
         private const long AiUpdateInterval = 1000;
 
         /// <summary>
-        /// Genereert een nieuwe Controller
+        /// Genereert een nieuwe GameController
         /// </summary>
-        public Controller()
+        public GameController()
         {
             // Add Update to UpdateEvents
             UpdateGameEvents += Update;
@@ -184,7 +186,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Execute the UpdateGameEvent in the Controller, this method should only be called from within OlympusTheGame.
+        /// Execute the UpdateGameEvent in the GameController, this method should only be called from within OlympusTheGame.
         /// </summary>
         public void ExecuteUpdateGameEvent(object source, EventArgs ea)
         {
@@ -193,7 +195,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Executes the UpdateSlowEvent in the Controller, this method should only be called from within OlympusTheGame.
+        /// Executes the UpdateSlowEvent in the GameController, this method should only be called from within OlympusTheGame.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="ea"></param>

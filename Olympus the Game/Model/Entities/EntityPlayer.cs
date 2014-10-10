@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityPlayer : Entity
     {
@@ -114,7 +111,7 @@ namespace Olympus_the_Game
                 health = Math.Min(MAXHEALTH, value);
                 if (prevHealth != health)
                 {
-                    OlympusTheGame.Controller.PlayerHealthChanged(this, this.Health, prevHealth);
+                    OlympusTheGame.GameController.PlayerHealthChanged(this, this.Health, prevHealth);
                     Frame = 0.5f;
                 }
             }
@@ -130,7 +127,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y, 0, 0)
         {
             health = MAXHEALTH;
-            Type = ObjectType.PLAYER;
+            Type = ObjectType.Player;
         }
     }
 }

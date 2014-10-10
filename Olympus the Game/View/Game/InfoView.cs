@@ -1,16 +1,11 @@
-﻿using Olympus_the_Game.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Forms;
-using System.Net;
-using System.Threading;
 using System.Drawing;
+using System.Windows.Forms;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     public partial class InfoView : UserControl
     {
@@ -35,8 +30,8 @@ namespace Olympus_the_Game.View
         {
             if (OlympusTheGame.Playfield == null) return;
             this.DoubleBuffered = false;
-            //if(OlympusTheGame.Controller != null)
-            //    OlympusTheGame.Controller.UpdateSlowEvents += update;
+            //if(OlympusTheGame.GameController != null)
+            //    OlympusTheGame.GameController.UpdateSlowEvents += update;
 
             IsResized = false;
             list = new Dictionary<Entity, ListViewItem>();

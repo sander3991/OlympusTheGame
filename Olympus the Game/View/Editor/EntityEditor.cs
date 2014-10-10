@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Model;
 using Olympus_the_Game.View.Imaging;
 using System.Reflection;
 using Olympus_the_Game.View.Editor;

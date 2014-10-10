@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-using System.Reflection;
-using Olympus_the_Game.View;
+using Olympus_the_Game.Model.Entities;
 using Olympus_the_Game.View.Editor;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model
 {
     public class PlayField : IXmlSerializable
     {

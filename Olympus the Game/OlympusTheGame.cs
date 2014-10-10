@@ -1,7 +1,10 @@
-﻿using Olympus_the_Game.View;
+﻿using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.View;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Olympus_the_Game.View.Imaging;
 using Olympus_the_Game.View.Menu;
 
 namespace Olympus_the_Game
@@ -56,7 +59,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De controller, deze regelt alle events en updates
         /// </summary>
-        public static Controller.Controller Controller { get; private set; }
+        public static Controller.GameController GameController { get; private set; }
 
         /// <summary>
         /// Geeft aan of het spel gepauzeerd is.
@@ -109,15 +112,15 @@ namespace Olympus_the_Game
 
         public static void SetController()
         {
-            if (Controller == null)
-                Controller = new Controller.Controller();
+            if (GameController == null)
+                GameController = new Controller.GameController();
 
             // Add gameloop to timer
-            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
+            GameTimer.Tick += GameController.ExecuteUpdateGameEvent;
             GameTimer.Interval = 10;
 
             // Create slow timer
-            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
+            SlowTimer.Tick += GameController.ExecuteUpdateSlowEvent;
             SlowTimer.Interval = 200;
         }
 

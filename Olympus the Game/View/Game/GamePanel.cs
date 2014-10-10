@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
+using Olympus_the_Game.Model;
 using Olympus_the_Game.View.Imaging;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     /// <summary>
     /// This is a graphical representation of a PlayField.
@@ -87,8 +83,8 @@ namespace Olympus_the_Game.View
             this.BackgroundImage = Properties.Resources.background;
 
             // Register to updateloop
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.UpdateGameEvents += delegate() { this.Invalidate(); };
 
             // Set max size
             this.MaxSize = this.Size;

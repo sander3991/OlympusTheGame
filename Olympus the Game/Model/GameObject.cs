@@ -1,14 +1,14 @@
-﻿using Olympus_the_Game.View.Editor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Olympus_the_Game.Model.Entities;
+using Olympus_the_Game.View.Editor;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model
 {
     public enum ObjectType
     {
-        PLAYER,
+        Player,
         SLOWER,
         TIMEBOMB,
         OBSTACLE,

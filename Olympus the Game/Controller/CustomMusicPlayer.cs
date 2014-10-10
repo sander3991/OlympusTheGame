@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public static class CustomMusicPlayer
     {
