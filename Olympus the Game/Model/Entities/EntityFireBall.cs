@@ -6,17 +6,17 @@ namespace Olympus_the_Game.Model.Entities
 {
     public class EntityFireBall : Entity
     {
-        private readonly EntityGhast owner;
-        private int prop_fireballspeed = 50; // Factor van maken
+        private readonly EntityGhast _owner;
+        private int _propFireballspeed = 50; // Factor van maken
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
         /// </summary>
         public int FireballSpeed
         {
-            get { return prop_fireballspeed; }
+            get { return _propFireballspeed; }
             set
             {
-                prop_fireballspeed = Math.Max(0, value);
+                _propFireballspeed = Math.Max(0, value);
             }
         }
 
@@ -44,10 +44,10 @@ namespace Olympus_the_Game.Model.Entities
             DX = -(((this.X - target.X) - 25) / FireballSpeed);
             DY = -(((this.Y - target.Y) - 25) / FireballSpeed);
 
-            EntityControlledByAI = false;
+            EntityControlledByAi = false;
             Type = ObjectType.FIREBALL;
             IsSolid = false;
-            this.owner = owner;
+            this._owner = owner;
         }
         /// <summary>
         /// FILL THIS IN
@@ -56,7 +56,7 @@ namespace Olympus_the_Game.Model.Entities
 
         public override CollisionType CollidesWithObject(GameObject entity)
         {
-            if (entity == owner)
+            if (entity == _owner)
                 return CollisionType.NONE;
             AnimatedSprite sprite = entity as AnimatedSprite;
             if (sprite != null)
@@ -77,7 +77,7 @@ namespace Olympus_the_Game.Model.Entities
         public override void OnCollide(GameObject gameObject)
         {
             // Ontplof niet wanneer het object collide met de eigenaar van de vuurbal of met een andere vuurbal
-            if (gameObject == owner) // removed:  || gameObject.Type == ObjectType.FIREBALL
+            if (gameObject == _owner) // removed:  || gameObject.Type == ObjectType.FIREBALL
             {
                 return;
             }

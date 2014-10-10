@@ -7,7 +7,7 @@
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            EntityControlledByAI = false;
+            EntityControlledByAi = false;
             Type = ObjectType.SILVERFISH;
         }
 

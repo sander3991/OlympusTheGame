@@ -29,7 +29,7 @@ namespace Olympus_the_Game.Model.Entities
             : base(width, height, x, y, dx, dy, explodeStrength)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            EntityControlledByAI = true;
+            EntityControlledByAi = true;
             Type = ObjectType.CREEPER;
 
         }
@@ -50,7 +50,7 @@ namespace Olympus_the_Game.Model.Entities
             {
                 if (DistanceToObject(player) < CreeperRange)
                 {
-                    this.EntityControlledByAI = false;
+                    this.EntityControlledByAi = false;
 
                     if (this.X - player.X > 0)
                     {
@@ -87,7 +87,7 @@ namespace Olympus_the_Game.Model.Entities
                 }
                 else
                 {
-                    this.EntityControlledByAI = true;
+                    this.EntityControlledByAi = true;
                 }
             }
         }

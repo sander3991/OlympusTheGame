@@ -24,7 +24,7 @@ namespace Olympus_the_Game.Model.Entities
             : base(width, height, x, y, dx, dy)
         {
             EffectStrength = Math.Max(0, effectStrength);
-            EntityControlledByAI = false;
+            EntityControlledByAi = false;
             Type = ObjectType.EXPLODE;
         }
         /// <summary>

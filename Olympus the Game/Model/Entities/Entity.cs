@@ -28,7 +28,7 @@ namespace Olympus_the_Game.Model.Entities
         /// Geeft aan of deze entity bestuurd moet worden door de AI
         /// </summary>
         [ExcludeFromEditor]
-        public bool EntityControlledByAI { get; protected set; }
+        public bool EntityControlledByAi { get; protected set; }
         /// <summary>
         /// Delegate om in de gaten te houden wanneer de entity beweegt
         /// </summary>
@@ -52,7 +52,7 @@ namespace Olympus_the_Game.Model.Entities
             DY = dy;
             PreviousX = X;
             PreviousY = Y;
-            EntityControlledByAI = true;
+            EntityControlledByAi = true;
         }
 
         /// <summary>

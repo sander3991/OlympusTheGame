@@ -61,7 +61,7 @@ namespace Olympus_the_Game.Controller
             UpdateGameEvents += Update;
 
             // Add AIUpdate to UpdateEvents
-            UpdateGameEvents += UpdateEntityAI;
+            UpdateGameEvents += UpdateEntityAi;
 
             // Registreert de health update event aan de controller
             OnHealthChanged += Player_OnHealthChanged;
@@ -143,7 +143,7 @@ namespace Olympus_the_Game.Controller
                                     e.X = e.PreviousX;
                                 if (collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y
                                     e.Y = e.PreviousY;
-                                if (e.EntityControlledByAI) //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
+                                if (e.EntityControlledByAi) //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
                                 {
                                     if (collision.HasFlag(CollisionType.X))
                                         e.DX = -e.DX;
@@ -162,7 +162,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Deze wordt aangeroepen om de AI te updaten. Elke iteratie wordt er opnieuw bepaald waar elke entity heen moet lopen.
         /// </summary>
-        public void UpdateEntityAI()
+        public void UpdateEntityAi()
         {
             // Scale down to 1 second
             if (OlympusTheGame.GameTime < _lastAiUpdate) _lastAiUpdate = -1;
@@ -176,7 +176,7 @@ namespace Olympus_the_Game.Controller
                 Entity e = o as Entity;
                 if (e != null) //Is het een entity? Alleen entities moeten geupdate worden
                 {
-                    if (e.EntityControlledByAI) // Word hij door de AI bestuurd?
+                    if (e.EntityControlledByAi) // Word hij door de AI bestuurd?
                     {
                         e.DX = rand.Next(3) - 1; //Pak een random int tussen 0 en 2, en verlaag het dan met 1 zodat we tussen -1 en 1 zitten.
                         e.DY = rand.Next(3) - 1;

@@ -7,32 +7,32 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// De maximum health van een speler
         /// </summary>
-        public const int MAXHEALTH = 5;
-        private int health;
-        private double speedModifier = 1;
-        private int dx;
-        private int dy;
-        private float prop_frame = 0;
-        private int frameCount = 1;
+        public const int Maxhealth = 5;
+        private int _health;
+        private double _speedModifier = 1;
+        private int _dx;
+        private int _dy;
+        private float _propFrame = 0;
+        private int _frameCount = 1;
 
         public override float Frame
         {
             get
             {
                 //return 0.5f;
-                if (prop_frame == 0.5f)
+                if (_propFrame == 0.5f)
                 {
-                    frameCount++;
-                    if (frameCount % 20 == 0)
-                        prop_frame = 0f;
+                    _frameCount++;
+                    if (_frameCount % 20 == 0)
+                        _propFrame = 0f;
                     return 0.5f;
                 }
-                return prop_frame;
+                return _propFrame;
             }
             protected set
             {
-                prop_frame = Math.Min(value, 1f);
-                prop_frame = Math.Max(value, 0f);
+                _propFrame = Math.Min(value, 1f);
+                _propFrame = Math.Max(value, 0f);
             }
         }
 
@@ -57,14 +57,14 @@ namespace Olympus_the_Game.Model.Entities
         {
             get
             {
-                return speedModifier;
+                return _speedModifier;
             }
             set
             {
-                double prevSpeed = speedModifier;
-                speedModifier = value;
-                DX = Convert.ToInt32(DX / prevSpeed * speedModifier);
-                DY = Convert.ToInt32(DY / prevSpeed * speedModifier);
+                double prevSpeed = _speedModifier;
+                _speedModifier = value;
+                DX = Convert.ToInt32(DX / prevSpeed * _speedModifier);
+                DY = Convert.ToInt32(DY / prevSpeed * _speedModifier);
             }
         }
         /// <summary>
@@ -74,11 +74,11 @@ namespace Olympus_the_Game.Model.Entities
         {
             get
             {
-                return dx;
+                return _dx;
             }
             set
             {
-                dx = Convert.ToInt32(value * speedModifier);
+                _dx = Convert.ToInt32(value * _speedModifier);
             }
         }
         /// <summary>
@@ -88,11 +88,11 @@ namespace Olympus_the_Game.Model.Entities
         {
             get
             {
-                return dy;
+                return _dy;
             }
             set
             {
-                dy = Convert.ToInt32(value * speedModifier);
+                _dy = Convert.ToInt32(value * _speedModifier);
             }
         }
         /// <summary>
@@ -102,14 +102,14 @@ namespace Olympus_the_Game.Model.Entities
         {
             get
             {
-                return health;
+                return _health;
             }
             set
             {
-                int prevHealth = health;
-                health = Math.Max(0, value);
-                health = Math.Min(MAXHEALTH, value);
-                if (prevHealth != health)
+                int prevHealth = _health;
+                _health = Math.Max(0, value);
+                _health = Math.Min(Maxhealth, value);
+                if (prevHealth != _health)
                 {
                     OlympusTheGame.GameController.PlayerHealthChanged(this, this.Health, prevHealth);
                     Frame = 0.5f;
@@ -126,7 +126,7 @@ namespace Olympus_the_Game.Model.Entities
         public EntityPlayer(int width, int height, int x, int y)
             : base(width, height, x, y, 0, 0)
         {
-            health = MAXHEALTH;
+            _health = Maxhealth;
             Type = ObjectType.Player;
         }
     }

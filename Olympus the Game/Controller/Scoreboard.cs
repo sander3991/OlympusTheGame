@@ -18,7 +18,7 @@ namespace Olympus_the_Game.Controller
 
     static class Scoreboard
     {
-        private static readonly Dictionary<ScoreType, int> score = new Dictionary<ScoreType, int>();
+        private static readonly Dictionary<ScoreType, int> Scorelist = new Dictionary<ScoreType, int>();
         static Scoreboard()
         {
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
@@ -33,7 +33,7 @@ namespace Olympus_the_Game.Controller
             get
             {
                 int totalScore = 0;
-                foreach (int i in score.Values)
+                foreach (int i in Scorelist.Values)
                 {
                     totalScore += i;
                 }
@@ -47,14 +47,14 @@ namespace Olympus_the_Game.Controller
 
         public static void AddScore(ScoreType type, int i)
         {
-            if (!score.ContainsKey(type))
-                score[type] = 0;
-            score[type] += i;
+            if (!Scorelist.ContainsKey(type))
+                Scorelist[type] = 0;
+            Scorelist[type] += i;
         }
 
         public static int GetScore(ScoreType type)
         {
-            return score.ContainsKey(type) ? score[type] : 0;
+            return Scorelist.ContainsKey(type) ? Scorelist[type] : 0;
         }
 
         public static void AddScore(ScoreType type)
@@ -87,7 +87,7 @@ namespace Olympus_the_Game.Controller
 
         public static void ResetScore()
         {
-            score.Clear();
+            Scorelist.Clear();
         }
     }
 }

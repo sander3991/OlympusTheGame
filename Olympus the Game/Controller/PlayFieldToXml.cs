@@ -7,7 +7,7 @@ namespace Olympus_the_Game.Controller
 {
     class PlayFieldToXml
     {
-        private static readonly XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
+        private static readonly XmlSerializer Serialiser = new XmlSerializer(typeof(PlayField));
         private PlayFieldToXml() { }
         /// <summary>
         /// Leest een XML bestand in.
@@ -21,7 +21,7 @@ namespace Olympus_the_Game.Controller
                 PlayField pf = null;
                 if (fileStream.Length > 0)
                 {
-                    Object o = serialiser.Deserialize(fileStream);
+                    Object o = Serialiser.Deserialize(fileStream);
                     pf = o as PlayField;
                 }
                 fileStream.Close();
@@ -50,7 +50,7 @@ namespace Olympus_the_Game.Controller
             try
             {
                 str = new StringReader(xml);
-                Object o = serialiser.Deserialize(str);
+                Object o = Serialiser.Deserialize(str);
                 PlayField pf = o as PlayField;
                 str.Close();
                 return pf;
@@ -74,7 +74,7 @@ namespace Olympus_the_Game.Controller
         /// <param name="pf">De PlayField die weggeschreven moet worden</param>
         public static void WriteToXml(Stream fileStream, PlayField pf)
         {
-            serialiser.Serialize(fileStream, pf);
+            Serialiser.Serialize(fileStream, pf);
             fileStream.Close();
         }
     }

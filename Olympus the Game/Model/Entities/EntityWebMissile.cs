@@ -70,7 +70,7 @@ namespace Olympus_the_Game.Model.Entities
                 DX = -DX;
             if (targetY < Y)
                 DY = -DY;
-            EntityControlledByAI = false;
+            EntityControlledByAi = false;
             OnMoved += EntityWebMissile_OnMoved;
             source = spider;
         }

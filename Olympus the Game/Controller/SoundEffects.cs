@@ -5,7 +5,7 @@ namespace Olympus_the_Game.Controller
 {
     static class SoundEffects
     {
-        private static readonly SoundPlayer player = new SoundPlayer();
+        private static readonly SoundPlayer Player = new SoundPlayer();
 
         private static SoundPlayer GetSoundPlayer(UnmanagedMemoryStream stream)
         {
@@ -19,7 +19,7 @@ namespace Olympus_the_Game.Controller
 
         public static void MuteSound()
         {
-            player.Dispose();
+            Player.Dispose();
         }
     }
 }

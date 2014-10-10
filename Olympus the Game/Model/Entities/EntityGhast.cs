@@ -10,18 +10,18 @@ namespace Olympus_the_Game.Model.Entities
             RegisterWithEditor(ObjectType.GHAST, () => { return new EntityGhast(50, 50, 0, 0); }); // TODO Maak waarden standaard
         }
 
-        private readonly Stopwatch stopwatch = Stopwatch.StartNew();
-        private int prop_firespeed = 1050;
-        private int prop_detectrange = 150;
+        private readonly Stopwatch _stopwatch = Stopwatch.StartNew();
+        private int _propFirespeed = 1050;
+        private int _propDetectrange = 150;
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
         /// </summary>
         public int FireSpeed
         {
-            get { return prop_firespeed; }
+            get { return _propFirespeed; }
             set
             {
-                prop_firespeed = Math.Max(0, value);
+                _propFirespeed = Math.Max(0, value);
             }
         }
         /// <summary>
@@ -29,10 +29,10 @@ namespace Olympus_the_Game.Model.Entities
         /// </summary>
         public int DetectRange
         {
-            get { return prop_detectrange; }
+            get { return _propDetectrange; }
             set
             {
-                prop_detectrange = Math.Max(50, value);
+                _propDetectrange = Math.Max(50, value);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Olympus_the_Game.Model.Entities
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             Type = ObjectType.GHAST;
-            EntityControlledByAI = true;
+            EntityControlledByAi = true;
         }
 
         /// <summary>
@@ -69,11 +69,11 @@ namespace Olympus_the_Game.Model.Entities
                 if (DistanceToObject(Playfield.Player) <= DetectRange)
                 {
                     // Vuur dan een vuurbal af om de x aantal seconden
-                    if (stopwatch.ElapsedMilliseconds >= FireSpeed)
+                    if (_stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
                         EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, Playfield.Player);
                         Playfield.AddObject(fireball);
-                        stopwatch.Restart();
+                        _stopwatch.Restart();
                     }
                 }
             }

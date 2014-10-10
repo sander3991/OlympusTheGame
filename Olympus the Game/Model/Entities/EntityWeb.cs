@@ -50,7 +50,7 @@ namespace Olympus_the_Game.Model.Entities
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            EntityControlledByAI = false;
+            EntityControlledByAi = false;
             Type = ObjectType.WEB;
             IsSolid = false;
         }
