@@ -1,42 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
 
-
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntitySlower : Entity
     {
-        static EntitySlower()
-        {
-            RegisterWithEditor(ObjectType.SLOWER, () => { return new EntitySlower(50, 50, 0, 0); }); // TODO Maak waarden standaard
-        }
-
-        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private readonly Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_effectrange = 200;
         private int prop_firespeed = 2000;
+
+        static EntitySlower()
+        {
+            RegisterWithEditor(ObjectType.Slower, () => new EntitySlower(50, 50, 0, 0));
+                // TODO Maak waarden standaard
+        }
+
+        /// <summary>
+        /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
+        /// </summary>
+        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
+            : base(width, height, x, y, dx, dy)
+        {
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.Slower;
+        }
+
+        /// <summary>
+        /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
+        /// </summary>
+        public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
+        {
+        }
+
         /// <summary>
         /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
         public double EffectRange
         {
             get { return prop_effectrange; }
-            set
-            {
-                prop_effectrange = Math.Max(50, value);
-            }
+            set { prop_effectrange = Math.Max(50, value); }
         }
+
         /// <summary>
         /// Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
         /// </summary>
         public int FireSpeed
         {
             get { return prop_firespeed; }
-            set
-            {
-                prop_firespeed = Math.Max(1, value);
-            }
+            set { prop_firespeed = Math.Max(1, value); }
         }
 
         /// <summary>
@@ -48,20 +60,6 @@ namespace Olympus_the_Game
             return "Spider maakt je langzaam";
         }
 
-
-        /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
-        /// </summary>
-        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
-            : base(width, height, x, y, dx, dy)
-        {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.SLOWER;
-        }
-        /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
-        /// </summary>
-        public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
@@ -75,7 +73,7 @@ namespace Olympus_the_Game
                         if (!PreventDoubleWeb(Playfield.Player.X + 25, Playfield.Player.Y + 25))
                         {
                             EntityWebMissile web = new EntityWebMissile(this, Playfield.Player);
-                            this.Playfield.AddObject(web);
+                            Playfield.AddObject(web);
                         }
                         stopwatch.Restart();
                     }
@@ -91,10 +89,9 @@ namespace Olympus_the_Game
             bool value = false;
             if (webOnXY != null)
             {
-                for (int i = 0; i < webOnXY.Count; i++) //loopt door alle objects
+                foreach (GameObject o in webOnXY)
                 {
-                    GameObject o = webOnXY[i];
-                    if (o.Type == ObjectType.WEB || o.Type == ObjectType.FINISH || o.Type == ObjectType.START)
+                    if (o.Type == ObjectType.Web || o.Type == ObjectType.Finish || o.Type == ObjectType.Start)
                     {
                         value = true;
                     }
@@ -106,15 +103,12 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()
         {
             return "Spider";
         }
-
-
     }
 }
-

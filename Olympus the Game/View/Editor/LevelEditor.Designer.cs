@@ -1,4 +1,7 @@
-﻿namespace Olympus_the_Game.View
+﻿using Olympus_the_Game.Model;
+using Olympus_the_Game.View.Game;
+
+namespace Olympus_the_Game.View.Editor
 {
     partial class LevelEditor
     {
@@ -29,17 +32,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            PlayField playField1 = new PlayField();
             this.Menubar = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entitySourcePanelList1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanelList();
-            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
-            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.entitySourcePanelList1 = new Olympus_the_Game.View.Editor.EntitySourcePanelList();
+            this.speelveldEditor1 = new Olympus_the_Game.View.Editor.SpeelveldEditor();
+            this.entityEditor1 = new Olympus_the_Game.View.Editor.EntityEditor();
+            this.gamePanelEditor = new GamePanel();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,7 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
-        private Game.Editor.EntitySourcePanelList entitySourcePanelList1;
+        private EntitySourcePanelList entitySourcePanelList1;
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game;
+using Olympus_the_Game.Model;
 using Olympus_the_Game.View;
 using System.Drawing;
 using Olympus_the_Game.View.Imaging;
@@ -54,10 +55,10 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             // Arrange
             Size s = new Size(10, 10);
-            Sprite expected = DataPool.GetPicture(ObjectType.CREEPER, s);
+            Sprite expected = DataPool.GetPicture(ObjectType.Creeper, s);
 
             // Act
-            Sprite actual = DataPool.GetPicture(ObjectType.CREEPER, s);
+            Sprite actual = DataPool.GetPicture(ObjectType.Creeper, s);
 
             // Assert
             Assert.AreEqual(expected, actual);

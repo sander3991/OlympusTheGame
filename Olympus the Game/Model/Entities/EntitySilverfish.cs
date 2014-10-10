@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Olympus_the_Game
+﻿namespace Olympus_the_Game.Model.Entities
 {
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
@@ -11,12 +6,14 @@ namespace Olympus_the_Game
         public EntitySilverfish(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
-            EntityControlledByAI = false;
-            Type = ObjectType.SILVERFISH;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
+            EntityControlledByAi = false;
+            Type = ObjectType.Silverfish;
         }
 
-        public EntitySilverfish(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0) { }
+        public EntitySilverfish(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
+        {
+        }
 
         public void OnUpdate()
         {
@@ -27,7 +24,6 @@ namespace Olympus_the_Game
 
         public override void OnCollide(GameObject gameObject)
         {
-
         }
 
         /// <summary>
@@ -47,8 +43,7 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
         }
     }
 }
-

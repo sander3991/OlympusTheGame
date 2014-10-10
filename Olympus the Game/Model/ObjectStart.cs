@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Olympus_the_Game
+﻿namespace Olympus_the_Game.Model
 {
     public class ObjectStart : GameObject
     {
-
         static ObjectStart()
         {
-            RegisterWithEditor(ObjectType.START, () => { return new ObjectStart(50, 50, 0, 0); });
+            RegisterWithEditor(ObjectType.Start, () => new ObjectStart(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -24,7 +18,7 @@ namespace Olympus_the_Game
             : base(width, height, x, y)
         {
             IsSolid = false;
-            Type = ObjectType.START;
+            Type = ObjectType.Start;
         }
 
         public override string ToString()

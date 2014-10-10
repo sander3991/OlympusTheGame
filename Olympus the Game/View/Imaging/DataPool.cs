@@ -1,50 +1,51 @@
-﻿using Olympus_the_Game.View.Imaging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Imaging
 {
     public class DataPool
     {
-        public static string gameSound { get; private set; }
-
-        public static string IntroSound { get; private set; }
-
         /// <summary>
         /// Source images
         /// </summary>
-        private static Dictionary<ObjectType, Sprite> source = new Dictionary<ObjectType, Sprite>();
+        private static readonly Dictionary<ObjectType, Sprite> Source = new Dictionary<ObjectType, Sprite>();
 
         /// <summary>
         /// Buffer of all images
         /// </summary>
-        private static Dictionary<Tuple<ObjectType, Size>, Sprite> images = new Dictionary<Tuple<ObjectType, Size>, Sprite>();
+        private static readonly Dictionary<Tuple<ObjectType, Size>, Sprite> Images =
+            new Dictionary<Tuple<ObjectType, Size>, Sprite>();
+
+        public static string GameSound { get; private set; }
+
+        public static string IntroSound { get; private set; }
 
         /// <summary>
         /// Voegt alle plaatjes toe aan de bron-dictionary.
         /// </summary>
         public static void LoadDataPool()
         {
-            source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
-            source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
-            source.Add(ObjectType.SLOWER, Properties.Resources.spider);
-            source.Add(ObjectType.WEB, Properties.Resources.cobweb);
-            source.Add(ObjectType.PLAYER, new Sprite(Properties.Resources.player2, 2, 1, false));
-            source.Add(ObjectType.TIMEBOMB, new Sprite(Properties.Resources.timebomb, 2, 1, true));
-            source.Add(ObjectType.START, Properties.Resources.huis);
-            source.Add(ObjectType.FINISH, Properties.Resources.cake);
-            source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
-            source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
-            source.Add(ObjectType.SILVERFISH, Properties.Resources.missing);
-            source.Add(ObjectType.GHAST, Properties.Resources.ghast);
-            source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
-            source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
-            source.Add(ObjectType.WEBMISSILE, Properties.Resources.cobweb);
-            gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata, "HakunaMatata");
-            IntroSound = Mp3Player.PrepareResource(Properties.Resources.StarWars, "StarWars");
+            Source.Add(ObjectType.Creeper, Resources.creeper);
+            Source.Add(ObjectType.Explode, Resources.tnt);
+            Source.Add(ObjectType.Slower, Resources.spider);
+            Source.Add(ObjectType.Web, Resources.cobweb);
+            Source.Add(ObjectType.Player, new Sprite(Resources.player2, 2, 1, false));
+            Source.Add(ObjectType.Timebomb, new Sprite(Resources.timebomb, 2, 1, true));
+            Source.Add(ObjectType.Start, Resources.huis);
+            Source.Add(ObjectType.Finish, Resources.cake);
+            Source.Add(ObjectType.Obstacle, Resources.cobble);
+            Source.Add(ObjectType.Unknown, Resources.missing);
+            Source.Add(ObjectType.Silverfish, Resources.missing);
+            Source.Add(ObjectType.Ghast, Resources.ghast);
+            Source.Add(ObjectType.Fireball, Resources.fireball);
+            Source.Add(ObjectType.Spriteexplosion, new Sprite(Resources.explosion, 5, 5, false));
+            Source.Add(ObjectType.Webmissile, Resources.cobweb);
+            GameSound = Mp3Player.PrepareResource(Resources.HakunaMatata, "HakunaMatata");
+            IntroSound = Mp3Player.PrepareResource(Resources.StarWars, "StarWars");
         }
 
         /// <summary>
@@ -52,31 +53,27 @@ namespace Olympus_the_Game.View
         /// </summary>
         /// <param name="o">Het <code>ObjectType</code> van het plaatje</param>
         /// <param name="s">De grootte van het plaatje</param>
-        /// <param name="index">De index van het plaatje, -1 is een static plaatje</param>
         /// <returns></returns>
         private static Sprite CreateImage(ObjectType o, Size s)
         {
             // Get source image
-            Sprite result = null;
-            source.TryGetValue(o, out result);
+            Sprite result;
+            Source.TryGetValue(o, out result);
 
             // Check for null
             if (result == null)
-                return result;
+                return null;
 
             // Check type
             if (result.Frames == -1) // 1 image
             {
                 return new Bitmap(result.Image, s);
             }
-            else // multiple images
-            {
-                return new Sprite(
-                    new Bitmap(result.Image,
-                        new Size(s.Width * result.Columns, s.Height * result.Rows)
-                        ),
-                        result.Columns, result.Rows, result.Cyclic);
-            }
+            return new Sprite(
+                new Bitmap(result.Image,
+                    new Size(s.Width*result.Columns, s.Height*result.Rows)
+                    ),
+                result.Columns, result.Rows, result.Cyclic);
         }
 
         /// <summary>
@@ -88,10 +85,10 @@ namespace Olympus_the_Game.View
         public static Sprite GetPicture(ObjectType o, Size s)
         {
             // Define get result
-            Sprite result = null;
+            Sprite result;
 
             // Try to get
-            images.TryGetValue(new Tuple<ObjectType, Size>(o, s), out result);
+            Images.TryGetValue(new Tuple<ObjectType, Size>(o, s), out result);
 
             // Check if result
             if (result != null)
@@ -99,7 +96,7 @@ namespace Olympus_the_Game.View
 
             // No result, so create
             result = CreateImage(o, s);
-            images.Add(new Tuple<ObjectType, Size>(o, s), result);
+            Images.Add(new Tuple<ObjectType, Size>(o, s), result);
 
             // Return new image
             return result;
@@ -110,12 +107,12 @@ namespace Olympus_the_Game.View
         /// </summary>
         public static void ClearImagePool()
         {
-            images.Clear();
+            Images.Clear();
         }
 
         public static void UnloadDataPool()
         {
-            Mp3Player.UnloadResource(gameSound);
+            Mp3Player.UnloadResource(GameSound);
             Mp3Player.UnloadResource(IntroSound);
         }
     }

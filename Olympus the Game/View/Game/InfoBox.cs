@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     public partial class InfoBox : UserControl
     {
-        public Point MouseDownLocation { get; set; }
-
         public InfoBox()
         {
             InitializeComponent();
 
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.OnHealthChanged += UpdateHealth;
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.OnHealthChanged += UpdateHealth;
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
-        void OlympusTheGame_OnNewPlayField(PlayField obj)
+        public Point MouseDownLocation { get; set; }
+
+        private void OlympusTheGame_OnNewPlayField(PlayField obj)
         {
             UpdateHealth(obj.Player, obj.Player.Health, -1);
         }
@@ -37,13 +33,14 @@ namespace Olympus_the_Game.View
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.Playfield.Player.Y.ToString();
-            timePlayed.Text = OlympusTheGame.Controller.GetTimeSinceStart();
+            timePlayed.Text = OlympusTheGame.GameController.GetTimeSinceStart();
         }
 
         /// <summary>
         /// Wordt gebruikt om de health van de speler te updaten
         /// </summary>
         /// <param name="player">De speler die het event gefired heeft</param>
+        /// <param name="newHealth"></param>
         /// <param name="prevHealth">De health voordat de speler damage kreeg</param>
         private void UpdateHealth(EntityPlayer player, int newHealth, int prevHealth)
         {
@@ -73,38 +70,10 @@ namespace Olympus_the_Game.View
             }
         }
 
-        /// <summary>
-        /// Functie om het panel op runtime te verslepen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SleepKnop_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
-            this.BringToFront();
-        }
-        /// <summary>
-        /// Functie die het scherm plaatst als je die muis loslaat
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SleepKnop_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
-        }
-
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.UpdateSlowEvents += delegate() { UpdateLabels(); };
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.UpdateSlowEvents += UpdateLabels;
         }
     }
 }

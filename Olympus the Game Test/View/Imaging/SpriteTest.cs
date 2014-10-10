@@ -129,7 +129,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             // Arrange
             Bitmap bm = new Bitmap(100, 200);
-            Bitmap expected = Sprite.EMPTY;
+            Bitmap expected = Sprite.Empty;
             int col = 10;
             int row = 20;
             bool cyclic = false;

@@ -1,5 +1,5 @@
-﻿namespace Olympus_the_Game {
-    partial class MainMenu {
+﻿namespace Olympus_the_Game.View.Menu {
+    partial class Mainmenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,12 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainmenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
-            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
+            this.mainMenuControl1 = new MainMenuControl();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.helpDialog1 = new Olympus_the_Game.View.Menu.HelpDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -102,7 +102,7 @@
             this.helpDialog1.TabIndex = 6;
             this.helpDialog1.Visible = false;
             // 
-            // MainMenu
+            // Mainmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private View.MainMenuControl mainMenuControl1;
+        private MainMenuControl mainMenuControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private View.Menu.LevelDialog levelDialog1;
         public System.Windows.Forms.Button ButtonBack;

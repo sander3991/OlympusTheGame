@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using Olympus_the_Game.Model;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     static class PlayfieldLoader
     {
@@ -13,7 +14,7 @@ namespace Olympus_the_Game
         /// De locatie van de custom maps die ingelezen worden door de MapLoader
         /// </summary>
         public static readonly string CustomMapLoc = System.Environment.CurrentDirectory + "\\CustomMaps";
-        private static XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
+        private static readonly XmlSerializer Serialiser = new XmlSerializer(typeof(PlayField));
         private static FileSystemWatcher directoryWatcher;
         private static Dictionary<string, string> customMaps; //customMaps, de key is de locatie van het bestand, de value is de omschrijving van het bestand
 
@@ -148,7 +149,7 @@ namespace Olympus_the_Game
                 PlayField pf = null;
                 if (fileStream.Length > 0)
                 {
-                    Object o = serialiser.Deserialize(fileStream);
+                    Object o = Serialiser.Deserialize(fileStream);
                     pf = o as PlayField;
                 }
                 fileStream.Close();
@@ -177,7 +178,7 @@ namespace Olympus_the_Game
             try
             {
                 str = new StringReader(xml);
-                Object o = serialiser.Deserialize(str);
+                Object o = Serialiser.Deserialize(str);
                 PlayField pf = o as PlayField;
                 str.Close();
                 return pf;
@@ -201,7 +202,7 @@ namespace Olympus_the_Game
         /// <param name="pf">De PlayField die weggeschreven moet worden</param>
         public static void WriteToXml(Stream fileStream, PlayField pf)
         {
-            serialiser.Serialize(fileStream, pf);
+            Serialiser.Serialize(fileStream, pf);
             fileStream.Close();
         }
 
