@@ -25,15 +25,18 @@ namespace Olympus_the_Game.View.Game
         private void ArrowKey_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
-            string richting = b.Name.ToString();
-            if (richting == "ArrowKeyRight")
-                KeyHandler.MovePlayer(2, true);
-            if (richting == "ArrowKeyLeft")
-                KeyHandler.MovePlayer(-2, true);
-            if (richting == "ArrowKeyUp")
-                KeyHandler.MovePlayer(-2, false);
-            if (richting == "ArrowKeyDown")
-                KeyHandler.MovePlayer(2, false);
+            if (b != null)
+            {
+                string richting = b.Name.ToString();
+                if (richting == "ArrowKeyRight")
+                    KeyHandler.MovePlayer(2, true);
+                if (richting == "ArrowKeyLeft")
+                    KeyHandler.MovePlayer(-2, true);
+                if (richting == "ArrowKeyUp")
+                    KeyHandler.MovePlayer(-2, false);
+                if (richting == "ArrowKeyDown")
+                    KeyHandler.MovePlayer(2, false);
+            }
         }
 
         /// <summary>
@@ -74,7 +77,7 @@ namespace Olympus_the_Game.View.Game
         private void textBox_Enter(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-            if (!string.IsNullOrEmpty(tb.Text))
+            if (tb != null && !string.IsNullOrEmpty(tb.Text))
             {
                 tb.SelectionStart = 0;
                 tb.SelectionLength = tb.Text.Length;
@@ -88,7 +91,7 @@ namespace Olympus_the_Game.View.Game
         private void textBox_EnterWithMouse(object sender, MouseEventArgs e)
         {
             TextBox tb = sender as TextBox;
-            if (!string.IsNullOrEmpty(tb.Text))
+            if (tb != null && !string.IsNullOrEmpty(tb.Text))
             {
                 tb.SelectionStart = 0;
                 tb.SelectionLength = tb.Text.Length;

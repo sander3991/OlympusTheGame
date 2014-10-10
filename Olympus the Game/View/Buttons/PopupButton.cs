@@ -26,7 +26,7 @@ namespace Olympus_the_Game.View.Buttons
             Control parent = Utils.getParentControl(this);
             loc = parent.Location;
             SourceForm = parent.FindForm();
-            SourceForm.Controls.Remove(parent);
+            if (SourceForm != null) SourceForm.Controls.Remove(parent);
 
             // Make move button invisible
             foreach (Control c in this.Parent.Controls)
@@ -51,8 +51,11 @@ namespace Olympus_the_Game.View.Buttons
             Control parent = Utils.getParentControl(this);
 
             Form f = parent.FindForm();
-            f.Controls.Remove(parent);
-            f.Dispose();
+            if (f != null)
+            {
+                f.Controls.Remove(parent);
+                f.Dispose();
+            }
 
             SourceForm.Controls.Add(parent);
             this.Visible = true;

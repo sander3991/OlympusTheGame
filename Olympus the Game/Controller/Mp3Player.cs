@@ -135,7 +135,7 @@ namespace Olympus_the_Game.Controller
             if (Player.settings.volume == 100 || !IsPlaying)
             {
                 Timer timer = sender as Timer;
-                timer.Stop();
+                if (timer != null) timer.Stop();
             }
         }
 
@@ -145,7 +145,7 @@ namespace Olympus_the_Game.Controller
             if (Volume == 0 || _stopFading)
             {
                 Timer timer = sender as Timer;
-                timer.Stop();
+                if (timer != null) timer.Stop();
                 if(!_stopFading)
                    StopPlaying();
                 Volume = 100;

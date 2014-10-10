@@ -80,7 +80,7 @@ namespace Olympus_the_Game.Model
                 {
                     System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(PlayField));
                     PlayField pf = serializer.Deserialize(new StringReader(Properties.Resources.beach)) as PlayField;
-                    DEFAULTMAP = pf.GameObjects;
+                    if (pf != null) DEFAULTMAP = pf.GameObjects;
                 }
             }
             InitializeGameObjects(DEFAULTMAP);
@@ -106,7 +106,7 @@ namespace Olympus_the_Game.Model
                     if (player != null) //Is dit het speler object? Deze willen we niet in de gameObject lijst hebben
                     {
                         Player = player; //Zet de speler in de Player property
-                        GameObjects.Remove(player);
+                        if (GameObjects != null) GameObjects.Remove(player);
                     }
                 }
                 if (Player != null) // TODO Waarom??????????
