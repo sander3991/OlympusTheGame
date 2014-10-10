@@ -67,6 +67,7 @@ namespace Olympus_the_Game.View.Editor
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.InitialDirectory = PlayfieldLoader.CustomMapLoc;
+            saveFileDialog1.FileName = CurrentPlayField.Name;
 
             // Als er op OK is geklikt
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
