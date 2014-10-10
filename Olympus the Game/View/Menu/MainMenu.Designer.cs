@@ -28,7 +28,7 @@
             this.ButtonBack = new System.Windows.Forms.Button();
             this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
-            this.mainMenuControl1 = new MainMenuControl();
+            this.mainMenuControl1 = new Olympus_the_Game.View.Menu.MainMenuControl();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.helpDialog1 = new Olympus_the_Game.View.Menu.HelpDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,7 +65,7 @@
             // 
             this.settingsDialog1.Location = new System.Drawing.Point(772, 213);
             this.settingsDialog1.Name = "settingsDialog1";
-            this.settingsDialog1.Size = new System.Drawing.Size(426, 150);
+            this.settingsDialog1.Size = new System.Drawing.Size(426, 110);
             this.settingsDialog1.TabIndex = 7;
             this.settingsDialog1.Visible = false;
             // 
@@ -117,7 +117,7 @@
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
-            this.Name = "MainMenu";
+            this.Name = "Mainmenu";
             this.Text = "Olympus The Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
