@@ -68,7 +68,7 @@
     <Compile Include="Controller\CustomMusicPlayer.cs" />
     <Compile Include="Controller\KeyHandler.cs" />
     <Compile Include="Controller\Mp3Player.cs" />
-    <Compile Include="Controller\PlayFieldToXml.cs" />
+    <Compile Include="Controller\MapLoader.cs" />
     <Compile Include="Controller\Scoreboard.cs" />
     <Compile Include="Controller\SoundEffects.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

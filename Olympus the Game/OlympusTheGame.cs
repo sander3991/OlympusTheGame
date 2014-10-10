@@ -146,7 +146,7 @@ namespace Olympus_the_Game
             prop_gametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            OlympusTheGame.Playfield = PlayfieldLoader.ReadFromResource(Properties.Resources.hell);
             prop_playfield.SetPlayerHome();
             prop_playfield.InitializeGameObjects();
             OnNewPlayField(prop_playfield);

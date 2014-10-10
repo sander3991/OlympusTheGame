@@ -200,7 +200,7 @@ namespace Olympus_the_Game.View
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
                     // Slaat het playfield op
-                    PlayFieldToXml.WriteToXml(fileStream, CurrentPlayField);
+                    PlayfieldLoader.WriteToXml(fileStream, CurrentPlayField);
                 }
             }
         }
@@ -225,7 +225,7 @@ namespace Olympus_the_Game.View
                 // en er is een bestand geselecteerd
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
-                    this.CurrentPlayField = PlayFieldToXml.ReadFromXml(fileStream);
+                    this.CurrentPlayField = PlayfieldLoader.ReadFromXml(fileStream);
                     this.gamePanelEditor.Playfield = this.CurrentPlayField;
                     this.gamePanelEditor.Invalidate();
                 }

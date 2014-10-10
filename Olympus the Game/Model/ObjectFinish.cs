@@ -43,7 +43,7 @@ namespace Olympus_the_Game
             {
                 int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
                 int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
-                if (xDistance < 5 && yDistance < 5)
+                if (xDistance < 10 && yDistance < 10)
                     OlympusTheGame.Controller.OnPlayerReachedCake();
             }
         }
@@ -52,7 +52,5 @@ namespace Olympus_the_Game
         {
             return "Finish";
         }
-
-        //TODO ??: OnCollide om te detecteren dat we gewonnen hebben!
     }
 }

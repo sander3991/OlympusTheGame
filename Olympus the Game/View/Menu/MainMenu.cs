@@ -171,7 +171,7 @@ namespace Olympus_the_Game
             int lvl = this.levelDialog1.Level;
 
             // Read PlayField
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            OlympusTheGame.Playfield = PlayfieldLoader.ReadFromResource(Properties.Resources.hell);
             if (OlympusTheGame.Playfield == null)
             {
                 OlympusTheGame.Playfield = new PlayField();
@@ -273,7 +273,7 @@ namespace Olympus_the_Game
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
                     // Lees bestand
-                    PlayField pf = PlayFieldToXml.ReadFromXml(fileStream);
+                    PlayField pf = PlayfieldLoader.ReadFromXml(fileStream);
                     // Als geldig
                     if (pf != null)
                     {
