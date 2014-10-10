@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
 using Olympus_the_Game.View;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game
 {
@@ -332,8 +333,8 @@ namespace Olympus_the_Game
                 foreach (PropertyInfo fi in o.GetType().GetProperties().Where<PropertyInfo>( //Reflection gemaakt door Ruben, geen idee hoe die het doet maar het iterate over alle Properties
                     delegate(PropertyInfo pi)
                     {
-                        string name = pi.Name;
-                        return !EntityEditor.filteredProperties.Contains(name.ToLower()) && pi.CanWrite;
+                        object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
+                        return pi.CanWrite && (attributes.Count() == 0 || !((ExcludeFromEditor)attributes[0]).Exclude);
                     }))
                 {
                     writer.WriteElementString(fi.Name, fi.GetValue(o, new object[] {}).ToString());

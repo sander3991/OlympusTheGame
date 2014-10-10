@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olympus_the_Game.View.Editor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Olympus_the_Game
         WEBMISSILE,
         SILVERFISH
     }
+
     [Flags]
     public enum CollisionType : byte
     {
@@ -49,17 +51,20 @@ namespace Olympus_the_Game
                 System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(t.TypeHandle);
             }
         }
+
         #endregion
 
         private int x;
         private int y;
         private int height;
         private int width;
+
+        [ExcludeFromEditor]
         public ObjectType Type { get; protected set; }
 
         private PlayField prop_playfield;
-        
 
+        [ExcludeFromEditor]
         public PlayField Playfield
         {
             set
@@ -76,6 +81,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
         /// </summary>
+        [ExcludeFromEditor]
         public virtual float Frame
         {
             get
@@ -102,6 +108,7 @@ namespace Olympus_the_Game
                     height = 0;
             }
         }
+
         /// <summary>
         /// De breedte van het GameObject
         /// </summary>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.View.Imaging;
 using System.Reflection;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.View
 {
@@ -16,8 +17,6 @@ namespace Olympus_the_Game.View
         private static readonly int PADDING = 3;
 
         private static readonly int ROW_HEIGHT = 20;
-
-        public static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
 
         public event Action EntityChanged;
 
@@ -62,8 +61,8 @@ namespace Olympus_the_Game.View
                 foreach (PropertyInfo fi in go.GetType().GetProperties().Where<PropertyInfo>(
                     delegate(PropertyInfo pi)
                     {
-                        string name = pi.Name;
-                        return !filteredProperties.Contains(name.ToLower()) && pi.CanWrite;
+                        object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
+                        return pi.CanWrite && (attributes.Count() == 0 || !((ExcludeFromEditor) attributes[0]).Exclude);
                     }))
                 {
                     // Create label
