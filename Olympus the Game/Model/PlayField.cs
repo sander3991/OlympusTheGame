@@ -299,9 +299,8 @@ namespace Olympus_the_Game.Model
                                     Console.WriteLine("Het attribuut kon niet ingelezen worden!");
                                 try
                                 {
-                                    newObject =
-                                        Utils.CreateObjectOfType((ObjectType) Enum.Parse(typeof (ObjectType), str));
-                                        //Zet het om naar het enum type die erbij hoort
+                                    str = char.ToUpper(str[0]) + str.Substring(1).ToLower().Replace(" ","");//De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
+                                    newObject = Utils.CreateObjectOfType((ObjectType)Enum.Parse(typeof(ObjectType), str)); //Zet het om naar het enum type die erbij hoort
                                 }
                                 catch (InvalidCastException)
                                 {
@@ -344,9 +343,11 @@ namespace Olympus_the_Game.Model
                     case XmlNodeType.EndElement:
                         if (reader.LocalName == "GameObject")
                         {
-                            AddObject(newObject);
-                            newObject = null;
-                                //Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
+                            if (newObject != null)
+                            {
+                                AddObject(newObject);
+                                newObject = null;//Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
+                            }
                         }
                         break;
                 }
