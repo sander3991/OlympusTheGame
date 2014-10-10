@@ -12,11 +12,11 @@ namespace Olympus_the_Game.Model
 {
     public class PlayField : IXmlSerializable
     {
-        private static int ID = 0;
+        private static int ID;
         private int MapID;
         private static List<GameObject> DEFAULTMAP;
         public const int DefaultHeight = 1000;
-        private bool isClosing = false;
+        private bool isClosing;
         public const int DefaultWidth = 500;
         /// <summary>
         /// De breedte van de PlayField

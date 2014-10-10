@@ -39,10 +39,6 @@ namespace Olympus_the_Game.Controller
                 }
                 return Math.Max(0, totalScore);
             }
-            private set
-            {
-
-            }
         }
 
         public static void AddScore(ScoreType type, int i)

@@ -9,7 +9,7 @@ namespace Olympus_the_Game.Controller
     {
         private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
         private static int _fadeInCounter;
-        private static bool _stopFading = false;
+        private static bool _stopFading;
         public static bool IsPlaying { get; private set; }
         private static bool _propEnabled = true;
         public static bool Enabled { 

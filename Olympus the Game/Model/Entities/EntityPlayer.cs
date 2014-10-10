@@ -12,7 +12,7 @@ namespace Olympus_the_Game.Model.Entities
         private double _speedModifier = 1;
         private int _dx;
         private int _dy;
-        private float _propFrame = 0;
+        private float _propFrame;
         private int _frameCount = 1;
 
         public override float Frame

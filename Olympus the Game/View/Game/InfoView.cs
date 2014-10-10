@@ -110,34 +110,6 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Functie om het panel op runtime te verslepen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DragButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-            }
-            this.BringToFront();
-        }
-        /// <summary>
-        /// Functie die het scherm plaatst als je die muis loslaat
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DragButton_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - MouseDownLocation.X;
-                this.Top = e.Y + this.Top - MouseDownLocation.Y;
-                this.BringToFront();
-            }
-        }
-        /// <summary>
         /// Methode om een item aan de listview toe te voegen
         /// </summary>
         /// <param name="e">Entity die je wilt toevoegen</param>

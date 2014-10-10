@@ -11,7 +11,7 @@
             Type = ObjectType.SILVERFISH;
         }
 
-        public EntitySilverfish(int width, int height, int x, int y, double explodeStrength) : this(width, height, x, y, 0, 0) { }
+        public EntitySilverfish(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {

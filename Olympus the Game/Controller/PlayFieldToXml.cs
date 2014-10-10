@@ -45,7 +45,6 @@ namespace Olympus_the_Game.Controller
         /// <returns>Het PlayField object dat bij het Xml bestand hoort</returns>
         internal static PlayField ReadFromResource(string xml)
         {
-            StringReader strReader = new StringReader(xml);
             StringReader str = null;
             try
             {

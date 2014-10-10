@@ -63,7 +63,7 @@ namespace Olympus_the_Game.View.Editor
         /// <summary>
         /// Item dat momenteel wordt versleept.
         /// </summary>
-        private GameObject currentDraggingObject = null;
+        private GameObject currentDraggingObject;
 
         /// <summary>
         /// De offset van de muis ten opzicht van het momenteel gesleepte object.

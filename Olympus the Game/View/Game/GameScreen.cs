@@ -10,7 +10,7 @@ namespace Olympus_the_Game.View.Game
 {
     public partial class GameScreen : Form
     {
-        private bool forceClose = false;
+        private bool forceClose;
         /// <summary>
         /// Maak een nieuw GameScreen aan.
         /// </summary>

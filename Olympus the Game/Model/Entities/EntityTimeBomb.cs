@@ -13,7 +13,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         private Stopwatch stopwatch;
-        private bool isTimerStarted = false;
+        private bool isTimerStarted;
         private int prop_explodetime = 3000;
         private int prop_detectradius = 100;
         private int prop_exploderadius = 100;

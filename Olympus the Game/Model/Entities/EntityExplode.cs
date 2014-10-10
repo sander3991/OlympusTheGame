@@ -45,7 +45,6 @@ namespace Olympus_the_Game.Model.Entities
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller.GameController contr = OlympusTheGame.GameController;
             PlayField pf = OlympusTheGame.Playfield;
             if (!fieldRemoved)
             {
