@@ -88,6 +88,7 @@
     <Compile Include="View\Editor\EntitySourcePanelList.Designer.cs">
       <DependentUpon>EntitySourcePanelList.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Editor\ExcludeFromEditor.cs" />
     <Compile Include="View\Menu\HelpDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>

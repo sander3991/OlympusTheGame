@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olympus_the_Game.View.Editor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,27 @@ namespace Olympus_the_Game
         /// <summary>
         /// De verandering in X per gametick.
         /// </summary>
+        [ExcludeFromEditor]
         public virtual int DX { get; set; }
         /// <summary>
         /// De verandering in Y per gametick.
         /// </summary>
+        [ExcludeFromEditor]
         public virtual int DY { get; set; }
         /// <summary>
         /// De X-positie van de entity voordat Move() werd aangeroepen
         /// </summary>
+        [ExcludeFromEditor]
         public int PreviousX { get; private set; }
         /// <summary>
         /// De Y-positie van de entity voordat Move() werd aangeroepen
         /// </summary>
+        [ExcludeFromEditor]
         public int PreviousY { get; private set; }
         /// <summary>
         /// Geeft aan of deze entity bestuurd moet worden door de AI
         /// </summary>
+        [ExcludeFromEditor]
         public bool EntityControlledByAI { get; protected set; }
         /// <summary>
         /// Delegate om in de gaten te houden wanneer de entity beweegt
