@@ -257,6 +257,7 @@ namespace Olympus_the_Game.View.Menu
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.InitialDirectory = PlayfieldLoader.CustomMapLoc;
 
             // als er op OK word gedrukt
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
