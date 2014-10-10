@@ -20,7 +20,6 @@
       <X>250</X>
       <Y>250</Y>
       <Width>50</Width>
-      <Kek>100</Kek>
       <Height>50</Height>
     </GameObject>
     <GameObject Type="CREEPER">

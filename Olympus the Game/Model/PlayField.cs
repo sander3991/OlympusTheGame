@@ -286,14 +286,21 @@ namespace Olympus_the_Game
                                     Console.WriteLine("Het object van type '{0}' kon niet ingeladen worden!", str);
                                 }
                                 break;
-                            default:
+                            default: // Voor de default gaan we kijken of het gegeven element een property is in het gameobject
                                 if (newObject != null)
                                 {
-                                    PropertyInfo propInfo = newObject.GetType().GetProperty(elementName);
-                                    if(propInfo == null)
+                                    PropertyInfo propInfo = newObject.GetType().GetProperty(elementName); //WE zoeken hier de property op
+                                    if(propInfo == null) // Als de property niet bestaat, laten we dit de user weten met een print line
                                         Console.WriteLine("Er ging iets niet goed bij het inlezen van het element {0} in het object van type {1}.", elementName, newObject.Type);
-                                    else
-                                        propInfo.SetValue(newObject, Convert.ChangeType(reader.Value, propInfo.PropertyType), null);
+                                    else //Doet ie het wel gaan we het proberen te zetten in de property
+                                        try
+                                        { // We zetten hier de value in het newObject object. Dit doen we door de value te converten naar het type in de property.
+                                            propInfo.SetValue(newObject, Convert.ChangeType(reader.Value, propInfo.PropertyType), null); 
+                                        }
+                                        catch (FormatException)
+                                        { // Mochten we het nou niet kunnen converten, laten we dit ook weten aan de user
+                                            Console.WriteLine("Value {0} kon niet ingelezen worden. {1} kon niet omgezet worden naar type {2}", elementName, reader.Value, propInfo.PropertyType);
+                                        }                                            
                                 }
                                 break;
                         }
@@ -321,7 +328,6 @@ namespace Olympus_the_Game
         /// <param name="writer">De schrijver</param>
         public void WriteXml(System.Xml.XmlWriter writer)
         {
-
             writer.WriteElementString("Name", Name);
             writer.WriteElementString("Width", Width.ToString());
             writer.WriteElementString("Height", Height.ToString());
