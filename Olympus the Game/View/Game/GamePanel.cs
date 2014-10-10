@@ -221,6 +221,7 @@ namespace Olympus_the_Game.View.Game
             Size minimalSize = new Size((int) (ratio*100.0f), 100);
             currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
             int barHeight = 0;
+            int pad = 0;
 
             // Loop objects
             foreach (Control c in from Control c in parent.Controls where c != this && c.Visible select c)
@@ -231,6 +232,7 @@ namespace Olympus_the_Game.View.Game
                 }
                 else
                 {
+                    pad = BorderPadding;
                     // Get control location
                     Point p = c.Location;
 
@@ -239,8 +241,8 @@ namespace Olympus_the_Game.View.Game
             }
 
             // Change size
-            Location = new Point(BorderPadding, BorderPadding + barHeight);
-            MaxSize = new Size(currentSize.Width - 2*BorderPadding, currentSize.Height - 2*BorderPadding - barHeight);
+            Location = new Point(pad, pad + barHeight);
+            MaxSize = new Size(currentSize.Width - 2 * pad, currentSize.Height - 2 * pad - barHeight);
             MaxSize = new Size(Math.Max(MaxSize.Width, minimalSize.Width), Math.Max(MaxSize.Height, minimalSize.Height));
             // Recalculate
             Recalculate();
