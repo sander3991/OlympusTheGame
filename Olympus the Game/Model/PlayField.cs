@@ -107,20 +107,19 @@ namespace Olympus_the_Game.Model
                 if (objects == null)
                     throw new ArgumentException("Geen lijst met gameobjects meegegeven");
                 GameObjects = objects;
-                if (objects != null)
-                    foreach (GameObject t in objects)
-                    {
-                        if (t.Playfield != null || t.Playfield == this)
-                            //Is er al een PlayField object aangekoppeld, dat mag niet!
-                            throw new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
+                foreach (GameObject t in objects)
+                {
+                    if (t.Playfield != null || t.Playfield == this)
+                        //Is er al een PlayField object aangekoppeld, dat mag niet!
+                        throw new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
                     t.Playfield = this;
-                        EntityPlayer player = t as EntityPlayer;
-                        if (player != null) //Is dit het speler object? Deze willen we niet in de gameObject lijst hebben
-                        {
-                            Player = player; //Zet de speler in de Player property
-                            if (GameObjects != null) GameObjects.Remove(player);
-                        }
+                    EntityPlayer player = t as EntityPlayer;
+                    if (player != null) //Is dit het speler object? Deze willen we niet in de gameObject lijst hebben
+                    {
+                        Player = player; //Zet de speler in de Player property
+                        if (GameObjects != null) GameObjects.Remove(player);
                     }
+                }
                 if (Player != null) // TODO Waarom??????????
                     Player.Playfield = this;
                 IsInitialized = true;
@@ -249,9 +248,9 @@ namespace Olympus_the_Game.Model
         public void ReadXml(XmlReader reader)
         {
             reader.Read();
-            ///Variabelen om te onthouden wat de gameobject voor variabelen hebben
+            // Variabelen om te onthouden wat de gameobject voor variabelen hebben
             GameObject newObject = null;
-            ///boolean om te kijken of hij bezig is met het lezen van een object.
+            // boolean om te kijken of hij bezig is met het lezen van een object.
             bool isReadingObject = false;
             while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField"))
                 //blijf lezen totdat je bij het eindelement van PlayField bent

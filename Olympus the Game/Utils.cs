@@ -9,7 +9,7 @@ namespace Olympus_the_Game
 {
     internal class Utils
     {
-        public static readonly int MASK_FADE_DURATION = 500;
+        public static readonly int MaskFadeDuration = 500;
 
         public static Form MaskForm { get; private set; }
 
@@ -53,9 +53,9 @@ namespace Olympus_the_Game
 
             sw.Start();
             MaskForm.Visible = true;
-            while (sw.ElapsedMilliseconds < MASK_FADE_DURATION)
+            while (sw.ElapsedMilliseconds < MaskFadeDuration)
             {
-                float i = sw.ElapsedMilliseconds/(float) MASK_FADE_DURATION;
+                float i = sw.ElapsedMilliseconds/(float) MaskFadeDuration;
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
                 MaskForm.Invalidate();
                 Application.DoEvents();

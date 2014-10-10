@@ -6,28 +6,28 @@ namespace Olympus_the_Game.View.Menu
 {
     public struct HelpItem
     {
-        public Label label;
-        public PictureBox picture;
+        public Label Label;
+        public PictureBox Picture;
 
         public HelpItem(PictureBox picture, Label label)
         {
-            this.picture = picture;
-            this.label = label;
+            this.Picture = picture;
+            this.Label = label;
         }
 
         public int Y
         {
-            get { return picture.Location.Y; }
+            get { return Picture.Location.Y; }
             set
             {
-                if (value != picture.Location.Y)
+                if (value != Picture.Location.Y)
                 {
-                    Point picLoc = picture.Location;
-                    Point labelLoc = label.Location;
+                    Point picLoc = Picture.Location;
+                    Point labelLoc = Label.Location;
                     picLoc.Y = value;
                     labelLoc.Y = value;
-                    picture.Location = picLoc;
-                    label.Location = labelLoc;
+                    Picture.Location = picLoc;
+                    Label.Location = labelLoc;
                 }
             }
         }
@@ -70,9 +70,9 @@ namespace Olympus_the_Game.View.Menu
             Point labelLoc = new Point(100, Height);
             foreach (HelpItem item in helpItems)
             {
-                item.label.Location = labelLoc;
-                item.picture.Location = picLoc;
-                item.label.ForeColor = fontColor;
+                item.Label.Location = labelLoc;
+                item.Picture.Location = picLoc;
+                item.Label.ForeColor = fontColor;
             }
             totalScrollHeight = -(label1.Height + helpItems.Length*100);
         }

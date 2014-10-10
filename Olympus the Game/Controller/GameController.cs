@@ -17,14 +17,12 @@ namespace Olympus_the_Game.Controller
         /// Delegate voor het <code>OnPlayerFinished</code> event
         /// </summary>
         /// <param name="type">Het type finish</param>
-        /// <param name="score">de score</param>
         public delegate void DelOnFinish(FinishType type);
 
         /// <summary>
         /// Delegate voor het <code>OnHealthChanged</code> event
         /// </summary>
         /// <param name="player">De entity waarvan de health veranderd is</param>
-        /// <param name="previousHealth">De health voor de verandering</param>
         public delegate void DelOnHealthChanged(EntityPlayer player, int newHealth, int prevHealth);
 
         /// <summary>

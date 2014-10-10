@@ -53,7 +53,6 @@ namespace Olympus_the_Game.View.Imaging
         /// </summary>
         /// <param name="o">Het <code>ObjectType</code> van het plaatje</param>
         /// <param name="s">De grootte van het plaatje</param>
-        /// <param name="index">De index van het plaatje, -1 is een static plaatje</param>
         /// <returns></returns>
         private static Sprite CreateImage(ObjectType o, Size s)
         {

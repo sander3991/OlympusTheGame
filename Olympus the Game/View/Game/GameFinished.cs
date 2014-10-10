@@ -16,7 +16,7 @@ namespace Olympus_the_Game.View.Game
         public GameFinished(FinishType type)
             : this()
         {
-            int score = Scoreboard.Score;
+            int currentScore = Scoreboard.Score;
             switch (type)
             {
                 case FinishType.Dead:
@@ -26,13 +26,13 @@ namespace Olympus_the_Game.View.Game
                     berichtLabel.Text = "Gefeliciteerd! Je hebt gewonnen!";
                     break;
             }
-            this.score.Text = string.Format("Score: {0}", score.ToString("D5"));
+            this.score.Text = string.Format("Score: {0}", currentScore.ToString("D5"));
             bool first = true;
             StringBuilder builder = new StringBuilder();
             foreach (ScoreType scoreType in Enum.GetValues(typeof (ScoreType)))
             {
                 int typeScore = Scoreboard.GetScore(scoreType);
-                if (score != 0)
+                if (currentScore != 0)
                 {
                     if (!first)
                         builder.Append(Environment.NewLine);

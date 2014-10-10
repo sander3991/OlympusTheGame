@@ -7,7 +7,7 @@ namespace Olympus_the_Game.View.Editor
 {
     public partial class EntitySourcePanelList : UserControl
     {
-        private readonly int PADDING_TOP = 15;
+        private const int PaddingTop = 15;
 
         public EntitySourcePanelList()
         {
@@ -16,7 +16,7 @@ namespace Olympus_the_Game.View.Editor
 
         private void EntitySourcePanelList_Load(object sender, EventArgs e)
         {
-            int pad = PADDING_TOP;
+            int pad = PaddingTop;
 
             foreach (KeyValuePair<ObjectType, Func<GameObject>> a in GameObject.ConstructorList)
             {
@@ -25,7 +25,7 @@ namespace Olympus_the_Game.View.Editor
                 esp.Top = pad;
 
                 pad += esp.Height;
-                pad += PADDING_TOP*2;
+                pad += PaddingTop*2;
 
                 Controls.Add(esp);
             }

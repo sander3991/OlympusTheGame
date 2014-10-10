@@ -60,7 +60,6 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void Opslaan_Click(object sender, EventArgs e)
         {
-            Stream fileStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             // Weergeef .xml bestanden in eerste instantie
@@ -72,6 +71,7 @@ namespace Olympus_the_Game.View.Editor
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 // en er is een naam ingevoerd
+                Stream fileStream;
                 if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
                     // Slaat het playfield op
@@ -87,7 +87,6 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void Inladen_Click(object sender, EventArgs e)
         {
-            Stream fileStream;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
@@ -98,6 +97,7 @@ namespace Olympus_the_Game.View.Editor
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 // en er is een bestand geselecteerd
+                Stream fileStream;
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
                     CurrentPlayField = PlayFieldToXml.ReadFromXml(fileStream);

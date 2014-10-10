@@ -94,7 +94,7 @@ namespace Olympus_the_Game.View.Menu
             levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
 
             // Load resources
-            loadResources();
+            LoadResources();
         }
 
 
@@ -168,16 +168,12 @@ namespace Olympus_the_Game.View.Menu
         private void OpenLevel()
         {
             // Read PlayField
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Resources.hell);
-            if (OlympusTheGame.Playfield == null)
-            {
-                OlympusTheGame.Playfield = new PlayField();
-            }
+            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Resources.hell) ?? new PlayField();
 
             OlympusTheGame.Playfield.InitializeGameObjects();
 
             // Show mask
-            Mp3Player.FadeOut(Utils.MASK_FADE_DURATION);
+            Mp3Player.FadeOut(Utils.MaskFadeDuration);
             Utils.ShowMask(true);
             // Hid this screen
             Visible = false;
@@ -207,7 +203,7 @@ namespace Olympus_the_Game.View.Menu
             settingsDialog1.Visible = false;
         }
 
-        private void loadResources()
+        private static void LoadResources()
         {
             DataPool.LoadDataPool();
         }

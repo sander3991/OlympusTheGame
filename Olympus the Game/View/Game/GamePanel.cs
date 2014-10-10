@@ -249,7 +249,7 @@ namespace Olympus_the_Game.View.Game
             Recalculate();
         }
 
-        private Size ScaleDown(Size s, Point p, float ratio)
+        private static Size ScaleDown(Size s, Point p, float ratio)
         {
             // Shrink so it fits
             if (p.X/(float) p.Y > ratio)
