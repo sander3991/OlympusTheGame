@@ -11,8 +11,8 @@ namespace Olympus_the_Game.View.Menu
 
         public HelpItem(PictureBox picture, Label label)
         {
-            this.Picture = picture;
-            this.Label = label;
+            Picture = picture;
+            Label = label;
         }
 
         public int Y

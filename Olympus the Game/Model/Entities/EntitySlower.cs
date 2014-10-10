@@ -12,7 +12,7 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntitySlower()
         {
-            RegisterWithEditor(ObjectType.SLOWER, () => new EntitySlower(50, 50, 0, 0));
+            RegisterWithEditor(ObjectType.Slower, () => new EntitySlower(50, 50, 0, 0));
                 // TODO Maak waarden standaard
         }
 
@@ -23,7 +23,7 @@ namespace Olympus_the_Game.Model.Entities
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.SLOWER;
+            Type = ObjectType.Slower;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Olympus_the_Game.Model.Entities
             {
                 foreach (GameObject o in webOnXY)
                 {
-                    if (o.Type == ObjectType.WEB || o.Type == ObjectType.FINISH || o.Type == ObjectType.START)
+                    if (o.Type == ObjectType.Web || o.Type == ObjectType.Finish || o.Type == ObjectType.Start)
                     {
                         value = true;
                     }

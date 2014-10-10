@@ -111,7 +111,7 @@ namespace Olympus_the_Game.Controller
             foreach (GameObject o in gameObjects) //Controleer of de player collide met een GameObject
             {
                 CollisionType collision = player.CollidesWithObject(o);
-                if (collision != CollisionType.NONE) //Als er een collision is (dus niet 'geen' collision)
+                if (collision != CollisionType.None) //Als er een collision is (dus niet 'geen' collision)
                 {
                     if (o.IsSolid) //Alleen bij solide blokken moet de speler terug worden gezet naar de vorige plek
                     {
@@ -142,7 +142,7 @@ namespace Olympus_the_Game.Controller
                             //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
                         {
                             CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
-                            if (collision != CollisionType.NONE)
+                            if (collision != CollisionType.None)
                             {
                                 if (!(playerCollisisons.Contains(e) && o2 == player))
                                     //Alleen als e in de lijst zit, en o2 de speler is, word de code NIET uitgevoerd

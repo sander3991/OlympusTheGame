@@ -9,7 +9,7 @@ namespace Olympus_the_Game.Model.Entities
     {
         static EntityExplode()
         {
-            RegisterWithEditor(ObjectType.EXPLODE, () => new EntityExplode(50, 50, 0, 0, 1f));
+            RegisterWithEditor(ObjectType.Explode, () => new EntityExplode(50, 50, 0, 0, 1f));
                 // TODO Maak waarden standaard
         }
 
@@ -21,7 +21,7 @@ namespace Olympus_the_Game.Model.Entities
         {
             EffectStrength = Math.Max(0, effectStrength);
             EntityControlledByAi = false;
-            Type = ObjectType.EXPLODE;
+            Type = ObjectType.Explode;
         }
 
         /// <summary>

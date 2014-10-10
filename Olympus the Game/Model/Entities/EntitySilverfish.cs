@@ -8,7 +8,7 @@
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = false;
-            Type = ObjectType.SILVERFISH;
+            Type = ObjectType.Silverfish;
         }
 
         public EntitySilverfish(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)

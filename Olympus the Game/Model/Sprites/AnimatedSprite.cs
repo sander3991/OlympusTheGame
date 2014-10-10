@@ -47,7 +47,7 @@
 
         public override CollisionType CollidesWithObject(GameObject entity)
         {
-            return CollisionType.NONE;
+            return CollisionType.None;
         }
     }
 }

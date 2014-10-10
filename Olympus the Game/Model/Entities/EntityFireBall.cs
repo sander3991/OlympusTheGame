@@ -26,7 +26,7 @@ namespace Olympus_the_Game.Model.Entities
             DY = -(((Y - target.Y) - 25)/FireballSpeed);
 
             EntityControlledByAi = false;
-            Type = ObjectType.FIREBALL;
+            Type = ObjectType.Fireball;
             IsSolid = false;
             _owner = owner;
         }
@@ -60,9 +60,9 @@ namespace Olympus_the_Game.Model.Entities
         public override CollisionType CollidesWithObject(GameObject entity)
         {
             if (entity == _owner)
-                return CollisionType.NONE;
+                return CollisionType.None;
             AnimatedSprite sprite = entity as AnimatedSprite;
-            return sprite != null ? CollisionType.NONE : base.CollidesWithObject(entity);
+            return sprite != null ? CollisionType.None : base.CollidesWithObject(entity);
         }
 
         public void OnUpdate()
@@ -98,17 +98,17 @@ namespace Olympus_the_Game.Model.Entities
                     Playfield.RemoveObject(gameObject);
                     switch (e.Type)
                     {
-                        case ObjectType.SLOWER:
+                        case ObjectType.Slower:
                             Scoreboard.AddScore(ScoreType.Slower);
                             break;
-                        case ObjectType.TIMEBOMB:
-                        case ObjectType.EXPLODE:
+                        case ObjectType.Timebomb:
+                        case ObjectType.Explode:
                             Scoreboard.AddScore(ScoreType.Explode);
                             break;
-                        case ObjectType.CREEPER:
+                        case ObjectType.Creeper:
                             Scoreboard.AddScore(ScoreType.Creeper);
                             break;
-                        case ObjectType.GHAST:
+                        case ObjectType.Ghast:
                             Scoreboard.AddScore(ScoreType.Ghast);
                             break;
                     }

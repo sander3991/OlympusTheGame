@@ -18,7 +18,7 @@ namespace Olympus_the_Game.Model.Entities
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = false;
-            Type = ObjectType.WEB;
+            Type = ObjectType.Web;
             IsSolid = false;
         }
 
@@ -61,7 +61,7 @@ namespace Olympus_the_Game.Model.Entities
         {
             if (Playfield.Player != null)
             {
-                if (CollidesWithObject(Playfield.Player) == CollisionType.NONE)
+                if (CollidesWithObject(Playfield.Player) == CollisionType.None)
                 {
                     if (isSlowingPlayer)
                     {

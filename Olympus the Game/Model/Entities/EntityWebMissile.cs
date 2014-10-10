@@ -29,7 +29,7 @@ namespace Olympus_the_Game.Model.Entities
         public EntityWebMissile(EntitySlower spider, GameObject target)
             : base(spider.Width/4, spider.Height/4, spider.X, spider.Y)
         {
-            Type = ObjectType.WEBMISSILE;
+            Type = ObjectType.Webmissile;
             //TODO: -25 berekenen via variabelen.
             targetX = (target.X + target.Width/2) - 25;
             targetY = (target.Y + target.Height/2) - 25;
@@ -80,7 +80,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <returns></returns>
         public override CollisionType CollidesWithObject(GameObject entity)
         {
-            return CollisionType.NONE;
+            return CollisionType.None;
         }
 
         /// <summary>

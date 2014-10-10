@@ -10,26 +10,26 @@ namespace Olympus_the_Game.Model
     public enum ObjectType
     {
         Player,
-        SLOWER,
-        TIMEBOMB,
-        OBSTACLE,
-        CREEPER,
-        EXPLODE,
-        START,
-        FINISH,
-        UNKNOWN,
-        SPRITEEXPLOSION,
-        WEB,
-        FIREBALL,
-        GHAST,
-        WEBMISSILE,
-        SILVERFISH
+        Slower,
+        Timebomb,
+        Obstacle,
+        Creeper,
+        Explode,
+        Start,
+        Finish,
+        Unknown,
+        Spriteexplosion,
+        Web,
+        Fireball,
+        Ghast,
+        Webmissile,
+        Silverfish
     }
 
     [Flags]
     public enum CollisionType : byte
     {
-        NONE = 0,
+        None = 0,
         X = 1,
         Y = 2,
     }
@@ -58,7 +58,7 @@ namespace Olympus_the_Game.Model
         #endregion
 
         private int height;
-        private PlayField prop_playfield;
+        private PlayField _propPlayfield;
         private int width;
         private int x;
         private int y;
@@ -77,7 +77,7 @@ namespace Olympus_the_Game.Model
             Width = width;
             Height = height;
             IsSolid = true;
-            Type = ObjectType.UNKNOWN;
+            Type = ObjectType.Unknown;
         }
 
         [ExcludeFromEditor]
@@ -88,10 +88,10 @@ namespace Olympus_the_Game.Model
         {
             set
             {
-                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
-                    prop_playfield = value;
+                if (_propPlayfield == null) //Voorkomt dat het 2 keer geset wordt
+                    _propPlayfield = value;
             }
-            get { return prop_playfield; }
+            get { return _propPlayfield; }
         }
 
         /// <summary>
@@ -228,9 +228,9 @@ namespace Olympus_the_Game.Model
                     collision = collision & ~CollisionType.X;
                 if (DoLinesOverlap(thisEntity.PreviousY, Height, entity.Y, entity.Height))
                     collision = collision & ~CollisionType.Y;
-                return collision == CollisionType.NONE ? CollisionType.X | CollisionType.Y : collision;
+                return collision == CollisionType.None ? CollisionType.X | CollisionType.Y : collision;
             }
-            return CollisionType.NONE;
+            return CollisionType.None;
         }
 
         /// <summary>

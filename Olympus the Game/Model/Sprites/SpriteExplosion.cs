@@ -21,7 +21,7 @@
                 x - (int) (width*(EXPLOSION_SCALE - 1.0f))/2,
                 y - (int) (height*(EXPLOSION_SCALE - 1.0f))/2)
         {
-            Type = ObjectType.SPRITEEXPLOSION;
+            Type = ObjectType.Spriteexplosion;
             duration = 1000;
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
         }

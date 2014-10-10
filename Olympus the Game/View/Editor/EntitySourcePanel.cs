@@ -8,7 +8,7 @@ namespace Olympus_the_Game.View.Editor
     public partial class EntitySourcePanel : UserControl
     {
         public EntitySourcePanel()
-            : this(ObjectType.CREEPER)
+            : this(ObjectType.Creeper)
         {
         }
 

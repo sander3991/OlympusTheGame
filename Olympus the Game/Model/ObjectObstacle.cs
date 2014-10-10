@@ -4,7 +4,7 @@
     {
         static ObjectObstacle()
         {
-            RegisterWithEditor(ObjectType.OBSTACLE, () => new ObjectObstacle(50, 50, 0, 0));
+            RegisterWithEditor(ObjectType.Obstacle, () => new ObjectObstacle(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -17,7 +17,7 @@
         public ObjectObstacle(int width, int height, int x, int y)
             : base(width, height, x, y)
         {
-            Type = ObjectType.OBSTACLE;
+            Type = ObjectType.Obstacle;
         }
 
         public override string ToString()

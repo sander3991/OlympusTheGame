@@ -7,7 +7,7 @@ namespace Olympus_the_Game.Model
     {
         static ObjectFinish()
         {
-            RegisterWithEditor(ObjectType.FINISH, () => new ObjectFinish(50, 50, 0, 0));
+            RegisterWithEditor(ObjectType.Finish, () => new ObjectFinish(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Olympus_the_Game.Model
             : base(width, height, x, y)
         {
             IsSolid = false;
-            Type = ObjectType.FINISH;
+            Type = ObjectType.Finish;
         }
 
         /// <summary>

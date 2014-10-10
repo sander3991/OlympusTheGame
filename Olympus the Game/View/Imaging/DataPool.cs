@@ -29,21 +29,21 @@ namespace Olympus_the_Game.View.Imaging
         /// </summary>
         public static void LoadDataPool()
         {
-            Source.Add(ObjectType.CREEPER, Resources.creeper);
-            Source.Add(ObjectType.EXPLODE, Resources.tnt);
-            Source.Add(ObjectType.SLOWER, Resources.spider);
-            Source.Add(ObjectType.WEB, Resources.cobweb);
+            Source.Add(ObjectType.Creeper, Resources.creeper);
+            Source.Add(ObjectType.Explode, Resources.tnt);
+            Source.Add(ObjectType.Slower, Resources.spider);
+            Source.Add(ObjectType.Web, Resources.cobweb);
             Source.Add(ObjectType.Player, new Sprite(Resources.player2, 2, 1, false));
-            Source.Add(ObjectType.TIMEBOMB, new Sprite(Resources.timebomb, 2, 1, true));
-            Source.Add(ObjectType.START, Resources.huis);
-            Source.Add(ObjectType.FINISH, Resources.cake);
-            Source.Add(ObjectType.OBSTACLE, Resources.cobble);
-            Source.Add(ObjectType.UNKNOWN, Resources.missing);
-            Source.Add(ObjectType.SILVERFISH, Resources.missing);
-            Source.Add(ObjectType.GHAST, Resources.ghast);
-            Source.Add(ObjectType.FIREBALL, Resources.fireball);
-            Source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Resources.explosion, 5, 5, false));
-            Source.Add(ObjectType.WEBMISSILE, Resources.cobweb);
+            Source.Add(ObjectType.Timebomb, new Sprite(Resources.timebomb, 2, 1, true));
+            Source.Add(ObjectType.Start, Resources.huis);
+            Source.Add(ObjectType.Finish, Resources.cake);
+            Source.Add(ObjectType.Obstacle, Resources.cobble);
+            Source.Add(ObjectType.Unknown, Resources.missing);
+            Source.Add(ObjectType.Silverfish, Resources.missing);
+            Source.Add(ObjectType.Ghast, Resources.ghast);
+            Source.Add(ObjectType.Fireball, Resources.fireball);
+            Source.Add(ObjectType.Spriteexplosion, new Sprite(Resources.explosion, 5, 5, false));
+            Source.Add(ObjectType.Webmissile, Resources.cobweb);
             GameSound = Mp3Player.PrepareResource(Resources.HakunaMatata, "HakunaMatata");
             IntroSound = Mp3Player.PrepareResource(Resources.StarWars, "StarWars");
         }

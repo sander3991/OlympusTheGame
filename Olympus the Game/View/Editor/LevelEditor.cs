@@ -179,61 +179,59 @@ namespace Olympus_the_Game.View.Editor
         private void PlaatsEntity(object sender, KeyPressEventArgs e)
         {
             // Creeper
-            if (e.KeyChar == (char) Keys.D1)
+            switch (e.KeyChar)
             {
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
-                gamePanelEditor.Invalidate();
-            }
-
-                // Spider
-            else if (e.KeyChar == (char) Keys.D2)
-            {
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
-                gamePanelEditor.Invalidate();
-            }
-
-                // TnT
-            else if (e.KeyChar == (char) Keys.D3)
-            {
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
-                gamePanelEditor.Invalidate();
-            }
-
-                // TimeBomb
-            else if (e.KeyChar == (char) Keys.D4)
-            {
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
-                gamePanelEditor.Invalidate();
-            }
-
-                // Cake
-            else if (e.KeyChar == (char) Keys.D5)
-            {
-                CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
-                gamePanelEditor.Invalidate();
-            }
-
-                // Home
-            else if (e.KeyChar == (char) Keys.D6)
-            {
-                CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
-                gamePanelEditor.Invalidate();
-            }
-
-                // Obstakel
-            else if (e.KeyChar == (char) Keys.D7)
-            {
-                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
-                gamePanelEditor.Invalidate();
+                case (char) Keys.D1:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D2:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D3:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D4:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D5:
+                {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D6:
+                {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
+                case (char) Keys.D7:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
+                    break;
             }
         }
 

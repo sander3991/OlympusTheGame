@@ -11,7 +11,7 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntityGhast()
         {
-            RegisterWithEditor(ObjectType.GHAST, () => new EntityGhast(50, 50, 0, 0));
+            RegisterWithEditor(ObjectType.Ghast, () => new EntityGhast(50, 50, 0, 0));
                 // TODO Maak waarden standaard
         }
 
@@ -22,7 +22,7 @@ namespace Olympus_the_Game.Model.Entities
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.GHAST;
+            Type = ObjectType.Ghast;
             EntityControlledByAi = true;
         }
 

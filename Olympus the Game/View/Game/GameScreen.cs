@@ -128,7 +128,7 @@ namespace Olympus_the_Game.View.Game
             };
 
             // Update view
-            updateView();
+            UpdateView();
 
             // Start music
             Mp3Player.SetResource(DataPool.GameSound);
@@ -181,7 +181,7 @@ namespace Olympus_the_Game.View.Game
 
         private void changeLayoutButtonClicked(object sender, EventArgs e)
         {
-            updateView();
+            UpdateView();
         }
 
         private void verbergAllesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,10 +190,10 @@ namespace Olympus_the_Game.View.Game
             informatieToolStripMenuItem.Checked = !verbergAllesToolStripMenuItem.Checked;
             bedieningToolStripMenuItem.Checked = !verbergAllesToolStripMenuItem.Checked;
 
-            updateView();
+            UpdateView();
         }
 
-        private void updateView()
+        private void UpdateView()
         {
             // InfoBox verbergen of weergeven
             switch (informatieToolStripMenuItem.Checked)

@@ -4,7 +4,7 @@
     {
         static ObjectStart()
         {
-            RegisterWithEditor(ObjectType.START, () => new ObjectStart(50, 50, 0, 0));
+            RegisterWithEditor(ObjectType.Start, () => new ObjectStart(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -18,7 +18,7 @@
             : base(width, height, x, y)
         {
             IsSolid = false;
-            Type = ObjectType.START;
+            Type = ObjectType.Start;
         }
 
         public override string ToString()
