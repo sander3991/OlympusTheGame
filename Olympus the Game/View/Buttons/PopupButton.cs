@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.Properties;
 
@@ -33,10 +28,7 @@ namespace Olympus_the_Game.View.Buttons
                 if (c.GetType() == typeof (MoveButton))
                     c.Visible = false;
 
-            Form f = new Form();
-            f.Width = parent.Width + 10;
-            f.Height = parent.Height + 35;
-            f.BackgroundImage = Resources.dirt;
+            Form f = new Form {Width = parent.Width + 10, Height = parent.Height + 35, BackgroundImage = Resources.dirt};
             f.Controls.Add(parent);
             parent.Location = new Point(0, 0);
             f.MaximizeBox = false;

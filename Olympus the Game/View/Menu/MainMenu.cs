@@ -2,16 +2,8 @@
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
-using Olympus_the_Game.View;
 using Olympus_the_Game.View.Editor;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Olympus_the_Game.View.Game;
@@ -175,9 +167,6 @@ namespace Olympus_the_Game.View.Menu
 
         private void OpenLevel()
         {
-            // Retrieve level
-            int lvl = levelDialog1.Level;
-
             // Read PlayField
             OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Resources.hell);
             if (OlympusTheGame.Playfield == null)
@@ -260,7 +249,7 @@ namespace Olympus_the_Game.View.Menu
             Utils.ShowMask(true);
             LevelEditor le = new LevelEditor();
             Visible = false;
-            new Thread(delegate() { Utils.ShowMask(false); }).Start();
+            new Thread(() => Utils.ShowMask(false)).Start();
             le.ShowDialog();
             Visible = true;
         }
@@ -289,7 +278,7 @@ namespace Olympus_the_Game.View.Menu
                         Utils.ShowMask(true);
                         LevelEditor le = new LevelEditor(pf);
                         Visible = false;
-                        new Thread(delegate() { Utils.ShowMask(false); }).Start();
+                        new Thread(() => Utils.ShowMask(false)).Start();
                         le.ShowDialog();
                         Visible = true;
                     }

@@ -63,7 +63,7 @@ namespace Olympus_the_Game.View.Imaging
 
             // Check for null
             if (result == null)
-                return result;
+                return null;
 
             // Check type
             if (result.Frames == -1) // 1 image

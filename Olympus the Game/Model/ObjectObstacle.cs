@@ -4,7 +4,7 @@
     {
         static ObjectObstacle()
         {
-            RegisterWithEditor(ObjectType.OBSTACLE, () => { return new ObjectObstacle(50, 50, 0, 0); });
+            RegisterWithEditor(ObjectType.OBSTACLE, () => new ObjectObstacle(50, 50, 0, 0));
         }
 
         /// <summary>

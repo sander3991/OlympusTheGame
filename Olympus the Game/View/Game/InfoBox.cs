@@ -40,6 +40,7 @@ namespace Olympus_the_Game.View.Game
         /// Wordt gebruikt om de health van de speler te updaten
         /// </summary>
         /// <param name="player">De speler die het event gefired heeft</param>
+        /// <param name="newHealth"></param>
         /// <param name="prevHealth">De health voordat de speler damage kreeg</param>
         private void UpdateHealth(EntityPlayer player, int newHealth, int prevHealth)
         {

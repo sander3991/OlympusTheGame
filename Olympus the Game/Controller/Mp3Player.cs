@@ -18,10 +18,7 @@ namespace Olympus_the_Game.Controller
             get { return _propEnabled; }
             set
             {
-                if (value)
-                    Player.settings.volume = 100;
-                else
-                    Player.settings.volume = 0;
+                Player.settings.volume = value ? 100 : 0;
                 _propEnabled = value;
             }
         }

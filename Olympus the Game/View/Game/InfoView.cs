@@ -119,41 +119,12 @@ namespace Olympus_the_Game.View.Game
         /// <returns></returns>
         private ListViewItem CreateListViewItem(Entity e)
         {
-            ListViewItem LVItem;
-            LVItem = new ListViewItem(e.ToString());
-            LVItem.SubItems.Add(e.X.ToString());
-            LVItem.SubItems.Add(e.Y.ToString());
-            LVItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
-            listView1.Items.Add(LVItem);
-            return LVItem;
+            ListViewItem lvItem = new ListViewItem(e.ToString());
+            lvItem.SubItems.Add(e.X.ToString());
+            lvItem.SubItems.Add(e.Y.ToString());
+            lvItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());
+            listView1.Items.Add(lvItem);
+            return lvItem;
         }
-
-        /// <summary>
-        /// Oude code om de list view up te daten
-        /// Update alle items in de list view
-        /// </summary>
-        //private void update()
-        //{
-        //    List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
-        //    foreach (GameObject g in Entitys)
-        //    {
-        //        Entity e = g as Entity;
-        //        if (e != null)
-        //        {
-        //            ListViewItem LVItem;
-        //            if (list.ContainsKey(e))
-        //            {
-        //                LVItem = list[e];
-        //                LVItem.SubItems[1].Text = e.X.ToString();
-        //                LVItem.SubItems[2].Text = e.Y.ToString();
-        //            }
-        //            else
-        //            {
-        //                list[e] = CreateListViewItem(e);
-        //            }
-        //        }
-        //    }
-        //    this.Invalidate(true);
-        //}
     }
 }

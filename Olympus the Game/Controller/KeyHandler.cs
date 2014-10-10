@@ -16,6 +16,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Wordt aangeroepen als je op een toetsklikt
         /// </summary>
+        /// <param name="sender"></param>
         /// <param name="e"></param>
         internal static void KeyDown(object sender, KeyEventArgs e)
         {
@@ -33,6 +34,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Wordt aangeroepen als je een toets los laat
         /// </summary>
+        /// <param name="sender"></param>
         /// <param name="e"></param>
         internal static void KeyUp(object sender, KeyEventArgs e)
         {

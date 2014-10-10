@@ -76,7 +76,7 @@ namespace Olympus_the_Game.View.Game
             OlympusTheGame.GameTime = 0;
             Utils.ShowMask(true);
             Visible = false;
-            new Thread(delegate() { Utils.ShowMask(false); }).Start();
+            new Thread(() => Utils.ShowMask(false)).Start();
         }
 
         /// <summary>
@@ -306,10 +306,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void herhalenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (herhalenToolStripMenuItem.Checked)
-                herhalenToolStripMenuItem.Checked = false;
-            else
-                herhalenToolStripMenuItem.Checked = true;
+            herhalenToolStripMenuItem.Checked = !herhalenToolStripMenuItem.Checked;
         }
 
         /// <summary>
@@ -332,10 +329,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void volumeDempenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!volumeDempenToolStripMenuItem.Checked)
-                volumeDempenToolStripMenuItem.Checked = true;
-            else
-                volumeDempenToolStripMenuItem.Checked = false;
+            volumeDempenToolStripMenuItem.Checked = !volumeDempenToolStripMenuItem.Checked;
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
     {
         static ObjectStart()
         {
-            RegisterWithEditor(ObjectType.START, () => { return new ObjectStart(50, 50, 0, 0); });
+            RegisterWithEditor(ObjectType.START, () => new ObjectStart(50, 50, 0, 0));
         }
 
         /// <summary>

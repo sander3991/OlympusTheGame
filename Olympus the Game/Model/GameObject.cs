@@ -110,12 +110,8 @@ namespace Olympus_the_Game.Model
         public int Height
         {
             get { return height; }
-            set
-            {
-                if (value >= 0)
-                    height = value;
-                else
-                    height = 0;
+            set {
+                height = value >= 0 ? value : 0;
             }
         }
 
@@ -125,12 +121,8 @@ namespace Olympus_the_Game.Model
         public int Width
         {
             get { return width; }
-            set
-            {
-                if (value >= 0)
-                    width = value;
-                else
-                    width = 0;
+            set {
+                width = value >= 0 ? value : 0;
             }
         }
 

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
@@ -12,8 +9,6 @@ namespace Olympus_the_Game
 {
     internal class Utils
     {
-        private const bool DISABLE_MASK = false; // TODO Release: Deze regel verwijderen
-
         public static readonly int MASK_FADE_DURATION = 500;
 
         public static Form MaskForm { get; private set; }
@@ -50,11 +45,6 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-            if (DISABLE_MASK)
-            {
-                MaskForm.Visible = false;
-                return;
-            } // TODO Release: Deze regel verwijderen
             MaskForm.Size = getScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;

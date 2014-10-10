@@ -1,7 +1,6 @@
 ﻿using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
-using Olympus_the_Game.View;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Olympus_the_Game.Controller;
@@ -143,7 +138,7 @@ namespace Olympus_the_Game.View.Editor
             else
             {
                 Utils.ShowMask(true);
-                new Thread(delegate() { Utils.ShowMask(false); }).Start();
+                new Thread(() => Utils.ShowMask(false)).Start();
             }
         }
 
@@ -293,10 +288,7 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
         {
-            if (currentDraggingObject != null)
-            {
-                currentDraggingObject = null;
-            }
+            currentDraggingObject = null;
         }
 
         #endregion
@@ -308,14 +300,7 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void enter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof (ObjectType)))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            e.Effect = e.Data.GetDataPresent(typeof (ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
         }
 
         /// <summary>

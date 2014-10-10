@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Olympus_the_Game.View.Menu
@@ -59,7 +54,7 @@ namespace Olympus_the_Game.View.Menu
             VisibleChanged += OnVisibleChanged;
 
             //initialiseer alle plaatjes in een lijst van volgorde
-            helpItems = new HelpItem[9]
+            helpItems = new[]
             {
                 new HelpItem(PicSteve, LabelSteve),
                 new HelpItem(PicHuis, LabelHuis),
@@ -73,9 +68,8 @@ namespace Olympus_the_Game.View.Menu
             };
             Point picLoc = new Point(0, Height);
             Point labelLoc = new Point(100, Height);
-            for (int i = 0; i < helpItems.Length; i++)
+            foreach (HelpItem item in helpItems)
             {
-                HelpItem item = helpItems[i];
                 item.label.Location = labelLoc;
                 item.picture.Location = picLoc;
                 item.label.ForeColor = fontColor;

@@ -111,8 +111,6 @@ namespace Olympus_the_Game.Model.Entities
                         case ObjectType.GHAST:
                             Scoreboard.AddScore(ScoreType.Ghast);
                             break;
-                        default:
-                            break;
                     }
                 }
             }
