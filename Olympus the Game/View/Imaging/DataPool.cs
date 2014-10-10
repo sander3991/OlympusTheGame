@@ -56,7 +56,7 @@ namespace Olympus_the_Game.View.Imaging
         private static Sprite CreateImage(ObjectType o, Size s)
         {
             // Get source image
-            Sprite result = null;
+            Sprite result;
             source.TryGetValue(o, out result);
 
             // Check for null
@@ -87,7 +87,7 @@ namespace Olympus_the_Game.View.Imaging
         public static Sprite GetPicture(ObjectType o, Size s)
         {
             // Define get result
-            Sprite result = null;
+            Sprite result;
 
             // Try to get
             images.TryGetValue(new Tuple<ObjectType, Size>(o, s), out result);

@@ -25,7 +25,7 @@ namespace Olympus_the_Game.View.Menu
             {
                 Button b = new Button();
                 int a = i;
-                b.Click += delegate(object source, EventArgs ea) { this.buttonClicked(a); };
+                b.Click += delegate { this.buttonClicked(a); };
                 this.Controls.Add(b);
                 b.Size = new Size(420, 49);
                 b.Location = new Point(3, 3 + (i - 1) * 55);

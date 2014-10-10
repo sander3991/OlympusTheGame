@@ -84,7 +84,7 @@ namespace Olympus_the_Game.View.Game
 
             // Register to updateloop
             if (OlympusTheGame.GameController != null)
-                OlympusTheGame.GameController.UpdateGameEvents += delegate() { this.Invalidate(); };
+                OlympusTheGame.GameController.UpdateGameEvents += delegate { this.Invalidate(); };
 
             // Set max size
             this.MaxSize = this.Size;

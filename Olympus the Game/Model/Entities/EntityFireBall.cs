@@ -59,9 +59,7 @@ namespace Olympus_the_Game.Model.Entities
             if (entity == _owner)
                 return CollisionType.NONE;
             AnimatedSprite sprite = entity as AnimatedSprite;
-            if (sprite != null)
-                return CollisionType.NONE;
-            return base.CollidesWithObject(entity);
+            return sprite != null ? CollisionType.NONE : base.CollidesWithObject(entity);
         }
 
         public void OnUpdate()

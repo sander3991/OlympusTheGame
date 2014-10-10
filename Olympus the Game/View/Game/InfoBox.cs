@@ -72,7 +72,7 @@ namespace Olympus_the_Game.View.Game
         private void InfoBox_Load_1(object sender, EventArgs e)
         {
             if (OlympusTheGame.GameController != null)
-                OlympusTheGame.GameController.UpdateSlowEvents += delegate() { UpdateLabels(); };
+                OlympusTheGame.GameController.UpdateSlowEvents += delegate { UpdateLabels(); };
         }
     }
 }

@@ -44,10 +44,10 @@ namespace Olympus_the_Game.View.Editor
             // Register events
             this.entityEditor1.EntityChanged += this.gamePanelEditor.Invalidate;
 
-            this.entityEditor1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
+            this.entityEditor1.LocationChanged += delegate { this.gamePanelEditor.TryExpand(); };
             this.entitySourcePanelList1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
-            this.speelveldEditor1.LocationChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
-            this.SizeChanged += delegate(object source, EventArgs ea) { this.gamePanelEditor.TryExpand(); };
+            this.speelveldEditor1.LocationChanged += delegate { this.gamePanelEditor.TryExpand(); };
+            this.SizeChanged += delegate { this.gamePanelEditor.TryExpand(); };
 
             // Focus op de gamePanel zodat de nummertoetsen werken
             gamePanelEditor.Select();
@@ -147,7 +147,7 @@ namespace Olympus_the_Game.View.Editor
             ObjectType ot = (ObjectType)o;
 
             // Add object
-            Func<GameObject> f = null;
+            Func<GameObject> f;
             GameObject.ConstructorList.TryGetValue(ot, out f);
 
             if (f != null)

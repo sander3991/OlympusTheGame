@@ -95,12 +95,10 @@ namespace Olympus_the_Game
 
         public static GameObject CreateObjectOfType(ObjectType ot)
         {
-            Func<GameObject> result = null;
+            Func<GameObject> result;
             GameObject.ConstructorList.TryGetValue(ot, out result);
 
-            if (result == null) return null;
-
-            return result();
+            return result == null ? null : result();
         }
     }
 }

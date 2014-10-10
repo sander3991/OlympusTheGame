@@ -36,7 +36,7 @@ namespace Olympus_the_Game.View.Editor
             }
 
             // Add events
-            this.Scroll += delegate(object source, ScrollEventArgs ea) { this.Invalidate(); };
+            this.Scroll += delegate { this.Invalidate(); };
         }
     }
 }

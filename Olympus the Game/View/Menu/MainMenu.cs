@@ -92,7 +92,7 @@ namespace Olympus_the_Game.View.Menu
             this.mainMenuControl1.ButtonExit.Click += ButtonExit_Click;
             this.mainMenuControl1.button1.Click += ButtonHelp_Click;
             this.VisibleChanged += MainMenu_VisibleChanged;
-            this.SizeChanged += delegate(object source, EventArgs ea) { CenterAllControls(); };
+            this.SizeChanged += delegate { CenterAllControls(); };
             this.levelDialog1.LevelChosen += OpenLevel;
             this.levelEditorMenu1.ButtonNewEditor.Click += NewEditor;
             this.levelEditorMenu1.ButtonLoadEditor.Click += LoadEditor;
