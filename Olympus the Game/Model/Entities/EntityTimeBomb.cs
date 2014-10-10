@@ -11,7 +11,7 @@ namespace Olympus_the_Game
     {
         static EntityTimeBomb()
         {
-            RegisterWithEditor(ObjectType.TIMEBOMB, () => { return new EntityTimeBomb(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.TIMEBOMB, () => { return new EntityTimeBomb(50, 50, 0, 0, 1f); }); // TODO Maak waarden standaard
         }
 
         private Stopwatch stopwatch;

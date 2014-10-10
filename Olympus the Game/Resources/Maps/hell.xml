@@ -20,6 +20,7 @@
       <X>250</X>
       <Y>250</Y>
       <Width>50</Width>
+      <Kek>100</Kek>
       <Height>50</Height>
     </GameObject>
     <GameObject Type="CREEPER">
@@ -27,21 +28,21 @@
       <Y>60</Y>
       <Width>50</Width>
       <Height>50</Height>
-      <ExplodeStrength>1</ExplodeStrength>
+      <EffectStrength>1</EffectStrength>
     </GameObject>
     <GameObject Type="CREEPER">
       <X>300</X>
       <Y>260</Y>
       <Width>50</Width>
       <Height>50</Height>
-      <ExplodeStrength>1</ExplodeStrength>
+      <EffectStrength>1</EffectStrength>
     </GameObject>
     <GameObject Type="CREEPER">
       <X>10</X>
       <Y>350</Y>
       <Width>50</Width>
       <Height>50</Height>
-      <ExplodeStrength>1</ExplodeStrength>
+      <EffectStrength>1</EffectStrength>
     </GameObject>
     <GameObject Type="SLOWER">
       <X>200</X>
@@ -52,22 +53,22 @@
     <GameObject Type="GHAST">
       <X>400</X>
       <Y>400</Y>
-      <Width>50</Width>
-      <Height>50</Height>
+      <Width>75</Width>
+      <Height>75</Height>
     </GameObject>
     <GameObject Type="TIMEBOMB">
       <X>600</X>
       <Y>75</Y>
       <Width>50</Width>
       <Height>50</Height>
-      <ExplodeStrength>1</ExplodeStrength>
+      <EffectStrength>1</EffectStrength>
     </GameObject>
     <GameObject Type="EXPLODE">
       <X>300</X>
       <Y>5</Y>
       <Width>50</Width>
       <Height>50</Height>
-      <ExplodeStrength>1</ExplodeStrength>
+      <EffectStrength>1</EffectStrength>
     </GameObject>
   </GameObjects>
 </PlayField>

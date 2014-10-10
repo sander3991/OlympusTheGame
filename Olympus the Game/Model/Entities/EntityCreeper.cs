@@ -10,7 +10,7 @@ namespace Olympus_the_Game
     {
         static EntityCreeper()
         {
-            RegisterWithEditor(ObjectType.CREEPER, () => { return new EntityCreeper(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.CREEPER, () => { return new EntityCreeper(50, 50, 0, 0, 1f); }); // TODO Maak waarden standaard
         }
 
         // TODO Joel: Property van maken + denk aan limitaties van de property.

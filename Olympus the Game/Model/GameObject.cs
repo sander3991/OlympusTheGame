@@ -94,7 +94,7 @@ namespace Olympus_the_Game
             {
                 return height;
             }
-            private set
+            set
             {
                 if (value >= 0)
                     height = value;
@@ -111,7 +111,7 @@ namespace Olympus_the_Game
             {
                 return width;
             }
-            private set
+            set
             {
                 if (value >= 0)
                     width = value;

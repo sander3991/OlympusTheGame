@@ -5,6 +5,8 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System.Reflection;
+using Olympus_the_Game.View;
 
 namespace Olympus_the_Game
 {
@@ -210,6 +212,7 @@ namespace Olympus_the_Game
             Player = null;
         }
 
+        #region Xml I/O Implementatie
         /// <summary>
         /// Interface implementatie IXmlSerializable
         /// </summary>
@@ -226,12 +229,7 @@ namespace Olympus_the_Game
         {
             reader.Read();
             ///Variabelen om te onthouden wat de gameobject voor variabelen hebben
-            ObjectType objectType = ObjectType.UNKNOWN;
-            int objectWidth = -1; ;
-            int objectHeight = -1;
-            int objectY = -1;
-            int objectX = -1;
-            int explodeStrength = -1;
+            GameObject newObject = null;
             ///boolean om te kijken of hij bezig is met het lezen van een object.
             bool isReadingObject = false;
             while (!(reader.NodeType == XmlNodeType.EndElement && reader.LocalName == "PlayField")) //blijf lezen totdat je bij het eindelement van PlayField bent
@@ -249,28 +247,25 @@ namespace Olympus_the_Game
                                 break;
                             case "Width":
                                 if (isReadingObject)
-                                    objectWidth = Convert.ToInt32(reader.Value);
+                                {
+                                    if (newObject != null)
+                                        newObject.Width = Convert.ToInt32(reader.Value);
+                                }
                                 else
                                     Width = Convert.ToInt32(reader.Value);
                                 break;
                             case "Height":
                                 if (isReadingObject)
-                                    objectHeight = Convert.ToInt32(reader.Value);
+                                {
+                                    if (newObject != null)
+                                        newObject.Height = Convert.ToInt32(reader.Value);
+                                }
                                 else
                                     Height = Convert.ToInt32(reader.Value);
                                 break;
                             case "GameObjects":
                                 isReadingObject = true;
                                 continue;
-                            case "X":
-                                objectX = Convert.ToInt32(reader.Value);
-                                break;
-                            case "Y":
-                                objectY = Convert.ToInt32(reader.Value);
-                                break;
-                            case "ExplodeStrength":
-                                explodeStrength = Convert.ToInt32(reader.Value);
-                                break;
                             case "GameObject":
                                 if (!reader.HasAttributes) //Heeft het huidige object attributen, in het attribuut staat namelijk het object type
                                     Console.WriteLine("Bij het lezen van het XML bestand is er wat fout gegaan, er mist een class in de GameObject attribuut!");
@@ -279,7 +274,7 @@ namespace Olympus_the_Game
                                     Console.WriteLine("Het attribuut kon niet ingelezen worden!");
                                 try
                                 {
-                                    objectType = (ObjectType)System.Enum.Parse(typeof(ObjectType), str); //Zet het om naar het enum type die erbij hoort
+                                    newObject = Utils.CreateObjectOfType((ObjectType)System.Enum.Parse(typeof(ObjectType), str)); //Zet het om naar het enum type die erbij hoort
                                 }
                                 catch (InvalidCastException)
                                 {
@@ -291,64 +286,22 @@ namespace Olympus_the_Game
                                 }
                                 break;
                             default:
+                                if (newObject != null)
+                                {
+                                    PropertyInfo propInfo = newObject.GetType().GetProperty(elementName);
+                                    if(propInfo == null)
+                                        Console.WriteLine("Er ging iets niet goed bij het inlezen van het element {0} in het object van type {1}.", elementName, newObject.Type);
+                                    else
+                                        propInfo.SetValue(newObject, Convert.ChangeType(reader.Value, propInfo.PropertyType), null);
+                                }
                                 break;
                         }
                         break;
                     case XmlNodeType.EndElement:
                         if (reader.LocalName == "GameObject")
                         {
-                            bool hasAllParameters = true;
-                            //controleer of alle gegevens erin staan
-                            if ((objectType == ObjectType.UNKNOWN) || (objectX == -1) || (objectY == -1) || (objectHeight == -1) || (objectWidth == -1))
-                            {
-                                Console.WriteLine("Niet alle parameters van de entity zijn ingelezen!");
-                                hasAllParameters = false;
-                            }
-                            if (objectType == ObjectType.CREEPER || objectType == ObjectType.TIMEBOMB || objectType == ObjectType.EXPLODE)
-                                if (explodeStrength == -1)
-                                {
-                                    Console.WriteLine("Er mist een explodeer parameter!");
-                                    hasAllParameters = false;
-                                }
-                            if (hasAllParameters)
-                            {
-                                switch (objectType)
-                                {
-                                    case ObjectType.SLOWER:
-                                        AddObject(new EntitySlower(objectWidth, objectHeight, objectX, objectY));
-                                        break;
-                                    case ObjectType.TIMEBOMB:
-                                        AddObject(new EntityTimeBomb(objectWidth, objectHeight, objectX, objectY, explodeStrength));
-                                        break;
-                                    case ObjectType.OBSTACLE:
-                                        AddObject(new ObjectObstacle(objectWidth, objectHeight, objectX, objectY));
-                                        break;
-                                    case ObjectType.CREEPER:
-                                        AddObject(new EntityCreeper(objectWidth, objectHeight, objectX, objectY, explodeStrength));
-                                        break;
-                                    case ObjectType.EXPLODE:
-                                        AddObject(new EntityExplode(objectWidth, objectHeight, objectX, objectY, explodeStrength));
-                                        break;
-                                    case ObjectType.START:
-                                        AddObject(new ObjectStart(objectWidth, objectHeight, objectX, objectY));
-                                        break;
-                                    case ObjectType.FINISH:
-                                        AddObject(new ObjectFinish(objectWidth, objectHeight, objectX, objectY));
-                                        break;
-                                    case ObjectType.GHAST:
-                                        AddObject(new EntityGhast(objectWidth, objectHeight, objectX, objectY));
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            //Naar default om de controle voor de volgende te resetten
-                            objectType = ObjectType.UNKNOWN;
-                            objectX = -1;
-                            objectY = -1;
-                            objectWidth = 1;
-                            objectHeight = -1;
-                            explodeStrength = -1;
+                            AddObject(newObject);
+                            newObject = null; //Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
                         }
                         break;
                 }
@@ -367,6 +320,7 @@ namespace Olympus_the_Game
         /// <param name="writer">De schrijver</param>
         public void WriteXml(System.Xml.XmlWriter writer)
         {
+
             writer.WriteElementString("Name", Name);
             writer.WriteElementString("Width", Width.ToString());
             writer.WriteElementString("Height", Height.ToString());
@@ -375,16 +329,19 @@ namespace Olympus_the_Game
             {
                 writer.WriteStartElement("GameObject");
                 writer.WriteAttributeString("Type", o.Type.ToString());
-                writer.WriteElementString("X", o.X.ToString());
-                writer.WriteElementString("Y", o.Y.ToString());
-                writer.WriteElementString("Width", o.Width.ToString());
-                writer.WriteElementString("Height", o.Height.ToString());
-                EntityExplode explode = o as EntityExplode;
-                if (explode != null)
-                    writer.WriteElementString("ExplodeStrength", explode.EffectStrength.ToString());
+                foreach (PropertyInfo fi in o.GetType().GetProperties().Where<PropertyInfo>( //Reflection gemaakt door Ruben, geen idee hoe die het doet maar het iterate over alle Properties
+                    delegate(PropertyInfo pi)
+                    {
+                        string name = pi.Name;
+                        return !EntityEditor.filteredProperties.Contains(name.ToLower()) && pi.CanWrite;
+                    }))
+                {
+                    writer.WriteElementString(fi.Name, fi.GetValue(o, new object[] {}).ToString());
+                }
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();
         }
+        #endregion
     }
 }

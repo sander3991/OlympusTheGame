@@ -17,7 +17,7 @@ namespace Olympus_the_Game.View
 
         private static readonly int ROW_HEIGHT = 20;
 
-        private static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
+        public static readonly string[] filteredProperties = new string[] { "frame", "type", "previousx", "previousy", "playfield" , "entitycontrolledbyai"};
 
         public event Action EntityChanged;
 

@@ -6,13 +6,13 @@ namespace Olympus_the_Game
 
         static EntityExplode()
         {
-            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 0.0f); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 1f); }); // TODO Maak waarden standaard
         }
 
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
-        public readonly double EffectStrength;
+        public double EffectStrength { get; set; }
 
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
