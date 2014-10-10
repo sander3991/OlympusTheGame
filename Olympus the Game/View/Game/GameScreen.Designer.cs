@@ -94,7 +94,7 @@ namespace Olympus_the_Game.View.Game
             this.statistiekenToolStripMenuItem.Name = "statistiekenToolStripMenuItem";
             this.statistiekenToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.statistiekenToolStripMenuItem.Text = "Statistieken";
-            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
+            this.statistiekenToolStripMenuItem.Click += new System.EventHandler(this.ChangeLayoutButtonClicked);
             // 
             // informatieToolStripMenuItem
             // 
@@ -104,7 +104,7 @@ namespace Olympus_the_Game.View.Game
             this.informatieToolStripMenuItem.Name = "informatieToolStripMenuItem";
             this.informatieToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.informatieToolStripMenuItem.Text = "Informatie";
-            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
+            this.informatieToolStripMenuItem.Click += new System.EventHandler(this.ChangeLayoutButtonClicked);
             // 
             // bedieningToolStripMenuItem
             // 
@@ -114,7 +114,7 @@ namespace Olympus_the_Game.View.Game
             this.bedieningToolStripMenuItem.Name = "bedieningToolStripMenuItem";
             this.bedieningToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.bedieningToolStripMenuItem.Text = "Bediening";
-            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
+            this.bedieningToolStripMenuItem.Click += new System.EventHandler(this.ChangeLayoutButtonClicked);
             // 
             // aToolStripMenuItem
             // 
@@ -142,7 +142,7 @@ namespace Olympus_the_Game.View.Game
             this.volledigeWeergaveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
             this.volledigeWeergaveToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.volledigeWeergaveToolStripMenuItem.Text = "Volledige weergave";
-            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.changeLayoutButtonClicked);
+            this.volledigeWeergaveToolStripMenuItem.Click += new System.EventHandler(this.ChangeLayoutButtonClicked);
             // 
             // pauzeToolStripMenuItem
             // 

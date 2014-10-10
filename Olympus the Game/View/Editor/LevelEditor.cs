@@ -299,7 +299,7 @@ namespace Olympus_the_Game.View.Editor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void enter(object sender, DragEventArgs e)
+        private void EntityDragEnter(object sender, DragEventArgs e)
             {
             e.Effect = e.Data.GetDataPresent(typeof (ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
             }

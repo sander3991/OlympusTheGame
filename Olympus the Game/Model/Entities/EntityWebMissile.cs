@@ -67,7 +67,7 @@ namespace Olympus_the_Game.Model.Entities
         /// Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
+        public override string GetDescription()
         {
             return "Webben die de spider schiet";
         }

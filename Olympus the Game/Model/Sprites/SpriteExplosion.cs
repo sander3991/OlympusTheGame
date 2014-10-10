@@ -5,7 +5,7 @@
         /// <summary>
         /// Up-scaling factor of this explosion.
         /// </summary>
-        private const float EXPLOSION_SCALE = 2.0f;
+        private const float ExplosionScale = 2.0f;
 
         /// <summary>
         /// Create a new SpriteExplosion, with the same location as the entity.
@@ -16,13 +16,13 @@
         }
 
         public SpriteExplosion(int width, int height, int x, int y)
-            : base((int) (width*EXPLOSION_SCALE),
-                (int) (height*EXPLOSION_SCALE),
-                x - (int) (width*(EXPLOSION_SCALE - 1.0f))/2,
-                y - (int) (height*(EXPLOSION_SCALE - 1.0f))/2)
+            : base((int) (width*ExplosionScale),
+                (int) (height*ExplosionScale),
+                x - (int) (width*(ExplosionScale - 1.0f))/2,
+                y - (int) (height*(ExplosionScale - 1.0f))/2)
         {
             Type = ObjectType.Spriteexplosion;
-            duration = 1000;
+            Duration = 1000;
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
         }
 
@@ -32,7 +32,7 @@
         public void OnUpdate()
         {
             // If explosion is over, remove from PlayField.
-            if ((OlympusTheGame.GameTime - start) > duration)
+            if ((OlympusTheGame.GameTime - Start) > Duration)
             {
                 OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
                 OlympusTheGame.Playfield.RemoveObject(this);

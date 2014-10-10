@@ -38,7 +38,7 @@ namespace Olympus_the_Game.Model.Entities
         /// Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
+        public override string GetDescription()
         {
             return "Volgt je en explodeert bij aanraken";
         }

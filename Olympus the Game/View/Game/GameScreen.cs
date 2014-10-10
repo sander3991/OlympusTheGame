@@ -179,7 +179,7 @@ namespace Olympus_the_Game.View.Game
             OlympusTheGame.Resume();
         }
 
-        private void changeLayoutButtonClicked(object sender, EventArgs e)
+        private void ChangeLayoutButtonClicked(object sender, EventArgs e)
         {
             UpdateView();
         }

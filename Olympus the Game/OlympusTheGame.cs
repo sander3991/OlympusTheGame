@@ -1,6 +1,5 @@
 ﻿using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
-using Olympus_the_Game.Properties;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -28,7 +27,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Deze houdt de interne tijd bij.
         /// </summary>
-        private static readonly Stopwatch prop_gametime = new Stopwatch();
+        private static readonly Stopwatch PropGametime = new Stopwatch();
 
         private static PlayField prop_playfield;
 
@@ -78,11 +77,11 @@ namespace Olympus_the_Game
         /// </summary>
         public static long GameTime
         {
-            get { return prop_gametime.ElapsedMilliseconds; }
+            get { return PropGametime.ElapsedMilliseconds; }
             set
             {
                 if (value == 0)
-                    prop_gametime.Reset();
+                    PropGametime.Reset();
             }
         }
 
@@ -122,7 +121,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Pause()
         {
-            prop_gametime.Stop();
+            PropGametime.Stop();
             GameTimer.Stop();
             SlowTimer.Stop();
         }
@@ -132,7 +131,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Resume()
         {
-            prop_gametime.Start();
+            PropGametime.Start();
             GameTimer.Start();
             SlowTimer.Start();
         }
@@ -140,7 +139,7 @@ namespace Olympus_the_Game
         public static void Restart()
         {
             //TODO ELMAR: Infoview werkend krijgen na restart
-            prop_gametime.Restart();
+            PropGametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
             Playfield = PlayfieldLoader.ReadFromResource(Properties.Resources.hell);

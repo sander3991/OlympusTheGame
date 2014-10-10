@@ -171,7 +171,7 @@ namespace Olympus_the_Game.Model
         /// Verkrijg beschrijving van entity
         /// </summary>
         /// <returns>Beschrijving</returns>
-        public virtual string getDescription()
+        public virtual string GetDescription()
         {
             return "No description yet";
         }

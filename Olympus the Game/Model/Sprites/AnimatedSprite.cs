@@ -5,12 +5,12 @@
         /// <summary>
         /// Hoe lang deze animatie duurt in milliseconden.
         /// </summary>
-        protected int duration;
+        protected int Duration;
 
         /// <summary>
         /// Wanneer deze animatie is gestart, op een schaal van milliseconden.
         /// </summary>
-        protected long start;
+        protected long Start;
 
         /// <summary>
         /// Maak een nieuw AnimatedSprite aan.
@@ -23,7 +23,7 @@
             : base(width, height, x, y)
         {
             IsSolid = false;
-            start = OlympusTheGame.GameTime;
+            Start = OlympusTheGame.GameTime;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// </summary>
         public override float Frame
         {
-            get { return (OlympusTheGame.GameTime - start)/(float) duration; }
+            get { return (OlympusTheGame.GameTime - Start)/(float) Duration; }
             protected set { }
         }
 

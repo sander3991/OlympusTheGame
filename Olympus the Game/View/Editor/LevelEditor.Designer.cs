@@ -140,7 +140,7 @@ namespace Olympus_the_Game.View.Editor
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
-            this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.EntityDragEnter);
             this.gamePanelEditor.DoubleClick += new System.EventHandler(this.Mouse_DoubleClick);
             this.gamePanelEditor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaatsEntity);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
@@ -165,7 +165,7 @@ namespace Olympus_the_Game.View.Editor
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.Load += new System.EventHandler(this.LevelEditor_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.EntityDragEnter);
             this.Menubar.ResumeLayout(false);
             this.Menubar.PerformLayout();
             this.ResumeLayout(false);

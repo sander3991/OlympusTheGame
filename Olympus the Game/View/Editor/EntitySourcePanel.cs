@@ -36,7 +36,7 @@ namespace Olympus_the_Game.View.Editor
             // Change description
             GameObject go = Utils.CreateObjectOfType(RepresentingType);
             if (go != null)
-                label3.Text = go.getDescription();
+                label3.Text = go.GetDescription();
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 using Olympus_the_Game.Model;
@@ -13,10 +12,10 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// De locatie van de custom maps die ingelezen worden door de MapLoader
         /// </summary>
-        public static readonly string CustomMapLoc = System.Environment.CurrentDirectory + "\\CustomMaps";
+        public static readonly string CustomMapLoc = Environment.CurrentDirectory + "\\CustomMaps";
         private static readonly XmlSerializer Serialiser = new XmlSerializer(typeof(PlayField));
         private static FileSystemWatcher directoryWatcher;
-        private static Dictionary<string, string> customMaps; //customMaps, de key is de locatie van het bestand, de value is de omschrijving van het bestand
+        private static readonly Dictionary<string, string> customMaps; //customMaps, de key is de locatie van het bestand, de value is de omschrijving van het bestand
 
         public delegate void DelCustomMapChanged(string mapName, string fileName);
         /// <summary>
@@ -35,9 +34,8 @@ namespace Olympus_the_Game.Controller
         {
             get
             {
-                return customMaps.Values.ToArray<string>();
+                return customMaps.Values.ToArray();
             }
-            private set{} 
         }
         static PlayfieldLoader()
         {
@@ -173,7 +171,6 @@ namespace Olympus_the_Game.Controller
         /// <returns>Het PlayField object dat bij het Xml bestand hoort</returns>
         internal static PlayField ReadFromResource(string xml)
         {
-            StringReader strReader = new StringReader(xml);
             StringReader str = null;
             try
             {

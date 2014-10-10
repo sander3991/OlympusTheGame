@@ -38,9 +38,9 @@ namespace Olympus_the_Game.View.Game
             IsResized = false;
             list = new Dictionary<Entity, ListViewItem>();
             // Initialiseer de eerste lijst
-            List<GameObject> Entitys = OlympusTheGame.Playfield.GameObjects;
+            List<GameObject> entitys = OlympusTheGame.Playfield.GameObjects;
 
-            foreach (GameObject g in Entitys)
+            foreach (GameObject g in entitys)
             {
                 Entity ent = g as Entity;
 
@@ -105,10 +105,10 @@ namespace Olympus_the_Game.View.Game
         {
             if (list.ContainsKey(e))
             {
-                ListViewItem LVItem = list[e];
-                LVItem.SubItems[1].Text = e.X.ToString();
-                LVItem.SubItems[2].Text = e.Y.ToString();
-                LVItem.SubItems[3].Text = Math.Abs(e.DX + e.DY).ToString();
+                ListViewItem lvItem = list[e];
+                lvItem.SubItems[1].Text = e.X.ToString();
+                lvItem.SubItems[2].Text = e.Y.ToString();
+                lvItem.SubItems[3].Text = Math.Abs(e.DX + e.DY).ToString();
             }
         }
 

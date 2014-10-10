@@ -35,8 +35,8 @@ namespace Olympus_the_Game.View.Menu
 
     public partial class HelpDialog : UserControl
     {
-        private const int TIMERINTERVAL = 50;
-        private static readonly Color fontColor = Color.FromArgb(247, 112, 22);
+        private const int Timerinterval = 50;
+        private static readonly Color FontColor = Color.FromArgb(247, 112, 22);
         private readonly HelpItem[] helpItems;
         private readonly Timer scrollTimer;
         private readonly int totalScrollHeight;
@@ -47,9 +47,9 @@ namespace Olympus_the_Game.View.Menu
             InitializeComponent();
             Visible = false;
             label1.Text = label1.Text.ToUpper();
-            label1.ForeColor = fontColor;
+            label1.ForeColor = FontColor;
             scrollTimer = new Timer();
-            scrollTimer.Interval = TIMERINTERVAL;
+            scrollTimer.Interval = Timerinterval;
             scrollTimer.Tick += scrollTimer_Tick;
             VisibleChanged += OnVisibleChanged;
 
@@ -72,7 +72,7 @@ namespace Olympus_the_Game.View.Menu
             {
                 item.Label.Location = labelLoc;
                 item.Picture.Location = picLoc;
-                item.Label.ForeColor = fontColor;
+                item.Label.ForeColor = FontColor;
             }
             totalScrollHeight = -(label1.Height + helpItems.Length*100);
         }
@@ -103,7 +103,7 @@ namespace Olympus_the_Game.View.Menu
         {
             ScrollContent(-4);
             if (scrollTimer.Interval == 5000)
-                scrollTimer.Interval = TIMERINTERVAL;
+                scrollTimer.Interval = Timerinterval;
         }
 
         private void HelpDialog_MouseWheel(object sender, MouseEventArgs e)
