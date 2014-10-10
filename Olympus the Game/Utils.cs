@@ -18,7 +18,7 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static Control getParentControl(Control c)
+        public static Control GetParentControl(Control c)
         {
             Control c2 = c;
             while (!(c2 is UserControl))
@@ -45,7 +45,7 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-            MaskForm.Size = getScreenSize();
+            MaskForm.Size = GetScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
 
@@ -65,7 +65,7 @@ namespace Olympus_the_Game
             MaskForm.Visible = showMask;
         }
 
-        public static Size getScreenSize()
+        public static Size GetScreenSize()
         {
             return new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
@@ -75,19 +75,19 @@ namespace Olympus_the_Game
             if (fullScreen)
             {
                 f.FormBorderStyle = FormBorderStyle.None;
-                f.Size = getScreenSize();
+                f.Size = GetScreenSize();
                 f.Location = Point.Empty;
             }
             else
             {
                 f.FormBorderStyle = FormBorderStyle.Fixed3D;
                 f.Size = new Size(1024, 768);
-                Size full = getScreenSize();
+                Size full = GetScreenSize();
                 f.Location = new Point((full.Width - f.Width)/2, (full.Height - f.Height)/2);
             }
         }
 
-        public static void setButtonStyle(Button b)
+        public static void SetButtonStyle(Button b)
         {
             b.BackgroundImage = Resources.stone;
             b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);

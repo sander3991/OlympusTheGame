@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Olympus_the_Game.Model;
 
@@ -18,9 +18,8 @@ namespace Olympus_the_Game.View.Editor
         {
             int pad = PaddingTop;
 
-            foreach (KeyValuePair<ObjectType, Func<GameObject>> a in GameObject.ConstructorList)
+            foreach (EntitySourcePanel esp in GameObject.ConstructorList.Select(a => new EntitySourcePanel(a.Key)))
             {
-                EntitySourcePanel esp = new EntitySourcePanel(a.Key);
                 esp.Left = (Width - esp.Width)/2;
                 esp.Top = pad;
 

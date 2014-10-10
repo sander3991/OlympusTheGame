@@ -28,7 +28,7 @@ namespace Olympus_the_Game.View.Buttons
         {
             if (e.Button == MouseButtons.Left)
             {
-                Control c = Utils.getParentControl(this);
+                Control c = Utils.GetParentControl(this);
                 c.Left = e.X + c.Left - MouseDownLocation.X;
                 c.Top = e.Y + c.Top - MouseDownLocation.Y;
                 c.BringToFront();
@@ -44,7 +44,7 @@ namespace Olympus_the_Game.View.Buttons
         {
             if (e.Button == MouseButtons.Left)
             {
-                Control c = Utils.getParentControl(this);
+                Control c = Utils.GetParentControl(this);
                 c.Left = e.X + c.Left - MouseDownLocation.X;
                 c.Top = e.Y + c.Top - MouseDownLocation.Y;
                 c.BackColor = Color.Transparent;

@@ -9,7 +9,7 @@ namespace Olympus_the_Game.View.Imaging
         /// <summary>
         /// Bitmap that will be returned when nothing logical can be returned.
         /// </summary>
-        public static readonly Bitmap EMPTY = new Bitmap(1, 1);
+        public static readonly Bitmap Empty = new Bitmap(1, 1);
 
         /// <summary>
         /// Create a new Sprite.
@@ -105,23 +105,20 @@ namespace Olympus_the_Game.View.Imaging
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                if (Frames == -1.0f) // Index == -1, geef interne plaatje
+                if (Math.Abs(Frames - (-1.0f)) < 0.01f) // Index == -1, geef interne plaatje
                 {
                     return Image;
                 }
                 if (!Cyclic)
                 {
                     if (index >= 1.0f)
-                        return EMPTY;
+                        return Empty;
                     if (index < 0.0f) index = 0.0f;
                     return Images[(int) (index*Images.Count)];
                 }
-                if (Cyclic)
-                {
-                    index = index - (int) index;
-                    return Images[(int) (index*Images.Count)];
-                }
-                return EMPTY;
+                if (!Cyclic) return Empty;
+                index = index - (int) index;
+                return Images[(int) (index*Images.Count)];
             }
         }
 
@@ -195,7 +192,7 @@ namespace Olympus_the_Game.View.Imaging
         /// <param name="rows"></param>
         /// <param name="columns"></param>
         /// <returns></returns>
-        private static List<Bitmap> CutupImage(Bitmap bitmap, int rows, int columns)
+        private static List<Bitmap> CutupImage(Image bitmap, int rows, int columns)
         {
             // Determine target
             Size s = new Size(bitmap.Width/columns, bitmap.Height/rows);

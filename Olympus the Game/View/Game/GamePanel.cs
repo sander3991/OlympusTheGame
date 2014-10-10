@@ -17,28 +17,28 @@ namespace Olympus_the_Game.View.Game
         /// <summary>
         /// Padding van het speelveld, deze rand wordt er altijd omheen gehouden.
         /// </summary>
-        private static readonly int PADDING = 35;
+        private const int BorderPadding = 35;
 
         /// <summary>
         /// Variabele die Playfield bijhoudt.
         /// </summary>
-        private PlayField prop_playfield;
+        private PlayField _propPlayfield;
 
         /// <summary>
         /// Schaal van het speelveld
         /// </summary>
-        public double SCALE { get; private set; }
+        public double PlayfieldScale { get; private set; }
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
         /// </summary>
         public PlayField Playfield
         {
-            get { return prop_playfield; }
+            get { return _propPlayfield; }
             set
             {
                 // Change value and recalculate scale and size
-                prop_playfield = value;
+                _propPlayfield = value;
                 Recalculate();
             }
         }
@@ -82,7 +82,7 @@ namespace Olympus_the_Game.View.Game
 
             // Register to updateloop
             if (OlympusTheGame.GameController != null)
-                OlympusTheGame.GameController.UpdateGameEvents += delegate { Invalidate(); };
+                OlympusTheGame.GameController.UpdateGameEvents += Invalidate;
 
             // Set max size
             MaxSize = Size;
@@ -95,10 +95,10 @@ namespace Olympus_the_Game.View.Game
 
         #region Draw Functions
 
-        private void draw(GameObject go, Graphics g)
+        private void Draw(GameObject go, Graphics g)
         {
             // Get preferred size and location
-            Size s = new Size((int) (go.Width*SCALE), (int) (go.Height*SCALE));
+            Size s = new Size((int) (go.Width*PlayfieldScale), (int) (go.Height*PlayfieldScale));
             Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
 
             // Generate target rectangle
@@ -118,12 +118,12 @@ namespace Olympus_the_Game.View.Game
             // Loop through all gameobjects
             foreach (GameObject go in objects)
             {
-                draw(go, g);
+                Draw(go, g);
             }
 
             // Draw player
             if (Playfield.Player != null)
-                draw(Playfield.Player, g);
+                Draw(Playfield.Player, g);
         }
 
         #endregion
@@ -151,7 +151,7 @@ namespace Olympus_the_Game.View.Game
         /// <returns></returns>
         public Point TranslatePanelToPlayField(Point p)
         {
-            return new Point((int) (p.X/SCALE), (int) (p.Y/SCALE));
+            return new Point((int) (p.X/PlayfieldScale), (int) (p.Y/PlayfieldScale));
         }
 
         /// <summary>
@@ -161,14 +161,14 @@ namespace Olympus_the_Game.View.Game
         /// <returns></returns>
         public Point TranslatePlayFieldToPanel(Point p)
         {
-            return new Point((int) (p.X*SCALE), (int) (p.Y*SCALE));
+            return new Point((int) (p.X*PlayfieldScale), (int) (p.Y*PlayfieldScale));
         }
 
         /// <summary>
         /// Geeft de locatie van de cursor ten opzichte van dit panel.
         /// </summary>
         /// <returns></returns>
-        public Point getCursorPosition()
+        public Point GetCursorPosition()
         {
             return PointToClient(Cursor.Position);
         }
@@ -177,9 +177,9 @@ namespace Olympus_the_Game.View.Game
         /// Geeft de locatie van de cursor in coordinaten van het PlayField
         /// </summary>
         /// <returns></returns>
-        public Point getCursorPlayFieldPosition()
+        public Point GetCursorPlayFieldPosition()
         {
-            return TranslatePanelToPlayField(getCursorPosition());
+            return TranslatePanelToPlayField(GetCursorPosition());
         }
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace Olympus_the_Game.View.Game
             // Fix playfield scaling
             double ratioWidth = Playfield.Width/(double) MaxSize.Width;
             double ratioHeight = Playfield.Height/(double) MaxSize.Height;
-            SCALE = 1/Math.Max(ratioWidth, ratioHeight);
-            Size = new Size((int) (Playfield.Width*SCALE), (int) (Playfield.Height*SCALE));
+            PlayfieldScale = 1/Math.Max(ratioWidth, ratioHeight);
+            Size = new Size((int) (Playfield.Width*PlayfieldScale), (int) (Playfield.Height*PlayfieldScale));
 
             // Empty image buffer
             DataPool.ClearImagePool();
@@ -223,27 +223,24 @@ namespace Olympus_the_Game.View.Game
             int barHeight = 0;
 
             // Loop objects
-            foreach (Control c in parent.Controls)
+            foreach (Control c in from Control c in parent.Controls where c != this && c.Visible select c)
             {
-                if (c != this && c.Visible)
+                if (c.GetType() == typeof (MenuStrip))
                 {
-                    if (c.GetType() == typeof (MenuStrip))
-                    {
-                        barHeight = c.Height;
-                    }
-                    else
-                    {
-                        // Get control location
-                        Point p = c.Location;
+                    barHeight = c.Height;
+                }
+                else
+                {
+                    // Get control location
+                    Point p = c.Location;
 
-                        currentSize = ScaleDown(currentSize, p, ratio);
-                    }
+                    currentSize = ScaleDown(currentSize, p, ratio);
                 }
             }
 
             // Change size
-            Location = new Point(PADDING, PADDING + barHeight);
-            MaxSize = new Size(currentSize.Width - 2*PADDING, currentSize.Height - 2*PADDING - barHeight);
+            Location = new Point(BorderPadding, BorderPadding + barHeight);
+            MaxSize = new Size(currentSize.Width - 2*BorderPadding, currentSize.Height - 2*BorderPadding - barHeight);
             MaxSize = new Size(Math.Max(MaxSize.Width, minimalSize.Width), Math.Max(MaxSize.Height, minimalSize.Height));
             // Recalculate
             Recalculate();
@@ -273,9 +270,9 @@ namespace Olympus_the_Game.View.Game
         /// Geeft het object terug waar de cursor op dit moment op staat.
         /// </summary>
         /// <returns></returns>
-        public GameObject getObjectAtCursor()
+        public GameObject GetObjectAtCursor()
         {
-            Point p = getCursorPlayFieldPosition();
+            Point p = GetCursorPlayFieldPosition();
             // Get list of objects at that location
             List<GameObject> objects = Playfield.GetObjectsAtLocation(p.X, p.Y);
 

@@ -50,7 +50,7 @@ namespace Olympus_the_Game.View.Editor
             gamePanelEditor.Select();
 
             // Start music
-            Mp3Player.SetResource(DataPool.gameSound);
+            Mp3Player.SetResource(DataPool.GameSound);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void Mouse_DoubleClick(object sender, EventArgs e)
         {
-            GameObject go = gamePanelEditor.getObjectAtCursor();
+            GameObject go = gamePanelEditor.GetObjectAtCursor();
             entityEditor1.LoadData(go);
         }
 
@@ -181,7 +181,7 @@ namespace Olympus_the_Game.View.Editor
             // Creeper
             if (e.KeyChar == (char) Keys.D1)
             {
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
                 gamePanelEditor.Invalidate();
             }
@@ -189,7 +189,7 @@ namespace Olympus_the_Game.View.Editor
                 // Spider
             else if (e.KeyChar == (char) Keys.D2)
             {
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
                 gamePanelEditor.Invalidate();
             }
@@ -197,7 +197,7 @@ namespace Olympus_the_Game.View.Editor
                 // TnT
             else if (e.KeyChar == (char) Keys.D3)
             {
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
                 gamePanelEditor.Invalidate();
             }
@@ -205,7 +205,7 @@ namespace Olympus_the_Game.View.Editor
                 // TimeBomb
             else if (e.KeyChar == (char) Keys.D4)
             {
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
                 gamePanelEditor.Invalidate();
             }
@@ -214,7 +214,7 @@ namespace Olympus_the_Game.View.Editor
             else if (e.KeyChar == (char) Keys.D5)
             {
                 CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
                 gamePanelEditor.Invalidate();
             }
@@ -223,7 +223,7 @@ namespace Olympus_the_Game.View.Editor
             else if (e.KeyChar == (char) Keys.D6)
             {
                 CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
                 gamePanelEditor.Invalidate();
             }
@@ -231,7 +231,7 @@ namespace Olympus_the_Game.View.Editor
                 // Obstakel
             else if (e.KeyChar == (char) Keys.D7)
             {
-                Point pointer = gamePanelEditor.getCursorPlayFieldPosition();
+                Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                 CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
                 gamePanelEditor.Invalidate();
             }
@@ -259,10 +259,10 @@ namespace Olympus_the_Game.View.Editor
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
         {
             // Set current dragging object
-            currentDraggingObject = gamePanelEditor.getObjectAtCursor();
+            currentDraggingObject = gamePanelEditor.GetObjectAtCursor();
             if (currentDraggingObject != null)
-                offset = new Point(gamePanelEditor.getCursorPlayFieldPosition().X - currentDraggingObject.X,
-                    gamePanelEditor.getCursorPlayFieldPosition().Y - currentDraggingObject.Y);
+                offset = new Point(gamePanelEditor.GetCursorPlayFieldPosition().X - currentDraggingObject.X,
+                    gamePanelEditor.GetCursorPlayFieldPosition().Y - currentDraggingObject.Y);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Olympus_the_Game.View.Editor
         {
             if (currentDraggingObject != null)
             {
-                Point p = gamePanelEditor.getCursorPlayFieldPosition();
+                Point p = gamePanelEditor.GetCursorPlayFieldPosition();
                 currentDraggingObject.X = p.X - offset.X;
                 currentDraggingObject.Y = p.Y - offset.Y;
                 gamePanelEditor.Invalidate();
@@ -312,8 +312,8 @@ namespace Olympus_the_Game.View.Editor
         {
             // Get relative location
             /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
-            l = new Point((int)((double)l.X / this.gamePanelEditor.SCALE), (int)((double)l.Y / this.gamePanelEditor.SCALE));*/
-            Point l = gamePanelEditor.getCursorPlayFieldPosition();
+            l = new Point((int)((double)l.X / this.gamePanelEditor.PlayfieldScale), (int)((double)l.Y / this.gamePanelEditor.PlayfieldScale));*/
+            Point l = gamePanelEditor.GetCursorPlayFieldPosition();
             object o = e.Data.GetData(typeof (ObjectType));
             if (o == null) return;
             ObjectType ot = (ObjectType) o;
@@ -346,7 +346,7 @@ namespace Olympus_the_Game.View.Editor
             switch (e.Button)
             {
                 case MouseButtons.Right:
-                    gamePanelEditor.Playfield.GameObjects.Remove(gamePanelEditor.getObjectAtCursor());
+                    gamePanelEditor.Playfield.GameObjects.Remove(gamePanelEditor.GetObjectAtCursor());
                     gamePanelEditor.Invalidate();
                     break;
             }

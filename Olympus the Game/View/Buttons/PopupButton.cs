@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View.Buttons
 
         private void ButtonRemove_Click(object sender, EventArgs e)
         {
-            Control parent = Utils.getParentControl(this);
+            Control parent = Utils.GetParentControl(this);
             loc = parent.Location;
             SourceForm = parent.FindForm();
             if (SourceForm != null) SourceForm.Controls.Remove(parent);
@@ -40,7 +40,7 @@ namespace Olympus_the_Game.View.Buttons
 
         private void BringBack(object source, EventArgs e)
         {
-            Control parent = Utils.getParentControl(this);
+            Control parent = Utils.GetParentControl(this);
 
             Form f = parent.FindForm();
             if (f != null)

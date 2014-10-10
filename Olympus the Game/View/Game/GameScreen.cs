@@ -131,7 +131,7 @@ namespace Olympus_the_Game.View.Game
             updateView();
 
             // Start music
-            Mp3Player.SetResource(DataPool.gameSound);
+            Mp3Player.SetResource(DataPool.GameSound);
             Mp3Player.Loop(true);
         }
 
