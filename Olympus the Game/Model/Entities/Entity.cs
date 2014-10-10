@@ -46,11 +46,11 @@ namespace Olympus_the_Game
         /// <summary>
         /// Initialiseert een Entity zonder dat hij beweegt in het begin.
         /// </summary>
-        public Entity(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
+        protected Entity(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
         /// <summary>
         /// Initialiseert een Entity met een meegegeven DX en DY waarde. Deze wordt vanaf het begin gelijk toegepast
         /// </summary>
-        public Entity(int width, int height, int x, int y, int dx, int dy)
+        protected Entity(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y)
         {
             DX = dx;

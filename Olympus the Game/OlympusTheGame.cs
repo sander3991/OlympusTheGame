@@ -2,29 +2,30 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Olympus_the_Game.View.Menu;
 
 namespace Olympus_the_Game
 {
     public class OlympusTheGame
     {
         // Het scherm van het spel
-        private static MainMenu mm;
+        private static Mainmenu mm;
 
         /// <summary>
         /// Deze timer voert alle game events uit.
         /// </summary>
         /// Er is voor een Windows Forms Timer gekozen zodat er geen problemen ontstaan met cross-thread updating in Windows Forms.
-        private static Timer GameTimer = new Timer();
+        private static readonly Timer GameTimer = new Timer();
 
         /// <summary>
         /// Deze timer voert de SlowEvents uit.
         /// </summary>
-        private static Timer SlowTimer = new Timer();
+        private static readonly Timer SlowTimer = new Timer();
 
         /// <summary>
         /// Deze houdt de interne tijd bij.
         /// </summary>
-        private static Stopwatch prop_gametime = new Stopwatch();
+        private static readonly Stopwatch prop_gametime = new Stopwatch();
 
         private static PlayField prop_playfield;
 
@@ -55,7 +56,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// De controller, deze regelt alle events en updates
         /// </summary>
-        public static Controller Controller { get; private set; }
+        public static Controller.Controller Controller { get; private set; }
 
         /// <summary>
         /// Geeft aan of het spel gepauzeerd is.
@@ -102,14 +103,14 @@ namespace Olympus_the_Game
         {
             // non-static object aanmaken
             SetController();
-            mm = new MainMenu();
+            mm = new Mainmenu();
             Application.Run(mm);
         }
 
         public static void SetController()
         {
             if (Controller == null)
-                Controller = new Controller();
+                Controller = new Controller.Controller();
 
             // Add gameloop to timer
             GameTimer.Tick += Controller.ExecuteUpdateGameEvent;

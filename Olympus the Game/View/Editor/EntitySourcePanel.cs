@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.View.Imaging;
 
-namespace Olympus_the_Game.View.Game.Editor
+namespace Olympus_the_Game.View.Editor
 {
     public partial class EntitySourcePanel : UserControl
     {

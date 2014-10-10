@@ -10,13 +10,13 @@ using Olympus_the_Game.View.Imaging;
 using System.Reflection;
 using Olympus_the_Game.View.Editor;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Editor
 {
     public partial class EntityEditor : UserControl
     {
-        private static readonly int PADDING = 3;
+        private const int PADDING = 3;
 
-        private static readonly int ROW_HEIGHT = 20;
+        private const int RowHeight = 20;
 
         public event Action EntityChanged;
 
@@ -62,7 +62,7 @@ namespace Olympus_the_Game.View
                     delegate(PropertyInfo pi)
                     {
                         object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
-                        return pi.CanWrite && (attributes.Count() == 0 || !((ExcludeFromEditor) attributes[0]).Exclude);
+                        return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor) attributes[0]).Exclude);
                     }))
                 {
                     // Create label
@@ -70,14 +70,14 @@ namespace Olympus_the_Game.View
                     l.Text = fi.Name;
                     l.Left = PADDING;
                     l.Top = pad;
-                    l.Height = ROW_HEIGHT;
+                    l.Height = RowHeight;
 
                     // Create textbox
                     TextBox tb = new TextBox();
                     tb.Text = fi.GetValue(go, new object[] { }).ToString();
                     tb.Top = pad;
                     tb.Left = 150;
-                    tb.Height = ROW_HEIGHT;
+                    tb.Height = RowHeight;
                     tb.Width = 150;
 
                     // Add to dictionary

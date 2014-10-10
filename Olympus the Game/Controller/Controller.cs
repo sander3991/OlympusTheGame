@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Diagnostics;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public enum FinishType
     {
-        DEAD,
-        CAKE,
+        Dead,
+        Cake,
     }
     public class Controller
     {
@@ -50,12 +43,12 @@ namespace Olympus_the_Game
         /// <summary>
         /// Laatste update van de AI
         /// </summary>
-        private long lastAIUpdate = -1;
+        private long _lastAiUpdate = -1;
 
         /// <summary>
         /// De tijd tussen 2 AI updates
         /// </summary>
-        private long AIUpdateInterval = 1000;
+        private const long AiUpdateInterval = 1000;
 
         /// <summary>
         /// Genereert een nieuwe Controller
@@ -84,7 +77,7 @@ namespace Olympus_the_Game
             {
                 OlympusTheGame.Pause();
                 if (OnPlayerFinished != null)
-                    OnPlayerFinished(FinishType.DEAD); //TODO add score hier
+                    OnPlayerFinished(FinishType.Dead); //TODO add score hier
             }
         }
 
@@ -96,7 +89,7 @@ namespace Olympus_the_Game
             Scoreboard.AddScore(ScoreType.Time, Math.Min(0, gameTime * -10));
             Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health * 200);
             if (OnPlayerFinished != null)
-                OnPlayerFinished(FinishType.CAKE);
+                OnPlayerFinished(FinishType.Cake);
         }
 
         /// <summary>
@@ -170,9 +163,9 @@ namespace Olympus_the_Game
         public void UpdateEntityAI()
         {
             // Scale down to 1 second
-            if (OlympusTheGame.GameTime < lastAIUpdate) lastAIUpdate = -1;
-            if (lastAIUpdate != -1 && OlympusTheGame.GameTime < lastAIUpdate + AIUpdateInterval) return;
-            lastAIUpdate = OlympusTheGame.GameTime;
+            if (OlympusTheGame.GameTime < _lastAiUpdate) _lastAiUpdate = -1;
+            if (_lastAiUpdate != -1 && OlympusTheGame.GameTime < _lastAiUpdate + AiUpdateInterval) return;
+            _lastAiUpdate = OlympusTheGame.GameTime;
 
             Random rand = new Random(); //Maakt een random generator
             List<GameObject> gameObjects = OlympusTheGame.Playfield.GameObjects;

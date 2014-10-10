@@ -42,7 +42,7 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.Controller;
+            Controller.Controller contr = OlympusTheGame.Controller;
             PlayField pf = OlympusTheGame.Playfield;
             if (!fieldRemoved)
             {

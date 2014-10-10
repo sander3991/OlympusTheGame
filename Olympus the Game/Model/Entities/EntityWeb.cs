@@ -9,7 +9,7 @@ namespace Olympus_the_Game
     public class EntityWeb : Entity
     {
         private static bool isSlowingPlayer = false;
-        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private readonly Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_SlowStrength = 2;
         private int prop_removetime = 3000;
         /// <summary>

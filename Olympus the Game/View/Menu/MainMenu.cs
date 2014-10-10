@@ -1,4 +1,5 @@
 ﻿using Olympus_the_Game.View;
+using Olympus_the_Game.View.Editor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,29 +11,29 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.View.Menu
 {
     /// <summary>
     /// Mainmenu form
     /// Bevat onderandere een control met buttons
     /// Splashscreen magic happens here
     /// </summary>
-    public partial class MainMenu : Form
+    public partial class Mainmenu : Form
     {
         // Timer die gebruikt word voor het afspelen van splashscreen.gif
-        System.Windows.Forms.Timer gifTimer = new System.Windows.Forms.Timer();
+        readonly System.Windows.Forms.Timer gifTimer = new System.Windows.Forms.Timer();
 
         private bool firstInit = true;
 
         private GameScreen gs;
 
-        public MainMenu()
+        public Mainmenu()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Wordt aangeroepen zodra de visibility van het MainMenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
+        /// Wordt aangeroepen zodra de visibility van het Mainmenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -259,7 +260,6 @@ namespace Olympus_the_Game
 
         private void LoadEditor(object sender, EventArgs e)
         {
-            System.IO.Stream fileStream;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
@@ -270,6 +270,7 @@ namespace Olympus_the_Game
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 // en er is een bestand geselecteerd
+                System.IO.Stream fileStream;
                 if ((fileStream = openFileDialog1.OpenFile()) != null)
                 {
                     // Lees bestand
@@ -293,8 +294,8 @@ namespace Olympus_the_Game
         {
             CenterControl(this.levelEditorMenu1);
             CenterControl(this.levelDialog1);
-            CenterControl(mainMenuControl1);
-            CenterControl(settingsDialog1);
+            CenterControl(this.mainMenuControl1);
+            CenterControl(this.settingsDialog1);
         }
 
         private void ShowMaskAndStartGame(object source, EventArgs ea)

@@ -43,8 +43,8 @@ namespace Olympus_the_Game.View.Menu
     {
         private int prop_scroll;
         private const int TIMERINTERVAL = 50;
-        private Timer scrollTimer;
-        private HelpItem[] helpItems;
+        private readonly Timer scrollTimer;
+        private readonly HelpItem[] helpItems;
         private readonly int totalScrollHeight;
         private static readonly Color fontColor = Color.FromArgb(247, 112, 22);
         public int ScrollLoc

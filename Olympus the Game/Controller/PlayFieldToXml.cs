@@ -9,7 +9,7 @@ namespace Olympus_the_Game
 {
     class PlayFieldToXml
     {
-        private static XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
+        private static readonly XmlSerializer serialiser = new XmlSerializer(typeof(PlayField));
         private PlayFieldToXml() { }
         /// <summary>
         /// Leest een XML bestand in.

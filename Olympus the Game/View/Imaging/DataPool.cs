@@ -16,12 +16,12 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Source images
         /// </summary>
-        private static Dictionary<ObjectType, Sprite> source = new Dictionary<ObjectType, Sprite>();
+        private static readonly Dictionary<ObjectType, Sprite> source = new Dictionary<ObjectType, Sprite>();
 
         /// <summary>
         /// Buffer of all images
         /// </summary>
-        private static Dictionary<Tuple<ObjectType, Size>, Sprite> images = new Dictionary<Tuple<ObjectType, Size>, Sprite>();
+        private static readonly Dictionary<Tuple<ObjectType, Size>, Sprite> images = new Dictionary<Tuple<ObjectType, Size>, Sprite>();
 
         /// <summary>
         /// Voegt alle plaatjes toe aan de bron-dictionary.

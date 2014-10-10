@@ -59,7 +59,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Pause()
         {
-            string command = "pause MyMp3";
+            const string command = "pause MyMp3";
             mciSendString(command, null, 0, 0);
             IsPlaying = false;
         }

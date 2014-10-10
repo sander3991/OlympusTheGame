@@ -19,7 +19,7 @@ namespace Olympus_the_Game
 
     static class Scoreboard
     {
-        private static Dictionary<ScoreType, int> score = new Dictionary<ScoreType, int>();
+        private static readonly Dictionary<ScoreType, int> score = new Dictionary<ScoreType, int>();
         static Scoreboard()
         {
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;

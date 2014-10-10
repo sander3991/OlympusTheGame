@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
 
 namespace Olympus_the_Game.View.Game
 {
@@ -23,10 +24,10 @@ namespace Olympus_the_Game.View.Game
             int score = Scoreboard.Score;
             switch (type)
             {
-                case FinishType.DEAD:
+                case FinishType.Dead:
                     berichtLabel.Text = "Helaas, je bent dood gegaan! Wat wil je doen?";
                     break;
-                case FinishType.CAKE:
+                case FinishType.Cake:
                     berichtLabel.Text = "Gefeliciteerd! Je hebt gewonnen!";
                     break;
             }

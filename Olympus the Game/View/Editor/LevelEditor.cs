@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Editor
 {
     public partial class LevelEditor : Form
     {

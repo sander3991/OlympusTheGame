@@ -10,11 +10,11 @@ namespace Olympus_the_Game
         /// <summary>
         /// De X locatie van de target
         /// </summary>
-        private int targetX;
+        private readonly int targetX;
         /// <summary>
         /// De Y Locatie van de target
         /// </summary>
-        private int targetY;
+        private readonly int targetY;
         private int prop_missilespeed = 6;
         /// <summary>
         /// De snelheid van de missile
@@ -44,7 +44,7 @@ namespace Olympus_the_Game
         /// <summary>
         /// Wie heeft deze missile geschoten
         /// </summary>
-        private EntitySlower source;
+        private readonly EntitySlower source;
         /// <summary>
         /// Maakt een Missile object
         /// </summary>

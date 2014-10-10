@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows;
+using Olympus_the_Game.Controller;
 using Olympus_the_Game.View.Game;
 using System.Threading;
 

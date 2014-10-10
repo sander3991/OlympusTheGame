@@ -7,7 +7,7 @@ namespace Olympus_the_Game
 {
     public class EntityFireBall : Entity
     {
-        private EntityGhast owner;
+        private readonly EntityGhast owner;
         private int prop_fireballspeed = 50; // Factor van maken
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40

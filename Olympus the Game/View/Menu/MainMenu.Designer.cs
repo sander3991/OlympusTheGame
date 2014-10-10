@@ -1,5 +1,5 @@
-﻿namespace Olympus_the_Game {
-    partial class MainMenu {
+﻿namespace Olympus_the_Game.View.Menu {
+    partial class Mainmenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainmenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
@@ -102,7 +102,7 @@
             this.helpDialog1.TabIndex = 6;
             this.helpDialog1.Visible = false;
             // 
-            // MainMenu
+            // Mainmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

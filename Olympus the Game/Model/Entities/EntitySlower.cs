@@ -13,7 +13,7 @@ namespace Olympus_the_Game
             RegisterWithEditor(ObjectType.SLOWER, () => { return new EntitySlower(50, 50, 0, 0); }); // TODO Maak waarden standaard
         }
 
-        private Stopwatch stopwatch = Stopwatch.StartNew();
+        private readonly Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_effectrange = 200;
         private int prop_firespeed = 2000;
         /// <summary>

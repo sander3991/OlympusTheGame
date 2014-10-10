@@ -340,7 +340,7 @@ namespace Olympus_the_Game
                     delegate(PropertyInfo pi)
                     {
                         object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
-                        return pi.CanWrite && (attributes.Count() == 0 || !((ExcludeFromEditor)attributes[0]).Exclude);
+                        return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor)attributes[0]).Exclude);
                     }))
                 {
                     writer.WriteElementString(fi.Name, fi.GetValue(o, new object[] {}).ToString());

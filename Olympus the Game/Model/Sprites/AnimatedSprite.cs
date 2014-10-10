@@ -44,7 +44,7 @@ namespace Olympus_the_Game
         /// <param name="height">Hoogte</param>
         /// <param name="x">X-coordinaat</param>
         /// <param name="y">Y-coordinaat</param>
-        public AnimatedSprite(int width, int height, int x, int y)
+        protected AnimatedSprite(int width, int height, int x, int y)
             : base(width, height, x, y)
         {
             IsSolid = false;

@@ -10,7 +10,7 @@ namespace Olympus_the_Game
 {
     class Utils
     {
-        private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
+        private const bool DISABLE_MASK = false; // TODO Release: Deze regel verwijderen
 
         public static readonly int MASK_FADE_DURATION = 500;
 
@@ -24,7 +24,7 @@ namespace Olympus_the_Game
         public static Control getParentControl(Control c)
         {
             Control c2 = c;
-            while (!typeof(UserControl).IsAssignableFrom(c2.GetType()))
+            while (!(c2 is UserControl))
             {
                 c2 = c2.Parent;
             }

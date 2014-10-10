@@ -11,7 +11,7 @@ namespace Olympus_the_Game
 {
     public static class Mp3Player
     {
-        private static WindowsMediaPlayer player = new WindowsMediaPlayer();
+        private static readonly WindowsMediaPlayer player = new WindowsMediaPlayer();
         private static int fadeInCounter;
         private static bool stopFading = false;
         public static bool IsPlaying { get; private set; }
@@ -60,8 +60,7 @@ namespace Olympus_the_Game
 
         public static string PrepareResource(byte[] resource, string name)
         {
-            string tfl;
-            tfl = String.Format("{0}{1}{2}{3}", System.IO.Path.GetTempPath(), "OlympusTheGame_",name, ".mp3");
+            string tfl = String.Format("{0}{1}{2}{3}", System.IO.Path.GetTempPath(), "OlympusTheGame_",name, ".mp3");
             if (File.Exists(tfl))
                 File.Delete(tfl);
             using (var memoryStream = new MemoryStream(resource))
