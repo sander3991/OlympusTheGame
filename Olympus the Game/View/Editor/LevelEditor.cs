@@ -66,6 +66,7 @@ namespace Olympus_the_Game.View.Editor
             saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.InitialDirectory = PlayfieldLoader.CustomMapLoc;
 
             // Als er op OK is geklikt
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -90,6 +91,7 @@ namespace Olympus_the_Game.View.Editor
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.InitialDirectory = PlayfieldLoader.CustomMapLoc;
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 

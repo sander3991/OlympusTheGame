@@ -4,65 +4,65 @@
   <Width>1200</Width>
   <Height>650</Height>
   <GameObjects>
-    <GameObject Type="START">
+    <GameObject Type="Start">
       <X>0</X>
       <Y>0</Y>
       <Width>150</Width>
       <Height>150</Height>
     </GameObject>
-    <GameObject Type="FINISH">
+    <GameObject Type="Finish">
       <X>800</X>
       <Y>300</Y>
       <Width>150</Width>
       <Height>150</Height>
     </GameObject>
-    <GameObject Type="OBSTACLE">
+    <GameObject Type="Obstacle">
       <X>250</X>
       <Y>250</Y>
       <Width>50</Width>
       <Height>50</Height>
     </GameObject>
-    <GameObject Type="CREEPER">
+    <GameObject Type="Creeper">
       <X>400</X>
       <Y>60</Y>
       <Width>50</Width>
       <Height>50</Height>
       <EffectStrength>1</EffectStrength>
     </GameObject>
-    <GameObject Type="CREEPER">
+    <GameObject Type="Creeper">
       <X>300</X>
       <Y>260</Y>
       <Width>50</Width>
       <Height>50</Height>
       <EffectStrength>1</EffectStrength>
     </GameObject>
-    <GameObject Type="CREEPER">
+    <GameObject Type="Creeper">
       <X>10</X>
       <Y>350</Y>
       <Width>50</Width>
       <Height>50</Height>
       <EffectStrength>1</EffectStrength>
     </GameObject>
-    <GameObject Type="SLOWER">
+    <GameObject Type="Slower">
       <X>200</X>
       <Y>150</Y>
       <Width>50</Width>
       <Height>50</Height>
     </GameObject>
-    <GameObject Type="GHAST">
+    <GameObject Type="Ghast">
       <X>400</X>
       <Y>400</Y>
       <Width>75</Width>
       <Height>75</Height>
     </GameObject>
-    <GameObject Type="TIMEBOMB">
+    <GameObject Type="Timebomb">
       <X>600</X>
       <Y>75</Y>
       <Width>50</Width>
       <Height>50</Height>
       <EffectStrength>1</EffectStrength>
     </GameObject>
-    <GameObject Type="EXPLODE">
+    <GameObject Type="Explode">
       <X>300</X>
       <Y>5</Y>
       <Width>50</Width>

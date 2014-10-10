@@ -57,6 +57,7 @@ namespace Olympus_the_Game.View.Editor
         private void ClickCallback(object source, EventArgs e)
         {
             // Parse info
+            Playfield.Name = TitelInput.Text;
             try
             {
                 // Parse height and width
