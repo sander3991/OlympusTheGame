@@ -280,10 +280,20 @@ namespace Olympus_the_Game.View
 
         private void ApplyPlayfieldChanges()
         {
-            PlayField newPF = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
-            newPF.InitializeGameObjects(gamePanelEditor.Playfield.GameObjects);
-            gamePanelEditor.Playfield = newPF;
-            speelveldEditor1.Playfield = newPF;
+            PlayField playfield = gamePanelEditor.Playfield;
+            if(playfield == null)
+                playfield = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
+            playfield.Width = speelveldEditor1.EnteredSize.Width;
+            playfield.Height = speelveldEditor1.EnteredSize.Height;
+            gamePanelEditor.Playfield = playfield;
+            gamePanelEditor.Invalidate();
+            speelveldEditor1.Playfield = playfield;
+            foreach(GameObject o in playfield.GameObjects)
+            {
+                o.X = o.X; //De setters van de GameObject handelen af of ze in bounds zijn
+                o.Y = o.Y; //De setters van de GameObject handelen af of ze in bounds zijn
+            }
+
         }
 
         /// <summary>
