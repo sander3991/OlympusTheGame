@@ -23,13 +23,10 @@ namespace Olympus_the_Game.View.Editor
             set
             {
                 prop_PlayField = value;
-                if (value != null && GrootteXInput != null && GrootteYInput != null && TitelInput != null)
-                    // If everything is initialized
-                {
-                    GrootteXInput.Text = value.Width.ToString();
-                    GrootteYInput.Text = value.Height.ToString();
-                    TitelInput.Text = value.Name;
-                }
+                if (value == null || GrootteXInput == null || GrootteYInput == null || TitelInput == null) return;
+                GrootteXInput.Text = value.Width.ToString();
+                GrootteYInput.Text = value.Height.ToString();
+                TitelInput.Text = value.Name;
             }
         }
 
@@ -42,13 +39,11 @@ namespace Olympus_the_Game.View.Editor
                 GrootteXInput.Text = prop_size.Width.ToString();
                 GrootteYInput.Text = prop_size.Height.ToString();
 
-                if (Playfield != null)
-                {
-                    if (prop_size.Width >= 1)
-                        Playfield.Height = prop_size.Height;
-                    if (prop_size.Height >= 1)
-                        Playfield.Width = prop_size.Height;
-                }
+                if (Playfield == null) return;
+                if (prop_size.Width >= 1)
+                    Playfield.Height = prop_size.Height;
+                if (prop_size.Height >= 1)
+                    Playfield.Width = prop_size.Height;
             }
         }
 

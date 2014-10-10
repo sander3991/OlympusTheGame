@@ -26,13 +26,11 @@ namespace Olympus_the_Game.View.Buttons
         /// <param name="e"></param>
         private void SleepKnop_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                Control c = Utils.GetParentControl(this);
-                c.Left = e.X + c.Left - MouseDownLocation.X;
-                c.Top = e.Y + c.Top - MouseDownLocation.Y;
-                c.BringToFront();
-            }
+            if (e.Button != MouseButtons.Left) return;
+            Control c = Utils.GetParentControl(this);
+            c.Left = e.X + c.Left - MouseDownLocation.X;
+            c.Top = e.Y + c.Top - MouseDownLocation.Y;
+            c.BringToFront();
         }
 
         /// <summary>
@@ -42,13 +40,11 @@ namespace Olympus_the_Game.View.Buttons
         /// <param name="e"></param>
         private void SleepKnop_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                Control c = Utils.GetParentControl(this);
-                c.Left = e.X + c.Left - MouseDownLocation.X;
-                c.Top = e.Y + c.Top - MouseDownLocation.Y;
-                c.BackColor = Color.Transparent;
-            }
+            if (e.Button != MouseButtons.Left) return;
+            Control c = Utils.GetParentControl(this);
+            c.Left = e.X + c.Left - MouseDownLocation.X;
+            c.Top = e.Y + c.Top - MouseDownLocation.Y;
+            c.BackColor = Color.Transparent;
         }
     }
 }
