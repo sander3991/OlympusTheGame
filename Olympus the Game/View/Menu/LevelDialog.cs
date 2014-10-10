@@ -6,15 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game.View.Menu
 {
     public partial class LevelDialog : UserControl
     {
-        public event Action LevelChosen;
-
-        public int Level { get; private set; }
-
         public LevelDialog()
         {
             InitializeComponent();
@@ -25,18 +22,21 @@ namespace Olympus_the_Game.View.Menu
             {
                 Button b = new Button();
                 int a = i;
-                b.Click += delegate { this.buttonClicked(a); };
-                this.Controls.Add(b);
+                b.Click += delegate { buttonClicked(a); };
+                Controls.Add(b);
                 b.Size = new Size(420, 49);
-                b.Location = new Point(3, 3 + (i - 1) * 55);
-                b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.stone;
-                b.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                b.Location = new Point(3, 3 + (i - 1)*55);
+                b.BackgroundImage = Resources.stone;
+                b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 b.ForeColor = Color.Black;
                 b.Text = "Level " + i;
             }
 
-            this.Size = new Size(426, buttons * 55);
+            Size = new Size(426, buttons*55);
         }
+
+        public int Level { get; private set; }
+        public event Action LevelChosen;
 
         private void buttonClicked(int level)
         {

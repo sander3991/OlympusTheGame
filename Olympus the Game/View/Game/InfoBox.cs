@@ -8,8 +8,6 @@ namespace Olympus_the_Game.View.Game
 {
     public partial class InfoBox : UserControl
     {
-        public Point MouseDownLocation { get; set; }
-
         public InfoBox()
         {
             InitializeComponent();
@@ -19,7 +17,9 @@ namespace Olympus_the_Game.View.Game
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
-        void OlympusTheGame_OnNewPlayField(PlayField obj)
+        public Point MouseDownLocation { get; set; }
+
+        private void OlympusTheGame_OnNewPlayField(PlayField obj)
         {
             UpdateHealth(obj.Player, obj.Player.Health, -1);
         }

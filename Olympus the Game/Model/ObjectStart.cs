@@ -2,7 +2,6 @@
 {
     public class ObjectStart : GameObject
     {
-
         static ObjectStart()
         {
             RegisterWithEditor(ObjectType.START, () => { return new ObjectStart(50, 50, 0, 0); });

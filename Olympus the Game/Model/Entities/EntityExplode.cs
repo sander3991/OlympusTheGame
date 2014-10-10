@@ -1,21 +1,17 @@
 ﻿using System;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model.Sprites;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game.Model.Entities
 {
     public class EntityExplode : Entity
     {
-
         static EntityExplode()
         {
-            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 1f); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 1f); });
+                // TODO Maak waarden standaard
         }
-
-        /// <summary>
-        /// De sterkte van het exploderende object
-        /// </summary>
-        public double EffectStrength { get; set; }
 
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
@@ -27,10 +23,19 @@ namespace Olympus_the_Game.Model.Entities
             EntityControlledByAi = false;
             Type = ObjectType.EXPLODE;
         }
+
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie
         /// </summary>
-        public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
+        public EntityExplode(int width, int height, int x, int y, double effectStrength)
+            : this(width, height, x, y, 0, 0, effectStrength)
+        {
+        }
+
+        /// <summary>
+        /// De sterkte van het exploderende object
+        /// </summary>
+        public double EffectStrength { get; set; }
 
         public override void OnCollide(GameObject gameObject)
         {
@@ -49,7 +54,7 @@ namespace Olympus_the_Game.Model.Entities
             if (!fieldRemoved)
             {
                 pf.AddObject(new SpriteExplosion(this));
-                SoundEffects.PlaySound(Properties.Resources.bomb);
+                SoundEffects.PlaySound(Resources.bomb);
             }
         }
 

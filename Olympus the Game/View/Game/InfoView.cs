@@ -10,16 +10,18 @@ namespace Olympus_the_Game.View.Game
     public partial class InfoView : UserControl
     {
         // Muis positie bijhouden deze wordt gebruikt bij het verslepen van het scherm
-        public Point MouseDownLocation { get; set; }
-        // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
-        public bool IsResized { get; set; }
 
         // Een Dictionary om alle game entitys in op te slaan
         private Dictionary<Entity, ListViewItem> list;
+
         public InfoView()
         {
             InitializeComponent();
         }
+
+        public Point MouseDownLocation { get; set; }
+        // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
+        public bool IsResized { get; set; }
 
         /// <summary>
         /// Functie die wordt aangeroepen en alle object laad
@@ -29,7 +31,7 @@ namespace Olympus_the_Game.View.Game
         private void OnLoad(object sender, EventArgs e)
         {
             if (OlympusTheGame.Playfield == null) return;
-            this.DoubleBuffered = false;
+            DoubleBuffered = false;
             //if(OlympusTheGame.GameController != null)
             //    OlympusTheGame.GameController.UpdateSlowEvents += update;
 
@@ -72,6 +74,7 @@ namespace Olympus_the_Game.View.Game
                 e.OnMoved += ent_OnMoved;
             }
         }
+
         /// <summary>
         /// Als een object van het speelveld afgaat dan wordt het object weggehaald
         /// </summary>
@@ -93,6 +96,7 @@ namespace Olympus_the_Game.View.Game
                 }
             }
         }
+
         /// <summary>
         /// Update de text in listview als de entity wordt bewogen
         /// </summary>
@@ -106,7 +110,6 @@ namespace Olympus_the_Game.View.Game
                 LVItem.SubItems[2].Text = e.Y.ToString();
                 LVItem.SubItems[3].Text = Math.Abs(e.DX + e.DY).ToString();
             }
-
         }
 
         /// <summary>
@@ -152,7 +155,5 @@ namespace Olympus_the_Game.View.Game
         //    }
         //    this.Invalidate(true);
         //}
-
-
     }
 }

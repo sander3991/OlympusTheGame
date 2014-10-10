@@ -3,7 +3,7 @@ using System.Media;
 
 namespace Olympus_the_Game.Controller
 {
-    static class SoundEffects
+    internal static class SoundEffects
     {
         private static readonly SoundPlayer Player = new SoundPlayer();
 

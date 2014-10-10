@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Drawing;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game.View.Imaging
 {
     public class DataPool
     {
-        public static string gameSound { get; private set; }
-
-        public static string IntroSound { get; private set; }
-
         /// <summary>
         /// Source images
         /// </summary>
@@ -20,30 +17,35 @@ namespace Olympus_the_Game.View.Imaging
         /// <summary>
         /// Buffer of all images
         /// </summary>
-        private static readonly Dictionary<Tuple<ObjectType, Size>, Sprite> images = new Dictionary<Tuple<ObjectType, Size>, Sprite>();
+        private static readonly Dictionary<Tuple<ObjectType, Size>, Sprite> images =
+            new Dictionary<Tuple<ObjectType, Size>, Sprite>();
+
+        public static string gameSound { get; private set; }
+
+        public static string IntroSound { get; private set; }
 
         /// <summary>
         /// Voegt alle plaatjes toe aan de bron-dictionary.
         /// </summary>
         public static void LoadDataPool()
         {
-            source.Add(ObjectType.CREEPER, Properties.Resources.creeper);
-            source.Add(ObjectType.EXPLODE, Properties.Resources.tnt);
-            source.Add(ObjectType.SLOWER, Properties.Resources.spider);
-            source.Add(ObjectType.WEB, Properties.Resources.cobweb);
-            source.Add(ObjectType.Player, new Sprite(Properties.Resources.player2, 2, 1, false));
-            source.Add(ObjectType.TIMEBOMB, new Sprite(Properties.Resources.timebomb, 2, 1, true));
-            source.Add(ObjectType.START, Properties.Resources.huis);
-            source.Add(ObjectType.FINISH, Properties.Resources.cake);
-            source.Add(ObjectType.OBSTACLE, Properties.Resources.cobble);
-            source.Add(ObjectType.UNKNOWN, Properties.Resources.missing);
-            source.Add(ObjectType.SILVERFISH, Properties.Resources.missing);
-            source.Add(ObjectType.GHAST, Properties.Resources.ghast);
-            source.Add(ObjectType.FIREBALL, Properties.Resources.fireball);
-            source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Properties.Resources.explosion, 5, 5, false));
-            source.Add(ObjectType.WEBMISSILE, Properties.Resources.cobweb);
-            gameSound = Mp3Player.PrepareResource(Properties.Resources.HakunaMatata, "HakunaMatata");
-            IntroSound = Mp3Player.PrepareResource(Properties.Resources.StarWars, "StarWars");
+            source.Add(ObjectType.CREEPER, Resources.creeper);
+            source.Add(ObjectType.EXPLODE, Resources.tnt);
+            source.Add(ObjectType.SLOWER, Resources.spider);
+            source.Add(ObjectType.WEB, Resources.cobweb);
+            source.Add(ObjectType.Player, new Sprite(Resources.player2, 2, 1, false));
+            source.Add(ObjectType.TIMEBOMB, new Sprite(Resources.timebomb, 2, 1, true));
+            source.Add(ObjectType.START, Resources.huis);
+            source.Add(ObjectType.FINISH, Resources.cake);
+            source.Add(ObjectType.OBSTACLE, Resources.cobble);
+            source.Add(ObjectType.UNKNOWN, Resources.missing);
+            source.Add(ObjectType.SILVERFISH, Resources.missing);
+            source.Add(ObjectType.GHAST, Resources.ghast);
+            source.Add(ObjectType.FIREBALL, Resources.fireball);
+            source.Add(ObjectType.SPRITEEXPLOSION, new Sprite(Resources.explosion, 5, 5, false));
+            source.Add(ObjectType.WEBMISSILE, Resources.cobweb);
+            gameSound = Mp3Player.PrepareResource(Resources.HakunaMatata, "HakunaMatata");
+            IntroSound = Mp3Player.PrepareResource(Resources.StarWars, "StarWars");
         }
 
         /// <summary>
@@ -68,14 +70,11 @@ namespace Olympus_the_Game.View.Imaging
             {
                 return new Bitmap(result.Image, s);
             }
-            else // multiple images
-            {
-                return new Sprite(
-                    new Bitmap(result.Image,
-                        new Size(s.Width * result.Columns, s.Height * result.Rows)
-                        ),
-                        result.Columns, result.Rows, result.Cyclic);
-            }
+            return new Sprite(
+                new Bitmap(result.Image,
+                    new Size(s.Width*result.Columns, s.Height*result.Rows)
+                    ),
+                result.Columns, result.Rows, result.Cyclic);
         }
 
         /// <summary>

@@ -11,6 +11,7 @@ namespace Olympus_the_Game.View.Game
     public partial class GameScreen : Form
     {
         private bool forceClose;
+
         /// <summary>
         /// Maak een nieuw GameScreen aan.
         /// </summary>
@@ -28,7 +29,7 @@ namespace Olympus_the_Game.View.Game
             GameFinished gf = new GameFinished(type);
             gf.ShowDialog();
             gf.Dispose();
-            this.forceClose = true;
+            forceClose = true;
             Close();
         }
 
@@ -39,7 +40,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
-            if (this.Visible == false)
+            if (Visible == false)
             {
                 e.Cancel = true;
                 return;
@@ -51,13 +52,14 @@ namespace Olympus_the_Game.View.Game
             // Opent dialoog voor sluiten
             if (!forceClose)
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
-                    "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr =
+                    MessageBox.Show("Are you sure you want to exit the game? Any unsaved data will be lost.",
+                        "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 // Sluit spel af bij JA/YES
                 // Sluit dialoog af bij NEE/NO en laat spel verder draaien
                 if (dr == DialogResult.Yes)
                 {
-                    this.Visible = false;
+                    Visible = false;
                 }
                 else
                 {
@@ -73,7 +75,7 @@ namespace Olympus_the_Game.View.Game
             OlympusTheGame.Pause();
             OlympusTheGame.GameTime = 0;
             Utils.ShowMask(true);
-            this.Visible = false;
+            Visible = false;
             new Thread(delegate() { Utils.ShowMask(false); }).Start();
         }
 
@@ -85,7 +87,7 @@ namespace Olympus_the_Game.View.Game
         private void GameScreen_Load(object sender, EventArgs e)
         {
             // Maak niet resizable
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             arrowPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             infoBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             infoView1.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
@@ -95,35 +97,38 @@ namespace Olympus_the_Game.View.Game
 
             // Do event handlers
 
-            this.infoView1.LocationChanged += delegate { this.gamePanel1.TryExpand(); };
-            this.arrowPanel1.LocationChanged += delegate { this.gamePanel1.TryExpand(); };
-            this.infoBox1.LocationChanged += delegate { this.gamePanel1.TryExpand(); };
+            infoView1.LocationChanged += delegate { gamePanel1.TryExpand(); };
+            arrowPanel1.LocationChanged += delegate { gamePanel1.TryExpand(); };
+            infoBox1.LocationChanged += delegate { gamePanel1.TryExpand(); };
 
-            this.infoView1.VisibleChanged += delegate { this.gamePanel1.TryExpand(); };
-            this.arrowPanel1.VisibleChanged += delegate { this.gamePanel1.TryExpand(); };
-            this.infoBox1.VisibleChanged += delegate { this.gamePanel1.TryExpand(); };
-            this.menuStrip1.VisibleChanged += delegate { this.gamePanel1.TryExpand(); };
+            infoView1.VisibleChanged += delegate { gamePanel1.TryExpand(); };
+            arrowPanel1.VisibleChanged += delegate { gamePanel1.TryExpand(); };
+            infoBox1.VisibleChanged += delegate { gamePanel1.TryExpand(); };
+            menuStrip1.VisibleChanged += delegate { gamePanel1.TryExpand(); };
 
-            this.SizeChanged += delegate { this.gamePanel1.TryExpand(); };
+            SizeChanged += delegate { gamePanel1.TryExpand(); };
 
-            this.bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
+            bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
                 ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
-                if (toolStripMenuItem != null && toolStripMenuItem.Checked) this.verbergAllesToolStripMenuItem.Checked = false;
+                if (toolStripMenuItem != null && toolStripMenuItem.Checked)
+                    verbergAllesToolStripMenuItem.Checked = false;
             };
-            this.informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
+            informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
                 ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
-                if (toolStripMenuItem != null && toolStripMenuItem.Checked) this.verbergAllesToolStripMenuItem.Checked = false;
+                if (toolStripMenuItem != null && toolStripMenuItem.Checked)
+                    verbergAllesToolStripMenuItem.Checked = false;
             };
-            this.statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
+            statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
                 ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
-                if (toolStripMenuItem != null && toolStripMenuItem.Checked) this.verbergAllesToolStripMenuItem.Checked = false;
+                if (toolStripMenuItem != null && toolStripMenuItem.Checked)
+                    verbergAllesToolStripMenuItem.Checked = false;
             };
 
             // Update view
-            this.updateView();
+            updateView();
 
             // Start music
             Mp3Player.SetResource(DataPool.gameSound);
@@ -181,9 +186,9 @@ namespace Olympus_the_Game.View.Game
 
         private void verbergAllesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.statistiekenToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
-            this.informatieToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
-            this.bedieningToolStripMenuItem.Checked = !this.verbergAllesToolStripMenuItem.Checked;
+            statistiekenToolStripMenuItem.Checked = !verbergAllesToolStripMenuItem.Checked;
+            informatieToolStripMenuItem.Checked = !verbergAllesToolStripMenuItem.Checked;
+            bedieningToolStripMenuItem.Checked = !verbergAllesToolStripMenuItem.Checked;
 
             updateView();
         }
@@ -191,7 +196,7 @@ namespace Olympus_the_Game.View.Game
         private void updateView()
         {
             // InfoBox verbergen of weergeven
-            switch (this.informatieToolStripMenuItem.Checked)
+            switch (informatieToolStripMenuItem.Checked)
             {
                 case (false):
                     infoBox1.Hide();
@@ -202,7 +207,7 @@ namespace Olympus_the_Game.View.Game
             }
 
             // Pijltjestoetsen verbergen of weergeven
-            switch (this.bedieningToolStripMenuItem.Checked)
+            switch (bedieningToolStripMenuItem.Checked)
             {
                 case (false):
                     arrowPanel1.Hide();
@@ -213,7 +218,7 @@ namespace Olympus_the_Game.View.Game
             }
 
             // InfoView verbergen of weergeven
-            switch (this.statistiekenToolStripMenuItem.Checked)
+            switch (statistiekenToolStripMenuItem.Checked)
             {
                 case (false):
                     infoView1.Hide();
@@ -227,18 +232,19 @@ namespace Olympus_the_Game.View.Game
             switch (volledigeWeergaveToolStripMenuItem.Checked)
             {
                 case (false):
-                    this.menuStrip1.Visible = true;
+                    menuStrip1.Visible = true;
                     Utils.FullScreen(this, false);
                     break;
                 case (true):
-                    this.menuStrip1.Visible = false;
+                    menuStrip1.Visible = false;
                     Utils.FullScreen(this, true);
                     break;
             }
 
             // Try to expand
-            this.gamePanel1.TryExpand();
+            gamePanel1.TryExpand();
         }
+
         /// <summary>
         /// Open een file explorer om een bestand te selecteren
         /// </summary>
@@ -261,6 +267,7 @@ namespace Olympus_the_Game.View.Game
             CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
             speelpauzeToolStripMenuItem.Checked = true;
         }
+
         /// <summary>
         /// Pauzeer of ga verder met afspelen
         /// </summary>
@@ -277,8 +284,8 @@ namespace Olympus_the_Game.View.Game
                 Mp3Player.Pause();
             else if (!Mp3Player.IsPlaying)
                 Mp3Player.Play();
-
         }
+
         /// <summary>
         /// Als er op stop is geklikt stop dan de muziek spelers
         /// </summary>
@@ -291,6 +298,7 @@ namespace Olympus_the_Game.View.Game
             else if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Stop();
         }
+
         /// <summary>
         /// Kijkt of hij de muziek moet herhalen
         /// </summary>
@@ -303,6 +311,7 @@ namespace Olympus_the_Game.View.Game
             else
                 herhalenToolStripMenuItem.Checked = true;
         }
+
         /// <summary>
         /// Laat de gebruiker de muziek herhalen als hij dat wil
         /// </summary>
@@ -314,8 +323,8 @@ namespace Olympus_the_Game.View.Game
                 Mp3Player.Loop(herhalenToolStripMenuItem.Checked);
             else if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Play(herhalenToolStripMenuItem.Checked);
-
         }
+
         /// <summary>
         /// verander het checked icoontje bij een onclick
         /// </summary>
@@ -346,7 +355,6 @@ namespace Olympus_the_Game.View.Game
                 Mp3Player.Volume = 100;
                 CustomMusicPlayer.ChangeVolume(100);
             }
-
         }
 
         #endregion

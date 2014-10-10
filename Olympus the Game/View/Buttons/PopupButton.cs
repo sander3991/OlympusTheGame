@@ -6,19 +6,19 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game.View.Buttons
 {
     public partial class PopupButton : Button
     {
-        private Point loc;
-
         private Form SourceForm;
+        private Point loc;
 
         public PopupButton()
         {
             InitializeComponent();
-            this.Click += ButtonRemove_Click;
+            Click += ButtonRemove_Click;
         }
 
         private void ButtonRemove_Click(object sender, EventArgs e)
@@ -29,20 +29,20 @@ namespace Olympus_the_Game.View.Buttons
             if (SourceForm != null) SourceForm.Controls.Remove(parent);
 
             // Make move button invisible
-            foreach (Control c in this.Parent.Controls)
-                if (c.GetType() == typeof(MoveButton))
+            foreach (Control c in Parent.Controls)
+                if (c.GetType() == typeof (MoveButton))
                     c.Visible = false;
 
             Form f = new Form();
             f.Width = parent.Width + 10;
             f.Height = parent.Height + 35;
-            f.BackgroundImage = Properties.Resources.dirt;
+            f.BackgroundImage = Resources.dirt;
             f.Controls.Add(parent);
             parent.Location = new Point(0, 0);
             f.MaximizeBox = false;
             f.FormBorderStyle = FormBorderStyle.FixedSingle;
             f.FormClosed += BringBack;
-            this.Visible = false;
+            Visible = false;
             f.Show();
         }
 
@@ -58,11 +58,11 @@ namespace Olympus_the_Game.View.Buttons
             }
 
             SourceForm.Controls.Add(parent);
-            this.Visible = true;
+            Visible = true;
 
             // Make move button visible
-            foreach (Control c in this.Parent.Controls)
-                if (c.GetType() == typeof(MoveButton))
+            foreach (Control c in Parent.Controls)
+                if (c.GetType() == typeof (MoveButton))
                     c.Visible = true;
 
             parent.Location = loc;

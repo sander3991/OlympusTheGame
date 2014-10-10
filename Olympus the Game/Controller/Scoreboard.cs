@@ -13,21 +13,17 @@ namespace Olympus_the_Game.Controller
         Slower,
         Explode,
         Ghast
-
     }
 
-    static class Scoreboard
+    internal static class Scoreboard
     {
         private static readonly Dictionary<ScoreType, int> Scorelist = new Dictionary<ScoreType, int>();
+
         static Scoreboard()
         {
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
-        static void OlympusTheGame_OnNewPlayField(PlayField obj)
-        {
-            ResetScore();
-        }
         public static int Score
         {
             get
@@ -39,6 +35,11 @@ namespace Olympus_the_Game.Controller
                 }
                 return Math.Max(0, totalScore);
             }
+        }
+
+        private static void OlympusTheGame_OnNewPlayField(PlayField obj)
+        {
+            ResetScore();
         }
 
         public static void AddScore(ScoreType type, int i)

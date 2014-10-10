@@ -1,5 +1,6 @@
 ﻿using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View;
 using System;
 using System.Diagnostics;
@@ -33,14 +34,18 @@ namespace Olympus_the_Game
         private static PlayField prop_playfield;
 
         /// <summary>
+        /// Maak nieuw OlympusTheGame object
+        /// </summary>
+        private OlympusTheGame()
+        {
+        }
+
+        /// <summary>
         /// Het huidige speelveld.
         /// </summary>
         public static PlayField Playfield
         {
-            get
-            {
-                return prop_playfield;
-            }
+            get { return prop_playfield; }
             set
             {
                 if (value != prop_playfield && value != null)
@@ -59,17 +64,14 @@ namespace Olympus_the_Game
         /// <summary>
         /// De controller, deze regelt alle events en updates
         /// </summary>
-        public static Controller.GameController GameController { get; private set; }
+        public static GameController GameController { get; private set; }
 
         /// <summary>
         /// Geeft aan of het spel gepauzeerd is.
         /// </summary>
         public static bool IsPaused
         {
-            get
-            {
-                return !GameTimer.Enabled;
-            }
+            get { return !GameTimer.Enabled; }
         }
 
         /// <summary>
@@ -77,10 +79,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static long GameTime
         {
-            get
-            {
-                return prop_gametime.ElapsedMilliseconds;
-            }
+            get { return prop_gametime.ElapsedMilliseconds; }
             set
             {
                 if (value == 0)
@@ -92,11 +91,6 @@ namespace Olympus_the_Game
         /// Event dat gefired wordt zodra er een nieuw Playfield is
         /// </summary>
         public static event Action<PlayField> OnNewPlayField;
-
-        /// <summary>
-        /// Maak nieuw OlympusTheGame object
-        /// </summary>
-        private OlympusTheGame() { }
 
         /// <summary>
         /// Beginpunt van de applicatie
@@ -113,7 +107,7 @@ namespace Olympus_the_Game
         public static void SetController()
         {
             if (GameController == null)
-                GameController = new Controller.GameController();
+                GameController = new GameController();
 
             // Add gameloop to timer
             GameTimer.Tick += GameController.ExecuteUpdateGameEvent;
@@ -150,11 +144,12 @@ namespace Olympus_the_Game
             prop_gametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            Playfield = PlayFieldToXml.ReadFromResource(Resources.hell);
             prop_playfield.SetPlayerHome();
             prop_playfield.InitializeGameObjects();
             OnNewPlayField(prop_playfield);
         }
+
         /// <summary>
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.

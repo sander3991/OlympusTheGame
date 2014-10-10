@@ -10,40 +10,38 @@ namespace Olympus_the_Game.Controller
         private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
         private static int _fadeInCounter;
         private static bool _stopFading;
-        public static bool IsPlaying { get; private set; }
         private static bool _propEnabled = true;
-        public static bool Enabled { 
-            get{
-                return _propEnabled;
-            }
-            set{
+        public static bool IsPlaying { get; private set; }
+
+        public static bool Enabled
+        {
+            get { return _propEnabled; }
+            set
+            {
                 if (value)
                     Player.settings.volume = 100;
                 else
                     Player.settings.volume = 0;
                 _propEnabled = value;
-                    
             }
         }
+
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
         public static int Volume
         {
-            get
-            {
-                return Player.settings.volume;
-            }
+            get { return Player.settings.volume; }
             set
             {
                 if (Enabled)
                 {
-                Player.settings.volume = Math.Min(100, value);
-                Player.settings.volume = Math.Max(0, value);
-
+                    Player.settings.volume = Math.Min(100, value);
+                    Player.settings.volume = Math.Max(0, value);
                 }
             }
         }
+
         /// <summary>
         /// Speelt een resource file af.
         /// </summary>
@@ -56,7 +54,7 @@ namespace Olympus_the_Game.Controller
 
         public static string PrepareResource(byte[] resource, string name)
         {
-            string tfl = String.Format("{0}{1}{2}{3}", System.IO.Path.GetTempPath(), "OlympusTheGame_",name, ".mp3");
+            string tfl = String.Format("{0}{1}{2}{3}", Path.GetTempPath(), "OlympusTheGame_", name, ".mp3");
             if (File.Exists(tfl))
                 File.Delete(tfl);
             using (var memoryStream = new MemoryStream(resource))
@@ -76,6 +74,7 @@ namespace Olympus_the_Game.Controller
         {
             Player.settings.setMode("loop", loop);
         }
+
         /// <summary>
         /// Zet de positie van het nummer op het meegegeven punt
         /// </summary>
@@ -96,6 +95,7 @@ namespace Olympus_the_Game.Controller
                 CustomMusicPlayer.Stop();
             _stopFading = true;
         }
+
         /// <summary>
         /// Do a fade in 
         /// </summary>
@@ -105,7 +105,7 @@ namespace Olympus_the_Game.Controller
             _fadeInCounter = 0;
             Volume = _fadeInCounter;
             Timer timer = new Timer();
-            timer.Interval = time / 100;
+            timer.Interval = time/100;
             timer.Tick += timer_Tick;
             timer.Start();
             Player.controls.pause();
@@ -116,7 +116,7 @@ namespace Olympus_the_Game.Controller
             _fadeInCounter = 100;
             Volume = _fadeInCounter;
             Timer timer = new Timer();
-            timer.Interval = time / 100;
+            timer.Interval = time/100;
             timer.Tick += timer_tick_fadeout;
             timer.Start();
             _stopFading = false;
@@ -146,8 +146,8 @@ namespace Olympus_the_Game.Controller
             {
                 Timer timer = sender as Timer;
                 if (timer != null) timer.Stop();
-                if(!_stopFading)
-                   StopPlaying();
+                if (!_stopFading)
+                    StopPlaying();
                 Volume = 100;
             }
         }
@@ -168,8 +168,8 @@ namespace Olympus_the_Game.Controller
         {
             IsPlaying = false;
             Player.controls.pause();
-
         }
+
         /// <summary>
         /// Gaat verder met afspelen
         /// </summary>

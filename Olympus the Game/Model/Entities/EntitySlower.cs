@@ -6,35 +6,49 @@ namespace Olympus_the_Game.Model.Entities
 {
     public class EntitySlower : Entity
     {
-        static EntitySlower()
-        {
-            RegisterWithEditor(ObjectType.SLOWER, () => { return new EntitySlower(50, 50, 0, 0); }); // TODO Maak waarden standaard
-        }
-
         private readonly Stopwatch stopwatch = Stopwatch.StartNew();
         private double prop_effectrange = 200;
         private int prop_firespeed = 2000;
+
+        static EntitySlower()
+        {
+            RegisterWithEditor(ObjectType.SLOWER, () => { return new EntitySlower(50, 50, 0, 0); });
+                // TODO Maak waarden standaard
+        }
+
+        /// <summary>
+        /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
+        /// </summary>
+        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
+            : base(width, height, x, y, dx, dy)
+        {
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.SLOWER;
+        }
+
+        /// <summary>
+        /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
+        /// </summary>
+        public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
+        {
+        }
+
         /// <summary>
         /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
         public double EffectRange
         {
             get { return prop_effectrange; }
-            set
-            {
-                prop_effectrange = Math.Max(50, value);
-            }
+            set { prop_effectrange = Math.Max(50, value); }
         }
+
         /// <summary>
         /// Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
         /// </summary>
         public int FireSpeed
         {
             get { return prop_firespeed; }
-            set
-            {
-                prop_firespeed = Math.Max(1, value);
-            }
+            set { prop_firespeed = Math.Max(1, value); }
         }
 
         /// <summary>
@@ -46,20 +60,6 @@ namespace Olympus_the_Game.Model.Entities
             return "Spider maakt je langzaam";
         }
 
-
-        /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
-        /// </summary>
-        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
-            : base(width, height, x, y, dx, dy)
-        {
-            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.SLOWER;
-        }
-        /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
-        /// </summary>
-        public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
@@ -73,7 +73,7 @@ namespace Olympus_the_Game.Model.Entities
                         if (!PreventDoubleWeb(Playfield.Player.X + 25, Playfield.Player.Y + 25))
                         {
                             EntityWebMissile web = new EntityWebMissile(this, Playfield.Player);
-                            this.Playfield.AddObject(web);
+                            Playfield.AddObject(web);
                         }
                         stopwatch.Restart();
                     }
@@ -111,8 +111,5 @@ namespace Olympus_the_Game.Model.Entities
         {
             return "Spider";
         }
-
-
     }
 }
-

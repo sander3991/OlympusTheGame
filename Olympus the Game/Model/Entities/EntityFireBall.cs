@@ -1,6 +1,7 @@
 ﻿using System;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model.Sprites;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -8,26 +9,6 @@ namespace Olympus_the_Game.Model.Entities
     {
         private readonly EntityGhast _owner;
         private int _propFireballspeed = 50; // Factor van maken
-        /// <summary>
-        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
-        /// </summary>
-        public int FireballSpeed
-        {
-            get { return _propFireballspeed; }
-            set
-            {
-                _propFireballspeed = Math.Max(0, value);
-            }
-        }
-
-        /// <summary>
-        /// Geef de entity een beschrijving
-        /// </summary>
-        /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
-        {
-            return "Vuurbal van Ghast";
-        }
 
         /// <summary>
         /// FILL THIS IN
@@ -41,18 +22,40 @@ namespace Olympus_the_Game.Model.Entities
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
-            DX = -(((this.X - target.X) - 25) / FireballSpeed);
-            DY = -(((this.Y - target.Y) - 25) / FireballSpeed);
+            DX = -(((X - target.X) - 25)/FireballSpeed);
+            DY = -(((Y - target.Y) - 25)/FireballSpeed);
 
             EntityControlledByAi = false;
             Type = ObjectType.FIREBALL;
             IsSolid = false;
-            this._owner = owner;
+            _owner = owner;
         }
+
         /// <summary>
         /// FILL THIS IN
         /// </summary>
-        public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target) : this(width, height, x, y, 0, 0, owner, target) { }
+        public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target)
+            : this(width, height, x, y, 0, 0, owner, target)
+        {
+        }
+
+        /// <summary>
+        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
+        /// </summary>
+        public int FireballSpeed
+        {
+            get { return _propFireballspeed; }
+            set { _propFireballspeed = Math.Max(0, value); }
+        }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string getDescription()
+        {
+            return "Vuurbal van Ghast";
+        }
 
         public override CollisionType CollidesWithObject(GameObject entity)
         {
@@ -67,7 +70,7 @@ namespace Olympus_the_Game.Model.Entities
             if (Playfield.Player != null)
             {
                 // Verwijderd de fireball als het de randen van het spel raakt
-                if (this.X + DX < 0 || this.X + DX + Width > Playfield.Width || this.Y + DY < 0 || this.Y + DY + Height > Playfield.Height)
+                if (X + DX < 0 || X + DX + Width > Playfield.Width || Y + DY < 0 || Y + DY + Height > Playfield.Height)
                     Playfield.RemoveObject(this);
             }
         }
@@ -80,7 +83,7 @@ namespace Olympus_the_Game.Model.Entities
                 return;
             }
             // Ontplof wanneer het de speler raakt (en verwijder het object meteen van het speelveld)
-            else if (gameObject.Type == ObjectType.Player)
+            if (gameObject.Type == ObjectType.Player)
             {
                 Playfield.Player.Health--;
                 Playfield.RemoveObject(this);
@@ -122,7 +125,7 @@ namespace Olympus_the_Game.Model.Entities
             if (!fieldRemoved)
             {
                 Playfield.AddObject(new SpriteExplosion(this));
-                SoundEffects.PlaySound(Properties.Resources.bomb);
+                SoundEffects.PlaySound(Resources.bomb);
             }
         }
 

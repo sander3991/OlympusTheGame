@@ -3,14 +3,6 @@
     public abstract class AnimatedSprite : GameObject
     {
         /// <summary>
-        /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
-        /// </summary>
-        public override int X { get; set; }
-        /// <summary>
-        /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
-        /// </summary>
-        public override int Y { get; set; }
-        /// <summary>
         /// Hoe lang deze animatie duurt in milliseconden.
         /// </summary>
         protected int duration;
@@ -19,18 +11,6 @@
         /// Wanneer deze animatie is gestart, op een schaal van milliseconden.
         /// </summary>
         protected long start;
-
-        /// <summary>
-        /// Het hoeveelste frame deze animatie zit. Tussen 0.0f en 1.0f als deze nog draait. Hoger als de animatie voorbij is (of cyclisch is).
-        /// </summary>
-        public override float Frame
-        {
-            get
-            {
-                return (float)(OlympusTheGame.GameTime - start) / (float)duration;
-            }
-            protected set { }
-        }
 
         /// <summary>
         /// Maak een nieuw AnimatedSprite aan.
@@ -44,6 +24,25 @@
         {
             IsSolid = false;
             start = OlympusTheGame.GameTime;
+        }
+
+        /// <summary>
+        /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
+        /// </summary>
+        public override int X { get; set; }
+
+        /// <summary>
+        /// Sprites mogen altijd overal zijn omdat de animatie deels buiten beeld mag zijn
+        /// </summary>
+        public override int Y { get; set; }
+
+        /// <summary>
+        /// Het hoeveelste frame deze animatie zit. Tussen 0.0f en 1.0f als deze nog draait. Hoger als de animatie voorbij is (of cyclisch is).
+        /// </summary>
+        public override float Frame
+        {
+            get { return (OlympusTheGame.GameTime - start)/(float) duration; }
+            protected set { }
         }
 
         public override CollisionType CollidesWithObject(GameObject entity)

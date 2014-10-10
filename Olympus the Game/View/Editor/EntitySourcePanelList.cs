@@ -26,17 +26,17 @@ namespace Olympus_the_Game.View.Editor
             foreach (KeyValuePair<ObjectType, Func<GameObject>> a in GameObject.ConstructorList)
             {
                 EntitySourcePanel esp = new EntitySourcePanel(a.Key);
-                esp.Left = (this.Width - esp.Width) / 2;
+                esp.Left = (Width - esp.Width)/2;
                 esp.Top = pad;
 
                 pad += esp.Height;
-                pad += PADDING_TOP * 2;
+                pad += PADDING_TOP*2;
 
-                this.Controls.Add(esp);
+                Controls.Add(esp);
             }
 
             // Add events
-            this.Scroll += delegate { this.Invalidate(); };
+            Scroll += delegate { Invalidate(); };
         }
     }
 }

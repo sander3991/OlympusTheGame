@@ -6,7 +6,6 @@ namespace Olympus_the_Game.View.Game
 {
     public partial class ArrowPanel : UserControl
     {
-
         public ArrowPanel()
         {
             InitializeComponent();
@@ -14,9 +13,9 @@ namespace Olympus_the_Game.View.Game
             textBoxLeft.MaxLength = 1;
             textBoxUp.MaxLength = 1;
             textBoxDown.MaxLength = 1;
-            this.DoubleBuffered = true;
-
+            DoubleBuffered = true;
         }
+
         /// <summary>
         /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
         /// </summary>
@@ -27,7 +26,7 @@ namespace Olympus_the_Game.View.Game
             Button b = sender as Button;
             if (b != null)
             {
-                string richting = b.Name.ToString();
+                string richting = b.Name;
                 if (richting == "ArrowKeyRight")
                     KeyHandler.MovePlayer(2, true);
                 if (richting == "ArrowKeyLeft")
@@ -50,16 +49,16 @@ namespace Olympus_the_Game.View.Game
             {
                 if (!string.IsNullOrEmpty(textBoxRight.Text))
                     KeyHandler.CustomRight =
-                        (Keys)char.ToUpper(textBoxRight.Text[0]);
+                        (Keys) char.ToUpper(textBoxRight.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
                     KeyHandler.CustomLeft =
-                        (Keys)char.ToUpper(textBoxLeft.Text[0]);
+                        (Keys) char.ToUpper(textBoxLeft.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
                     KeyHandler.CustomUp =
-                        (Keys)char.ToUpper(textBoxUp.Text[0]);
+                        (Keys) char.ToUpper(textBoxUp.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
                     KeyHandler.CustomDown =
-                        (Keys)char.ToUpper(textBoxDown.Text[0]);
+                        (Keys) char.ToUpper(textBoxDown.Text[0]);
             }
             catch (FormatException)
             {
@@ -69,6 +68,7 @@ namespace Olympus_the_Game.View.Game
             //int wat = Convert.ToInt32(textBox1.Text[0]);
             //MessageBox.Show(wat.ToString());
         }
+
         /// <summary>
         /// Selecteer alle tekst als user er in staat
         /// </summary>
@@ -83,6 +83,7 @@ namespace Olympus_the_Game.View.Game
                 tb.SelectionLength = tb.Text.Length;
             }
         }
+
         /// <summary>
         /// Selecteer alle tekst als user er in klikt met de muis
         /// </summary>
@@ -96,7 +97,6 @@ namespace Olympus_the_Game.View.Game
                 tb.SelectionStart = 0;
                 tb.SelectionLength = tb.Text.Length;
             }
-
         }
 
         /// <summary>
@@ -111,4 +111,3 @@ namespace Olympus_the_Game.View.Game
         }
     }
 }
-

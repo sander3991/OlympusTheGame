@@ -5,10 +5,14 @@ using Olympus_the_Game.Model;
 
 namespace Olympus_the_Game.Controller
 {
-    class PlayFieldToXml
+    internal class PlayFieldToXml
     {
-        private static readonly XmlSerializer Serialiser = new XmlSerializer(typeof(PlayField));
-        private PlayFieldToXml() { }
+        private static readonly XmlSerializer Serialiser = new XmlSerializer(typeof (PlayField));
+
+        private PlayFieldToXml()
+        {
+        }
+
         /// <summary>
         /// Leest een XML bestand in.
         /// </summary>

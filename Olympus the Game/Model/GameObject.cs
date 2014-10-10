@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Olympus_the_Game.Model.Entities;
 using Olympus_the_Game.View.Editor;
 
@@ -35,150 +36,33 @@ namespace Olympus_the_Game.Model
 
     public abstract class GameObject
     {
-
         #region Static Part
 
-        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList = new Dictionary<ObjectType, Func<GameObject>>();
-
-        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a) {
-            ConstructorList.Add(ot, a);
-        }
+        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList =
+            new Dictionary<ObjectType, Func<GameObject>>();
 
         static GameObject()
         {
-            foreach (Type t in typeof(GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof(GameObject))))
+            foreach (
+                Type t in typeof (GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof (GameObject))))
             {
-                System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(t.TypeHandle);
+                RuntimeHelpers.RunClassConstructor(t.TypeHandle);
             }
+        }
+
+        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a)
+        {
+            ConstructorList.Add(ot, a);
         }
 
         #endregion
 
+        private int height;
+        private PlayField prop_playfield;
+        private int width;
         private int x;
         private int y;
-        private int height;
-        private int width;
 
-        [ExcludeFromEditor]
-        public ObjectType Type { get; protected set; }
-
-        private PlayField prop_playfield;
-
-        [ExcludeFromEditor]
-        public PlayField Playfield
-        {
-            set
-            {
-                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
-                    prop_playfield = value;
-            }
-            get
-            {
-                return prop_playfield;
-            }
-        }
-
-        /// <summary>
-        /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
-        /// </summary>
-        [ExcludeFromEditor]
-        public virtual float Frame
-        {
-            get
-            {
-                return -1.0f;
-            }
-            protected set { throw new NotImplementedException(); }
-        }
-
-        /// <summary>
-        /// De hoogte van het GameObject
-        /// </summary>
-        public int Height
-        {
-            get
-            {
-                return height;
-            }
-            set
-            {
-                if (value >= 0)
-                    height = value;
-                else
-                    height = 0;
-            }
-        }
-
-        /// <summary>
-        /// De breedte van het GameObject
-        /// </summary>
-        public int Width
-        {
-            get
-            {
-                return width;
-            }
-            set
-            {
-                if (value >= 0)
-                    width = value;
-                else
-                    width = 0;
-            }
-        }
-        /// <summary>
-        /// De X positie van het GameObject
-        /// </summary>
-        public virtual int X
-        {
-            get
-            {
-                return x;
-            }
-            set
-            {
-                if (value >= 0)
-                {
-                    if (Playfield == null || value + Width <= Playfield.Width)
-                        x = value;
-                    else
-                        x = Playfield.Width - Width;
-                }
-            }
-        }
-        /// <summary>
-        /// De Y positie van het game-object.
-        /// </summary>
-        public virtual int Y
-        {
-            get
-            {
-                return y;
-            }
-            set
-            {
-                if (value >= 0)
-                    if (Playfield == null || value + Height <= Playfield.Height)
-                        y = value;
-                    else
-                        y = Playfield.Height - Height;
-                else
-                    y = 0;
-            }
-        }
-
-        /// <summary>
-        /// Verkrijg beschrijving van entity
-        /// </summary>
-        /// <returns>Beschrijving</returns>
-        public virtual string getDescription(){
-            return "No description yet";
-        }
-
-        /// <summary>
-        /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
-        /// </summary>
-        public bool IsSolid { get; protected set; }
         /// <summary>
         /// Initialiseert een GameObject
         /// </summary>
@@ -196,6 +80,110 @@ namespace Olympus_the_Game.Model
             Type = ObjectType.UNKNOWN;
         }
 
+        [ExcludeFromEditor]
+        public ObjectType Type { get; protected set; }
+
+        [ExcludeFromEditor]
+        public PlayField Playfield
+        {
+            set
+            {
+                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
+                    prop_playfield = value;
+            }
+            get { return prop_playfield; }
+        }
+
+        /// <summary>
+        /// Geeft aan hoever dit GameObject is wat betreft de animatie. Waarde is tussen 0.0f (begin) en 1.0f (eind) of hoger.
+        /// </summary>
+        [ExcludeFromEditor]
+        public virtual float Frame
+        {
+            get { return -1.0f; }
+            protected set { throw new NotImplementedException(); }
+        }
+
+        /// <summary>
+        /// De hoogte van het GameObject
+        /// </summary>
+        public int Height
+        {
+            get { return height; }
+            set
+            {
+                if (value >= 0)
+                    height = value;
+                else
+                    height = 0;
+            }
+        }
+
+        /// <summary>
+        /// De breedte van het GameObject
+        /// </summary>
+        public int Width
+        {
+            get { return width; }
+            set
+            {
+                if (value >= 0)
+                    width = value;
+                else
+                    width = 0;
+            }
+        }
+
+        /// <summary>
+        /// De X positie van het GameObject
+        /// </summary>
+        public virtual int X
+        {
+            get { return x; }
+            set
+            {
+                if (value >= 0)
+                {
+                    if (Playfield == null || value + Width <= Playfield.Width)
+                        x = value;
+                    else
+                        x = Playfield.Width - Width;
+                }
+            }
+        }
+
+        /// <summary>
+        /// De Y positie van het game-object.
+        /// </summary>
+        public virtual int Y
+        {
+            get { return y; }
+            set
+            {
+                if (value >= 0)
+                    if (Playfield == null || value + Height <= Playfield.Height)
+                        y = value;
+                    else
+                        y = Playfield.Height - Height;
+                else
+                    y = 0;
+            }
+        }
+
+        /// <summary>
+        /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
+        /// </summary>
+        public bool IsSolid { get; protected set; }
+
+        /// <summary>
+        /// Verkrijg beschrijving van entity
+        /// </summary>
+        /// <returns>Beschrijving</returns>
+        public virtual string getDescription()
+        {
+            return "No description yet";
+        }
+
         /// <summary>
         /// Wat is de afstand tussen dit object en het andere object
         /// </summary>
@@ -203,11 +191,14 @@ namespace Olympus_the_Game.Model
         /// <returns>De afstand tussen de twee game-objecten</returns>
         public double DistanceToObject(GameObject entity)
         {
-            int xDistance = entity.X + (entity.Width / 2) - X - (Width / 2); //bekijkt de afstand van het midden van beide objecten
-            int yDistance = entity.Y + (entity.Height / 2) - Y - (Height / 2); //bekijkt de afstand van het midden van beide objecten
+            int xDistance = entity.X + (entity.Width/2) - X - (Width/2);
+                //bekijkt de afstand van het midden van beide objecten
+            int yDistance = entity.Y + (entity.Height/2) - Y - (Height/2);
+                //bekijkt de afstand van het midden van beide objecten
             double result = Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
             return result;
         }
+
         /// <summary>
         /// Helper method om te bepalen of de Y assen van de objecten elkaar kruisen
         /// </summary>
@@ -217,6 +208,7 @@ namespace Olympus_the_Game.Model
         {
             return DoLinesOverlap(Y, Height, entity.Y, entity.Height);
         }
+
         /// <summary>
         /// Helper method om te bepalen of de X assen van de objecten elkaar kruisen
         /// </summary>
@@ -226,6 +218,7 @@ namespace Olympus_the_Game.Model
         {
             return DoLinesOverlap(X, Width, entity.X, entity.Width);
         }
+
         /// <summary>
         /// Kijkt of de gegeven GameObject kruist over het huidige object.
         /// </summary>
@@ -255,7 +248,6 @@ namespace Olympus_the_Game.Model
         /// <param name="gameObject">Het object waarmee gekruist wordt</param>
         public virtual void OnCollide(GameObject gameObject)
         {
-
         }
 
         /// <summary>
@@ -264,8 +256,8 @@ namespace Olympus_the_Game.Model
         /// <param name="fieldRemoved">bool die aangeeft of hij door het PlayField is verwijderd. True is door het speelveld verwijderd, false door een OnCollide</param>
         public virtual void OnRemoved(bool fieldRemoved)
         {
-
         }
+
         /// <summary>
         /// Controleerd of 2 lijnen elkaar overlappen. Gebaseerd op hun startpositie en breedte (of Hoogte).
         /// </summary>

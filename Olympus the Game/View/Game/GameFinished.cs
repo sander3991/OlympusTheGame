@@ -34,18 +34,18 @@ namespace Olympus_the_Game.View.Game
             this.score.Text = string.Format("Score: {0}", score.ToString("D5"));
             bool first = true;
             StringBuilder builder = new StringBuilder();
-            foreach (ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
+            foreach (ScoreType scoreType in Enum.GetValues(typeof (ScoreType)))
             {
                 int typeScore = Scoreboard.GetScore(scoreType);
                 if (score != 0)
                 {
                     if (!first)
                         builder.Append(Environment.NewLine);
-                    builder.Append(scoreType.ToString() + ":" + typeScore);
+                    builder.Append(scoreType + ":" + typeScore);
                     first = false;
                 }
             }
-            this.ScoreDescr.Text = builder.ToString();
+            ScoreDescr.Text = builder.ToString();
         }
     }
 }

@@ -14,14 +14,58 @@ namespace Olympus_the_Game.View.Imaging
         public static readonly Bitmap EMPTY = new Bitmap(1, 1);
 
         /// <summary>
+        /// Create a new Sprite.
+        /// </summary>
+        /// <param name="bm">The bitmap</param>
+        /// <param name="countX">Amount of pieces to divide x-axis to.</param>
+        /// <param name="countY">Amount of pieces to divide y-axis to.</param>
+        /// <param name="cyclic">Whether to create a cyclic sprite.</param>
+        public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
+        {
+            // Save variables
+            Image = bm;
+            Cyclic = cyclic;
+
+            // Check for moving image or static image
+            if (countX > 0 && countY > 0 && countX*countY > 1)
+            {
+                Columns = countX;
+                Rows = countY;
+                Images = CutupImage(bm, Rows, Columns);
+            }
+            else
+            {
+                Columns = -1;
+                Rows = 1;
+            }
+        }
+
+        /// <summary>
+        /// Create Sprite from single bitmap.
+        /// </summary>
+        /// <param name="bm"></param>
+        public Sprite(Bitmap bm)
+            : this(bm, -1, -1)
+        {
+        }
+
+        /// <summary>
+        /// Create non-cyclic sprite, cut in pieces.
+        /// </summary>
+        /// <param name="bm"></param>
+        /// <param name="countX"></param>
+        /// <param name="countY"></param>
+        public Sprite(Bitmap bm, int countX, int countY)
+            : this(bm, countX, countY, false)
+        {
+        }
+
+        /// <summary>
         /// Gets the amount of frames in this Sprite. -1 if this is a static image.
         /// </summary>
         public int Frames
         {
-            get
-            {
-                return this.Columns * this.Rows;
-            }
+            get { return Columns*Rows; }
         }
 
         /// <summary>
@@ -50,51 +94,6 @@ namespace Olympus_the_Game.View.Imaging
         public Bitmap Image { get; private set; }
 
         /// <summary>
-        /// Create a new Sprite.
-        /// </summary>
-        /// <param name="bm">The bitmap</param>
-        /// <param name="countX">Amount of pieces to divide x-axis to.</param>
-        /// <param name="countY">Amount of pieces to divide y-axis to.</param>
-        /// <param name="cyclic">Whether to create a cyclic sprite.</param>
-        public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
-        {
-            // Save variables
-            this.Image = bm;
-            this.Cyclic = cyclic;
-
-            // Check for moving image or static image
-            if (countX > 0 && countY > 0 && countX * countY > 1)
-            {
-                this.Columns = countX;
-                this.Rows = countY;
-                this.Images = CutupImage(bm, Rows, Columns);
-            }
-            else
-            {
-                Columns = -1;
-                Rows = 1;
-            }
-        }
-
-        /// <summary>
-        /// Create Sprite from single bitmap.
-        /// </summary>
-        /// <param name="bm"></param>
-        public Sprite(Bitmap bm)
-            : this(bm, -1, -1)
-        { }
-
-        /// <summary>
-        /// Create non-cyclic sprite, cut in pieces.
-        /// </summary>
-        /// <param name="bm"></param>
-        /// <param name="countX"></param>
-        /// <param name="countY"></param>
-        public Sprite(Bitmap bm, int countX, int countY)
-            : this(bm, countX, countY, false)
-        { }
-
-        /// <summary>
         /// Returns the given frame.
         /// </summary>
         /// <param name="index">-1.0f for static, between 0.0f (inclusive) and 1.0f (exclusive) (or higher if cyclic) for dynamic.</param>
@@ -108,27 +107,23 @@ namespace Olympus_the_Game.View.Imaging
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                else if (Frames == -1.0f) // Index == -1, geef interne plaatje
+                if (Frames == -1.0f) // Index == -1, geef interne plaatje
                 {
-                    return this.Image;
+                    return Image;
                 }
-                else if (!this.Cyclic)
+                if (!Cyclic)
                 {
                     if (index >= 1.0f)
                         return EMPTY;
-                    else
-                        if (index < 0.0f) index = 0.0f;
-                    return Images[(int)(index * (float)Images.Count)];
+                    if (index < 0.0f) index = 0.0f;
+                    return Images[(int) (index*Images.Count)];
                 }
-                else if (this.Cyclic)
+                if (Cyclic)
                 {
-                    index = index - (float)((int)index);
-                    return Images[(int)(index * (float)Images.Count)];
+                    index = index - (int) index;
+                    return Images[(int) (index*Images.Count)];
                 }
-                else// Niet van dit alles? Geef lege bitmap terug
-                {
-                    return EMPTY;
-                }
+                return EMPTY;
             }
         }
 
@@ -147,18 +142,15 @@ namespace Olympus_the_Game.View.Imaging
             if (s == null)
                 return false;
 
-            if (this.Frames == -1)
+            if (Frames == -1)
             {
-                return this.Cyclic == s.Cyclic && this.Image.Equals(s.Image);
+                return Cyclic == s.Cyclic && Image.Equals(s.Image);
             }
-            else
-            {
-                return this.Cyclic == s.Cyclic &&
-                    this.Image.Equals(s.Image) &&
-                    this.Columns == s.Columns &&
-                    this.Rows == s.Rows &&
-                    this.Image.Equals(s.Image);
-            }
+            return Cyclic == s.Cyclic &&
+                   Image.Equals(s.Image) &&
+                   Columns == s.Columns &&
+                   Rows == s.Rows &&
+                   Image.Equals(s.Image);
         }
 
         /// <summary>
@@ -171,19 +163,19 @@ namespace Olympus_the_Game.View.Imaging
             int factor = 37;
 
             result *= factor;
-            result += this.Columns;
+            result += Columns;
 
             result *= factor;
-            result += this.Rows;
+            result += Rows;
 
             result *= factor;
-            result += this.Cyclic.GetHashCode();
+            result += Cyclic.GetHashCode();
 
             result *= factor;
-            result += this.Image.GetHashCode();
+            result += Image.GetHashCode();
 
             result *= factor;
-            result += this.Images.GetHashCode();
+            result += Images.GetHashCode();
 
             return result;
         }
@@ -208,11 +200,11 @@ namespace Olympus_the_Game.View.Imaging
         private static List<Bitmap> CutupImage(Bitmap bitmap, int rows, int columns)
         {
             // Determine target
-            Size s = new Size(bitmap.Width / columns, bitmap.Height / rows);
+            Size s = new Size(bitmap.Width/columns, bitmap.Height/rows);
             Rectangle targetRectangle = new Rectangle(new Point(0, 0), s);
 
             // Create result
-            List<Bitmap> result = new List<Bitmap>(s.Height * s.Width);
+            List<Bitmap> result = new List<Bitmap>(s.Height*s.Width);
 
             // Cut up image
             for (int i = 0; i < rows; i++)
@@ -223,7 +215,8 @@ namespace Olympus_the_Game.View.Imaging
                     Bitmap subImage = new Bitmap(s.Width, s.Height);
                     // Draw scaled image
                     using (Graphics g = Graphics.FromImage(subImage))
-                        g.DrawImage(bitmap, targetRectangle, new Rectangle(new Point(j * s.Width, i * s.Height), s), GraphicsUnit.Pixel);
+                        g.DrawImage(bitmap, targetRectangle, new Rectangle(new Point(j*s.Width, i*s.Height), s),
+                            GraphicsUnit.Pixel);
                     // Add to result
                     result.Add(subImage);
                 }

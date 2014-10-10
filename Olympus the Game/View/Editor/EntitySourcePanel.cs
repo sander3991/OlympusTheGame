@@ -13,12 +13,10 @@ namespace Olympus_the_Game.View.Editor
 {
     public partial class EntitySourcePanel : UserControl
     {
-
-        public ObjectType RepresentingType { get; private set; }
-
         public EntitySourcePanel()
             : this(ObjectType.CREEPER)
-        { }
+        {
+        }
 
         public EntitySourcePanel(ObjectType et)
         {
@@ -26,28 +24,30 @@ namespace Olympus_the_Game.View.Editor
             RepresentingType = et;
         }
 
+        public ObjectType RepresentingType { get; private set; }
+
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             // Change image
-            Sprite s = DataPool.GetPicture(RepresentingType, this.picturePreview.Size);
+            Sprite s = DataPool.GetPicture(RepresentingType, picturePreview.Size);
             if (s != null)
-                this.picturePreview.Image = s[-1.0f];
+                picturePreview.Image = s[-1.0f];
 
             // Change name
-            this.label1.Text = RepresentingType.ToString();
+            label1.Text = RepresentingType.ToString();
 
             // Change shortcut key
-            this.label2.Text = "Toets";
+            label2.Text = "Toets";
 
             // Change description
             GameObject go = Utils.CreateObjectOfType(RepresentingType);
-            if(go != null)
-                this.label3.Text = go.getDescription();
+            if (go != null)
+                label3.Text = go.getDescription();
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.picturePreview.DoDragDrop(RepresentingType, DragDropEffects.Copy | DragDropEffects.Move);
+            picturePreview.DoDragDrop(RepresentingType, DragDropEffects.Copy | DragDropEffects.Move);
         }
     }
 }

@@ -5,7 +5,6 @@ namespace Olympus_the_Game.Model
 {
     public class ObjectFinish : GameObject
     {
-
         static ObjectFinish()
         {
             RegisterWithEditor(ObjectType.FINISH, () => { return new ObjectFinish(50, 50, 0, 0); });
@@ -39,8 +38,8 @@ namespace Olympus_the_Game.Model
             EntityPlayer player = gameObject as EntityPlayer;
             if (player != null && player.X > X && player.Y > Y)
             {
-                int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
-                int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
+                int xDistance = Math.Abs((X + Width/2) - (player.X + player.Width/2));
+                int yDistance = Math.Abs((Y + Height/2) - (player.Y + player.Height/2));
                 if (xDistance < 5 && yDistance < 5)
                     OlympusTheGame.GameController.OnPlayerReachedCake();
             }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 using System.Reflection;
 using Olympus_the_Game.View.Editor;
@@ -19,8 +20,6 @@ namespace Olympus_the_Game.View.Editor
 
         private const int RowHeight = 20;
 
-        public event Action EntityChanged;
-
         private GameObject SelectedObject;
 
         private Dictionary<PropertyInfo, TextBox> inputs;
@@ -29,8 +28,10 @@ namespace Olympus_the_Game.View.Editor
         {
             InitializeComponent();
             // Set styles
-            Utils.setButtonStyle(this.ToepassenEntity);
+            Utils.setButtonStyle(ToepassenEntity);
         }
+
+        public event Action EntityChanged;
 
         /// <summary>
         /// Laad de data van de entity in de EntityEditor
@@ -38,31 +39,31 @@ namespace Olympus_the_Game.View.Editor
         public void LoadData(GameObject go)
         {
             // Save GameObject
-            this.SelectedObject = go;
+            SelectedObject = go;
 
             // Deze if statement is nodig om een NullReference error te voorkomen
             if (go != null)
             {
                 // Set image
-                Sprite s = DataPool.GetPicture(go.Type, this.EntityImageLarge.Size);
+                Sprite s = DataPool.GetPicture(go.Type, EntityImageLarge.Size);
                 if (s != null)
                 {
-                    this.EntityImageLarge.BackgroundImage = s[-1.0f];
+                    EntityImageLarge.BackgroundImage = s[-1.0f];
                 }
 
                 // Set name
-                this.labelName.Text = go.ToString();
+                labelName.Text = go.ToString();
 
                 // Clear everything
-                this.panel1.Controls.Clear();
-                this.inputs = new Dictionary<PropertyInfo, TextBox>();
+                panel1.Controls.Clear();
+                inputs = new Dictionary<PropertyInfo, TextBox>();
 
                 // Start reflection
                 int pad = PADDING;
-                foreach (PropertyInfo fi in go.GetType().GetProperties().Where<PropertyInfo>(
+                foreach (PropertyInfo fi in go.GetType().GetProperties().Where(
                     delegate(PropertyInfo pi)
                     {
-                        object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
+                        object[] attributes = pi.GetCustomAttributes(typeof (ExcludeFromEditor), true);
                         return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor) attributes[0]).Exclude);
                     }))
                 {
@@ -75,7 +76,7 @@ namespace Olympus_the_Game.View.Editor
 
                     // Create textbox
                     TextBox tb = new TextBox();
-                    tb.Text = fi.GetValue(go, new object[] { }).ToString();
+                    tb.Text = fi.GetValue(go, new object[] {}).ToString();
                     tb.Top = pad;
                     tb.Left = 150;
                     tb.Height = RowHeight;
@@ -85,8 +86,8 @@ namespace Olympus_the_Game.View.Editor
                     inputs.Add(fi, tb);
 
                     // Add to panel
-                    this.panel1.Controls.Add(l);
-                    this.panel1.Controls.Add(tb);
+                    panel1.Controls.Add(l);
+                    panel1.Controls.Add(tb);
 
                     // Update padding
                     pad += PADDING + l.Height;
@@ -113,17 +114,17 @@ namespace Olympus_the_Game.View.Editor
                 // Parse value
                 try
                 {
-                    if (pi.PropertyType == typeof(System.Int32))
+                    if (pi.PropertyType == typeof (Int32))
                     {
                         val = Convert.ToInt32(text);
                     }
-                    else if (pi.PropertyType == typeof(System.Boolean))
+                    else if (pi.PropertyType == typeof (Boolean))
                     {
                         val = Convert.ToBoolean(text);
                     }
 
                     // Set property
-                    pi.SetValue(SelectedObject, val, new object[] { });
+                    pi.SetValue(SelectedObject, val, new object[] {});
                     tb.BackColor = Color.White;
                 }
                 catch (FormatException)
@@ -138,7 +139,7 @@ namespace Olympus_the_Game.View.Editor
 
         private void EntityEditor_Load(object sender, EventArgs e)
         {
-            this.ToepassenEntity.BackgroundImage = Properties.Resources.stone;
+            ToepassenEntity.BackgroundImage = Resources.stone;
         }
     }
 }

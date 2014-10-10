@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game
 {
-    class Utils
+    internal class Utils
     {
         private const bool DISABLE_MASK = false; // TODO Release: Deze regel verwijderen
 
@@ -35,15 +36,25 @@ namespace Olympus_the_Game
         public static void ShowMask(bool showMask)
         {
             if (MaskForm == null || MaskForm.IsDisposed)
-                MaskForm = new Form() { BackColor = Color.Black, FormBorderStyle = FormBorderStyle.None, ShowInTaskbar = false, TopMost = true };
+                MaskForm = new Form
+                {
+                    BackColor = Color.Black,
+                    FormBorderStyle = FormBorderStyle.None,
+                    ShowInTaskbar = false,
+                    TopMost = true
+                };
             if (!MaskForm.IsHandleCreated)
                 MaskForm.Show();
-            MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] { showMask });
+            MaskForm.Invoke((Action<bool>) ShowMaskUnsafe, new object[] {showMask});
         }
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-            if (DISABLE_MASK) { MaskForm.Visible = false; return; } // TODO Release: Deze regel verwijderen
+            if (DISABLE_MASK)
+            {
+                MaskForm.Visible = false;
+                return;
+            } // TODO Release: Deze regel verwijderen
             MaskForm.Size = getScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
@@ -54,7 +65,7 @@ namespace Olympus_the_Game
             MaskForm.Visible = true;
             while (sw.ElapsedMilliseconds < MASK_FADE_DURATION)
             {
-                float i = (float)sw.ElapsedMilliseconds / (float)MASK_FADE_DURATION;
+                float i = sw.ElapsedMilliseconds/(float) MASK_FADE_DURATION;
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
                 MaskForm.Invalidate();
                 Application.DoEvents();
@@ -73,23 +84,23 @@ namespace Olympus_the_Game
         {
             if (fullScreen)
             {
-                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                f.Size = Utils.getScreenSize();
+                f.FormBorderStyle = FormBorderStyle.None;
+                f.Size = getScreenSize();
                 f.Location = Point.Empty;
             }
             else
             {
-                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+                f.FormBorderStyle = FormBorderStyle.Fixed3D;
                 f.Size = new Size(1024, 768);
-                Size full = Utils.getScreenSize();
-                f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
+                Size full = getScreenSize();
+                f.Location = new Point((full.Width - f.Width)/2, (full.Height - f.Height)/2);
             }
         }
 
         public static void setButtonStyle(Button b)
         {
-            b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.stone;
-            b.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            b.BackgroundImage = Resources.stone;
+            b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             b.ForeColor = Color.Black;
         }
 
