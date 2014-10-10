@@ -88,6 +88,7 @@ namespace Olympus_the_Game.Model
             {
                 return -1.0f;
             }
+            protected set { throw new NotImplementedException(); }
         }
 
         /// <summary>
