@@ -62,6 +62,11 @@ namespace Olympus_the_Game.Model
         private int width;
         private int x;
         private int y;
+        private static int ID = 0;
+        /// <summary>
+        /// Een uniek ID voor elk object dat wordt aangemaakt
+        /// </summary>
+        public int UniqueID { get; private set; }
 
         /// <summary>
         /// Initialiseert een GameObject
@@ -78,6 +83,7 @@ namespace Olympus_the_Game.Model
             Height = height;
             IsSolid = true;
             Type = ObjectType.Unknown;
+            UniqueID = ID++;
         }
 
         [ExcludeFromEditor]

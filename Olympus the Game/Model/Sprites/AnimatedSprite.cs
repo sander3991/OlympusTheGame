@@ -1,4 +1,6 @@
-﻿namespace Olympus_the_Game.Model.Sprites
+﻿using Olympus_the_Game.View.Editor;
+
+namespace Olympus_the_Game.Model.Sprites
 {
     public abstract class AnimatedSprite : GameObject
     {
@@ -39,6 +41,7 @@
         /// <summary>
         /// Het hoeveelste frame deze animatie zit. Tussen 0.0f en 1.0f als deze nog draait. Hoger als de animatie voorbij is (of cyclisch is).
         /// </summary>
+        [ExcludeFromEditor]
         public override float Frame
         {
             get { return (OlympusTheGame.GameTime - Start)/(float) Duration; }

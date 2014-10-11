@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model.Sprites;
 using Olympus_the_Game.Properties;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -39,6 +40,7 @@ namespace Olympus_the_Game.Model.Entities
         {
         }
 
+        [ExcludeFromEditor]
         public override float Frame
         {
             get

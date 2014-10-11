@@ -20,7 +20,6 @@ namespace Olympus_the_Game.Model
         public const int DefaultWidth = 500;
 
         private static int ID;
-        private static List<GameObject> _defaultmap;
         private bool _isClosing;
 
         /// <summary>
@@ -80,20 +79,11 @@ namespace Olympus_the_Game.Model
         public event DelOnPlayFieldChanged OnObjectRemoved;
 
         /// <summary>
-        /// Initialiseert alle GameObject met de DefaultMap
+        /// Initialiseert alle GameObject zonder gameobjecten
         /// </summary>
         public void InitializeGameObjects()
         {
-            if (!IsInitialized)
-            {
-                if (_defaultmap == null) //Initialiseert de default map de eerste keer dat deze wordt opgevraagd
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof (PlayField));
-                    PlayField pf = serializer.Deserialize(new StringReader(Resources.beach)) as PlayField;
-                    if (pf != null) _defaultmap = pf.GameObjects;
-                }
-            }
-            InitializeGameObjects(_defaultmap);
+            InitializeGameObjects(new List<GameObject>());
         }
 
         /// <summary>
@@ -109,7 +99,7 @@ namespace Olympus_the_Game.Model
                 GameObjects = objects;
                 foreach (GameObject t in objects)
                 {
-                    if (t.Playfield != null || t.Playfield == this)
+                    if (t.Playfield != null && t.Playfield != this)
                         //Is er al een PlayField object aangekoppeld, dat mag niet!
                         throw new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
                     t.Playfield = this;
@@ -177,7 +167,7 @@ namespace Olympus_the_Game.Model
             foreach (GameObject o in GameObjects)
             {
                 start = o as ObjectStart;
-                if (o != null)
+                if (start != null)
                     break;
             }
             if (start != null)
@@ -353,10 +343,7 @@ namespace Olympus_the_Game.Model
                 }
                 reader.Read();
             }
-            if (GameObjects.Count > 0)
-            {
-                IsInitialized = true;
-            }
+             IsInitialized = true;
         }
 
         /// <summary>

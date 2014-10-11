@@ -165,10 +165,12 @@ namespace Olympus_the_Game.View.Menu
             Dispose();
         }
 
-        private void OpenLevel()
+        private void OpenLevel(PlayField pf)
         {
+            if (pf == null)
+                pf = PlayfieldLoader.ReadFromResource(Resources.hell) ?? new PlayField();
             // Read PlayField
-            OlympusTheGame.Playfield = PlayfieldLoader.ReadFromResource(Resources.hell) ?? new PlayField();
+            OlympusTheGame.Playfield = pf;
 
             OlympusTheGame.Playfield.InitializeGameObjects();
 

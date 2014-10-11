@@ -91,12 +91,34 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Handelt het toevoegen van een bestand af
         /// </summary>
-        /// <param name="fileLocation"></param>
+        /// <param name="fileLocation">De locatie van het bestand</param>
         private static void AddFile(string fileLocation)
         {
+            AddFile(fileLocation, 0);
+        }
+
+        /// <summary>
+        /// Handelt het toevoegen van een bestand af
+        /// </summary>
+        /// <param name="fileLocation">De locatie van het bestand</param>
+        /// <param name="attempt">De hoeveelste poging het is om dit bestand te openen. Bij 50 pogingen stopt hij met proberen</param>
+        private static void AddFile(string fileLocation, int attempt)
+        {
+            if (!File.Exists(fileLocation)) return; //Fallback voor als er een verkeerde file locatie wordt meegegeven
             if (Path.GetExtension(fileLocation) == ".xml") //controleerd of het een .xml bestand is
             {
-                StreamReader file = new StreamReader(fileLocation);
+                StreamReader file = null;
+                try {
+                    file = new StreamReader(fileLocation);
+                }
+                catch (IOException) {
+                    if (attempt < 50)
+                    { //we gaan het maximaal 50 keer proberen opnieuw te lezen
+                        System.Threading.Thread.Sleep(100); //We wachten in deze worked thread een 0,1 seconde, en proberen het opnieuw
+                        AddFile(fileLocation, attempt++);
+                        return; //Als wij op dit punt een IOException krijgen, is het bestand nog niet klaar met schrijven, we returnen omdat later het event nog een keer afgevuurd word, en we het dan wel kunnen lezen!
+                    }
+                }
                 string line;
                 string name = null;
                 while ((line = file.ReadLine()) != null) // Lees alle regels door om te zoeken naar onderstaande tekst

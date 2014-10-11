@@ -90,7 +90,7 @@
             this.levelDialog1.BackColor = System.Drawing.Color.Transparent;
             this.levelDialog1.Location = new System.Drawing.Point(13, 339);
             this.levelDialog1.Name = "levelDialog1";
-            this.levelDialog1.Size = new System.Drawing.Size(426, 330);
+            this.levelDialog1.Size = new System.Drawing.Size(426, 400);
             this.levelDialog1.TabIndex = 2;
             // 
             // helpDialog1

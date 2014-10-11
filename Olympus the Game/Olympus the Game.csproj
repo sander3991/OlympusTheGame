@@ -442,6 +442,12 @@
   <ItemGroup>
     <None Include="Resources\Music\HakunaMatata.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\ScrollArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textures\ScrollArrowUp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

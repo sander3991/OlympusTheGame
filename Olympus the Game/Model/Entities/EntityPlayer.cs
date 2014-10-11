@@ -1,4 +1,5 @@
 ﻿using System;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -30,6 +31,7 @@ namespace Olympus_the_Game.Model.Entities
             Type = ObjectType.Player;
         }
 
+        [ExcludeFromEditor]
         public override float Frame
         {
             get

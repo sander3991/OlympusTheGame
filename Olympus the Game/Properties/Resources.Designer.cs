@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace Olympus_the_Game.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -74,19 +77,19 @@ namespace Olympus_the_Game.Properties {
         ///  &lt;Width&gt;1000&lt;/Width&gt;
         ///  &lt;Height&gt;500&lt;/Height&gt;
         ///  &lt;GameObjects&gt;
-        ///    &lt;GameObject Type=&quot;GHAST&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
         ///      &lt;X&gt;888&lt;/X&gt;
         ///      &lt;Y&gt;0&lt;/Y&gt;
         ///      &lt;Width&gt;50&lt;/Width&gt;
         ///      &lt;Height&gt;50&lt;/Height&gt;
         ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;GHAST&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
         ///      &lt;X&gt;888&lt;/X&gt;
         ///      &lt;Y&gt;50&lt;/Y&gt;
         ///      &lt;Width&gt;50&lt;/Width&gt;
         ///      &lt;Height&gt;50&lt;/Height&gt;
         ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;GHAST&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
         ///      &lt;X&gt;888&lt;/X&gt;
         ///      &lt;Y&gt;100&lt;/Y&gt;
         ///      &lt;Width&gt;50&lt;/Width&gt;
@@ -224,19 +227,19 @@ namespace Olympus_the_Game.Properties {
         ///  &lt;Width&gt;1200&lt;/Width&gt;
         ///  &lt;Height&gt;650&lt;/Height&gt;
         ///  &lt;GameObjects&gt;
-        ///    &lt;GameObject Type=&quot;START&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
         ///      &lt;X&gt;0&lt;/X&gt;
         ///      &lt;Y&gt;0&lt;/Y&gt;
         ///      &lt;Width&gt;150&lt;/Width&gt;
         ///      &lt;Height&gt;150&lt;/Height&gt;
         ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;FINISH&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
         ///      &lt;X&gt;800&lt;/X&gt;
         ///      &lt;Y&gt;300&lt;/Y&gt;
         ///      &lt;Width&gt;150&lt;/Width&gt;
         ///      &lt;Height&gt;150&lt;/Height&gt;
         ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;OBSTACLE&quot;&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
         ///      &lt;X&gt;250&lt;/X&gt;
         ///      &lt;Y&gt;250&lt;/Y&gt;
         ///      &lt;Width&gt;50&lt;/Width&gt;
@@ -364,6 +367,26 @@ namespace Olympus_the_Game.Properties {
         internal static System.Drawing.Bitmap rsz_arrowup {
             get {
                 object obj = ResourceManager.GetObject("rsz_arrowup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScrollArrowDown {
+            get {
+                object obj = ResourceManager.GetObject("ScrollArrowDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScrollArrowUp {
+            get {
+                object obj = ResourceManager.GetObject("ScrollArrowUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
