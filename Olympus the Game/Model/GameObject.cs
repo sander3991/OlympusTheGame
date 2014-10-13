@@ -63,6 +63,7 @@ namespace Olympus_the_Game.Model
         private int x;
         private int y;
         private static int ID = 0;
+        public bool Visible = true;
         /// <summary>
         /// Een uniek ID voor elk object dat wordt aangemaakt
         /// </summary>

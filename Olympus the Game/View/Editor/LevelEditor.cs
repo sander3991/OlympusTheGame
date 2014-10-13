@@ -328,6 +328,7 @@ namespace Olympus_the_Game.View.Editor
                 GameObject g = f();
                 g.X = l.X;
                 g.Y = l.Y;
+                g.Visible = true;
                 CurrentPlayField.AddObject(g);
             }
             gamePanelEditor.Invalidate();

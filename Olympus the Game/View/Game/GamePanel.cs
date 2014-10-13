@@ -118,7 +118,9 @@ namespace Olympus_the_Game.View.Game
             // Loop through all gameobjects
             foreach (GameObject go in objects)
             {
-                Draw(go, g);
+                if(go.Visible == true){
+                    Draw(go, g);
+                }
             }
 
             // Draw player

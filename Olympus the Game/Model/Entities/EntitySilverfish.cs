@@ -3,8 +3,34 @@
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
-        private int SpotRange = 75;
-        private int AggroRange = 50;
+        private int _propSpotRange;
+
+        public int SpotRange {
+            get {
+                return _propSpotRange;
+            }
+            set {
+                if(value >= 0)
+                    _propSpotRange = value;
+            }
+        }
+
+        private int _propAggroRange;
+
+        public int AggroRange {
+            get {
+                return _propAggroRange;
+            }
+            set {
+                if(value >= 0)
+                    _propAggroRange = value;
+            }
+        }
+        
+        static EntitySilverfish()
+        {
+            RegisterWithEditor(ObjectType.Silverfish, () => new EntitySilverfish(50,50,0,0));
+        }
 
         public EntitySilverfish(int width, int height, int x, int y, int dx, int dy)
             : base(width, height, x, y, dx, dy)
@@ -12,6 +38,9 @@
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = false;
             Type = ObjectType.Silverfish;
+            Visible = false;
+            SpotRange = 150;
+            AggroRange = 100;
         }
 
         public EntitySilverfish(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
@@ -21,11 +50,10 @@
         public void OnUpdate() {
             EntityPlayer player = Playfield.Player;
             if(player != null){
-                if(DistanceToObject(player) < SpotRange){
+                if(DistanceToObject(player) < SpotRange) {
                     // Komt tevoorschijn
+                    Visible = true;
                     if(DistanceToObject(player) < AggroRange){
-                        EntityControlledByAi = false;
-
                         if(X - player.X > 0) {
                             DX = -1;
                         } else {
@@ -46,8 +74,12 @@
                             DY = 0;
                         }
                     }
-                } else {
-                    EntityControlledByAi = false;
+
+                    if(DistanceToObject(player) > AggroRange) {
+                        DX = 0;
+                        DY = 0;
+                        Visible = false;
+                    }
                 }
             }
 
