@@ -394,6 +394,16 @@ namespace Olympus_the_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap silverfish {
+            get {
+                object obj = ResourceManager.GetObject("silverfish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spider {
             get {
                 object obj = ResourceManager.GetObject("spider", resourceCulture);

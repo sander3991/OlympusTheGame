@@ -7,7 +7,7 @@ namespace Olympus_the_Game.Model.Entities
     public class EntityCreeper : EntityExplode
     {
         // TODO Joel: Property van maken + denk aan limitaties van de property.
-        public int CreeperRange = 150; // Aanpasbaar in editor
+        private int CreeperRange = 150; // Aanpasbaar in editor
 
         static EntityCreeper()
         {
