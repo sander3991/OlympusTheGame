@@ -23,6 +23,8 @@ namespace Olympus_the_Game.View.Editor
 
             // Save vars
             CurrentPlayField = pf;
+            foreach (GameObject go in pf.GameObjects)
+                go.Visible = true; //Hier zetten we alles op zichtbaar zodat we alle gameobjects kunnen zien, implementatie voor de Silverfish
             gamePanelEditor.Playfield = CurrentPlayField;
             speelveldEditor1.Playfield = CurrentPlayField;
 

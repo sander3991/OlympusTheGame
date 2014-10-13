@@ -46,8 +46,12 @@ namespace Olympus_the_Game.View.Game
 
                 if (ent != null)
                 {
-                    list[ent] = CreateListViewItem(ent);
-                    ent.OnMoved += ent_OnMoved;
+                    if (ent.Visible)
+                    {
+                        list[ent] = CreateListViewItem(ent);
+                        ent.OnMoved += ent_OnMoved;
+                    }
+                    ent.OnVisibilityChanged += ent_OnVisibilityChanged;
                 }
             }
             OlympusTheGame.Playfield.OnObjectAdded += Playfield_OnObjectAdded;
@@ -59,6 +63,30 @@ namespace Olympus_the_Game.View.Game
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                 IsResized = true;
             }
+        }
+
+        void ent_OnVisibilityChanged(GameObject go, bool visible)
+        {
+            Entity e = go as Entity;
+            if (visible && !list.ContainsKey(e))
+            {
+                list[e] = CreateListViewItem(e);
+                e.OnMoved += ent_OnMoved;
+            }
+            else if(!visible)
+            {
+                if (list.ContainsKey(e))
+                {
+                    ListViewItem item = list[e];
+                    if (item != null)
+                    {
+                        list[e].Remove();
+                        list.Remove(e);
+                        e.OnMoved -= ent_OnMoved;
+                    }
+                }
+            }
+
         }
 
         /// <summary>
@@ -92,6 +120,7 @@ namespace Olympus_the_Game.View.Game
                         list[e].Remove();
                         list.Remove(e);
                         e.OnMoved -= ent_OnMoved;
+                        e.OnVisibilityChanged -= ent_OnVisibilityChanged;
                     }
                 }
             }
