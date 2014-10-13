@@ -55,6 +55,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
         /// </summary>
+        [EditorTooltip("Tijd", "Hoe lang duurt het voordat de tijdbom ontploft in milliseconden")]
         public int ExplodeTime
         {
             get { return prop_explodetime; }
@@ -64,6 +65,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// De afstand waarin de timebom de speler herkend. MIN = 50, DEFAULT = 100
         /// </summary>
+        [EditorTooltip("Detectie afstand", "Vanaf welke afstand begint de tijdbom af te gaan")]
         public int DetectRadius
         {
             get { return prop_detectradius; }
@@ -73,6 +75,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// De afstand waarin de explosie plaatsvindt. MIN = 0, DEFAULT = 100
         /// </summary>
+        [EditorTooltip("Explosie radius", "De radius van de explosie")]
         public int ExplodeRadius
         {
             get { return prop_exploderadius; }

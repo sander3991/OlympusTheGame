@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olympus_the_Game.View.Editor;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -36,6 +37,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
+        [EditorTooltip("Effect afstand", "Afstand waarin de Spider spinnenwebben schiet.")]
         public double EffectRange
         {
             get { return prop_effectrange; }
@@ -45,6 +47,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
         /// </summary>
+        [EditorTooltip("Vuursnelheid", "De snelheid waarmee de Spider spinnenwebben schiet")]
         public int FireSpeed
         {
             get { return prop_firespeed; }

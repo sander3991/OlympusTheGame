@@ -75,6 +75,21 @@ namespace Olympus_the_Game.View.Editor
                     Width = 150
                 };
 
+                object[] attributes = fi.GetCustomAttributes(typeof(EditorTooltip), true);
+                if (attributes != null && attributes.Length > 0)
+                {
+                    EditorTooltip attr_tooltip = attributes[0] as EditorTooltip;
+                    if (attr_tooltip != null)
+                    {
+                        ToolTip tooltip = new ToolTip();
+                        tooltip.InitialDelay = 0;
+                        tooltip.UseAnimation = true;
+                        tooltip.SetToolTip(tb, attr_tooltip.Description);
+                        l.Text = attr_tooltip.Name;
+                    }
+                }
+
+
                 // Add to dictionary
                 _inputs.Add(fi, tb);
 

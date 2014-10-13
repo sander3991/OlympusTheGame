@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -9,6 +10,7 @@ namespace Olympus_the_Game.Model.Entities
         private static bool HasHitPlayer = false;
         private Stopwatch stopwatch;
         private int prop_removetime = 3000;
+        [EditorTooltip("TODO JOEL - NAAM", "TODO JOEL OMSCHRIJVING")]
         public int RemoveTime {
             get { return prop_removetime; }
             set { prop_removetime = Math.Max(0, value); }
@@ -24,9 +26,9 @@ namespace Olympus_the_Game.Model.Entities
                     _propSpotRange = value;
             }
         }
-
         private int _propAggroRange;
 
+        [EditorTooltip("Detectie afstand", "Hoe dichtbij moet een speler zijn om de silverfish te laten verschijnen.")]
         public int AggroRange {
             get {
                 return _propAggroRange;

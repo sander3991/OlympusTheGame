@@ -1,14 +1,28 @@
 ﻿using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model.Sprites;
 using Olympus_the_Game.Properties;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
     public class EntityCreeper : EntityExplode
     {
-        // TODO Joel: Property van maken + denk aan limitaties van de property.
-        private int CreeperRange = 150; // Aanpasbaar in editor
 
+        private int prop_creeperrange;
+        
+        [EditorTooltip("Volg afstand", "Vanaf welke afstand gaat de creeper de speler volgen.")]
+        public int CreeperRange
+        {
+            get
+            {
+                return prop_creeperrange;
+            }
+            set
+            {
+                if (value > 0)
+                    prop_creeperrange = value;
+            }
+        }
         static EntityCreeper()
         {
             RegisterWithEditor(ObjectType.Creeper, () => new EntityCreeper(50, 50, 0, 0, 1f));

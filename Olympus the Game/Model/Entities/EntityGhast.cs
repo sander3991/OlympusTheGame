@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olympus_the_Game.View.Editor;
+using System;
 using System.Diagnostics;
 
 namespace Olympus_the_Game.Model.Entities
@@ -36,6 +37,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
         /// </summary>
+        [EditorTooltip("Vuur snelheid", "De snelheid waarmee de Ghast vuurballen schiet in milliseconden.")]
         public int FireSpeed
         {
             get { return _propFirespeed; }
@@ -45,6 +47,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Afstand van wanneer de Ghast begint met aanvallen. MIN = 50, DEFAULT = 150
         /// </summary>
+        [EditorTooltip("Detectie afstand", "De afstand van wanneer de Ghast begint met aanvallen.")]
         public int DetectRange
         {
             get { return _propDetectrange; }

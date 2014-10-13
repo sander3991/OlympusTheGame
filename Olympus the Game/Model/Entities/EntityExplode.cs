@@ -2,6 +2,7 @@
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model.Sprites;
 using Olympus_the_Game.Properties;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -35,6 +36,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
+        [EditorTooltip("Explosie sterkte", "Hoe sterk is de explosie in aantal healthpunten.")]
         public double EffectStrength { get; set; }
 
         public override void OnCollide(GameObject gameObject)

@@ -66,6 +66,7 @@ namespace Olympus_the_Game.Model
         private int y;
         private static int ID = 0;
         private bool _propVisible = true;
+        [ExcludeFromEditor]
         public bool Visible
         {
             get { return _propVisible; }
@@ -129,6 +130,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>
+        [EditorTooltip("Hoogte", "De hoogte van dit object")]
         public int Height
         {
             get { return height; }
@@ -140,6 +142,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// De breedte van het GameObject
         /// </summary>
+        [EditorTooltip("Breedte", "De breedte van dit object")]
         public int Width
         {
             get { return width; }
@@ -151,6 +154,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// De X positie van het GameObject
         /// </summary>
+        [EditorTooltip("X Positie", "De X positie van dit object")]
         public virtual int X
         {
             get { return x; }
@@ -169,6 +173,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// De Y positie van het game-object.
         /// </summary>
+        [EditorTooltip("Y Positie", "De Y positie van dit object")]
         public virtual int Y
         {
             get { return y; }
@@ -187,6 +192,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
         /// </summary>
+        [EditorTooltip("Solide", "Is dit object solide? De speler kan door niet solide objecten bewegen")]
         public bool IsSolid { get; protected set; }
 
         /// <summary>
