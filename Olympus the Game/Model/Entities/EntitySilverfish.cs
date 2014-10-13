@@ -1,10 +1,20 @@
-﻿namespace Olympus_the_Game.Model.Entities
+﻿using System;
+using System.Diagnostics;
+
+namespace Olympus_the_Game.Model.Entities
 {
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
-        private int _propSpotRange;
+        private static bool HasHitPlayer = false;
+        private Stopwatch stopwatch;
+        private int prop_removetime = 3000;
+        public int RemoveTime {
+            get { return prop_removetime; }
+            set { prop_removetime = Math.Max(0, value); }
+        }
 
+        private int _propSpotRange;
         public int SpotRange {
             get {
                 return _propSpotRange;
@@ -80,6 +90,14 @@
                         DY = 0;
                         Visible = false;
                     }
+
+                    if(HasHitPlayer) {
+                        IsSolid = false;
+                        if(stopwatch.ElapsedMilliseconds >= RemoveTime) {
+                            HasHitPlayer = false;
+                            IsSolid = true;
+                        }
+                    }
                 }
             }
 
@@ -88,8 +106,16 @@
             // Loopt weer terug na de aanval en wacht tot je weer 50 pixels in de buurt bent
         }
 
-        public override void OnCollide(GameObject gameObject)
-        {
+        public override void OnCollide(GameObject gameObject) {
+            EntityPlayer player = gameObject as EntityPlayer;
+            PlayField pf = Playfield;
+            if(player != null) {
+                if(!HasHitPlayer) {
+                    Playfield.Player.Health--;
+                    HasHitPlayer = true;
+                    stopwatch = Stopwatch.StartNew();
+                }
+            }
         }
 
         /// <summary>
