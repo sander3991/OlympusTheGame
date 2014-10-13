@@ -57,13 +57,28 @@ namespace Olympus_the_Game.Model
 
         #endregion
 
+        public delegate void DelOnVisibilityChanged(GameObject go, bool visible);
+        public event DelOnVisibilityChanged OnVisibilityChanged;
         private int height;
         private PlayField _propPlayfield;
         private int width;
         private int x;
         private int y;
         private static int ID = 0;
-        public bool Visible = true;
+        private bool _propVisible = true;
+        public bool Visible
+        {
+            get { return _propVisible; }
+            set
+            {
+                if (_propVisible != value)
+                {
+                    _propVisible = value;
+                    if (OnVisibilityChanged != null)
+                        OnVisibilityChanged(this, value);
+                }
+            }
+        }
         /// <summary>
         /// Een uniek ID voor elk object dat wordt aangemaakt
         /// </summary>
