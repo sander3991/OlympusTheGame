@@ -7,13 +7,12 @@ namespace Olympus_the_Game.Model.Entities
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
-        private static bool HasHitPlayer = false;
-        private Stopwatch stopwatch;
+        private bool HasHitPlayer = false;
+        private static Stopwatch stopwatch;
         private int prop_removetime = 3000;
         [EditorTooltip("TODO JOEL - NAAM", "TODO JOEL OMSCHRIJVING")]
         public int RemoveTime {
             get { return prop_removetime; }
-            set { prop_removetime = Math.Max(0, value); }
         }
 
         private int _propSpotRange;
@@ -94,10 +93,8 @@ namespace Olympus_the_Game.Model.Entities
                     }
 
                     if(HasHitPlayer) {
-                        IsSolid = false;
                         if(stopwatch.ElapsedMilliseconds >= RemoveTime) {
                             HasHitPlayer = false;
-                            IsSolid = true;
                         }
                     }
                 }
