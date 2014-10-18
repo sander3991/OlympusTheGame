@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
@@ -6,7 +7,7 @@ namespace Olympus_the_Game.Model.Entities
     //TODO: Deze entity inbouwen
     public class EntitySilverfish : Entity
     {
-        private bool HasHitPlayer;
+        private bool HasHitPlayer = false;
         private static Stopwatch stopwatch;
         private int prop_removetime = 3000;
         [EditorTooltip("TODO JOEL - NAAM", "TODO JOEL OMSCHRIJVING")]
@@ -39,7 +40,7 @@ namespace Olympus_the_Game.Model.Entities
         
         static EntitySilverfish()
         {
-            new EntitySilverfish(50, 50, 0, 0).RegisterWithEditor(ObjectType.Silverfish);
+            RegisterWithEditor(ObjectType.Silverfish, () => new EntitySilverfish(50,50,0,0));
         }
 
         public EntitySilverfish(int width, int height, int x, int y, int dx, int dy)

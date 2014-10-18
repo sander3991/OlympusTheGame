@@ -25,7 +25,7 @@ namespace Olympus_the_Game.Model.Entities
         }
         static EntityCreeper()
         {
-            new EntityCreeper(50, 50, 0, 0, 1f).RegisterWithEditor(ObjectType.Creeper);
+            RegisterWithEditor(ObjectType.Creeper, () => new EntityCreeper(50, 50, 0, 0, 1f));
                 // TODO Maak waarden standaard
         }
 

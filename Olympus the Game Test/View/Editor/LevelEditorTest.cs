@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game.Model;
-using Olympus_the_Game.View.Editor;
+using Olympus_the_Game.View;
+using Olympus_the_Game;
 
 namespace Olympus_the_Game_Test.View.Editor
 {

@@ -9,7 +9,7 @@ namespace Olympus_the_Game
 {
     internal class Utils
     {
-        public const int MaskFadeDuration = 500;
+        public static readonly int MaskFadeDuration = 500;
 
         public static Form MaskForm { get; private set; }
 
@@ -92,6 +92,14 @@ namespace Olympus_the_Game
             b.BackgroundImage = Resources.stone;
             b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             b.ForeColor = Color.Black;
+        }
+
+        public static GameObject CreateObjectOfType(ObjectType ot)
+        {
+            Func<GameObject> result;
+            GameObject.ConstructorList.TryGetValue(ot, out result);
+
+            return result == null ? null : result();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Olympus_the_Game.Model.Entities
     {
         static EntityExplode()
         {
-            new EntityExplode(50, 50, 0, 0, 1f).RegisterWithEditor(ObjectType.Explode);
+            RegisterWithEditor(ObjectType.Explode, () => new EntityExplode(50, 50, 0, 0, 1f));
                 // TODO Maak waarden standaard
         }
 
