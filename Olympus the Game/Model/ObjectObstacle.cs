@@ -1,10 +1,12 @@
-﻿namespace Olympus_the_Game.Model
+﻿using Olympus_the_Game.View.Editor;
+
+namespace Olympus_the_Game.Model
 {
     public class ObjectObstacle : GameObject
     {
         static ObjectObstacle()
         {
-            RegisterWithEditor(ObjectType.Obstacle, () => new ObjectObstacle(50, 50, 0, 0));
+            new ObjectObstacle(50, 50, 0, 0).RegisterWithEditor(ObjectType.Obstacle);
         }
 
         /// <summary>

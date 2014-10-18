@@ -1,5 +1,6 @@
 ﻿using System;
 using Olympus_the_Game.Model.Entities;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model
 {
@@ -7,7 +8,7 @@ namespace Olympus_the_Game.Model
     {
         static ObjectFinish()
         {
-            RegisterWithEditor(ObjectType.Finish, () => new ObjectFinish(50, 50, 0, 0));
+            new ObjectFinish(50, 50, 0, 0).RegisterWithEditor(ObjectType.Finish);
         }
 
         /// <summary>

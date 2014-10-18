@@ -12,7 +12,7 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntityGhast()
         {
-            RegisterWithEditor(ObjectType.Ghast, () => new EntityGhast(50, 50, 0, 0));
+            new EntityGhast(50, 50, 0, 0).RegisterWithEditor(ObjectType.Ghast);
                 // TODO Maak waarden standaard
         }
 

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using Olympus_the_Game.Model.Entities;
-using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model
@@ -290,7 +288,7 @@ namespace Olympus_the_Game.Model
                                 try
                                 {
                                     str = char.ToUpper(str[0]) + str.Substring(1).ToLower().Replace(" ","");//De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
-                                    newObject = Utils.CreateObjectOfType((ObjectType)Enum.Parse(typeof(ObjectType), str)); //Zet het om naar het enum type die erbij hoort
+                                    newObject = LevelEditorUtils.CreateObjectOfType((ObjectType)Enum.Parse(typeof(ObjectType), str)); //Zet het om naar het enum type die erbij hoort
                                 }
                                 catch (InvalidCastException)
                                 {

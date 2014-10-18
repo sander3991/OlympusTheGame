@@ -13,7 +13,7 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntitySlower()
         {
-            RegisterWithEditor(ObjectType.Slower, () => new EntitySlower(50, 50, 0, 0));
+            new EntitySlower(50, 50, 0, 0).RegisterWithEditor(ObjectType.Slower);
                 // TODO Maak waarden standaard
         }
 

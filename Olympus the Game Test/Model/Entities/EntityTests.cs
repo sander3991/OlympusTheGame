@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game;
-using System;
-using System.Collections.Generic;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game_Test.Model
+namespace Olympus_the_Game_Test.Model.Entities
 {
     [TestClass]
     public class EntityTests

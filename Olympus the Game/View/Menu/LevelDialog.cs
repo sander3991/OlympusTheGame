@@ -21,13 +21,13 @@ namespace Olympus_the_Game.View.Menu
         /// </summary>
         /// <param name="pf">Het Playfield dat gekozen is</param>
         public delegate void PlayFieldChosen(PlayField pf);
-        private const int MAXBUTTONS = 6; //Het aantal knoppen dat maximaal zichtbaar zijn
+        private const int Maxbuttons = 6; //Het aantal knoppen dat maximaal zichtbaar zijn
         private int _propScrollLoc;
         private int ScrollLoc { 
             get {return _propScrollLoc; }
             set
             {
-                if (value >= 0 && (value + MAXBUTTONS) <= buttons.Count && value != _propScrollLoc)
+                if (value >= 0 && (value + Maxbuttons) <= buttons.Count && value != _propScrollLoc)
                 {
                     _propScrollLoc = value;
                     RepositionButtons();
@@ -45,11 +45,11 @@ namespace Olympus_the_Game.View.Menu
             //Initialiseer de built-in playfields
             Button b = CreateLevelButton();
             b.Text = "Hell";
-            buttons.Add(b, delegate() { return PlayfieldLoader.ReadFromResource(Properties.Resources.hell); });
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.hell));
             b = CreateLevelButton();
 
             b.Text = "Beach";
-            buttons.Add(b, delegate() { return PlayfieldLoader.ReadFromResource(Properties.Resources.beach); });
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.beach));
 
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)
@@ -58,8 +58,8 @@ namespace Olympus_the_Game.View.Menu
             PlayfieldLoader.OnCustomMapAdded += ThreadSafeAddLevelButton;
             PlayfieldLoader.OnCustomMapRemoved += ThreadSafeRemoveLevelButton;
 
-            this.MouseWheel += LevelDialog_MouseWheel;
-            this.VisibleChanged += delegate(object o, EventArgs e) { if (Visible) Focus(); }; //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
+            MouseWheel += LevelDialog_MouseWheel;
+            VisibleChanged += delegate { if (Visible) Focus(); }; //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
         }
         /// <summary>
         /// Scrollen door het menu
@@ -86,7 +86,7 @@ namespace Olympus_the_Game.View.Menu
         {
             Button b = CreateLevelButton();
             b.Text = mapName;
-            buttons.Add(b, delegate() { return PlayfieldLoader.LoadCustomMap(mapName); });
+            buttons.Add(b, () => PlayfieldLoader.LoadCustomMap(mapName));
             ScrollLoc = ScrollLoc;
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace Olympus_the_Game.View.Menu
                     buttons.Remove(b);
                     break;
                 }
-            if (ScrollLoc != 0 && (ScrollLoc + MAXBUTTONS) > buttons.Count)
+            if (ScrollLoc != 0 && (ScrollLoc + Maxbuttons) > buttons.Count)
                 ScrollLoc--;
             else
                 RepositionButtons(); //Dit wordt al gedaan in ScrollLoc als we deze verminderen
@@ -133,10 +133,10 @@ namespace Olympus_the_Game.View.Menu
         /// <param name="fileLocation">De file locatie van de toe te voegen button</param>
         private void ThreadSafeAddLevelButton(string mapName, string fileLocation)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                MapCallback d = new MapCallback(AddCustomLevelButton);
-                this.Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                MapCallback d = AddCustomLevelButton;
+                Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 AddCustomLevelButton(mapName);
@@ -149,10 +149,10 @@ namespace Olympus_the_Game.View.Menu
         /// <param name="fileLocation">De file locatie van de toe te voegen button</param>
         private void ThreadSafeRemoveLevelButton(string mapName, string fileLocation)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                MapCallback d = new MapCallback(RemoveCustomLevelButton);
-                this.Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                MapCallback d = RemoveCustomLevelButton;
+                Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 RemoveCustomLevelButton(mapName);
@@ -196,7 +196,7 @@ namespace Olympus_the_Game.View.Menu
             int counter = 0;
             foreach (Button b in buttons.Keys) //de enumerator gaat op volgorde van wanneer deze is toegevoegd aan de Dictionary.
             {
-                if (counter < ScrollLoc || counter >= (ScrollLoc + MAXBUTTONS))
+                if (counter < ScrollLoc || counter >= (ScrollLoc + Maxbuttons))
                     b.Visible = false;
                 else
                 {
