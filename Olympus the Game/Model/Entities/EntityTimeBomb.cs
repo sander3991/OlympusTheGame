@@ -17,7 +17,7 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntityTimeBomb()
         {
-            RegisterWithEditor(ObjectType.Timebomb, () => new EntityTimeBomb(50, 50, 0, 0, 1f));
+            new EntityTimeBomb(50, 50, 0, 0, 1f).RegisterWithEditor(ObjectType.Timebomb);
                 // TODO Maak waarden standaard
         }
 

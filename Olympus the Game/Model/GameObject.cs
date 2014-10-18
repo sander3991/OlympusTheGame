@@ -36,27 +36,6 @@ namespace Olympus_the_Game.Model
 
     public abstract class GameObject
     {
-        #region Static Part
-
-        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList =
-            new Dictionary<ObjectType, Func<GameObject>>();
-
-        static GameObject()
-        {
-            foreach (
-                Type t in typeof (GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof (GameObject))))
-            {
-                RuntimeHelpers.RunClassConstructor(t.TypeHandle);
-            }
-        }
-
-        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a)
-        {
-            ConstructorList.Add(ot, a);
-        }
-
-        #endregion
-
         public delegate void DelOnVisibilityChanged(GameObject go, bool visible);
         public event DelOnVisibilityChanged OnVisibilityChanged;
         private int height;
@@ -64,7 +43,7 @@ namespace Olympus_the_Game.Model
         private int width;
         private int x;
         private int y;
-        private static int ID = 0;
+        private static int ID;
         private bool _propVisible = true;
         [ExcludeFromEditor]
         public bool Visible

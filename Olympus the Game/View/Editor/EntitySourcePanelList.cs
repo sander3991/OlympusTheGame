@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View.Editor
         {
             int pad = PaddingTop;
 
-            foreach (EntitySourcePanel esp in GameObject.ConstructorList.Select(a => new EntitySourcePanel(a.Key)))
+            foreach (EntitySourcePanel esp in LevelEditorUtils.ConstructorList.Select(a => new EntitySourcePanel(a.Key)))
             {
                 esp.Left = (Width - esp.Width)/2;
                 esp.Top = pad;

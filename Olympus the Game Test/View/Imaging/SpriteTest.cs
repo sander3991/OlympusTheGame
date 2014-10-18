@@ -80,7 +80,7 @@ namespace Olympus_the_Game_Test.View.Imaging
             catch (AssertFailedException e)
             {
                 // Let assert failed exception bubble up
-                throw e;
+                throw;
             }
             catch (Exception e)
             {

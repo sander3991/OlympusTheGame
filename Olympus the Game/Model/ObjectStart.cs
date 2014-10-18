@@ -1,10 +1,12 @@
-﻿namespace Olympus_the_Game.Model
+﻿using Olympus_the_Game.View.Editor;
+
+namespace Olympus_the_Game.Model
 {
     public class ObjectStart : GameObject
     {
         static ObjectStart()
         {
-            RegisterWithEditor(ObjectType.Start, () => new ObjectStart(50, 50, 0, 0));
+            new ObjectStart(50, 50, 0, 0).RegisterWithEditor(ObjectType.Start);
         }
 
         /// <summary>
