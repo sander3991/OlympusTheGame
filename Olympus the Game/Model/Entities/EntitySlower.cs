@@ -20,18 +20,11 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
-        public EntitySlower(int width, int height, int x, int y, int dx, int dy)
+        public EntitySlower(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             Type = ObjectType.Slower;
-        }
-
-        /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, staat vanaf het begin stil
-        /// </summary>
-        public EntitySlower(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
-        {
         }
 
         /// <summary>

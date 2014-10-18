@@ -39,21 +39,12 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Create Sprite from single bitmap.
-        /// </summary>
-        /// <param name="bm"></param>
-        public Sprite(Bitmap bm)
-            : this(bm, -1, -1)
-        {
-        }
-
-        /// <summary>
         /// Create non-cyclic sprite, cut in pieces.
         /// </summary>
         /// <param name="bm"></param>
         /// <param name="countX"></param>
         /// <param name="countY"></param>
-        public Sprite(Bitmap bm, int countX, int countY)
+        public Sprite(Bitmap bm, int countX = -1, int countY = -1)
             : this(bm, countX, countY, false)
         {
         }

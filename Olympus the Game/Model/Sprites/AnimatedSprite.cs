@@ -12,7 +12,7 @@ namespace Olympus_the_Game.Model.Sprites
         /// <summary>
         /// Wanneer deze animatie is gestart, op een schaal van milliseconden.
         /// </summary>
-        protected long Start;
+        protected readonly long Start;
 
         /// <summary>
         /// Maak een nieuw AnimatedSprite aan.

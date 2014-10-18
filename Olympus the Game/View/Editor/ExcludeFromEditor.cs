@@ -5,11 +5,7 @@ namespace Olympus_the_Game.View.Editor
     [AttributeUsage(AttributeTargets.Property)]
     internal class ExcludeFromEditor : Attribute
     {
-        public ExcludeFromEditor() : this(true)
-        {
-        }
-
-        public ExcludeFromEditor(bool exclude)
+        public ExcludeFromEditor(bool exclude = true)
         {
             Exclude = exclude;
         }

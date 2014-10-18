@@ -68,6 +68,7 @@ namespace Olympus_the_Game.View.Game
         void ent_OnVisibilityChanged(GameObject go, bool visible)
         {
             Entity e = go as Entity;
+            if (e == null) return;
             if (visible && !list.ContainsKey(e))
             {
                 list[e] = CreateListViewItem(e);

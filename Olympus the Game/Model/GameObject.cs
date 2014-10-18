@@ -38,7 +38,7 @@ namespace Olympus_the_Game.Model
     {
         #region Static Part
 
-        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList =
+        public static readonly Dictionary<ObjectType, Func<GameObject>> ConstructorList =
             new Dictionary<ObjectType, Func<GameObject>>();
 
         static GameObject()
@@ -50,7 +50,7 @@ namespace Olympus_the_Game.Model
             }
         }
 
-        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a)
+        protected static void RegisterWithEditor(ObjectType ot, Func<GameObject> a)
         {
             ConstructorList.Add(ot, a);
         }
@@ -64,7 +64,7 @@ namespace Olympus_the_Game.Model
         private int width;
         private int x;
         private int y;
-        private static int ID = 0;
+        private static int ID;
         private bool _propVisible = true;
         [ExcludeFromEditor]
         public bool Visible

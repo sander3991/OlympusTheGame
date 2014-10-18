@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Olympus_the_Game;
 using Olympus_the_Game.Model;
-using Olympus_the_Game.View;
 using System.Drawing;
 using Olympus_the_Game.View.Imaging;
 

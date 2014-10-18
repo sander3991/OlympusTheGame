@@ -11,22 +11,15 @@ namespace Olympus_the_Game.Model.Entities
         public delegate void DelOnMoved(Entity e);
 
         /// <summary>
-        /// Initialiseert een Entity zonder dat hij beweegt in het begin.
-        /// </summary>
-        protected Entity(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
-        {
-        }
-
-        /// <summary>
         /// Initialiseert een Entity met een meegegeven DX en DY waarde. Deze wordt vanaf het begin gelijk toegepast
         /// </summary>
-        protected Entity(int width, int height, int x, int y, int dx, int dy)
+        protected Entity(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y)
         {
-            DX = dx;
-            DY = dy;
-            PreviousX = X;
-            PreviousY = Y;
+            DX = dx; // TODO Wat als deze property wordt overridden, en ongeinitialiseerde dingen aanroept?
+            DY = dy; // Idem
+            PreviousX = X; // Idem
+            PreviousY = Y; // Idem
             EntityControlledByAi = true;
         }
 

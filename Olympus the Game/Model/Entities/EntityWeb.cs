@@ -13,20 +13,13 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid.
         /// </summary>
-        public EntityWeb(int width, int height, int x, int y, int dx, int dy)
+        public EntityWeb(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = false;
             Type = ObjectType.Web;
             IsSolid = false;
-        }
-
-        /// <summary>
-        /// Een EntityWeb object die spelers langzamer laten lopen, staat vanaf het begin stil.
-        /// </summary>
-        public EntityWeb(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
-        {
         }
 
         /// <summary>

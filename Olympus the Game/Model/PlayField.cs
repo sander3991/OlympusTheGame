@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using Olympus_the_Game.Model.Entities;
-using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model
@@ -132,20 +130,11 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object wordt de OnRemoved van dat object aangeroepen.
-        /// </summary>
-        /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
-        public void RemoveObject(GameObject entity)
-        {
-            RemoveObject(entity, false);
-        }
-
-        /// <summary>
         /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
         /// </summary>
         /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
         /// <param name="fieldRemoved">True als het spel wordt uitgeladen</param>
-        public void RemoveObject(GameObject entity, bool fieldRemoved)
+        public void RemoveObject(GameObject entity, bool fieldRemoved = false)
         {
             GameObjects.Remove(entity);
             entity.OnRemoved(fieldRemoved);

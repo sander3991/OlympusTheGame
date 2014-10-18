@@ -101,7 +101,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Update alle game entities naar hun volgende state. Doet een Move() voor elke entity (including Player), en doet de Collision Detection en de OnCollide.
         /// </summary>
-        public void Update()
+        public static void Update()
         {
             List<GameObject> playerCollisisons = new List<GameObject>();
             EntityPlayer player = OlympusTheGame.Playfield.Player;
@@ -221,7 +221,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Returned de speelduur van de huidige map.
         /// </summary>
-        public string GetTimeSinceStart()
+        public static string GetTimeSinceStart()
         {
             long gt = OlympusTheGame.GameTime;
             int sec = (int) (gt/1000);

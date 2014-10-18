@@ -19,19 +19,12 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// FILL THIS IN
         /// </summary>
-        public EntityGhast(int width, int height, int x, int y, int dx, int dy)
+        public EntityGhast(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             Type = ObjectType.Ghast;
             EntityControlledByAi = true;
-        }
-
-        /// <summary>
-        /// FILL THIS IN
-        /// </summary>
-        public EntityGhast(int width, int height, int x, int y) : this(width, height, x, y, 0, 0)
-        {
         }
 
         /// <summary>

@@ -3,6 +3,7 @@ using Olympus_the_Game.Model;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 using Olympus_the_Game.View.Menu;
 
@@ -142,7 +143,7 @@ namespace Olympus_the_Game
             PropGametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
-            Playfield = PlayfieldLoader.ReadFromResource(Properties.Resources.hell);
+            Playfield = PlayfieldLoader.ReadFromResource(Resources.hell);
             prop_playfield.SetPlayerHome();
             prop_playfield.InitializeGameObjects();
             OnNewPlayField(prop_playfield);

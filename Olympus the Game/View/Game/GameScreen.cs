@@ -143,7 +143,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyDown(sender, e);
+            KeyHandler.KeyDown(e);
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            KeyHandler.KeyUp(this, e);
+            KeyHandler.KeyUp(e);
         }
 
         #region MenuBar

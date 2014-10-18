@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Model.Entities;
 
@@ -33,7 +34,7 @@ namespace Olympus_the_Game.View.Game
             SpelerSpeedX.Text = pf.Player.SpeedModifier.ToString();
             SpelerX.Text = OlympusTheGame.Playfield.Player.X.ToString();
             SpelerY.Text = OlympusTheGame.Playfield.Player.Y.ToString();
-            timePlayed.Text = OlympusTheGame.GameController.GetTimeSinceStart();
+            timePlayed.Text = GameController.GetTimeSinceStart();
         }
 
         /// <summary>

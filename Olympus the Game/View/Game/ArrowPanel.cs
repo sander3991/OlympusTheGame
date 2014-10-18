@@ -13,7 +13,7 @@ namespace Olympus_the_Game.View.Game
             textBoxLeft.MaxLength = 1;
             textBoxUp.MaxLength = 1;
             textBoxDown.MaxLength = 1;
-            DoubleBuffered = true;
+            DoubleBuffered = true; // TODO Deze aanroepen in _Load, niet in de constructor...
         }
 
         /// <summary>

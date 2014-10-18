@@ -36,7 +36,7 @@ namespace Olympus_the_Game.View.Menu
                 ScrollArrowDown.Visible = (_propScrollLoc + 6) < buttons.Count;
             }
         }
-        private Dictionary<Button, GetPlayField> buttons; //Hierin wordt opgeslagen hoe deze button opgehalad wordt dmv de GetPlayField delegate
+        private readonly Dictionary<Button, GetPlayField> buttons; //Hierin wordt opgeslagen hoe deze button opgehalad wordt dmv de GetPlayField delegate
         public LevelDialog()
         {
             InitializeComponent();
@@ -45,11 +45,11 @@ namespace Olympus_the_Game.View.Menu
             //Initialiseer de built-in playfields
             Button b = CreateLevelButton();
             b.Text = "Hell";
-            buttons.Add(b, delegate() { return PlayfieldLoader.ReadFromResource(Properties.Resources.hell); });
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.hell));
             b = CreateLevelButton();
 
             b.Text = "Beach";
-            buttons.Add(b, delegate() { return PlayfieldLoader.ReadFromResource(Properties.Resources.beach); });
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.beach));
 
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)
@@ -58,8 +58,8 @@ namespace Olympus_the_Game.View.Menu
             PlayfieldLoader.OnCustomMapAdded += ThreadSafeAddLevelButton;
             PlayfieldLoader.OnCustomMapRemoved += ThreadSafeRemoveLevelButton;
 
-            this.MouseWheel += LevelDialog_MouseWheel;
-            this.VisibleChanged += delegate(object o, EventArgs e) { if (Visible) Focus(); }; //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
+            MouseWheel += LevelDialog_MouseWheel;
+            VisibleChanged += delegate { if (Visible) Focus(); }; //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
         }
         /// <summary>
         /// Scrollen door het menu
@@ -86,7 +86,7 @@ namespace Olympus_the_Game.View.Menu
         {
             Button b = CreateLevelButton();
             b.Text = mapName;
-            buttons.Add(b, delegate() { return PlayfieldLoader.LoadCustomMap(mapName); });
+            buttons.Add(b, () => PlayfieldLoader.LoadCustomMap(mapName));
             ScrollLoc = ScrollLoc;
         }
         /// <summary>
@@ -133,10 +133,10 @@ namespace Olympus_the_Game.View.Menu
         /// <param name="fileLocation">De file locatie van de toe te voegen button</param>
         private void ThreadSafeAddLevelButton(string mapName, string fileLocation)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                MapCallback d = new MapCallback(AddCustomLevelButton);
-                this.Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                MapCallback d = AddCustomLevelButton;
+                Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 AddCustomLevelButton(mapName);
@@ -149,10 +149,10 @@ namespace Olympus_the_Game.View.Menu
         /// <param name="fileLocation">De file locatie van de toe te voegen button</param>
         private void ThreadSafeRemoveLevelButton(string mapName, string fileLocation)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                MapCallback d = new MapCallback(RemoveCustomLevelButton);
-                this.Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                MapCallback d = RemoveCustomLevelButton;
+                Invoke(d, new object[] { mapName }); //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 RemoveCustomLevelButton(mapName);

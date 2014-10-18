@@ -161,9 +161,8 @@ namespace Olympus_the_Game.View.Editor
 
         private void ApplyPlayfieldChanges()
         {
-            PlayField playfield = gamePanelEditor.Playfield;
-            if (playfield == null)
-                playfield = new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
+            PlayField playfield = gamePanelEditor.Playfield ??
+                                  new PlayField(speelveldEditor1.EnteredSize.Width, speelveldEditor1.EnteredSize.Height);
             playfield.Width = speelveldEditor1.EnteredSize.Width;
             playfield.Height = speelveldEditor1.EnteredSize.Height;
             gamePanelEditor.Playfield = playfield;
@@ -275,14 +274,12 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="e"></param>
         private void InPanel_Mouse_Move(object sender, MouseEventArgs e)
         {
-            if (currentDraggingObject != null)
-            {
-                Point p = gamePanelEditor.GetCursorPlayFieldPosition();
-                currentDraggingObject.X = p.X - offset.X;
-                currentDraggingObject.Y = p.Y - offset.Y;
-                gamePanelEditor.Invalidate();
-            }
-            }
+            if (currentDraggingObject == null) return;
+            Point p = gamePanelEditor.GetCursorPlayFieldPosition();
+            currentDraggingObject.X = p.X - offset.X;
+            currentDraggingObject.Y = p.Y - offset.Y;
+            gamePanelEditor.Invalidate();
+        }
 
         /// <summary>
         /// Stop met slepen als muis omhoog gaat.

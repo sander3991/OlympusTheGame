@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game;
-using System;
-using System.Collections.Generic;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game_Test.Model
+namespace Olympus_the_Game_Test.Model.Entities
 {
     [TestClass]
     public class EntityTests
@@ -14,18 +13,20 @@ namespace Olympus_the_Game_Test.Model
         public void CollisionTest()
         {
             OlympusTheGame.SetController();
-            List<GameObject> objects = new List<GameObject>();
+            List<GameObject> objects = new List<GameObject>
+            {
+                new ObjectStart(10, 10, 0, 0),
+                new ObjectFinish(10, 10, 0, 0),
+                new ObjectObstacle(10, 10, 0, 0),
+                new EntityCreeper(10, 10, 0, 0, 0),
+                new EntityExplode(10, 10, 0, 0, 0),
+                new EntityPlayer(10, 10, 0, 0),
+                new EntitySlower(10, 10, 0, 0),
+                new EntityTimeBomb(10, 10, 0, 0, 0)
+            };
             //alle objecten zijn in eerste instantie 10 breed en hoog, en staan op X en Y.
-            objects.Add(new ObjectStart(10, 10, 0, 0));
-            objects.Add(new ObjectFinish(10, 10, 0, 0));
-            objects.Add(new ObjectObstacle(10, 10, 0, 0));
-            objects.Add(new EntityCreeper(10, 10, 0, 0, 0));
-            objects.Add(new EntityExplode(10, 10, 0, 0, 0));
-            objects.Add(new EntityPlayer(10, 10, 0, 0));
-            objects.Add(new EntitySlower(10, 10, 0, 0));
-            objects.Add(new EntityTimeBomb(10, 10, 0, 0, 0));
 
-            
+
             for (int i = 0; i < objects.Count; i++)
             {
                 for (int j = 0; j < objects.Count; j++)
@@ -59,10 +60,9 @@ namespace Olympus_the_Game_Test.Model
                 }
             }
 
-            GameObject go1, go2, go3;
-            go1 = new ObjectStart(10, 10, 0, 0);
-            go2 = new ObjectFinish(10, 10, 5, 5);
-            go3 = new ObjectFinish(5, 5, 3, 3);
+            GameObject go1 = new ObjectStart(10, 10, 0, 0);
+            GameObject go2 = new ObjectFinish(10, 10, 5, 5);
+            GameObject go3 = new ObjectFinish(5, 5, 3, 3);
 
             /*Assert.IsTrue(go1.CollidesWithObject(go2));
             Assert.IsTrue(go2.CollidesWithObject(go1));
@@ -74,12 +74,14 @@ namespace Olympus_the_Game_Test.Model
         public void EntityOutOfBoundsTest()
         {
             OlympusTheGame.SetController();
-            List<Entity> entities = new List<Entity>();
-            entities.Add(new EntityPlayer(-1, -1, -1, -1));
-            entities.Add(new EntitySlower(-1, -1, -1, -1));
-            entities.Add(new EntityCreeper(-1, -1, -1, -1, 0));
-            entities.Add(new EntityExplode(-1, -1, -1, -1, 0));
-            entities.Add(new EntityTimeBomb(-1, -1, -1, -1, 0));
+            List<Entity> entities = new List<Entity>
+            {
+                new EntityPlayer(-1, -1, -1, -1),
+                new EntitySlower(-1, -1, -1, -1),
+                new EntityCreeper(-1, -1, -1, -1, 0),
+                new EntityExplode(-1, -1, -1, -1, 0),
+                new EntityTimeBomb(-1, -1, -1, -1, 0)
+            };
 
             for (int i = 0; i < entities.Count; i++)
             {

@@ -6,8 +6,8 @@ namespace Olympus_the_Game.View.Menu
 {
     public struct HelpItem
     {
-        public Label Label;
-        public PictureBox Picture;
+        public readonly Label Label;
+        public readonly PictureBox Picture;
 
         public HelpItem(PictureBox picture, Label label)
         {
@@ -48,8 +48,7 @@ namespace Olympus_the_Game.View.Menu
             Visible = false;
             label1.Text = label1.Text.ToUpper();
             label1.ForeColor = FontColor;
-            scrollTimer = new Timer();
-            scrollTimer.Interval = Timerinterval;
+            scrollTimer = new Timer {Interval = Timerinterval};
             scrollTimer.Tick += scrollTimer_Tick;
             VisibleChanged += OnVisibleChanged;
 
