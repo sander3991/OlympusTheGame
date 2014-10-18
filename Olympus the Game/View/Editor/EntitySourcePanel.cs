@@ -34,7 +34,7 @@ namespace Olympus_the_Game.View.Editor
             label2.Text = "Toets";
 
             // Change description
-            GameObject go = LevelEditorUtils.CreateObjectOfType(RepresentingType);
+            GameObject go = Utils.CreateObjectOfType(RepresentingType);
             if (go != null)
             {
                 label3.Text = go.GetDescription();
