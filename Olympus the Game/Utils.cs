@@ -40,7 +40,7 @@ namespace Olympus_the_Game
                 };
             if (!MaskForm.IsHandleCreated)
                 MaskForm.Show();
-            MaskForm.Invoke((Action<bool>) ShowMaskUnsafe, new object[] {showMask});
+            MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] { showMask });
         }
 
         private static void ShowMaskUnsafe(bool showMask)
@@ -55,7 +55,7 @@ namespace Olympus_the_Game
             MaskForm.Visible = true;
             while (sw.ElapsedMilliseconds < MaskFadeDuration)
             {
-                float i = sw.ElapsedMilliseconds/(float) MaskFadeDuration;
+                float i = sw.ElapsedMilliseconds / (float)MaskFadeDuration;
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
                 MaskForm.Invalidate();
                 Application.DoEvents();
@@ -83,7 +83,7 @@ namespace Olympus_the_Game
                 f.FormBorderStyle = FormBorderStyle.Fixed3D;
                 f.Size = new Size(1024, 768);
                 Size full = GetScreenSize();
-                f.Location = new Point((full.Width - f.Width)/2, (full.Height - f.Height)/2);
+                f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
         }
 

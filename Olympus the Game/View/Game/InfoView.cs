@@ -74,7 +74,7 @@ namespace Olympus_the_Game.View.Game
                 list[e] = CreateListViewItem(e);
                 e.OnMoved += ent_OnMoved;
             }
-            else if(!visible)
+            else if (!visible)
             {
                 if (list.ContainsKey(e))
                 {

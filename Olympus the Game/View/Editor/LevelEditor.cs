@@ -185,59 +185,59 @@ namespace Olympus_the_Game.View.Editor
             // Creeper
             switch (e.KeyChar)
             {
-                case (char) Keys.D1:
-                {
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D1:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D2:
-                {
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D2:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D3:
-                {
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D3:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D4:
-                {
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D4:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D5:
-                {
-                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D5:
+                    {
+                        CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectFinish));
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D6:
-                {
-                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D6:
+                    {
+                        CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectStart));
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
-                case (char) Keys.D7:
-            {
-                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
-                    gamePanelEditor.Invalidate();
-                }
+                case (char)Keys.D7:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+                        gamePanelEditor.Invalidate();
+                    }
                     break;
             }
-            }
+        }
 
         #region Drag and Drop
 
@@ -259,13 +259,13 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Start_InPanel_Drag(object sender, MouseEventArgs e)
-            {
+        {
             // Set current dragging object
             currentDraggingObject = gamePanelEditor.GetObjectAtCursor();
             if (currentDraggingObject != null)
                 offset = new Point(gamePanelEditor.GetCursorPlayFieldPosition().X - currentDraggingObject.X,
                     gamePanelEditor.GetCursorPlayFieldPosition().Y - currentDraggingObject.Y);
-            }
+        }
 
         /// <summary>
         /// Als er wordt gesleept, verplaats item.
@@ -287,9 +287,9 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Stop_InPanel_Drag(object sender, MouseEventArgs e)
-            {
+        {
             currentDraggingObject = null;
-            }
+        }
 
         #endregion
 
@@ -299,9 +299,9 @@ namespace Olympus_the_Game.View.Editor
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void EntityDragEnter(object sender, DragEventArgs e)
-            {
-            e.Effect = e.Data.GetDataPresent(typeof (ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
-            }
+        {
+            e.Effect = e.Data.GetDataPresent(typeof(ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
+        }
 
         /// <summary>
         /// Weergeef de locatie waar het object geplaatst is
@@ -314,9 +314,9 @@ namespace Olympus_the_Game.View.Editor
             /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
             l = new Point((int)((double)l.X / this.gamePanelEditor.PlayfieldScale), (int)((double)l.Y / this.gamePanelEditor.PlayfieldScale));*/
             Point l = gamePanelEditor.GetCursorPlayFieldPosition();
-            object o = e.Data.GetData(typeof (ObjectType));
+            object o = e.Data.GetData(typeof(ObjectType));
             if (o == null) return;
-            ObjectType ot = (ObjectType) o;
+            ObjectType ot = (ObjectType)o;
 
             // Add object
             Func<GameObject> f;
@@ -331,7 +331,7 @@ namespace Olympus_the_Game.View.Editor
                 CurrentPlayField.AddObject(g);
             }
             gamePanelEditor.Invalidate();
-            }
+        }
 
         #endregion
 

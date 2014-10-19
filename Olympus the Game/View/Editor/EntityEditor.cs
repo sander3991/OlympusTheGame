@@ -58,17 +58,17 @@ namespace Olympus_the_Game.View.Editor
             foreach (PropertyInfo fi in go.GetType().GetProperties().Where(
                 delegate(PropertyInfo pi)
                 {
-                    object[] attributes = pi.GetCustomAttributes(typeof (ExcludeFromEditor), true);
-                    return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor) attributes[0]).Exclude);
+                    object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
+                    return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor)attributes[0]).Exclude);
                 }))
             {
                 // Create label
-                Label l = new Label {Text = fi.Name, Left = BorderPadding, Top = pad, Height = RowHeight};
+                Label l = new Label { Text = fi.Name, Left = BorderPadding, Top = pad, Height = RowHeight };
 
                 // Create textbox
                 TextBox tb = new TextBox
                 {
-                    Text = fi.GetValue(go, new object[] {}).ToString(),
+                    Text = fi.GetValue(go, new object[] { }).ToString(),
                     Top = pad,
                     Left = 150,
                     Height = RowHeight,
@@ -121,17 +121,17 @@ namespace Olympus_the_Game.View.Editor
                 // Parse value
                 try
                 {
-                    if (pi.PropertyType == typeof (Int32))
+                    if (pi.PropertyType == typeof(Int32))
                     {
                         val = Convert.ToInt32(text);
                     }
-                    else if (pi.PropertyType == typeof (Boolean))
+                    else if (pi.PropertyType == typeof(Boolean))
                     {
                         val = Convert.ToBoolean(text);
                     }
 
                     // Set property
-                    pi.SetValue(_selectedObject, val, new object[] {});
+                    pi.SetValue(_selectedObject, val, new object[] { });
                     tb.BackColor = Color.White;
                 }
                 catch (FormatException)

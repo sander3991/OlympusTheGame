@@ -23,8 +23,9 @@ namespace Olympus_the_Game.View.Menu
         public delegate void PlayFieldChosen(PlayField pf);
         private const int MAXBUTTONS = 6; //Het aantal knoppen dat maximaal zichtbaar zijn
         private int _propScrollLoc;
-        private int ScrollLoc { 
-            get {return _propScrollLoc; }
+        private int ScrollLoc
+        {
+            get { return _propScrollLoc; }
             set
             {
                 if (value >= 0 && (value + MAXBUTTONS) <= buttons.Count && value != _propScrollLoc)
@@ -166,7 +167,7 @@ namespace Olympus_the_Game.View.Menu
         private void ButtonClick(object sender, EventArgs e)
         {
             Button b = sender as Button;
-            if(b != null)
+            if (b != null)
                 if (buttons.ContainsKey(b))
                     LevelChosen(buttons[b]());
         }

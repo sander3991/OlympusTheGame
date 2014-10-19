@@ -49,16 +49,16 @@ namespace Olympus_the_Game.View.Game
             {
                 if (!string.IsNullOrEmpty(textBoxRight.Text))
                     KeyHandler.CustomRight =
-                        (Keys) char.ToUpper(textBoxRight.Text[0]);
+                        (Keys)char.ToUpper(textBoxRight.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
                     KeyHandler.CustomLeft =
-                        (Keys) char.ToUpper(textBoxLeft.Text[0]);
+                        (Keys)char.ToUpper(textBoxLeft.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
                     KeyHandler.CustomUp =
-                        (Keys) char.ToUpper(textBoxUp.Text[0]);
+                        (Keys)char.ToUpper(textBoxUp.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
                     KeyHandler.CustomDown =
-                        (Keys) char.ToUpper(textBoxDown.Text[0]);
+                        (Keys)char.ToUpper(textBoxDown.Text[0]);
             }
             catch (FormatException)
             {

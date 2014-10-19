@@ -48,7 +48,7 @@ namespace Olympus_the_Game.View.Menu
             Visible = false;
             label1.Text = label1.Text.ToUpper();
             label1.ForeColor = FontColor;
-            scrollTimer = new Timer {Interval = Timerinterval};
+            scrollTimer = new Timer { Interval = Timerinterval };
             scrollTimer.Tick += scrollTimer_Tick;
             VisibleChanged += OnVisibleChanged;
 
@@ -73,7 +73,7 @@ namespace Olympus_the_Game.View.Menu
                 item.Picture.Location = picLoc;
                 item.Label.ForeColor = FontColor;
             }
-            totalScrollHeight = -(label1.Height + helpItems.Length*100);
+            totalScrollHeight = -(label1.Height + helpItems.Length * 100);
         }
 
         public int ScrollLoc
@@ -110,7 +110,7 @@ namespace Olympus_the_Game.View.Menu
             scrollTimer.Stop();
             scrollTimer.Interval = 5000;
             scrollTimer.Start();
-            int scroll = e.Delta/8;
+            int scroll = e.Delta / 8;
             ScrollContent(scroll);
         }
 
@@ -124,7 +124,7 @@ namespace Olympus_the_Game.View.Menu
             for (int i = 0; i < helpItems.Length; i++)
             {
                 HelpItem item = helpItems[i];
-                item.Y = Math.Min(Height, ScrollLoc + label1.Height + i*100);
+                item.Y = Math.Min(Height, ScrollLoc + label1.Height + i * 100);
             }
         }
 

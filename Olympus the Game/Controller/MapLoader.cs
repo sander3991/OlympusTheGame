@@ -31,7 +31,7 @@ namespace Olympus_the_Game.Controller
         /// <summary>
         /// Haalt een array met Maps die gemaakt zijn
         /// </summary>
-        public static IEnumerable<string> CustomMaps 
+        public static IEnumerable<string> CustomMaps
         {
             get
             {
@@ -101,10 +101,12 @@ namespace Olympus_the_Game.Controller
             if (Path.GetExtension(fileLocation) == ".xml") //controleerd of het een .xml bestand is
             {
                 StreamReader file = null;
-                try {
+                try
+                {
                     file = new StreamReader(fileLocation);
                 }
-                catch (IOException) {
+                catch (IOException)
+                {
                     if (attempt < 50)
                     { //we gaan het maximaal 50 keer proberen opnieuw te lezen
                         Thread.Sleep(100); //We wachten in deze worked thread een 0,1 seconde, en proberen het opnieuw
@@ -126,7 +128,7 @@ namespace Olympus_the_Game.Controller
                     }
                 }
                 file.Close();
-                if(name == null)
+                if (name == null)
                     name = Path.GetFileName(fileLocation);
                 customMaps.Add(fileLocation, name);
                 if (OnCustomMapAdded != null)
@@ -143,7 +145,7 @@ namespace Olympus_the_Game.Controller
         /// <returns>Het Playfield als hij het PlayField object heeft kunnen inlezen, anders null</returns>
         public static PlayField LoadCustomMap(string mapName)
         {
-            foreach(KeyValuePair<string, string> entry in customMaps)
+            foreach (KeyValuePair<string, string> entry in customMaps)
             {
                 if (entry.Value == mapName)
                     return ReadFromXml(new FileStream(entry.Key, FileMode.Open));

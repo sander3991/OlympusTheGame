@@ -102,7 +102,7 @@ namespace Olympus_the_Game.Controller
             _fadeInCounter = 0;
             Volume = _fadeInCounter;
             Timer timer = new Timer();
-            timer.Interval = time/100;
+            timer.Interval = time / 100;
             timer.Tick += timer_Tick;
             timer.Start();
             Player.controls.pause();
@@ -113,7 +113,7 @@ namespace Olympus_the_Game.Controller
             _fadeInCounter = 100;
             Volume = _fadeInCounter;
             Timer timer = new Timer();
-            timer.Interval = time/100;
+            timer.Interval = time / 100;
             timer.Tick += timer_tick_fadeout;
             timer.Start();
             _stopFading = false;

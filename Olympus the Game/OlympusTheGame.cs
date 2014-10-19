@@ -71,7 +71,7 @@ namespace Olympus_the_Game
         public static bool IsPaused
         {
             get { return !GameTimer.Enabled; }
-            }
+        }
 
         /// <summary>
         /// Geeft de gametijd terug.

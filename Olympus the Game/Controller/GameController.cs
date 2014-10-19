@@ -90,10 +90,10 @@ namespace Olympus_the_Game.Controller
         {
             OlympusTheGame.Pause();
             Scoreboard.AddScore(ScoreType.GameFinished, 10000);
-            int gameTime = Convert.ToInt32(OlympusTheGame.GameTime/1000 - 30);
-                //Haalt de gametime in seconde op minus de 30 seconde waarvoor je geen minpunten krijgt
-            Scoreboard.AddScore(ScoreType.Time, Math.Min(0, gameTime*-10));
-            Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health*200);
+            int gameTime = Convert.ToInt32(OlympusTheGame.GameTime / 1000 - 30);
+            //Haalt de gametime in seconde op minus de 30 seconde waarvoor je geen minpunten krijgt
+            Scoreboard.AddScore(ScoreType.Time, Math.Min(0, gameTime * -10));
+            Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health * 200);
             if (OnPlayerFinished != null)
                 OnPlayerFinished(FinishType.Cake);
         }
@@ -107,7 +107,7 @@ namespace Olympus_the_Game.Controller
             EntityPlayer player = OlympusTheGame.Playfield.Player;
             player.Move();
             List<GameObject> gameObjects = new List<GameObject>(OlympusTheGame.Playfield.GameObjects);
-                //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
+            //Er wordt een nieuwe lijst van gemaakt, omdat bij de oncollide er dingen uit de originele lijst kunnen verdwijnen
             foreach (GameObject o in gameObjects) //Controleer of de player collide met een GameObject
             {
                 CollisionType collision = player.CollidesWithObject(o);
@@ -121,16 +121,16 @@ namespace Olympus_the_Game.Controller
                             player.Y = player.PreviousY;
                     }
                     o.OnCollide(player);
-                        //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
+                    //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
                     playerCollisisons.Add(o);
-                        //We houden bij met wie de player is gecollide, zodat we niet nog een keer in de volgende loop de OnCollide aanroepen
+                    //We houden bij met wie de player is gecollide, zodat we niet nog een keer in de volgende loop de OnCollide aanroepen
                 }
             }
             List<GameObject> listWithPlayer = new List<GameObject>(gameObjects);
-                //Maak een lijst waar de player ook bij in zit
+            //Maak een lijst waar de player ook bij in zit
             listWithPlayer.Add(player);
             foreach (GameObject o in gameObjects)
-                //Loop door de lijst met GameObjects heen, niet die met de speler want de speler is al gecontroleerd
+            //Loop door de lijst met GameObjects heen, niet die met de speler want de speler is al gecontroleerd
             {
                 Entity e = o as Entity;
                 if (e != null) //Controleer of het een Entity is, alleen entities dienen geupdate te worden
@@ -139,16 +139,16 @@ namespace Olympus_the_Game.Controller
                     foreach (GameObject o2 in listWithPlayer)
                     {
                         if (!e.Equals(o2))
-                            //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
+                        //We kunnen dezelfde entity tegenkomen, dus controleer of we niet vergelijken met onszelf, dat is nutteloos!
                         {
                             CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
                             if (collision != CollisionType.None)
                             {
                                 if (!(playerCollisisons.Contains(e) && o2 == player))
-                                    //Alleen als e in de lijst zit, en o2 de speler is, word de code NIET uitgevoerd
+                                //Alleen als e in de lijst zit, en o2 de speler is, word de code NIET uitgevoerd
                                 {
                                     e.OnCollide(o2);
-                                        //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
+                                    //Bij een collision voor beide objecten de OnCollide aanroepen, we weten niet welke van de twee functionaliteit heeft
                                     o2.OnCollide(e);
                                 }
                                 if (collision.HasFlag(CollisionType.X)) //Is de collision op de X as? Verander dan de X.
@@ -156,7 +156,7 @@ namespace Olympus_the_Game.Controller
                                 if (collision.HasFlag(CollisionType.Y)) //Is de collison op de Y as? Verander dan de Y
                                     e.Y = e.PreviousY;
                                 if (e.EntityControlledByAi)
-                                    //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
+                                //Als wij de entity besturen, willen we de entity de andere kant op laten lopen zodat hij niet blijft colliden
                                 {
                                     if (collision.HasFlag(CollisionType.X))
                                         e.DX = -e.DX;
@@ -191,7 +191,7 @@ namespace Olympus_the_Game.Controller
                     if (e.EntityControlledByAi) // Word hij door de AI bestuurd?
                     {
                         e.DX = rand.Next(3) - 1;
-                            //Pak een random int tussen 0 en 2, en verlaag het dan met 1 zodat we tussen -1 en 1 zitten.
+                        //Pak een random int tussen 0 en 2, en verlaag het dan met 1 zodat we tussen -1 en 1 zitten.
                         e.DY = rand.Next(3) - 1;
                     }
                 }
@@ -224,9 +224,9 @@ namespace Olympus_the_Game.Controller
         public static string GetTimeSinceStart()
         {
             long gt = OlympusTheGame.GameTime;
-            int sec = (int) (gt/1000);
-            int minutes = sec/60;
-            int seconds = sec - minutes*60;
+            int sec = (int)(gt / 1000);
+            int minutes = sec / 60;
+            int seconds = sec - minutes * 60;
             return string.Format("{0}:{1}", minutes.ToString("D2"), seconds.ToString("D2"));
         }
 

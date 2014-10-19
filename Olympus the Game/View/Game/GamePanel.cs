@@ -98,7 +98,7 @@ namespace Olympus_the_Game.View.Game
         private void Draw(GameObject go, Graphics g)
         {
             // Get preferred size and location
-            Size s = new Size((int) (go.Width*PlayfieldScale), (int) (go.Height*PlayfieldScale));
+            Size s = new Size((int)(go.Width * PlayfieldScale), (int)(go.Height * PlayfieldScale));
             Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
 
             // Generate target rectangle
@@ -118,7 +118,8 @@ namespace Olympus_the_Game.View.Game
             // Loop through all gameobjects
             foreach (GameObject go in objects)
             {
-                if(go.Visible){
+                if (go.Visible)
+                {
                     Draw(go, g);
                 }
             }
@@ -153,7 +154,7 @@ namespace Olympus_the_Game.View.Game
         /// <returns></returns>
         public Point TranslatePanelToPlayField(Point p)
         {
-            return new Point((int) (p.X/PlayfieldScale), (int) (p.Y/PlayfieldScale));
+            return new Point((int)(p.X / PlayfieldScale), (int)(p.Y / PlayfieldScale));
         }
 
         /// <summary>
@@ -163,7 +164,7 @@ namespace Olympus_the_Game.View.Game
         /// <returns></returns>
         public Point TranslatePlayFieldToPanel(Point p)
         {
-            return new Point((int) (p.X*PlayfieldScale), (int) (p.Y*PlayfieldScale));
+            return new Point((int)(p.X * PlayfieldScale), (int)(p.Y * PlayfieldScale));
         }
 
         /// <summary>
@@ -190,10 +191,10 @@ namespace Olympus_the_Game.View.Game
         public void Recalculate()
         {
             // Fix playfield scaling
-            double ratioWidth = Playfield.Width/(double) MaxSize.Width;
-            double ratioHeight = Playfield.Height/(double) MaxSize.Height;
-            PlayfieldScale = 1/Math.Max(ratioWidth, ratioHeight);
-            Size = new Size((int) (Playfield.Width*PlayfieldScale), (int) (Playfield.Height*PlayfieldScale));
+            double ratioWidth = Playfield.Width / (double)MaxSize.Width;
+            double ratioHeight = Playfield.Height / (double)MaxSize.Height;
+            PlayfieldScale = 1 / Math.Max(ratioWidth, ratioHeight);
+            Size = new Size((int)(Playfield.Width * PlayfieldScale), (int)(Playfield.Height * PlayfieldScale));
 
             // Empty image buffer
             DataPool.ClearImagePool();
@@ -216,11 +217,11 @@ namespace Olympus_the_Game.View.Game
             Size = new Size(0, 0);
 
             // Initial values
-            float ratio = Playfield.Width/(float) Playfield.Height;
+            float ratio = Playfield.Width / (float)Playfield.Height;
             Point pt =
                 parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
             Size currentSize = new Size(pt.X, pt.Y);
-            Size minimalSize = new Size((int) (ratio*100.0f), 100);
+            Size minimalSize = new Size((int)(ratio * 100.0f), 100);
             currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
             int barHeight = 0;
             int pad = 0;
@@ -228,7 +229,7 @@ namespace Olympus_the_Game.View.Game
             // Loop objects
             foreach (Control c in from Control c in parent.Controls where c != this && c.Visible select c)
             {
-                if (c.GetType() == typeof (MenuStrip))
+                if (c.GetType() == typeof(MenuStrip))
                 {
                     barHeight = c.Height;
                 }
@@ -253,15 +254,15 @@ namespace Olympus_the_Game.View.Game
         private static Size ScaleDown(Size s, Point p, float ratio)
         {
             // Shrink so it fits
-            if (p.X/(float) p.Y > ratio)
+            if (p.X / (float)p.Y > ratio)
             {
                 if (p.X < s.Width)
-                    return new Size(p.X, (int) (p.X/ratio));
+                    return new Size(p.X, (int)(p.X / ratio));
             }
             else
             {
                 if (p.Y < s.Height)
-                    return new Size((int) (p.Y*ratio), p.Y);
+                    return new Size((int)(p.Y * ratio), p.Y);
             }
             return s;
         }

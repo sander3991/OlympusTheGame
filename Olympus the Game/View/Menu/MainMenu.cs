@@ -46,7 +46,7 @@ namespace Olympus_the_Game.View.Menu
                 if (!firstInit)
                 {
                     Thread.Sleep(5);
-                        //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
+                    //Er zat een raar plopje dat de volume van het vorige liedje nog aan stond, dit lijkt dat op te lossen.
                     Mp3Player.FadeIn(2000);
                     Mp3Player.SetPosition(27D);
                 }
@@ -97,7 +97,7 @@ namespace Olympus_the_Game.View.Menu
             LoadResources();
         }
 
-        
+
         private void ButtonHelp_Click(object sender, EventArgs e)
         {
             HideAllControls();
@@ -133,8 +133,8 @@ namespace Olympus_the_Game.View.Menu
 
         private void CenterControl(Control c)
         {
-            c.Left = (Width - c.Width)/2;
-            c.Top = (Height - c.Height)/2;
+            c.Left = (Width - c.Width) / 2;
+            c.Top = (Height - c.Height) / 2;
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)

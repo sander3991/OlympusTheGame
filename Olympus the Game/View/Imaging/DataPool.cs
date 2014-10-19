@@ -71,7 +71,7 @@ namespace Olympus_the_Game.View.Imaging
             }
             return new Sprite(
                 new Bitmap(result.Image,
-                    new Size(s.Width*result.Columns, s.Height*result.Rows)
+                    new Size(s.Width * result.Columns, s.Height * result.Rows)
                     ),
                 result.Columns, result.Rows, result.Cyclic);
         }
