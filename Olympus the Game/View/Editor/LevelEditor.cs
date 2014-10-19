@@ -176,7 +176,7 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Plaats entities in het veld door de nummertoetsen 1 tot en met 7 te gebruiken
+        /// Plaats entities in het veld door de nummertoetsen 1 tot en met 9 te gebruiken
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

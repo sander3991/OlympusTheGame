@@ -31,7 +31,7 @@ namespace Olympus_the_Game.View.Editor
             label1.Text = RepresentingType.ToString();
 
             // Change shortcut key
-            label2.Text = "Toets";
+            label2.Text = "toets";
 
             // Change description
             GameObject go = Utils.CreateObjectOfType(RepresentingType);
