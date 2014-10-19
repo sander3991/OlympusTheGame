@@ -188,14 +188,14 @@ namespace Olympus_the_Game.View.Editor
                 case (char)Keys.D1:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                        CurrentPlayField.AddObject(new EntitySilverfish(50, 50, pointer.X, pointer.Y, 1, 1));
                         gamePanelEditor.Invalidate();
                     }
                     break;
                 case (char)Keys.D2:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y, 2, 2));
+                        CurrentPlayField.AddObject(new EntityGhast(50, 50, pointer.X, pointer.Y, 2, 2));
                         gamePanelEditor.Invalidate();
                     }
                     break;
@@ -209,7 +209,7 @@ namespace Olympus_the_Game.View.Editor
                 case (char)Keys.D4:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 1.0f));
+                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
                         gamePanelEditor.Invalidate();
                     }
                     break;
@@ -217,7 +217,7 @@ namespace Olympus_the_Game.View.Editor
                     {
                         CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectFinish));
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                        CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
                         gamePanelEditor.Invalidate();
                     }
                     break;
@@ -225,14 +225,28 @@ namespace Olympus_the_Game.View.Editor
                     {
                         CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectStart));
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+                        CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y));
                         gamePanelEditor.Invalidate();
                     }
                     break;
                 case (char)Keys.D7:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+                        CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 4));
+                        gamePanelEditor.Invalidate();
+                    }
+                    break;
+                case (char)Keys.D8:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                        gamePanelEditor.Invalidate();
+                    }
+                    break;
+                case (char)Keys.D9:
+                    {
+                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                        CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
                         gamePanelEditor.Invalidate();
                     }
                     break;
