@@ -762,24 +762,6 @@
       <EffectStrength>1</EffectStrength>
       <Height>50</Height>
       <Width>50</Width>
-      <X>1290</X>
-      <Y>78</Y>
-      <IsSolid>True</IsSolid>
-    </GameObject>
-    <GameObject Type="Creeper">
-      <CreeperRange>150</CreeperRange>
-      <EffectStrength>1</EffectStrength>
-      <Height>50</Height>
-      <Width>50</Width>
-      <X>1369</X>
-      <Y>184</Y>
-      <IsSolid>True</IsSolid>
-    </GameObject>
-    <GameObject Type="Creeper">
-      <CreeperRange>150</CreeperRange>
-      <EffectStrength>1</EffectStrength>
-      <Height>50</Height>
-      <Width>50</Width>
       <X>1436</X>
       <Y>441</Y>
       <IsSolid>True</IsSolid>
@@ -827,24 +809,6 @@
       <Width>50</Width>
       <X>1355</X>
       <Y>300</Y>
-      <IsSolid>True</IsSolid>
-    </GameObject>
-    <GameObject Type="Creeper">
-      <CreeperRange>150</CreeperRange>
-      <EffectStrength>1</EffectStrength>
-      <Height>50</Height>
-      <Width>50</Width>
-      <X>1255</X>
-      <Y>229</Y>
-      <IsSolid>True</IsSolid>
-    </GameObject>
-    <GameObject Type="Creeper">
-      <CreeperRange>150</CreeperRange>
-      <EffectStrength>1</EffectStrength>
-      <Height>50</Height>
-      <Width>50</Width>
-      <X>1189</X>
-      <Y>183</Y>
       <IsSolid>True</IsSolid>
     </GameObject>
     <GameObject Type="Creeper">
@@ -971,6 +935,15 @@
       <Width>50</Width>
       <X>283</X>
       <Y>416</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>500</FireSpeed>
+      <DetectRange>1500</DetectRange>
+      <Height>250</Height>
+      <Width>250</Width>
+      <X>1163</X>
+      <Y>0</Y>
       <IsSolid>True</IsSolid>
     </GameObject>
   </GameObjects>
