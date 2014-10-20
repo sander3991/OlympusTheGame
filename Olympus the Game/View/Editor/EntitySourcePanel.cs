@@ -37,7 +37,8 @@ namespace Olympus_the_Game.View.Editor
             GameObject go = Utils.CreateObjectOfType(RepresentingType);
             if (go == null) return;
             label3.Text = go.GetDescription();
-            go.OnRemoved(true); //Deze regel zorgt ervoor dat hij zichzelf weer unsubscribed bij eventuele events. De objecten bleven bestaan!! ~Sander
+            go.OnRemoved(true);
+                //Deze regel zorgt ervoor dat hij zichzelf weer unsubscribed bij eventuele events. De objecten bleven bestaan!! ~Sander
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)

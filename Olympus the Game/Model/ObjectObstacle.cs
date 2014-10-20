@@ -8,7 +8,7 @@
         }
 
         /// <summary>
-        /// Initialiseert een obstakel object waar de speler niet doorheen kan.
+        ///     Initialiseert een obstakel object waar de speler niet doorheen kan.
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
@@ -26,7 +26,7 @@
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()

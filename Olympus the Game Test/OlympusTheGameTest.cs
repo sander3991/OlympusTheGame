@@ -11,7 +11,7 @@ namespace Olympus_the_Game_Test
         [TestMethod]
         public void Test_Set_New_Playfield()
         {
-            PlayField expected = new PlayField();
+            var expected = new PlayField();
 
             // Act
             OlympusTheGame.Playfield = expected;
@@ -24,7 +24,7 @@ namespace Olympus_the_Game_Test
         public void Test_Set_New_Playfield_Event_Fired()
         {
             // Arrange
-            PlayField pf = new PlayField();
+            var pf = new PlayField();
             bool actual = false;
             bool expected = true;
 
@@ -41,7 +41,7 @@ namespace Olympus_the_Game_Test
         public void Test_Pause_Resume_Exception()
         {
             // Arrange
-            PlayField pf = new PlayField();
+            var pf = new PlayField();
             OlympusTheGame.Playfield = pf;
 
             // Act / Assert

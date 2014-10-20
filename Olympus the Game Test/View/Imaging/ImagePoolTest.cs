@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game.Model;
-using System.Drawing;
 using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game_Test.View.Imaging
@@ -25,7 +25,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         [TestMethod]
         public void Test_Picture_Availability_For_All_ObjectTypes()
         {
-            foreach (ObjectType ot in Enum.GetValues(typeof(ObjectType)))
+            foreach (ObjectType ot in Enum.GetValues(typeof (ObjectType)))
             {
                 Assert.AreNotEqual(null, DataPool.GetPicture(ot, new Size(100, 100)));
             }
@@ -35,12 +35,12 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Test_Picture_Sizing_For_All_ObjectTypes()
         {
             // Arrange
-            Random r = new Random();
+            var r = new Random();
 
-            foreach (ObjectType ot in Enum.GetValues(typeof(ObjectType)))
+            foreach (ObjectType ot in Enum.GetValues(typeof (ObjectType)))
             {
                 // Act
-                Size s = new Size(r.Next(100) + 10, r.Next(100) + 10);
+                var s = new Size(r.Next(100) + 10, r.Next(100) + 10);
                 Sprite sprite = DataPool.GetPicture(ot, s);
 
                 // Assert
@@ -52,7 +52,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Test_Get_PreBuffered_Image()
         {
             // Arrange
-            Size s = new Size(10, 10);
+            var s = new Size(10, 10);
             Sprite expected = DataPool.GetPicture(ObjectType.Creeper, s);
 
             // Act

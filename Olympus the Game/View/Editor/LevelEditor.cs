@@ -24,7 +24,8 @@ namespace Olympus_the_Game.View.Editor
             // Save vars
             CurrentPlayField = pf;
             foreach (GameObject go in pf.GameObjects)
-                go.Visible = true; //Hier zetten we alles op zichtbaar zodat we alle gameobjects kunnen zien, implementatie voor de Silverfish
+                go.Visible = true;
+            //Hier zetten we alles op zichtbaar zodat we alle gameobjects kunnen zien, implementatie voor de Silverfish
             gamePanelEditor.Playfield = CurrentPlayField;
             speelveldEditor1.Playfield = CurrentPlayField;
 
@@ -56,13 +57,13 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Sla .xml bestand op
+        ///     Sla .xml bestand op
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Opslaan_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            var saveFileDialog1 = new SaveFileDialog();
 
             // Weergeef .xml bestanden in eerste instantie
             saveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
@@ -85,13 +86,13 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Open .xml bestand
+        ///     Open .xml bestand
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Inladen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            var openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             openFileDialog1.InitialDirectory = PlayfieldLoader.CustomMapLoc;
@@ -113,7 +114,7 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Sluit het LevelEditor scherm af
+        ///     Sluit het LevelEditor scherm af
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -124,8 +125,8 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Vraagscherm bij afsluiten
-        /// Zorgt ook ervoor dat alle objecten netjes verwijderd worden
+        ///     Vraagscherm bij afsluiten
+        ///     Zorgt ook ervoor dat alle objecten netjes verwijderd worden
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -134,7 +135,7 @@ namespace Olympus_the_Game.View.Editor
             // Opent dialoog voor sluiten
             DialogResult dr =
                 MessageBox.Show("Are you sure you want to exit the leveleditor? Any unsaved data will be lost.",
-                "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "Are you sure you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             // Sluit spel af bij JA/YES
             // Sluit dialoog af bij NEE/NO en laat spel verder draaien
@@ -148,8 +149,8 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Bij een dubbelklik word gekeken waarop is geklikt, vervolgens word
-        /// dit doorgestuurd naar de EntityEdit in de LevelEditor
+        ///     Bij een dubbelklik word gekeken waarop is geklikt, vervolgens word
+        ///     dit doorgestuurd naar de EntityEdit in de LevelEditor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -176,7 +177,7 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Plaats entities in het veld door de nummertoetsen 1 tot en met 9 te gebruiken
+        ///     Plaats entities in het veld door de nummertoetsen 1 tot en met 9 te gebruiken
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -185,70 +186,70 @@ namespace Olympus_the_Game.View.Editor
             // Creeper
             switch (e.KeyChar)
             {
-                case (char)Keys.D1:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntitySilverfish(50, 50, pointer.X, pointer.Y, 1, 1));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D1:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntitySilverfish(50, 50, pointer.X, pointer.Y, 1, 1));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D2:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityGhast(50, 50, pointer.X, pointer.Y, 2, 2));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D2:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityGhast(50, 50, pointer.X, pointer.Y, 2, 2));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D3:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D3:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D4:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D4:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D5:
-                    {
-                        CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectFinish));
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D5:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D6:
-                    {
-                        CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof(ObjectStart));
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D6:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D7:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 4));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D7:
+                {
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new EntityTimeBomb(50, 50, pointer.X, pointer.Y, 4));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D8:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D8:
+                {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
-                case (char)Keys.D9:
-                    {
-                        Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
-                        gamePanelEditor.Invalidate();
-                    }
+                case (char) Keys.D9:
+                {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
+                    Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
+                    CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
+                    gamePanelEditor.Invalidate();
+                }
                     break;
             }
         }
@@ -258,17 +259,17 @@ namespace Olympus_the_Game.View.Editor
         #region Inpanel Drag and Drop
 
         /// <summary>
-        /// Item dat momenteel wordt versleept.
+        ///     Item dat momenteel wordt versleept.
         /// </summary>
         private GameObject currentDraggingObject;
 
         /// <summary>
-        /// De offset van de muis ten opzicht van het momenteel gesleepte object.
+        ///     De offset van de muis ten opzicht van het momenteel gesleepte object.
         /// </summary>
         private Point offset = Point.Empty;
 
         /// <summary>
-        /// Als muis naar beneden gaat, start slepen.
+        ///     Als muis naar beneden gaat, start slepen.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -282,7 +283,7 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Als er wordt gesleept, verplaats item.
+        ///     Als er wordt gesleept, verplaats item.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -296,7 +297,7 @@ namespace Olympus_the_Game.View.Editor
         }
 
         /// <summary>
-        /// Stop met slepen als muis omhoog gaat.
+        ///     Stop met slepen als muis omhoog gaat.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -308,17 +309,17 @@ namespace Olympus_the_Game.View.Editor
         #endregion
 
         /// <summary>
-        /// Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
+        ///     Zodra een entiteit in het panel word gesleept word bekeken of deze van het type string is
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void EntityDragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = e.Data.GetDataPresent(typeof(ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
+            e.Effect = e.Data.GetDataPresent(typeof (ObjectType)) ? DragDropEffects.Copy : DragDropEffects.None;
         }
 
         /// <summary>
-        /// Weergeef de locatie waar het object geplaatst is
+        ///     Weergeef de locatie waar het object geplaatst is
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -328,9 +329,9 @@ namespace Olympus_the_Game.View.Editor
             /*Point l = this.gamePanelEditor.PointToClient(new Point(e.X, e.Y));
             l = new Point((int)((double)l.X / this.gamePanelEditor.PlayfieldScale), (int)((double)l.Y / this.gamePanelEditor.PlayfieldScale));*/
             Point l = gamePanelEditor.GetCursorPlayFieldPosition();
-            object o = e.Data.GetData(typeof(ObjectType));
+            object o = e.Data.GetData(typeof (ObjectType));
             if (o == null) return;
-            ObjectType ot = (ObjectType)o;
+            var ot = (ObjectType) o;
 
             // Add object
             Func<GameObject> f;
@@ -352,7 +353,7 @@ namespace Olympus_the_Game.View.Editor
         #region Remove
 
         /// <summary>
-        /// Als er op de muis wordt geklikt wordt deze methode aangeroepen
+        ///     Als er op de muis wordt geklikt wordt deze methode aangeroepen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
