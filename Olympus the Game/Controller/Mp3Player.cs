@@ -24,7 +24,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Het volume van de MediaPlayer
+        ///     Het volume van de MediaPlayer
         /// </summary>
         public static int Volume
         {
@@ -40,7 +40,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Speelt een resource file af.
+        ///     Speelt een resource file af.
         /// </summary>
         /// <param name="resource">De resource gespeeld dient te worden</param>
         public static void SetResource(string resource)
@@ -64,7 +64,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Zet het loopen aan of uit
+        ///     Zet het loopen aan of uit
         /// </summary>
         /// <param name="loop">True voor loop aan, false voor uit</param>
         public static void Loop(bool loop)
@@ -73,7 +73,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Zet de positie van het nummer op het meegegeven punt
+        ///     Zet de positie van het nummer op het meegegeven punt
         /// </summary>
         /// <param name="pos">De positie in aantal seconden</param>
         public static void SetPosition(double pos)
@@ -82,7 +82,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Starts playing the resource
+        ///     Starts playing the resource
         /// </summary>
         public static void PlaySelected()
         {
@@ -94,15 +94,15 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Do a fade in 
+        ///     Do a fade in
         /// </summary>
         /// <param name="time">De tijd in milliseconde, het minimum is 100</param>
         public static void FadeIn(int time)
         {
             _fadeInCounter = 0;
             Volume = _fadeInCounter;
-            Timer timer = new Timer();
-            timer.Interval = time / 100;
+            var timer = new Timer();
+            timer.Interval = time/100;
             timer.Tick += timer_Tick;
             timer.Start();
             Player.controls.pause();
@@ -112,15 +112,15 @@ namespace Olympus_the_Game.Controller
         {
             _fadeInCounter = 100;
             Volume = _fadeInCounter;
-            Timer timer = new Timer();
-            timer.Interval = time / 100;
+            var timer = new Timer();
+            timer.Interval = time/100;
             timer.Tick += timer_tick_fadeout;
             timer.Start();
             _stopFading = false;
         }
 
         /// <summary>
-        /// Timer method die gebruikt wordt in de FadeIn()
+        ///     Timer method die gebruikt wordt in de FadeIn()
         /// </summary>
         /// <param name="sender">De timer</param>
         /// <param name="e"></param>
@@ -131,7 +131,7 @@ namespace Olympus_the_Game.Controller
                 Player.controls.play();
             if (Player.settings.volume == 100 || !IsPlaying)
             {
-                Timer timer = sender as Timer;
+                var timer = sender as Timer;
                 if (timer != null) timer.Stop();
             }
         }
@@ -141,7 +141,7 @@ namespace Olympus_the_Game.Controller
             Volume = --_fadeInCounter;
             if (Volume == 0 || _stopFading)
             {
-                Timer timer = sender as Timer;
+                var timer = sender as Timer;
                 if (timer != null) timer.Stop();
                 if (!_stopFading)
                     StopPlaying();
@@ -150,7 +150,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Stopt de media player
+        ///     Stopt de media player
         /// </summary>
         internal static void StopPlaying()
         {
@@ -159,7 +159,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Pauzeer de media speler
+        ///     Pauzeer de media speler
         /// </summary>
         internal static void Pause()
         {
@@ -168,7 +168,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Gaat verder met afspelen
+        ///     Gaat verder met afspelen
         /// </summary>
         internal static void Play()
         {
@@ -177,7 +177,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Handelt het verwijderen van de temporary files af
+        ///     Handelt het verwijderen van de temporary files af
         /// </summary>
         /// <param name="resourceLoc">De locatie van de resource</param>
         internal static void UnloadResource(string resourceLoc)

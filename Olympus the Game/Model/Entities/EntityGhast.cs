@@ -1,6 +1,6 @@
-﻿using Olympus_the_Game.View.Editor;
-using System;
+﻿using System;
 using System.Diagnostics;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -13,11 +13,11 @@ namespace Olympus_the_Game.Model.Entities
         static EntityGhast()
         {
             RegisterWithEditor(ObjectType.Ghast, () => new EntityGhast(50, 50, 0, 0));
-                // TODO Maak waarden standaard
+            // TODO Maak waarden standaard
         }
 
         /// <summary>
-        /// FILL THIS IN
+        ///     FILL THIS IN
         /// </summary>
         public EntityGhast(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
@@ -28,7 +28,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
+        ///     Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
         /// </summary>
         [EditorTooltip("Vuur snelheid", "De snelheid waarmee de Ghast vuurballen schiet in milliseconden.")]
         public int FireSpeed
@@ -38,7 +38,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Afstand van wanneer de Ghast begint met aanvallen. MIN = 50, DEFAULT = 150
+        ///     Afstand van wanneer de Ghast begint met aanvallen. MIN = 50, DEFAULT = 150
         /// </summary>
         [EditorTooltip("Detectie afstand", "De afstand van wanneer de Ghast begint met aanvallen.")]
         public int DetectRange
@@ -48,7 +48,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -66,7 +66,7 @@ namespace Olympus_the_Game.Model.Entities
                     // Vuur dan een vuurbal af om de x aantal seconden
                     if (_stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
-                        EntityFireBall fireball = new EntityFireBall(25, 25, X, Y, 0, 0, this, Playfield.Player);
+                        var fireball = new EntityFireBall(25, 25, X, Y, 0, 0, this, Playfield.Player);
                         Playfield.AddObject(fireball);
                         _stopwatch.Restart();
                     }
