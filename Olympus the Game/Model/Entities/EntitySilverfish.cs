@@ -120,7 +120,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
         {
-            return "Silverfish - coming soon";
+            return "Is onzichtbaar tot je te dichtbij bent.";
         }
 
 

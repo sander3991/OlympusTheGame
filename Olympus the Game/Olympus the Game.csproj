@@ -451,6 +451,15 @@
   <ItemGroup>
     <None Include="Resources\44105bbe07a07ab277b1e5b56ca73b1c.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visje.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visje.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silverfish.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

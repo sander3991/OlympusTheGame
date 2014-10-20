@@ -287,7 +287,7 @@
             // 
             // PicSilverfish
             // 
-            this.PicSilverfish.Image = global::Olympus_the_Game.Properties.Resources.silverfish;
+            this.PicSilverfish.Image = global::Olympus_the_Game.Properties.Resources.silverfish1;
             this.PicSilverfish.Location = new System.Drawing.Point(6, 0);
             this.PicSilverfish.Name = "PicSilverfish";
             this.PicSilverfish.Size = new System.Drawing.Size(100, 100);

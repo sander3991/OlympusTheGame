@@ -65,7 +65,7 @@
             // 
             this.settingsDialog1.Location = new System.Drawing.Point(772, 213);
             this.settingsDialog1.Name = "settingsDialog1";
-            this.settingsDialog1.Size = new System.Drawing.Size(426, 110);
+            this.settingsDialog1.Size = new System.Drawing.Size(426, 53);
             this.settingsDialog1.TabIndex = 7;
             this.settingsDialog1.Visible = false;
             // 
