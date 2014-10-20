@@ -449,6 +449,9 @@
   <ItemGroup>
     <None Include="Resources\silverfish.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\Gallifrey Falls No More.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
