@@ -6,7 +6,7 @@ namespace Olympus_the_Game.Model.Entities
     public class EntityPlayer : Entity
     {
         /// <summary>
-        /// De maximum health van een speler
+        ///     De maximum health van een speler
         /// </summary>
         public const int Maxhealth = 5;
 
@@ -18,7 +18,7 @@ namespace Olympus_the_Game.Model.Entities
         private double _speedModifier = 1;
 
         /// <summary>
-        /// Initialiseert een spelerobject, een speler begint standaard met <paramref name="=MAXHEALTH"/> health.
+        ///     Initialiseert een spelerobject, een speler begint standaard met <paramref name="=MAXHEALTH" /> health.
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
@@ -55,12 +55,13 @@ namespace Olympus_the_Game.Model.Entities
 
 
         /// <summary>
-        /// De snelheid van de speler
+        ///     De snelheid van de speler
         /// </summary>
         public static int PlayerSpeed { get; set; }
 
         /// <summary>
-        /// In hoeverre wordt de snelheid van de speler aangepast. Zodra deze wordt aangepast wordt de DX en DY van de speler direct aangepast.
+        ///     In hoeverre wordt de snelheid van de speler aangepast. Zodra deze wordt aangepast wordt de DX en DY van de speler
+        ///     direct aangepast.
         /// </summary>
         public double SpeedModifier
         {
@@ -75,7 +76,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Custom DX omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
+        ///     Custom DX omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
         /// </summary>
         public override int DX
         {
@@ -84,7 +85,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Custom DY omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
+        ///     Custom DY omdat wij bij de EntityPlayer de speedmodifier ook mee moeten nemen in de snelheid.
         /// </summary>
         public override int DY
         {
@@ -93,7 +94,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// De Health van de speler
+        ///     De Health van de speler
         /// </summary>
         public int Health
         {
@@ -112,7 +113,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()

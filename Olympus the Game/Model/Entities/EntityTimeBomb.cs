@@ -18,11 +18,11 @@ namespace Olympus_the_Game.Model.Entities
         static EntityTimeBomb()
         {
             RegisterWithEditor(ObjectType.Timebomb, () => new EntityTimeBomb(50, 50, 0, 0, 1));
-                // TODO Maak waarden standaard
+            // TODO Maak waarden standaard
         }
 
         /// <summary>
-        /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
+        ///     Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
         /// </summary>
         public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, int effectStrength)
             : base(width, height, x, y, dx, dy, effectStrength)
@@ -33,7 +33,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Een bom die na een bepaalde tijd explodeert. Staat vanaf het begin stil.
+        ///     Een bom die na een bepaalde tijd explodeert. Staat vanaf het begin stil.
         /// </summary>
         public EntityTimeBomb(int width, int height, int x, int y, int effectStrength)
             : this(width, height, x, y, 0, 0, effectStrength)
@@ -53,7 +53,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
+        ///     Tijd voordat dit object explodeert na contact met speler (in msec). MIN = 0, DEFAULT = 3000
         /// </summary>
         [EditorTooltip("Tijd", "Hoe lang duurt het voordat de tijdbom ontploft in milliseconden")]
         public int ExplodeTime
@@ -63,7 +63,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// De afstand waarin de timebom de speler herkend. MIN = 50, DEFAULT = 100
+        ///     De afstand waarin de timebom de speler herkend. MIN = 50, DEFAULT = 100
         /// </summary>
         [EditorTooltip("Detectie afstand", "Vanaf welke afstand begint de tijdbom af te gaan")]
         public int DetectRadius
@@ -73,7 +73,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// De afstand waarin de explosie plaatsvindt. MIN = 0, DEFAULT = 100
+        ///     De afstand waarin de explosie plaatsvindt. MIN = 0, DEFAULT = 100
         /// </summary>
         [EditorTooltip("Explosie radius", "De radius van de explosie")]
         public int ExplodeRadius
@@ -83,7 +83,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()

@@ -138,7 +138,7 @@ namespace Olympus_the_Game.View.Editor
                     // Set property
                     pi.SetValue(_selectedObject, val, new object[] {});
                     tb.Text = pi.GetValue(_selectedObject, null).ToString();
-                        //Mocht het getal buiten de range vallen, wordt hierdoor het getal gereset ~Sander
+                    //Mocht het getal buiten de range vallen, wordt hierdoor het getal gereset ~Sander
                     tb.BackColor = Color.White;
                 }
                 catch (FormatException)

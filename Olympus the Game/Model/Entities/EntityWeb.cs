@@ -11,7 +11,7 @@ namespace Olympus_the_Game.Model.Entities
         private int prop_removetime = 3000;
 
         /// <summary>
-        /// Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid.
+        ///     Een EntityWeb object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid.
         /// </summary>
         public EntityWeb(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
@@ -23,7 +23,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 1, DEFAULT = 3000
+        ///     Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 1, DEFAULT = 3000
         /// </summary>
         public double SlowStrength
         {
@@ -32,7 +32,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 0, DEFAULT = 2
+        ///     Hoe hoger de waarde hoe langzamer je door een web loopt. MIN: 0, DEFAULT = 2
         /// </summary>
         public int RemoveTime
         {
@@ -41,7 +41,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()

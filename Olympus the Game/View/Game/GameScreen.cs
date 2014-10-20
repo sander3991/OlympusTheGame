@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game.View.Game
@@ -19,7 +20,7 @@ namespace Olympus_the_Game.View.Game
         {
             // Initialiseer componenten
             InitializeComponent();
-            Icon = Properties.Resources.icon;
+            Icon = Resources.icon;
             forceClose = false;
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
             OlympusTheGame.GameController.OnPlayerFinished += OnPlayerFinished;

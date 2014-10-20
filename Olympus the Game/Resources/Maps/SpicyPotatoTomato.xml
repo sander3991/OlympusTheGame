@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <PlayField>
   <Name>SpicyPotatoTomato</Name>
   <Width>1000</Width>
@@ -269,8 +270,8 @@
       <IsSolid>True</IsSolid>
     </GameObject>
     <GameObject Type="Ghast">
-      <FireSpeed>1050</FireSpeed>
-      <DetectRange>150</DetectRange>
+      <FireSpeed>2000</FireSpeed>
+      <DetectRange>500</DetectRange>
       <Height>200</Height>
       <Width>200</Width>
       <X>723</X>

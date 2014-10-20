@@ -3,7 +3,9 @@ using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
-    //TODO: Deze entity inbouwen
+    /// <summary>
+    /// Silverfish entity
+    /// </summary>
     public class EntitySilverfish : Entity
     {
         private bool HasHitPlayer;
@@ -55,6 +57,10 @@ namespace Olympus_the_Game.Model.Entities
             AggroRange = 100;
         }
 
+        /// <summary>
+        /// Berekeningen die worden uitgevoerd wanneer de game updated.
+        ///     Verantwoordelijk voor lopen en visibility.
+        /// </summary>
         public void OnUpdate() {
             EntityPlayer player = Playfield.Player;
             if(player != null){
@@ -83,6 +89,12 @@ namespace Olympus_the_Game.Model.Entities
                         }
                     }
 
+                    /** 
+                     * Komt tevoorschijn als je minder dan 75 pixels dichtbij bent
+                     * Valt je aan als je 50 pixels dichtbij bent
+                     * Loopt weer terug na de aanval en wacht tot je weer 50 pixels in de buurt bent 
+                    **/
+
                     if(DistanceToObject(player) > AggroRange) {
                         DX = 0;
                         DY = 0;
@@ -96,10 +108,6 @@ namespace Olympus_the_Game.Model.Entities
                     }
                 }
             }
-
-            // Komt tevoorschijn als je minder dan 75 pixels dichtbij bent
-            // Valt je aan als je 50 pixels dichtbij bent
-            // Loopt weer terug na de aanval en wacht tot je weer 50 pixels in de buurt bent
         }
 
         public override void OnCollide(GameObject gameObject) {

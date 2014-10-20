@@ -281,10 +281,10 @@ namespace Olympus_the_Game.Model
                                 try
                                 {
                                     str = char.ToUpper(str[0]) + str.Substring(1).ToLower().Replace(" ", "");
-                                        //De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
+                                    //De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
                                     newObject =
                                         Utils.CreateObjectOfType((ObjectType) Enum.Parse(typeof (ObjectType), str));
-                                        //Zet het om naar het enum type die erbij hoort
+                                    //Zet het om naar het enum type die erbij hoort
                                 }
                                 catch (InvalidCastException)
                                 {
@@ -331,7 +331,7 @@ namespace Olympus_the_Game.Model
                             {
                                 AddObject(newObject);
                                 newObject = null;
-                                    //Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
+                                //Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
                             }
                         }
                         break;

@@ -1,7 +1,7 @@
-﻿using Olympus_the_Game.View.Editor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Olympus_the_Game.View.Editor;
 
 namespace Olympus_the_Game.Model.Entities
 {
@@ -14,11 +14,11 @@ namespace Olympus_the_Game.Model.Entities
         static EntitySlower()
         {
             RegisterWithEditor(ObjectType.Slower, () => new EntitySlower(50, 50, 0, 0));
-                // TODO Maak waarden standaard
+            // TODO Maak waarden standaard
         }
 
         /// <summary>
-        /// Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
+        ///     Een EntitySlower object die spelers langzamer laten lopen, loopt vanaf het begin de meegegeven snelheid
         /// </summary>
         public EntitySlower(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
@@ -28,7 +28,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
+        ///     Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
         /// </summary>
         [EditorTooltip("Effect afstand", "Afstand waarin de Spider spinnenwebben schiet.")]
         public double EffectRange
@@ -38,7 +38,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
+        ///     Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
         /// </summary>
         [EditorTooltip("Vuursnelheid", "De snelheid waarmee de Spider spinnenwebben schiet")]
         public int FireSpeed
@@ -48,7 +48,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -68,7 +68,7 @@ namespace Olympus_the_Game.Model.Entities
                     {
                         if (!PreventDoubleWeb(Playfield.Player.X + 25, Playfield.Player.Y + 25))
                         {
-                            EntityWebMissile web = new EntityWebMissile(this, Playfield.Player);
+                            var web = new EntityWebMissile(this, Playfield.Player);
                             Playfield.AddObject(web);
                         }
                         stopwatch.Restart();
