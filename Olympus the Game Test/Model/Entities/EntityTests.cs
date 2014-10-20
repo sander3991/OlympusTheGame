@@ -13,7 +13,7 @@ namespace Olympus_the_Game_Test.Model.Entities
         public void CollisionTest()
         {
             OlympusTheGame.SetController();
-            List<GameObject> objects = new List<GameObject>
+            var objects = new List<GameObject>
             {
                 new ObjectStart(10, 10, 0, 0),
                 new ObjectFinish(10, 10, 0, 0),
@@ -32,31 +32,34 @@ namespace Olympus_the_Game_Test.Model.Entities
                 for (int j = 0; j < objects.Count; j++)
                 {
                     /*if (i != j)
-                        Assert.IsTrue(objects[i].CollidesWithObject(objects[j]));*/ //ze zijn even groot op dezelfde locatie, dit is dus een collide in alle gevallen!
+                        Assert.IsTrue(objects[i].CollidesWithObject(objects[j]));*/
+                    //ze zijn even groot op dezelfde locatie, dit is dus een collide in alle gevallen!
                 }
             }
             for (int i = 0; i < objects.Count; i++)
-                objects[i].X = i * 10; //Stelt alle X waardes 10 van elkaar af zodat ze naast elkaar staan.
+                objects[i].X = i*10; //Stelt alle X waardes 10 van elkaar af zodat ze naast elkaar staan.
 
             for (int i = 0; i < objects.Count; i++)
             {
                 for (int j = 0; j < objects.Count; j++)
                 {
                     /*if (i != j)
-                        Assert.IsFalse(objects[i].CollidesWithObject(objects[j]));*/ //ze zijn uit elkaar gezet, dus nu moet hij niet meer colliden
+                        Assert.IsFalse(objects[i].CollidesWithObject(objects[j]));*/
+                    //ze zijn uit elkaar gezet, dus nu moet hij niet meer colliden
                 }
             }
-            for(int i = 0; i < objects.Count; i++)
+            for (int i = 0; i < objects.Count; i++)
             {
                 objects[i].X = 0; //zet alle X waardes weer gelijk
-                objects[i].Y = i * 10; //en zet alle Y waardes uit elkaar
+                objects[i].Y = i*10; //en zet alle Y waardes uit elkaar
             }
             for (int i = 0; i < objects.Count; i++)
             {
                 for (int j = 0; j < objects.Count; j++)
                 {
                     /*if (i != j)
-                        Assert.IsFalse(objects[i].CollidesWithObject(objects[j]));*/ //ze zijn uit elkaar gezet, dus nu moet hij niet meer colliden
+                        Assert.IsFalse(objects[i].CollidesWithObject(objects[j]));*/
+                    //ze zijn uit elkaar gezet, dus nu moet hij niet meer colliden
                 }
             }
 
@@ -74,7 +77,7 @@ namespace Olympus_the_Game_Test.Model.Entities
         public void EntityOutOfBoundsTest()
         {
             OlympusTheGame.SetController();
-            List<Entity> entities = new List<Entity>
+            var entities = new List<Entity>
             {
                 new EntityPlayer(-1, -1, -1, -1),
                 new EntitySlower(-1, -1, -1, -1),
@@ -93,13 +96,13 @@ namespace Olympus_the_Game_Test.Model.Entities
                 Assert.IsTrue(e.Height == 0);
             }
             //TODO: Voeg een test toe om te kijken of hij aan het onderkant van het veld out of bounds raakt
-
         }
+
         [TestMethod]
         public void EntityDistanceTest()
         {
             OlympusTheGame.SetController();
-            List<Entity> entities = new List<Entity>();
+            var entities = new List<Entity>();
             Entity player = new EntityPlayer(0, 0, 0, 0);
             player.DX = 5;
             player.DY = 10;
@@ -111,7 +114,7 @@ namespace Olympus_the_Game_Test.Model.Entities
             for (int i = 0; i < entities.Count; i++)
             {
                 Entity ent1 = entities[i];
-                for(int j = 0; j < entities.Count; j++)
+                for (int j = 0; j < entities.Count; j++)
                 {
                     Entity ent2 = entities[j];
                     if (ent1 != ent2)
@@ -145,14 +148,13 @@ namespace Olympus_the_Game_Test.Model.Entities
             e3.X = 8;
             e3.Y = 10;
             Assert.IsTrue(e1.DistanceToObject(e3) == 10); //Schuine afstand
-            
-            
         }
+
         [TestMethod]
         public void EntityMoveTest()
         {
             OlympusTheGame.SetController();
-            List<Entity> entities = new List<Entity>();
+            var entities = new List<Entity>();
             Entity player = new EntityPlayer(0, 0, 0, 0);
             player.DX = 5;
             player.DY = 10;

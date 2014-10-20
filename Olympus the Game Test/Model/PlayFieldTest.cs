@@ -12,12 +12,12 @@ namespace Olympus_the_Game_Test.Model
         public void TestAddGameObjects()
         {
             // Allocate
-            PlayField pf = new PlayField(100, 100);
-            PlayField pfWithStart = new PlayField(100 ,100);
-            PlayField pfWithFinish = new PlayField(100, 100);
-            PlayField pfWithStartAndFinish = new PlayField(100, 100);
-            PlayField pfWith2StartAnd1Finish = new PlayField(100, 100);
-            PlayField pfWith1StartAnd2Finish = new PlayField(100, 100);
+            var pf = new PlayField(100, 100);
+            var pfWithStart = new PlayField(100, 100);
+            var pfWithFinish = new PlayField(100, 100);
+            var pfWithStartAndFinish = new PlayField(100, 100);
+            var pfWith2StartAnd1Finish = new PlayField(100, 100);
+            var pfWith1StartAnd2Finish = new PlayField(100, 100);
 
             GameObject gS = new ObjectFinish(400, 200, 100, 100);
             GameObject gF = new ObjectStart(0, 0, 100, 100);
@@ -87,7 +87,7 @@ namespace Olympus_the_Game_Test.Model
         [TestMethod]
         public void TestGetGameObjects()
         {
-            PlayField pf = new PlayField(100, 100);
+            var pf = new PlayField(100, 100);
             pf.AddObject(new EntityPlayer(10, 10, 0, 0));
             pf.AddObject(new EntityPlayer(10, 10, 0, 0));
             pf.AddObject(new EntityPlayer(10, 10, 10, 10));
