@@ -38,6 +38,7 @@ namespace Olympus_the_Game.Model.Entities
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = true;
             Type = ObjectType.Creeper;
+            CreeperRange = 150;
         }
 
         /// <summary>
