@@ -60,9 +60,9 @@ namespace Olympus_the_Game_Test.Model.Entities
                 }
             }
 
-            GameObject go1 = new ObjectStart(10, 10, 0, 0);
-            GameObject go2 = new ObjectFinish(10, 10, 5, 5);
-            GameObject go3 = new ObjectFinish(5, 5, 3, 3);
+            //GameObject go1 = new ObjectStart(10, 10, 0, 0);
+            //GameObject go2 = new ObjectFinish(10, 10, 5, 5);
+            //GameObject go3 = new ObjectFinish(5, 5, 3, 3);
 
             /*Assert.IsTrue(go1.CollidesWithObject(go2));
             Assert.IsTrue(go2.CollidesWithObject(go1));
