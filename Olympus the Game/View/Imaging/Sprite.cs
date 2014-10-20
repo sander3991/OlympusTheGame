@@ -7,17 +7,17 @@ namespace Olympus_the_Game.View.Imaging
     public class Sprite
     {
         /// <summary>
-        /// Bitmap that will be returned when nothing logical can be returned.
+        ///     Bitmap die wordt teruggegeven als er geen logisch alternatief is.
         /// </summary>
         public static readonly Bitmap Empty = new Bitmap(1, 1);
 
         /// <summary>
-        /// Create a new Sprite.
+        ///     Maakt een nieuwe <c>Sprite</c> aan.
         /// </summary>
-        /// <param name="bm">The bitmap</param>
-        /// <param name="countX">Amount of pieces to divide x-axis to.</param>
-        /// <param name="countY">Amount of pieces to divide y-axis to.</param>
-        /// <param name="cyclic">Whether to create a cyclic sprite.</param>
+        /// <param name="bm">De <see cref="Bitmap" /> van deze <c>Sprite</c>.</param>
+        /// <param name="countX">Aantal stukjes om de x-as in te verdelen.</param>
+        /// <param name="countY">Aantal stukjes om de y-as in te verdelen.</param>
+        /// <param name="cyclic">Of deze <c>Sprite</c> cyclisch moet zijn.</param>
         public Sprite(Bitmap bm, int countX, int countY, bool cyclic)
         {
             // Save variables
@@ -27,19 +27,21 @@ namespace Olympus_the_Game.View.Imaging
             // Check for moving image or static image
             if (countX > 0 && countY > 0 && countX*countY > 1)
             {
+                // Has to be cut up
                 Columns = countX;
                 Rows = countY;
                 Images = CutupImage(bm, Rows, Columns);
             }
             else
             {
+                // No cutup
                 Columns = -1;
                 Rows = 1;
             }
         }
 
         /// <summary>
-        /// Create non-cyclic sprite, cut in pieces.
+        ///     Create non-cyclic sprite, cut in pieces.
         /// </summary>
         /// <param name="bm"></param>
         /// <param name="countX"></param>
@@ -50,7 +52,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Gets the amount of frames in this Sprite. -1 if this is a static image.
+        ///     Gets the amount of frames in this Sprite. -1 if this is a static image.
         /// </summary>
         public int Frames
         {
@@ -58,32 +60,32 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Gets the amount of columns in this sprite.
+        ///     Gets the amount of columns in this sprite.
         /// </summary>
         public int Columns { get; private set; }
 
         /// <summary>
-        /// Gets the amount of rows in this sprite.
+        ///     Gets the amount of rows in this sprite.
         /// </summary>
         public int Rows { get; private set; }
 
         /// <summary>
-        /// Gets whether this sprite is cyclic.
+        ///     Gets whether this sprite is cyclic.
         /// </summary>
         public bool Cyclic { get; private set; }
 
         /// <summary>
-        /// Gets the images of this sprite, please use sprite[index] instead of this list.
+        ///     Gets the images of this sprite, please use sprite[index] instead of this list.
         /// </summary>
-        public List<Bitmap> Images { get; private set; }
+        private List<Bitmap> Images { get; set; }
 
         /// <summary>
-        /// Gets the internal image of this sprite
+        ///     Gets the internal image of this sprite
         /// </summary>
         public Bitmap Image { get; private set; }
 
         /// <summary>
-        /// Returns the given frame.
+        ///     Returns the given frame.
         /// </summary>
         /// <param name="index">-1.0f for static, between 0.0f (inclusive) and 1.0f (exclusive) (or higher if cyclic) for dynamic.</param>
         /// <returns></returns>
@@ -96,25 +98,30 @@ namespace Olympus_the_Game.View.Imaging
                 {
                     throw new ArgumentOutOfRangeException("Cannot get frame " + index);
                 }
-                if (Math.Abs(Frames - (-1.0f)) < 0.01f) // Index == -1, geef interne plaatje
+                // Index == -1, geef interne plaatje
+                if (Math.Abs(Frames - (-1.0f)) < 0.01f)
                 {
                     return Image;
                 }
+                // Als niet cyclisch...
                 if (!Cyclic)
                 {
+                    // En index te groot, geef empty
                     if (index >= 1.0f)
                         return Empty;
+                    // Anders het correcte frame
                     if (index < 0.0f) index = 0.0f;
                     return Images[(int) (index*Images.Count)];
                 }
-                if (!Cyclic) return Empty;
+                // Is cyclisch, dus fix index
                 index = index - (int) index;
+                // Geef correct frame terug
                 return Images[(int) (index*Images.Count)];
             }
         }
 
         /// <summary>
-        /// Returns whether this Sprite is equal to another object.
+        ///     Returns whether this Sprite is equal to another object.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -123,7 +130,7 @@ namespace Olympus_the_Game.View.Imaging
             if (obj == null)
                 return false;
 
-            Sprite s = obj as Sprite;
+            var s = obj as Sprite;
 
             if (s == null)
                 return false;
@@ -140,7 +147,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Geeft de hashcode van deze Sprite.
+        ///     Geeft de hashcode van deze Sprite.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
@@ -167,7 +174,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Cast operator from Bitmap.
+        ///     Cast operator from Bitmap.
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
@@ -177,7 +184,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Helper method to cut up images.
+        ///     Helper method to cut up images.
         /// </summary>
         /// <param name="bitmap"></param>
         /// <param name="rows"></param>
@@ -186,11 +193,11 @@ namespace Olympus_the_Game.View.Imaging
         private static List<Bitmap> CutupImage(Image bitmap, int rows, int columns)
         {
             // Determine target
-            Size s = new Size(bitmap.Width/columns, bitmap.Height/rows);
-            Rectangle targetRectangle = new Rectangle(new Point(0, 0), s);
+            var s = new Size(bitmap.Width/columns, bitmap.Height/rows);
+            var targetRectangle = new Rectangle(new Point(0, 0), s);
 
             // Create result
-            List<Bitmap> result = new List<Bitmap>(s.Height*s.Width);
+            var result = new List<Bitmap>(s.Height*s.Width);
 
             // Cut up image
             for (int i = 0; i < rows; i++)
@@ -198,7 +205,7 @@ namespace Olympus_the_Game.View.Imaging
                 for (int j = 0; j < columns; j++)
                 {
                     // Create new Bitmap
-                    Bitmap subImage = new Bitmap(s.Width, s.Height);
+                    var subImage = new Bitmap(s.Width, s.Height);
                     // Draw scaled image
                     using (Graphics g = Graphics.FromImage(subImage))
                         g.DrawImage(bitmap, targetRectangle, new Rectangle(new Point(j*s.Width, i*s.Height), s),

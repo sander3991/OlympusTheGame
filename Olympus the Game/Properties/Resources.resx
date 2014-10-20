@@ -121,7 +121,7 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="beach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="mapBeach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Maps\beach.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="cake" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -154,7 +154,7 @@
   <data name="heartDead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textures\heartDead.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="mapHell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Maps\hell.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="huis" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -231,5 +231,20 @@
   </data>
   <data name="silverfish1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\silverfish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapGallifrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps\Gallifrey Falls No More.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapWorst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps\Eet geen worst.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="mapSausage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps\Crunchy Sausage.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="mapTomato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps\SpicyPotatoTomato.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

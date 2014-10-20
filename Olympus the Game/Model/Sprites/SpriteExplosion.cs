@@ -3,12 +3,12 @@
     internal class SpriteExplosion : AnimatedSprite
     {
         /// <summary>
-        /// Up-scaling factor of this explosion.
+        ///     Up-scaling factor of this explosion.
         /// </summary>
         private const float ExplosionScale = 2.0f;
 
         /// <summary>
-        /// Create a new SpriteExplosion, with the same location as the entity.
+        ///     Create a new SpriteExplosion, with the same location as the entity.
         /// </summary>
         /// <param name="entity"></param>
         public SpriteExplosion(GameObject entity) : this(entity.Width, entity.Height, entity.X, entity.Y)
@@ -27,8 +27,9 @@
         }
 
         /// <summary>
-        /// Update this explosion.
-        /// </summary>s
+        ///     Update this explosion.
+        /// </summary>
+        /// s
         public void OnUpdate()
         {
             // If explosion is over, remove from PlayField.

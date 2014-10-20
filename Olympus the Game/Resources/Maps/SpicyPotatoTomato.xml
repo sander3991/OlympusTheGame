@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+
+<PlayField>
+  <Name>SpicyPotatoTomato</Name>
+  <Width>1000</Width>
+  <Height>500</Height>
+  <GameObjects>
+    <GameObject Type="Finish">
+      <Height>80</Height>
+      <Width>80</Width>
+      <X>896</X>
+      <Y>407</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Start">
+      <Height>75</Height>
+      <Width>75</Width>
+      <X>13</X>
+      <Y>9</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>108</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>120</X>
+      <Y>109</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>121</X>
+      <Y>0</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>50</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>60</X>
+      <Y>198</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>50</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>228</X>
+      <Y>58</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>269</X>
+      <Y>201</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>252</X>
+      <Y>224</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>233</X>
+      <Y>249</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>284</X>
+      <Y>183</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>299</X>
+      <Y>165</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>314</X>
+      <Y>147</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>237</X>
+      <Y>270</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>362</X>
+      <Y>147</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>389</X>
+      <Y>152</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>316</X>
+      <Y>272</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>389</X>
+      <Y>211</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>408</X>
+      <Y>63</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>238</X>
+      <Y>383</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>555</X>
+      <Y>0</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>555</X>
+      <Y>49</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>555</X>
+      <Y>94</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>561</X>
+      <Y>124</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>562</X>
+      <Y>263</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>555</X>
+      <Y>284</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>561</X>
+      <Y>310</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>40</Height>
+      <Width>40</Width>
+      <X>558</X>
+      <Y>431</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>950</X>
+      <Y>321</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>903</X>
+      <Y>321</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>889</X>
+      <Y>300</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>787</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>764</X>
+      <Y>424</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>30</Width>
+      <X>748</X>
+      <Y>415</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>30</Width>
+      <X>878</X>
+      <Y>287</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>70</Height>
+      <Width>70</Width>
+      <X>776</X>
+      <Y>316</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>2000</FireSpeed>
+      <DetectRange>500</DetectRange>
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>723</X>
+      <Y>37</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>360</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>35</X>
+      <Y>376</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>60</X>
+      <Y>410</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>82</X>
+      <Y>439</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>94</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>394</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>20</X>
+      <Y>422</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>60</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>17</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>417</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>403</X>
+      <Y>288</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>752</X>
+      <Y>390</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>851</X>
+      <Y>290</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>571</X>
+      <Y>206</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>553</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>569</X>
+      <Y>385</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>50</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>35</Height>
+      <Width>35</Width>
+      <X>197</X>
+      <Y>167</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>

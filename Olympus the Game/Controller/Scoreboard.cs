@@ -12,7 +12,8 @@ namespace Olympus_the_Game.Controller
         Creeper,
         Slower,
         Explode,
-        Ghast
+        Ghast,
+        Silverfish
     }
 
     internal static class Scoreboard
@@ -78,6 +79,9 @@ namespace Olympus_the_Game.Controller
                     break;
                 case ScoreType.Ghast:
                     AddScore(type, 150);
+                    break;
+                case ScoreType.Silverfish:
+                    AddScore(type, 200);
                     break;
             }
         }

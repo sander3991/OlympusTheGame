@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
-using System.Reflection;
 
 namespace Olympus_the_Game.View.Editor
 {
@@ -16,9 +16,8 @@ namespace Olympus_the_Game.View.Editor
 
         private const int RowHeight = 20;
 
-        private GameObject _selectedObject;
-
         private Dictionary<PropertyInfo, TextBox> _inputs;
+        private GameObject _selectedObject;
 
         public EntityEditor()
         {
@@ -30,7 +29,7 @@ namespace Olympus_the_Game.View.Editor
         public event Action EntityChanged;
 
         /// <summary>
-        /// Laad de data van de entity in de EntityEditor
+        ///     Laad de data van de entity in de EntityEditor
         /// </summary>
         public void LoadData(GameObject go)
         {
@@ -58,30 +57,30 @@ namespace Olympus_the_Game.View.Editor
             foreach (PropertyInfo fi in go.GetType().GetProperties().Where(
                 delegate(PropertyInfo pi)
                 {
-                    object[] attributes = pi.GetCustomAttributes(typeof(ExcludeFromEditor), true);
-                    return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor)attributes[0]).Exclude);
+                    object[] attributes = pi.GetCustomAttributes(typeof (ExcludeFromEditor), true);
+                    return pi.CanWrite && (!attributes.Any() || !((ExcludeFromEditor) attributes[0]).Exclude);
                 }))
             {
                 // Create label
-                Label l = new Label { Text = fi.Name, Left = BorderPadding, Top = pad, Height = RowHeight };
+                var l = new Label {Text = fi.Name, Left = BorderPadding, Top = pad, Height = RowHeight};
 
                 // Create textbox
-                TextBox tb = new TextBox
+                var tb = new TextBox
                 {
-                    Text = fi.GetValue(go, new object[] { }).ToString(),
+                    Text = fi.GetValue(go, new object[] {}).ToString(),
                     Top = pad,
                     Left = 150,
                     Height = RowHeight,
                     Width = 150
                 };
                 tb.KeyDown += tb_KeyDown;
-                object[] attributes = fi.GetCustomAttributes(typeof(EditorTooltip), true);
+                object[] attributes = fi.GetCustomAttributes(typeof (EditorTooltip), true);
                 if (attributes != null && attributes.Length > 0)
                 {
-                    EditorTooltip attr_tooltip = attributes[0] as EditorTooltip;
+                    var attr_tooltip = attributes[0] as EditorTooltip;
                     if (attr_tooltip != null)
                     {
-                        ToolTip tooltip = new ToolTip();
+                        var tooltip = new ToolTip();
                         tooltip.InitialDelay = 0;
                         tooltip.UseAnimation = true;
                         tooltip.SetToolTip(tb, attr_tooltip.Description);
@@ -102,21 +101,21 @@ namespace Olympus_the_Game.View.Editor
             }
         }
 
-        void tb_KeyDown(object sender, KeyEventArgs e)
+        private void tb_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
                 ToepassenEntity_Click(this, e);
         }
 
         /// <summary>
-        /// Krijg de waardes van de ingevoerde X en Y en 
-        /// pas deze toe op de geselecteerde entity
+        ///     Krijg de waardes van de ingevoerde X en Y en
+        ///     pas deze toe op de geselecteerde entity
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ToepassenEntity_Click(object sender, EventArgs e)
         {
-            foreach (KeyValuePair<PropertyInfo, TextBox> prop in _inputs)
+            foreach (var prop in _inputs)
             {
                 // Get vars
                 object val = null;
@@ -127,18 +126,19 @@ namespace Olympus_the_Game.View.Editor
                 // Parse value
                 try
                 {
-                    if (pi.PropertyType == typeof(Int32))
+                    if (pi.PropertyType == typeof (Int32))
                     {
                         val = Convert.ToInt32(text);
                     }
-                    else if (pi.PropertyType == typeof(Boolean))
+                    else if (pi.PropertyType == typeof (Boolean))
                     {
                         val = Convert.ToBoolean(text);
                     }
 
                     // Set property
-                    pi.SetValue(_selectedObject, val, new object[] { });
-                    tb.Text = pi.GetValue(_selectedObject, null).ToString(); //Mocht het getal buiten de range vallen, wordt hierdoor het getal gereset ~Sander
+                    pi.SetValue(_selectedObject, val, new object[] {});
+                    tb.Text = pi.GetValue(_selectedObject, null).ToString();
+                    //Mocht het getal buiten de range vallen, wordt hierdoor het getal gereset ~Sander
                     tb.BackColor = Color.White;
                 }
                 catch (FormatException)

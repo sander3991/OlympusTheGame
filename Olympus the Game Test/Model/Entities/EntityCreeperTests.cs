@@ -1,12 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Olympus_the_Game_Test.Model.Entities {
+namespace Olympus_the_Game_Test.Model.Entities
+{
     [TestClass]
-    class EntityCreeperTests {
+    internal class EntityCreeperTests
+    {
         [TestMethod]
-        public void CreeperMovesToPlayer() 
+        public void CreeperMovesToPlayer()
         {
-            
         }
     }
 }

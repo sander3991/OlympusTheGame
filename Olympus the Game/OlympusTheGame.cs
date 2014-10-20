@@ -1,8 +1,8 @@
-﻿using Olympus_the_Game.Controller;
-using Olympus_the_Game.Model;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 using Olympus_the_Game.View.Menu;
@@ -15,32 +15,32 @@ namespace Olympus_the_Game
         private static Mainmenu mm;
 
         /// <summary>
-        /// Deze timer voert alle game events uit.
+        ///     Deze timer voert alle game events uit.
         /// </summary>
         /// Er is voor een Windows Forms Timer gekozen zodat er geen problemen ontstaan met cross-thread updating in Windows Forms.
         private static readonly Timer GameTimer = new Timer();
 
         /// <summary>
-        /// Deze timer voert de SlowEvents uit.
+        ///     Deze timer voert de SlowEvents uit.
         /// </summary>
         private static readonly Timer SlowTimer = new Timer();
 
         /// <summary>
-        /// Deze houdt de interne tijd bij.
+        ///     Deze houdt de interne tijd bij.
         /// </summary>
         private static readonly Stopwatch PropGametime = new Stopwatch();
 
         private static PlayField prop_playfield;
 
         /// <summary>
-        /// Maak nieuw OlympusTheGame object
+        ///     Maak nieuw OlympusTheGame object
         /// </summary>
         private OlympusTheGame()
         {
         }
 
         /// <summary>
-        /// Het huidige speelveld.
+        ///     Het huidige speelveld.
         /// </summary>
         public static PlayField Playfield
         {
@@ -61,12 +61,12 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// De controller, deze regelt alle events en updates
+        ///     De controller, deze regelt alle events en updates
         /// </summary>
         public static GameController GameController { get; private set; }
 
         /// <summary>
-        /// Geeft aan of het spel gepauzeerd is.
+        ///     Geeft aan of het spel gepauzeerd is.
         /// </summary>
         public static bool IsPaused
         {
@@ -74,7 +74,7 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Geeft de gametijd terug.
+        ///     Geeft de gametijd terug.
         /// </summary>
         public static long GameTime
         {
@@ -87,12 +87,12 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Event dat gefired wordt zodra er een nieuw Playfield is
+        ///     Event dat gefired wordt zodra er een nieuw Playfield is
         /// </summary>
         public static event Action<PlayField> OnNewPlayField;
 
         /// <summary>
-        /// Beginpunt van de applicatie
+        ///     Beginpunt van de applicatie
         /// </summary>
         [STAThread]
         public static void Main()
@@ -118,7 +118,7 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Stops all logic
+        ///     Stops all logic
         /// </summary>
         public static void Pause()
         {
@@ -128,7 +128,7 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
-        /// Resumes all logic
+        ///     Resumes all logic
         /// </summary>
         public static void Resume()
         {
@@ -143,15 +143,15 @@ namespace Olympus_the_Game
             PropGametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
-            Playfield = PlayfieldLoader.ReadFromResource(Resources.hell);
+            Playfield = PlayfieldLoader.ReadFromResource(Resources.mapHell);
             prop_playfield.SetPlayerHome();
             prop_playfield.InitializeGameObjects();
             OnNewPlayField(prop_playfield);
         }
 
         /// <summary>
-        /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
-        /// om soepel afsluiten te garanderen.
+        ///     Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
+        ///     om soepel afsluiten te garanderen.
         /// </summary>
         public static void RequestClose()
         {

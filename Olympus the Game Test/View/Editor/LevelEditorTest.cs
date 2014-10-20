@@ -12,10 +12,10 @@ namespace Olympus_the_Game_Test.View.Editor
         public void Test_Create_LevelEditor()
         {
             // Arrange
-            
+
 
             // Act
-            LevelEditor le = new LevelEditor();
+            var le = new LevelEditor();
 
             // Assert
             Assert.AreEqual(0, le.CurrentPlayField.GameObjects.Count);
@@ -28,10 +28,10 @@ namespace Olympus_the_Game_Test.View.Editor
         public void Test_Create_With_Given_Playfield()
         {
             // Arrange
-            PlayField newPF = new PlayField(10000, 10000);
+            var newPF = new PlayField(10000, 10000);
 
             // Act
-            LevelEditor le = new LevelEditor(newPF);
+            var le = new LevelEditor(newPF);
 
             // Assert
             Assert.AreEqual(newPF, le.CurrentPlayField);
@@ -44,7 +44,7 @@ namespace Olympus_the_Game_Test.View.Editor
         public void Test_Dispose()
         {
             // Arrange
-            LevelEditor le = new LevelEditor();
+            var le = new LevelEditor();
 
             // Act / assert
             try
@@ -64,9 +64,9 @@ namespace Olympus_the_Game_Test.View.Editor
         public void Test_Add_GameObjects()
         {
             // Arrange
-            PlayField newPF = new PlayField(10000, 10000);
-            LevelEditor le = new LevelEditor(newPF);
-            ObjectStart os = new ObjectStart(500, 500, 8000, 8000);
+            var newPF = new PlayField(10000, 10000);
+            var le = new LevelEditor(newPF);
+            var os = new ObjectStart(500, 500, 8000, 8000);
 
             // Act
             le.CurrentPlayField.AddObject(os);

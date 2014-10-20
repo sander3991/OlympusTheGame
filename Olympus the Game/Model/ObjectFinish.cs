@@ -11,7 +11,6 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
@@ -25,7 +24,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -35,11 +34,11 @@ namespace Olympus_the_Game.Model
 
         public override void OnCollide(GameObject gameObject)
         {
-            EntityPlayer player = gameObject as EntityPlayer;
+            var player = gameObject as EntityPlayer;
             if (player != null && player.X > X && player.Y > Y)
             {
-                int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
-                int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
+                int xDistance = Math.Abs((X + Width/2) - (player.X + player.Width/2));
+                int yDistance = Math.Abs((Y + Height/2) - (player.Y + player.Height/2));
                 if (xDistance < 10 && yDistance < 10)
                     OlympusTheGame.GameController.OnPlayerReachedCake();
             }

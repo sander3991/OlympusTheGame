@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+
+<PlayField>
+  <Name>Eet geen worst</Name>
+  <Width>1200</Width>
+  <Height>1000</Height>
+  <GameObjects>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>189</X>
+      <Y>341</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>100</Width>
+      <X>77</X>
+      <Y>380</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>100</Height>
+      <Width>20</Width>
+      <X>218</X>
+      <Y>264</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>47</X>
+      <Y>313</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>113</X>
+      <Y>67</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>62</X>
+      <Y>175</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>5</X>
+      <Y>175</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>177</X>
+      <Y>392</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>198</X>
+      <Y>394</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>168</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>187</X>
+      <Y>426</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>180</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>167</X>
+      <Y>439</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>167</X>
+      <Y>416</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>197</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>182</X>
+      <Y>450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>202</X>
+      <Y>408</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>186</X>
+      <Y>402</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>186</X>
+      <Y>373</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>172</X>
+      <Y>375</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>136</X>
+      <Y>204</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>400</Width>
+      <X>238</X>
+      <Y>269</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>445</X>
+      <Y>76</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>80</Height>
+      <Width>50</Width>
+      <X>287</X>
+      <Y>135</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>695</X>
+      <Y>125</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>150</Height>
+      <Width>20</Width>
+      <X>1066</X>
+      <Y>113</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>821</X>
+      <Y>85</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>200</Width>
+      <X>622</X>
+      <Y>266</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>100</Height>
+      <Width>50</Width>
+      <X>895</X>
+      <Y>401</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>250</Width>
+      <X>943</X>
+      <Y>490</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>250</Width>
+      <X>646</X>
+      <Y>488</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>336</X>
+      <Y>329</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>737</X>
+      <Y>310</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>100</Width>
+      <X>525</X>
+      <Y>442</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>50</Width>
+      <X>829</X>
+      <Y>265</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>50</Width>
+      <X>601</X>
+      <Y>73</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>20</Width>
+      <X>567</X>
+      <Y>93</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>50</Width>
+      <X>592</X>
+      <Y>151</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>176</X>
+      <Y>498</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>210</X>
+      <Y>500</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>213</X>
+      <Y>514</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>188</X>
+      <Y>516</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>165</X>
+      <Y>522</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>170</X>
+      <Y>485</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>212</X>
+      <Y>530</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>213</X>
+      <Y>559</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>162</X>
+      <Y>569</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>168</X>
+      <Y>554</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>207</X>
+      <Y>489</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>213</X>
+      <Y>426</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Start">
+      <Height>100</Height>
+      <Width>100</Width>
+      <X>31</X>
+      <Y>487</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>485</X>
+      <Y>214</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>75</Width>
+      <X>338</X>
+      <Y>495</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>594</X>
+      <Y>475</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>525</X>
+      <Y>290</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>20</Width>
+      <X>698</X>
+      <Y>362</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>150</Width>
+      <X>10</X>
+      <Y>594</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>30</Height>
+      <Width>250</Width>
+      <X>851</X>
+      <Y>253</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>150</Height>
+      <Width>50</Width>
+      <X>226</X>
+      <Y>590</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>20</Height>
+      <Width>750</Width>
+      <X>269</X>
+      <Y>722</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>681</X>
+      <Y>593</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>533</X>
+      <Y>608</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>861</X>
+      <Y>615</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>685</X>
+      <Y>510</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1018</X>
+      <Y>700</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1023</X>
+      <Y>650</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>898</X>
+      <Y>502</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>391</X>
+      <Y>601</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1056</X>
+      <Y>342</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>562</X>
+      <Y>542</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1050</X>
+      <Y>286</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1014</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>827</X>
+      <Y>846</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>889</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>929</X>
+      <Y>890</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>696</X>
+      <Y>815</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>534</X>
+      <Y>777</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>446</X>
+      <Y>869</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>228</X>
+      <Y>760</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>155</X>
+      <Y>870</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>217</X>
+      <Y>822</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>351</X>
+      <Y>771</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Finish">
+      <Height>100</Height>
+      <Width>100</Width>
+      <X>37</X>
+      <Y>654</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>169</X>
+      <Y>610</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>314</X>
+      <Y>860</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>659</X>
+      <Y>189</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>

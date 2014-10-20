@@ -24,7 +24,7 @@ namespace Olympus_the_Game.View.Game
         public bool IsResized { get; set; }
 
         /// <summary>
-        /// Functie die wordt aangeroepen en alle object laad
+        ///     Functie die wordt aangeroepen en alle object laad
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -42,7 +42,7 @@ namespace Olympus_the_Game.View.Game
 
             foreach (GameObject g in entitys)
             {
-                Entity ent = g as Entity;
+                var ent = g as Entity;
 
                 if (ent != null)
                 {
@@ -65,9 +65,9 @@ namespace Olympus_the_Game.View.Game
             }
         }
 
-        void ent_OnVisibilityChanged(GameObject go, bool visible)
+        private void ent_OnVisibilityChanged(GameObject go, bool visible)
         {
-            Entity e = go as Entity;
+            var e = go as Entity;
             if (e == null) return;
             if (visible && !list.ContainsKey(e))
             {
@@ -87,16 +87,15 @@ namespace Olympus_the_Game.View.Game
                     }
                 }
             }
-
         }
 
         /// <summary>
-        /// Als een object toegevoegd wordt, update dan de listview en koppel het OnMoved event
+        ///     Als een object toegevoegd wordt, update dan de listview en koppel het OnMoved event
         /// </summary>
         /// <param name="go"></param>
         private void Playfield_OnObjectAdded(GameObject go)
         {
-            Entity e = go as Entity;
+            var e = go as Entity;
             if (e != null)
             {
                 list[e] = CreateListViewItem(e);
@@ -105,12 +104,12 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Als een object van het speelveld afgaat dan wordt het object weggehaald
+        ///     Als een object van het speelveld afgaat dan wordt het object weggehaald
         /// </summary>
         /// <param name="go"></param>
         private void Playfield_OnObjectRemoved(GameObject go)
         {
-            Entity e = go as Entity;
+            var e = go as Entity;
             if (e != null)
             {
                 if (list.ContainsKey(e))
@@ -128,7 +127,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Update de text in listview als de entity wordt bewogen
+        ///     Update de text in listview als de entity wordt bewogen
         /// </summary>
         /// <param name="e">Entity die moet worden geupdate</param>
         private void ent_OnMoved(Entity e)
@@ -143,13 +142,13 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Methode om een item aan de listview toe te voegen
+        ///     Methode om een item aan de listview toe te voegen
         /// </summary>
         /// <param name="e">Entity die je wilt toevoegen</param>
         /// <returns></returns>
         private ListViewItem CreateListViewItem(Entity e)
         {
-            ListViewItem lvItem = new ListViewItem(e.ToString());
+            var lvItem = new ListViewItem(e.ToString());
             lvItem.SubItems.Add(e.X.ToString());
             lvItem.SubItems.Add(e.Y.ToString());
             lvItem.SubItems.Add(Math.Abs(e.DX + e.DY).ToString());

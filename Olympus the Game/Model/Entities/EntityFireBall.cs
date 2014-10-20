@@ -11,7 +11,7 @@ namespace Olympus_the_Game.Model.Entities
         private int _propFireballspeed = 50; // Factor van maken
 
         /// <summary>
-        /// FILL THIS IN
+        ///     FILL THIS IN
         /// </summary>
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
@@ -32,7 +32,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// FILL THIS IN
+        ///     FILL THIS IN
         /// </summary>
         public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target)
             : this(width, height, x, y, 0, 0, owner, target)
@@ -40,7 +40,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
+        ///     Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
         /// </summary>
         public int FireballSpeed
         {
@@ -49,7 +49,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -61,7 +61,7 @@ namespace Olympus_the_Game.Model.Entities
         {
             if (entity == _owner)
                 return CollisionType.None;
-            AnimatedSprite sprite = entity as AnimatedSprite;
+            var sprite = entity as AnimatedSprite;
             return sprite != null ? CollisionType.None : base.CollidesWithObject(entity);
         }
 
@@ -91,7 +91,7 @@ namespace Olympus_the_Game.Model.Entities
             else
             {
                 Playfield.RemoveObject(this);
-                Entity e = gameObject as Entity;
+                var e = gameObject as Entity;
                 // Verwijder het object waar het mee in aanraking is gekomen. Onder voorwaarde dat het een entity is
                 if (e != null)
                 {
@@ -110,6 +110,9 @@ namespace Olympus_the_Game.Model.Entities
                             break;
                         case ObjectType.Ghast:
                             Scoreboard.AddScore(ScoreType.Ghast);
+                            break;
+                        case ObjectType.Silverfish:
+                            Scoreboard.AddScore(ScoreType.Silverfish);
                             break;
                     }
                 }

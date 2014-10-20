@@ -1,11 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Threading;
+using System.Windows.Forms;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Editor;
-using System;
-using System.Threading;
-using System.Windows.Forms;
 using Olympus_the_Game.View.Game;
 using Olympus_the_Game.View.Imaging;
 using Timer = System.Windows.Forms.Timer;
@@ -13,9 +13,9 @@ using Timer = System.Windows.Forms.Timer;
 namespace Olympus_the_Game.View.Menu
 {
     /// <summary>
-    /// Mainmenu form
-    /// Bevat onderandere een control met buttons
-    /// Splashscreen magic happens here
+    ///     Mainmenu form
+    ///     Bevat onderandere een control met buttons
+    ///     Splashscreen magic happens here
     /// </summary>
     public partial class Mainmenu : Form
     {
@@ -29,10 +29,12 @@ namespace Olympus_the_Game.View.Menu
         public Mainmenu()
         {
             InitializeComponent();
+            Icon = Resources.icon;
         }
 
         /// <summary>
-        /// Wordt aangeroepen zodra de visibility van het Mainmenu veranderd, als dat gebeurd willen we het StarWars muziekje weer laten spelen
+        ///     Wordt aangeroepen zodra de visibility van het Mainmenu veranderd, als dat gebeurd willen we het StarWars muziekje
+        ///     weer laten spelen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -59,7 +61,7 @@ namespace Olympus_the_Game.View.Menu
         }
 
         /// <summary>
-        /// Laad main menu
+        ///     Laad main menu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -106,10 +108,10 @@ namespace Olympus_the_Game.View.Menu
         }
 
         /// <summary>
-        /// Als de 4 seconden voorbij zijn van de gifTimer dan word
-        /// deze functie aangeroepen die ervoor zorgt dat de achtergrond
-        /// veranderd in een seemless looping starburst gif, en het menu
-        /// weergeven word.
+        ///     Als de 4 seconden voorbij zijn van de gifTimer dan word
+        ///     deze functie aangeroepen die ervoor zorgt dat de achtergrond
+        ///     veranderd in een seemless looping starburst gif, en het menu
+        ///     weergeven word.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -133,8 +135,8 @@ namespace Olympus_the_Game.View.Menu
 
         private void CenterControl(Control c)
         {
-            c.Left = (Width - c.Width) / 2;
-            c.Top = (Height - c.Height) / 2;
+            c.Left = (Width - c.Width)/2;
+            c.Top = (Height - c.Height)/2;
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -168,7 +170,7 @@ namespace Olympus_the_Game.View.Menu
         private void OpenLevel(PlayField pf)
         {
             if (pf == null)
-                pf = PlayfieldLoader.ReadFromResource(Resources.hell) ?? new PlayField();
+                pf = PlayfieldLoader.ReadFromResource(Resources.mapHell) ?? new PlayField();
             // Read PlayField
             OlympusTheGame.Playfield = pf;
 
@@ -221,7 +223,7 @@ namespace Olympus_the_Game.View.Menu
         }
 
         /// <summary>
-        /// Deze methode wordt aangeroepen om de game te starten.
+        ///     Deze methode wordt aangeroepen om de game te starten.
         /// </summary>
         public void ShowGame()
         {
@@ -245,7 +247,7 @@ namespace Olympus_the_Game.View.Menu
         private void NewEditor(object sender, EventArgs e)
         {
             Utils.ShowMask(true);
-            LevelEditor le = new LevelEditor();
+            var le = new LevelEditor();
             Visible = false;
             new Thread(() => Utils.ShowMask(false)).Start();
             le.ShowDialog();
@@ -254,7 +256,7 @@ namespace Olympus_the_Game.View.Menu
 
         private void LoadEditor(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            var openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
@@ -275,7 +277,7 @@ namespace Olympus_the_Game.View.Menu
                     {
                         // Open LevelEditor
                         Utils.ShowMask(true);
-                        LevelEditor le = new LevelEditor(pf);
+                        var le = new LevelEditor(pf);
                         Visible = false;
                         new Thread(() => Utils.ShowMask(false)).Start();
                         le.ShowDialog();

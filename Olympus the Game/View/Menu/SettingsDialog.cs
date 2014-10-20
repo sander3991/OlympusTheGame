@@ -29,7 +29,5 @@ namespace Olympus_the_Game.View.Menu
                 ButtonGeluidDempen.Text = "Geluid aanzetten";
             }
         }
-
-       
     }
 }

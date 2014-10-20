@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<PlayField>
+  <Name>Gallifrey Falls No More</Name>
+  <Width>1000</Width>
+  <Height>500</Height>
+  <GameObjects>
+    <GameObject Type="Start">
+      <Height>150</Height>
+      <Width>150</Width>
+      <X>0</X>
+      <Y>0</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Finish">
+      <Height>150</Height>
+      <Width>150</Width>
+      <X>850</X>
+      <Y>350</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>920</X>
+      <Y>9</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>577</X>
+      <Y>260</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>491</X>
+      <Y>75</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>242</X>
+      <Y>304</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>312</X>
+      <Y>77</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>623</X>
+      <Y>402</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>52</X>
+      <Y>396</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>1050</FireSpeed>
+      <DetectRange>150</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>895</X>
+      <Y>143</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>713</X>
+      <Y>50</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>730</X>
+      <Y>265</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>384</X>
+      <Y>227</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>329</X>
+      <Y>14</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>
