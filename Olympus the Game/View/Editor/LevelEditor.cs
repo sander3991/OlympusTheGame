@@ -15,6 +15,7 @@ namespace Olympus_the_Game.View.Editor
         public LevelEditor()
             : this(new PlayField(1000, 500))
         {
+            Icon = Properties.Resources.icon;
         }
 
         public LevelEditor(PlayField pf)
@@ -25,7 +26,7 @@ namespace Olympus_the_Game.View.Editor
             CurrentPlayField = pf;
             foreach (GameObject go in pf.GameObjects)
                 go.Visible = true;
-                    //Hier zetten we alles op zichtbaar zodat we alle gameobjects kunnen zien, implementatie voor de Silverfish
+            //Hier zetten we alles op zichtbaar zodat we alle gameobjects kunnen zien, implementatie voor de Silverfish
             gamePanelEditor.Playfield = CurrentPlayField;
             speelveldEditor1.Playfield = CurrentPlayField;
 
@@ -216,7 +217,6 @@ namespace Olympus_the_Game.View.Editor
                     break;
                 case (char) Keys.D5:
                 {
-                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
                     Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                     CurrentPlayField.AddObject(new ObjectObstacle(50, 50, pointer.X, pointer.Y));
                     gamePanelEditor.Invalidate();
@@ -224,7 +224,6 @@ namespace Olympus_the_Game.View.Editor
                     break;
                 case (char) Keys.D6:
                 {
-                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
                     Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                     CurrentPlayField.AddObject(new EntitySlower(50, 50, pointer.X, pointer.Y));
                     gamePanelEditor.Invalidate();
@@ -239,6 +238,7 @@ namespace Olympus_the_Game.View.Editor
                     break;
                 case (char) Keys.D8:
                 {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectFinish));
                     Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                     CurrentPlayField.AddObject(new ObjectFinish(50, 50, pointer.X, pointer.Y));
                     gamePanelEditor.Invalidate();
@@ -246,6 +246,7 @@ namespace Olympus_the_Game.View.Editor
                     break;
                 case (char) Keys.D9:
                 {
+                    CurrentPlayField.GameObjects.RemoveAll(p => p.GetType() == typeof (ObjectStart));
                     Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
                     CurrentPlayField.AddObject(new ObjectStart(50, 50, pointer.X, pointer.Y));
                     gamePanelEditor.Invalidate();

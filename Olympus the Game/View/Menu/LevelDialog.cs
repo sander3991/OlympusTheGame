@@ -113,7 +113,7 @@ namespace Olympus_the_Game.View.Menu
         private Button CreateLevelButton()
         {
             Button b = new Button();
-            b.Size = new Size(420, 45);
+            b.Size = new Size(Width - 6, 45);
             b.BackgroundImage = Resources.stone;
             b.Location = new Point(3, 53 + buttons.Count * 50);
             b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);

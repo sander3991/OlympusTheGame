@@ -13,12 +13,13 @@ namespace Olympus_the_Game.View.Game
         private bool forceClose;
 
         /// <summary>
-        /// Maak een nieuw GameScreen aan.
+        ///     Maak een nieuw GameScreen aan.
         /// </summary>
         public GameScreen()
         {
             // Initialiseer componenten
             InitializeComponent();
+            Icon = Properties.Resources.icon;
             forceClose = false;
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
             OlympusTheGame.GameController.OnPlayerFinished += OnPlayerFinished;
@@ -26,7 +27,7 @@ namespace Olympus_the_Game.View.Game
 
         private void OnPlayerFinished(FinishType type)
         {
-            GameFinished gf = new GameFinished(type);
+            var gf = new GameFinished(type);
             gf.ShowDialog();
             gf.Dispose();
             forceClose = true;
@@ -34,7 +35,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Vraagscherm bij afsluiten
+        ///     Vraagscherm bij afsluiten
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -80,7 +81,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Deze methode wordt aangeroepen als het scherm wordt geladen.
+        ///     Deze methode wordt aangeroepen als het scherm wordt geladen.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,19 +111,19 @@ namespace Olympus_the_Game.View.Game
 
             bedieningToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
-                ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
+                var toolStripMenuItem = source as ToolStripMenuItem;
                 if (toolStripMenuItem != null && toolStripMenuItem.Checked)
                     verbergAllesToolStripMenuItem.Checked = false;
             };
             informatieToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
-                ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
+                var toolStripMenuItem = source as ToolStripMenuItem;
                 if (toolStripMenuItem != null && toolStripMenuItem.Checked)
                     verbergAllesToolStripMenuItem.Checked = false;
             };
             statistiekenToolStripMenuItem.CheckedChanged += delegate(object source, EventArgs ea)
             {
-                ToolStripMenuItem toolStripMenuItem = source as ToolStripMenuItem;
+                var toolStripMenuItem = source as ToolStripMenuItem;
                 if (toolStripMenuItem != null && toolStripMenuItem.Checked)
                     verbergAllesToolStripMenuItem.Checked = false;
             };
@@ -136,8 +137,8 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Handel toetsen af als deze worden ingedrukt
-        /// Doe dit via de static KeyHandler class
+        ///     Handel toetsen af als deze worden ingedrukt
+        ///     Doe dit via de static KeyHandler class
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -147,8 +148,8 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Handel toetsen af als deze worden los gelaten
-        /// Doet dit via de static KeyHandler class
+        ///     Handel toetsen af als deze worden los gelaten
+        ///     Doet dit via de static KeyHandler class
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -160,7 +161,8 @@ namespace Olympus_the_Game.View.Game
         #region MenuBar
 
         /// <summary>
-        /// Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een nieuw level gekozen is
+        ///     Method die wordt aangeroepen door de event in de OlympusTheGame class, zodat het playfield update zodra er een
+        ///     nieuw level gekozen is
         /// </summary>
         /// <param name="pf">Het nieuwe playfield</param>
         private void OnPlayFieldUpdate(PlayField pf)
@@ -246,7 +248,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Open een file explorer om een bestand te selecteren
+        ///     Open een file explorer om een bestand te selecteren
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -256,7 +258,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Als er op ok is geklikt met de file opener speel dan de muziek af
+        ///     Als er op ok is geklikt met de file opener speel dan de muziek af
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -269,7 +271,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Pauzeer of ga verder met afspelen
+        ///     Pauzeer of ga verder met afspelen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -287,7 +289,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Als er op stop is geklikt stop dan de muziek spelers
+        ///     Als er op stop is geklikt stop dan de muziek spelers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -300,7 +302,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Kijkt of hij de muziek moet herhalen
+        ///     Kijkt of hij de muziek moet herhalen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -310,7 +312,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Laat de gebruiker de muziek herhalen als hij dat wil
+        ///     Laat de gebruiker de muziek herhalen als hij dat wil
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -323,7 +325,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// verander het checked icoontje bij een onclick
+        ///     verander het checked icoontje bij een onclick
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -333,7 +335,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Als user mute heeft geklikt demp dan het volume
+        ///     Als user mute heeft geklikt demp dan het volume
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
