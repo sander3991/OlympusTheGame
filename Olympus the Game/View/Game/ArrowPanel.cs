@@ -17,13 +17,13 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
+        ///     Kijk of er op het plaatje met pijltjes toetsen is geklikt.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ArrowKey_MouseDown(object sender, MouseEventArgs e)
         {
-            Button b = sender as Button;
+            var b = sender as Button;
             if (b != null)
             {
                 // Pak de naam van van de button waarom de gebruiker heeft geklikt
@@ -41,7 +41,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Verander de controls als de gebruiker een toets wijzigd
+        ///     Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -52,16 +52,16 @@ namespace Olympus_the_Game.View.Game
                 // Als de tekst in de textbox niet null is, wordt de letter die is ingevoerd ingsteld als toets
                 if (!string.IsNullOrEmpty(textBoxRight.Text))
                     KeyHandler.CustomRight =
-                        (Keys)char.ToUpper(textBoxRight.Text[0]);
+                        (Keys) char.ToUpper(textBoxRight.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxLeft.Text))
                     KeyHandler.CustomLeft =
-                        (Keys)char.ToUpper(textBoxLeft.Text[0]);
+                        (Keys) char.ToUpper(textBoxLeft.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxUp.Text))
                     KeyHandler.CustomUp =
-                        (Keys)char.ToUpper(textBoxUp.Text[0]);
+                        (Keys) char.ToUpper(textBoxUp.Text[0]);
                 if (!String.IsNullOrEmpty(textBoxDown.Text))
                     KeyHandler.CustomDown =
-                        (Keys)char.ToUpper(textBoxDown.Text[0]);
+                        (Keys) char.ToUpper(textBoxDown.Text[0]);
             }
             catch (FormatException)
             {
@@ -76,7 +76,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void textBox_Enter(object sender, EventArgs e)
         {
-            TextBox tb = sender as TextBox;
+            var tb = sender as TextBox;
             if (tb != null && !string.IsNullOrEmpty(tb.Text))
             {
                 tb.SelectionStart = 0;
@@ -91,7 +91,7 @@ namespace Olympus_the_Game.View.Game
         /// <param name="e"></param>
         private void textBox_EnterWithMouse(object sender, MouseEventArgs e)
         {
-            TextBox tb = sender as TextBox;
+            var tb = sender as TextBox;
             if (tb != null && !string.IsNullOrEmpty(tb.Text))
             {
                 tb.SelectionStart = 0;
@@ -100,7 +100,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Functie om de speler stil te zetten
+        ///     Functie om de speler stil te zetten
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

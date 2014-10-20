@@ -111,6 +111,9 @@ namespace Olympus_the_Game.Model.Entities
                         case ObjectType.Ghast:
                             Scoreboard.AddScore(ScoreType.Ghast);
                             break;
+                        case ObjectType.Silverfish:
+                            Scoreboard.AddScore(ScoreType.Silverfish);
+                            break;
                     }
                 }
             }

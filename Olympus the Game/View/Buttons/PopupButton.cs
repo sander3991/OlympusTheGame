@@ -25,10 +25,10 @@ namespace Olympus_the_Game.View.Buttons
 
             // Make move button invisible
             foreach (Control c in Parent.Controls)
-                if (c.GetType() == typeof(MoveButton))
+                if (c.GetType() == typeof (MoveButton))
                     c.Visible = false;
 
-            Form f = new Form { Width = parent.Width + 10, Height = parent.Height + 35, BackgroundImage = Resources.dirt };
+            var f = new Form {Width = parent.Width + 10, Height = parent.Height + 35, BackgroundImage = Resources.dirt};
             f.Controls.Add(parent);
             parent.Location = new Point(0, 0);
             f.MaximizeBox = false;
@@ -54,7 +54,7 @@ namespace Olympus_the_Game.View.Buttons
 
             // Make move button visible
             foreach (Control c in Parent.Controls)
-                if (c.GetType() == typeof(MoveButton))
+                if (c.GetType() == typeof (MoveButton))
                     c.Visible = true;
 
             parent.Location = loc;

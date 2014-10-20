@@ -26,7 +26,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Wijst verschillende gegevens toe aan labels in de InfoBox
+        ///     Wijst verschillende gegevens toe aan labels in de InfoBox
         /// </summary>
         private void UpdateLabels()
         {
@@ -38,7 +38,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Wordt gebruikt om de health van de speler te updaten
+        ///     Wordt gebruikt om de health van de speler te updaten
         /// </summary>
         /// <param name="player">De speler die het event gefired heeft</param>
         /// <param name="newHealth"></param>

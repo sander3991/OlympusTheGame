@@ -20,7 +20,7 @@ namespace Olympus_the_Game.View.Buttons
         public Point MouseDownLocation { get; set; }
 
         /// <summary>
-        /// Functie om het panel op runtime te verslepen
+        ///     Functie om het panel op runtime te verslepen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -34,7 +34,7 @@ namespace Olympus_the_Game.View.Buttons
         }
 
         /// <summary>
-        /// Functie die het scherm plaatst als je die muis loslaat
+        ///     Functie die het scherm plaatst als je die muis loslaat
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -28,8 +28,8 @@ namespace Olympus_the_Game.View.Game
             }
             score.Text = string.Format("Score: {0}", currentScore.ToString("D5"));
             bool first = true;
-            StringBuilder builder = new StringBuilder();
-            foreach (ScoreType scoreType in Enum.GetValues(typeof(ScoreType)))
+            var builder = new StringBuilder();
+            foreach (ScoreType scoreType in Enum.GetValues(typeof (ScoreType)))
             {
                 int typeScore = Scoreboard.GetScore(scoreType);
                 if (currentScore != 0)

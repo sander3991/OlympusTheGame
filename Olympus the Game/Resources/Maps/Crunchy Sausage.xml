@@ -1,0 +1,977 @@
+<?xml version="1.0"?>
+<PlayField>
+  <Name>Crunchy Sausage</Name>
+  <Width>2000</Width>
+  <Height>1000</Height>
+  <GameObjects>
+    <GameObject Type="Start">
+      <Height>100</Height>
+      <Width>100</Width>
+      <X>0</X>
+      <Y>0</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>500</Height>
+      <Width>50</Width>
+      <X>100</X>
+      <Y>0</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>100</Width>
+      <X>600</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>100</Height>
+      <Width>25</Width>
+      <X>600</X>
+      <Y>775</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>75</Width>
+      <X>625</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>25</Width>
+      <X>675</X>
+      <Y>800</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>650</X>
+      <Y>801</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Finish">
+      <Height>150</Height>
+      <Width>150</Width>
+      <X>1850</X>
+      <Y>850</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>500</Height>
+      <Width>50</Width>
+      <X>1790</X>
+      <Y>500</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1950</X>
+      <Y>417</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1726</X>
+      <Y>497</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1724</X>
+      <Y>402</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1720</X>
+      <Y>314</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>150</Height>
+      <Width>150</Width>
+      <X>944</X>
+      <Y>300</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>725</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>800</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>850</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>925</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>750</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>875</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>750</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>875</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>975</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>75</Height>
+      <Width>25</Width>
+      <X>1030</X>
+      <Y>775</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1000</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1000</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>1075</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>1100</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>1175</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>1250</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>1200</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>1300</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>1325</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>50</Width>
+      <X>1325</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>125</Height>
+      <Width>25</Width>
+      <X>1400</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1450</X>
+      <Y>775</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1425</X>
+      <Y>800</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1475</X>
+      <Y>750</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1450</X>
+      <Y>825</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>25</Height>
+      <Width>25</Width>
+      <X>1475</X>
+      <Y>850</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1596</X>
+      <Y>755</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1585</X>
+      <Y>670</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1587</X>
+      <Y>572</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1584</X>
+      <Y>383</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1576</X>
+      <Y>260</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1575</X>
+      <Y>170</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1593</X>
+      <Y>838</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1055</X>
+      <Y>910</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1198</X>
+      <Y>915</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1321</X>
+      <Y>938</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Silverfish">
+      <SpotRange>150</SpotRange>
+      <AggroRange>100</AggroRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1440</X>
+      <Y>926</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Explode">
+      <EffectStrength>10</EffectStrength>
+      <Height>100</Height>
+      <Width>100</Width>
+      <X>1900</X>
+      <Y>273</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1147</X>
+      <Y>324</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1047</X>
+      <Y>555</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>923</X>
+      <Y>520</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>773</X>
+      <Y>416</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>743</X>
+      <Y>343</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>713</X>
+      <Y>226</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>598</X>
+      <Y>247</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>561</X>
+      <Y>161</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>515</X>
+      <Y>106</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>410</X>
+      <Y>63</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>281</X>
+      <Y>46</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>196</X>
+      <Y>55</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>212</X>
+      <Y>140</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>360</X>
+      <Y>161</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>440</X>
+      <Y>170</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>453</X>
+      <Y>304</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>346</X>
+      <Y>275</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>293</X>
+      <Y>238</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>213</X>
+      <Y>275</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>218</X>
+      <Y>344</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>360</X>
+      <Y>403</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>503</X>
+      <Y>418</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>547</X>
+      <Y>363</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>635</X>
+      <Y>356</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>658</X>
+      <Y>444</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>575</X>
+      <Y>513</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>643</X>
+      <Y>555</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>746</X>
+      <Y>521</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>823</X>
+      <Y>610</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>850</X>
+      <Y>387</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>866</X>
+      <Y>309</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>849</X>
+      <Y>233</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>790</X>
+      <Y>150</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>704</X>
+      <Y>133</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>604</X>
+      <Y>66</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>829</X>
+      <Y>20</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>964</X>
+      <Y>38</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1069</X>
+      <Y>44</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1290</X>
+      <Y>78</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1369</X>
+      <Y>184</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1436</X>
+      <Y>441</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1438</X>
+      <Y>575</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1295</X>
+      <Y>604</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1351</X>
+      <Y>514</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1326</X>
+      <Y>398</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1355</X>
+      <Y>300</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1255</X>
+      <Y>229</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1189</X>
+      <Y>183</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1015</X>
+      <Y>169</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>935</X>
+      <Y>172</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>895</X>
+      <Y>130</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1189</X>
+      <Y>406</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1150</X>
+      <Y>544</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1187</X>
+      <Y>652</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1070</X>
+      <Y>676</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>972</X>
+      <Y>644</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>716</X>
+      <Y>644</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>598</X>
+      <Y>644</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>492</X>
+      <Y>596</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>401</X>
+      <Y>529</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>243</X>
+      <Y>486</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>150</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>283</X>
+      <Y>416</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>
