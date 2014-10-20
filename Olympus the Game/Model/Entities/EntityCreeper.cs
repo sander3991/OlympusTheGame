@@ -107,11 +107,19 @@ namespace Olympus_the_Game.Model.Entities
             }
         }
 
+        /// <summary>
+        /// Geeft de naam van de entity terug
+        /// </summary>
+        /// <returns>Creeper</returns>
         public override string ToString()
         {
             return "Creeper";
         }
 
+        /// <summary>
+        /// Zorgt ervoor dat de entity, wanneer geactiveert, zal exploderen en verdwijnen van de playfield.
+        /// </summary>
+        /// <param name="fieldRemoved"></param>
         public override void OnRemoved(bool fieldRemoved)
         {
             GameController contr = OlympusTheGame.GameController;

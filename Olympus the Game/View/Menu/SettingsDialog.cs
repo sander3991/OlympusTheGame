@@ -11,9 +11,14 @@ namespace Olympus_the_Game.View.Menu
             InitializeComponent();
             SoundEnabled = Mp3Player.Enabled;
         }
-
+        
         public bool SoundEnabled { get; private set; }
 
+        /// <summary>
+        /// Als user hier op klikt zet dan het geluid aan of uit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonGeluidDempen_Click(object sender, EventArgs e)
         {
             if (!SoundEnabled)
