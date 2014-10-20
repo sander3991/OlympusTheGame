@@ -53,7 +53,6 @@ namespace Olympus_the_Game_Test.View.Imaging
             Assert.AreEqual(col, actual.Columns);
             Assert.AreEqual(row, actual.Rows);
             Assert.AreEqual(false, actual.Cyclic);
-            Assert.AreEqual(col * row, actual.Images.Count);
             Assert.AreEqual(col * row, actual.Frames);
         }
 
