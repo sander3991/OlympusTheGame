@@ -11,6 +11,7 @@ namespace Olympus_the_Game.View.Menu
     public partial class LevelDialog : UserControl
     {
         //Callback voor dingen die buiten deze thread verzoeken tot het aanpassen van de buttons
+        private delegate void MapCallback(string mapName);
 
         /// <summary>
         ///     Met deze method kan een Button aangeven hoe de Playfield gemaakt moet worden
@@ -72,7 +73,9 @@ namespace Olympus_the_Game.View.Menu
             VisibleChanged += delegate { if (Visible) Focus(); };
             //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
         }
-
+        /// <summary>
+        /// De scroll locatie van het menu. Positie 0 staat hij bovenaan, positie 1 staat de tweede button bovenaan.
+        /// </summary>
         private int ScrollLoc
         {
             get { return _propScrollLoc; }
@@ -248,7 +251,5 @@ namespace Olympus_the_Game.View.Menu
             }
             Invalidate();
         }
-
-        private delegate void MapCallback(string mapName);
     }
 }
