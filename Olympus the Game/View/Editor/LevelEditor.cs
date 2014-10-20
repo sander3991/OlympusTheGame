@@ -15,6 +15,7 @@ namespace Olympus_the_Game.View.Editor
         public LevelEditor()
             : this(new PlayField(1000, 500))
         {
+            Icon = Properties.Resources.icon;
         }
 
         public LevelEditor(PlayField pf)

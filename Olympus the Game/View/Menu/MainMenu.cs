@@ -29,6 +29,7 @@ namespace Olympus_the_Game.View.Menu
         public Mainmenu()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icon;
         }
 
         /// <summary>
