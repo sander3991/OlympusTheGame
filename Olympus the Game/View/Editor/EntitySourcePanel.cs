@@ -1,23 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Model;
 using Olympus_the_Game.View.Imaging;
 
-namespace Olympus_the_Game.View.Game.Editor
+namespace Olympus_the_Game.View.Editor
 {
     public partial class EntitySourcePanel : UserControl
     {
-
-        public ObjectType RepresentingType { get; private set; }
-
         public EntitySourcePanel()
-            : this(ObjectType.CREEPER)
-        { }
+            : this(ObjectType.Creeper)
+        {
+        }
 
         public EntitySourcePanel(ObjectType et)
         {
@@ -25,28 +18,31 @@ namespace Olympus_the_Game.View.Game.Editor
             RepresentingType = et;
         }
 
+        public ObjectType RepresentingType { get; private set; }
+
         private void EntitySourcePanel_Load(object sender, EventArgs e)
         {
             // Change image
-            Sprite s = DataPool.GetPicture(RepresentingType, this.picturePreview.Size);
+            Sprite s = DataPool.GetPicture(RepresentingType, picturePreview.Size);
             if (s != null)
-                this.picturePreview.Image = s[-1.0f];
+                picturePreview.Image = s[-1.0f];
 
             // Change name
-            this.label1.Text = RepresentingType.ToString();
+            label1.Text = RepresentingType.ToString();
 
             // Change shortcut key
-            this.label2.Text = "Toets";
+            label2.Text = "toets";
 
             // Change description
             GameObject go = Utils.CreateObjectOfType(RepresentingType);
-            if(go != null)
-                this.label3.Text = go.getDescription();
+            if (go == null) return;
+            label3.Text = go.GetDescription();
+            go.OnRemoved(true); //Deze regel zorgt ervoor dat hij zichzelf weer unsubscribed bij eventuele events. De objecten bleven bestaan!! ~Sander
         }
 
         private void EntitySourcePanel_MouseDown(object sender, MouseEventArgs e)
         {
-            this.picturePreview.DoDragDrop(RepresentingType, DragDropEffects.Copy | DragDropEffects.Move);
+            picturePreview.DoDragDrop(RepresentingType, DragDropEffects.Copy | DragDropEffects.Move);
         }
     }
 }

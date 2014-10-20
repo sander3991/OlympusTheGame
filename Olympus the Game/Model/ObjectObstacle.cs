@@ -1,11 +1,10 @@
-﻿namespace Olympus_the_Game
+﻿namespace Olympus_the_Game.Model
 {
     public class ObjectObstacle : GameObject
     {
-
         static ObjectObstacle()
         {
-            RegisterWithEditor(ObjectType.OBSTACLE, () => { return new ObjectObstacle(50, 50, 0, 0); });
+            RegisterWithEditor(ObjectType.Obstacle, () => new ObjectObstacle(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -18,7 +17,7 @@
         public ObjectObstacle(int width, int height, int x, int y)
             : base(width, height, x, y)
         {
-            Type = ObjectType.OBSTACLE;
+            Type = ObjectType.Obstacle;
         }
 
         public override string ToString()
@@ -30,7 +29,7 @@
         /// Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
+        public override string GetDescription()
         {
             return "Een niet doorgaanbaar obstakel";
         }

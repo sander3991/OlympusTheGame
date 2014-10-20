@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Controller;
 
 namespace Olympus_the_Game.View.Menu
 {
     public partial class SettingsDialog : UserControl
     {
-        public bool SoundEnabled { get; private set; }
-
         public SettingsDialog()
         {
             InitializeComponent();
             SoundEnabled = Mp3Player.Enabled;
         }
+
+        public bool SoundEnabled { get; private set; }
 
         private void ButtonGeluidDempen_Click(object sender, EventArgs e)
         {
@@ -33,12 +28,10 @@ namespace Olympus_the_Game.View.Menu
                 SoundEnabled = false;
                 ButtonGeluidDempen.Text = "Geluid aanzetten";
             }
-                
         }
 
         private void ButtonSpeed_Click(object sender, EventArgs e)
         {
-            
         }
     }
 }

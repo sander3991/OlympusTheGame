@@ -1,34 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
+using Olympus_the_Game.Properties;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityFireBall : Entity
     {
-        private EntityGhast owner;
-        private int prop_fireballspeed = 50; // Factor van maken
-        /// <summary>
-        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
-        /// </summary>
-        public int FireballSpeed
-        {
-            get { return prop_fireballspeed; }
-            set
-            {
-                prop_fireballspeed = Math.Max(0, value);
-            }
-        }
-
-        /// <summary>
-        /// Geef de entity een beschrijving
-        /// </summary>
-        /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
-        {
-            return "Vuurbal van Ghast";
-        }
+        private readonly EntityGhast _owner;
+        private int _propFireballspeed = 50; // Factor van maken
 
         /// <summary>
         /// FILL THIS IN
@@ -36,33 +16,53 @@ namespace Olympus_the_Game
         public EntityFireBall(int width, int height, int x, int y, int dx, int dy, EntityGhast owner, GameObject target)
             : base(width, height, x, y, dx, dy)
         {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             if (target == null || owner == null)
             {
                 throw (new ArgumentException("Een entity heeft altijd een target/owner nodig!"));
             }
             // Bepaald de verandering in de x en y van de vuurbal (de snelheid)
-            DX = -(((this.X - target.X) - 25) / FireballSpeed);
-            DY = -(((this.Y - target.Y) - 25) / FireballSpeed);
+            DX = -(((X - target.X) - 25)/FireballSpeed);
+            DY = -(((Y - target.Y) - 25)/FireballSpeed);
 
-            EntityControlledByAI = false;
-            Type = ObjectType.FIREBALL;
+            EntityControlledByAi = false;
+            Type = ObjectType.Fireball;
             IsSolid = false;
-            this.owner = owner;
+            _owner = owner;
         }
+
         /// <summary>
         /// FILL THIS IN
         /// </summary>
-        public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target) : this(width, height, x, y, 0, 0, owner, target) { }
+        public EntityFireBall(int width, int height, int x, int y, EntityGhast owner, GameObject target)
+            : this(width, height, x, y, 0, 0, owner, target)
+        {
+        }
+
+        /// <summary>
+        /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 40
+        /// </summary>
+        public int FireballSpeed
+        {
+            get { return _propFireballspeed; }
+            set { _propFireballspeed = Math.Max(0, value); }
+        }
+
+        /// <summary>
+        /// Geef de entity een beschrijving
+        /// </summary>
+        /// <returns>Beschrijving van de entity</returns>
+        public override string GetDescription()
+        {
+            return "Vuurbal van Ghast";
+        }
 
         public override CollisionType CollidesWithObject(GameObject entity)
         {
-            if (entity == owner)
-                return CollisionType.NONE;
+            if (entity == _owner)
+                return CollisionType.None;
             AnimatedSprite sprite = entity as AnimatedSprite;
-            if (sprite != null)
-                return CollisionType.NONE;
-            return base.CollidesWithObject(entity);
+            return sprite != null ? CollisionType.None : base.CollidesWithObject(entity);
         }
 
         public void OnUpdate()
@@ -70,7 +70,7 @@ namespace Olympus_the_Game
             if (Playfield.Player != null)
             {
                 // Verwijderd de fireball als het de randen van het spel raakt
-                if (this.X + DX < 0 || this.X + DX + Width > Playfield.Width || this.Y + DY < 0 || this.Y + DY + Height > Playfield.Height)
+                if (X + DX < 0 || X + DX + Width > Playfield.Width || Y + DY < 0 || Y + DY + Height > Playfield.Height)
                     Playfield.RemoveObject(this);
             }
         }
@@ -78,12 +78,12 @@ namespace Olympus_the_Game
         public override void OnCollide(GameObject gameObject)
         {
             // Ontplof niet wanneer het object collide met de eigenaar van de vuurbal of met een andere vuurbal
-            if (gameObject == owner) // removed:  || gameObject.Type == ObjectType.FIREBALL
+            if (gameObject == _owner) // removed:  || gameObject.Type == ObjectType.FIREBALL
             {
                 return;
             }
             // Ontplof wanneer het de speler raakt (en verwijder het object meteen van het speelveld)
-            else if (gameObject.Type == ObjectType.PLAYER)
+            if (gameObject.Type == ObjectType.Player)
             {
                 Playfield.Player.Health--;
                 Playfield.RemoveObject(this);
@@ -98,20 +98,18 @@ namespace Olympus_the_Game
                     Playfield.RemoveObject(gameObject);
                     switch (e.Type)
                     {
-                        case ObjectType.SLOWER:
+                        case ObjectType.Slower:
                             Scoreboard.AddScore(ScoreType.Slower);
                             break;
-                        case ObjectType.TIMEBOMB:
-                        case ObjectType.EXPLODE:
+                        case ObjectType.Timebomb:
+                        case ObjectType.Explode:
                             Scoreboard.AddScore(ScoreType.Explode);
                             break;
-                        case ObjectType.CREEPER:
+                        case ObjectType.Creeper:
                             Scoreboard.AddScore(ScoreType.Creeper);
                             break;
-                        case ObjectType.GHAST:
+                        case ObjectType.Ghast:
                             Scoreboard.AddScore(ScoreType.Ghast);
-                            break;
-                        default:
                             break;
                     }
                 }
@@ -121,11 +119,11 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop met een mooie explosie
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
             if (!fieldRemoved)
             {
                 Playfield.AddObject(new SpriteExplosion(this));
-                SoundEffects.PlaySound(Properties.Resources.bomb);
+                SoundEffects.PlaySound(Resources.bomb);
             }
         }
 

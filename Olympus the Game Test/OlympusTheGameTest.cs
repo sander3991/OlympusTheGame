@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Olympus_the_Game;
+using Olympus_the_Game.Model;
 
 namespace Olympus_the_Game_Test
 {
@@ -27,7 +28,7 @@ namespace Olympus_the_Game_Test
             bool actual = false;
             bool expected = true;
 
-            OlympusTheGame.OnNewPlayField += delegate(PlayField p) { actual = true; };
+            OlympusTheGame.OnNewPlayField += delegate { actual = true; };
 
             // Act
             OlympusTheGame.Playfield = pf;

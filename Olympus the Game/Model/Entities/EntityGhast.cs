@@ -1,68 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Olympus_the_Game.View.Editor;
+using System;
 using System.Diagnostics;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityGhast : Entity
     {
+        private readonly Stopwatch _stopwatch = Stopwatch.StartNew();
+        private int _propDetectrange = 150;
+        private int _propFirespeed = 1050;
+
         static EntityGhast()
         {
-            RegisterWithEditor(ObjectType.GHAST, () => { return new EntityGhast(50, 50, 0, 0); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.Ghast, () => new EntityGhast(50, 50, 0, 0));
+                // TODO Maak waarden standaard
         }
 
-        private Stopwatch stopwatch = Stopwatch.StartNew();
-        private int prop_firespeed = 1050;
-        private int prop_detectrange = 150;
+        /// <summary>
+        /// FILL THIS IN
+        /// </summary>
+        public EntityGhast(int width, int height, int x, int y, int dx = 0, int dy = 0)
+            : base(width, height, x, y, dx, dy)
+        {
+            OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
+            Type = ObjectType.Ghast;
+            EntityControlledByAi = true;
+        }
+
         /// <summary>
         /// Vuursnelheid van de ghast. MIN = 0, DEFAULT = 1000
         /// </summary>
+        [EditorTooltip("Vuur snelheid", "De snelheid waarmee de Ghast vuurballen schiet in milliseconden.")]
         public int FireSpeed
         {
-            get { return prop_firespeed; }
-            set
-            {
-                prop_firespeed = Math.Max(0, value);
-            }
+            get { return _propFirespeed; }
+            set { _propFirespeed = Math.Max(0, value); }
         }
+
         /// <summary>
         /// Afstand van wanneer de Ghast begint met aanvallen. MIN = 50, DEFAULT = 150
         /// </summary>
+        [EditorTooltip("Detectie afstand", "De afstand van wanneer de Ghast begint met aanvallen.")]
         public int DetectRange
         {
-            get { return prop_detectrange; }
-            set
-            {
-                prop_detectrange = Math.Max(50, value);
-            }
+            get { return _propDetectrange; }
+            set { _propDetectrange = Math.Max(50, value); }
         }
 
         /// <summary>
         /// Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
+        public override string GetDescription()
         {
             return "Ghast schiet vuurballen";
         }
-
-        /// <summary>
-        /// FILL THIS IN
-        /// </summary>
-        public EntityGhast(int width, int height, int x, int y, int dx, int dy)
-            : base(width, height, x, y, dx, dy)
-        {
-            OlympusTheGame.Controller.UpdateGameEvents += OnUpdate;
-            Type = ObjectType.GHAST;
-            EntityControlledByAI = true;
-        }
-
-        /// <summary>
-        /// FILL THIS IN
-        /// </summary>
-        public EntityGhast(int width, int height, int x, int y) : this(width, height, x, y, 0, 0) { }
 
         public void OnUpdate()
         {
@@ -72,11 +64,11 @@ namespace Olympus_the_Game
                 if (DistanceToObject(Playfield.Player) <= DetectRange)
                 {
                     // Vuur dan een vuurbal af om de x aantal seconden
-                    if (stopwatch.ElapsedMilliseconds >= FireSpeed)
+                    if (_stopwatch.ElapsedMilliseconds >= FireSpeed)
                     {
-                        EntityFireBall fireball = new EntityFireBall(25, 25, this.X, this.Y, 0, 0, this, Playfield.Player);
+                        EntityFireBall fireball = new EntityFireBall(25, 25, X, Y, 0, 0, this, Playfield.Player);
                         Playfield.AddObject(fireball);
-                        stopwatch.Restart();
+                        _stopwatch.Restart();
                     }
                 }
             }
@@ -85,7 +77,7 @@ namespace Olympus_the_Game
         public override void OnRemoved(bool fieldRemoved)
         {
             // Verwijder dit object uit de gameloop
-            OlympusTheGame.Controller.UpdateGameEvents -= OnUpdate;
+            OlympusTheGame.GameController.UpdateGameEvents -= OnUpdate;
         }
 
         public override string ToString()

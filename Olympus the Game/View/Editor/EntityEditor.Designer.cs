@@ -1,4 +1,4 @@
-﻿namespace Olympus_the_Game.View
+﻿namespace Olympus_the_Game.View.Editor
 {
     partial class EntityEditor
     {

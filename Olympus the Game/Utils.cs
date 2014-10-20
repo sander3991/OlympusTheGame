@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game
 {
-    class Utils
+    internal class Utils
     {
-        private static readonly bool DISABLE_MASK = false;// TODO Release: Deze regel verwijderen
-
-        public static readonly int MASK_FADE_DURATION = 500;
+        public static readonly int MaskFadeDuration = 500;
 
         public static Form MaskForm { get; private set; }
 
@@ -21,10 +18,10 @@ namespace Olympus_the_Game
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static Control getParentControl(Control c)
+        public static Control GetParentControl(Control c)
         {
             Control c2 = c;
-            while (!typeof(UserControl).IsAssignableFrom(c2.GetType()))
+            while (!(c2 is UserControl))
             {
                 c2 = c2.Parent;
             }
@@ -34,7 +31,13 @@ namespace Olympus_the_Game
         public static void ShowMask(bool showMask)
         {
             if (MaskForm == null || MaskForm.IsDisposed)
-                MaskForm = new Form() { BackColor = Color.Black, FormBorderStyle = FormBorderStyle.None, ShowInTaskbar = false, TopMost = true };
+                MaskForm = new Form
+                {
+                    BackColor = Color.Black,
+                    FormBorderStyle = FormBorderStyle.None,
+                    ShowInTaskbar = false,
+                    TopMost = true
+                };
             if (!MaskForm.IsHandleCreated)
                 MaskForm.Show();
             MaskForm.Invoke((Action<bool>)ShowMaskUnsafe, new object[] { showMask });
@@ -42,8 +45,7 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
-            if (DISABLE_MASK) { MaskForm.Visible = false; return; } // TODO Release: Deze regel verwijderen
-            MaskForm.Size = getScreenSize();
+            MaskForm.Size = GetScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
 
@@ -51,9 +53,9 @@ namespace Olympus_the_Game
 
             sw.Start();
             MaskForm.Visible = true;
-            while (sw.ElapsedMilliseconds < MASK_FADE_DURATION)
+            while (sw.ElapsedMilliseconds < MaskFadeDuration)
             {
-                float i = (float)sw.ElapsedMilliseconds / (float)MASK_FADE_DURATION;
+                float i = sw.ElapsedMilliseconds / (float)MaskFadeDuration;
                 MaskForm.Opacity = showMask ? i : 1.0f - i;
                 MaskForm.Invalidate();
                 Application.DoEvents();
@@ -63,7 +65,7 @@ namespace Olympus_the_Game
             MaskForm.Visible = showMask;
         }
 
-        public static Size getScreenSize()
+        public static Size GetScreenSize()
         {
             return new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
@@ -72,34 +74,32 @@ namespace Olympus_the_Game
         {
             if (fullScreen)
             {
-                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                f.Size = Utils.getScreenSize();
+                f.FormBorderStyle = FormBorderStyle.None;
+                f.Size = GetScreenSize();
                 f.Location = Point.Empty;
             }
             else
             {
-                f.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+                f.FormBorderStyle = FormBorderStyle.Fixed3D;
                 f.Size = new Size(1024, 768);
-                Size full = Utils.getScreenSize();
+                Size full = GetScreenSize();
                 f.Location = new Point((full.Width - f.Width) / 2, (full.Height - f.Height) / 2);
             }
         }
 
-        public static void setButtonStyle(Button b)
+        public static void SetButtonStyle(Button b)
         {
-            b.BackgroundImage = global::Olympus_the_Game.Properties.Resources.stone;
-            b.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            b.BackgroundImage = Resources.stone;
+            b.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             b.ForeColor = Color.Black;
         }
 
         public static GameObject CreateObjectOfType(ObjectType ot)
         {
-            Func<GameObject> result = null;
+            Func<GameObject> result;
             GameObject.ConstructorList.TryGetValue(ot, out result);
 
-            if (result == null) return null;
-
-            return result();
+            return result == null ? null : result();
         }
     }
 }

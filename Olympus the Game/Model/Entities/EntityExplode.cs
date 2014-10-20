@@ -1,18 +1,18 @@
 ﻿using System;
-namespace Olympus_the_Game
+using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model.Sprites;
+using Olympus_the_Game.Properties;
+using Olympus_the_Game.View.Editor;
+
+namespace Olympus_the_Game.Model.Entities
 {
     public class EntityExplode : Entity
     {
-
         static EntityExplode()
         {
-            RegisterWithEditor(ObjectType.EXPLODE, () => { return new EntityExplode(50, 50, 0, 0, 1f); }); // TODO Maak waarden standaard
+            RegisterWithEditor(ObjectType.Explode, () => new EntityExplode(50, 50, 0, 0, 1f));
+                // TODO Maak waarden standaard
         }
-
-        /// <summary>
-        /// De sterkte van het exploderende object
-        /// </summary>
-        public double EffectStrength { get; set; }
 
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
@@ -21,13 +21,23 @@ namespace Olympus_the_Game
             : base(width, height, x, y, dx, dy)
         {
             EffectStrength = Math.Max(0, effectStrength);
-            EntityControlledByAI = false;
-            Type = ObjectType.EXPLODE;
+            EntityControlledByAi = false;
+            Type = ObjectType.Explode;
         }
+
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie
         /// </summary>
-        public EntityExplode(int width, int height, int x, int y, double effectStrength) : this(width, height, x, y, 0, 0, effectStrength) { }
+        public EntityExplode(int width, int height, int x, int y, double effectStrength)
+            : this(width, height, x, y, 0, 0, effectStrength)
+        {
+        }
+
+        /// <summary>
+        /// De sterkte van het exploderende object
+        /// </summary>
+        [EditorTooltip("Explosie sterkte", "Hoe sterk is de explosie in aantal healthpunten.")]
+        public double EffectStrength { get; set; }
 
         public override void OnCollide(GameObject gameObject)
         {
@@ -42,12 +52,11 @@ namespace Olympus_the_Game
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            Controller contr = OlympusTheGame.Controller;
             PlayField pf = OlympusTheGame.Playfield;
             if (!fieldRemoved)
             {
                 pf.AddObject(new SpriteExplosion(this));
-                SoundEffects.PlaySound(Properties.Resources.bomb);
+                SoundEffects.PlaySound(Resources.bomb);
             }
         }
 

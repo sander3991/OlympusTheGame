@@ -1,4 +1,7 @@
-﻿namespace Olympus_the_Game.View
+﻿using Olympus_the_Game.Model;
+using Olympus_the_Game.View.Game;
+
+namespace Olympus_the_Game.View.Editor
 {
     partial class LevelEditor
     {
@@ -29,17 +32,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelEditor));
-            Olympus_the_Game.PlayField playField1 = new Olympus_the_Game.PlayField();
+            PlayField playField1 = new PlayField();
             this.Menubar = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entitySourcePanelList1 = new Olympus_the_Game.View.Game.Editor.EntitySourcePanelList();
-            this.speelveldEditor1 = new Olympus_the_Game.View.SpeelveldEditor();
-            this.entityEditor1 = new Olympus_the_Game.View.EntityEditor();
-            this.gamePanelEditor = new Olympus_the_Game.View.GamePanel();
+            this.entitySourcePanelList1 = new Olympus_the_Game.View.Editor.EntitySourcePanelList();
+            this.speelveldEditor1 = new Olympus_the_Game.View.Editor.SpeelveldEditor();
+            this.entityEditor1 = new Olympus_the_Game.View.Editor.EntityEditor();
+            this.gamePanelEditor = new GamePanel();
             this.Menubar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,7 +140,7 @@
             this.gamePanelEditor.Size = new System.Drawing.Size(904, 452);
             this.gamePanelEditor.TabIndex = 16;
             this.gamePanelEditor.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
-            this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            this.gamePanelEditor.DragEnter += new System.Windows.Forms.DragEventHandler(this.EntityDragEnter);
             this.gamePanelEditor.DoubleClick += new System.EventHandler(this.Mouse_DoubleClick);
             this.gamePanelEditor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PlaatsEntity);
             this.gamePanelEditor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Clicked);
@@ -162,7 +165,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.Load += new System.EventHandler(this.LevelEditor_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.drag_drop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.enter);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.EntityDragEnter);
             this.Menubar.ResumeLayout(false);
             this.Menubar.PerformLayout();
             this.ResumeLayout(false);
@@ -181,7 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
-        private Game.Editor.EntitySourcePanelList entitySourcePanelList1;
+        private EntitySourcePanelList entitySourcePanelList1;
 
     }
 }

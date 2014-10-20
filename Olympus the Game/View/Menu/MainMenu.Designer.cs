@@ -1,5 +1,5 @@
-﻿namespace Olympus_the_Game {
-    partial class MainMenu {
+﻿namespace Olympus_the_Game.View.Menu {
+    partial class Mainmenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,12 +23,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainmenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonBack = new System.Windows.Forms.Button();
             this.settingsDialog1 = new Olympus_the_Game.View.Menu.SettingsDialog();
             this.levelEditorMenu1 = new Olympus_the_Game.View.Menu.LevelEditorMenu();
-            this.mainMenuControl1 = new Olympus_the_Game.View.MainMenuControl();
+            this.mainMenuControl1 = new Olympus_the_Game.View.Menu.MainMenuControl();
             this.levelDialog1 = new Olympus_the_Game.View.Menu.LevelDialog();
             this.helpDialog1 = new Olympus_the_Game.View.Menu.HelpDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,7 +65,7 @@
             // 
             this.settingsDialog1.Location = new System.Drawing.Point(772, 213);
             this.settingsDialog1.Name = "settingsDialog1";
-            this.settingsDialog1.Size = new System.Drawing.Size(426, 150);
+            this.settingsDialog1.Size = new System.Drawing.Size(426, 110);
             this.settingsDialog1.TabIndex = 7;
             this.settingsDialog1.Visible = false;
             // 
@@ -90,7 +90,7 @@
             this.levelDialog1.BackColor = System.Drawing.Color.Transparent;
             this.levelDialog1.Location = new System.Drawing.Point(13, 339);
             this.levelDialog1.Name = "levelDialog1";
-            this.levelDialog1.Size = new System.Drawing.Size(426, 330);
+            this.levelDialog1.Size = new System.Drawing.Size(426, 400);
             this.levelDialog1.TabIndex = 2;
             // 
             // helpDialog1
@@ -102,7 +102,7 @@
             this.helpDialog1.TabIndex = 6;
             this.helpDialog1.Visible = false;
             // 
-            // MainMenu
+            // Mainmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.MaximizeBox = false;
-            this.Name = "MainMenu";
+            this.Name = "Mainmenu";
             this.Text = "Olympus The Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private View.MainMenuControl mainMenuControl1;
+        private MainMenuControl mainMenuControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private View.Menu.LevelDialog levelDialog1;
         public System.Windows.Forms.Button ButtonBack;

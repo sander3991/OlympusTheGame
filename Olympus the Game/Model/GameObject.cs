@@ -1,81 +1,120 @@
-﻿using Olympus_the_Game.View.Editor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Runtime.CompilerServices;
+using Olympus_the_Game.Model.Entities;
+using Olympus_the_Game.View.Editor;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model
 {
     public enum ObjectType
     {
-        PLAYER,
-        SLOWER,
-        TIMEBOMB,
-        OBSTACLE,
-        CREEPER,
-        EXPLODE,
-        START,
-        FINISH,
-        UNKNOWN,
-        SPRITEEXPLOSION,
-        WEB,
-        FIREBALL,
-        GHAST,
-        WEBMISSILE,
-        SILVERFISH
+        Player,
+        Slower,
+        Timebomb,
+        Obstacle,
+        Creeper,
+        Explode,
+        Start,
+        Finish,
+        Unknown,
+        Spriteexplosion,
+        Web,
+        Fireball,
+        Ghast,
+        Webmissile,
+        Silverfish
     }
 
     [Flags]
     public enum CollisionType : byte
     {
-        NONE = 0,
+        None = 0,
         X = 1,
         Y = 2,
     }
 
     public abstract class GameObject
     {
-
         #region Static Part
 
-        public static Dictionary<ObjectType, Func<GameObject>> ConstructorList = new Dictionary<ObjectType, Func<GameObject>>();
-
-        public static void RegisterWithEditor(ObjectType ot, Func<GameObject> a) {
-            ConstructorList.Add(ot, a);
-        }
+        public static readonly Dictionary<ObjectType, Func<GameObject>> ConstructorList =
+            new Dictionary<ObjectType, Func<GameObject>>();
 
         static GameObject()
         {
-            foreach (Type t in typeof(GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof(GameObject))))
+            foreach (
+                Type t in typeof (GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof (GameObject))))
             {
-                System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(t.TypeHandle);
+                RuntimeHelpers.RunClassConstructor(t.TypeHandle);
             }
+        }
+
+        protected static void RegisterWithEditor(ObjectType ot, Func<GameObject> a)
+        {
+            ConstructorList.Add(ot, a);
         }
 
         #endregion
 
+        public delegate void DelOnVisibilityChanged(GameObject go, bool visible);
+        public event DelOnVisibilityChanged OnVisibilityChanged;
+        private int height;
+        private PlayField _propPlayfield;
+        private int width;
         private int x;
         private int y;
-        private int height;
-        private int width;
+        private static int ID;
+        private bool _propVisible = true;
+        [ExcludeFromEditor]
+        public bool Visible
+        {
+            get { return _propVisible; }
+            set
+            {
+                if (_propVisible != value)
+                {
+                    _propVisible = value;
+                    if (OnVisibilityChanged != null)
+                        OnVisibilityChanged(this, value);
+                }
+            }
+        }
+        /// <summary>
+        /// Een uniek ID voor elk object dat wordt aangemaakt
+        /// </summary>
+        public int UniqueID { get; private set; }
+
+        /// <summary>
+        /// Initialiseert een GameObject
+        /// </summary>
+        /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
+        /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
+        /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
+        /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
+        protected GameObject(int width, int height, int x, int y)
+        {
+            X = x;
+            Y = y;
+            Width = width;
+            Height = height;
+            IsSolid = true;
+            Type = ObjectType.Unknown;
+            UniqueID = ID++;
+        }
 
         [ExcludeFromEditor]
         public ObjectType Type { get; protected set; }
-
-        private PlayField prop_playfield;
 
         [ExcludeFromEditor]
         public PlayField Playfield
         {
             set
             {
-                if (prop_playfield == null) //Voorkomt dat het 2 keer geset wordt
-                    prop_playfield = value;
+                if (_propPlayfield == null) //Voorkomt dat het 2 keer geset wordt
+                    _propPlayfield = value;
             }
-            get
-            {
-                return prop_playfield;
-            }
+            get { return _propPlayfield; }
         }
 
         /// <summary>
@@ -84,57 +123,41 @@ namespace Olympus_the_Game
         [ExcludeFromEditor]
         public virtual float Frame
         {
-            get
-            {
-                return -1.0f;
-            }
-            protected set { }
+            get { return -1.0f; }
+            protected set { throw new NotImplementedException(); }
         }
 
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>
+        [EditorTooltip("Hoogte", "De hoogte van dit object")]
         public int Height
         {
-            get
-            {
-                return height;
-            }
-            set
-            {
-                if (value >= 0)
-                    height = value;
-                else
-                    height = 0;
+            get { return height; }
+            set {
+                height = value >= 0 ? value : 0;
             }
         }
 
         /// <summary>
         /// De breedte van het GameObject
         /// </summary>
+        [EditorTooltip("Breedte", "De breedte van dit object")]
         public int Width
         {
-            get
-            {
-                return width;
-            }
-            set
-            {
-                if (value >= 0)
-                    width = value;
-                else
-                    width = 0;
+            get { return width; }
+            set {
+                width = value >= 0 ? value : 0;
             }
         }
+
         /// <summary>
         /// De X positie van het GameObject
         /// </summary>
+        [EditorTooltip("X Positie", "De X positie van dit object")]
         public virtual int X
         {
-            get
-            {
-                return x;
-            }
+            get { return x; }
             set
             {
                 if (value >= 0)
@@ -146,15 +169,14 @@ namespace Olympus_the_Game
                 }
             }
         }
+
         /// <summary>
         /// De Y positie van het game-object.
         /// </summary>
+        [EditorTooltip("Y Positie", "De Y positie van dit object")]
         public virtual int Y
         {
-            get
-            {
-                return y;
-            }
+            get { return y; }
             set
             {
                 if (value >= 0)
@@ -168,32 +190,18 @@ namespace Olympus_the_Game
         }
 
         /// <summary>
+        /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
+        /// </summary>
+        [EditorTooltip("Solide", "Is dit object solide? De speler kan door niet solide objecten bewegen")]
+        public bool IsSolid { get; protected set; }
+
+        /// <summary>
         /// Verkrijg beschrijving van entity
         /// </summary>
         /// <returns>Beschrijving</returns>
-        public virtual string getDescription(){
-            return "No description yet";
-        }
-
-        /// <summary>
-        /// Is het object een solide object. Dit defineert of er andere entities doorheen kunnen lopen.
-        /// </summary>
-        public bool IsSolid { get; protected set; }
-        /// <summary>
-        /// Initialiseert een GameObject
-        /// </summary>
-        /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="x">De X positie van het object, mag niet lager dan 0 zijn</param>
-        /// <param name="y">De Y positie van het object, mag niet lager dan 0 zijn</param>
-        public GameObject(int width, int height, int x, int y)
+        public virtual string GetDescription()
         {
-            X = x;
-            Y = y;
-            Width = width;
-            Height = height;
-            IsSolid = true;
-            Type = ObjectType.UNKNOWN;
+            return "No description yet";
         }
 
         /// <summary>
@@ -203,11 +211,14 @@ namespace Olympus_the_Game
         /// <returns>De afstand tussen de twee game-objecten</returns>
         public double DistanceToObject(GameObject entity)
         {
-            int xDistance = entity.X + (entity.Width / 2) - X - (Width / 2); //bekijkt de afstand van het midden van beide objecten
-            int yDistance = entity.Y + (entity.Height / 2) - Y - (Height / 2); //bekijkt de afstand van het midden van beide objecten
+            int xDistance = entity.X + (entity.Width/2) - X - (Width/2);
+                //bekijkt de afstand van het midden van beide objecten
+            int yDistance = entity.Y + (entity.Height/2) - Y - (Height/2);
+                //bekijkt de afstand van het midden van beide objecten
             double result = Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
             return result;
         }
+
         /// <summary>
         /// Helper method om te bepalen of de Y assen van de objecten elkaar kruisen
         /// </summary>
@@ -217,6 +228,7 @@ namespace Olympus_the_Game
         {
             return DoLinesOverlap(Y, Height, entity.Y, entity.Height);
         }
+
         /// <summary>
         /// Helper method om te bepalen of de X assen van de objecten elkaar kruisen
         /// </summary>
@@ -226,6 +238,7 @@ namespace Olympus_the_Game
         {
             return DoLinesOverlap(X, Width, entity.X, entity.Width);
         }
+
         /// <summary>
         /// Kijkt of de gegeven GameObject kruist over het huidige object.
         /// </summary>
@@ -243,9 +256,9 @@ namespace Olympus_the_Game
                     collision = collision & ~CollisionType.X;
                 if (DoLinesOverlap(thisEntity.PreviousY, Height, entity.Y, entity.Height))
                     collision = collision & ~CollisionType.Y;
-                return collision == CollisionType.NONE ? CollisionType.X | CollisionType.Y : collision;
+                return collision == CollisionType.None ? CollisionType.X | CollisionType.Y : collision;
             }
-            return CollisionType.NONE;
+            return CollisionType.None;
         }
 
         /// <summary>
@@ -255,7 +268,6 @@ namespace Olympus_the_Game
         /// <param name="gameObject">Het object waarmee gekruist wordt</param>
         public virtual void OnCollide(GameObject gameObject)
         {
-
         }
 
         /// <summary>
@@ -264,8 +276,8 @@ namespace Olympus_the_Game
         /// <param name="fieldRemoved">bool die aangeeft of hij door het PlayField is verwijderd. True is door het speelveld verwijderd, false door een OnCollide</param>
         public virtual void OnRemoved(bool fieldRemoved)
         {
-
         }
+
         /// <summary>
         /// Controleerd of 2 lijnen elkaar overlappen. Gebaseerd op hun startpositie en breedte (of Hoogte).
         /// </summary>

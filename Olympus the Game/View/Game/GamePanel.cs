@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
+using Olympus_the_Game.Model;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 
-namespace Olympus_the_Game.View
+namespace Olympus_the_Game.View.Game
 {
     /// <summary>
     /// This is a graphical representation of a PlayField.
@@ -20,31 +17,28 @@ namespace Olympus_the_Game.View
         /// <summary>
         /// Padding van het speelveld, deze rand wordt er altijd omheen gehouden.
         /// </summary>
-        private static readonly int PADDING = 35;
-
-        /// <summary>
-        /// Schaal van het speelveld
-        /// </summary>
-        public double SCALE { get; private set; }
+        private const int BorderPadding = 35;
 
         /// <summary>
         /// Variabele die Playfield bijhoudt.
         /// </summary>
-        private PlayField prop_playfield;
+        private PlayField _propPlayfield;
+
+        /// <summary>
+        /// Schaal van het speelveld
+        /// </summary>
+        public double PlayfieldScale { get; private set; }
 
         /// <summary>
         /// Het speelveld dat moet worden getekend.
         /// </summary>
         public PlayField Playfield
         {
-            get
-            {
-                return prop_playfield;
-            }
+            get { return _propPlayfield; }
             set
             {
                 // Change value and recalculate scale and size
-                prop_playfield = value;
+                _propPlayfield = value;
                 Recalculate();
             }
         }
@@ -55,7 +49,6 @@ namespace Olympus_the_Game.View
         /// </summary>
         public Size MaxSize { get; private set; }
 
-
         #region Setup
 
         /// <summary>
@@ -64,7 +57,7 @@ namespace Olympus_the_Game.View
         public GamePanel(PlayField pf)
         {
             // Save variables
-            this.Playfield = pf;
+            Playfield = pf;
 
             // Initialize GUI
             InitializeComponent();
@@ -76,22 +69,23 @@ namespace Olympus_the_Game.View
         /// </summary>
         public GamePanel()
             : this(new PlayField(1000, 500))
-        { }
+        {
+        }
 
         private void Init(object sender, EventArgs e)
         {
             // Change border style
-            this.BorderStyle = BorderStyle.FixedSingle;
+            BorderStyle = BorderStyle.FixedSingle;
 
             // Set background
-            this.BackgroundImage = Properties.Resources.background;
+            BackgroundImage = Resources.background;
 
             // Register to updateloop
-            if (OlympusTheGame.Controller != null)
-                OlympusTheGame.Controller.UpdateGameEvents += delegate() { this.Invalidate(); };
+            if (OlympusTheGame.GameController != null)
+                OlympusTheGame.GameController.UpdateGameEvents += Invalidate;
 
             // Set max size
-            this.MaxSize = this.Size;
+            MaxSize = Size;
 
             // Recalculate size
             Recalculate();
@@ -101,10 +95,10 @@ namespace Olympus_the_Game.View
 
         #region Draw Functions
 
-        private void draw(GameObject go, Graphics g)
+        private void Draw(GameObject go, Graphics g)
         {
             // Get preferred size and location
-            Size s = new Size((int)((float)go.Width * SCALE), (int)((float)go.Height * SCALE));
+            Size s = new Size((int)(go.Width * PlayfieldScale), (int)(go.Height * PlayfieldScale));
             Point p = TranslatePlayFieldToPanel(new Point(go.X, go.Y));
 
             // Generate target rectangle
@@ -124,12 +118,15 @@ namespace Olympus_the_Game.View
             // Loop through all gameobjects
             foreach (GameObject go in objects)
             {
-                draw(go, g);
+                if (go.Visible)
+                {
+                    Draw(go, g);
+                }
             }
 
             // Draw player
             if (Playfield.Player != null)
-                draw(Playfield.Player, g);
+                Draw(Playfield.Player, g);
         }
 
         #endregion
@@ -157,7 +154,7 @@ namespace Olympus_the_Game.View
         /// <returns></returns>
         public Point TranslatePanelToPlayField(Point p)
         {
-            return new Point((int)((double)p.X / SCALE), (int)((double)p.Y / SCALE));
+            return new Point((int)(p.X / PlayfieldScale), (int)(p.Y / PlayfieldScale));
         }
 
         /// <summary>
@@ -167,25 +164,25 @@ namespace Olympus_the_Game.View
         /// <returns></returns>
         public Point TranslatePlayFieldToPanel(Point p)
         {
-            return new Point((int)((double)p.X * SCALE), (int)((double)p.Y * SCALE));
+            return new Point((int)(p.X * PlayfieldScale), (int)(p.Y * PlayfieldScale));
         }
 
         /// <summary>
         /// Geeft de locatie van de cursor ten opzichte van dit panel.
         /// </summary>
         /// <returns></returns>
-        public Point getCursorPosition()
+        public Point GetCursorPosition()
         {
-            return this.PointToClient(Cursor.Position);
+            return PointToClient(Cursor.Position);
         }
 
         /// <summary>
         /// Geeft de locatie van de cursor in coordinaten van het PlayField
         /// </summary>
         /// <returns></returns>
-        public Point getCursorPlayFieldPosition()
+        public Point GetCursorPlayFieldPosition()
         {
-            return TranslatePanelToPlayField(getCursorPosition());
+            return TranslatePanelToPlayField(GetCursorPosition());
         }
 
         /// <summary>
@@ -194,10 +191,10 @@ namespace Olympus_the_Game.View
         public void Recalculate()
         {
             // Fix playfield scaling
-            double ratioWidth = (double)this.Playfield.Width / (double)MaxSize.Width;
-            double ratioHeight = (double)this.Playfield.Height / (double)MaxSize.Height;
-            this.SCALE = (double)1 / Math.Max(ratioWidth, ratioHeight);
-            this.Size = new Size((int)((double)this.Playfield.Width * SCALE), (int)((double)this.Playfield.Height * SCALE));
+            double ratioWidth = Playfield.Width / (double)MaxSize.Width;
+            double ratioHeight = Playfield.Height / (double)MaxSize.Height;
+            PlayfieldScale = 1 / Math.Max(ratioWidth, ratioHeight);
+            Size = new Size((int)(Playfield.Width * PlayfieldScale), (int)(Playfield.Height * PlayfieldScale));
 
             // Empty image buffer
             DataPool.ClearImagePool();
@@ -209,7 +206,7 @@ namespace Olympus_the_Game.View
         public void TryExpand()
         {
             // Get parent form
-            Form parent = this.FindForm();
+            Form parent = FindForm();
 
             if (parent == null)
             {
@@ -217,55 +214,55 @@ namespace Olympus_the_Game.View
                 return;
             }
 
-            this.Size = new Size(0, 0);
+            Size = new Size(0, 0);
 
             // Initial values
-            float ratio = (float)this.Playfield.Width / (float)this.Playfield.Height;
-            Point pt = parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
+            float ratio = Playfield.Width / (float)Playfield.Height;
+            Point pt =
+                parent.PointToClient(new Point(parent.Location.X + parent.Width, parent.Location.Y + parent.Height));
             Size currentSize = new Size(pt.X, pt.Y);
             Size minimalSize = new Size((int)(ratio * 100.0f), 100);
             currentSize = ScaleDown(currentSize, new Point(parent.Width, parent.Height), ratio);
             int barHeight = 0;
+            int pad = 0;
 
             // Loop objects
-            foreach (Control c in parent.Controls)
+            foreach (Control c in from Control c in parent.Controls where c != this && c.Visible select c)
             {
-                if (c != this && c.Visible)
+                if (c.GetType() == typeof(MenuStrip))
                 {
-                    if (c.GetType() == typeof(MenuStrip))
-                    {
-                        barHeight = c.Height;
-                    }
-                    else
-                    {
-                        // Get control location
-                        Point p = c.Location;
+                    barHeight = c.Height;
+                }
+                else
+                {
+                    pad = BorderPadding;
+                    // Get control location
+                    Point p = c.Location;
 
-                        currentSize = ScaleDown(currentSize, p, ratio);
-                    }
+                    currentSize = ScaleDown(currentSize, p, ratio);
                 }
             }
 
             // Change size
-            this.Location = new Point(PADDING, PADDING + barHeight);
-            this.MaxSize = new Size(currentSize.Width - 2 * PADDING, currentSize.Height - 2 * PADDING - barHeight);
-            this.MaxSize = new Size(Math.Max(MaxSize.Width, minimalSize.Width), Math.Max(MaxSize.Height, minimalSize.Height));
+            Location = new Point(pad, pad + barHeight);
+            MaxSize = new Size(currentSize.Width - 2 * pad, currentSize.Height - 2 * pad - barHeight);
+            MaxSize = new Size(Math.Max(MaxSize.Width, minimalSize.Width), Math.Max(MaxSize.Height, minimalSize.Height));
             // Recalculate
             Recalculate();
         }
 
-        private Size ScaleDown(Size s, Point p, float ratio)
+        private static Size ScaleDown(Size s, Point p, float ratio)
         {
             // Shrink so it fits
-            if ((float)p.X / (float)p.Y > ratio)
+            if (p.X / (float)p.Y > ratio)
             {
                 if (p.X < s.Width)
-                    return new Size(p.X, (int)((float)p.X / ratio));
+                    return new Size(p.X, (int)(p.X / ratio));
             }
             else
             {
                 if (p.Y < s.Height)
-                    return new Size((int)((float)p.Y * ratio), p.Y);
+                    return new Size((int)(p.Y * ratio), p.Y);
             }
             return s;
         }
@@ -278,21 +275,18 @@ namespace Olympus_the_Game.View
         /// Geeft het object terug waar de cursor op dit moment op staat.
         /// </summary>
         /// <returns></returns>
-        public GameObject getObjectAtCursor()
+        public GameObject GetObjectAtCursor()
         {
-            Point p = this.getCursorPlayFieldPosition();
+            Point p = GetCursorPlayFieldPosition();
             // Get list of objects at that location
-            List<GameObject> objects = this.Playfield.GetObjectsAtLocation(p.X, p.Y);
+            List<GameObject> objects = Playfield.GetObjectsAtLocation(p.X, p.Y);
 
             // If there is a last object, return it
             if (objects != null && objects.Count > 0)
             {
                 return objects.Last();
             }
-            else // Else return null
-            {
-                return null;
-            }
+            return null;
         }
 
         #endregion

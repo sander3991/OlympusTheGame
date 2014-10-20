@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Model;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public enum ScoreType
     {
@@ -14,48 +13,45 @@ namespace Olympus_the_Game
         Slower,
         Explode,
         Ghast
-
     }
 
-    static class Scoreboard
+    internal static class Scoreboard
     {
-        private static Dictionary<ScoreType, int> score = new Dictionary<ScoreType, int>();
+        private static readonly Dictionary<ScoreType, int> Scorelist = new Dictionary<ScoreType, int>();
+
         static Scoreboard()
         {
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
-        static void OlympusTheGame_OnNewPlayField(PlayField obj)
-        {
-            ResetScore();
-        }
         public static int Score
         {
             get
             {
                 int totalScore = 0;
-                foreach (int i in score.Values)
+                foreach (int i in Scorelist.Values)
                 {
                     totalScore += i;
                 }
                 return Math.Max(0, totalScore);
             }
-            private set
-            {
+        }
 
-            }
+        private static void OlympusTheGame_OnNewPlayField(PlayField obj)
+        {
+            ResetScore();
         }
 
         public static void AddScore(ScoreType type, int i)
         {
-            if (!score.ContainsKey(type))
-                score[type] = 0;
-            score[type] += i;
+            if (!Scorelist.ContainsKey(type))
+                Scorelist[type] = 0;
+            Scorelist[type] += i;
         }
 
         public static int GetScore(ScoreType type)
         {
-            return score.ContainsKey(type) ? score[type] : 0;
+            return Scorelist.ContainsKey(type) ? Scorelist[type] : 0;
         }
 
         public static void AddScore(ScoreType type)
@@ -88,7 +84,7 @@ namespace Olympus_the_Game
 
         public static void ResetScore()
         {
-            score.Clear();
+            Scorelist.Clear();
         }
     }
 }

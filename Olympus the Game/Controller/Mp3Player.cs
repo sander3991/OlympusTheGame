@@ -1,53 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
 using System.IO;
-using WMPLib;
 using System.Windows.Forms;
+using WMPLib;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     public static class Mp3Player
     {
-        private static WindowsMediaPlayer player = new WindowsMediaPlayer();
-        private static int fadeInCounter;
-        private static bool stopFading = false;
+        private static readonly WindowsMediaPlayer Player = new WindowsMediaPlayer();
+        private static int _fadeInCounter;
+        private static bool _stopFading;
+        private static bool _propEnabled = true;
         public static bool IsPlaying { get; private set; }
-        private static bool prop_enabled = true;
-        public static bool Enabled { 
-            get{
-                return prop_enabled;
-            }
-            set{
-                if (value)
-                    player.settings.volume = 100;
-                else
-                    player.settings.volume = 0;
-                prop_enabled = value;
-                    
+
+        public static bool Enabled
+        {
+            get { return _propEnabled; }
+            set
+            {
+                Player.settings.volume = value ? 100 : 0;
+                _propEnabled = value;
             }
         }
+
         /// <summary>
         /// Het volume van de MediaPlayer
         /// </summary>
         public static int Volume
         {
-            get
-            {
-                return player.settings.volume;
-            }
+            get { return Player.settings.volume; }
             set
             {
                 if (Enabled)
                 {
-                player.settings.volume = Math.Min(100, value);
-                player.settings.volume = Math.Max(0, value);
-
+                    Player.settings.volume = Math.Min(100, value);
+                    Player.settings.volume = Math.Max(0, value);
                 }
             }
         }
+
         /// <summary>
         /// Speelt een resource file af.
         /// </summary>
@@ -55,13 +46,12 @@ namespace Olympus_the_Game
         public static void SetResource(string resource)
         {
             Loop(false);
-            player.URL = resource;
+            Player.URL = resource;
         }
 
         public static string PrepareResource(byte[] resource, string name)
         {
-            string tfl;
-            tfl = String.Format("{0}{1}{2}{3}", System.IO.Path.GetTempPath(), "OlympusTheGame_",name, ".mp3");
+            string tfl = String.Format("{0}{1}{2}{3}", Path.GetTempPath(), "OlympusTheGame_", name, ".mp3");
             if (File.Exists(tfl))
                 File.Delete(tfl);
             using (var memoryStream = new MemoryStream(resource))
@@ -79,15 +69,16 @@ namespace Olympus_the_Game
         /// <param name="loop">True voor loop aan, false voor uit</param>
         public static void Loop(bool loop)
         {
-            player.settings.setMode("loop", loop);
+            Player.settings.setMode("loop", loop);
         }
+
         /// <summary>
         /// Zet de positie van het nummer op het meegegeven punt
         /// </summary>
         /// <param name="pos">De positie in aantal seconden</param>
         public static void SetPosition(double pos)
         {
-            player.controls.currentPosition = pos;
+            Player.controls.currentPosition = pos;
         }
 
         /// <summary>
@@ -95,36 +86,37 @@ namespace Olympus_the_Game
         /// </summary>
         public static void PlaySelected()
         {
-            player.controls.play();
+            Player.controls.play();
             IsPlaying = true;
             if (CustomMusicPlayer.IsPlaying)
                 CustomMusicPlayer.Stop();
-            stopFading = true;
+            _stopFading = true;
         }
+
         /// <summary>
         /// Do a fade in 
         /// </summary>
         /// <param name="time">De tijd in milliseconde, het minimum is 100</param>
         public static void FadeIn(int time)
         {
-            fadeInCounter = 0;
-            Volume = fadeInCounter;
+            _fadeInCounter = 0;
+            Volume = _fadeInCounter;
             Timer timer = new Timer();
             timer.Interval = time / 100;
             timer.Tick += timer_Tick;
             timer.Start();
-            player.controls.pause();
+            Player.controls.pause();
         }
 
         public static void FadeOut(int time)
         {
-            fadeInCounter = 100;
-            Volume = fadeInCounter;
+            _fadeInCounter = 100;
+            Volume = _fadeInCounter;
             Timer timer = new Timer();
             timer.Interval = time / 100;
             timer.Tick += timer_tick_fadeout;
             timer.Start();
-            stopFading = false;
+            _stopFading = false;
         }
 
         /// <summary>
@@ -134,25 +126,25 @@ namespace Olympus_the_Game
         /// <param name="e"></param>
         private static void timer_Tick(object sender, EventArgs e)
         {
-            Volume = ++fadeInCounter;
+            Volume = ++_fadeInCounter;
             if (Volume == 1)
-                player.controls.play();
-            if (player.settings.volume == 100 || !IsPlaying)
+                Player.controls.play();
+            if (Player.settings.volume == 100 || !IsPlaying)
             {
                 Timer timer = sender as Timer;
-                timer.Stop();
+                if (timer != null) timer.Stop();
             }
         }
 
         private static void timer_tick_fadeout(object sender, EventArgs e)
         {
-            Volume = --fadeInCounter;
-            if (Volume == 0 || stopFading)
+            Volume = --_fadeInCounter;
+            if (Volume == 0 || _stopFading)
             {
                 Timer timer = sender as Timer;
-                timer.Stop();
-                if(!stopFading)
-                   StopPlaying();
+                if (timer != null) timer.Stop();
+                if (!_stopFading)
+                    StopPlaying();
                 Volume = 100;
             }
         }
@@ -163,7 +155,7 @@ namespace Olympus_the_Game
         internal static void StopPlaying()
         {
             IsPlaying = false;
-            player.controls.stop();
+            Player.controls.stop();
         }
 
         /// <summary>
@@ -172,16 +164,16 @@ namespace Olympus_the_Game
         internal static void Pause()
         {
             IsPlaying = false;
-            player.controls.pause();
-
+            Player.controls.pause();
         }
+
         /// <summary>
         /// Gaat verder met afspelen
         /// </summary>
         internal static void Play()
         {
             IsPlaying = true;
-            player.controls.play();
+            Player.controls.play();
         }
 
         /// <summary>

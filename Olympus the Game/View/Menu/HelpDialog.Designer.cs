@@ -49,6 +49,8 @@
             this.LabelCake = new System.Windows.Forms.Label();
             this.PicObstacle = new System.Windows.Forms.PictureBox();
             this.LabelObstacle = new System.Windows.Forms.Label();
+            this.PicSilverfish = new System.Windows.Forms.PictureBox();
+            this.LabelSilverfish = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicSteve)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCreeper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSpider)).BeginInit();
@@ -58,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicHuis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCake)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicObstacle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSilverfish)).BeginInit();
             this.SuspendLayout();
             // 
             // REMOVEME
@@ -282,10 +285,34 @@
             this.LabelObstacle.TabIndex = 9;
             this.LabelObstacle.Text = "Dit is een obstakel. Hier kan niemand doorheen lopen.";
             // 
+            // PicSilverfish
+            // 
+            this.PicSilverfish.Image = global::Olympus_the_Game.Properties.Resources.silverfish;
+            this.PicSilverfish.Location = new System.Drawing.Point(6, 0);
+            this.PicSilverfish.Name = "PicSilverfish";
+            this.PicSilverfish.Size = new System.Drawing.Size(100, 100);
+            this.PicSilverfish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicSilverfish.TabIndex = 10;
+            this.PicSilverfish.TabStop = false;
+            // 
+            // LabelSilverfish
+            // 
+            this.LabelSilverfish.AutoSize = true;
+            this.LabelSilverfish.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelSilverfish.Location = new System.Drawing.Point(112, 0);
+            this.LabelSilverfish.MaximumSize = new System.Drawing.Size(524, 100);
+            this.LabelSilverfish.MinimumSize = new System.Drawing.Size(524, 100);
+            this.LabelSilverfish.Name = "LabelSilverfish";
+            this.LabelSilverfish.Size = new System.Drawing.Size(524, 100);
+            this.LabelSilverfish.TabIndex = 11;
+            this.LabelSilverfish.Text = "Dit is een Silverfish. Hij zit verstopt totdat je dichtbij komt.";
+            // 
             // HelpDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LabelSilverfish);
+            this.Controls.Add(this.PicSilverfish);
             this.Controls.Add(this.LabelObstacle);
             this.Controls.Add(this.LabelCake);
             this.Controls.Add(this.LabelHuis);
@@ -318,6 +345,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicHuis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCake)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicObstacle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSilverfish)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,6 +373,8 @@
         private System.Windows.Forms.Label LabelCake;
         private System.Windows.Forms.PictureBox PicObstacle;
         private System.Windows.Forms.Label LabelObstacle;
+        private System.Windows.Forms.PictureBox PicSilverfish;
+        private System.Windows.Forms.Label LabelSilverfish;
 
 
     }

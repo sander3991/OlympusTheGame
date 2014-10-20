@@ -70,7 +70,7 @@
             this.Controls.Add(this.ButtonSpeed);
             this.Controls.Add(this.ButtonGeluidDempen);
             this.Name = "SettingsDialog";
-            this.Size = new System.Drawing.Size(425, 150);
+            this.Size = new System.Drawing.Size(425, 110);
             this.ResumeLayout(false);
 
         }

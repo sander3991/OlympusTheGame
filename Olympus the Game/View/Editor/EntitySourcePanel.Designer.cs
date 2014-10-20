@@ -1,4 +1,4 @@
-﻿namespace Olympus_the_Game.View.Game.Editor
+﻿namespace Olympus_the_Game.View.Editor
 {
     partial class EntitySourcePanel
     {

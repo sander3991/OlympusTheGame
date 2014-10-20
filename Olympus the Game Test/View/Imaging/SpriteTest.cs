@@ -80,7 +80,7 @@ namespace Olympus_the_Game_Test.View.Imaging
             catch (AssertFailedException e)
             {
                 // Let assert failed exception bubble up
-                throw e;
+                throw;
             }
             catch (Exception e)
             {
@@ -129,7 +129,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         {
             // Arrange
             Bitmap bm = new Bitmap(100, 200);
-            Bitmap expected = Sprite.EMPTY;
+            Bitmap expected = Sprite.Empty;
             int col = 10;
             int row = 20;
             bool cyclic = false;
@@ -147,13 +147,12 @@ namespace Olympus_the_Game_Test.View.Imaging
             // Arrange
             Bitmap bm = new Bitmap(100, 200);
             Sprite s = bm;
-            bool expected = false;
 
             // Act
             bool actual = s.Equals(null);
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(false, actual);
         }
 
         [TestMethod]

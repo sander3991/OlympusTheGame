@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Olympus_the_Game.Model.Entities;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Model
 {
     public class ObjectFinish : GameObject
     {
-
         static ObjectFinish()
         {
-            RegisterWithEditor(ObjectType.FINISH, () => { return new ObjectFinish(50, 50, 0, 0); });
+            RegisterWithEditor(ObjectType.Finish, () => new ObjectFinish(50, 50, 0, 0));
         }
 
         /// <summary>
@@ -24,14 +21,14 @@ namespace Olympus_the_Game
             : base(width, height, x, y)
         {
             IsSolid = false;
-            Type = ObjectType.FINISH;
+            Type = ObjectType.Finish;
         }
 
         /// <summary>
         /// Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
-        public override string getDescription()
+        public override string GetDescription()
         {
             return "De finish van het level";
         }
@@ -43,8 +40,8 @@ namespace Olympus_the_Game
             {
                 int xDistance = Math.Abs((X + Width / 2) - (player.X + player.Width / 2));
                 int yDistance = Math.Abs((Y + Height / 2) - (player.Y + player.Height / 2));
-                if (xDistance < 5 && yDistance < 5)
-                    OlympusTheGame.Controller.OnPlayerReachedCake();
+                if (xDistance < 10 && yDistance < 10)
+                    OlympusTheGame.GameController.OnPlayerReachedCake();
             }
         }
 
@@ -52,7 +49,5 @@ namespace Olympus_the_Game
         {
             return "Finish";
         }
-
-        //TODO ??: OnCollide om te detecteren dat we gewonnen hebben!
     }
 }

@@ -1,42 +1,50 @@
-﻿using Olympus_the_Game.View;
+﻿using Olympus_the_Game.Controller;
+using Olympus_the_Game.Model;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Olympus_the_Game.Properties;
+using Olympus_the_Game.View.Imaging;
+using Olympus_the_Game.View.Menu;
 
 namespace Olympus_the_Game
 {
     public class OlympusTheGame
     {
         // Het scherm van het spel
-        private static MainMenu mm;
+        private static Mainmenu mm;
 
         /// <summary>
         /// Deze timer voert alle game events uit.
         /// </summary>
         /// Er is voor een Windows Forms Timer gekozen zodat er geen problemen ontstaan met cross-thread updating in Windows Forms.
-        private static Timer GameTimer = new Timer();
+        private static readonly Timer GameTimer = new Timer();
 
         /// <summary>
         /// Deze timer voert de SlowEvents uit.
         /// </summary>
-        private static Timer SlowTimer = new Timer();
+        private static readonly Timer SlowTimer = new Timer();
 
         /// <summary>
         /// Deze houdt de interne tijd bij.
         /// </summary>
-        private static Stopwatch prop_gametime = new Stopwatch();
+        private static readonly Stopwatch PropGametime = new Stopwatch();
 
         private static PlayField prop_playfield;
+
+        /// <summary>
+        /// Maak nieuw OlympusTheGame object
+        /// </summary>
+        private OlympusTheGame()
+        {
+        }
 
         /// <summary>
         /// Het huidige speelveld.
         /// </summary>
         public static PlayField Playfield
         {
-            get
-            {
-                return prop_playfield;
-            }
+            get { return prop_playfield; }
             set
             {
                 if (value != prop_playfield && value != null)
@@ -55,17 +63,14 @@ namespace Olympus_the_Game
         /// <summary>
         /// De controller, deze regelt alle events en updates
         /// </summary>
-        public static Controller Controller { get; private set; }
+        public static GameController GameController { get; private set; }
 
         /// <summary>
         /// Geeft aan of het spel gepauzeerd is.
         /// </summary>
         public static bool IsPaused
         {
-            get
-            {
-                return !GameTimer.Enabled;
-            }
+            get { return !GameTimer.Enabled; }
         }
 
         /// <summary>
@@ -73,14 +78,11 @@ namespace Olympus_the_Game
         /// </summary>
         public static long GameTime
         {
-            get
-            {
-                return prop_gametime.ElapsedMilliseconds;
-            }
+            get { return PropGametime.ElapsedMilliseconds; }
             set
             {
                 if (value == 0)
-                    prop_gametime.Reset();
+                    PropGametime.Reset();
             }
         }
 
@@ -90,11 +92,6 @@ namespace Olympus_the_Game
         public static event Action<PlayField> OnNewPlayField;
 
         /// <summary>
-        /// Maak nieuw OlympusTheGame object
-        /// </summary>
-        private OlympusTheGame() { }
-
-        /// <summary>
         /// Beginpunt van de applicatie
         /// </summary>
         [STAThread]
@@ -102,21 +99,21 @@ namespace Olympus_the_Game
         {
             // non-static object aanmaken
             SetController();
-            mm = new MainMenu();
+            mm = new Mainmenu();
             Application.Run(mm);
         }
 
         public static void SetController()
         {
-            if (Controller == null)
-                Controller = new Controller();
+            if (GameController == null)
+                GameController = new GameController();
 
             // Add gameloop to timer
-            GameTimer.Tick += Controller.ExecuteUpdateGameEvent;
+            GameTimer.Tick += GameController.ExecuteUpdateGameEvent;
             GameTimer.Interval = 10;
 
             // Create slow timer
-            SlowTimer.Tick += Controller.ExecuteUpdateSlowEvent;
+            SlowTimer.Tick += GameController.ExecuteUpdateSlowEvent;
             SlowTimer.Interval = 200;
         }
 
@@ -125,7 +122,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Pause()
         {
-            prop_gametime.Stop();
+            PropGametime.Stop();
             GameTimer.Stop();
             SlowTimer.Stop();
         }
@@ -135,7 +132,7 @@ namespace Olympus_the_Game
         /// </summary>
         public static void Resume()
         {
-            prop_gametime.Start();
+            PropGametime.Start();
             GameTimer.Start();
             SlowTimer.Start();
         }
@@ -143,14 +140,15 @@ namespace Olympus_the_Game
         public static void Restart()
         {
             //TODO ELMAR: Infoview werkend krijgen na restart
-            prop_gametime.Restart();
+            PropGametime.Restart();
             Playfield.UnloadPlayField();
             //TODO ELMAR: Moet het zojuist gespeelde speelveld worden
-            OlympusTheGame.Playfield = PlayFieldToXml.ReadFromResource(Properties.Resources.hell);
+            Playfield = PlayfieldLoader.ReadFromResource(Resources.hell);
             prop_playfield.SetPlayerHome();
             prop_playfield.InitializeGameObjects();
             OnNewPlayField(prop_playfield);
         }
+
         /// <summary>
         /// Stuur een aanvraag om af te sluiten, deze method moet worden gebruikt
         /// om soepel afsluiten te garanderen.

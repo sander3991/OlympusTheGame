@@ -1,21 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Olympus_the_Game.View.Editor
 {
     [AttributeUsage(AttributeTargets.Property)]
-    class ExcludeFromEditor : System.Attribute
+    internal class ExcludeFromEditor : Attribute
     {
-        public bool Exclude { get; private set; }
-
-        public ExcludeFromEditor() : this(true) 
-        { }
-
-        public ExcludeFromEditor(bool exclude)
+        public ExcludeFromEditor(bool exclude = true)
         {
             Exclude = exclude;
+        }
+
+        public bool Exclude { get; private set; }
+    }
+
+    [AttributeUsage(AttributeTargets.Property)]
+    internal class EditorTooltip : Attribute
+    {
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public EditorTooltip(string name, string descr)
+        {
+            Name = name;
+            Description = descr;
         }
     }
 }
