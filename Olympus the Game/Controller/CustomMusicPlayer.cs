@@ -20,13 +20,14 @@ namespace Olympus_the_Game.Controller
         }
 
         [DllImport("winmm.dll")]
+        // functie om commando's door te sturen 
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength,
             int hwndCallback);
 
         /// <summary>
         /// Open een mp3 file
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">Naam van een file</param>
         public static void Open(string file)
         {
             string command = "close MyMp3";
@@ -51,7 +52,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Pauzeer de speler.
+        /// Pauzeer de speler
         /// </summary>
         public static void Pause()
         {
