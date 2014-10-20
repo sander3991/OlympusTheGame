@@ -452,6 +452,15 @@
   <ItemGroup>
     <None Include="Resources\Maps\Gallifrey Falls No More.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\Eet geen worst.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\Crunchy Sausage.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\SpicyPotatoTomato.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

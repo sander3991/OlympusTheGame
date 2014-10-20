@@ -168,7 +168,7 @@ namespace Olympus_the_Game.View.Menu
         private void OpenLevel(PlayField pf)
         {
             if (pf == null)
-                pf = PlayfieldLoader.ReadFromResource(Resources.hell) ?? new PlayField();
+                pf = PlayfieldLoader.ReadFromResource(Resources.mapHell) ?? new PlayField();
             // Read PlayField
             OlympusTheGame.Playfield = pf;
 

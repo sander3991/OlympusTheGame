@@ -46,15 +46,27 @@ namespace Olympus_the_Game.View.Menu
             //Initialiseer de built-in playfields
             Button b = CreateLevelButton();
             b.Text = "Hell";
-            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.hell));
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapHell));
             
             b = CreateLevelButton();
             b.Text = "Beach";
-            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.beach));
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapBeach));
 
             b = CreateLevelButton();
             b.Text = "Gallifrey falls no more";
-            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.gallifrey));
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapGallifrey));
+
+            b = CreateLevelButton();
+            b.Text = "Eet geen worst";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapWorst));
+
+            b = CreateLevelButton();
+            b.Text = "Crunchy Sausage";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapSausage));
+
+            b = CreateLevelButton();
+            b.Text = "Spicy Potato Tomato";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapTomato));
 
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)

@@ -71,37 +71,6 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;PlayField&gt;
-        ///  &lt;Name&gt;Map_0&lt;/Name&gt;
-        ///  &lt;Width&gt;1000&lt;/Width&gt;
-        ///  &lt;Height&gt;500&lt;/Height&gt;
-        ///  &lt;GameObjects&gt;
-        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
-        ///      &lt;X&gt;888&lt;/X&gt;
-        ///      &lt;Y&gt;0&lt;/Y&gt;
-        ///      &lt;Width&gt;50&lt;/Width&gt;
-        ///      &lt;Height&gt;50&lt;/Height&gt;
-        ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
-        ///      &lt;X&gt;888&lt;/X&gt;
-        ///      &lt;Y&gt;50&lt;/Y&gt;
-        ///      &lt;Width&gt;50&lt;/Width&gt;
-        ///      &lt;Height&gt;50&lt;/Height&gt;
-        ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
-        ///      &lt;X&gt;888&lt;/X&gt;
-        ///      &lt;Y&gt;100&lt;/Y&gt;
-        ///      &lt;Width&gt;50&lt;/Width&gt;
-        ///      &lt;H [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string beach {
-            get {
-                return ResourceManager.GetString("beach", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream bomb {
@@ -181,35 +150,6 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
-        ///&lt;PlayField&gt;
-        ///  &lt;Name&gt;Gallifrey Falls No More&lt;/Name&gt;
-        ///  &lt;Width&gt;1000&lt;/Width&gt;
-        ///  &lt;Height&gt;500&lt;/Height&gt;
-        ///  &lt;GameObjects&gt;
-        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
-        ///      &lt;Height&gt;150&lt;/Height&gt;
-        ///      &lt;Width&gt;150&lt;/Width&gt;
-        ///      &lt;X&gt;0&lt;/X&gt;
-        ///      &lt;Y&gt;0&lt;/Y&gt;
-        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
-        ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
-        ///      &lt;Height&gt;150&lt;/Height&gt;
-        ///      &lt;Width&gt;150&lt;/Width&gt;
-        ///      &lt;X&gt;850&lt;/X&gt;
-        ///      &lt;Y&gt;350&lt;/Y&gt;
-        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
-        ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;Creeper&quot;&gt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string gallifrey {
-            get {
-                return ResourceManager.GetString("gallifrey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ghast {
@@ -250,6 +190,86 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap huis {
+            get {
+                object obj = ResourceManager.GetObject("huis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loop {
+            get {
+                object obj = ResourceManager.GetObject("loop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Map_0&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
+        ///      &lt;X&gt;888&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///      &lt;Height&gt;50&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
+        ///      &lt;X&gt;888&lt;/X&gt;
+        ///      &lt;Y&gt;50&lt;/Y&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///      &lt;Height&gt;50&lt;/Height&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Ghast&quot;&gt;
+        ///      &lt;X&gt;888&lt;/X&gt;
+        ///      &lt;Y&gt;100&lt;/Y&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///      &lt;H [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string mapBeach {
+            get {
+                return ResourceManager.GetString("mapBeach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Gallifrey Falls No More&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;X&gt;850&lt;/X&gt;
+        ///      &lt;Y&gt;350&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Creeper&quot;&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string mapGallifrey {
+            get {
+                return ResourceManager.GetString("mapGallifrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;PlayField&gt;
         ///  &lt;Name&gt;Map_0&lt;/Name&gt;
@@ -274,29 +294,99 @@ namespace Olympus_the_Game.Properties {
         ///      &lt;Width&gt;50&lt;/Width&gt;
         ///  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string hell {
+        internal static string mapHell {
             get {
-                return ResourceManager.GetString("hell", resourceCulture);
+                return ResourceManager.GetString("mapHell", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Crunchy Sausage&lt;/Name&gt;
+        ///  &lt;Width&gt;2000&lt;/Width&gt;
+        ///  &lt;Height&gt;1000&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;100&lt;/Height&gt;
+        ///      &lt;Width&gt;100&lt;/Width&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///      &lt;Height&gt;500&lt;/Height&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///      &lt;X&gt;100&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;True&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap huis {
+        internal static string mapSausage {
             get {
-                object obj = ResourceManager.GetObject("huis", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("mapSausage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;SpicyPotatoTomato&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
+        ///      &lt;Height&gt;80&lt;/Height&gt;
+        ///      &lt;Width&gt;80&lt;/Width&gt;
+        ///      &lt;X&gt;896&lt;/X&gt;
+        ///      &lt;Y&gt;407&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;75&lt;/Height&gt;
+        ///      &lt;Width&gt;75&lt;/Width&gt;
+        ///      &lt;X&gt;13&lt;/X&gt;
+        ///      &lt;Y&gt;9&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap loop {
+        internal static string mapTomato {
             get {
-                object obj = ResourceManager.GetObject("loop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("mapTomato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Eet geen worst&lt;/Name&gt;
+        ///  &lt;Width&gt;1200&lt;/Width&gt;
+        ///  &lt;Height&gt;1000&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///      &lt;Height&gt;50&lt;/Height&gt;
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        ///      &lt;X&gt;189&lt;/X&gt;
+        ///      &lt;Y&gt;341&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;True&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///      &lt;Height&gt;30&lt;/Height&gt;
+        ///      &lt;Width&gt;100&lt;/Width&gt;
+        ///      &lt;X&gt;77&lt;/X&gt;
+        ///      &lt;Y&gt;380&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;True&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string mapWorst {
+            get {
+                return ResourceManager.GetString("mapWorst", resourceCulture);
             }
         }
         
