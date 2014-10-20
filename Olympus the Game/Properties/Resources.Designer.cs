@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace Olympus_the_Game.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -391,9 +394,9 @@ namespace Olympus_the_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap silverfish {
+        internal static System.Drawing.Bitmap silverfish1 {
             get {
-                object obj = ResourceManager.GetObject("silverfish", resourceCulture);
+                object obj = ResourceManager.GetObject("silverfish1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

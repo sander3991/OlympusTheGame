@@ -39,7 +39,7 @@ namespace Olympus_the_Game.View.Imaging
             Source.Add(ObjectType.Finish, Resources.cake);
             Source.Add(ObjectType.Obstacle, Resources.cobble);
             Source.Add(ObjectType.Unknown, Resources.missing);
-            Source.Add(ObjectType.Silverfish, Resources.silverfish);
+            Source.Add(ObjectType.Silverfish, Resources.silverfish1);
             Source.Add(ObjectType.Ghast, Resources.ghast);
             Source.Add(ObjectType.Fireball, Resources.fireball);
             Source.Add(ObjectType.Spriteexplosion, new Sprite(Resources.explosion, 5, 5, false));
