@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Olympus_the_Game.Controller;
 using Olympus_the_Game.Model;
 using Olympus_the_Game.Model.Entities;
+using Olympus_the_Game.Properties;
 using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game.View.Editor
@@ -15,7 +16,7 @@ namespace Olympus_the_Game.View.Editor
         public LevelEditor()
             : this(new PlayField(1000, 500))
         {
-            Icon = Properties.Resources.icon;
+            Icon = Resources.icon;
         }
 
         public LevelEditor(PlayField pf)

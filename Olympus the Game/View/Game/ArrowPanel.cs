@@ -70,7 +70,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Selecteer alle tekst van de textbox als user er in gaat staat
+        ///     Selecteer alle tekst van de textbox als user er in gaat staat
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,7 +85,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Selecteer alle tekst als user met zijn muis in het textveld gaat staan
+        ///     Selecteer alle tekst als user met zijn muis in het textveld gaat staan
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

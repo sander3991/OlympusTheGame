@@ -8,34 +8,34 @@ using Olympus_the_Game.Properties;
 namespace Olympus_the_Game.View.Imaging
 {
     /// <summary>
-    /// Deze klasse bevat functionaliteit voor het bufferen van de plaatjes.
-    /// Het resizen van plaatjes duurt namelijk vrij lang, en daar is deze klasse dus erg handig voor.
+    ///     Deze klasse bevat functionaliteit voor het bufferen van de plaatjes.
+    ///     Het resizen van plaatjes duurt namelijk vrij lang, en daar is deze klasse dus erg handig voor.
     /// </summary>
     public static class DataPool
     {
         /// <summary>
-        /// Bron-sprites, deze worden gekoppeld aan een <see cref="ObjectType"/>
+        ///     Bron-sprites, deze worden gekoppeld aan een <see cref="ObjectType" />
         /// </summary>
         private static readonly Dictionary<ObjectType, Sprite> Source = new Dictionary<ObjectType, Sprite>();
 
         /// <summary>
-        /// De buffer die van alle plaatjes wordt bijgehouden.
+        ///     De buffer die van alle plaatjes wordt bijgehouden.
         /// </summary>
         private static readonly Dictionary<Tuple<ObjectType, Size>, Sprite> Images =
             new Dictionary<Tuple<ObjectType, Size>, Sprite>();
 
         /// <summary>
-        /// Het geluid dat wordt afgespeeld tijdens het spel.
+        ///     Het geluid dat wordt afgespeeld tijdens het spel.
         /// </summary>
         public static string GameSound { get; private set; }
 
         /// <summary>
-        /// Het geluid dat wordt afgespeeld tijdens de intro.
+        ///     Het geluid dat wordt afgespeeld tijdens de intro.
         /// </summary>
         public static string IntroSound { get; private set; }
 
         /// <summary>
-        /// Voegt alle plaatjes toe aan de bron-dictionary en laadt alle geluiden.
+        ///     Voegt alle plaatjes toe aan de bron-dictionary en laadt alle geluiden.
         /// </summary>
         public static void LoadDataPool()
         {
@@ -61,11 +61,11 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Maakt een geschaald plaatje aan.
+        ///     Maakt een geschaald plaatje aan.
         /// </summary>
         /// <param name="o">Het <code>ObjectType</code> van het plaatje</param>
         /// <param name="s">De grootte van het plaatje</param>
-        /// <returns>Een <see cref="Sprite"/> met de gegeven grootte.</returns>
+        /// <returns>Een <see cref="Sprite" /> met de gegeven grootte.</returns>
         private static Sprite CreateImage(ObjectType o, Size s)
         {
             // Get source image
@@ -83,13 +83,13 @@ namespace Olympus_the_Game.View.Imaging
             }
             return new Sprite(
                 new Bitmap(result.Image,
-                    new Size(s.Width * result.Columns, s.Height * result.Rows)
+                    new Size(s.Width*result.Columns, s.Height*result.Rows)
                     ),
                 result.Columns, result.Rows, result.Cyclic);
         }
 
         /// <summary>
-        /// Geeft de Sprite terug voor het gegeven ObjectType.
+        ///     Geeft de Sprite terug voor het gegeven ObjectType.
         /// </summary>
         /// <param name="o"></param>
         /// <param name="s"></param>
@@ -115,7 +115,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Leegt de cache van deze pool.
+        ///     Leegt de cache van deze pool.
         /// </summary>
         public static void ClearImagePool()
         {
@@ -123,7 +123,7 @@ namespace Olympus_the_Game.View.Imaging
         }
 
         /// <summary>
-        /// Sluit alle resources af die door deze <see cref="DataPool"/> worden gebruikt.
+        ///     Sluit alle resources af die door deze <see cref="DataPool" /> worden gebruikt.
         /// </summary>
         public static void UnloadDataPool()
         {

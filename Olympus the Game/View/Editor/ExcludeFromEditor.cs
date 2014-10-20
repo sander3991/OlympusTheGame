@@ -3,7 +3,7 @@
 namespace Olympus_the_Game.View.Editor
 {
     /// <summary>
-    /// Geeft aan dat deze property niet in de <see cref="LevelEditor"/> moet komen.
+    ///     Geeft aan dat deze property niet in de <see cref="LevelEditor" /> moet komen.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
     internal class ExcludeFromEditor : Attribute
