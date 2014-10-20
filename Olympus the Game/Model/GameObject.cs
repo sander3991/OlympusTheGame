@@ -43,8 +43,7 @@ namespace Olympus_the_Game.Model
 
         static GameObject()
         {
-            foreach (
-                Type t in typeof (GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof (GameObject))))
+            foreach (Type t in typeof (GameObject).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof (GameObject))))
             {
                 RuntimeHelpers.RunClassConstructor(t.TypeHandle);
             }
