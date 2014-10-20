@@ -63,7 +63,8 @@ namespace Olympus_the_Game.View.Menu
                 new HelpItem(PicSpider, LabelSpider),
                 new HelpItem(PicBomb, LabelBomb),
                 new HelpItem(PicTimeBomb, LabelTimeBomb),
-                new HelpItem(PicGhast, LabelGhast)
+                new HelpItem(PicGhast, LabelGhast),
+                new HelpItem(PicSilverfish, LabelSilverfish)
             };
             Point picLoc = new Point(0, Height);
             Point labelLoc = new Point(100, Height);
