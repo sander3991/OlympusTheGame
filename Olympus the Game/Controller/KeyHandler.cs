@@ -37,9 +37,6 @@ namespace Olympus_the_Game
                 MovePlayer(e, 2);
             }
 
-
-
-
         }
         /// <summary>
         /// Wordt aangeroepen als je een toets los laat
