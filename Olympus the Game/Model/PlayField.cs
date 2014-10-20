@@ -21,14 +21,15 @@ namespace Olympus_the_Game.Model
         private bool _isClosing;
 
         /// <summary>
-        /// Initialiseert een standaard PlayField object aan zonder GameObjects en met een breedte van 1000 en een hoogte van 500.
+        ///     Initialiseert een standaard PlayField object aan zonder GameObjects en met een breedte van 1000 en een hoogte van
+        ///     500.
         /// </summary>
         public PlayField() : this(DefaultWidth, DefaultHeight)
         {
         }
 
         /// <summary>
-        /// Initialiseert een PlayField met een custom breedte en hoogte
+        ///     Initialiseert een PlayField met een custom breedte en hoogte
         /// </summary>
         /// <param name="width">De breedte van het PlayField</param>
         /// <param name="height">De hoogte van het PlayField</param>
@@ -43,32 +44,32 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// De breedte van de PlayField
+        ///     De breedte van de PlayField
         /// </summary>
         public int Width { get; set; }
 
         /// <summary>
-        /// De hoogte van het PlayField
+        ///     De hoogte van het PlayField
         /// </summary>
         public int Height { get; set; }
 
         /// <summary>
-        /// De GameObjecten van dit PlayField.
+        ///     De GameObjecten van dit PlayField.
         /// </summary>
         public List<GameObject> GameObjects { get; private set; }
 
         /// <summary>
-        /// De Speler op dit PlayField
+        ///     De Speler op dit PlayField
         /// </summary>
         public EntityPlayer Player { get; private set; }
 
         /// <summary>
-        /// De naam van dit PlayField
+        ///     De naam van dit PlayField
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Is dit PlayField geinitialiseerd met de GameObjects
+        ///     Is dit PlayField geinitialiseerd met de GameObjects
         /// </summary>
         public bool IsInitialized { get; private set; }
 
@@ -77,7 +78,7 @@ namespace Olympus_the_Game.Model
         public event DelOnPlayFieldChanged OnObjectRemoved;
 
         /// <summary>
-        /// Initialiseert alle GameObject zonder gameobjecten
+        ///     Initialiseert alle GameObject zonder gameobjecten
         /// </summary>
         public void InitializeGameObjects()
         {
@@ -85,7 +86,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Initialiseert de PlayMap met de meegegeven lijst met GameObjects
+        ///     Initialiseert de PlayMap met de meegegeven lijst met GameObjects
         /// </summary>
         /// <param name="objects">De Lijst waarmee het PlayField geinitialiseerd dient te worden</param>
         public void InitializeGameObjects(List<GameObject> objects)
@@ -101,7 +102,7 @@ namespace Olympus_the_Game.Model
                         //Is er al een PlayField object aangekoppeld, dat mag niet!
                         throw new ArgumentException("De meegegeven objects zijn al gekoppeld aan een PlayField!");
                     t.Playfield = this;
-                    EntityPlayer player = t as EntityPlayer;
+                    var player = t as EntityPlayer;
                     if (player != null) //Is dit het speler object? Deze willen we niet in de gameObject lijst hebben
                     {
                         Player = player; //Zet de speler in de Player property
@@ -116,7 +117,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Voegt een entity toe aan het speelveld
+        ///     Voegt een entity toe aan het speelveld
         /// </summary>
         public void AddObject(GameObject entity)
         {
@@ -130,7 +131,8 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object aangeroepen.
+        ///     Verwijderd een GameObject van dit speelveld, bij het verwijderen van dit object worrdt de OnRemoved van dat object
+        ///     aangeroepen.
         /// </summary>
         /// <param name="entity">Het GameObject dat verwijderd dient te worden</param>
         /// <param name="fieldRemoved">True als het spel wordt uitgeladen</param>
@@ -143,7 +145,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Zet de speler op de home locatie neer, en maakt een Player aan als deze nog niet bestaat.
+        ///     Zet de speler op de home locatie neer, en maakt een Player aan als deze nog niet bestaat.
         /// </summary>
         public void SetPlayerHome()
         {
@@ -168,14 +170,14 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Haalt alle objecten op op de locatie
+        ///     Haalt alle objecten op op de locatie
         /// </summary>
         /// <param name="x">De X locatie waarop gecontroleerd moet worden</param>
         /// <param name="y">De Y Locatie waarop gecontroleerd moet worden</param>
         /// <returns><code>null</code> als er niks is gevonden, anders een <code>List</code> met <code>GameObject</code></returns>
         public List<GameObject> GetObjectsAtLocation(int x, int y)
         {
-            List<GameObject> objectList = new List<GameObject>();
+            var objectList = new List<GameObject>();
             for (int i = 0; i < GameObjects.Count; i++) //loopt door alle objects
             {
                 GameObject o = GameObjects[i];
@@ -188,17 +190,17 @@ namespace Olympus_the_Game.Model
                 objectList.Add(Player); //Controleer ook of de player op die plek zit
 
             return objectList.Count == 0 ? null : objectList;
-                // Return alleen de lijst als er daadwerkelijk wat in zit, anders null.
+            // Return alleen de lijst als er daadwerkelijk wat in zit, anders null.
         }
 
         /// <summary>
-        /// Verwijderd alle gameobjecten van het speelveld, en roept de GameObject.OnRemoved aan voor elke method.
+        ///     Verwijderd alle gameobjecten van het speelveld, en roept de GameObject.OnRemoved aan voor elke method.
         /// </summary>
         public void UnloadPlayField()
         {
             _isClosing = true;
-            List<GameObject> oldList = new List<GameObject>(GameObjects);
-                //we maken een nieuwe lijst aan zodat we alle referenties behouden, RemoveObject haalt de referenties weg!
+            var oldList = new List<GameObject>(GameObjects);
+            //we maken een nieuwe lijst aan zodat we alle referenties behouden, RemoveObject haalt de referenties weg!
             foreach (GameObject go in oldList)
                 RemoveObject(go, true);
             if (GameObjects.Count != 0)
@@ -212,7 +214,7 @@ namespace Olympus_the_Game.Model
         #region Xml I/O Implementatie
 
         /// <summary>
-        /// Interface implementatie IXmlSerializable
+        ///     Interface implementatie IXmlSerializable
         /// </summary>
         /// <returns>null, comform documentatie interface</returns>
         public XmlSchema GetSchema()
@@ -221,7 +223,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
-        /// Word aargeroepen door de XmlReader om een PlayField bestand in te lezen
+        ///     Word aargeroepen door de XmlReader om een PlayField bestand in te lezen
         /// </summary>
         /// <param name="reader">De reader aangemaakt door de XmlReader</param>
         public void ReadXml(XmlReader reader)
@@ -241,7 +243,7 @@ namespace Olympus_the_Game.Model
                         if (elementName != "GameObject")
                             //Bij alle elementen behalve 'GameObject' naar het volgende element gaan, bij GameObject niet doen omdat we daarvan het attribuut moeten lezen
                             reader.Read();
-                                //Het volgende object is de tekst tussen de elementen, op te vragen via reader.Value
+                        //Het volgende object is de tekst tussen de elementen, op te vragen via reader.Value
                         switch (elementName)
                         {
                             case "Name":
@@ -278,8 +280,11 @@ namespace Olympus_the_Game.Model
                                     Console.WriteLine("Het attribuut kon niet ingelezen worden!");
                                 try
                                 {
-                                    str = char.ToUpper(str[0]) + str.Substring(1).ToLower().Replace(" ","");//De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
-                                    newObject = Utils.CreateObjectOfType((ObjectType)Enum.Parse(typeof(ObjectType), str)); //Zet het om naar het enum type die erbij hoort
+                                    str = char.ToUpper(str[0]) + str.Substring(1).ToLower().Replace(" ", "");
+                                        //De char.toUpper en substring zorgen ervoor dat het altijd zo geformat is als de enum om de kans te vergroten dat het lukt! De Replace zorgt ervoor dat er eventuele spaties uitgehaald worden
+                                    newObject =
+                                        Utils.CreateObjectOfType((ObjectType) Enum.Parse(typeof (ObjectType), str));
+                                        //Zet het om naar het enum type die erbij hoort
                                 }
                                 catch (InvalidCastException)
                                 {
@@ -295,7 +300,7 @@ namespace Olympus_the_Game.Model
                                 if (newObject != null)
                                 {
                                     PropertyInfo propInfo = newObject.GetType().GetProperty(elementName);
-                                        //WE zoeken hier de property op
+                                    //WE zoeken hier de property op
                                     if (propInfo == null)
                                         // Als de property niet bestaat, laten we dit de user weten met een print line
                                         Console.WriteLine(
@@ -325,18 +330,19 @@ namespace Olympus_the_Game.Model
                             if (newObject != null)
                             {
                                 AddObject(newObject);
-                                newObject = null;//Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
+                                newObject = null;
+                                    //Haalt de verwijzing weg zodat we weten dat we niet meer aan het lezen zijn
                             }
                         }
                         break;
                 }
                 reader.Read();
             }
-             IsInitialized = true;
+            IsInitialized = true;
         }
 
         /// <summary>
-        /// IXmlSerializable interface voor het schrijven naar een XmlBestand
+        ///     IXmlSerializable interface voor het schrijven naar een XmlBestand
         /// </summary>
         /// <param name="writer">De schrijver</param>
         public void WriteXml(XmlWriter writer)
