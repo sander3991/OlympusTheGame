@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Olympus_the_Game
+namespace Olympus_the_Game.Controller
 {
     /// <summary>
     /// Gebruik deze klasse om alle toetsen aan toe te voegen

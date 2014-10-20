@@ -19,7 +19,7 @@ namespace Olympus_the_Game.View.Game
             InitializeComponent();
         }
 
-        public Point MouseDownLocation { get; set; }
+        public Point MouseDownLocation { get; set; } // TODO Get wordt nooit gebruikt
         // Het scherm moet 1 keer worden geresized in de Update zet hij deze op false
         public bool IsResized { get; set; }
 

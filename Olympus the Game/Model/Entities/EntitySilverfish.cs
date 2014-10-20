@@ -104,7 +104,7 @@ namespace Olympus_the_Game.Model.Entities
 
         public override void OnCollide(GameObject gameObject) {
             EntityPlayer player = gameObject as EntityPlayer;
-            PlayField pf = Playfield;
+            PlayField pf = Playfield; // TODO Deze variabele wordt niet gebruikt...
             if(player != null) {
                 if(!HasHitPlayer) {
                     Playfield.Player.Health--;
@@ -120,7 +120,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
         {
-            return "Silverfish - coming soon";
+            return "Is onzichtbaar tot je te dichtbij bent.";
         }
 
 
