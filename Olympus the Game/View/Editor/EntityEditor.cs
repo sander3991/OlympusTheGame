@@ -74,7 +74,7 @@ namespace Olympus_the_Game.View.Editor
                     Height = RowHeight,
                     Width = 150
                 };
-
+                tb.KeyDown += tb_KeyDown;
                 object[] attributes = fi.GetCustomAttributes(typeof(EditorTooltip), true);
                 if (attributes != null && attributes.Length > 0)
                 {
@@ -100,6 +100,12 @@ namespace Olympus_the_Game.View.Editor
                 // Update padding
                 pad += BorderPadding + l.Height;
             }
+        }
+
+        void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                ToepassenEntity_Click(this, e);
         }
 
         /// <summary>
