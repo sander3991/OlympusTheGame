@@ -25,6 +25,7 @@ namespace Olympus_the_Game.Controller
 
         static PlayfieldLoader()
         {
+            //initialiseer de class met de al bestaande maps 
             customMaps = new Dictionary<string, string>();
             if (!Directory.Exists(CustomMapLoc))
                 Directory.CreateDirectory(CustomMapLoc);
@@ -33,6 +34,7 @@ namespace Olympus_the_Game.Controller
             directoryWatcher = new FileSystemWatcher(CustomMapLoc);
             directoryWatcher.Filter = "*.xml";
             directoryWatcher.EnableRaisingEvents = true;
+            // Subscribe tot de directorylistener events. Zo kunnen we zien wanneer er iets aangemaakt, veranderd, of verwijderd wordt
             directoryWatcher.Created += directoryWatcher_Created;
             directoryWatcher.Deleted += directoryWatcher_Deleted;
             directoryWatcher.Renamed += directoryWatcher_Renamed;
