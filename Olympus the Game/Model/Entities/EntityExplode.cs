@@ -10,14 +10,14 @@ namespace Olympus_the_Game.Model.Entities
     {
         static EntityExplode()
         {
-            RegisterWithEditor(ObjectType.Explode, () => new EntityExplode(50, 50, 0, 0, 1f));
+            RegisterWithEditor(ObjectType.Explode, () => new EntityExplode(50, 50, 0, 0, 1));
                 // TODO Maak waarden standaard
         }
 
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt gelijk na initialisatie
         /// </summary>
-        public EntityExplode(int width, int height, int x, int y, int dx, int dy, double effectStrength)
+        public EntityExplode(int width, int height, int x, int y, int dx, int dy, int effectStrength)
             : base(width, height, x, y, dx, dy)
         {
             EffectStrength = Math.Max(0, effectStrength);
@@ -28,16 +28,20 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Initialiseert een exploderend object dat explodeert als spelers daarmee in contact komen, hij beweegt niet na initialisatie
         /// </summary>
-        public EntityExplode(int width, int height, int x, int y, double effectStrength)
+        public EntityExplode(int width, int height, int x, int y, int effectStrength)
             : this(width, height, x, y, 0, 0, effectStrength)
         {
         }
 
+        private int _prop_effectstrength;
         /// <summary>
         /// De sterkte van het exploderende object
         /// </summary>
         [EditorTooltip("Explosie sterkte", "Hoe sterk is de explosie in aantal healthpunten.")]
-        public double EffectStrength { get; set; }
+        public int EffectStrength {
+            get { return _prop_effectstrength; }
+            set { _prop_effectstrength = Math.Max(0, value); } 
+        }
 
         public override void OnCollide(GameObject gameObject)
         {

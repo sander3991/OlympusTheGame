@@ -202,14 +202,14 @@ namespace Olympus_the_Game.View.Editor
                 case (char)Keys.D3:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1.0f));
+                        CurrentPlayField.AddObject(new EntityExplode(50, 50, pointer.X, pointer.Y, 1));
                         gamePanelEditor.Invalidate();
                     }
                     break;
                 case (char)Keys.D4:
                     {
                         Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1.0f));
+                        CurrentPlayField.AddObject(new EntityCreeper(50, 50, pointer.X, pointer.Y, 1));
                         gamePanelEditor.Invalidate();
                     }
                     break;
