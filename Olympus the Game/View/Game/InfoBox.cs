@@ -18,7 +18,7 @@ namespace Olympus_the_Game.View.Game
             OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
         }
 
-        public Point MouseDownLocation { get; set; }
+        public Point MouseDownLocation { get; set; } // TODO Get wordt nooit gebruikt
 
         private void OlympusTheGame_OnNewPlayField(PlayField obj)
         {

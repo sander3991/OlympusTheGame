@@ -19,29 +19,29 @@ namespace Olympus_the_Game.Controller
         /// <param name="e"></param>
         internal static void KeyDown(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
-                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
-                e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.W || e.KeyCode == Keys.S ||
-                e.KeyCode == CustomRight || e.KeyCode == CustomLeft ||
-                e.KeyCode == CustomUp || e.KeyCode == CustomDown)
+            if (e.KeyCode == Keys.Left  || e.KeyCode == Keys.Right  ||
+                e.KeyCode == Keys.Up    || e.KeyCode == Keys.Down   ||
+                e.KeyCode == Keys.A     || e.KeyCode == Keys.D      ||
+                e.KeyCode == Keys.W     || e.KeyCode == Keys.S      ||
+                e.KeyCode == CustomRight|| e.KeyCode == CustomLeft  ||
+                e.KeyCode == CustomUp   || e.KeyCode == CustomDown)
             {
                 MovePlayer(e, 2);
             }
-        }
 
+        }
         /// <summary>
         /// Wordt aangeroepen als je een toets los laat
         /// </summary>
         /// <param name="e"></param>
         internal static void KeyUp(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
-                e.KeyCode == Keys.Up || e.KeyCode == Keys.Down ||
-                e.KeyCode == Keys.A || e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.W || e.KeyCode == Keys.S ||
-                e.KeyCode == CustomRight || e.KeyCode == CustomLeft ||
-                e.KeyCode == CustomUp || e.KeyCode == CustomDown)
+            if (e.KeyCode == Keys.Left  || e.KeyCode == Keys.Right  ||
+                e.KeyCode == Keys.Up    || e.KeyCode == Keys.Down   ||
+                e.KeyCode == Keys.A     || e.KeyCode == Keys.D      ||
+                e.KeyCode == Keys.W     || e.KeyCode == Keys.S      ||
+                e.KeyCode == CustomRight|| e.KeyCode == CustomLeft  ||
+                e.KeyCode == CustomUp   || e.KeyCode == CustomDown)
             {
                 MovePlayer(e, 0);
             }
@@ -65,12 +65,12 @@ namespace Olympus_the_Game.Controller
             // Toetsen voor naar links en naar rechts.
             if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D || e.KeyCode == CustomRight)
                 OlympusTheGame.Playfield.Player.DX = speed;
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A || e.KeyCode == CustomLeft)
+            if (e.KeyCode == Keys.Left  || e.KeyCode == Keys.A || e.KeyCode == CustomLeft)
                 OlympusTheGame.Playfield.Player.DX = -speed;
             // Toetsen voor naar boven en naar beneden.
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode == CustomUp)
+            if (e.KeyCode == Keys.Up    || e.KeyCode == Keys.W || e.KeyCode == CustomUp)
                 OlympusTheGame.Playfield.Player.DY = -speed;
-            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S || e.KeyCode == CustomDown)
+            if (e.KeyCode == Keys.Down  || e.KeyCode == Keys.S || e.KeyCode == CustomDown)
                 OlympusTheGame.Playfield.Player.DY = speed;
         }
 
@@ -86,5 +86,9 @@ namespace Olympus_the_Game.Controller
             else
                 OlympusTheGame.Playfield.Player.DY = speed;
         }
+
+
+
+
     }
 }

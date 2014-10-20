@@ -37,7 +37,7 @@ namespace Olympus_the_Game.Model.Entities
             get
             {
                 //return 0.5f;
-                if (_propFrame == 0.5f)
+                if (_propFrame == 0.5f) // TODO Hier misschien een bereik aangeven in plaats van hard aangeven
                 {
                     _frameCount++;
                     if (_frameCount%20 == 0)

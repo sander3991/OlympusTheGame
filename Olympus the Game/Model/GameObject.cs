@@ -83,7 +83,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// Een uniek ID voor elk object dat wordt aangemaakt
         /// </summary>
-        public int UniqueID { get; private set; }
+        public int UniqueID { get; private set; } // TODO Get wordt nooit gebruikt
 
         /// <summary>
         /// Initialiseert een GameObject
@@ -130,24 +130,24 @@ namespace Olympus_the_Game.Model
         /// <summary>
         /// De hoogte van het GameObject
         /// </summary>
-        [EditorTooltip("Hoogte", "De hoogte van dit object")]
+        [EditorTooltip("Hoogte", "De hoogte van dit object. De minimale hoogte is 10.")]
         public int Height
         {
             get { return height; }
             set {
-                height = value >= 0 ? value : 0;
+                height = value >= 10 ? value : 10;
             }
         }
 
         /// <summary>
         /// De breedte van het GameObject
         /// </summary>
-        [EditorTooltip("Breedte", "De breedte van dit object")]
+        [EditorTooltip("Breedte", "De breedte van dit object. De minimale breedte is 10.")]
         public int Width
         {
             get { return width; }
             set {
-                width = value >= 0 ? value : 0;
+                width = value >= 10 ? value : 10;
             }
         }
 

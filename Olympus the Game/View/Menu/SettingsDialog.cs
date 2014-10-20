@@ -30,8 +30,6 @@ namespace Olympus_the_Game.View.Menu
             }
         }
 
-        private void ButtonSpeed_Click(object sender, EventArgs e)
-        {
-        }
+       
     }
 }

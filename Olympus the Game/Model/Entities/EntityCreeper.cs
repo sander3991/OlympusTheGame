@@ -25,25 +25,26 @@ namespace Olympus_the_Game.Model.Entities
         }
         static EntityCreeper()
         {
-            RegisterWithEditor(ObjectType.Creeper, () => new EntityCreeper(50, 50, 0, 0, 1f));
+            RegisterWithEditor(ObjectType.Creeper, () => new EntityCreeper(50, 50, 0, 0, 1));
                 // TODO Maak waarden standaard
         }
 
         /// <summary>
         /// Een Creeper object met een beginsnelheid
         /// </summary>
-        public EntityCreeper(int width, int height, int x, int y, int dx, int dy, double explodeStrength)
+        public EntityCreeper(int width, int height, int x, int y, int dx, int dy, int explodeStrength)
             : base(width, height, x, y, dx, dy, explodeStrength)
         {
             OlympusTheGame.GameController.UpdateGameEvents += OnUpdate;
             EntityControlledByAi = true;
             Type = ObjectType.Creeper;
+            CreeperRange = 150;
         }
 
         /// <summary>
         /// Een creeper object die stil staat op het begin
         /// </summary>
-        public EntityCreeper(int width, int height, int x, int y, double explodeStrength)
+        public EntityCreeper(int width, int height, int x, int y, int explodeStrength)
             : this(width, height, x, y, 0, 0, explodeStrength)
         {
         }
