@@ -21,7 +21,7 @@ namespace Olympus_the_Game.Controller
         private static readonly FileSystemWatcher directoryWatcher;
 
         private static readonly Dictionary<string, string> customMaps;
-            //customMaps, de key is de locatie van het bestand, de value is de omschrijving van het bestand
+        //customMaps, de key is de locatie van het bestand, de value is de omschrijving van het bestand
 
         static PlayfieldLoader()
         {
@@ -101,9 +101,9 @@ namespace Olympus_the_Game.Controller
                         //we gaan het maximaal 50 keer proberen opnieuw te lezen
                         Thread.Sleep(100); //We wachten in deze worked thread een 0,1 seconde, en proberen het opnieuw
                         AddFile(fileLocation, attempt++);
-                            // TODO Sander: Waaroom hier attempt++, moet er niet in de methode parameters ref / out staan?
+                        // TODO Sander: Waaroom hier attempt++, moet er niet in de methode parameters ref / out staan?
                         return;
-                            //Als wij op dit punt een IOException krijgen, is het bestand nog niet klaar met schrijven, we returnen omdat later het event nog een keer afgevuurd word, en we het dan wel kunnen lezen!
+                        //Als wij op dit punt een IOException krijgen, is het bestand nog niet klaar met schrijven, we returnen omdat later het event nog een keer afgevuurd word, en we het dan wel kunnen lezen!
                     }
                 }
                 string line;

@@ -27,7 +27,7 @@ namespace Olympus_the_Game.View.Menu
         private const int MAXBUTTONS = 6; //Het aantal knoppen dat maximaal zichtbaar zijn
 
         private readonly Dictionary<Button, GetPlayField> buttons;
-            //Hierin wordt opgeslagen hoe deze button opgehalad wordt dmv de GetPlayField delegate
+        //Hierin wordt opgeslagen hoe deze button opgehalad wordt dmv de GetPlayField delegate
 
         private int _propScrollLoc;
 
@@ -70,7 +70,7 @@ namespace Olympus_the_Game.View.Menu
 
             MouseWheel += LevelDialog_MouseWheel;
             VisibleChanged += delegate { if (Visible) Focus(); };
-                //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
+            //Als wij zichtbaar zijn focusen we op dit onderdeel zodat wij kunnen scrollen.
         }
 
         private int ScrollLoc
@@ -168,7 +168,7 @@ namespace Olympus_the_Game.View.Menu
             {
                 MapCallback d = AddCustomLevelButton;
                 Invoke(d, new object[] {mapName});
-                    //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 AddCustomLevelButton(mapName);
@@ -186,7 +186,7 @@ namespace Olympus_the_Game.View.Menu
             {
                 MapCallback d = RemoveCustomLevelButton;
                 Invoke(d, new object[] {mapName});
-                    //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
+                //Hiermee invoken we de thread waarin deze control is aangemaakt zodat wij het veilig toe kunnen voegen
             }
             else
                 RemoveCustomLevelButton(mapName);
