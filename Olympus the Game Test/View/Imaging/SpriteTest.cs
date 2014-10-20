@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using Olympus_the_Game.View.Imaging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Olympus_the_Game.View.Imaging;
 
 namespace Olympus_the_Game_Test.View.Imaging
 {
@@ -12,8 +12,8 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Cast_From_Bitmap()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 100);
-            Sprite expected = new Sprite(bm);
+            var bm = new Bitmap(100, 100);
+            var expected = new Sprite(bm);
 
             // Act
             Sprite actual = bm;
@@ -26,10 +26,10 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Creation_Static()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
 
             // Act
-            Sprite actual = new Sprite(bm);
+            var actual = new Sprite(bm);
 
             // Assert
             Assert.AreEqual(bm, actual.Image);
@@ -41,32 +41,31 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Creation_Dynamic()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             int col = 10;
             int row = 20;
 
             // Act
-            Sprite actual = new Sprite(bm, col, row);
+            var actual = new Sprite(bm, col, row);
 
             // Assert
             Assert.AreEqual(bm, actual.Image);
             Assert.AreEqual(col, actual.Columns);
             Assert.AreEqual(row, actual.Rows);
             Assert.AreEqual(false, actual.Cyclic);
-            Assert.AreEqual(col * row, actual.Images.Count);
-            Assert.AreEqual(col * row, actual.Frames);
+            Assert.AreEqual(col*row, actual.Frames);
         }
 
         [TestMethod]
         public void Sprite_Get_Out_Of_Range_Frame()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             int col = 10;
             int row = 20;
 
             // Act
-            Sprite actual = new Sprite(bm, col, row);
+            var actual = new Sprite(bm, col, row);
 
             // Assert
             try
@@ -74,7 +73,8 @@ namespace Olympus_the_Game_Test.View.Imaging
                 Bitmap b = actual[-2.0f];
                 Assert.Fail("No error thrown");
             }
-            catch (ArgumentOutOfRangeException) {
+            catch (ArgumentOutOfRangeException)
+            {
                 // This should happen
             }
             catch (AssertFailedException e)
@@ -93,13 +93,13 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Get_Larger_Frame()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             int col = 10;
             int row = 20;
             bool cyclic = true;
 
             // Act
-            Sprite s = new Sprite(bm, col, row, cyclic);
+            var s = new Sprite(bm, col, row, cyclic);
             Bitmap expected = s[0.7f];
             Bitmap actual = s[5.7f];
 
@@ -111,7 +111,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Get_Correct_Frame()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             int col = 10;
             int row = 20;
             bool cyclic = false;
@@ -120,15 +120,15 @@ namespace Olympus_the_Game_Test.View.Imaging
             Bitmap actual = new Sprite(bm, col, row, cyclic)[0.5f];
 
             // Assert
-            Assert.AreEqual(bm.Width / col, actual.Width);
-            Assert.AreEqual(bm.Height / row, actual.Height);
+            Assert.AreEqual(bm.Width/col, actual.Width);
+            Assert.AreEqual(bm.Height/row, actual.Height);
         }
 
         [TestMethod]
         public void Sprite_Get_Too_Large_Frame()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             Bitmap expected = Sprite.Empty;
             int col = 10;
             int row = 20;
@@ -145,7 +145,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Null()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             Sprite s = bm;
 
             // Act
@@ -159,7 +159,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Other_Class()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             Sprite s = bm;
             bool expected = false;
 
@@ -174,7 +174,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Other_Sprite()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             Sprite s = bm;
             bool expected = false;
 
@@ -189,7 +189,7 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Same_Sprite()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
+            var bm = new Bitmap(100, 200);
             Sprite s = bm;
             bool expected = true;
 
@@ -204,8 +204,8 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Same_Cyclic_Sprite()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
-            Sprite s = new Sprite(bm, 10, 5, true);
+            var bm = new Bitmap(100, 200);
+            var s = new Sprite(bm, 10, 5, true);
             bool expected = true;
 
             // Act
@@ -219,8 +219,8 @@ namespace Olympus_the_Game_Test.View.Imaging
         public void Sprite_Equals_Different_Cyclic_Sprite()
         {
             // Arrange
-            Bitmap bm = new Bitmap(100, 200);
-            Sprite s = new Sprite(bm, 10, 5, true);
+            var bm = new Bitmap(100, 200);
+            var s = new Sprite(bm, 10, 5, true);
             bool expected = false;
 
             // Act

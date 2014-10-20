@@ -20,11 +20,11 @@ namespace Olympus_the_Game.View.Editor
 
             foreach (EntitySourcePanel esp in GameObject.ConstructorList.Select(a => new EntitySourcePanel(a.Key)))
             {
-                esp.Left = (Width - esp.Width) / 2;
+                esp.Left = (Width - esp.Width)/2;
                 esp.Top = pad;
 
                 pad += esp.Height;
-                pad += PaddingTop * 2;
+                pad += PaddingTop*2;
 
                 Controls.Add(esp);
             }
