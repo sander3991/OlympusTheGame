@@ -181,6 +181,35 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Gallifrey Falls No More&lt;/Name&gt;
+        ///  &lt;Width&gt;1000&lt;/Width&gt;
+        ///  &lt;Height&gt;500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
+        ///      &lt;Height&gt;150&lt;/Height&gt;
+        ///      &lt;Width&gt;150&lt;/Width&gt;
+        ///      &lt;X&gt;850&lt;/X&gt;
+        ///      &lt;Y&gt;350&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Creeper&quot;&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gallifrey {
+            get {
+                return ResourceManager.GetString("gallifrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ghast {

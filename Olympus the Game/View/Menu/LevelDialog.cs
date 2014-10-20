@@ -47,10 +47,14 @@ namespace Olympus_the_Game.View.Menu
             Button b = CreateLevelButton();
             b.Text = "Hell";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.hell));
+            
             b = CreateLevelButton();
-
             b.Text = "Beach";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.beach));
+
+            b = CreateLevelButton();
+            b.Text = "Gallifrey falls no more";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.gallifrey));
 
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)
