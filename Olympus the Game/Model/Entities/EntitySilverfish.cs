@@ -9,12 +9,14 @@ namespace Olympus_the_Game.Model.Entities
         private bool HasHitPlayer;
         private static Stopwatch stopwatch;
         private int prop_removetime = 3000;
-        [EditorTooltip("TODO JOEL - NAAM", "TODO JOEL OMSCHRIJVING")]
+        [ExcludeFromEditor]
         public int RemoveTime {
             get { return prop_removetime; }
+            set { if (value >= 0) prop_removetime = value; }
         }
 
         private int _propSpotRange;
+        [EditorTooltip("Spot afstand", "Op welke afstand spot de silverfish de speler.")]
         public int SpotRange {
             get {
                 return _propSpotRange;
