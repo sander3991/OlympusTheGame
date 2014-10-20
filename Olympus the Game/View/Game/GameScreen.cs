@@ -19,6 +19,7 @@ namespace Olympus_the_Game.View.Game
         {
             // Initialiseer componenten
             InitializeComponent();
+            Icon = Properties.Resources.icon;
             forceClose = false;
             OlympusTheGame.OnNewPlayField += OnPlayFieldUpdate;
             OlympusTheGame.GameController.OnPlayerFinished += OnPlayerFinished;
