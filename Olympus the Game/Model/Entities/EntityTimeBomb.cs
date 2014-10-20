@@ -17,14 +17,14 @@ namespace Olympus_the_Game.Model.Entities
 
         static EntityTimeBomb()
         {
-            RegisterWithEditor(ObjectType.Timebomb, () => new EntityTimeBomb(50, 50, 0, 0, 1f));
+            RegisterWithEditor(ObjectType.Timebomb, () => new EntityTimeBomb(50, 50, 0, 0, 1));
                 // TODO Maak waarden standaard
         }
 
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Loopt vanaf het begin de meegegeven snelheid
         /// </summary>
-        public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, double effectStrength)
+        public EntityTimeBomb(int width, int height, int x, int y, int dx, int dy, int effectStrength)
             : base(width, height, x, y, dx, dy, effectStrength)
         {
             EntityControlledByAi = false;
@@ -35,7 +35,7 @@ namespace Olympus_the_Game.Model.Entities
         /// <summary>
         /// Een bom die na een bepaalde tijd explodeert. Staat vanaf het begin stil.
         /// </summary>
-        public EntityTimeBomb(int width, int height, int x, int y, double effectStrength)
+        public EntityTimeBomb(int width, int height, int x, int y, int effectStrength)
             : this(width, height, x, y, 0, 0, effectStrength)
         {
         }

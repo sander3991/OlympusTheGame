@@ -64,9 +64,6 @@ namespace Olympus_the_Game.View.Game
             {
                 MessageBox.Show("Onjuiste toetsen geselecteerd");
             }
-
-            //int wat = Convert.ToInt32(textBox1.Text[0]);
-            //MessageBox.Show(wat.ToString());
         }
 
         /// <summary>
