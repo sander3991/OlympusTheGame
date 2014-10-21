@@ -441,16 +441,7 @@
     <None Include="Resources\Textures\ScrollArrowUp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\44105bbe07a07ab277b1e5b56ca73b1c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\visje.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\visje.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\silverfish.png" />
+    <None Include="Resources\Textures\silverfish.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Maps\Gallifrey Falls No More.xml" />
