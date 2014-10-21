@@ -54,7 +54,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Model\Entities\EntityCreeperTests.cs" />
     <Compile Include="Model\PlayFieldTest.cs" />
     <Compile Include="Model\Entities\EntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
