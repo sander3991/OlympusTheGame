@@ -49,6 +49,11 @@ namespace Olympus_the_Game.Model.Sprites
             protected set { }
         }
 
+        public override string GetDescription()
+        {
+            return string.Format("Sprite {0}", UniqueID);
+        }
+
         public override CollisionType CollidesWithObject(GameObject entity)
         {
             return CollisionType.None;

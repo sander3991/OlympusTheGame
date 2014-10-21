@@ -461,6 +461,9 @@
   <ItemGroup>
     <None Include="Resources\Maps\SoupWithMeatBalls.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\Bananomonopoly.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

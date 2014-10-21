@@ -250,4 +250,7 @@
   <data name="soup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Maps\SoupWithMeatBalls.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="banano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maps\Bananomonopoly.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

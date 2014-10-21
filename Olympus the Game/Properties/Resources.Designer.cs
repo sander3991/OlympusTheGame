@@ -71,6 +71,36 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Bananomonopoly&lt;/Name&gt;
+        ///  &lt;Width&gt;3000&lt;/Width&gt;
+        ///  &lt;Height&gt;1500&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;200&lt;/Height&gt;
+        ///      &lt;Width&gt;200&lt;/Width&gt;
+        ///      &lt;X&gt;61&lt;/X&gt;
+        ///      &lt;Y&gt;1300&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
+        ///      &lt;Height&gt;200&lt;/Height&gt;
+        ///      &lt;Width&gt;200&lt;/Width&gt;
+        ///      &lt;X&gt;2800&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string banano {
+            get {
+                return ResourceManager.GetString("banano", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream bomb {

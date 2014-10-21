@@ -9,7 +9,7 @@ using Olympus_the_Game.View.Menu;
 
 namespace Olympus_the_Game
 {
-    public class OlympusTheGame
+    public static class OlympusTheGame
     {
         // Het scherm van het spel
         private static Mainmenu mm;
@@ -31,13 +31,6 @@ namespace Olympus_the_Game
         private static readonly Stopwatch PropGametime = new Stopwatch();
 
         private static PlayField prop_playfield;
-
-        /// <summary>
-        ///     Maak nieuw OlympusTheGame object
-        /// </summary>
-        private OlympusTheGame()
-        {
-        }
 
         /// <summary>
         ///     Het huidige speelveld.

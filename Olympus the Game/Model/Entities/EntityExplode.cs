@@ -68,6 +68,11 @@ namespace Olympus_the_Game.Model.Entities
             }
         }
 
+        public override string GetDescription()
+        {
+            return "De TNT ontploft zodra je er tegenaan loopt.";
+        }
+
         public override string ToString()
         {
             return "Explode";
