@@ -60,7 +60,7 @@
     <Compile Include="OlympusTheGameTest.cs" />
     <Compile Include="View\Editor\LevelEditorTest.cs" />
     <Compile Include="View\Imaging\SpriteTest.cs" />
-    <Compile Include="View\Imaging\ImagePoolTest.cs" />
+    <Compile Include="View\Imaging\DataPoolTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Olympus the Game\Olympus the Game.csproj">
