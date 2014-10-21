@@ -458,6 +458,9 @@
   <ItemGroup>
     <None Include="Resources\Maps\SpicyPotatoTomato.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\SoupWithMeatBalls.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />

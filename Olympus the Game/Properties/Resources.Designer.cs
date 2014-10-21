@@ -536,6 +536,35 @@ namespace Olympus_the_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;PlayField&gt;
+        ///  &lt;Name&gt;Soup With Meatballs&lt;/Name&gt;
+        ///  &lt;Width&gt;2000&lt;/Width&gt;
+        ///  &lt;Height&gt;1000&lt;/Height&gt;
+        ///  &lt;GameObjects&gt;
+        ///    &lt;GameObject Type=&quot;Start&quot;&gt;
+        ///      &lt;Height&gt;200&lt;/Height&gt;
+        ///      &lt;Width&gt;200&lt;/Width&gt;
+        ///      &lt;X&gt;0&lt;/X&gt;
+        ///      &lt;Y&gt;0&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Finish&quot;&gt;
+        ///      &lt;Height&gt;200&lt;/Height&gt;
+        ///      &lt;Width&gt;200&lt;/Width&gt;
+        ///      &lt;X&gt;1800&lt;/X&gt;
+        ///      &lt;Y&gt;800&lt;/Y&gt;
+        ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
+        ///    &lt;/GameObject&gt;
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string soup {
+            get {
+                return ResourceManager.GetString("soup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap spider {

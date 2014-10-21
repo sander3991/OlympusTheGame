@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<PlayField>
+  <Name>Soup With Meatballs</Name>
+  <Width>2000</Width>
+  <Height>1000</Height>
+  <GameObjects>
+    <GameObject Type="Start">
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>0</X>
+      <Y>0</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Finish">
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>1800</X>
+      <Y>800</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>1800</Width>
+      <X>0</X>
+      <Y>197</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>1800</Width>
+      <X>200</X>
+      <Y>385</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>1800</Width>
+      <X>0</X>
+      <Y>562</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>1800</Width>
+      <X>200</X>
+      <Y>739</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>1</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1873</X>
+      <Y>198</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>4</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>73</X>
+      <Y>386</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>4</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1884</X>
+      <Y>567</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Timebomb">
+      <ExplodeTime>3000</ExplodeTime>
+      <DetectRadius>100</DetectRadius>
+      <ExplodeRadius>100</ExplodeRadius>
+      <EffectStrength>4</EffectStrength>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>72</X>
+      <Y>783</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>343</X>
+      <Y>53</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>492</X>
+      <Y>144</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>652</X>
+      <Y>73</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>753</X>
+      <Y>144</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>924</X>
+      <Y>83</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1046</X>
+      <Y>122</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1203</X>
+      <Y>55</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1429</X>
+      <Y>67</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1583</X>
+      <Y>135</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1387</X>
+      <Y>309</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1073</X>
+      <Y>298</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>812</X>
+      <Y>296</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>581</X>
+      <Y>301</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>293</X>
+      <Y>289</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>206</X>
+      <Y>493</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>473</X>
+      <Y>506</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>680</X>
+      <Y>490</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>915</X>
+      <Y>478</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1095</X>
+      <Y>480</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1332</X>
+      <Y>483</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1447</X>
+      <Y>480</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1678</X>
+      <Y>489</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1761</X>
+      <Y>676</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1561</X>
+      <Y>664</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1307</X>
+      <Y>678</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1098</X>
+      <Y>658</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>932</X>
+      <Y>653</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>764</X>
+      <Y>670</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>635</X>
+      <Y>667</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>472</X>
+      <Y>646</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>290</X>
+      <Y>644</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>152</X>
+      <Y>883</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>393</X>
+      <Y>886</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>744</X>
+      <Y>886</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1061</X>
+      <Y>872</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Slower">
+      <EffectRange>200</EffectRange>
+      <FireSpeed>2000</FireSpeed>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1313</X>
+      <Y>884</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>3000</FireSpeed>
+      <DetectRange>2000</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1835</X>
+      <Y>92</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>3000</FireSpeed>
+      <DetectRange>2000</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>101</X>
+      <Y>309</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>3000</FireSpeed>
+      <DetectRange>2000</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1876</X>
+      <Y>490</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>3000</FireSpeed>
+      <DetectRange>2000</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>63</X>
+      <Y>666</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Ghast">
+      <FireSpeed>3000</FireSpeed>
+      <DetectRange>2000</DetectRange>
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>1589</X>
+      <Y>891</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>

@@ -47,11 +47,11 @@ namespace Olympus_the_Game.View.Menu
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapBeach));
 
             b = CreateLevelButton();
-            b.Text = "Gallifrey falls no more";
+            b.Text = "Gallifrey Falls No More";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapGallifrey));
 
             b = CreateLevelButton();
-            b.Text = "Eet geen worst";
+            b.Text = "Eet Geen Worst";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapWorst));
 
             b = CreateLevelButton();
@@ -61,6 +61,10 @@ namespace Olympus_the_Game.View.Menu
             b = CreateLevelButton();
             b.Text = "Spicy Potato Tomato";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.mapTomato));
+
+            b = CreateLevelButton();
+            b.Text = "Soup With Meatballs";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.soup));
 
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)
