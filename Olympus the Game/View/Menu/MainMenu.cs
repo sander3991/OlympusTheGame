@@ -192,7 +192,7 @@ namespace Olympus_the_Game.View.Menu
             gs.ShowDialog();
 
             // Remove eventhandler
-            //gs.Shown -= ShowMaskAndStartGame;
+            gs.Shown -= ShowMaskAndStartGame;
 
             // Gamescreen closed, make this visible
             Visible = true;
@@ -298,7 +298,7 @@ namespace Olympus_the_Game.View.Menu
 
         private void ShowMaskAndStartGame(object source, EventArgs ea)
         {
-            //Utils.ShowMask(false);
+            Utils.ShowMask(false);
             StartGame();
         }
 
