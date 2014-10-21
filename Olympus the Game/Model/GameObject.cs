@@ -160,12 +160,12 @@ namespace Olympus_the_Game.Model
             set
             {
                 if (value >= 0)
-                {
                     if (Playfield == null || value + Width <= Playfield.Width)
                         x = value;
                     else
                         x = Playfield.Width - Width;
-                }
+                else
+                    x = 0;
             }
         }
 
@@ -200,10 +200,7 @@ namespace Olympus_the_Game.Model
         ///     Verkrijg beschrijving van entity
         /// </summary>
         /// <returns>Beschrijving</returns>
-        public virtual string GetDescription()
-        {
-            return "No description yet";
-        }
+        public abstract string GetDescription();
 
         /// <summary>
         ///     Wat is de afstand tussen dit object en het andere object

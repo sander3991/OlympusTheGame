@@ -66,6 +66,10 @@ namespace Olympus_the_Game.View.Menu
             b.Text = "Soup With Meatballs";
             buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.soup));
 
+            b = CreateLevelButton();
+            b.Text = "Banonomonapoly";
+            buttons.Add(b, () => PlayfieldLoader.ReadFromResource(Resources.banano));
+
             //Initialiseer de custom maps
             foreach (string mapName in PlayfieldLoader.CustomMaps)
                 AddCustomLevelButton(mapName);
