@@ -142,6 +142,21 @@ namespace Olympus_the_Game_Test.View.Imaging
         }
 
         [TestMethod]
+        public void Sprite_Get_Frame_Between_Minus_One_And_Zero()
+        {
+            // Arrange
+            var bm = new Bitmap(100, 200);
+            int col = 10;
+            int row = 20;
+
+            // Act
+            Sprite s = new Sprite(bm, col, row, false);
+
+            // Assert
+            Assert.AreEqual(s[-0.5f], s[0.0f]);
+        }
+
+        [TestMethod]
         public void Sprite_Equals_Null()
         {
             // Arrange

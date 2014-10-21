@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,7 +61,7 @@
     <Compile Include="OlympusTheGameTest.cs" />
     <Compile Include="View\Editor\LevelEditorTest.cs" />
     <Compile Include="View\Imaging\SpriteTest.cs" />
-    <Compile Include="View\Imaging\ImagePoolTest.cs" />
+    <Compile Include="View\Imaging\DataPoolTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Olympus the Game\Olympus the Game.csproj">
