@@ -3,7 +3,7 @@
 namespace Olympus_the_Game.Controller
 {
     /// <summary>
-    /// Gebruik deze klasse om alle toetsen aan toe te voegen
+    ///     Gebruik deze klasse om alle toetsen aan toe te voegen
     /// </summary>
     public static class KeyHandler
     {
@@ -14,7 +14,7 @@ namespace Olympus_the_Game.Controller
         public static Keys CustomDown { get; set; }
 
         /// <summary>
-        /// Wordt aangeroepen als je op een toetsklikt
+        ///     Wordt aangeroepen als je op een toetsklikt
         /// </summary>
         /// <param name="e"></param>
         internal static void KeyDown(KeyEventArgs e)
@@ -28,10 +28,10 @@ namespace Olympus_the_Game.Controller
             {
                 MovePlayer(e, 2);
             }
-
         }
+
         /// <summary>
-        /// Wordt aangeroepen als je een toets los laat
+        ///     Wordt aangeroepen als je een toets los laat
         /// </summary>
         /// <param name="e"></param>
         internal static void KeyUp(KeyEventArgs e)
@@ -56,7 +56,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        ///  Beweeg de speler met toetsen die zijn toegewezen
+        ///     Beweeg de speler met toetsen die zijn toegewezen
         /// </summary>
         /// <param name="e">Toetsen</param>
         /// <param name="speed">Snelheid</param>
@@ -75,7 +75,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Move player als er op de knop wordt gedrukt vanuit ArrowPanel
+        ///     Move player als er op de knop wordt gedrukt vanuit ArrowPanel
         /// </summary>
         /// <param name="speed">Snelheid van de speler</param>
         /// <param name="horizontaal">Geef aan links of rechts</param>
@@ -86,9 +86,5 @@ namespace Olympus_the_Game.Controller
             else
                 OlympusTheGame.Playfield.Player.DY = speed;
         }
-
-
-
-
     }
 }

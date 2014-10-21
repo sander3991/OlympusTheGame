@@ -5,24 +5,24 @@ namespace Olympus_the_Game.Model.Entities
     internal class EntityWebMissile : Entity
     {
         /// <summary>
-        /// Wie heeft deze missile geschoten
+        ///     Wie heeft deze missile geschoten
         /// </summary>
         private readonly EntitySlower source;
 
         /// <summary>
-        /// De X locatie van de target
+        ///     De X locatie van de target
         /// </summary>
         private readonly int targetX;
 
         /// <summary>
-        /// De Y Locatie van de target
+        ///     De Y Locatie van de target
         /// </summary>
         private readonly int targetY;
 
         private int prop_missilespeed = 6;
 
         /// <summary>
-        /// Maakt een Missile object
+        ///     Maakt een Missile object
         /// </summary>
         /// <param name="spider">Wie schiet dit object</param>
         /// <param name="target">Wie is de target van het object</param>
@@ -55,7 +55,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// De snelheid van de missile
+        ///     De snelheid van de missile
         /// </summary>
         public int MissileSpeed
         {
@@ -64,7 +64,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -74,7 +74,7 @@ namespace Olympus_the_Game.Model.Entities
 
 
         /// <summary>
-        /// Deze entity collide nooit met een object, de afhandeling gaat via OnMoved
+        ///     Deze entity collide nooit met een object, de afhandeling gaat via OnMoved
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -84,7 +84,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Controleerd of de missile z'n target gehaald heeft
+        ///     Controleerd of de missile z'n target gehaald heeft
         /// </summary>
         /// <param name="e">De entity die beweegd, zou alleen zichzelf moeten zijn</param>
         private void EntityWebMissile_OnMoved(Entity e)
@@ -96,7 +96,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Zorg ervoor dat deze missile weg gaat, en maak een cobweb op de target
+        ///     Zorg ervoor dat deze missile weg gaat, en maak een cobweb op de target
         /// </summary>
         /// <param name="fieldRemoved"></param>
         public override void OnRemoved(bool fieldRemoved)
@@ -104,7 +104,7 @@ namespace Olympus_the_Game.Model.Entities
             OnMoved -= EntityWebMissile_OnMoved;
             if (!fieldRemoved)
                 Playfield.AddObject(new EntityWeb(source.Width + 5, source.Height + 5, targetX, targetY));
-                    //REMOVETHIS IF READ.. + 5 zodat je de spinnenweb niet wordt verstopt onder de speler
+            //REMOVETHIS IF READ.. + 5 zodat je de spinnenweb niet wordt verstopt onder de speler
         }
 
         public override string ToString()

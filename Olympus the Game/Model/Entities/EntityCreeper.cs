@@ -7,30 +7,15 @@ namespace Olympus_the_Game.Model.Entities
 {
     public class EntityCreeper : EntityExplode
     {
-
         private int prop_creeperrange;
-        
-        [EditorTooltip("Volg afstand", "Vanaf welke afstand gaat de creeper de speler volgen.")]
-        public int CreeperRange
-        {
-            get
-            {
-                return prop_creeperrange;
-            }
-            set
-            {
-                if (value > 0)
-                    prop_creeperrange = value;
-            }
-        }
+
         static EntityCreeper()
         {
             RegisterWithEditor(ObjectType.Creeper, () => new EntityCreeper(50, 50, 0, 0, 1));
-                // TODO Maak waarden standaard
         }
 
         /// <summary>
-        /// Een Creeper object met een beginsnelheid
+        ///     Een Creeper object met een beginsnelheid
         /// </summary>
         public EntityCreeper(int width, int height, int x, int y, int dx, int dy, int explodeStrength)
             : base(width, height, x, y, dx, dy, explodeStrength)
@@ -42,15 +27,26 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Een creeper object die stil staat op het begin
+        ///     Een creeper object die stil staat op het begin
         /// </summary>
         public EntityCreeper(int width, int height, int x, int y, int explodeStrength)
             : this(width, height, x, y, 0, 0, explodeStrength)
         {
         }
 
+        [EditorTooltip("Volg afstand", "Vanaf welke afstand gaat de creeper de speler volgen.")]
+        public int CreeperRange
+        {
+            get { return prop_creeperrange; }
+            set
+            {
+                if (value > 0)
+                    prop_creeperrange = value;
+            }
+        }
+
         /// <summary>
-        /// Geef de entity een beschrijving
+        ///     Geef de entity een beschrijving
         /// </summary>
         /// <returns>Beschrijving van de entity</returns>
         public override string GetDescription()
@@ -59,8 +55,8 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        /// Update het object.
-        /// Wanneer dit object te dichtbij een speler is zal deze richting de speler lopen.
+        ///     Update het object.
+        ///     Wanneer dit object te dichtbij een speler is zal deze richting de speler lopen.
         /// </summary>
         public void OnUpdate()
         {
@@ -110,11 +106,19 @@ namespace Olympus_the_Game.Model.Entities
             }
         }
 
+        /// <summary>
+        /// Geeft de naam van de entity terug
+        /// </summary>
+        /// <returns>Creeper</returns>
         public override string ToString()
         {
             return "Creeper";
         }
 
+        /// <summary>
+        /// Zorgt ervoor dat de entity, wanneer geactiveert, zal exploderen en verdwijnen van de playfield.
+        /// </summary>
+        /// <param name="fieldRemoved"></param>
         public override void OnRemoved(bool fieldRemoved)
         {
             GameController contr = OlympusTheGame.GameController;

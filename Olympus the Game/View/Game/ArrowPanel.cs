@@ -17,7 +17,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Kijk of er op het plaatje met pijltjes toetsen is geklikt.
+        /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -41,7 +41,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Verander de controls als de gebruiker een toets wijzigd
+        /// Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -70,7 +70,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Selecteer alle tekst van de textbox als user er in gaat staat
+        ///     Selecteer alle tekst van de textbox als user er in gaat staat
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,7 +85,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        /// Selecteer alle tekst als user met zijn muis in het textveld gaat staan
+        ///     Selecteer alle tekst als user met zijn muis in het textveld gaat staan
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -100,7 +100,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Functie om de speler stil te zetten
+        /// Functie om de speler stil te zetten
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

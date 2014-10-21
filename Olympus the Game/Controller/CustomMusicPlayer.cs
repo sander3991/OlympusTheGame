@@ -6,12 +6,12 @@ namespace Olympus_the_Game.Controller
     public static class CustomMusicPlayer
     {
         /// <summary>
-        /// Geef feedback over de player of hij aan het afspelen is
+        ///     Geef feedback over de player of hij aan het afspelen is
         /// </summary>
         public static bool IsPlaying { get; private set; }
 
         /// <summary>
-        /// Regel het volume
+        ///     Regel het volume
         /// </summary>
         public static int MasterVolume
         {
@@ -25,7 +25,7 @@ namespace Olympus_the_Game.Controller
             int hwndCallback);
 
         /// <summary>
-        /// Open een mp3 file
+        ///     Open een mp3 file
         /// </summary>
         /// <param name="file">Naam van een file</param>
         public static void Open(string file)
@@ -37,7 +37,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Speel de file af
+        ///     Speel de file af
         /// </summary>
         /// <param name="repeat">Speel af met of zonder repeat</param>
         public static void Play(bool repeat)
@@ -52,7 +52,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Pauzeer de speler
+        ///     Pauzeer de speler
         /// </summary>
         public static void Pause()
         {
@@ -62,7 +62,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Stop en gooi de mp3 weg
+        ///     Stop en gooi de mp3 weg
         /// </summary>
         public static void Stop()
         {
@@ -74,7 +74,7 @@ namespace Olympus_the_Game.Controller
         }
 
         /// <summary>
-        /// Verander het volume
+        ///     Verander het volume
         /// </summary>
         /// <param name="volume"> 1 - 100 hoe hard het volume moet</param>
         public static void ChangeVolume(int volume)

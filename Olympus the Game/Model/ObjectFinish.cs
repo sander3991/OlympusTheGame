@@ -35,7 +35,7 @@ namespace Olympus_the_Game.Model
         public override void OnCollide(GameObject gameObject)
         {
             var player = gameObject as EntityPlayer;
-            if (player != null && player.X > X && player.Y > Y)
+            if (player != null && player.X >= X && player.Y >= Y)
             {
                 int xDistance = Math.Abs((X + Width/2) - (player.X + player.Width/2));
                 int yDistance = Math.Abs((Y + Height/2) - (player.Y + player.Height/2));

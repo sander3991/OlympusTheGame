@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<PlayField>
+  <Name>Bananomonopoly</Name>
+  <Width>3000</Width>
+  <Height>1500</Height>
+  <GameObjects>
+    <GameObject Type="Start">
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>61</X>
+      <Y>1300</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Finish">
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>2800</X>
+      <Y>0</Y>
+      <IsSolid>False</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>0</X>
+      <Y>1225</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>43</X>
+      <Y>1224</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>83</X>
+      <Y>1225</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>120</X>
+      <Y>1225</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>168</X>
+      <Y>1225</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>215</X>
+      <Y>1225</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>303</X>
+      <Y>1450</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>304</X>
+      <Y>1403</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>304</X>
+      <Y>1356</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>262</X>
+      <Y>1226</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>1500</CreeperRange>
+      <EffectStrength>3</EffectStrength>
+      <Height>400</Height>
+      <Width>400</Width>
+      <X>1316</X>
+      <Y>840</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>1800</CreeperRange>
+      <EffectStrength>2</EffectStrength>
+      <Height>300</Height>
+      <Width>300</Width>
+      <X>1521</X>
+      <Y>204</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>1800</CreeperRange>
+      <EffectStrength>2</EffectStrength>
+      <Height>300</Height>
+      <Width>300</Width>
+      <X>2247</X>
+      <Y>837</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>2200</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>2685</X>
+      <Y>399</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Creeper">
+      <CreeperRange>2200</CreeperRange>
+      <EffectStrength>1</EffectStrength>
+      <Height>200</Height>
+      <Width>200</Width>
+      <X>2305</X>
+      <Y>55</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>512</X>
+      <Y>1371</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>512</X>
+      <Y>1218</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>511</X>
+      <Y>1061</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>346</X>
+      <Y>1060</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>186</X>
+      <Y>1063</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+    <GameObject Type="Obstacle">
+      <Height>50</Height>
+      <Width>50</Width>
+      <X>15</X>
+      <Y>1064</Y>
+      <IsSolid>True</IsSolid>
+    </GameObject>
+  </GameObjects>
+</PlayField>

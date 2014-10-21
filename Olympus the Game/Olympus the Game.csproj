@@ -10,6 +10,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,7 +23,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -49,6 +50,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>Olympus_the_Game</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -438,16 +442,7 @@
     <None Include="Resources\Textures\ScrollArrowUp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\44105bbe07a07ab277b1e5b56ca73b1c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\visje.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\visje.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\silverfish.png" />
+    <None Include="Resources\Textures\silverfish.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Maps\Gallifrey Falls No More.xml" />
@@ -463,6 +458,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Maps\SpicyPotatoTomato.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\SoupWithMeatBalls.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maps\Bananomonopoly.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
