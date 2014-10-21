@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -19,10 +20,9 @@ namespace Olympus_the_Game.View.Menu
     /// </summary>
     public partial class Mainmenu : Form
     {
-        // Timer die gebruikt word voor het afspelen van splashscreen.gif
-        private readonly Timer gifTimer = new Timer();
-
         private bool firstInit = true;
+
+        private EventHandler _threadCallback; //callback voor als er een event van buiten de form thread wordt aangeroepen
 
         private GameScreen gs;
 
@@ -71,11 +71,15 @@ namespace Olympus_the_Game.View.Menu
             Visible = false;
             HideAllControls();
 
-            gifTimer.Tick += Timer_Tick;
-            // Interval is ~ongeveer 5 seconden.
-            // Hangt een beetje af van snelheid van computer
-            gifTimer.Interval = 5000;
-            gifTimer.Start();
+            // Er wordt een BackgroundWorker thread aangemaakt, deze thread gaat 5000 milliseconde slapen
+            // Na 5000 milliseconde wordt er een Invoke gedaan op deze thread met het verzoek de timer te stoppen.
+            BackgroundWorker bw = new BackgroundWorker(); 
+            bw.DoWork += delegate(object o, DoWorkEventArgs ev) { 
+                Thread.Sleep(5000);
+                _threadCallback = Timer_Tick;
+                Invoke(_threadCallback, new object[] { sender, e });
+            };
+            bw.RunWorkerAsync();
 
             // Init form
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -117,9 +121,6 @@ namespace Olympus_the_Game.View.Menu
         /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Gif finished
-            gifTimer.Stop();
-
             // Center controls
             CenterControl(mainMenuControl1);
             CenterControl(levelDialog1);
@@ -191,7 +192,7 @@ namespace Olympus_the_Game.View.Menu
             gs.ShowDialog();
 
             // Remove eventhandler
-            gs.Shown -= ShowMaskAndStartGame;
+            //gs.Shown -= ShowMaskAndStartGame;
 
             // Gamescreen closed, make this visible
             Visible = true;
@@ -297,7 +298,7 @@ namespace Olympus_the_Game.View.Menu
 
         private void ShowMaskAndStartGame(object source, EventArgs ea)
         {
-            Utils.ShowMask(false);
+            //Utils.ShowMask(false);
             StartGame();
         }
 

@@ -14,7 +14,7 @@ namespace Olympus_the_Game_Test.Model.Entities
             OlympusTheGame.SetController();
         }
         [TestMethod]
-        public void TestGameObjectsAndEntities()
+        public void Test_GameObjectsAndEntities()
         {
             List<GameObject> gameObjects = new List<GameObject>
             {

@@ -30,6 +30,7 @@ namespace Olympus_the_Game
 
         public static void ShowMask(bool showMask)
         {
+            return;
             if (MaskForm == null || MaskForm.IsDisposed)
                 MaskForm = new Form
                 {
@@ -45,6 +46,7 @@ namespace Olympus_the_Game
 
         private static void ShowMaskUnsafe(bool showMask)
         {
+            return;
             MaskForm.Size = GetScreenSize();
             MaskForm.Location = Point.Empty;
             MaskForm.Opacity = showMask ? 0.0f : 1.0f;
