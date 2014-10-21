@@ -17,7 +17,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Kijk of er op het plaatje met pijltjes toetsen is geklikt.
+        /// Kijk of er op het plaatje met pijltjes toetsen is geklikt.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -41,7 +41,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Verander de controls als de gebruiker een toets wijzigd
+        /// Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -100,7 +100,7 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
-        ///     Functie om de speler stil te zetten
+        /// Functie om de speler stil te zetten
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

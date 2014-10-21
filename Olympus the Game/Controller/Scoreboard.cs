@@ -15,16 +15,21 @@ namespace Olympus_the_Game.Controller
         Ghast,
         Silverfish
     }
-
+    /// <summary>
+    /// Deze class houd de score bij die in het spel behaald is.
+    /// </summary>
     internal static class Scoreboard
     {
-        private static readonly Dictionary<ScoreType, int> Scorelist = new Dictionary<ScoreType, int>();
+        private static readonly Dictionary<ScoreType, int> Scorelist = new Dictionary<ScoreType, int>(); //Een dictionary om de score in bij te houden per ScoreType.
 
         static Scoreboard()
         {
-            OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField;
+            OlympusTheGame.OnNewPlayField += OlympusTheGame_OnNewPlayField; // Subscribe op het OnNewPlayField event om de score te resetten als er een nieuw speelveld wordt aangemaakt.
         }
 
+        /// <summary>
+        /// De huidige score van alle elementen.
+        /// </summary>
         public static int Score
         {
             get
@@ -37,12 +42,20 @@ namespace Olympus_the_Game.Controller
                 return Math.Max(0, totalScore);
             }
         }
-
+        /// <summary>
+        /// Reset de score bij het aanmaken van een nieuw speelveld.
+        /// </summary>
+        /// <param name="obj"></param>
         private static void OlympusTheGame_OnNewPlayField(PlayField obj)
         {
             ResetScore();
         }
 
+        /// <summary>
+        /// Voeg een score toe met een custom waarde.
+        /// </summary>
+        /// <param name="type">Welk type score moet worden toegevoegd</param>
+        /// <param name="i">Wat is de waarde die toegevoegd moet worden</param>
         public static void AddScore(ScoreType type, int i)
         {
             if (!Scorelist.ContainsKey(type))
@@ -50,13 +63,22 @@ namespace Olympus_the_Game.Controller
             Scorelist[type] += i;
         }
 
+        /// <summary>
+        /// Haalt een score op van een bepaalde type.
+        /// </summary>
+        /// <param name="type">De type waarvan de score opgehaald moet worden</param>
+        /// <returns>De waarde van de score</returns>
         public static int GetScore(ScoreType type)
         {
             return Scorelist.ContainsKey(type) ? Scorelist[type] : 0;
         }
 
+        /// <summary>
+        /// Voeg de standaard waarde van een ScoreType toe
+        /// </summary>
+        /// <param name="type">ScoreType type wat er toegevoegd</param>
         public static void AddScore(ScoreType type)
-        {
+        { //In deze method staan de standaard waarden voor de scoretypes. Dit kan als er tijd over is aangepast worden naar een oplossing die meer toegankelijk is.
             switch (type)
             {
                 case ScoreType.GameFinished:
@@ -85,7 +107,9 @@ namespace Olympus_the_Game.Controller
                     break;
             }
         }
-
+        /// <summary>
+        /// Zet de score op 0.
+        /// </summary>
         public static void ResetScore()
         {
             Scorelist.Clear();

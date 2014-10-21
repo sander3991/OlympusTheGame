@@ -16,7 +16,7 @@ namespace Olympus_the_Game.View.Imaging
         /// <summary>
         ///     Bron-sprites, deze worden gekoppeld aan een <see cref="ObjectType" />
         /// </summary>
-        private static readonly Dictionary<ObjectType, Sprite> Source = new Dictionary<ObjectType, Sprite>();
+        private static Dictionary<ObjectType, Sprite> Source;
 
         /// <summary>
         ///     De buffer die van alle plaatjes wordt bijgehouden.
@@ -40,21 +40,25 @@ namespace Olympus_the_Game.View.Imaging
         public static void LoadDataPool()
         {
             // Laad plaatjes
-            Source.Add(ObjectType.Creeper, Resources.creeper);
-            Source.Add(ObjectType.Explode, Resources.tnt);
-            Source.Add(ObjectType.Slower, Resources.spider);
-            Source.Add(ObjectType.Web, Resources.cobweb);
-            Source.Add(ObjectType.Player, new Sprite(Resources.player2, 2, 1, false));
-            Source.Add(ObjectType.Timebomb, new Sprite(Resources.timebomb, 2, 1, true));
-            Source.Add(ObjectType.Start, Resources.huis);
-            Source.Add(ObjectType.Finish, Resources.cake);
-            Source.Add(ObjectType.Obstacle, Resources.cobble);
-            Source.Add(ObjectType.Unknown, Resources.missing);
-            Source.Add(ObjectType.Silverfish, Resources.silverfish1);
-            Source.Add(ObjectType.Ghast, Resources.ghast);
-            Source.Add(ObjectType.Fireball, Resources.fireball);
-            Source.Add(ObjectType.Spriteexplosion, new Sprite(Resources.explosion, 5, 5, false));
-            Source.Add(ObjectType.Webmissile, Resources.cobweb);
+            if (Source != null) return;
+            Source = new Dictionary<ObjectType, Sprite>
+            {
+                {ObjectType.Creeper, Resources.creeper},
+                {ObjectType.Explode, Resources.tnt},
+                {ObjectType.Slower, Resources.spider},
+                {ObjectType.Web, Resources.cobweb},
+                {ObjectType.Player, new Sprite(Resources.player2, 2, 1, false)},
+                {ObjectType.Timebomb, new Sprite(Resources.timebomb, 2, 1, true)},
+                {ObjectType.Start, Resources.huis},
+                {ObjectType.Finish, Resources.cake},
+                {ObjectType.Obstacle, Resources.cobble},
+                {ObjectType.Unknown, Resources.missing},
+                {ObjectType.Silverfish, Resources.silverfish},
+                {ObjectType.Ghast, Resources.ghast},
+                {ObjectType.Fireball, Resources.fireball},
+                {ObjectType.Spriteexplosion, new Sprite(Resources.explosion, 5, 5, false)},
+                {ObjectType.Webmissile, Resources.cobweb}
+            };
             // Laad geluiden
             GameSound = Mp3Player.PrepareResource(Resources.HakunaMatata, "HakunaMatata");
             IntroSound = Mp3Player.PrepareResource(Resources.StarWars, "StarWars");
