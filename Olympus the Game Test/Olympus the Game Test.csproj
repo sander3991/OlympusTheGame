@@ -58,6 +58,7 @@
     <Compile Include="Model\Entities\EntityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OlympusTheGameTest.cs" />
+    <Compile Include="View\Buttons\PopupButtonTest.cs" />
     <Compile Include="View\Editor\LevelEditorTest.cs" />
     <Compile Include="View\Imaging\SpriteTest.cs" />
     <Compile Include="View\Imaging\DataPoolTest.cs" />

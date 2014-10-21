@@ -9,9 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace Olympus_the_Game.Properties {
-    using System;
-    
-    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -304,7 +301,8 @@ namespace Olympus_the_Game.Properties {
         ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
         ///      &lt;X&gt;250&lt;/X&gt;
         ///      &lt;Y&gt;250&lt;/Y&gt;
-        ///      &lt;Width&gt;50&lt;/Width&gt;        /// [rest of string was truncated]&quot;;.
+        ///      &lt;Width&gt;50&lt;/Width&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string mapHell {
             get {
@@ -556,7 +554,8 @@ namespace Olympus_the_Game.Properties {
         ///      &lt;Y&gt;800&lt;/Y&gt;
         ///      &lt;IsSolid&gt;False&lt;/IsSolid&gt;
         ///    &lt;/GameObject&gt;
-        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;        /// [rest of string was truncated]&quot;;.
+        ///    &lt;GameObject Type=&quot;Obstacle&quot;&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string soup {
             get {
