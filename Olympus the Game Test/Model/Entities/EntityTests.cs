@@ -9,10 +9,13 @@ namespace Olympus_the_Game_Test.Model.Entities
     [TestClass]
     public class EntityTests
     {
-        [TestMethod]
-        public void GameObjectTest()
+        static EntityTests()
         {
             OlympusTheGame.SetController();
+        }
+        [TestMethod]
+        public void TestGameObjectsAndEntities()
+        {
             List<GameObject> gameObjects = new List<GameObject>
             {
                 new ObjectStart(10,10,0,0),
@@ -58,11 +61,15 @@ namespace Olympus_the_Game_Test.Model.Entities
         /// <returns>true als de test goed gegaan is</returns>
         private void TestGameObject(GameObject go)
         {
+            bool visibilityEventParam = go.Visible;
+            go.OnVisibilityChanged += delegate(GameObject goEvent, bool visibility) { visibilityEventParam = visibility; };
             // Check of we de visibility property aan kunnen passen
             go.Visible = false;
             Assert.IsFalse(go.Visible);
+            Assert.IsTrue(go.Visible == visibilityEventParam); //Is het event afgevuurd, en de goede waarde meegegeven
             go.Visible = true;
             Assert.IsTrue(go.Visible);
+            Assert.IsTrue(go.Visible == visibilityEventParam); //Is het event afgevuurd en de goede waarde meegegeven
 
             //check of er een ObjectType is gekoppeld aan de entity.
             Assert.IsTrue(go.Type != ObjectType.Unknown);
@@ -114,6 +121,8 @@ namespace Olympus_the_Game_Test.Model.Entities
 
             // Hebben de gameobjects een description
             Assert.IsFalse(string.IsNullOrEmpty(go.GetDescription()));
+            //Is de ToString niet null of leeg
+            Assert.IsFalse(string.IsNullOrEmpty(go.ToString()));
 
             go.X = 0; //Reset het gameobject naar default waardes voor distance tests
             go.Y = 0;
@@ -135,9 +144,54 @@ namespace Olympus_the_Game_Test.Model.Entities
             testObject.Y = 0;
 
             Assert.IsTrue(go.CollidesWithObject(testObject) != CollisionType.None);
+
+            testObject.X = 100;
+            testObject.Y = 100;
+            Assert.IsTrue(go.CollidesWithObject(testObject) == CollisionType.None);
          }
 
         public void TestEntity(Entity e)
+        {
+            //Dit zou moeten kunnen wat hieronder gebeurt, is in GameObjectTest getest
+            e.X = 0;
+            e.Y = 0;
+            e.Width = 10;
+            e.Height = 10;
+            //Kunnen we DX en DY zetten
+            e.DX = 1;
+            e.DY = 1;
+            Assert.IsTrue(e.DX == 1);
+            Assert.IsTrue(e.DY == 1);
+
+            Entity entityEvent = null;
+            e.OnMoved += delegate(Entity e2) { entityEvent = e2; };
+
+            //Kijk of we kunnen bewegen
+            e.Move();
+            Assert.IsTrue(e.X == 1);
+            Assert.IsTrue(e.Y == 1);
+            //Hebben we een event gekregen met de entity?
+            Assert.IsTrue(e == entityEvent);
+
+            //Hebben ze netjes de previousX en previousY erin gezet
+            Assert.IsTrue(e.PreviousX == 0);
+            Assert.IsTrue(e.PreviousY == 0);
+        }
+
+        [TestMethod]
+        public void Test_ObjectFinish()
+        {
+            //Test of we kunnen colliden met de finish
+            EntityPlayer player = new EntityPlayer(10, 10, 0, 0);
+            ObjectFinish finish = new ObjectFinish(10, 10, 0, 0);
+            Olympus_the_Game.Controller.FinishType eventType = Olympus_the_Game.Controller.FinishType.Dead;
+            OlympusTheGame.GameController.OnPlayerFinished += delegate(Olympus_the_Game.Controller.FinishType type) { eventType = type; };
+            finish.OnCollide(player);
+            Assert.IsTrue(eventType == Olympus_the_Game.Controller.FinishType.Cake);
+        }
+
+        [TestMethod]
+        public void Test_EntityExplode()
         {
 
         }

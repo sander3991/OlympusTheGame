@@ -93,7 +93,8 @@ namespace Olympus_the_Game.Controller
             int gameTime = Convert.ToInt32(OlympusTheGame.GameTime/1000 - 30);
             //Haalt de gametime in seconde op minus de 30 seconde waarvoor je geen minpunten krijgt
             Scoreboard.AddScore(ScoreType.Time, Math.Min(0, gameTime*-10));
-            Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health*200);
+            if(OlympusTheGame.Playfield != null && OlympusTheGame.Playfield.Player != null)
+                Scoreboard.AddScore(ScoreType.Health, OlympusTheGame.Playfield.Player.Health*200);
             if (OnPlayerFinished != null)
                 OnPlayerFinished(FinishType.Cake);
         }
