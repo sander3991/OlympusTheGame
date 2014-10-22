@@ -58,7 +58,7 @@ namespace Olympus_the_Game.Model.Entities
         ///     Update het object.
         ///     Wanneer dit object te dichtbij een speler is zal deze richting de speler lopen.
         /// </summary>
-        public void OnUpdate()
+        private void OnUpdate()
         {
             EntityPlayer player = Playfield.Player;
             if (player != null)

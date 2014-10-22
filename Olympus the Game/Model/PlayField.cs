@@ -121,6 +121,14 @@ namespace Olympus_the_Game.Model
         /// </summary>
         public void AddObject(GameObject entity)
         {
+            if (entity.Type == ObjectType.Player)
+            {
+                if (Player != null)
+                    throw new ArgumentException("Er is al een speler op dit speelveld! Je kunt er niet nog één toevoegen");
+                Player = entity as EntityPlayer;
+                Player.Playfield = this;
+                return; //De overige code is alleen van toepassingen op GameObjecten, niet op spelers.
+            }
             if (_isClosing) return; //We willen niks meer toevoegen als wij dingen toevoegen
             if (entity.Playfield != null)
                 throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
