@@ -17,7 +17,7 @@
   <Class Name="Olympus_the_Game.Model.Entities.EntityExplode">
     <Position X="19.25" Y="13" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAIAAAAIEAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAIAAAAIEIAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Entities\EntityExplode.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -51,18 +51,6 @@
   </Class>
   <Class Name="Olympus_the_Game.Controller.GameController" Collapsed="true">
     <Position X="42" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Delegate Name="Olympus_the_Game.Controller.GameController.DelOnFinish" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Controller\GameController.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Olympus_the_Game.Controller.GameController.DelOnHealthChanged" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Controller\GameController.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AkQAACAEAAAggAACAAAGGAAAAAAAIAAAAAAAAIAAAAA=</HashCode>
       <FileName>Controller\GameController.cs</FileName>
@@ -77,13 +65,6 @@
   </Class>
   <Class Name="Olympus_the_Game.Controller.PlayfieldLoader" Collapsed="true">
     <Position X="40.25" Y="4.5" Width="1.5" />
-    <NestedTypes>
-      <Delegate Name="Olympus_the_Game.Controller.PlayfieldLoader.DelCustomMapChanged" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Controller\MapLoader.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AACAAAgAAAgAEAJAIAAIQAAAAkQAAEAAAAAAAAQBAAA=</HashCode>
       <FileName>Controller\MapLoader.cs</FileName>
@@ -106,7 +87,7 @@
   <Class Name="Olympus_the_Game.Controller.SoundEffects">
     <Position X="38.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQBAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQBAAAA=</HashCode>
       <FileName>Controller\SoundEffects.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -196,13 +177,6 @@
   </Class>
   <Class Name="Olympus_the_Game.Model.PlayField" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="38.5" Y="4.5" Width="1.5" />
-    <NestedTypes>
-      <Delegate Name="Olympus_the_Game.Model.PlayField.DelOnPlayFieldChanged" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Model\PlayField.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAACAEBEAAgABAAAAAAESChABAAAAAAAABhUEIAQA=</HashCode>
       <FileName>Model\PlayField.cs</FileName>
@@ -212,7 +186,7 @@
   <Class Name="Olympus_the_Game.Model.Sprites.AnimatedSprite">
     <Position X="29" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAE=</HashCode>
+      <HashCode>AAAAACAAACACAAAAIAAAAAAAAAAAAAAAAAAAAAAAYAE=</HashCode>
       <FileName>Model\Sprites\AnimatedSprite.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -233,7 +207,7 @@
   <Class Name="Olympus_the_Game.Properties.Resources" Collapsed="true">
     <Position X="43.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QIAiIQwAgAAMGCQCAIKBkAAAAQASBBQTgSBFQAAJJIA=</HashCode>
+      <HashCode>QIAiIQwAgAAMGCQCAIKBkAAAAQESBRQTgWBFQAAJJIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Olympus_the_Game.View.Buttons.MoveButton" Collapsed="true">
@@ -364,23 +338,6 @@
   </Class>
   <Class Name="Olympus_the_Game.View.Menu.LevelDialog" Collapsed="true">
     <Position X="45.5" Y="2.5" Width="1.5" />
-    <NestedTypes>
-      <Delegate Name="Olympus_the_Game.View.Menu.LevelDialog.MapCallback" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>View\Menu\LevelDialog.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Olympus_the_Game.View.Menu.LevelDialog.GetPlayField" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>View\Menu\LevelDialog.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-      <Delegate Name="Olympus_the_Game.View.Menu.LevelDialog.PlayFieldChosen" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>View\Menu\LevelDialog.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Delegate>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAABAAAACAWCAQAIACAAAACAAAAAAAiACCJAABAgCE=</HashCode>
       <FileName>View\Menu\LevelDialog.cs</FileName>
@@ -396,7 +353,7 @@
   <Class Name="Olympus_the_Game.View.Menu.Mainmenu" Collapsed="true">
     <Position X="40.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AChCAUAICSAAAApgAACQIAgiAABkAQGAAAQBEAJEAAQ=</HashCode>
+      <HashCode>AChCAUAICSAAAApgAACQIAgiAAAkAQGAAAQBEgJEAAQ=</HashCode>
       <FileName>View\Menu\MainMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
