@@ -193,7 +193,78 @@ namespace Olympus_the_Game_Test.Model.Entities
         [TestMethod]
         public void Test_EntityExplode()
         {
+            PlayField pf = new PlayField();
+            EntityExplode TNT = new EntityExplode(10, 10, 0, 0, 1);
+            EntityPlayer player = new EntityPlayer(10, 10, 0, 0);
+            pf.AddObject(TNT);
+            pf.AddObject(player);
+            int playerHealth = player.Health;
+            TNT.OnCollide(player);
+            Assert.IsTrue(player.Health == (playerHealth - 1)); //Controleer of hij inderdaad ge-explodeerd is zodra hij met de player collide.
+            Assert.IsFalse(pf.GameObjects.Contains(TNT)); //Controleer of hij uit het speelveld is verwijderd
+            Assert.IsTrue(pf.GameObjects.Count > 0 && pf.GameObjects[0].Type == ObjectType.Spriteexplosion); //Controleer of de sprite is aangemaakt
+        }
 
+        [TestMethod]
+        public void Test_EntityCreeper()
+        {
+            
+            EntityCreeper creeper = new EntityCreeper(10,10,200,200, 1);
+            creeper.CreeperRange = 100;
+            PlayField pf = new PlayField();
+            OlympusTheGame.Playfield = pf;
+            pf.GameObjects.Clear(); //Verwijder alle aangemaakte objecten
+            EntityPlayer player = pf.Player;
+            //Zorg dat we zeker weten dat onze player de goede parameters heeft
+            player.X = 0;
+            player.Y = 0;
+            player.Width = 10;
+            player.Height = 10;
+            pf.AddObject(creeper);
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null,null);
+            Assert.IsTrue(creeper.EntityControlledByAi); //Op dit moment zou de creeper bestuurd moeten worden door de AI omdat hij niet in range is
+            //Zet de creeperrange hoog genoeg om de speler te volgen
+            creeper.CreeperRange = 5000;
+            double distanceBeforeUpdate = creeper.DistanceToObject(player);
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(creeper.EntityControlledByAi); //Wordt hij nu door de Creeper AI bestuurd
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(creeper.DistanceToObject(player) < distanceBeforeUpdate); //Controleer of hij inderdaad naar de speler loopt
+            player.X = 300; //Zet de speler ergens anders neer, kijken of hij dan ook de speler kan vinden
+            player.Y = 300;
+            distanceBeforeUpdate = creeper.DistanceToObject(player);
+            for (int i = 0; i < 3; i++ ) //we updaten 3 keer de creeper, de eerste keer loopt hij nog naar de verkeerde positie van de speler, de tweede keer reset hij die van de eerste keer, en de derde keer moet hij dichter naar de player gaan
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(creeper.DistanceToObject(player) < distanceBeforeUpdate);
+
+            player.X = creeper.X; //zet de speler op dezelfde X as, controleer of hij de DX dan nog veranderd
+            creeper.DX = 0; //We forceren hem hier op 0 zodat hij bij de volgende update niet de X verplaatst.
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(creeper.DX == 0); //Heeft de OnUpdate van Creeper hem op 0 laten staan?
+
+            player.Y = creeper.Y; //idem dito voor de Y as
+            player.X = 100;
+            creeper.X = 300;
+            creeper.DY = 0;
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(creeper.DY == 0);
+
+            creeper.X = 200;
+            creeper.Y = 200;
+            player.X = 0;
+            player.Y = 0;
+            int prevHealth = player.Health;
+            for (int i = 0; i <= 1000; i++) //We geven hem 1000 game ticks op te proberen bij de speler te komen
+            {
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+                if (!pf.GameObjects.Contains(creeper))
+                    break;
+                Assert.IsFalse(i == 1000); //Als hij meer dan 100 keer heeft geupdate is hij niet bij de speler gekomen
+            }
+            //We hebben in de loop gecontroleerd of hij verwijderd is, oftewel gecollide is met de player.
+            //Nu gaan we kijken of de SpriteExplosion is aangemaakt
+            Assert.IsTrue(player.Health < prevHealth); //Kijk of hij inderdaad de speler gehit heeft
+            Assert.IsTrue(pf.GameObjects.Count > 0 && pf.GameObjects[0].Type == ObjectType.Spriteexplosion); //Wordt er een sprite explosion aangemaakt op de plek van ontploffing
         }
     }
 }

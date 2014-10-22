@@ -53,17 +53,16 @@ namespace Olympus_the_Game.Model.Entities
             PlayField pf = Playfield;
             if (player != null)
             {
-                player.Health -= Convert.ToInt32(EffectStrength);
+                player.Health -= EffectStrength;
                 pf.RemoveObject(this);
             }
         }
 
         public override void OnRemoved(bool fieldRemoved)
         {
-            PlayField pf = OlympusTheGame.Playfield;
             if (!fieldRemoved)
             {
-                pf.AddObject(new SpriteExplosion(this));
+                Playfield.AddObject(new SpriteExplosion(this));
                 SoundEffects.PlaySound(Resources.bomb);
             }
         }
