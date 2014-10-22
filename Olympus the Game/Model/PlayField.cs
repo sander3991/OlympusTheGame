@@ -130,8 +130,8 @@ namespace Olympus_the_Game.Model
                 return; //De overige code is alleen van toepassingen op GameObjecten, niet op spelers.
             }
             if (_isClosing) return; //We willen niks meer toevoegen als wij dingen toevoegen
-            if (entity.Playfield != null)
-                throw new ArgumentException("Het meegegeven object is al gekoppeld aan een PlayField");
+            if (entity.Playfield != null && entity.Playfield != this)
+                throw new ArgumentException("Het meegegeven object is al gekoppeld aan een ander PlayField");
             GameObjects.Add(entity);
             entity.Playfield = this;
             if (OnObjectAdded != null)

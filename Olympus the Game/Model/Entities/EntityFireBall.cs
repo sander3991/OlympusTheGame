@@ -65,7 +65,7 @@ namespace Olympus_the_Game.Model.Entities
             return sprite != null ? CollisionType.None : base.CollidesWithObject(entity);
         }
 
-        public void OnUpdate()
+        private void OnUpdate()
         {
             if (Playfield.Player != null)
             {

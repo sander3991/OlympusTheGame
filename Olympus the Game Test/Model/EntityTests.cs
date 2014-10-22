@@ -9,7 +9,7 @@ namespace Olympus_the_Game_Test.Model.Entities
     [TestClass]
     public class EntityTests
     {
-        static EntityTests()
+        static EntityTests() //Alle entities gebruiken de Controller, daarom stellen we de controller in als deze class aangeroepen wordt zodat hij er altijd is.
         {
             OlympusTheGame.SetController();
         }
@@ -265,6 +265,73 @@ namespace Olympus_the_Game_Test.Model.Entities
             //Nu gaan we kijken of de SpriteExplosion is aangemaakt
             Assert.IsTrue(player.Health < prevHealth); //Kijk of hij inderdaad de speler gehit heeft
             Assert.IsTrue(pf.GameObjects.Count > 0 && pf.GameObjects[0].Type == ObjectType.Spriteexplosion); //Wordt er een sprite explosion aangemaakt op de plek van ontploffing
+        }
+
+        [TestMethod]
+        public void Test_EntityGhast()
+        {
+            EntityGhast ghast = new EntityGhast(10, 10, 200, 200);
+            EntityPlayer player;
+            PlayField playfield = new PlayField();
+            ghast.DetectRange = 1;
+            Assert.IsTrue(ghast.DetectRange == 50); //Word hij op de minimale waarde gezet als we hem op 1 proberen te zetten
+
+            ghast.FireSpeed = -10;
+            Assert.IsTrue(ghast.FireSpeed == 0); // Word hij op 0 gezet als er een negatief getal wordt ingegeven
+            OlympusTheGame.Playfield = playfield;
+            player = playfield.Player;
+            player.X = 0;
+            player.Y = 0;
+            player.Height = 10;
+            player.Width = 10;
+            playfield.AddObject(ghast);
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(playfield.GameObjects.Count == 1); //Controleerd of er geen Fireball is afgeschoten
+
+            ghast.DetectRange = 1000;
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(playfield.GameObjects.Count == 2 && playfield.GameObjects[1].Type == ObjectType.Fireball); //Controleerd of er een fireball is afgeschoten
+            EntityFireBall fireball = playfield.GameObjects[1] as EntityFireBall;
+            playfield.RemoveObject(ghast); //we verwijderen tijdelijk de ghast omdat we niet willen dat hij meer fireballs schiet
+            int prevHealth = player.Health;
+            for (int i = 0; i <= 1000; i++)
+            {
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+                if (prevHealth > player.Health) //De speler is gehit
+                {
+                    Assert.IsFalse(playfield.GameObjects.Contains(fireball)); //De fireball is verwijderd
+                    prevHealth = player.Health; //update voor volgende test
+                    break;
+                }
+                Assert.IsFalse(i == 1000); //Controleerd of we het binnen de loop voltooien
+            }
+            playfield.AddObject(ghast); //We voegen de ghast weer toe voor de volgende test
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            playfield.RemoveObject(ghast);
+            Assert.IsTrue(playfield.GameObjects.Count == 1); //controleer of er wederom een fireball gemaakt is
+            fireball = playfield.GameObjects[0] as EntityFireBall;
+            player.X = 300; //We verplaatsen de speler nu naar een plek waar de fireball niet langs komt.
+            player.Y = 300; //Dit doen we om te testen of hij ook tegen een muur explodeert
+            for (int i = 0; i <= 1000; i++)
+            {
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+                if (!playfield.GameObjects.Contains(fireball) && player.Health == prevHealth) //Hij heeft zichzelf verwijderd van het speelveld, en niet de speler geraakt
+                    break;
+                Assert.IsFalse(i == 1000); //Controleerd of we het binnen de loop voltooien
+            }
+
+            player.X = 0; //De ghast staat nu op 0,0. De player staat op 0,300. We gaan hiertussen een Entity zetten, die moet dood gaan door de fireball van de ghast
+            ghast.X = 0;
+            ghast.Y = 0;
+            playfield.GameObjects.Clear(); //Even zeker weten dat eventuele sprites verwijderd worden
+            EntityExplode TNT = new EntityExplode(10, 10, 0, 150, 1); //Deze moet dood gaan door de fireball
+            playfield.AddObject(TNT);
+            playfield.AddObject(ghast);
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+
+            Assert.IsTrue(playfield.GameObjects.Count == 3);
         }
     }
 }

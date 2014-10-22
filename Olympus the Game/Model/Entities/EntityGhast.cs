@@ -56,7 +56,7 @@ namespace Olympus_the_Game.Model.Entities
             return "Ghast schiet vuurballen";
         }
 
-        public void OnUpdate()
+        private void OnUpdate()
         {
             if (Playfield.Player != null)
             {
