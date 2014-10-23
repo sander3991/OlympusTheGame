@@ -28,7 +28,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        ///     Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 100
+        ///     Afstand waarin de spin spinnenwebben afschiet. MIN = 50, DEFAULT = 200
         /// </summary>
         [EditorTooltip("Effect afstand", "Afstand waarin de Spider spinnenwebben schiet.")]
         public double EffectRange
@@ -38,7 +38,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        ///     Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 200
+        ///     Snelheid van het schieten van een nieuw spinnenweb. MIN = 1, DEFAULT = 2000
         /// </summary>
         [EditorTooltip("Vuursnelheid", "De snelheid waarmee de Spider spinnenwebben schiet")]
         public int FireSpeed
@@ -77,23 +77,20 @@ namespace Olympus_the_Game.Model.Entities
             }
         }
 
-        //TODO ELMAR: comment
+        /// <summary>
+        /// Voorkomt dubbele webs op de start, finish, of op een web
+        /// </summary>
+        /// <param name="x">De x locatie die gecontroleerd moet worden</param>
+        /// <param name="y">De y locatie die gecontroleerd moet worden</param>
+        /// <returns>True als er al geen web geschoten mag worden, false als er wel een web geschoten mag worden</returns>
         public bool PreventDoubleWeb(int x, int y)
         {
             List<GameObject> webOnXY = Playfield.GetObjectsAtLocation(x, y);
-
-            bool value = false;
             if (webOnXY != null)
-            {
                 foreach (GameObject o in webOnXY)
-                {
                     if (o.Type == ObjectType.Web || o.Type == ObjectType.Finish || o.Type == ObjectType.Start)
-                    {
-                        value = true;
-                    }
-                }
-            }
-            return value;
+                        return true;
+            return false;
         }
 
         public override void OnRemoved(bool fieldRemoved)

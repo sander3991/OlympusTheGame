@@ -73,13 +73,13 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        ///     De afstand waarin de explosie plaatsvindt. MIN = 0, DEFAULT = 100
+        ///     De afstand waarin de explosie plaatsvindt. MIN = 10, DEFAULT = 100
         /// </summary>
         [EditorTooltip("Explosie radius", "De radius van de explosie")]
         public int ExplodeRadius
         {
             get { return prop_exploderadius; }
-            set { prop_exploderadius = Math.Max(0, value); }
+            set { prop_exploderadius = Math.Max(10, value); }
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Olympus_the_Game.Model.Entities
             return "Tijdbom ontploft na een paar seconden";
         }
 
-        public void OnUpdate()
+        private void OnUpdate()
         {
             if (Playfield.Player != null)
             {
@@ -103,14 +103,12 @@ namespace Olympus_the_Game.Model.Entities
                 }
 
                 // Ontplof als de timer langer dan x seconden aanstaat en de speler zich NIET in de buurt bevindt
-                if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime &&
-                    DistanceToObject(Playfield.Player) >= DetectRadius)
+                if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime && DistanceToObject(Playfield.Player) >= ExplodeRadius)
                     Playfield.RemoveObject(this);
                     // Ontplof als de timer langer dan x seconden aanstaat en de speler zich WEL in de buurt bevindt
-                else if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime &&
-                         DistanceToObject(Playfield.Player) <= DetectRadius)
+                else if (isTimerStarted && stopwatch.ElapsedMilliseconds >= ExplodeTime && DistanceToObject(Playfield.Player) <= ExplodeRadius)
                 {
-                    Playfield.Player.Health--;
+                    Playfield.Player.Health -= EffectStrength;
                     Playfield.RemoveObject(this);
                 }
             }

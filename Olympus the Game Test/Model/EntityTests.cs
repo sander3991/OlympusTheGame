@@ -357,5 +357,224 @@ namespace Olympus_the_Game_Test.Model.Entities
             Assert.IsTrue(player.Health == prevHealth); // Is de speler wederom niet geraakt
             playfield.RemoveObject(ghast);
         }
+
+        [TestMethod]
+        public void Test_EntityPlayer()
+        {
+            EntityPlayer player = new EntityPlayer(10, 10, 0, 0);
+
+            Assert.IsTrue(player.SpeedModifier == 1); //Controleer of de Speedmodifier inderdaad begint bij 1.
+            player.DX = 1;
+            player.DY = 1;
+            player.SpeedModifier = 2;
+            Assert.IsTrue(player.DX == 2); // Controleer of na het aanpassen van de speed, de DX en DY respectievelijk
+            Assert.IsTrue(player.DY == 2); // veranderd zijn naar 2
+            player.DX = 2;
+            player.DY = 2;
+            Assert.IsTrue(player.DX == 4); // Controleer of de DX en DY setters de speed modifiers
+            Assert.IsTrue(player.DY == 4); // in beide gevallen meeneemt
+
+            player.SpeedModifier = 1;
+            Assert.IsTrue(player.DX == 2); //Controleer of de DX en DY weer meeveranderen als de speed modifier lager wordt
+            Assert.IsTrue(player.DY == 2);
+
+
+            Assert.IsTrue(player.Health == EntityPlayer.Maxhealth); //Heeft de player nadat hij gemaakt is, inderdaad maxhealth.
+            bool eventFired = false; //bool om bij te houden of een event afgevuurd wordt
+            OlympusTheGame.GameController.OnHealthChanged += delegate(EntityPlayer eventPlayer, int newHealth, int prevHealth)
+            {
+                if (eventPlayer == player)
+                {
+                    eventFired = true;
+                    Assert.IsTrue(newHealth == 1); //Worden de goede variabelen meegegeven met het event
+                    Assert.IsTrue(prevHealth == EntityPlayer.Maxhealth); 
+                }
+                    eventFired = true;
+            };
+            player.Health = 1;
+            Assert.IsTrue(eventFired); //Is de eventFired variabele veranderd naar true door de delegate.
+
+            Assert.IsTrue(player.Frame == 0.5f); //Is het frame van de speler op 0.5f gezet, dit is het frame voor het rode gezicht
+
+            for (int i = 0; i <= 25; i++)
+            {
+                if (player.Frame == 0f)
+                    break;
+                Assert.IsFalse(i == 25); //We moeten dit binnen de loop voltooien, Frame moet na 20 keer opgevraagd te worden resetten naar het normale frame.
+            }
+        }
+
+        [TestMethod]
+        public void Test_Silverfish()
+        {
+            PlayField playfield = new PlayField();
+            OlympusTheGame.Playfield = playfield;
+            EntityPlayer player = playfield.Player;
+            player.X = 0;
+            player.Y = 0;
+            player.Width = 10;
+            player.Health = 10;
+
+            EntitySilverfish silverfish = new EntitySilverfish(10, 10, 200, 200);
+            playfield.AddObject(silverfish);
+
+            Assert.IsFalse(silverfish.Visible); //Is hij bij default niet zichtbaar
+
+            //test of properties juiste values krijgen
+            silverfish.RemoveTime = -10;
+            Assert.IsTrue(silverfish.RemoveTime == 3000);
+            silverfish.RemoveTime = 2000;
+            Assert.IsTrue(silverfish.RemoveTime == 2000);
+
+            silverfish.SpotRange = -10;
+            Assert.IsTrue(silverfish.SpotRange == 150); //default waarde
+            silverfish.SpotRange = 100;
+            Assert.IsTrue(silverfish.SpotRange == 100);
+
+            silverfish.AggroRange = -10;
+            Assert.IsTrue(silverfish.AggroRange == 100); //default waarde
+            silverfish.AggroRange = 50;
+            Assert.IsTrue(silverfish.AggroRange == 50);
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(silverfish.Visible); //De silverfish zou niet zichtbaar moeten zijn, onze afstand is hoger dan 100
+            silverfish.X = 90; // Binnen 100 units van de speler
+            silverfish.Y = 0;
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(silverfish.Visible); //Nu zou de silverfish zichtbaar moeten worden omdat wij in range zijn van de speler
+
+            player.X = 60; //binen AggroRange van de silverfish
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null); //eerste keer wordt DX/DY geupdate
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null); //tweede keer zou de silverfish daadwerkelijk moeten lopen naar de speler
+            Assert.IsTrue(silverfish.X == 89);
+
+            int prevHealth = player.Health;
+            for (int i = 0; i <= 100; i++) //100 ticks om de silverfish naar de speler te laten komen
+            {
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+                if (player.Health < prevHealth)
+                    break;
+                Assert.IsFalse(i == 100); //Zijn we voor het eind van de loop klaar
+            }
+            player.X = 0;
+            player.Y = 0;
+            silverfish.X = 200; //zet de silverfish weer out range
+            silverfish.Y = 200;
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(silverfish.Visible); // Heeft hij zichzelf weer verborgen nadat hij out range is gezet
+        }
+
+        [TestMethod]
+        public void Test_EntitySlower()
+        {
+            PlayField playfield = new PlayField();
+            OlympusTheGame.Playfield = playfield;
+            EntityPlayer player = playfield.Player;
+            player.X = 0;
+            player.Y = 0;
+            player.Width = 10;
+            player.Height = 10;
+
+            EntitySlower slower = new EntitySlower(10, 10, 100, 100);
+            playfield.AddObject(slower);
+            //test setters/getters
+            Assert.IsTrue(slower.EffectRange == 200); // Werkt de default waarde
+            slower.EffectRange = -100;
+            Assert.IsTrue(slower.EffectRange == 50); //Gaat hij naar minimaal 100
+            slower.EffectRange = 100;
+
+            Assert.IsTrue(slower.FireSpeed == 2000); //werkt de default waarde
+            slower.FireSpeed = -100;
+            Assert.IsTrue(slower.FireSpeed == 1); //Voor testing purposes laten we hem zo laag staan
+
+            GameObject lastEvent = null;
+            playfield.OnObjectAdded += delegate(GameObject go) { lastEvent = go; };
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsNull(lastEvent); //Er kan niks in dit event staan, want er mag niks toegevoegd worden op dit moment!
+
+            slower.X = 90; //zet de spin in range van de speler
+            slower.Y = 0;
+            slower.FireSpeed = 1;
+            System.Threading.Thread.Sleep(1); //we slapen 1 ms zodat we zeker weten dat de timer hoger of gelijk is aan de firespeed
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(lastEvent.Type == ObjectType.Webmissile); //Is er een missile afgevuurd
+            slower.FireSpeed = int.MaxValue; //voorkomt dat een tweede missile wordt afgevuurd, mits deze test langer duurt dan int.MaxValue ms
+            for (int i = 0; i <= 100; i++)
+            {
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+                if (lastEvent.Type == ObjectType.Web)
+                    break;
+                Assert.IsFalse(i == 100);
+            }
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsTrue(player.SpeedModifier == 1/((EntityWeb)lastEvent).SlowStrength); //Heeft het web de speler met de Slowstrenght geslowed
+            foreach (GameObject go in playfield.GameObjects)
+                Assert.IsFalse(go.Type == ObjectType.Webmissile); //Zijn alle missiles weg (de enige die aangemaakt was)
+        }
+        
+        [TestMethod]
+        public void Test_EntityTimeBomb()
+        {
+            PlayField playfield = new PlayField();
+            OlympusTheGame.Playfield = playfield;
+            EntityPlayer player = playfield.Player;
+            player.X = 0;
+            player.Y = 0;
+            player.Width = 10;
+            player.Height = 10;
+
+            EntityTimeBomb timebomb = new EntityTimeBomb(10, 10, 200, 200, 1);
+            playfield.AddObject(timebomb);
+
+            Assert.IsTrue(timebomb.ExplodeTime == 3000); //default waarde
+            timebomb.ExplodeTime = -100;
+            Assert.IsTrue(timebomb.ExplodeTime == 0); //failsafe voor lagere waardes
+
+            Assert.IsTrue(timebomb.DetectRadius == 100);
+            timebomb.DetectRadius = -100;
+            Assert.IsTrue(timebomb.DetectRadius == 50); //failsafe voor lage waardes
+            timebomb.DetectRadius = 100;
+
+            Assert.IsTrue(timebomb.ExplodeRadius == 100);
+            timebomb.ExplodeRadius = -100;
+            Assert.IsTrue(timebomb.ExplodeRadius == 10); // failsafe voor lage waardes
+            timebomb.ExplodeRadius = 50;
+            Assert.IsTrue(timebomb.ExplodeRadius == 50);
+
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null); //Explode tijd is 0, dus als hij nu in range zou zijn, zou hij niet mere bestaan in het playfield
+            Assert.IsTrue(playfield.GameObjects.Contains(timebomb));
+
+            //zet de tijd bom in range, maar uit range voor de explosie radius
+            timebomb.X = 75;
+            timebomb.Y = 0;
+            Assert.IsTrue(timebomb.DistanceToObject(player) == 75);
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(playfield.GameObjects.Contains(timebomb));
+            Assert.IsTrue(player.Health == EntityPlayer.Maxhealth);
+
+            ClearPlayfieldFromFireballs(playfield); //deze haalt ook de sprites van TNT weg
+
+            timebomb = new EntityTimeBomb(10, 10, 30, 0, 1); //maak een nieuwe tijdbom aan die in de buurt van de speler staat
+            timebomb.DetectRadius = 100;
+            timebomb.ExplodeRadius = 50;
+            timebomb.ExplodeTime = 5;
+
+            playfield.AddObject(timebomb); //voeg de tijdbom weer terug toe
+            Assert.IsTrue(timebomb.DistanceToObject(player) == 30);
+            for (int i = 0; i < 4; i++) // 4 keer 1 ms sleepen en controleren of alles nog goed staat
+            {
+                Assert.IsTrue(playfield.GameObjects.Contains(timebomb)); // De bom moet nog bestaan
+                Assert.IsTrue(player.Health == EntityPlayer.Maxhealth); //De bom zou nog niet ontploft moeten zijn!
+                System.Threading.Thread.Sleep(1);
+                OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            }
+            System.Threading.Thread.Sleep(2); //Om zeker te zijn dat we langer dan 5ms sinds het begin van het aftellen zijn
+            OlympusTheGame.GameController.ExecuteUpdateGameEvent(null, null);
+            Assert.IsFalse(playfield.GameObjects.Contains(timebomb));
+            Assert.IsTrue(player.Health < EntityPlayer.Maxhealth);
+        }
     }
 }
