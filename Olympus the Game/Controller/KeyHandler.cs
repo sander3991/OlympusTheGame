@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Olympus_the_Game.Controller
 {
@@ -7,11 +8,31 @@ namespace Olympus_the_Game.Controller
     /// </summary>
     public static class KeyHandler
     {
+        private static List<Keys> blockedKeys = new List<Keys> { Keys.Up, Keys.Down, Keys.Left, Keys.Right, Keys.W, Keys.A, Keys.D, Keys.S };
+        private static Keys _right;
+        private static Keys _left;
+        private static Keys _up;
+        private static Keys _down;
         // Deze variabelen zijn voor als de gebruiker zelf keys toevoegd er word 
-        public static Keys CustomRight { get; set; }
-        public static Keys CustomLeft { get; set; }
-        public static Keys CustomUp { get; set; }
-        public static Keys CustomDown { get; set; }
+        public static Keys CustomRight { 
+            get { return _right; }
+            set { SetKey(ref _right, value); }
+        }
+        public static Keys CustomLeft
+        {
+            get { return _left; }
+            set { SetKey(ref _left, value); }
+        }
+        public static Keys CustomUp
+        {
+            get { return _up; }
+            set { SetKey(ref _up, value); }
+        }
+        public static Keys CustomDown
+        {
+            get { return _down; }
+            set { SetKey(ref _down, value); }
+        }
 
         /// <summary>
         ///     Wordt aangeroepen als je op een toetsklikt
@@ -85,6 +106,17 @@ namespace Olympus_the_Game.Controller
                 OlympusTheGame.Playfield.Player.DX = speed;
             else
                 OlympusTheGame.Playfield.Player.DY = speed;
+        }
+
+        private static void SetKey(ref Keys key, Keys value)
+        {
+            if (!blockedKeys.Contains(value))
+            {
+                blockedKeys.Remove(key);
+                key = value;
+                if(value != Keys.None)
+                    blockedKeys.Add(value);
+            }
         }
     }
 }

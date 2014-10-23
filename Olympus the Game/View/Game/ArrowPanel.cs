@@ -41,32 +41,54 @@ namespace Olympus_the_Game.View.Game
         }
 
         /// <summary>
+        /// Leest een key uit een textbox
+        /// </summary>
+        /// <param name="tb"></param>
+        /// <returns></returns>
+        private Keys GetKeyFromTextbox(TextBox tb)
+        {
+            try
+            {
+                Keys key = (Keys)char.ToUpper(tb.Text[0]);
+                return (Keys)char.ToUpper(tb.Text[0]);
+            }
+            catch (FormatException) //Als we het niet kunnen formatten naar een key
+            {
+                return Keys.None;
+            }
+            catch (IndexOutOfRangeException) //Als er niks in de string staat, is tb.Text[0] out of bounds, dus null.
+            {
+                return Keys.None;
+            }
+        }
+        /// <summary>
+        /// Zet de meegegegeven textbox contents op de meegegeven key.
+        /// </summary>
+        /// <param name="tb">de tekstbox</param>
+        /// <param name="key">de key</param>
+        private void SetTextBoxContents(TextBox tb, Keys key)
+        {
+            if (key == Keys.None)
+                tb.Text = "";
+            else
+                tb.Text = key.ToString().ToUpper();
+        }
+
+        /// <summary>
         /// Verander de controls als de gebruiker een toets wijzigd
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Textfield_ChangeControls(object sender, EventArgs e)
         {
-            try
-            {
-                // Als de tekst in de textbox niet null is, wordt de letter die is ingevoerd ingsteld als toets
-                if (!string.IsNullOrEmpty(textBoxRight.Text))
-                    KeyHandler.CustomRight =
-                        (Keys) char.ToUpper(textBoxRight.Text[0]);
-                if (!String.IsNullOrEmpty(textBoxLeft.Text))
-                    KeyHandler.CustomLeft =
-                        (Keys) char.ToUpper(textBoxLeft.Text[0]);
-                if (!String.IsNullOrEmpty(textBoxUp.Text))
-                    KeyHandler.CustomUp =
-                        (Keys) char.ToUpper(textBoxUp.Text[0]);
-                if (!String.IsNullOrEmpty(textBoxDown.Text))
-                    KeyHandler.CustomDown =
-                        (Keys) char.ToUpper(textBoxDown.Text[0]);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Onjuiste toetsen geselecteerd");
-            }
+            KeyHandler.CustomRight = GetKeyFromTextbox(textBoxRight) ;
+            KeyHandler.CustomLeft = GetKeyFromTextbox(textBoxLeft);
+            KeyHandler.CustomUp = GetKeyFromTextbox(textBoxUp);
+            KeyHandler.CustomDown = GetKeyFromTextbox(textBoxDown);
+            SetTextBoxContents(textBoxRight, KeyHandler.CustomRight);
+            SetTextBoxContents(textBoxLeft, KeyHandler.CustomLeft);
+            SetTextBoxContents(textBoxDown, KeyHandler.CustomDown);
+            SetTextBoxContents(textBoxUp, KeyHandler.CustomUp);
         }
 
         /// <summary>

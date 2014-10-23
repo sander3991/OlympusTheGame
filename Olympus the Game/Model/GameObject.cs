@@ -104,7 +104,7 @@ namespace Olympus_the_Game.Model
         /// <summary>
         ///     Een uniek ID voor elk object dat wordt aangemaakt
         /// </summary>
-        public int UniqueID { get; private set; } // TODO Get wordt nooit gebruikt
+        public int UniqueID { get; private set; }
 
         [ExcludeFromEditor]
         public ObjectType Type { get; protected set; }
