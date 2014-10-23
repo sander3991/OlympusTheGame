@@ -105,7 +105,7 @@ namespace Olympus_the_Game.Controller
         /// </summary>
         public static void Update()
         {
-            var playerCollisisons = new List<GameObject>();
+            var playerCollisions = new List<GameObject>();
             EntityPlayer player = OlympusTheGame.Playfield.Player;
             player.Move();
             var gameObjects = new List<GameObject>(OlympusTheGame.Playfield.GameObjects);
@@ -124,7 +124,7 @@ namespace Olympus_the_Game.Controller
                     }
                     o.OnCollide(player);
                     //Roept de OnCollide van het object aan om te kijken wat er moet gebeuren, de Speler heeft nooit een OnCollide, dus dat is overbodig
-                    playerCollisisons.Add(o);
+                    playerCollisions.Add(o);
                     //We houden bij met wie de player is gecollide, zodat we niet nog een keer in de volgende loop de OnCollide aanroepen
                 }
             }
@@ -146,7 +146,7 @@ namespace Olympus_the_Game.Controller
                             CollisionType collision = e.CollidesWithObject(o2); //Is er een collision
                             if (collision != CollisionType.None)
                             {
-                                if (!(playerCollisisons.Contains(e) && o2 == player))
+                                if (!(playerCollisions.Contains(e) && o2 == player))
                                     //Alleen als e in de lijst zit, en o2 de speler is, word de code NIET uitgevoerd
                                 {
                                     e.OnCollide(o2);
