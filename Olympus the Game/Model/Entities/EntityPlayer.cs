@@ -37,7 +37,7 @@ namespace Olympus_the_Game.Model.Entities
             get
             {
                 //return 0.5f;
-                if (_propFrame == 0.5f) // TODO Hier misschien een bereik aangeven in plaats van hard aangeven
+                if (_propFrame == 0.5f)
                 {
                     _frameCount++;
                     if (_frameCount%20 == 0)
@@ -52,12 +52,6 @@ namespace Olympus_the_Game.Model.Entities
                 _propFrame = Math.Max(value, 0f);
             }
         }
-
-
-        /// <summary>
-        ///     De snelheid van de speler
-        /// </summary>
-        public static int PlayerSpeed { get; set; }
 
         /// <summary>
         ///     In hoeverre wordt de snelheid van de speler aangepast. Zodra deze wordt aangepast wordt de DX en DY van de speler
