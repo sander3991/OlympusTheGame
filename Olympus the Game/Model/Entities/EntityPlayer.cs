@@ -9,9 +9,12 @@ namespace Olympus_the_Game.Model.Entities
         ///     De maximum health van een speler
         /// </summary>
         public const int Maxhealth = 5;
-
-        private int _dx;
-        private int _dy;
+        // We houden de BaseDX in BaseDY voor de speler apart bij. Dit doen we omdat we anders de speed modifier elke keer als DX/DY wordt aangevraagd moeten casten naar een int. 
+        // Ook al is dit geen zwaar proces, het is naar mijn inziens een betere oplossing om twee extra ints op te slaan in het geheugen. Helemaal omdat er toch maar 1 speler is.
+        private int _baseDx;    //De basis DX snelheid zonder modifier.
+        private int _baseDy;    //De basis DY snelheid zonder modifier.
+        private int _dx;        //De DX snelheid inclusief modifier
+        private int _dy;        //De DY snelheid inclusief modifier
         private int _frameCount = 1;
         private int _health;
         private float _propFrame;
@@ -64,8 +67,8 @@ namespace Olympus_the_Game.Model.Entities
             {
                 double prevSpeed = _speedModifier;
                 _speedModifier = value;
-                DX = Convert.ToInt32(DX/prevSpeed*_speedModifier);
-                DY = Convert.ToInt32(DY/prevSpeed*_speedModifier);
+                DX = _baseDx; //We stellen opnieuw DX in. De setter van DX (en DY) vermenigvuldigen met de nieuwe speedmodifier.
+                DY = _baseDy; //Idem als DX.
             }
         }
 
@@ -75,7 +78,7 @@ namespace Olympus_the_Game.Model.Entities
         public override int DX
         {
             get { return _dx; }
-            set { _dx = Convert.ToInt32(value*_speedModifier); }
+            set { _dx = Convert.ToInt32(value * _speedModifier); _baseDx = value; }
         }
 
         /// <summary>
@@ -84,7 +87,7 @@ namespace Olympus_the_Game.Model.Entities
         public override int DY
         {
             get { return _dy; }
-            set { _dy = Convert.ToInt32(value*_speedModifier); }
+            set { _dy = Convert.ToInt32(value * _speedModifier); _baseDy = value; }
         }
 
         /// <summary>
