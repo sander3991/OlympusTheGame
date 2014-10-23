@@ -8,7 +8,7 @@ namespace Olympus_the_Game.Controller
     /// </summary>
     public static class KeyHandler
     {
-        private static List<Keys> blockedKeys = new List<Keys> { Keys.Up, Keys.Down, Keys.Left, Keys.Right, Keys.W, Keys.A, Keys.D, Keys.S };
+        private static List<Keys> blockedKeys = new List<Keys> { Keys.Up, Keys.Down, Keys.Left, Keys.Right, Keys.W, Keys.A, Keys.D, Keys.S, Keys.P, Keys.F11 };
         private static Keys _right;
         private static Keys _left;
         private static Keys _up;
