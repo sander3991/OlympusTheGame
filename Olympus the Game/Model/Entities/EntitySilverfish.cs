@@ -113,6 +113,12 @@ namespace Olympus_the_Game.Model.Entities
                         }
                     }
                 }
+                else if (Visible)
+                {
+                    Visible = false;
+                    DX = 0;
+                    DY = 0;
+                }
             }
         }
 
