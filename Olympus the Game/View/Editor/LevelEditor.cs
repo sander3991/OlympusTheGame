@@ -178,6 +178,7 @@ namespace Olympus_the_Game.View.Editor
             }
         }
 
+        #region Shortcuts
         /// <summary>
         ///     Plaats entities in het veld door de nummertoetsen 1 tot en met 9 te gebruiken
         /// </summary>
@@ -191,7 +192,7 @@ namespace Olympus_the_Game.View.Editor
                 case (char) Keys.D1:
                 {
                     Point pointer = gamePanelEditor.GetCursorPlayFieldPosition();
-                    CurrentPlayField.AddObject(new EntitySilverfish(50, 50, pointer.X, pointer.Y, 1, 1));
+                    CurrentPlayField.AddObject(new EntitySilverfish(50, 50, pointer.X, pointer.Y, 2, 2));
                     gamePanelEditor.Invalidate();
                 }
                     break;
@@ -255,6 +256,7 @@ namespace Olympus_the_Game.View.Editor
                     break;
             }
         }
+#endregion
 
         #region Drag and Drop
 
