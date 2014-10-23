@@ -17,7 +17,7 @@ namespace Olympus_the_Game.Model.Entities
         }
 
         /// <summary>
-        ///     FILL THIS IN
+        /// Een ghast die vuurballen schiet zodra de speler in een configureerbare radius loopt
         /// </summary>
         public EntityGhast(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)

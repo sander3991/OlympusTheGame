@@ -11,6 +11,7 @@ namespace Olympus_the_Game.Model
         }
 
         /// <summary>
+        /// Het startpunt van een level
         /// </summary>
         /// <param name="width">De breedte van het object, mag niet lager dan 0 zijn</param>
         /// <param name="height">De hoogte van het object, mag niet lager dan 0 zijn</param>

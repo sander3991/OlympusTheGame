@@ -19,6 +19,9 @@ namespace Olympus_the_Game.Model.Entities
             RegisterWithEditor(ObjectType.Silverfish, () => new EntitySilverfish(50, 50, 0, 0));
         }
 
+        /// <summary>
+        /// Een silverfish die zichtbaar word zodra de speler in een configureerbare radius loopt
+        /// </summary>
         public EntitySilverfish(int width, int height, int x, int y, int dx = 0, int dy = 0)
             : base(width, height, x, y, dx, dy)
         {
