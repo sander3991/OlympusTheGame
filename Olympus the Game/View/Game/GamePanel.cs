@@ -14,6 +14,8 @@ namespace Olympus_the_Game.View.Game
     /// </summary>
     public partial class GamePanel : UserControl
     {
+        #region Properties
+
         /// <summary>
         ///     Padding van het speelveld, deze rand wordt er altijd omheen gehouden.
         /// </summary>
@@ -48,6 +50,8 @@ namespace Olympus_the_Game.View.Game
         ///     Deze wordt gevuld met de eerste gegeven Size.
         /// </summary>
         public Size MaxSize { get; private set; }
+
+        #endregion
 
         #region Setup
 

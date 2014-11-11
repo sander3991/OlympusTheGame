@@ -24,6 +24,7 @@ namespace Olympus_the_Game_Test.View.Buttons
             Form actual = pb.FindForm();
 
             // Assert
+            Assert.IsNotNull(actual);
             Assert.AreNotSame(expected, actual);
 
             // Act

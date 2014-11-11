@@ -7,11 +7,11 @@ using Olympus_the_Game.Properties;
 
 namespace Olympus_the_Game
 {
-    internal class Utils
+    internal static class Utils
     {
-        public static readonly int MaskFadeDuration = 500;
+        public const int MaskFadeDuration = 500;
 
-        public static Form MaskForm { get; private set; }
+        private static Form MaskForm { get; set; }
 
         /// <summary>
         ///     Geeft de parent terug van een gegeven control.
@@ -30,7 +30,7 @@ namespace Olympus_the_Game
 
         public static void ShowMask(bool showMask)
         {
-//return;
+            //return;
             if (MaskForm == null || MaskForm.IsDisposed)
                 MaskForm = new Form
                 {
